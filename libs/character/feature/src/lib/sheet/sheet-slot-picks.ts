@@ -4,16 +4,17 @@ import type { Character, CharacterSlot } from '@pioneer/character/domain';
 import type { InlineEdit, SelectOption } from '@pioneer/frontier';
 import { ChoiceValue } from '@pioneer/rules/sdk';
 import type { SlotKey } from '@pioneer/rules/sdk';
-import type { SkillPickerRow, SlotPickerRow } from '@pioneer/rules/ui';
+import type { AttributePickerRow, SkillPickerRow, SlotPickerRow } from '@pioneer/rules/ui';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { NOT_CHOSEN, RootPick } from './sheet-build';
 import { sheetField } from './sheet-field';
 import type { TrainedNote } from './sheet-skills';
 
-/** What a slot pick's table shows: the skills a skill slot offers, or the options of a choice. */
-type SlotPickRows =
+/** What a slot pick's table shows: a skill slot's skills, a boost slot's attributes, or a choice's options. */
+export type SlotPickRows =
   | { readonly kind: 'skills'; readonly rows: readonly SkillPickerRow[] }
+  | { readonly kind: 'attributes'; readonly rows: readonly AttributePickerRow[] }
   | { readonly kind: 'choices'; readonly rows: readonly SlotPickerRow[] };
 
 /** What a slot pick reads and writes through. */
@@ -92,11 +93,11 @@ function sameKeys(left: readonly SlotKey[], right: readonly SlotKey[]): boolean 
 }
 
 /** A slot a pick field is made for: its key, its label and what it offers. */
-interface PickSlot {
+export interface PickSlot {
   readonly key: SlotKey;
   readonly label: MessageDescriptor;
   readonly options: readonly SelectOption<string>[];
-  /** Absent for a planned slot, which the timeline offers as a select. */
+  /** Absent for a slot with no table. */
   readonly rows?: SlotPickRows;
   readonly trained?: readonly TrainedNote[];
 }

@@ -36,7 +36,8 @@ export {
   type TimelineFeat,
   type TimelinePick,
   TimelinePickKind,
-  type TimelineSelect,
+  type TimelineBoost,
+  type TimelineSkill,
 } from './lib/level-timeline/level-timeline-row';
 export { type BuildLine, BuildPart, type BuildValue } from './lib/build-summary/build-line';
 export { BuildSummaryView } from './lib/build-summary/build-summary.component';
@@ -171,17 +172,21 @@ export { SubclassPicker } from './lib/class-picker/subclass-picker.component';
 export { PROFICIENCY_NAMES } from './lib/proficiency-rank/proficiency-rank-messages';
 export { type ConditionWords, conditionalLineText } from './lib/statistics/conditional-lines';
 export { LanguagePicker } from './lib/slot-picker/language-picker.component';
+export { AttributePicker } from './lib/slot-picker/attribute-picker.component';
 export { SkillPicker } from './lib/slot-picker/skill-picker.component';
 export { SlotPicker } from './lib/slot-picker/slot-picker.component';
 export { SLOT_RARITY_MESSAGES, SlotPickerMessage } from './lib/slot-picker/slot-picker-messages';
 export {
+  type AttributePickerRow,
   type LanguagePickerRow,
   type SkillPickerRow,
   SlotPickerColumn,
   type SlotPickerRow,
 } from './lib/slot-picker/slot-picker-row';
 export {
+  attributePickerColumns,
   languagePickerColumns,
+  shownAttributeRows,
   shownLanguageRows,
   shownSkillRows,
   shownSlotRows,

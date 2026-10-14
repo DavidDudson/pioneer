@@ -1,9 +1,11 @@
 import { HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { SheetMode } from '@pioneer/character/domain';
+import { AttributePicker } from '@pioneer/rules/ui';
+import type { AttributePickerRow } from '@pioneer/rules/ui';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
-import { pickAncestry } from '../../testing/origin-table-testing';
+import { pickAncestry, pickRow, rowsShown } from '../../testing/origin-table-testing';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { HUMAN, id, MERISIEL, openSheet, patchedOf, present } from '../../testing/sheet-page-harness';
 import { openTab, regionsOf, settle } from '../../testing/sheet-tabs-testing';
@@ -164,25 +166,19 @@ describe('CharacterSheetPage', () => {
     expect(labels).toContain('Level 20 boost 1');
   });
 
+  it('lists the attributes with their modifier now and with the boost for a boost planned from the timeline', async () => {
+    const { root } = await openSheet();
+    const rows = await rowsShown<AttributePickerRow, AttributePicker>(root, {
+      label: 'Level 5 boost 2',
+      type: AttributePicker,
+    });
+    const dexterity = present(rows.find((each) => each.name === 'Dexterity'));
+    expect(dexterity.boosted).toBe(dexterity.modifier + 1);
+  });
+
   it('saves a boost planned from the timeline as a pick in its own slot', async () => {
     const { root } = await openSheet();
-    const field = present(
-      [...root.querySelectorAll<HTMLElement>('pio-level-timeline fr-inline-field')].find(
-        (each) => each.querySelector('fr-text')?.textContent.trim() === 'Level 5 boost 2',
-      ),
-    );
-    present(field.querySelector<HTMLElement>('button')).click();
-    await settle();
-    present(field.querySelector<HTMLElement>('[frInlineEditor] button')).click();
-    await settle();
-    const option = await vi.waitFor(() =>
-      present(
-        [...document.querySelectorAll<HTMLElement>('[role="option"]')].find((each) =>
-          each.textContent.trim().startsWith('Dexterity'),
-        ),
-      ),
-    );
-    option.click();
+    await pickRow(root, { label: 'Level 5 boost 2', type: AttributePicker }, 'Dexterity');
 
     const request = await vi.waitFor(() =>
       TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),

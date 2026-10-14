@@ -1,7 +1,13 @@
 import type { Attribute, Proficiency, Rarity, SourceRef } from '@pioneer/rules/sdk';
 
 /** The columns a slot picker sorts by; the others show facts to choose by. */
-export const SlotPickerColumn = { Name: 'name', Rank: 'rank', Modifier: 'modifier', Rarity: 'rarity' } as const;
+export const SlotPickerColumn = {
+  Name: 'name',
+  Rank: 'rank',
+  Modifier: 'modifier',
+  Boosted: 'boosted',
+  Rarity: 'rarity',
+} as const;
 
 /** One option of a slot that lists its options: its name, and the source of its content entry when it has one. */
 export interface SlotPickerRow {
@@ -23,6 +29,18 @@ export interface SkillPickerRow {
   readonly rank: Proficiency;
   /** The skill's total modifier now; undefined while the engine has no value for it. */
   readonly modifier: number | undefined;
+  readonly disabledReason: string | undefined;
+}
+
+/** One attribute a boost slot offers, with the character's modifier in it and what the boost would make it. */
+export interface AttributePickerRow {
+  /** The attribute, which is the value picked. */
+  readonly id: Attribute;
+  readonly name: string;
+  /** The modifier now, without this slot's boost. */
+  readonly modifier: number;
+  /** The modifier once this slot's boost is in. */
+  readonly boosted: number;
   readonly disabledReason: string | undefined;
 }
 

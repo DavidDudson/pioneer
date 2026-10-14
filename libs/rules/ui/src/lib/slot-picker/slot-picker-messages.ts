@@ -7,6 +7,7 @@ export const SlotPickerMessage = {
   Attribute: 'rules.slotPicker.column.attribute',
   Rank: 'rules.slotPicker.column.rank',
   Modifier: 'rules.slotPicker.column.modifier',
+  Boosted: 'rules.slotPicker.column.boosted',
   Rarity: 'rules.slotPicker.column.rarity',
   Known: 'rules.slotPicker.column.known',
   KnownYes: 'rules.slotPicker.knownYes',
