@@ -95,6 +95,10 @@ interface PacksJson {
   readonly candidates: readonly PackJson[];
 }
 
+interface ProblemJson {
+  readonly message: { readonly key: string };
+}
+
 async function json<TBody>(response: Response): Promise<TBody> {
   return (await response.json()) as TBody;
 }
@@ -124,6 +128,14 @@ describe('character pack routes', () => {
     await api.handle(request('POST', path, { as: amiri, body: { packId: feats } }));
     const response = await api.handle(request('DELETE', `${path}/${spells}`, { as: amiri }));
     expect(response.status).toBe(409);
+    expect((await json<ProblemJson>(response)).message.key).toBe('character.packs.requiredByRefusal');
+  });
+
+  test('an official pack is always on: a 409', async () => {
+    const { api, path } = await setUp();
+    const response = await api.handle(request('DELETE', `${path}/${core}`, { as: amiri }));
+    expect(response.status).toBe(409);
+    expect((await json<ProblemJson>(response)).message.key).toBe('character.packs.alwaysOnRefusal');
   });
 
   test('a pack the owner may not read is a 404', async () => {
@@ -145,6 +157,7 @@ describe('character pack routes', () => {
 
     const refused = await api.handle(request('POST', path, { as: amiri, body: { packId: feats } }));
     expect(refused.status).toBe(409);
+    expect((await json<ProblemJson>(refused)).message.key).toBe('character.packs.campaignDecides');
 
     campaigns.detach(characterId);
     const back = await json<PacksJson>(await api.handle(request('GET', path, { as: amiri })));

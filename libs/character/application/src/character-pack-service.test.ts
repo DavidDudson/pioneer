@@ -219,7 +219,9 @@ describe('CharacterPackService', () => {
       expect(refusal).toMatchObject({
         descriptor: { key: CharacterPackMessage.CampaignDecides, params: { campaign: campaignName } },
       });
-      expect(await rejection(service.disable(amiri, kyra.id, spells))).toBeInstanceOf(ConflictError);
+      expect(await rejection(service.disable(amiri, kyra.id, spells))).toMatchObject({
+        descriptor: { key: CharacterPackMessage.CampaignDecides, params: { campaign: campaignName } },
+      });
     });
   });
 });
