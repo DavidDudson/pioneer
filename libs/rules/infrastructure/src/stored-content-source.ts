@@ -3,9 +3,7 @@ import type { ContentPackId, ContentSource, PackContents } from '@pioneer/rules/
 
 import type { ContentRepository } from './content-repository';
 import { HashKeyedCache } from './hash-keyed-cache';
-
-/** Sets of homebrew packs kept built at once. Past this the one asked for longest ago is dropped and built again. */
-const KEPT_SETS = 64;
+import { PackSetCache } from './pack-set-cache';
 
 /** The registry of `packs`, registered in order. */
 function registryOf(packs: readonly PackContents[]): ContentRegistry {
@@ -26,8 +24,7 @@ function registryOf(packs: readonly PackContents[]): ContentRegistry {
 export class StoredContentSource implements ContentSource {
   readonly #repository: ContentRepository;
   readonly #official = new HashKeyedCache<ContentRegistry>();
-  /** By the ids of the packs asked for, oldest ask first; each is keyed by the hashes it was built under. */
-  readonly #sets = new Map<string, HashKeyedCache<ContentRegistry>>();
+  readonly #sets = new PackSetCache<ContentRegistry>();
 
   public constructor(repository: ContentRepository) {
     this.#repository = repository;
@@ -43,7 +40,7 @@ export class StoredContentSource implements ContentSource {
       this.#repository.officialHashes(),
       this.#repository.homebrewHashes(packs),
     ]);
-    return this.#setCache(packs).current([...official, ...homebrew], async () =>
+    return this.#sets.current(packs, [...official, ...homebrew], async () =>
       registryOf([...(await this.#repository.loadOfficial()), ...(await this.#repository.loadHomebrew(packs))]),
     );
   }
@@ -54,20 +51,5 @@ export class StoredContentSource implements ContentSource {
    */
   public async registryWithDependencies(root: ContentPackId): Promise<ContentRegistry> {
     return registryOf(await this.#repository.loadWithDependencies(root));
-  }
-
-  /** The cache for this set of packs, in any order, and the most recently asked for. */
-  #setCache(packs: readonly ContentPackId[]): HashKeyedCache<ContentRegistry> {
-    const key = [...new Set(packs)].toSorted().join(',');
-    const kept = this.#sets.get(key) ?? new HashKeyedCache<ContentRegistry>();
-    this.#sets.delete(key);
-    this.#sets.set(key, kept);
-    for (const oldest of this.#sets.keys()) {
-      if (this.#sets.size <= KEPT_SETS) {
-        break;
-      }
-      this.#sets.delete(oldest);
-    }
-    return kept;
   }
 }

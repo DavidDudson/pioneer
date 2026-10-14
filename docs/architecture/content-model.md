@@ -458,6 +458,16 @@ when idle. Content browser search is server-side through per-locale `tsvector` a
   languages, and so on through building a character) when idle. A bundle that fails to load (a re-seed since the
   session read the manifest makes it a 404) sends the loader back for a new manifest, once. Descriptions arrive
   with their own bundles in Epic 2.4; until then an entry read from bundles has none.
+- **Homebrew packs, for signed-in members.** `POST /api/content/homebrew/manifest` takes the pack ids a page uses
+  and answers with the manifest of those packs and the packs they extend; `GET /api/content/homebrew/bundles/<pack>/<file>`
+  serves one bundle (`HomebrewContentContract`, `libs/rules/sdk`). `HomebrewBundleService` (`libs/homebrew/application`)
+  keeps to the packs the user may read: a pack they may not read is left out of the manifest and its bundle is a 404,
+  the same as a missing one. `StoredPackBundles` and `PackSetCache` (`libs/rules/infrastructure`) build the bundles once
+  per set of stored `content_hash` values. Responses are `private`, so the edge Worker, which keeps only `public`
+  ones, never caches them. `ContentLoader.registry(kinds, homebrew)` adds those packs to the official ones. They are
+  kept in memory for the session, never in IndexedDB, since they are the signed-in user's and change when they edit a
+  pack. The sheet asks for the packs its character uses (the campaign's, else its own, ADR-0060), so it waits for that
+  list before the registry builds.
 
 ## Filters
 

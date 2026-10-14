@@ -26,7 +26,7 @@ entry = "taplo fmt"
 files = "\\.toml$"
 priority = 0
 
-# ---- Lint: read-only, run in parallel --------------------------------------
+# ---- Lint: autofix where the tool can, run in parallel; a fixed file fails the commit, re-stage ----
 
 [[repos]]
 repo = "local"
@@ -35,7 +35,7 @@ repo = "local"
 id = "oxlint"
 name = "oxlint"
 language = "system"
-entry = "node_modules/.bin/oxlint"
+entry = "node_modules/.bin/oxlint --fix"
 files = "\\.[cm]?[jt]s$"
 priority = 10
 
@@ -43,7 +43,7 @@ priority = 10
 id = "eslint-templates"
 name = "eslint (templates)"
 language = "system"
-entry = "node_modules/.bin/eslint --max-warnings=0"
+entry = "node_modules/.bin/eslint --max-warnings=0 --fix"
 files = "^(apps|libs)/.*\\.html$"
 priority = 10
 
@@ -51,7 +51,7 @@ priority = 10
 id = "biome"
 name = "biome (css)"
 language = "system"
-entry = "node_modules/.bin/biome lint --error-on-warnings --no-errors-on-unmatched --files-ignore-unknown=true"
+entry = "node_modules/.bin/biome lint --write --error-on-warnings --no-errors-on-unmatched --files-ignore-unknown=true"
 files = "\\.css$"
 priority = 10
 
@@ -67,7 +67,7 @@ priority = 10
 id = "rumdl"
 name = "rumdl"
 language = "system"
-entry = "rumdl check"
+entry = "rumdl check --fix"
 files = "\\.md$"
 priority = 10
 
@@ -75,7 +75,7 @@ priority = 10
 id = "typos"
 name = "typos"
 language = "system"
-entry = "typos --force-exclude"
+entry = "typos --force-exclude --write-changes"
 types = ["text"]
 priority = 10
 

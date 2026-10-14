@@ -4,3 +4,4 @@ export { DrizzlePackDependencyRepository } from './drizzle-pack-dependency-repos
 export { DrizzlePackDirectory } from './drizzle-pack-directory';
 export { homebrewRoutes } from './homebrew-routes';
 export type { HomebrewServices } from './homebrew-routes';
+export { homebrewBundleRoutes } from './homebrew-bundle-routes';

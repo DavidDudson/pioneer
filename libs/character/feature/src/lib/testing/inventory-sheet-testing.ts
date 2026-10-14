@@ -13,7 +13,7 @@ import { expect, onTestFinished, vi } from 'vitest';
 
 import { characterRoutes } from '../character.routes';
 import { prebuildServerStateTesting, provideServerStateTesting } from './provide-server-state-testing';
-import { answerPlayRead } from './sheet-page-harness';
+import { answerPacksRead, answerPlayRead } from './sheet-page-harness';
 
 export const id = CharacterId.parse('0d9f7c1e-3b7a-4c55-9d1f-2a8f2b9c6e10');
 const BACKPACK = '11111111-1111-4111-8111-111111111111';
@@ -83,6 +83,7 @@ async function openSheet(url: string): Promise<HTMLElement> {
       .flush({ character: VALEROS, slots: [], languages: { known: [], open: 0 } });
   });
   await answerPlayRead();
+  await answerPacksRead();
   return present(harness.routeNativeElement);
 }
 

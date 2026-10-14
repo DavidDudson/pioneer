@@ -2,7 +2,7 @@ import { Endpoint, HttpMethod, NoBody, NoParams, NoQuery, SOURCE_LOCALE } from '
 import * as z from 'zod';
 
 import type { ContentEntry } from './content-entry';
-import { ContentId, PackId } from './content-id';
+import { ContentId, ContentPackId, PackId } from './content-id';
 import { ContentKindSchema } from './content-kind';
 import type { ContentKind } from './content-kind';
 import type { ContentPack } from './content-pack';
@@ -109,6 +109,35 @@ export const ContentContract = {
   bundle: new Endpoint({
     method: HttpMethod.Get,
     path: '/content/bundles/:pack/:file',
+    params: BundleParams,
+    query: NoQuery,
+    body: NoBody,
+    response: BundleBody,
+  }),
+} as const;
+
+/** The homebrew packs whose bundles are asked for. */
+export const HomebrewManifestRequest = z.strictObject({ packs: z.array(ContentPackId).readonly() });
+export type HomebrewManifestRequest = z.infer<typeof HomebrewManifestRequest>;
+
+/**
+ * Homebrew content for the browser, for a signed-in user. Unlike official content it is not public (ADR-0007): the
+ * manifest lists, of the packs asked for (a character's or a campaign's), the ones the user may read and the packs they
+ * extend; a pack the user may not read is left out, and its bundle is a 404, the same as a missing one. Responses are
+ * `private`, so no shared cache keeps them.
+ */
+export const HomebrewContentContract = {
+  manifest: new Endpoint({
+    method: HttpMethod.Post,
+    path: '/content/homebrew/manifest',
+    params: NoParams,
+    query: NoQuery,
+    body: HomebrewManifestRequest,
+    response: ContentManifest,
+  }),
+  bundle: new Endpoint({
+    method: HttpMethod.Get,
+    path: '/content/homebrew/bundles/:pack/:file',
     params: BundleParams,
     query: NoQuery,
     body: NoBody,
