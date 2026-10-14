@@ -12,7 +12,7 @@ import type { AncestryPickerRow, BackgroundPickerRow, HeritagePickerRow } from '
 export type Say = (key: string, params?: object) => string;
 
 /** What a row needs to be picked, searched and sorted by name. */
-interface NamedRow {
+export interface NamedRow {
   readonly id: string;
   readonly name: string;
   readonly disabledReason: string | undefined;
@@ -22,7 +22,7 @@ export const originRowValue = (row: NamedRow): string => row.id;
 export const originRowLabel = (row: NamedRow): string => row.name;
 export const originRowDisabled = (row: NamedRow): string | undefined => row.disabledReason;
 
-const chips = (labels: readonly string[]): readonly Chip[] => labels.map((label): Chip => ({ label }));
+export const chips = (labels: readonly string[]): readonly Chip[] => labels.map((label): Chip => ({ label }));
 
 /** The name column every origin picker starts with. */
 function withName<TRow extends NamedRow>(schema: OriginTableSchema<TRow>, say: Say): OriginTableSchema<TRow> {
@@ -200,10 +200,10 @@ const byName = (left: NamedRow, right: NamedRow): number =>
   left.name.localeCompare(right.name, undefined, { sensitivity: 'base' });
 
 /** The rows whose name holds `query`, in the order asked for; unsorted, in the order given. */
-type ShownRows<TRow> = (rows: readonly TRow[], query: string, sort: PickerSort | undefined) => readonly TRow[];
+export type ShownRows<TRow> = (rows: readonly TRow[], query: string, sort: PickerSort | undefined) => readonly TRow[];
 
 /** Rows searched by name and sorted by `compare`, then by name. */
-function shownBy<TRow extends NamedRow>(
+export function shownBy<TRow extends NamedRow>(
   compare: (left: TRow, right: TRow, sort: PickerSort) => number,
 ): ShownRows<TRow> {
   return (rows, query, sort) => {

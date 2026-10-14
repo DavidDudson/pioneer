@@ -2,11 +2,12 @@ import { playerCoreClassId, playerCoreId } from '@pioneer/character/domain/testi
 import { ContentKind, PackId, packContentsFromFiles } from '@pioneer/rules/sdk';
 import type { PackContents, PackContentsLoader } from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
+import { ClassPicker, SubclassPicker } from '@pioneer/rules/ui';
+import type { ClassPickerRow, SubclassPickerRow } from '@pioneer/rules/ui';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { openFeatTable } from '../../testing/feat-table-testing';
-import { settle } from '../../testing/inventory-sheet-testing';
-import { backgroundRowsShown } from '../../testing/origin-table-testing';
+import { backgroundRowsShown, rowsShown } from '../../testing/origin-table-testing';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
 import { TEST_PACKS } from '../../testing/test-packs';
@@ -62,13 +63,6 @@ function fighter(choices: Readonly<Record<string, string>> = {}): object {
   };
 }
 
-/** An option of an open listbox: its text and whether it can be picked. */
-type OptionRow = [text: string, disabled: string];
-
-function textOf(element: Element): string {
-  return element.textContent.replaceAll(/\s+/gu, ' ').trim();
-}
-
 async function fieldNamed(root: HTMLElement, label: string): Promise<HTMLElement> {
   return vi.waitFor(() =>
     present(
@@ -77,27 +71,6 @@ async function fieldNamed(root: HTMLElement, label: string): Promise<HTMLElement
       ),
     ),
   );
-}
-
-/** Every option of the open listbox: its text and whether it can be picked. */
-function shown(): OptionRow[] {
-  return [...document.querySelectorAll<HTMLElement>('[role="option"]')].map((option): OptionRow => [
-    textOf(option),
-    option.getAttribute('aria-disabled') ?? 'false',
-  ]);
-}
-
-/** Opens a select's picker and lists its options. */
-async function selectOptions(field: HTMLElement): Promise<OptionRow[]> {
-  present(field.querySelector<HTMLElement>('button')).click();
-  await settle();
-  present(field.querySelector<HTMLElement>('[frInlineEditor] button')).click();
-  await settle();
-  return vi.waitFor(() => {
-    const options = shown();
-    expect(options.length).toBeGreaterThan(1);
-    return options;
-  });
 }
 
 describe('CharacterSheetPage options that train a skill again', () => {
@@ -122,19 +95,31 @@ describe('CharacterSheetPage options that train a skill again', () => {
       { packs: PACKS },
     );
 
-    const options = await selectOptions(await fieldNamed(root, 'Class'));
+    const rows = await rowsShown<ClassPickerRow, ClassPicker>(root, { label: 'Class', type: ClassPicker });
 
-    expect(options).toContainEqual([`Cleric ${MARK}`, 'false']);
-    expect(options).toContainEqual(['Fighter', 'false']);
+    expect(rows.map((row) => [row.name, row.note, row.disabledReason])).toContainEqual(['Cleric', MARK, undefined]);
+    expect(rows.map((row) => [row.name, row.note, row.disabledReason])).toContainEqual([
+      'Fighter',
+      undefined,
+      undefined,
+    ]);
   });
 
   it('marks the subclass that trains a skill the class trains', async () => {
     const { root } = await openSheet(cleric(), AS_CLERIC);
 
-    const options = await selectOptions(await fieldNamed(root, 'Subclass'));
+    const rows = await rowsShown<SubclassPickerRow, SubclassPicker>(root, { label: 'Subclass', type: SubclassPicker });
 
-    expect(options).toContainEqual([`Devout-doctrine ${MARK}`, 'false']);
-    expect(options).toContainEqual(['Plain-doctrine', 'false']);
+    expect(rows.map((row) => [row.name, row.note, row.disabledReason])).toContainEqual([
+      'Devout-doctrine',
+      MARK,
+      undefined,
+    ]);
+    expect(rows.map((row) => [row.name, row.note, row.disabledReason])).toContainEqual([
+      'Plain-doctrine',
+      undefined,
+      undefined,
+    ]);
   });
 
   // Skipped: the feat table renders no rows in this harness (#734).

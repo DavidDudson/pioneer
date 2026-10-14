@@ -1,10 +1,11 @@
 import { HttpTestingController } from '@angular/common/http/testing';
-import { ApplicationRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { playerCoreClassId, playerCoreId } from '@pioneer/character/domain/testing';
 import { ContentKind } from '@pioneer/rules/sdk';
+import { KeyAttributePicker, SubclassPicker } from '@pioneer/rules/ui';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
+import { pickRow } from '../../testing/origin-table-testing';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
 
@@ -48,20 +49,6 @@ function fieldNamed(root: HTMLElement, label: string): HTMLElement {
   );
 }
 
-/** Opens `field` and picks the option labelled `name`. */
-async function pickIn(field: HTMLElement, name: string): Promise<void> {
-  present(field.querySelector<HTMLElement>('button')).click();
-  await TestBed.inject(ApplicationRef).whenStable();
-  present(field.querySelector<HTMLElement>('[frInlineEditor] button')).click();
-  await TestBed.inject(ApplicationRef).whenStable();
-  const option = await vi.waitFor(() =>
-    present(
-      [...document.querySelectorAll<HTMLElement>('[role="option"]')].find((each) => each.textContent.trim() === name),
-    ),
-  );
-  option.click();
-}
-
 describe('CharacterSheetPage class', () => {
   // Loads and bundles the packs once, outside every test's timeout.
   beforeAll(async () => {
@@ -98,8 +85,7 @@ describe('CharacterSheetPage class', () => {
 
   it('asks a ruffian rogue for a key attribute, which its racket widens to Strength', async () => {
     const { root } = await openSheet(rogue('ruffian'));
-    const field = await vi.waitFor(() => fieldNamed(root, 'Key attribute'));
-    await pickIn(field, 'Strength');
+    await pickRow(root, { label: 'Key attribute', type: KeyAttributePicker }, 'Strength');
 
     const request = await vi.waitFor(() =>
       TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
@@ -144,9 +130,7 @@ describe('CharacterSheetPage class', () => {
 
   it('picks a subclass in the slot the class feature opens', async () => {
     const { root } = await openSheet(cleric());
-    const field = await vi.waitFor(() => fieldNamed(root, 'Subclass'));
-
-    await pickIn(field, 'Warpriest');
+    await pickRow(root, { label: 'Subclass', type: SubclassPicker }, 'Warpriest');
 
     const request = await vi.waitFor(() =>
       TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
@@ -159,9 +143,7 @@ describe('CharacterSheetPage class', () => {
   it('picks a fighter’s key attribute in its class boost slot, from the attributes it allows', async () => {
     const fighter = { ...MERISIEL, build: { choices: { class: playerCoreClassId('fighter') } } };
     const { root } = await openSheet(fighter);
-    const field = await vi.waitFor(() => fieldNamed(root, 'Key attribute'));
-
-    await pickIn(field, 'Dexterity');
+    await pickRow(root, { label: 'Key attribute', type: KeyAttributePicker }, 'Dexterity');
 
     const request = await vi.waitFor(() =>
       TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
