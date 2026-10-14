@@ -5486,6 +5486,14 @@
         "mode": "add",
         "value": "spirit",
         "predicate": ["option:oath-of-the-avenger"]
+      },
+      {
+        "key": "DamageAlteration",
+        "selectors": ["spell-damage"],
+        "property": "damage-type",
+        "mode": "override",
+        "value": "spirit",
+        "predicate": ["item:slug:lay-on-hands", "option:oath-of-the-avenger"]
       }
     ],
     "externalIds": {
@@ -6018,6 +6026,15 @@
         "key": "RollOption",
         "option": "option:palatine-strike",
         "toggleable": true
+      },
+      {
+        "key": "DamageAlteration",
+        "selectors": ["strike-damage"],
+        "slug": "strategic-strike",
+        "property": "dice-number",
+        "mode": "add",
+        "value": 2,
+        "predicate": ["option:palatine-strike"]
       }
     ],
     "externalIds": {

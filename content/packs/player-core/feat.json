@@ -98,7 +98,17 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["claw-damage"],
+        "diceNumber": 1,
+        "dieSize": "d4",
+        "damageType": "mental",
+        "category": "persistent",
+        "critical": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.KsFrWhIPVLOqxV07"
     },
@@ -6060,7 +6070,21 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["unarmed-damage"],
+        "diceNumber": 1,
+        "dieSize": "d4",
+        "damageType": "bleed",
+        "critical": true,
+        "predicate": [
+          {
+            "not": "option:nonlethal"
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.JvTSfyCkG70bmY7f"
     },
@@ -6886,6 +6910,12 @@
         "key": "RollOption",
         "option": "option:brutal-finish",
         "toggleable": true
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["melee-strike-damage"],
+        "diceNumber": "ternary(gte(@level, 18), 2, 1)",
+        "predicate": ["item:type:weapon", "option:brutal-finish"]
       }
     ],
     "externalIds": {
@@ -11762,6 +11792,14 @@
         "key": "RollOption",
         "option": "option:dazing-blow",
         "toggleable": true
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "override": {
+          "damageType": "bludgeoning"
+        },
+        "predicate": ["option:dazing-blow"]
       }
     ],
     "externalIds": {
@@ -13841,6 +13879,22 @@
         "mode": "add",
         "value": "unholy",
         "predicate": ["option:divine-castigation", "self:trait:unholy"]
+      },
+      {
+        "key": "DamageAlteration",
+        "selectors": ["spell-damage"],
+        "property": "damage-type",
+        "mode": "override",
+        "value": "spirit",
+        "predicate": [
+          "option:divine-castigation",
+          {
+            "or": ["self:trait:holy", "self:trait:unholy"]
+          },
+          {
+            "or": ["item:slug:harm", "item:slug:heal"]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -37750,7 +37804,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 2,
+        "dieSize": "d6",
+        "category": "precision",
+        "predicate": ["target:mark:precise-debilitations"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.wvJBIzgS298ZRp6w"
     },
@@ -51846,7 +51909,17 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["seedpod-damage"],
+        "diceNumber": 1,
+        "dieSize": "d4",
+        "damageType": "piercing",
+        "category": "persistent",
+        "critical": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.TRC4DgVq07cZO65B"
     },
@@ -55683,6 +55756,12 @@
         "domain": "damage",
         "option": "option:vicious-swing",
         "toggleable": true
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["melee-strike-damage"],
+        "diceNumber": "ternary(gte(@level, 18), 3, ternary(gte(@level, 10), 2, 1))",
+        "predicate": ["option:vicious-swing"]
       }
     ],
     "externalIds": {

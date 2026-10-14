@@ -432,6 +432,21 @@
             "not": "item:rune:property:underwater"
           }
         ]
+      },
+      {
+        "key": "DamageAlteration",
+        "selectors": ["inline-damage", "attack-damage", "spell-damage"],
+        "property": "dice-number",
+        "mode": "override",
+        "value": 0,
+        "predicate": [
+          {
+            "or": ["item:damage:persistent:fire", "item:damage:fire"]
+          },
+          {
+            "not": "item:trait:impulse"
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -1399,7 +1414,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["melee-strike-damage"],
+        "diceNumber": "ternary(gte(@item.level, 8), 3, ternary(gte(@item.level, 5), 2, 1))",
+        "dieSize": "d6",
+        "damageType": "vitality",
+        "predicate": ["parent:trait:vitality"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["melee-strike-damage"],
+        "diceNumber": "ternary(gte(@item.level, 8), 3, ternary(gte(@item.level, 5), 2, 1))",
+        "dieSize": "d6",
+        "damageType": "void",
+        "predicate": ["parent:trait:void"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.eecIuD6sGPX0FJcT"
     },
@@ -3449,7 +3481,21 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 2,
+        "dieSize": "d6",
+        "category": "precision",
+        "predicate": [
+          "target:mark:precise-debilitations",
+          {
+            "not": "parent:tag:precise-debilitations-dice-added"
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.ZZXIUvZqqIxkMfYa"
     },
@@ -4832,6 +4878,33 @@
         "display": {
           "label": "Precision — Hit against Hunted Prey"
         }
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "slug": "precision",
+        "diceNumber": "ternary(lt(@level, 11), 1, ternary(lt(@level, 19), 2, 3))",
+        "dieSize": "d8",
+        "category": "precision",
+        "predicate": ["option:precision-hunters-edge", "target:mark:share-hunters-edge"]
+      },
+      {
+        "key": "DamageAlteration",
+        "selectors": ["strike-damage"],
+        "slug": "precision",
+        "property": "dice-number",
+        "mode": "override",
+        "value": "ternary(gte(@level, 19), 2, 1)",
+        "predicate": ["precision-hunters-edge:second-hit"]
+      },
+      {
+        "key": "DamageAlteration",
+        "selectors": ["strike-damage"],
+        "slug": "precision",
+        "property": "dice-number",
+        "mode": "override",
+        "value": 1,
+        "predicate": ["precision-hunters-edge:third-hit"]
       }
     ],
     "externalIds": {
@@ -4947,6 +5020,36 @@
         "display": {
           "label": "Precision — Hit against Hunted Prey"
         }
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "slug": "precision",
+        "diceNumber": "ternary(gte(@level, 19), 3, 2)",
+        "dieSize": "d8",
+        "category": "precision",
+        "predicate": ["option:precision-hunters-edge", "target:mark:share-hunters-edge"],
+        "display": {
+          "label": "Flurry"
+        }
+      },
+      {
+        "key": "DamageAlteration",
+        "selectors": ["strike-damage"],
+        "slug": "precision",
+        "property": "dice-number",
+        "mode": "override",
+        "value": "ternary(gte(@level, 19), 2, 1)",
+        "predicate": ["precision-hunters-edge:second-hit"]
+      },
+      {
+        "key": "DamageAlteration",
+        "selectors": ["strike-damage"],
+        "slug": "precision",
+        "property": "dice-number",
+        "mode": "override",
+        "value": 1,
+        "predicate": ["precision-hunters-edge:third-hit"]
       }
     ],
     "externalIds": {
@@ -6308,6 +6411,15 @@
         ],
         "prompt": "Select a form.",
         "rollOption": "aerial-form"
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["stinger-damage"],
+        "diceNumber": "ternary(gte(@item.level, 6), 2, 1)",
+        "dieSize": "d6",
+        "damageType": "poison",
+        "category": "persistent",
+        "predicate": ["aerial-form:wasp"]
       }
     ],
     "externalIds": {
@@ -8679,7 +8791,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["fangs-damage"],
+        "diceNumber": "ternary(gte(@item.level, 5), 2, 1)",
+        "dieSize": "d6",
+        "damageType": "poison"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.kz3mlFwb9tV9bFwu"
     },
@@ -11063,7 +11183,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["horn-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "bleed",
+        "critical": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.iOKhr2El8R6cz6YI"
     },
@@ -12574,6 +12703,21 @@
         "key": "Resistance",
         "type": ["precision"],
         "value": 10
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": "ternary(gte(@item.level, 9), 2, 1)",
+        "dieSize": "d4",
+        "damageType": "fire",
+        "predicate": ["option:unarmed"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["spell-damage"],
+        "diceNumber": 1,
+        "damageType": "fire",
+        "predicate": ["option:fire"]
       }
     ],
     "externalIds": {
@@ -14160,7 +14304,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": "ternary(gte(@item.level, 5), 3, ternary(gte(@item.level, 3), 2, 1))",
+        "dieSize": "d4",
+        "damageType": "vitality"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.X7RD0JRxhJV9u2LC"
     },
@@ -15382,6 +15534,32 @@
         ],
         "prompt": "Select a form.",
         "rollOption": "monstrosity-form"
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["stinger-damage"],
+        "diceNumber": 2,
+        "dieSize": "d6",
+        "damageType": "poison",
+        "category": "persistent",
+        "predicate": ["monstrosity-form:cave-worm"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["beak-damage"],
+        "diceNumber": "ternary(gte(@item.level, 9), 3, 2)",
+        "dieSize": "d4",
+        "damageType": "fire",
+        "predicate": ["monstrosity-form:phoenix"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["beak-damage"],
+        "diceNumber": 2,
+        "dieSize": "d4",
+        "damageType": "fire",
+        "category": "persistent",
+        "predicate": ["monstrosity-form:phoenix"]
       }
     ],
     "externalIds": {
@@ -15450,6 +15628,19 @@
         "selectors": ["land-speed"],
         "type": "status",
         "value": 10
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 1,
+        "dieSize": "d4",
+        "damageType": "bleed",
+        "critical": true,
+        "predicate": [
+          {
+            "or": ["item:slug:moon-frenzy-claws", "item:slug:moon-frenzy-fangs"]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -17118,6 +17309,22 @@
         "type": ["fire"],
         "value": 5,
         "predicate": ["primal-summons:water"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "fire",
+        "predicate": ["primal-summons:fire"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "electricity",
+        "predicate": ["primal-summons:metal"]
       }
     ],
     "externalIds": {

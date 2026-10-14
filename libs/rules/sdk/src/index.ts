@@ -317,6 +317,7 @@ export { SenseElement } from './rule-element-sense';
 export { LanguageAccess, LanguageCount, LanguageElement } from './rule-element-language';
 export { ActorTraitsElement } from './rule-element-actor-traits';
 export { StrikeElement } from './rule-element-strike';
+export { DamageAlterationElement, DamageDiceCategory, DamageDiceElement, DamageProperty } from './rule-element-damage';
 export {
   DeitySpellsElement,
   FOCUS_POOL_MAX,

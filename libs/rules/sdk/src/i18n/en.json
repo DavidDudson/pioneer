@@ -41,7 +41,8 @@
       "spellcastingSlugLength": "A spellcasting entry’s slug may be at most {maximum} characters.",
       "languageGrantOrSlots": "Grant at least one language, or give slots to pick them in, or both.",
       "actorTraitsAddOrRemove": "Add at least one trait, or remove one, or both.",
-      "strikeShape": "A Strike is either a fist, or an attack of its own with a slug, category and damage."
+      "strikeShape": "A Strike is either a fist, or an attack of its own with a slug, category and damage.",
+      "damageDiceNeedsDice": "Give a die size, a number of dice, or an override of the damage type."
     },
     "formula": {
       "unknownReference": "“{found}” at position {position} is not a reference Pioneer knows. References look like @level, @attr.str or @prof.skill.athletics.",
