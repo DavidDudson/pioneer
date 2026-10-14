@@ -12,4 +12,6 @@ export const StatisticsMessage = {
   Computed: 'rules.statistics.computed',
   /** "+2 circumstance when your shield is raised (Steel Shield)": a conditional line beside the total. */
   Conditional: 'rules.statistics.conditional',
+  /** The label of the button that rolls a check: "Roll Perception". */
+  Roll: 'rules.statistics.roll',
 } as const;

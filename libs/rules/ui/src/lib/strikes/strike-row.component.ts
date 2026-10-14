@@ -11,6 +11,7 @@ import type { OriginNames } from '../origin-chain/origin-names';
 import type { Chip } from '../picker-cells/chip-list/chip-list.component';
 import { ChipList } from '../picker-cells/chip-list/chip-list.component';
 import { StatisticConditions } from '../statistics/statistic-conditions/statistic-conditions.component';
+import { StatisticRoll } from '../statistics/statistic-roll/statistic-roll.component';
 import { StatisticTotal } from '../statistics/statistic-total/statistic-total.component';
 import { StatisticsMessage } from '../statistics/statistics-messages';
 import { StrikesMessage } from './strikes-messages';
@@ -66,6 +67,7 @@ export interface ShownStrike {
     Disclosure,
     Stack,
     StatisticConditions,
+    StatisticRoll,
     StatisticTotal,
     Text,
     TranslocoPipe,

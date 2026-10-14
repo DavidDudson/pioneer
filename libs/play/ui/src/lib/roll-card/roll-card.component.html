@@ -5,6 +5,9 @@
       <fr-text element="code">{{ shown.notation }}</fr-text>
       <fr-heading variant="heading" [level]="3">{{ 'roll.card.total' | transloco: { total: shown.total } }}</fr-heading>
     </fr-stack>
+    @if (dcEditable()) {
+      <pio-roll-dc [dc]="dc()" (dcChange)="dcChange.emit($event)" />
+    }
     @if (shown.degree; as degree) {
       <pio-roll-degree [degree]="degree" />
     }

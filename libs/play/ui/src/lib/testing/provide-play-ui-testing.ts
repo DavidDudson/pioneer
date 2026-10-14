@@ -9,6 +9,9 @@ import { kernelMessages } from '@pioneer/shared/kernel';
 
 import rollMessages from '../../i18n/en.json';
 
+/** What the fixtures' effects are called, so a card reads "from Juggernaut" rather than a raw key. */
+const FIXTURE_MESSAGES = { fortune: 'Fortune effect', misfortune: 'Misfortune effect', juggernaut: 'Juggernaut' };
+
 /**
  * The `en` messages play UI renders with: the roll card's own `roll` scope, the `dice` text of the rolls it explains and
  * the `rules` text of the degrees' reasons, preloaded with the ICU transpiler, for specs and stories.
@@ -23,7 +26,7 @@ export function providePlayUiI18nTesting(): EnvironmentProviders[] {
             ...frontierMessages,
             ...rulesMessages,
             ...diceMessages,
-            roll: rollMessages,
+            roll: { ...rollMessages.roll, fixture: FIXTURE_MESSAGES },
           },
         },
         preloadLangs: true,

@@ -2,6 +2,8 @@ import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
 import { describe, expect, it } from 'vitest';
 
+import { STATISTIC_ROLLER } from '../statistics/statistic-roller';
+import type { RollableStatistic } from '../statistics/statistic-roller';
 import { ENTRY_NAMES } from '../testing/breakdown-fixtures';
 import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing';
 import {
@@ -163,5 +165,37 @@ describe(StrikesView, () => {
     const fixture = await render(undefined);
 
     expect(hostOf(fixture).querySelectorAll('fr-skeleton').length).toBeGreaterThan(0);
+  });
+
+  it('rolls a Strike attack from a button beside it, only where the page provides a roller', async () => {
+    const rolled: RollableStatistic[] = [];
+    TestBed.configureTestingModule({
+      providers: [
+        provideRulesUiI18nTesting(),
+        {
+          provide: STATISTIC_ROLLER,
+          useValue: {
+            roll: (rollable: RollableStatistic): undefined => {
+              rolled.push(rollable);
+            },
+          },
+        },
+      ],
+    });
+    const fixture = TestBed.createComponent(StrikesView);
+    fixture.componentRef.setInput('strikes', FIGHTER_STRIKES);
+    await fixture.whenStable();
+    const buttons = hostOf(fixture).querySelectorAll<HTMLButtonElement>('button[aria-label^="Roll "]');
+
+    expect([...buttons].map((button) => button.getAttribute('aria-label'))).toStrictEqual([
+      'Roll Longsword',
+      'Roll Dagger',
+    ]);
+    buttons[0]?.click();
+    expect(rolled.map(({ name }) => name)).toStrictEqual(['Longsword']);
+
+    TestBed.resetTestingModule();
+    const plain = await render(FIGHTER_STRIKES);
+    expect(hostOf(plain).querySelectorAll('button[aria-label^="Roll "]')).toHaveLength(0);
   });
 });

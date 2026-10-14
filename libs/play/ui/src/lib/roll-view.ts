@@ -1,4 +1,4 @@
-import { DiceExpressionText, formatExpression, formatTerm, RollMode, Sign } from '@pioneer/rules/dice';
+import { DegreeStepKind, DiceExpressionText, formatExpression, formatTerm, RollMode, Sign } from '@pioneer/rules/dice';
 import type {
   DamageApplication,
   DamageInstance,
@@ -11,6 +11,7 @@ import type {
   RollTotal,
   TermResult,
 } from '@pioneer/rules/dice';
+import type { DegreeOfSuccess } from '@pioneer/rules/sdk';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { DAMAGE_CATEGORY_KEYS, DAMAGE_TYPE_KEYS, DEGREE_KEYS, UNTYPED_DAMAGE_KEY } from './roll-labels';
@@ -37,9 +38,19 @@ interface DegreeStepView {
   readonly reason: MessageDescriptor;
 }
 
+/** A degree an effect moved: the label keys of the degree before and after, and what moved it. */
+export interface DegreeAdjustmentView {
+  readonly fromKey: string;
+  readonly toKey: string;
+  readonly reason: MessageDescriptor;
+}
+
 /** The kept roll's degree of success against the DC, with every step that led to it. */
 export interface DegreeView {
+  readonly degree: DegreeOfSuccess;
   readonly degreeKey: string;
+  /** Unset unless an effect (a feat, a spell) changed the degree the roll and natural die reached. */
+  readonly adjustment: DegreeAdjustmentView | undefined;
   readonly steps: readonly DegreeStepView[];
 }
 
@@ -91,9 +102,21 @@ function attemptView(entry: FortuneRollEntry): AttemptView {
   return { kept: entry.kept, total: entry.result.total, terms: entry.result.terms.map(termView) };
 }
 
+/** The step an effect made, when it moved the degree; a clamped one leaves nothing to say. */
+function adjustmentView(result: DegreeResult): DegreeAdjustmentView | undefined {
+  const index = result.steps.findIndex((step) => step.kind === DegreeStepKind.Adjustment);
+  const adjusted = result.steps[index];
+  const before = result.steps[index - 1];
+  return adjusted === undefined || before === undefined || adjusted.degree === before.degree
+    ? undefined
+    : { fromKey: DEGREE_KEYS[before.degree], toKey: DEGREE_KEYS[adjusted.degree], reason: adjusted.reason };
+}
+
 function degreeView(result: DegreeResult): DegreeView {
   return {
+    degree: result.degree,
     degreeKey: DEGREE_KEYS[result.degree],
+    adjustment: adjustmentView(result),
     steps: result.steps.map((step) => ({ degreeKey: DEGREE_KEYS[step.degree], reason: step.reason })),
   };
 }

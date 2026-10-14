@@ -12,6 +12,7 @@ import { NO_ORIGIN_NAMES } from '../origin-chain/origin-names';
 import type { OriginNames } from '../origin-chain/origin-names';
 import { conditionalLines } from './conditional-lines';
 import { StatisticConditions } from './statistic-conditions/statistic-conditions.component';
+import { StatisticRoll } from './statistic-roll/statistic-roll.component';
 import { StatisticTotal } from './statistic-total/statistic-total.component';
 import { StatisticsMessage } from './statistics-messages';
 
@@ -73,6 +74,7 @@ const LOADING_ROWS = 5;
     Skeleton,
     Stack,
     StatisticConditions,
+    StatisticRoll,
     StatisticTotal,
     Text,
     TranslocoPipe,

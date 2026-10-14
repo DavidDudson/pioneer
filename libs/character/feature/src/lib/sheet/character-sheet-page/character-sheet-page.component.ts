@@ -24,7 +24,9 @@ import { SheetCounted } from '../sheet-counted/sheet-counted.component';
 import { SheetDeathTrack } from '../sheet-death-track/sheet-death-track.component';
 import { SheetExport } from '../sheet-export/sheet-export.component';
 import { SheetHitPoints } from '../sheet-hit-points/sheet-hit-points.component';
+import { SheetLastRoll } from '../sheet-last-roll/sheet-last-roll.component';
 import { SheetResources } from '../sheet-resources/sheet-resources.component';
+import { SHEET_ROLLS_PROVIDERS } from '../sheet-rolls';
 import { SheetSaveStatus } from '../sheet-save-status/sheet-save-status.component';
 import { SHEET_TABS } from '../sheet-sections';
 import { SheetState } from '../sheet-state';
@@ -50,6 +52,7 @@ import { SheetState } from '../sheet-state';
     SheetCounted,
     SheetResources,
     SheetHitPoints,
+    SheetLastRoll,
     SheetSaveStatus,
     Skeleton,
     Stack,
@@ -60,7 +63,7 @@ import { SheetState } from '../sheet-state';
     VitalsView,
   ],
   templateUrl: './character-sheet-page.component.html',
-  providers: [SheetState, PlayStore, FeatDisplayStore, CharacterPackStore],
+  providers: [SheetState, PlayStore, FeatDisplayStore, CharacterPackStore, ...SHEET_ROLLS_PROVIDERS],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CharacterSheetPage {

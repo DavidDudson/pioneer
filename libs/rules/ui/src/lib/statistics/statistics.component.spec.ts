@@ -13,6 +13,8 @@ import {
 import { BEATEN_STATISTICS } from '../testing/conditional-fixtures';
 import { PINNED_STATISTICS, PINNED_WILL } from '../testing/override-fixtures';
 import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing';
+import { STATISTIC_ROLLER } from './statistic-roller';
+import type { RollableStatistic, StatisticRoller } from './statistic-roller';
 import { StatisticsMessage } from './statistics-messages';
 import type { NamedStatistic } from './statistics.component';
 import { StatisticsView } from './statistics.component';
@@ -67,6 +69,25 @@ function conditions(host: HTMLElement): string[][] {
   return itemsOf(host).map((item) =>
     [...item.querySelectorAll('pio-statistic-conditions fr-text')].map((part) => textOf(part)),
   );
+}
+
+/** A roller that records what it is asked to roll. */
+function recordingRoller(rolled: RollableStatistic[]): StatisticRoller {
+  return {
+    roll: (rollable: RollableStatistic): void => {
+      rolled.push(rollable);
+    },
+  };
+}
+
+async function renderWithRoller(rolled: RollableStatistic[]): Promise<HTMLElement> {
+  TestBed.configureTestingModule({
+    providers: [provideRulesUiI18nTesting(), { provide: STATISTIC_ROLLER, useValue: recordingRoller(rolled) }],
+  });
+  const fixture = TestBed.createComponent(StatisticsView);
+  fixture.componentRef.setInput('statistics', FIGHTER_STATISTICS);
+  await fixture.whenStable();
+  return hostOf(fixture);
 }
 
 describe(StatisticsView, () => {
@@ -203,5 +224,37 @@ describe(StatisticsView, () => {
 
     expect(host.querySelectorAll('details')).toHaveLength(0);
     expect(host.querySelectorAll('[role="listitem"] fr-skeleton')).toHaveLength(5);
+  });
+
+  describe('rolling', () => {
+    it('offers no roll button where the page provides no roller', async () => {
+      const host = hostOf(await render(FIGHTER_STATISTICS));
+
+      expect(host.querySelectorAll('button[aria-label^="Roll "]')).toHaveLength(0);
+    });
+
+    it('offers a roll button on each check, not on a DC or a value, naming what it rolls', async () => {
+      const host = await renderWithRoller([]);
+      const checks = FIGHTER_STATISTICS.filter(({ kind }) => kind === StatisticKind.Check).map(
+        ({ name }) => `Roll ${name}`,
+      );
+      const labels = [...host.querySelectorAll('button[aria-label^="Roll "]')].map((button) =>
+        button.getAttribute('aria-label'),
+      );
+
+      expect(checks.length).toBeGreaterThan(0);
+      expect(labels).toStrictEqual(checks);
+    });
+
+    it('hands the roller the statistic it was pressed on', async () => {
+      const rolled: RollableStatistic[] = [];
+      const host = await renderWithRoller(rolled);
+      const check = FIGHTER_STATISTICS.find(({ kind }) => kind === StatisticKind.Check);
+
+      present(host.querySelector<HTMLButtonElement>(`button[aria-label="Roll ${check?.name}"]`)).click();
+
+      expect(rolled.map(({ name }) => name)).toStrictEqual([check?.name]);
+      expect(rolled[0]?.statistic).toBe(check?.result);
+    });
   });
 });

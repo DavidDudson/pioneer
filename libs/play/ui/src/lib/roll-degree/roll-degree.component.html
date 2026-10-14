@@ -1,6 +1,19 @@
 @let shown = display();
 <fr-stack gap="xs">
-  <fr-text weight="semibold">{{ shown.degreeKey | transloco }}</fr-text>
+  <fr-stack direction="horizontal" gap="xs" align="center" wrap>
+    <fr-badge [tone]="shown.tint.tone" [variant]="shown.tint.variant">{{ shown.degreeKey | transloco }}</fr-badge>
+    @if (shown.adjustment; as adjustment) {
+      <fr-text variant="caption">{{
+        'roll.card.adjusted'
+          | transloco
+            : {
+                from: adjustment.fromKey | transloco,
+                to: adjustment.toKey | transloco,
+                source: adjustment.reason.key | transloco: adjustment.reason.params,
+              }
+      }}</fr-text>
+    }
+  </fr-stack>
   @for (step of shown.steps; track $index) {
     <fr-stack direction="horizontal" gap="sm" align="baseline" wrap>
       <fr-text variant="caption">{{ step.degreeKey | transloco }}</fr-text>

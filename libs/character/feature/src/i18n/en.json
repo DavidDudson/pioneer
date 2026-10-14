@@ -302,7 +302,11 @@
       "uses": "{amount, plural, one {# use of {name}} other {# uses of {name}}}",
       "heading": "Rest and preparations"
     },
-    "packsHeading": "Content packs"
+    "packsHeading": "Content packs",
+    "roll": {
+      "heading": "{name} check",
+      "breakdown": "Breakdown"
+    }
   },
   "validation": {
     "unknownAncestry": "That ancestry is not available. Choose another.",
