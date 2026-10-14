@@ -233,7 +233,7 @@ describe('translateEnvelopes: description', () => {
 
 describe('translateEnvelopes: rule elements', () => {
   const pioneerShaped = { key: 'FlatModifier', selectors: ['ac'], type: 'circumstance', value: 2 };
-  const foundryShaped = { key: 'FlatModifier', selector: 'hp', value: '@actor.level' };
+  const foundryShaped = { key: 'FlatModifier', selector: 'hp', value: '@actor.level', requiresEquipped: false };
   const unknownKey = { key: 'ActiveEffectLike', mode: 'subtract', path: 'system.attributes.dying.recoveryDC' };
 
   test('keeps elements RuleElement reads and reports the rest with entry, key and raw JSON', () => {
@@ -262,7 +262,7 @@ describe('translateEnvelopes: rule elements', () => {
 
 describe('translationReport', () => {
   test('counts envelopes, failures, rule element keys, traits, markup and lang keys, most frequent first', () => {
-    const foundryShaped = { key: 'FlatModifier', selector: 'hp', value: 1 };
+    const foundryShaped = { key: 'FlatModifier', selector: 'hp', value: 1, removeAfterRoll: true };
     const translation = translateEnvelopes(
       [
         selected(

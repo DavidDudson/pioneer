@@ -541,7 +541,19 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["action:reposition", "action:shove", "action:trip", "inflicts:prone", "option:forced-movement"]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.actionspf2e.Item.xpsD4DsYHKXCB4ac"
     },
@@ -1188,7 +1200,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["option:call-on-ancient-blood", "item:magical"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.actionspf2e.Item.8w6esW689NNbbq3i"
     },
@@ -7199,6 +7219,26 @@
         "domain": "ranged-attack-roll",
         "option": "ignore-range-penalty:2",
         "predicate": ["target:mark:hunted-prey"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["action:seek", "target:mark:hunted-prey"],
+        "display": {
+          "label": "To Seek Hunted Prey"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:survival"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["action:track", "target:mark:hunted-prey"],
+        "display": {
+          "label": "To Track Hunted Prey"
+        }
       }
     ],
     "externalIds": {
@@ -14121,7 +14161,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["hp"],
+        "type": "untyped",
+        "value": "2 * @level"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.familiar-abilities.Item.Le8UWr5BU8rV3iBf"
     },

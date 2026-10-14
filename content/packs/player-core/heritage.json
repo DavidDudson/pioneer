@@ -334,7 +334,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["option:coloration-matches"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.heritages.Item.XeXWsvcWU3Zaj5WC"
     },
@@ -741,7 +749,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception-dc"],
+        "type": "untyped",
+        "value": 4,
+        "predicate": ["action:steal", "option:gourd-head"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.heritages.Item.wNnsjird4OQe0s6p"
     },
@@ -774,7 +790,19 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["item:trait:death", "item:trait:void"]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.heritages.Item.VvEAFoxuddYNBmNc"
     },
@@ -849,7 +877,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["healing-received"],
+        "type": "untyped",
+        "value": "@level",
+        "predicate": ["action:treat-wounds"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.heritages.Item.Mj7uHxxVkRUlOFwJ"
     },
@@ -953,7 +989,21 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 2,
+        "slug": "irongut-save-bonus",
+        "predicate": [
+          "item:trait:ingested",
+          {
+            "or": ["inflicts:sickened", "item:type:affliction"]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.heritages.Item.gyoN45SVfRZwHMkk"
     },
@@ -1213,7 +1263,26 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["action:climb", "action:swim"]
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["option:disease"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.heritages.Item.dwKCwwtWetvPmJks"
     },
@@ -1320,7 +1389,32 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:fortitude", "save:reflex"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["action:shove", "action:trip", "action:reposition"]
+          }
+        ],
+        "display": {
+          "label": "vs. Shove or Trip"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["inflicts:prone"],
+        "display": {
+          "label": "vs. Prone effects"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.heritages.Item.VSyOvtgJ1ZNpIVgC"
     },
@@ -1385,7 +1479,22 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:fortitude", "save:reflex"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["action:shove", "action:trip", "action:reposition", "inflicts:prone", "option:forced-movement"]
+          }
+        ],
+        "display": {
+          "label": "vs. Shove or Trip"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.heritages.Item.CZx9HMmoOwcpkLY8"
     },
@@ -1418,7 +1527,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "untyped",
+        "value": -5
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.heritages.Item.hTl3uc6y1kTuo9ac"
     },
@@ -1484,7 +1600,19 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["action:identify-magic", "action:decipher-writing"]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.heritages.Item.jEtVesbqYcWGbBYk"
     },
@@ -1532,6 +1660,18 @@
         "sense": "279973df-e7b9-5fa1-9bb6-1cfdc54b82b6",
         "acuity": "imprecise",
         "range": 30
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          "action:seek",
+          {
+            "lte": ["target:distance", 30]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -1930,7 +2070,23 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["target:condition:undetected", "target:condition:hidden"]
+          },
+          {
+            "lte": ["target:distance", 30]
+          },
+          "target:audible"
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.heritages.Item.1wVDYY9Wue0G5R9Q"
     },

@@ -252,7 +252,28 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["action:swim"],
+        "display": {
+          "label": "Electric Eelskin (Swim)"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["terrain:water"],
+        "display": {
+          "label": "Electric Eelskin (Water)"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.8HxM35X8DDt2gw9d"
     },
@@ -1042,7 +1063,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:intimidation"],
+        "type": "item",
+        "value": 2
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.EBuQjgVZaQpjQUjc"
     },
@@ -1193,7 +1221,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:intimidation"],
+        "type": "item",
+        "value": 3
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.dmEmxoEVzOeEkscr"
     },
@@ -1630,7 +1665,18 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["action:swim"],
+        "display": {
+          "label": "Tideplate (Swim)"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.7jGnVnqFt2gFtU1g"
     },

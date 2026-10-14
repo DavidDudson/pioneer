@@ -131,30 +131,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.8HxM35X8DDt2gw9d",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "Electric Eelskin (Swim)",
-            "predicate": ["action:swim"],
-            "selector": "athletics",
-            "type": "item",
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "Electric Eelskin (Water)",
-            "predicate": ["terrain:water"],
-            "selector": "stealth",
-            "type": "item",
-            "value": 2
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
         },
@@ -301,16 +277,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.EBuQjgVZaQpjQUjc",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "intimidation",
-            "type": "item",
-            "value": 2
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[conditionitems]"
         },
@@ -326,16 +292,6 @@
       "slug": "armor:lions-armor-greater",
       "foundry": "Compendium.pf2e.equipment-srd.Item.dmEmxoEVzOeEkscr",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "intimidation",
-            "type": "item",
-            "value": 3
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[conditionitems]"
@@ -364,18 +320,6 @@
       "slug": "armor:tideplate",
       "foundry": "Compendium.pf2e.equipment-srd.Item.7jGnVnqFt2gFtU1g",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "Tideplate (Swim)",
-            "predicate": ["action:swim"],
-            "selector": "athletics",
-            "type": "item",
-            "value": 2
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
@@ -2229,18 +2173,6 @@
         },
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["item:trait:poison"],
-            "selector": "fortitude",
-            "slug": "antidote-bonus",
-            "type": "item",
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
           "key": "AdjustModifier",
           "raw": {
             "key": "AdjustModifier",
@@ -2337,18 +2269,6 @@
             "key": "ChoiceSet",
             "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
             "rollOption": "antiplague"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["item:trait:disease"],
-            "selector": "fortitude",
-            "slug": "antiplague-bonus",
-            "type": "item",
-            "value": 2
           }
         },
         {
@@ -2617,17 +2537,6 @@
         },
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "will",
-            "slug": "bravos-brew-bonus",
-            "type": "item",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
           "key": "AdjustModifier",
           "raw": {
             "key": "AdjustModifier",
@@ -2728,60 +2637,6 @@
     {
       "type": "entry",
       "pack": "gm-core",
-      "slug": "effect:effect-cheetahs-elixir-greater",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.PeuUz7JaabCgl6Yh",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "land-speed",
-            "type": "status",
-            "value": 10
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "effect:effect-cheetahs-elixir-lesser",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.lNWACCNe9RYgaFxb",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "land-speed",
-            "type": "status",
-            "value": 5
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "effect:effect-cheetahs-elixir-moderate",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.j9zVZwRBVAcnpEkE",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "land-speed",
-            "type": "status",
-            "value": 10
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
       "slug": "effect:effect-clawed-bracers",
       "foundry": "Compendium.pf2e.equipment-effects.Item.lh2YM9yNJixOC8RI",
       "gaps": [
@@ -2829,26 +2684,6 @@
             "key": "BaseSpeed",
             "selector": "fly",
             "value": 30
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "effect:effect-diplomats-badge",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.pAMyEbJzWBoYoGhs",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["group"],
-            "selector": "diplomacy",
-            "slug": "diplomats-bearing",
-            "type": "item",
-            "value": 2
           }
         }
       ]
@@ -2987,17 +2822,6 @@
             "key": "ChoiceSet",
             "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
             "rollOption": "eagle-eye-elixir"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "perception",
-            "slug": "eagle-eye-elixir-bonus",
-            "type": "item",
-            "value": 1
           }
         },
         {
@@ -3184,22 +3008,6 @@
         },
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "or": ["item:trait:disease", "item:trait:poison"]
-              }
-            ],
-            "selector": "saving-throw",
-            "slug": "elixir-of-life-bonus",
-            "type": "item",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
           "key": "AdjustModifier",
           "raw": {
             "key": "AdjustModifier",
@@ -3315,16 +3123,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": ["ac", "saving-throw"],
-            "type": "status",
-            "value": 4
-          }
-        },
-        {
-          "type": "rule",
           "key": "FastHealing",
           "raw": {
             "key": "FastHealing",
@@ -3432,17 +3230,6 @@
         },
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "all-speeds",
-            "slug": "glue-bomb-penalty",
-            "type": "status",
-            "value": -10
-          }
-        },
-        {
-          "type": "rule",
           "key": "AdjustModifier",
           "raw": {
             "key": "AdjustModifier",
@@ -3502,25 +3289,6 @@
             "key": "Resistance",
             "type": "physical",
             "value": "@item.badge.value"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "effect:effect-iron-medallion",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.xV9rME2l1f10mnF9",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["fear"],
-            "selector": "saving-throw",
-            "type": "status",
-            "value": 2
           }
         }
       ]
@@ -4096,24 +3864,6 @@
     {
       "type": "entry",
       "pack": "gm-core",
-      "slug": "effect:effect-potion-of-emergency-escape",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.EZsHuGGSLER67CiM",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "all-speeds",
-            "type": "status",
-            "value": 40
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
       "slug": "effect:effect-potion-of-fire-resistance",
       "foundry": "Compendium.pf2e.equipment-effects.Item.34gtdURRTZMS5bDK",
       "gaps": [
@@ -4647,16 +4397,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "stealth",
-            "type": "item",
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
           "key": "CreatureSize",
           "raw": {
             "key": "CreatureSize",
@@ -4694,25 +4434,6 @@
             "mode": "add",
             "property": "materials",
             "value": "silver"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "effect:effect-sneaky-key",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.ehcAvmjZVzyFJclB",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["action:pick-a-lock"],
-            "selector": "thievery",
-            "type": "status",
-            "value": 1
           }
         }
       ]
@@ -4825,17 +4546,6 @@
         },
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "religion",
-            "slug": "thurible-of-revelation-bonus",
-            "type": "item",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
           "key": "AdjustDegreeOfSuccess",
           "raw": {
             "adjustment": {
@@ -4919,25 +4629,6 @@
     {
       "type": "entry",
       "pack": "gm-core",
-      "slug": "effect:effect-wind-barrier",
-      "foundry": "Compendium.pf2e.campaign-effects.Item.MH3VWOysJ8XboONX",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["item:ranged"],
-            "selector": "ac",
-            "type": "circumstance",
-            "value": "ternary(gte(@actor.level,13),3,2)"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
       "slug": "effect:effect-winged-sandals",
       "foundry": "Compendium.pf2e.equipment-effects.Item.1S51uIRb9bnZtpFU",
       "gaps": [
@@ -4948,61 +4639,6 @@
             "key": "BaseSpeed",
             "selector": "fly",
             "value": 30
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "effect:spell-effect-hidden-mind",
-      "foundry": "Compendium.pf2e.spell-effects.Item.DBaMtFHRPEg1JeLs",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["item:trait:mental"],
-            "selector": "saving-throw",
-            "type": "status",
-            "value": 4
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:accolade-robe",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.D8VKhm7rSBozJkMN",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "arcana",
-            "type": "item",
-            "value": 2
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:accolade-robe-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.ZdAZ1ALZ28QOeCN7",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "arcana",
-            "type": "item",
-            "value": 3
           }
         }
       ]
@@ -5153,122 +4789,9 @@
     {
       "type": "entry",
       "pack": "gm-core",
-      "slug": "equipment:alacritous-horseshoes",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.peoheZMxdPHUNo93",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "or": ["action:high-jump", "action:long-jump"]
-              }
-            ],
-            "selector": ["athletics"],
-            "type": "circumstance",
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "land-speed",
-            "type": "item",
-            "value": 5
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:alacritous-horseshoes-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.t0pzdb54KD2JQcEa",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "Horseshoes of Speed (long & high jumps)",
-            "predicate": [
-              {
-                "or": ["action:high-jump", "action:long-jump"]
-              }
-            ],
-            "selector": "athletics",
-            "type": "item",
-            "value": 3
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "land-speed",
-            "type": "item",
-            "value": 10
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:arboreal-boots",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.amJW9azNUSJLmWGP",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "acrobatics",
-            "type": "item",
-            "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:arboreal-boots-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.rRAx62TLPTZSiaLD",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "acrobatics",
-            "type": "item",
-            "value": 2
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
       "slug": "equipment:armbands-of-athleticism",
       "foundry": "Compendium.pf2e.equipment-srd.Item.wI4Tj8bNwpZHequC",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "athletics",
-            "type": "item",
-            "value": 2
-          }
-        },
         {
           "type": "rule",
           "key": "Note",
@@ -5295,16 +4818,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "athletics",
-            "type": "item",
-            "value": 3
-          }
-        },
-        {
-          "type": "rule",
           "key": "Note",
           "raw": {
             "key": "Note",
@@ -5329,32 +4842,10 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": ["ac", "saving-throw"],
-            "slug": "bands-of-force",
-            "type": "item",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
           "key": "DexterityModifierCap",
           "raw": {
             "key": "DexterityModifierCap",
             "value": 5
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["bands-of-force"],
-            "selector": ["athletics"],
-            "slug": "bands-of-force",
-            "value": 14
           }
         },
         {
@@ -5390,32 +4881,10 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": ["ac", "saving-throw"],
-            "slug": "bands-of-force",
-            "type": "item",
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
           "key": "DexterityModifierCap",
           "raw": {
             "key": "DexterityModifierCap",
             "value": 5
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["bands-of-force-greater"],
-            "selector": ["athletics"],
-            "slug": "bands-of-force-greater",
-            "value": 21
           }
         },
         {
@@ -5451,32 +4920,10 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": ["ac", "saving-throw"],
-            "slug": "bands-of-force",
-            "type": "item",
-            "value": 3
-          }
-        },
-        {
-          "type": "rule",
           "key": "DexterityModifierCap",
           "raw": {
             "key": "DexterityModifierCap",
             "value": 5
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["bands-of-force-major"],
-            "selector": ["athletics"],
-            "slug": "bands-of-force-major",
-            "value": 33
           }
         },
         {
@@ -5523,85 +4970,9 @@
     {
       "type": "entry",
       "pack": "gm-core",
-      "slug": "equipment:boots-of-bounding",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.ecqz1iUGtyQEkZwy",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "land-speed",
-            "type": "item",
-            "value": 5
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "or": ["action:high-jump", "action:long-jump"]
-              }
-            ],
-            "selector": "athletics",
-            "type": "item",
-            "value": 2
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:boots-of-bounding-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.31knfVD7lEd8BPrQ",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "land-speed",
-            "type": "item",
-            "value": 10
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "or": ["action:high-jump", "action:long-jump"]
-              }
-            ],
-            "selector": "athletics",
-            "type": "item",
-            "value": 3
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
       "slug": "equipment:bracelet-of-dashing",
       "foundry": "Compendium.pf2e.equipment-srd.Item.BKdzb8hu3kZtKH3Z",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "acrobatics",
-            "type": "item",
-            "value": 1
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[equipment-effects]"
@@ -5638,32 +5009,6 @@
       "slug": "equipment:bracers-of-strength",
       "foundry": "Compendium.pf2e.equipment-srd.Item.WOiCJSS2MicKCMVs",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "athletics",
-            "type": "item",
-            "value": 3
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "or": ["action:lift-heavy-object", "action:escape", "action:force-open"]
-              }
-            ],
-            "selector": "athletics",
-            "slug": "bracers-of-strength-action",
-            "type": "circumstance",
-            "value": 2
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[actionspf2e]"
@@ -5715,16 +5060,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.uiJAR3jQbQHhiP3Q",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "deception",
-            "type": "item",
-            "value": 2
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
         },
@@ -5741,16 +5076,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.LKdgj4UVmOvUwkZu",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "thievery",
-            "type": "item",
-            "value": 1
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
         }
@@ -5762,16 +5087,6 @@
       "slug": "equipment:charlatans-gloves-greater",
       "foundry": "Compendium.pf2e.equipment-srd.Item.t8RXms7xq8atF9W7",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "thievery",
-            "type": "item",
-            "value": 2
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
@@ -5943,42 +5258,6 @@
     {
       "type": "entry",
       "pack": "gm-core",
-      "slug": "equipment:choker-of-elocution",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.TacKaUs8cIddqiCU",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "society",
-            "type": "item",
-            "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:choker-of-elocution-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.br4eClrcGeLTL6Ba",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "society",
-            "type": "item",
-            "value": 2
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
       "slug": "equipment:clandestine-cloak",
       "foundry": "Compendium.pf2e.equipment-srd.Item.hmmDa6LCS22dZT7P",
       "gaps": [
@@ -5990,42 +5269,6 @@
             "label": "PF2E.SpecificRule.Equipment.ClandestineCloak.RollOptionLabel",
             "option": "clandestine-cloak",
             "toggleable": true
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "hideIfDisabled": true,
-            "key": "FlatModifier",
-            "predicate": ["clandestine-cloak"],
-            "selector": "stealth",
-            "type": "item",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "hideIfDisabled": true,
-            "key": "FlatModifier",
-            "predicate": ["clandestine-cloak", "action:impersonate"],
-            "selector": "deception",
-            "type": "item",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "hideIfDisabled": true,
-            "key": "FlatModifier",
-            "predicate": ["clandestine-cloak"],
-            "selector": ["diplomacy", "intimidation"],
-            "type": "item",
-            "value": -1
           }
         },
         {
@@ -6055,42 +5298,6 @@
           }
         },
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "hideIfDisabled": true,
-            "key": "FlatModifier",
-            "predicate": ["clandestine-cloak"],
-            "selector": "stealth",
-            "type": "item",
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "hideIfDisabled": true,
-            "key": "FlatModifier",
-            "predicate": ["clandestine-cloak", "action:impersonate"],
-            "selector": "deception",
-            "type": "item",
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "hideIfDisabled": true,
-            "key": "FlatModifier",
-            "predicate": ["clandestine-cloak"],
-            "selector": ["diplomacy", "intimidation"],
-            "type": "item",
-            "value": -1
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[actionspf2e]"
         },
@@ -6107,16 +5314,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.0HvjITehMdaFYUkb",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "stealth",
-            "type": "item",
-            "value": 1
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
         }
@@ -6129,16 +5326,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.I0XiBnHFCXi64XiD",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "stealth",
-            "type": "item",
-            "value": 2
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
         }
@@ -6150,16 +5337,6 @@
       "slug": "equipment:cloak-of-swiftness",
       "foundry": "Compendium.pf2e.equipment-srd.Item.C3SwBSW8XzzBPDVT",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "acrobatics",
-            "type": "item",
-            "value": 3
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[conditionitems]"
@@ -6222,16 +5399,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "survival",
-            "type": "item",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
           "key": "Note",
           "raw": {
             "key": "Note",
@@ -6252,16 +5419,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "survival",
-            "type": "item",
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
           "key": "Note",
           "raw": {
             "key": "Note",
@@ -6277,37 +5434,9 @@
     {
       "type": "entry",
       "pack": "gm-core",
-      "slug": "equipment:crafters-eyepiece",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.RgNBGpBc9G2yw1C2",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "crafting",
-            "type": "item",
-            "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
       "slug": "equipment:crafters-eyepiece-greater",
       "foundry": "Compendium.pf2e.equipment-srd.Item.JSYtBZ7XblyAEFoV",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "crafting",
-            "type": "item",
-            "value": 2
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
@@ -6321,55 +5450,8 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.1FKDq4Gfev5GObDT",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["action:recall-knowledge"],
-            "selector": "skill-check",
-            "type": "item",
-            "value": 3
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:crown-of-witchcraft",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.4v8FIJSPaJUbccLz",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "intimidation",
-            "type": "item",
-            "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:crown-of-witchcraft-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.4v850xbHgUdlvamn",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "intimidation",
-            "type": "item",
-            "value": 2
-          }
         }
       ]
     },
@@ -6440,17 +5522,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.Epc1e1Q9M9bcwOR0",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["action:perform:dance"],
-            "selector": "performance",
-            "type": "item",
-            "value": 1
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[conditionitems]"
         }
@@ -6463,17 +5534,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.QJ1PhbtbLzwhRlY0",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["action:perform:dance"],
-            "selector": "performance",
-            "type": "item",
-            "value": 2
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[conditionitems]"
         }
@@ -6485,29 +5545,6 @@
       "slug": "equipment:daredevil-boots",
       "foundry": "Compendium.pf2e.equipment-srd.Item.mmdnWrQsh7vDspLK",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "acrobatics",
-            "type": "item",
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "PF2E.SpecificRule.Equipment.DaredevilBoots.TumbleThroughLabel",
-            "predicate": ["action:tumble-through"],
-            "selector": "skill-check",
-            "slug": "daredevil-boots-tumble-through",
-            "type": "circumstance",
-            "value": 1
-          }
-        },
         {
           "type": "enricher",
           "enricher": "[[/act]]"
@@ -6524,29 +5561,6 @@
       "slug": "equipment:daredevil-boots-greater",
       "foundry": "Compendium.pf2e.equipment-srd.Item.kjFFmqci69k2zMXF",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "acrobatics",
-            "type": "item",
-            "value": 3
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "PF2E.SpecificRule.Equipment.DaredevilBoots.TumbleThroughLabel",
-            "predicate": ["action:tumble-through"],
-            "selector": "skill-check",
-            "slug": "daredevil-boots-tumble-through",
-            "type": "circumstance",
-            "value": 2
-          }
-        },
         {
           "type": "enricher",
           "enricher": "[[/act]]"
@@ -6592,16 +5606,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.2gYZiUw9yjtb0yJY",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "intimidation",
-            "type": "item",
-            "value": 1
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
         }
@@ -6614,54 +5618,8 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.shKPtYN0YUOe07K2",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "intimidation",
-            "type": "item",
-            "value": 2
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:devoted-vestments",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.as84dZ5Hliru148n",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "religion",
-            "type": "item",
-            "value": 2
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:diplomats-badge",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.JJZgRx6naNJmDa81",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "diplomacy",
-            "type": "item",
-            "value": 1
-          }
         }
       ]
     },
@@ -6671,16 +5629,6 @@
       "slug": "equipment:dread-blindfold",
       "foundry": "Compendium.pf2e.equipment-srd.Item.pDw2wi0znVb8Dysg",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "intimidation",
-            "type": "item",
-            "value": 3
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[conditionitems]"
@@ -6968,39 +5916,9 @@
     {
       "type": "entry",
       "pack": "gm-core",
-      "slug": "equipment:eyes-of-the-cat",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.dLTN4FU3qBoDZ5CJ",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["visual"],
-            "selector": "perception",
-            "type": "item",
-            "value": 2
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
       "slug": "equipment:genius-diadem",
       "foundry": "Compendium.pf2e.equipment-srd.Item.QZaOQ8luuxWXpFqJ",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["action:recall-knowledge"],
-            "selector": "skill-check",
-            "type": "item",
-            "value": 3
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
@@ -7013,16 +5931,6 @@
       "slug": "equipment:gorget-of-the-primal-roar",
       "foundry": "Compendium.pf2e.equipment-srd.Item.WYg2dZ8UK1N3rpgs",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "intimidation",
-            "type": "item",
-            "value": 2
-          }
-        },
         {
           "type": "field",
           "reason": "unmapped-value",
@@ -7048,42 +5956,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:healers-gloves",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.o1zKhvYUUc1hE2AE",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "medicine",
-            "type": "item",
-            "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:healers-gloves-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.0GOHTXBxs6H6ARBz",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "medicine",
-            "type": "item",
-            "value": 2
-          }
         }
       ]
     },
@@ -7123,28 +5995,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.FXdESP5mmP01tL2v",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "society",
-            "type": "item",
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "PF2E.SpecificRule.Equipment.HumbugPocket.ConcealAnObjectLabel",
-            "predicate": ["action:conceal-an-object"],
-            "selector": "stealth",
-            "type": "item",
-            "value": 2
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[actionspf2e]"
         }
@@ -7156,28 +6006,6 @@
       "slug": "equipment:humbug-pocket-greater",
       "foundry": "Compendium.pf2e.equipment-srd.Item.AynKTlER5ZbfF62f",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "society",
-            "type": "item",
-            "value": 3
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "PF2E.SpecificRule.Equipment.HumbugPocket.ConcealAnObjectLabel",
-            "predicate": ["action:conceal-an-object"],
-            "selector": "stealth",
-            "type": "item",
-            "value": 3
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[actionspf2e]"
@@ -7191,22 +6019,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.V9iVPhIk980GT6A2",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "Inexplicable Apparatus (craft, earn income, repair)",
-            "predicate": [
-              {
-                "or": ["action:craft", "action:earn-income", "action:repair"]
-              }
-            ],
-            "selector": "crafting",
-            "type": "item",
-            "value": 3
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
         }
@@ -7218,16 +6030,6 @@
       "slug": "equipment:lifting-belt",
       "foundry": "Compendium.pf2e.equipment-srd.Item.g2oaOGSpttfH1q6W",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "athletics",
-            "type": "item",
-            "value": 1
-          }
-        },
         {
           "type": "rule",
           "key": "ActiveEffectLike",
@@ -7253,55 +6055,9 @@
     {
       "type": "entry",
       "pack": "gm-core",
-      "slug": "equipment:living-mantle",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.hvlEFx25ogf1K1C2",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "nature",
-            "type": "item",
-            "value": 2
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:living-mantle-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.IdI7rfCk7WjGbJHN",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "nature",
-            "type": "item",
-            "value": 3
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
       "slug": "equipment:lovers-gloves",
       "foundry": "Compendium.pf2e.equipment-srd.Item.nZE16PtiyY7DWlzd",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "diplomacy",
-            "type": "item",
-            "value": 1
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[equipment-effects]"
@@ -7350,17 +6106,6 @@
           }
         },
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["playing"],
-            "selector": "performance",
-            "type": "item",
-            "value": 3
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
         }
@@ -7381,17 +6126,6 @@
             "label": "PF2E.SpecificRule.PlayingItem",
             "option": "playing",
             "toggleable": true
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["playing"],
-            "selector": "performance",
-            "type": "item",
-            "value": 1
           }
         },
         {
@@ -7418,17 +6152,6 @@
           }
         },
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["playing"],
-            "selector": "performance",
-            "type": "item",
-            "value": 2
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
         }
@@ -7441,16 +6164,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.SswqJqeAWGtX3tTF",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "arcana",
-            "type": "item",
-            "value": 1
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
         }
@@ -7462,16 +6175,6 @@
       "slug": "equipment:mages-hat-greater",
       "foundry": "Compendium.pf2e.equipment-srd.Item.Hd1AfC08ytBg67Ey",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "arcana",
-            "type": "item",
-            "value": 2
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
@@ -7555,16 +6258,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.HAtj6AGCIZHpD7Nl",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "diplomacy",
-            "type": "item",
-            "value": 2
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
         }
@@ -7576,16 +6269,6 @@
       "slug": "equipment:messengers-ring-greater",
       "foundry": "Compendium.pf2e.equipment-srd.Item.b9YHyjOL4sg7tjI4",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "diplomacy",
-            "type": "item",
-            "value": 3
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
@@ -7627,37 +6310,8 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.AMOs47C4WiVY5IW3",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": ["diplomacy", "deception"],
-            "type": "item",
-            "value": 2
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:obsidian-goggles",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.K7VHhUamFz3kTnm5",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["visual"],
-            "selector": "perception",
-            "type": "item",
-            "value": 1
-          }
         }
       ]
     },
@@ -7667,17 +6321,6 @@
       "slug": "equipment:obsidian-goggles-greater",
       "foundry": "Compendium.pf2e.equipment-srd.Item.Tej30MsQo8Ek9aA6",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["item:trait:visual"],
-            "selector": "perception",
-            "type": "item",
-            "value": 2
-          }
-        },
         {
           "type": "rule",
           "key": "RollOption",
@@ -7704,17 +6347,6 @@
       "slug": "equipment:obsidian-goggles-major",
       "foundry": "Compendium.pf2e.equipment-srd.Item.rXXNw6dwVn96giDi",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["item:trait:visual"],
-            "selector": "perception",
-            "type": "item",
-            "value": 3
-          }
-        },
         {
           "type": "rule",
           "key": "RollOption",
@@ -7766,16 +6398,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.zPhqmCvWyHO8i9ws",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "occultism",
-            "type": "item",
-            "value": 1
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
         }
@@ -7788,105 +6410,8 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.1bvH8zFQvDYky9tr",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "occultism",
-            "type": "item",
-            "value": 2
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:persona-mask",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.MKupH1T018JubYJW",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "Persona Mask (acting, orating, comedy, singing)",
-            "predicate": [
-              {
-                "or": ["acting", "orating", "performing-comedy", "singing"]
-              }
-            ],
-            "selector": "performance",
-            "type": "item",
-            "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:persona-mask-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.0PPQl3TEr1yNhhN6",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "Persona Mask (acting, orating, comedy, singing)",
-            "predicate": [
-              {
-                "or": ["acting", "orating", "performing-comedy", "singing"]
-              }
-            ],
-            "selector": "performance",
-            "type": "item",
-            "value": 2
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:philosophers-extractor",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.mH3LImCgJAkfKAA3",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["action:craft:alchemical"],
-            "selector": "crafting",
-            "type": "item",
-            "value": 4
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:possibility-tome",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.vZaXDOrp5Faxw5fS",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "Possibility Tome (Recall Knowledge)",
-            "predicate": ["action:recall-knowledge"],
-            "selector": "skill-check",
-            "type": "item",
-            "value": 3
-          }
         }
       ]
     },
@@ -7896,16 +6421,6 @@
       "slug": "equipment:primeval-mistletoe",
       "foundry": "Compendium.pf2e.equipment-srd.Item.J5MqY1P3JWrezcQX",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "nature",
-            "type": "item",
-            "value": 1
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
@@ -7919,16 +6434,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.HZDkF6MlNQ6yYobD",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "nature",
-            "type": "item",
-            "value": 2
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
         }
@@ -7940,16 +6445,6 @@
       "slug": "equipment:propulsive-boots",
       "foundry": "Compendium.pf2e.equipment-srd.Item.Ck5k13uTNqibLFJk",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": ["climb-speed", "land-speed", "swim-speed"],
-            "type": "item",
-            "value": 5
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[conditionitems]"
@@ -7983,16 +6478,6 @@
       "slug": "equipment:ring-of-lies",
       "foundry": "Compendium.pf2e.equipment-srd.Item.OTeONq4r10Xm6gSy",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "deception",
-            "type": "item",
-            "value": 2
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
@@ -8105,16 +6590,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "religion",
-            "type": "item",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
           "key": "TokenLight",
           "raw": {
             "key": "TokenLight",
@@ -8195,16 +6670,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "religion",
-            "type": "item",
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
           "key": "TokenLight",
           "raw": {
             "key": "TokenLight",
@@ -8283,16 +6748,6 @@
       "slug": "equipment:shining-symbol-major",
       "foundry": "Compendium.pf2e.equipment-srd.Item.etnis6HOeGZEbScD",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "religion",
-            "type": "item",
-            "value": 3
-          }
-        },
         {
           "type": "rule",
           "key": "TokenLight",
@@ -8410,18 +6865,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.fprUZviW8khm2BLo",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "Skeleton Key (Pick a Lock)",
-            "predicate": ["action:pick-a-lock"],
-            "selector": "thievery",
-            "type": "item",
-            "value": 1
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
         }
@@ -8433,18 +6876,6 @@
       "slug": "equipment:skeleton-key-greater",
       "foundry": "Compendium.pf2e.equipment-srd.Item.AFE073UYI0mkWuUs",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "Skeleton Key, Greater (Pick a Lock)",
-            "predicate": ["action:pick-a-lock"],
-            "selector": "thievery",
-            "type": "item",
-            "value": 2
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
@@ -8458,31 +6889,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.BHjJpNILf85M2LJE",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "religion",
-            "type": "item",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "or": ["item:trait:holy", "item:trait:unholy"]
-              }
-            ],
-            "selector": "saving-throw",
-            "type": "circumstance",
-            "value": 1
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
         }
@@ -8494,31 +6900,6 @@
       "slug": "equipment:symbol-of-conflict-greater",
       "foundry": "Compendium.pf2e.equipment-srd.Item.Wtm4JdxeTLQi3zQI",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "religion",
-            "type": "item",
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "or": ["item:trait:holy", "item:trait:unholy"]
-              }
-            ],
-            "selector": "saving-throw",
-            "type": "circumstance",
-            "value": 1
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
@@ -8532,31 +6913,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.C7FeT7eVuwRnLhJy",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "religion",
-            "type": "item",
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "or": ["item:trait:holy", "item:trait:unholy"]
-              }
-            ],
-            "selector": "saving-throw",
-            "type": "circumstance",
-            "value": 1
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
         }
@@ -8568,16 +6924,6 @@
       "slug": "equipment:third-eye",
       "foundry": "Compendium.pf2e.equipment-srd.Item.7MTjAlCVVLsNFo7w",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "perception",
-            "type": "item",
-            "value": 3
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
@@ -8611,67 +6957,9 @@
     {
       "type": "entry",
       "pack": "gm-core",
-      "slug": "equipment:trackers-goggles",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.ZEqAx8jEc6zhX3V1",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "Tracker's Goggles (Sense Direction & Track)",
-            "predicate": [
-              {
-                "or": ["action:sense-direction", "action:track"]
-              }
-            ],
-            "selector": "survival",
-            "type": "item",
-            "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:trackers-goggles-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.OYeYYJ4i66VtGY3O",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "Tracker's Goggles (Sense Direction & Track)",
-            "predicate": [
-              {
-                "or": ["action:sense-direction", "action:track"]
-              }
-            ],
-            "selector": "survival",
-            "type": "item",
-            "value": 2
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
       "slug": "equipment:ventriloquists-ring",
       "foundry": "Compendium.pf2e.equipment-srd.Item.1r6StS0irdvi5JHY",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "deception",
-            "type": "item",
-            "value": 1
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
@@ -8685,16 +6973,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.dolBtAdB5lpQpQpp",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "deception",
-            "type": "item",
-            "value": 2
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
         }
@@ -8706,16 +6984,6 @@
       "slug": "equipment:voyagers-pack",
       "foundry": "Compendium.pf2e.equipment-srd.Item.LRSIRUERqBAJ1HGT",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "survival",
-            "type": "item",
-            "value": 3
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
@@ -9508,16 +7776,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.sKyJDfHdKacfbNOG",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "deception",
-            "type": "item",
-            "value": 3
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
         }
@@ -9766,25 +8024,6 @@
     {
       "type": "entry",
       "pack": "gm-core",
-      "slug": "shield:dragonslayers-shield",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.Q8BscHUFiM1a86PO",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["action:frightful-presence", "origin:trait:dragon"],
-            "selector": "will",
-            "type": "circumstance",
-            "value": 2
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
       "slug": "shield:forge-warden",
       "foundry": "Compendium.pf2e.equipment-srd.Item.NoTUhKkiTY5BQU5T",
       "gaps": [
@@ -9884,18 +8123,6 @@
             "option": "reflecting-shield",
             "toggleable": true
           }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "hideIfDisabled": true,
-            "key": "FlatModifier",
-            "predicate": ["self:shield:raised", "reflecting-shield", "item:type:spell"],
-            "selector": "saving-throw",
-            "type": "circumstance",
-            "value": 2
-          }
         }
       ]
     },
@@ -9914,18 +8141,6 @@
             "option": "spellguard-shield",
             "toggleable": true
           }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "hideIfDisabled": true,
-            "key": "FlatModifier",
-            "predicate": ["self:shield:raised", "spellguard-shield", "item:type:spell"],
-            "selector": "saving-throw",
-            "type": "circumstance",
-            "value": 2
-          }
         }
       ]
     },
@@ -9935,23 +8150,6 @@
       "slug": "weapon:animal-staff",
       "foundry": "Compendium.pf2e.equipment-srd.Item.WcuknnE3xYfSdbhm",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "Animal Staff (identify animals)",
-            "predicate": [
-              "target:trait:animal",
-              {
-                "or": ["action:recall-knowledge", "action:identify"]
-              }
-            ],
-            "selector": "nature",
-            "type": "circumstance",
-            "value": 2
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
@@ -9965,23 +8163,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.bT9azgpc96DNbitA",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "Animal Staff (identify animals)",
-            "predicate": [
-              "target:trait:animal",
-              {
-                "or": ["action:recall-knowledge", "action:identify"]
-              }
-            ],
-            "selector": "nature",
-            "type": "circumstance",
-            "value": 2
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
         }
@@ -9993,23 +8174,6 @@
       "slug": "weapon:animal-staff-major",
       "foundry": "Compendium.pf2e.equipment-srd.Item.Oo7IpJQDSTmzUyzG",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "Animal Staff (identify animals)",
-            "predicate": [
-              "target:trait:animal",
-              {
-                "or": ["action:recall-knowledge", "action:identify"]
-              }
-            ],
-            "selector": "nature",
-            "type": "circumstance",
-            "value": 2
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
@@ -10298,22 +8462,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.B71BgdfFApkYmAjc",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              "action:identify-magic",
-              {
-                "or": ["item:trait:morph", "item:trait:polymorph"]
-              }
-            ],
-            "selector": "perception",
-            "type": "circumstance",
-            "value": 2
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
         }
@@ -10326,22 +8474,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.bQynfb23iexSu8zU",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              "action:identify-magic",
-              {
-                "or": ["item:trait:morph", "item:trait:polymorph"]
-              }
-            ],
-            "selector": "perception",
-            "type": "circumstance",
-            "value": 2
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
         }
@@ -10353,22 +8485,6 @@
       "slug": "weapon:fluid-form-staff-major",
       "foundry": "Compendium.pf2e.equipment-srd.Item.smrNvKVL976JNEab",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              "action:identify-magic",
-              {
-                "or": ["item:trait:morph", "item:trait:polymorph"]
-              }
-            ],
-            "selector": "perception",
-            "type": "circumstance",
-            "value": 2
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
@@ -10716,18 +8832,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.xwiZBOjispKVZzGA",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "Mentalist's Staff (identifying mental magic)",
-            "predicate": ["action:identify-magic", "mental"],
-            "selector": "skill-check",
-            "type": "circumstance",
-            "value": 2
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
         }
@@ -10740,18 +8844,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.0RCC0fOg1Lp7f79I",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "Mentalist's Staff (identifying mental magic)",
-            "predicate": ["action:identify-magic", "mental"],
-            "selector": "skill-check",
-            "type": "circumstance",
-            "value": 2
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
         }
@@ -10763,18 +8855,6 @@
       "slug": "weapon:mentalists-staff-major",
       "foundry": "Compendium.pf2e.equipment-srd.Item.DTIBj6Yhy73G5P6j",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "Mentalist's Staff (identifying mental magic)",
-            "predicate": ["action:identify-magic", "mental"],
-            "selector": "skill-check",
-            "type": "circumstance",
-            "value": 2
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
@@ -10967,22 +9047,6 @@
         },
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              "origin:deity:slug:zon-kuthon",
-              {
-                "or": ["death", "void"]
-              }
-            ],
-            "selector": "saving-throw",
-            "type": "status",
-            "value": 4
-          }
-        },
-        {
-          "type": "rule",
           "key": "Resistance",
           "raw": {
             "definition": ["damage:type:void", "origin:deity:slug:zon-kuthon"],
@@ -11104,17 +9168,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.wUFQ8cqkwn2xTCma",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["action:request"],
-            "selector": "diplomacy",
-            "type": "status",
-            "value": 1
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[actionspf2e]"
         },
@@ -11130,17 +9183,6 @@
       "slug": "weapon:staff-of-control-greater",
       "foundry": "Compendium.pf2e.equipment-srd.Item.d5dnhOf5RHFFnsiB",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["action:request"],
-            "selector": "diplomacy",
-            "type": "status",
-            "value": 1
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[actionspf2e]"
@@ -11158,17 +9200,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.ndF4yxyM5ci1DcrO",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["action:request"],
-            "selector": "diplomacy",
-            "type": "status",
-            "value": 1
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[actionspf2e]"
         },
@@ -11185,22 +9216,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.0Vw44XmzVS4knsa8",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              "target:trait:elemental",
-              {
-                "or": ["action:recall-knowledge", "action:identify"]
-              }
-            ],
-            "selector": "skill-check",
-            "type": "circumstance",
-            "value": 2
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
         }
@@ -11213,22 +9228,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.nvSZioRW4J1sMtO7",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              "target:trait:elemental",
-              {
-                "or": ["action:recall-knowledge", "action:identify"]
-              }
-            ],
-            "selector": "skill-check",
-            "type": "circumstance",
-            "value": 2
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
         }
@@ -11240,22 +9239,6 @@
       "slug": "weapon:staff-of-elemental-power-major",
       "foundry": "Compendium.pf2e.equipment-srd.Item.9UfuJHNdyBBNfCsO",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              "target:trait:elemental",
-              {
-                "or": ["action:recall-knowledge", "action:identify"]
-              }
-            ],
-            "selector": "skill-check",
-            "type": "circumstance",
-            "value": 2
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
@@ -11305,17 +9288,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.3OkOKxCee9WruGU5",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["item:type:spell", "item:slug:heal"],
-            "selector": "healing",
-            "type": "item",
-            "value": 1
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
         }
@@ -11327,17 +9299,6 @@
       "slug": "weapon:staff-of-healing-greater",
       "foundry": "Compendium.pf2e.equipment-srd.Item.XSwEE8wjHr6UXzpw",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["item:type:spell", "item:slug:heal"],
-            "selector": "healing",
-            "type": "item",
-            "value": 2
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
@@ -11351,17 +9312,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.FTVap8IjoKgCexH7",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["item:type:spell", "item:slug:heal"],
-            "selector": "healing",
-            "type": "item",
-            "value": 3
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
         }
@@ -11373,17 +9323,6 @@
       "slug": "weapon:staff-of-healing-true",
       "foundry": "Compendium.pf2e.equipment-srd.Item.WbcQqXrUytXkCMK3",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["item:type:spell", "item:slug:heal"],
-            "selector": "healing",
-            "type": "item",
-            "value": 4
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
@@ -11409,17 +9348,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.HVgolLqbXUeRHXVN",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["item:trait:illusion"],
-            "selector": ["perception", "will"],
-            "type": "status",
-            "value": 2
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
         }
@@ -11431,17 +9359,6 @@
       "slug": "weapon:staff-of-phantasms-greater",
       "foundry": "Compendium.pf2e.equipment-srd.Item.Svq02kCaFadVPOSq",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["item:trait:illusion"],
-            "selector": ["perception", "will"],
-            "type": "status",
-            "value": 2
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
@@ -11455,17 +9372,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.7RBY90RmMtZjvnGW",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["item:trait:illusion"],
-            "selector": ["perception", "will"],
-            "type": "status",
-            "value": 2
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
         }
@@ -11477,21 +9383,6 @@
       "slug": "weapon:staff-of-protection",
       "foundry": "Compendium.pf2e.equipment-srd.Item.4O00N0HoPz5ywNyz",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "or": ["action:trip", "action:shove"]
-              }
-            ],
-            "selector": ["reflex", "fortitude"],
-            "type": "circumstance",
-            "value": 1
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
@@ -11505,21 +9396,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.XE8AxkahYPVzeLCW",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "or": ["action:trip", "action:shove"]
-              }
-            ],
-            "selector": ["reflex", "fortitude"],
-            "type": "circumstance",
-            "value": 1
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
         }
@@ -11531,21 +9407,6 @@
       "slug": "weapon:staff-of-protection-major",
       "foundry": "Compendium.pf2e.equipment-srd.Item.TLLZIFIPbhW8kjyL",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "or": ["action:trip", "action:shove"]
-              }
-            ],
-            "selector": ["reflex", "fortitude"],
-            "type": "circumstance",
-            "value": 1
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
@@ -11631,17 +9492,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.uhsVSBF4f3D5oym0",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["check:type:initiative"],
-            "selector": "perception",
-            "type": "status",
-            "value": 1
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
         }
@@ -11654,17 +9504,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.jUL4ZdztH8VODBuv",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["check:type:initiative"],
-            "selector": "perception",
-            "type": "status",
-            "value": 1
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
         }
@@ -11676,17 +9515,6 @@
       "slug": "weapon:staff-of-the-unblinking-eye-major",
       "foundry": "Compendium.pf2e.equipment-srd.Item.APjEozp9ibSFV7zM",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["check:type:initiative"],
-            "selector": "perception",
-            "type": "status",
-            "value": 1
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
@@ -11742,24 +9570,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.sQFQlglhORQsxBKS",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "or": ["target:trait:plant", "target:trait:fungus"]
-              },
-              {
-                "or": ["action:recall-knowledge", "action:identify"]
-              }
-            ],
-            "selector": "skill-check",
-            "type": "circumstance",
-            "value": 2
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
         }
@@ -11771,24 +9581,6 @@
       "slug": "weapon:verdant-staff-greater",
       "foundry": "Compendium.pf2e.equipment-srd.Item.ylRk8NvpK2kA8bjw",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "or": ["target:trait:plant", "target:trait:fungus"]
-              },
-              {
-                "or": ["action:recall-knowledge", "action:identify"]
-              }
-            ],
-            "selector": "skill-check",
-            "type": "circumstance",
-            "value": 2
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"

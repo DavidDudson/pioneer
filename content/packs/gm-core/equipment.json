@@ -152,7 +152,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:arcana"],
+        "type": "item",
+        "value": 2
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.D8VKhm7rSBozJkMN"
     },
@@ -341,7 +348,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:arcana"],
+        "type": "item",
+        "value": 3
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.ZdAZ1ALZ28QOeCN7"
     },
@@ -2213,7 +2227,25 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["action:high-jump", "action:long-jump"]
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "item",
+        "value": 5
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.peoheZMxdPHUNo93"
     },
@@ -2265,7 +2297,28 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "item",
+        "value": 3,
+        "predicate": [
+          {
+            "or": ["action:high-jump", "action:long-jump"]
+          }
+        ],
+        "display": {
+          "label": "Horseshoes of Speed (long & high jumps)"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "item",
+        "value": 10
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.t0pzdb54KD2JQcEa"
     },
@@ -2308,7 +2361,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:acrobatics"],
+        "type": "item",
+        "value": 1
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.amJW9azNUSJLmWGP"
     },
@@ -2360,7 +2420,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:acrobatics"],
+        "type": "item",
+        "value": 2
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.rRAx62TLPTZSiaLD"
     },
@@ -2421,7 +2488,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "item",
+        "value": 2
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.wI4Tj8bNwpZHequC"
     },
@@ -2482,7 +2556,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "item",
+        "value": 3
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.FNccUmKsyXKmfe5c"
     },
@@ -2664,7 +2745,23 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "saving-throw"],
+        "type": "item",
+        "value": 1,
+        "slug": "bands-of-force"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "untyped",
+        "value": 14,
+        "slug": "bands-of-force",
+        "predicate": ["option:bands-of-force"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.02q8s6sSicMkhs1l"
     },
@@ -2760,7 +2857,23 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "saving-throw"],
+        "type": "item",
+        "value": 2,
+        "slug": "bands-of-force"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "untyped",
+        "value": 21,
+        "slug": "bands-of-force-greater",
+        "predicate": ["option:bands-of-force-greater"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.8mhSUxEvNuXDP8Ki"
     },
@@ -2856,7 +2969,23 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "saving-throw"],
+        "type": "item",
+        "value": 3,
+        "slug": "bands-of-force"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "untyped",
+        "value": 33,
+        "slug": "bands-of-force-major",
+        "predicate": ["option:bands-of-force-major"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.rqJzQawe3CbXiWnG"
     },
@@ -3024,7 +3153,25 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "item",
+        "value": 5
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "item",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["action:high-jump", "action:long-jump"]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.ecqz1iUGtyQEkZwy"
     },
@@ -3076,7 +3223,25 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "item",
+        "value": 10
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "item",
+        "value": 3,
+        "predicate": [
+          {
+            "or": ["action:high-jump", "action:long-jump"]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.31knfVD7lEd8BPrQ"
     },
@@ -3263,7 +3428,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:acrobatics"],
+        "type": "item",
+        "value": 1
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.BKdzb8hu3kZtKH3Z"
     },
@@ -3649,7 +3821,26 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "item",
+        "value": 3
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "circumstance",
+        "value": 2,
+        "slug": "bracers-of-strength-action",
+        "predicate": [
+          {
+            "or": ["action:lift-heavy-object", "action:escape", "action:force-open"]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.WOiCJSS2MicKCMVs"
     },
@@ -3788,7 +3979,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "item",
+        "value": 2
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.uiJAR3jQbQHhiP3Q"
     },
@@ -3841,7 +4039,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:thievery"],
+        "type": "item",
+        "value": 1
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.LKdgj4UVmOvUwkZu"
     },
@@ -3911,7 +4116,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:thievery"],
+        "type": "item",
+        "value": 2
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.t8RXms7xq8atF9W7"
     },
@@ -4170,6 +4382,12 @@
       {
         "key": "Language",
         "slots": 1
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:society"],
+        "type": "item",
+        "value": 1
       }
     ],
     "externalIds": {
@@ -4250,6 +4468,12 @@
       {
         "key": "Language",
         "slots": 3
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:society"],
+        "type": "item",
+        "value": 2
       }
     ],
     "externalIds": {
@@ -4350,7 +4574,29 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["option:clandestine-cloak"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["option:clandestine-cloak", "action:impersonate"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy", "skill:intimidation"],
+        "type": "item",
+        "value": -1,
+        "predicate": ["option:clandestine-cloak"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.hmmDa6LCS22dZT7P"
     },
@@ -4459,7 +4705,29 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["option:clandestine-cloak"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["option:clandestine-cloak", "action:impersonate"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy", "skill:intimidation"],
+        "type": "item",
+        "value": -1,
+        "predicate": ["option:clandestine-cloak"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.6jRXUXzYKIpm2uNp"
     },
@@ -4680,7 +4948,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "item",
+        "value": 1
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.0HvjITehMdaFYUkb"
     },
@@ -4786,7 +5061,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "item",
+        "value": 2
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.I0XiBnHFCXi64XiD"
     },
@@ -4971,7 +5253,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:acrobatics"],
+        "type": "item",
+        "value": 3
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.C3SwBSW8XzzBPDVT"
     },
@@ -6369,7 +6658,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:survival"],
+        "type": "item",
+        "value": 1
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.mvMeloQxSiEGIlhL"
     },
@@ -6412,7 +6708,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:survival"],
+        "type": "item",
+        "value": 2
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.sls3pfkhgCbW723f"
     },
@@ -6464,7 +6767,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:crafting"],
+        "type": "item",
+        "value": 1
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.RgNBGpBc9G2yw1C2"
     },
@@ -6564,7 +6874,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:crafting"],
+        "type": "item",
+        "value": 2
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.JSYtBZ7XblyAEFoV"
     },
@@ -6682,7 +6999,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "item",
+        "value": 3,
+        "predicate": ["action:recall-knowledge"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.1FKDq4Gfev5GObDT"
     },
@@ -6824,7 +7149,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:intimidation"],
+        "type": "item",
+        "value": 1
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.4v8FIJSPaJUbccLz"
     },
@@ -6965,7 +7297,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:intimidation"],
+        "type": "item",
+        "value": 2
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.4v850xbHgUdlvamn"
     },
@@ -8045,7 +8384,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:performance"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["action:perform:dance"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.Epc1e1Q9M9bcwOR0"
     },
@@ -8141,7 +8488,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:performance"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["action:perform:dance"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.QJ1PhbtbLzwhRlY0"
     },
@@ -8193,7 +8548,25 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:acrobatics"],
+        "type": "item",
+        "value": 2
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "circumstance",
+        "value": 1,
+        "slug": "daredevil-boots-tumble-through",
+        "predicate": ["action:tumble-through"],
+        "display": {
+          "label": "Daredevil Boots (Tumble Through)"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.mmdnWrQsh7vDspLK"
     },
@@ -8298,7 +8671,25 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:acrobatics"],
+        "type": "item",
+        "value": 3
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "circumstance",
+        "value": 2,
+        "slug": "daredevil-boots-tumble-through",
+        "predicate": ["action:tumble-through"],
+        "display": {
+          "label": "Daredevil Boots (Greater) (Tumble Through)"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.kjFFmqci69k2zMXF"
     },
@@ -8956,7 +9347,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:intimidation"],
+        "type": "item",
+        "value": 1
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.2gYZiUw9yjtb0yJY"
     },
@@ -9062,7 +9460,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:intimidation"],
+        "type": "item",
+        "value": 2
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.shKPtYN0YUOe07K2"
     },
@@ -9203,7 +9608,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:religion"],
+        "type": "item",
+        "value": 2
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.as84dZ5Hliru148n"
     },
@@ -9321,7 +9733,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "item",
+        "value": 1
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.JJZgRx6naNJmDa81"
     },
@@ -9630,6 +10049,12 @@
       {
         "key": "Sense",
         "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:intimidation"],
+        "type": "item",
+        "value": 3
       }
     ],
     "externalIds": {
@@ -12256,6 +12681,13 @@
       {
         "key": "Sense",
         "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["option:visual"]
       }
     ],
     "externalIds": {
@@ -12584,7 +13016,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "item",
+        "value": 3,
+        "predicate": ["action:recall-knowledge"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.QZaOQ8luuxWXpFqJ"
     },
@@ -12758,7 +13198,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:intimidation"],
+        "type": "item",
+        "value": 2
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.WYg2dZ8UK1N3rpgs"
     },
@@ -13059,7 +13506,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:medicine"],
+        "type": "item",
+        "value": 1
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.o1zKhvYUUc1hE2AE"
     },
@@ -13179,7 +13633,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:medicine"],
+        "type": "item",
+        "value": 2
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.0GOHTXBxs6H6ARBz"
     },
@@ -13634,7 +14095,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:society"],
+        "type": "item",
+        "value": 2
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["action:conceal-an-object"],
+        "display": {
+          "label": "Humbug Pocket (Conceal an Object in the Pocket)"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.FXdESP5mmP01tL2v"
     },
@@ -13757,7 +14235,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:society"],
+        "type": "item",
+        "value": 3
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "item",
+        "value": 3,
+        "predicate": ["action:conceal-an-object"],
+        "display": {
+          "label": "Humbug Pocket (Conceal an Object in the Pocket)"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.AynKTlER5ZbfF62f"
     },
@@ -13880,7 +14375,22 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:crafting"],
+        "type": "item",
+        "value": 3,
+        "predicate": [
+          {
+            "or": ["action:craft", "action:earn-income", "action:repair"]
+          }
+        ],
+        "display": {
+          "label": "Inexplicable Apparatus (craft, earn income, repair)"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.V9iVPhIk980GT6A2"
     },
@@ -13975,7 +14485,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "item",
+        "value": 1
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.g2oaOGSpttfH1q6W"
     },
@@ -14088,7 +14605,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:nature"],
+        "type": "item",
+        "value": 2
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.hvlEFx25ogf1K1C2"
     },
@@ -14211,7 +14735,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:nature"],
+        "type": "item",
+        "value": 3
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.IdI7rfCk7WjGbJHN"
     },
@@ -14326,7 +14857,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "item",
+        "value": 1
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.nZE16PtiyY7DWlzd"
     },
@@ -14887,7 +15425,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:performance"],
+        "type": "item",
+        "value": 3,
+        "predicate": ["option:playing"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.rlDIbl6EQYXQpWVs"
     },
@@ -15037,7 +15583,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:performance"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["option:playing"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.bAfyWCvgsYDyw3ff"
     },
@@ -15187,7 +15741,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:performance"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["option:playing"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.3mprh9aZ670HfNhT"
     },
@@ -15240,7 +15802,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:arcana"],
+        "type": "item",
+        "value": 1
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.SswqJqeAWGtX3tTF"
     },
@@ -15346,7 +15915,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:arcana"],
+        "type": "item",
+        "value": 2
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.Hd1AfC08ytBg67Ey"
     },
@@ -15783,7 +16359,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "item",
+        "value": 2
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.HAtj6AGCIZHpD7Nl"
     },
@@ -15939,7 +16522,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "item",
+        "value": 3
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.b9YHyjOL4sg7tjI4"
     },
@@ -16386,7 +16976,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy", "skill:deception"],
+        "type": "item",
+        "value": 2
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.AMOs47C4WiVY5IW3"
     },
@@ -16501,7 +17098,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["option:visual"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.K7VHhUamFz3kTnm5"
     },
@@ -16607,7 +17212,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["item:trait:visual"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.Tej30MsQo8Ek9aA6"
     },
@@ -16712,7 +17325,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "item",
+        "value": 3,
+        "predicate": ["item:trait:visual"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.rXXNw6dwVn96giDi"
     },
@@ -17145,7 +17766,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:occultism"],
+        "type": "item",
+        "value": 1
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.zPhqmCvWyHO8i9ws"
     },
@@ -17241,7 +17869,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:occultism"],
+        "type": "item",
+        "value": 2
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.1bvH8zFQvDYky9tr"
     },
@@ -17332,7 +17967,22 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:performance"],
+        "type": "item",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["option:acting", "option:orating", "option:performing-comedy", "option:singing"]
+          }
+        ],
+        "display": {
+          "label": "Persona Mask (acting, orating, comedy, singing)"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.MKupH1T018JubYJW"
     },
@@ -17484,7 +18134,22 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:performance"],
+        "type": "item",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["option:acting", "option:orating", "option:performing-comedy", "option:singing"]
+          }
+        ],
+        "display": {
+          "label": "Persona Mask (acting, orating, comedy, singing)"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.0PPQl3TEr1yNhhN6"
     },
@@ -17689,7 +18354,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:crafting"],
+        "type": "item",
+        "value": 4,
+        "predicate": ["action:craft:alchemical"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.mH3LImCgJAkfKAA3"
     },
@@ -17877,7 +18550,18 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "item",
+        "value": 3,
+        "predicate": ["action:recall-knowledge"],
+        "display": {
+          "label": "Possibility Tome (Recall Knowledge)"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.vZaXDOrp5Faxw5fS"
     },
@@ -18026,7 +18710,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:nature"],
+        "type": "item",
+        "value": 1
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.J5MqY1P3JWrezcQX"
     },
@@ -18263,7 +18954,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:nature"],
+        "type": "item",
+        "value": 2
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.HZDkF6MlNQ6yYobD"
     },
@@ -18384,7 +19082,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["climb-speed", "land-speed", "swim-speed"],
+        "type": "item",
+        "value": 5
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.Ck5k13uTNqibLFJk"
     },
@@ -18991,7 +19696,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "item",
+        "value": 2
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.OTeONq4r10Xm6gSy"
     },
@@ -19587,7 +20299,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:religion"],
+        "type": "item",
+        "value": 1
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.YVtXlsEWb3NIkDyy"
     },
@@ -19736,7 +20455,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:religion"],
+        "type": "item",
+        "value": 2
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.M7c4uXraP05HYNXs"
     },
@@ -19885,7 +20611,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:religion"],
+        "type": "item",
+        "value": 3
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.etnis6HOeGZEbScD"
     },
@@ -21053,7 +21786,18 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:thievery"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["action:pick-a-lock"],
+        "display": {
+          "label": "Skeleton Key (Pick a Lock)"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.fprUZviW8khm2BLo"
     },
@@ -21191,7 +21935,18 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:thievery"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["action:pick-a-lock"],
+        "display": {
+          "label": "Skeleton Key, Greater (Pick a Lock)"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.AFE073UYI0mkWuUs"
     },
@@ -22048,7 +22803,25 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:religion"],
+        "type": "item",
+        "value": 1
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["item:trait:holy", "item:trait:unholy"]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.BHjJpNILf85M2LJE"
     },
@@ -22179,7 +22952,25 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:religion"],
+        "type": "item",
+        "value": 2
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["item:trait:holy", "item:trait:unholy"]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.Wtm4JdxeTLQi3zQI"
     },
@@ -22310,7 +23101,25 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:religion"],
+        "type": "item",
+        "value": 2
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["item:trait:holy", "item:trait:unholy"]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.C7FeT7eVuwRnLhJy"
     },
@@ -22433,7 +23242,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "item",
+        "value": 3
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.7MTjAlCVVLsNFo7w"
     },
@@ -22863,7 +23679,22 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:survival"],
+        "type": "item",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["action:sense-direction", "action:track"]
+          }
+        ],
+        "display": {
+          "label": "Tracker's Goggles (Sense Direction & Track)"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.ZEqAx8jEc6zhX3V1"
     },
@@ -22924,7 +23755,22 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:survival"],
+        "type": "item",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["action:sense-direction", "action:track"]
+          }
+        ],
+        "display": {
+          "label": "Tracker's Goggles (Sense Direction & Track)"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.OYeYYJ4i66VtGY3O"
     },
@@ -23111,7 +23957,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "item",
+        "value": 1
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.1r6StS0irdvi5JHY"
     },
@@ -23225,7 +24078,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "item",
+        "value": 2
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.dolBtAdB5lpQpQpp"
     },
@@ -23369,7 +24229,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:survival"],
+        "type": "item",
+        "value": 3
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.LRSIRUERqBAJ1HGT"
     },
@@ -26557,7 +27424,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "item",
+        "value": 3
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.sKyJDfHdKacfbNOG"
     },

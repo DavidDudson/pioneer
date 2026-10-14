@@ -90,7 +90,19 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "item",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["action:lie", "action:feint"]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.UaOrOGrjcXgSeBvr"
     },
@@ -333,7 +345,19 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "item",
+        "value": 3,
+        "predicate": [
+          {
+            "or": ["action:lie", "action:feint"]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.HHxX5hA2RK7yI483"
     },
@@ -648,7 +672,19 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "item",
+        "value": 4,
+        "predicate": [
+          {
+            "or": ["action:lie", "action:feint"]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.Im9gFhIGtTxRJkS2"
     },
@@ -860,7 +896,19 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "item",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["action:lie", "action:feint"]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.eAEZWwzLf6Qr1l0Q"
     },
