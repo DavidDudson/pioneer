@@ -36,6 +36,7 @@ export const RulesMessage = {
   EntrySupersedesSelf: 'rules.entry.supersedesSelf',
   ActionReactionTrigger: 'rules.action.reactionTrigger',
   ActionUpTo: 'rules.action.upTo',
+  ActionMinimumProficiency: 'rules.action.minimumProficiency',
   ConditionImpliesWithoutGrant: 'rules.condition.impliesWithoutGrant',
   TraitDuplicateKind: 'rules.trait.duplicateKind',
   ListDuplicate: 'rules.list.duplicate',

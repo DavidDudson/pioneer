@@ -259,7 +259,7 @@
     },
     "data": {
       "cost": "two",
-      "requirements": [
+      "requirementsText": [
         {
           "type": "paragraph",
           "content": [
@@ -277,7 +277,9 @@
             }
           ]
         }
-      ]
+      ],
+      "modes": ["encounter"],
+      "skills": ["skill:medicine"]
     }
   },
   {
@@ -405,7 +407,7 @@
     },
     "data": {
       "cost": "reaction",
-      "requirements": [
+      "requirementsText": [
         {
           "type": "paragraph",
           "content": [
@@ -426,7 +428,8 @@
             }
           ]
         }
-      ]
+      ],
+      "modes": ["encounter"]
     }
   },
   {
@@ -578,7 +581,7 @@
     "data": {
       "cost": "one",
       "category": "offensive",
-      "requirements": [
+      "requirementsText": [
         {
           "type": "paragraph",
           "content": [
@@ -588,7 +591,8 @@
             }
           ]
         }
-      ]
+      ],
+      "modes": ["encounter"]
     }
   },
   {
@@ -670,7 +674,7 @@
     },
     "data": {
       "cost": "reaction",
-      "requirements": [
+      "requirementsText": [
         {
           "type": "paragraph",
           "content": [
@@ -691,7 +695,8 @@
             }
           ]
         }
-      ]
+      ],
+      "modes": ["encounter"]
     }
   },
   {
@@ -725,7 +730,8 @@
     },
     "data": {
       "cost": "one",
-      "selfEffect": "3f170815-168f-5fac-9c22-4b372795e181"
+      "selfEffect": "3f170815-168f-5fac-9c22-4b372795e181",
+      "modes": ["encounter"]
     }
   },
   {
@@ -775,7 +781,9 @@
       "foundry": "Compendium.pf2e.actionspf2e.Item.IE2nThCmoyhQA0Jn"
     },
     "data": {
-      "category": "defensive"
+      "category": "defensive",
+      "modes": ["exploration"],
+      "skills": ["skill:stealth"]
     }
   },
   {
@@ -998,7 +1006,7 @@
     },
     "data": {
       "cost": "one",
-      "requirements": [
+      "requirementsText": [
         {
           "type": "paragraph",
           "content": [
@@ -1008,7 +1016,9 @@
             }
           ]
         }
-      ]
+      ],
+      "modes": ["encounter"],
+      "skills": ["skill:acrobatics"]
     }
   },
   {
@@ -1080,7 +1090,11 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.actionspf2e.Item.OizxuPb44g3eHPFh"
     },
-    "data": {}
+    "data": {
+      "modes": ["exploration"],
+      "skills": ["skill:arcana"],
+      "minimumProficiency": "trained"
+    }
   },
   {
     "id": "e9bb5325-1817-5195-876b-af2e4e8a3706",
@@ -1130,7 +1144,7 @@
     },
     "data": {
       "cost": "one",
-      "requirements": [
+      "requirementsText": [
         {
           "type": "paragraph",
           "content": [
@@ -1140,7 +1154,8 @@
             }
           ]
         }
-      ]
+      ],
+      "modes": ["encounter"]
     }
   },
   {
@@ -1248,7 +1263,8 @@
             }
           ]
         }
-      ]
+      ],
+      "modes": ["encounter"]
     }
   },
   {
@@ -1609,7 +1625,7 @@
     "data": {
       "cost": "one",
       "category": "interaction",
-      "requirements": [
+      "requirementsText": [
         {
           "type": "paragraph",
           "content": [
@@ -1619,7 +1635,9 @@
             }
           ]
         }
-      ]
+      ],
+      "modes": ["encounter"],
+      "skills": ["skill:athletics"]
     }
   },
   {
@@ -1870,7 +1888,9 @@
       "foundry": "Compendium.pf2e.actionspf2e.Item.tHCqgwjtQtzNqVvd"
     },
     "data": {
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["exploration"],
+      "skills": ["skill:intimidation"]
     }
   },
   {
@@ -2032,7 +2052,9 @@
     },
     "data": {
       "cost": "one",
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["encounter"],
+      "skills": ["skill:nature"]
     }
   },
   {
@@ -2115,7 +2137,9 @@
     },
     "data": {
       "cost": "one",
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["encounter"],
+      "skills": ["skill:stealth"]
     }
   },
   {
@@ -2220,7 +2244,9 @@
       "foundry": "Compendium.pf2e.actionspf2e.Item.SB7cMECVtE06kByk"
     },
     "data": {
-      "category": "defensive"
+      "category": "defensive",
+      "modes": ["exploration"],
+      "skills": ["skill:survival"]
     }
   },
   {
@@ -2430,7 +2456,9 @@
       "foundry": "Compendium.pf2e.actionspf2e.Item.rmwa3OyhTZ2i2AHl"
     },
     "data": {
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["downtime"],
+      "skills": ["skill:crafting"]
     }
   },
   {
@@ -2490,7 +2518,7 @@
     "data": {
       "cost": "one",
       "category": "defensive",
-      "requirements": [
+      "requirementsText": [
         {
           "type": "paragraph",
           "content": [
@@ -2500,7 +2528,8 @@
             }
           ]
         }
-      ]
+      ],
+      "modes": ["encounter"]
     }
   },
   {
@@ -2625,7 +2654,9 @@
     },
     "data": {
       "cost": "one",
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["encounter"],
+      "skills": ["skill:deception"]
     }
   },
   {
@@ -2738,7 +2769,7 @@
     },
     "data": {
       "category": "interaction",
-      "requirements": [
+      "requirementsText": [
         {
           "type": "paragraph",
           "content": [
@@ -2748,7 +2779,9 @@
             }
           ]
         }
-      ]
+      ],
+      "modes": ["downtime"],
+      "skills": ["skill:society"]
     }
   },
   {
@@ -2947,7 +2980,8 @@
             }
           ]
         }
-      ]
+      ],
+      "modes": ["encounter"]
     }
   },
   {
@@ -3205,7 +3239,10 @@
       "foundry": "Compendium.pf2e.actionspf2e.Item.d9gbpiQjChYDYA2L"
     },
     "data": {
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["exploration"],
+      "skills": ["skill:arcana", "skill:occultism", "skill:religion", "skill:society"],
+      "minimumProficiency": "trained"
     }
   },
   {
@@ -3247,7 +3284,8 @@
       "foundry": "Compendium.pf2e.actionspf2e.Item.cYtYKa1gDEl7y2N0"
     },
     "data": {
-      "category": "defensive"
+      "category": "defensive",
+      "modes": ["exploration"]
     }
   },
   {
@@ -3326,7 +3364,8 @@
             }
           ]
         }
-      ]
+      ],
+      "modes": ["encounter"]
     }
   },
   {
@@ -3418,7 +3457,9 @@
     },
     "data": {
       "cost": "one",
-      "category": "offensive"
+      "category": "offensive",
+      "modes": ["encounter"],
+      "skills": ["skill:intimidation"]
     }
   },
   {
@@ -3459,7 +3500,8 @@
       "foundry": "Compendium.pf2e.actionspf2e.Item.Yb0C1uLzeHrVLl7a"
     },
     "data": {
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["exploration"]
     }
   },
   {
@@ -3555,7 +3597,10 @@
     },
     "data": {
       "cost": "two",
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["encounter"],
+      "skills": ["skill:thievery"],
+      "minimumProficiency": "trained"
     }
   },
   {
@@ -3678,7 +3723,7 @@
     "data": {
       "cost": "one",
       "category": "offensive",
-      "requirements": [
+      "requirementsText": [
         {
           "type": "paragraph",
           "content": [
@@ -3688,7 +3733,9 @@
             }
           ]
         }
-      ]
+      ],
+      "modes": ["encounter"],
+      "skills": ["skill:athletics"]
     }
   },
   {
@@ -3722,7 +3769,8 @@
     },
     "data": {
       "cost": "one",
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["encounter"]
     }
   },
   {
@@ -3833,7 +3881,8 @@
     },
     "data": {
       "cost": "two",
-      "category": "offensive"
+      "category": "offensive",
+      "modes": ["encounter"]
     }
   },
   {
@@ -3899,7 +3948,7 @@
     "data": {
       "cost": "free",
       "category": "interaction",
-      "requirements": [
+      "requirementsText": [
         {
           "type": "paragraph",
           "content": [
@@ -3913,7 +3962,8 @@
       "frequency": {
         "max": 1,
         "per": "day"
-      }
+      },
+      "modes": ["encounter"]
     }
   },
   {
@@ -3955,7 +4005,8 @@
     },
     "data": {
       "cost": "one",
-      "category": "defensive"
+      "category": "defensive",
+      "modes": ["encounter"]
     }
   },
   {
@@ -5225,7 +5276,8 @@
       "foundry": "Compendium.pf2e.actionspf2e.Item.QyzlsLrqM0EEwd7j"
     },
     "data": {
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["downtime"]
     }
   },
   {
@@ -5394,7 +5446,9 @@
     },
     "data": {
       "cost": "one",
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["encounter"],
+      "skills": ["skill:athletics", "skill:acrobatics"]
     }
   },
   {
@@ -5907,7 +5961,7 @@
     "data": {
       "cost": "one",
       "category": "offensive",
-      "requirements": [
+      "requirementsText": [
         {
           "type": "paragraph",
           "content": [
@@ -5917,7 +5971,9 @@
             }
           ]
         }
-      ]
+      ],
+      "modes": ["encounter"],
+      "skills": ["skill:deception"]
     }
   },
   {
@@ -6002,7 +6058,7 @@
     "data": {
       "cost": "one",
       "category": "interaction",
-      "requirements": [
+      "requirementsText": [
         {
           "type": "paragraph",
           "content": [
@@ -6012,7 +6068,8 @@
             }
           ]
         }
-      ]
+      ],
+      "modes": ["encounter"]
     }
   },
   {
@@ -6105,7 +6162,8 @@
       "foundry": "Compendium.pf2e.actionspf2e.Item.tfa4Sh7wcxCEqL29"
     },
     "data": {
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["exploration"]
     }
   },
   {
@@ -6297,7 +6355,9 @@
     },
     "data": {
       "cost": "one",
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["encounter"],
+      "skills": ["skill:athletics"]
     }
   },
   {
@@ -6380,7 +6440,8 @@
             }
           ]
         }
-      ]
+      ],
+      "modes": ["encounter"]
     }
   },
   {
@@ -6584,7 +6645,9 @@
       "foundry": "Compendium.pf2e.actionspf2e.Item.plBGdZhqq5JBl1D8"
     },
     "data": {
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["exploration"],
+      "skills": ["skill:diplomacy"]
     }
   },
   {
@@ -6703,7 +6766,7 @@
     "data": {
       "cost": "reaction",
       "category": "interaction",
-      "requirements": [
+      "requirementsText": [
         {
           "type": "paragraph",
           "content": [
@@ -6724,7 +6787,8 @@
             }
           ]
         }
-      ]
+      ],
+      "modes": ["encounter"]
     }
   },
   {
@@ -6868,7 +6932,7 @@
     "data": {
       "cost": "one",
       "category": "interaction",
-      "requirements": [
+      "requirementsText": [
         {
           "type": "paragraph",
           "content": [
@@ -6878,7 +6942,9 @@
             }
           ]
         }
-      ]
+      ],
+      "modes": ["encounter"],
+      "skills": ["skill:athletics"]
     }
   },
   {
@@ -7071,7 +7137,9 @@
     },
     "data": {
       "cost": "one",
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["encounter"],
+      "skills": ["skill:stealth"]
     }
   },
   {
@@ -7189,7 +7257,9 @@
     },
     "data": {
       "cost": "two",
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["encounter"],
+      "skills": ["skill:athletics"]
     }
   },
   {
@@ -7285,7 +7355,8 @@
     "data": {
       "cost": "one",
       "category": "offensive",
-      "selfEffect": "f731b541-0529-51fe-aaf3-55b00f4e4e2d"
+      "selfEffect": "f731b541-0529-51fe-aaf3-55b00f4e4e2d",
+      "modes": ["encounter"]
     }
   },
   {
@@ -7318,7 +7389,8 @@
       "foundry": "Compendium.pf2e.actionspf2e.Item.JuqmIAnkL9hVGai8"
     },
     "data": {
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["exploration"]
     }
   },
   {
@@ -7422,7 +7494,7 @@
     },
     "data": {
       "category": "interaction",
-      "requirements": [
+      "requirementsText": [
         {
           "type": "paragraph",
           "content": [
@@ -7440,7 +7512,10 @@
             }
           ]
         }
-      ]
+      ],
+      "modes": ["exploration"],
+      "skills": ["skill:crafting"],
+      "minimumProficiency": "trained"
     }
   },
   {
@@ -7532,7 +7607,10 @@
       "foundry": "Compendium.pf2e.actionspf2e.Item.eReSHVEPCsdkSL4G"
     },
     "data": {
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["exploration"],
+      "skills": ["skill:arcana", "skill:nature", "skill:occultism", "skill:religion"],
+      "minimumProficiency": "trained"
     }
   },
   {
@@ -7653,7 +7731,9 @@
       "foundry": "Compendium.pf2e.actionspf2e.Item.AJstokjdG6iDjVjE"
     },
     "data": {
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["exploration"],
+      "skills": ["skill:deception"]
     }
   },
   {
@@ -7807,7 +7887,8 @@
       "frequency": {
         "max": 1,
         "per": "hour"
-      }
+      },
+      "modes": ["encounter"]
     }
   },
   {
@@ -7841,7 +7922,8 @@
     },
     "data": {
       "cost": "one",
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["encounter"]
     }
   },
   {
@@ -7874,7 +7956,8 @@
       "foundry": "Compendium.pf2e.actionspf2e.Item.EwgTZBWsc8qKaViP"
     },
     "data": {
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["exploration"]
     }
   },
   {
@@ -8008,7 +8091,8 @@
       "frequency": {
         "max": 1,
         "per": "day"
-      }
+      },
+      "modes": ["encounter"]
     }
   },
   {
@@ -8129,7 +8213,8 @@
     },
     "data": {
       "cost": "one",
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["encounter"]
     }
   },
   {
@@ -8619,7 +8704,7 @@
     },
     "data": {
       "category": "interaction",
-      "requirements": [
+      "requirementsText": [
         {
           "type": "paragraph",
           "content": [
@@ -8629,7 +8714,10 @@
             }
           ]
         }
-      ]
+      ],
+      "modes": ["exploration"],
+      "skills": ["skill:arcana", "skill:nature", "skill:occultism", "skill:religion"],
+      "minimumProficiency": "trained"
     }
   },
   {
@@ -8719,7 +8807,8 @@
       "foundry": "Compendium.pf2e.actionspf2e.Item.ewwCglB7XOPLUz72"
     },
     "data": {
-      "category": "interaction"
+      "category": "interaction",
+      "skills": ["skill:deception"]
     }
   },
   {
@@ -8856,7 +8945,9 @@
     },
     "data": {
       "cost": "two",
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["encounter"],
+      "skills": ["skill:athletics"]
     }
   },
   {
@@ -8889,7 +8980,8 @@
       "foundry": "Compendium.pf2e.actionspf2e.Item.DXIZ4DHGxhZiWNWb"
     },
     "data": {
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["downtime"]
     }
   },
   {
@@ -9134,7 +9226,9 @@
       "foundry": "Compendium.pf2e.actionspf2e.Item.OX4fy22hQgUHDr0q"
     },
     "data": {
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["exploration"],
+      "skills": ["skill:diplomacy"]
     }
   },
   {
@@ -9320,7 +9414,7 @@
     "data": {
       "cost": "one",
       "category": "interaction",
-      "requirements": [
+      "requirementsText": [
         {
           "type": "paragraph",
           "content": [
@@ -9330,7 +9424,9 @@
             }
           ]
         }
-      ]
+      ],
+      "modes": ["encounter"],
+      "skills": ["skill:acrobatics"]
     }
   },
   {
@@ -9536,7 +9632,8 @@
             }
           ]
         }
-      ]
+      ],
+      "modes": ["encounter"]
     }
   },
   {
@@ -9629,7 +9726,7 @@
     "data": {
       "cost": "one",
       "category": "interaction",
-      "requirements": [
+      "requirementsText": [
         {
           "type": "paragraph",
           "content": [
@@ -9639,7 +9736,8 @@
             }
           ]
         }
-      ]
+      ],
+      "modes": ["encounter"]
     }
   },
   {
@@ -9713,7 +9811,9 @@
     },
     "data": {
       "cost": "one",
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["encounter"],
+      "skills": ["skill:thievery"]
     }
   },
   {
@@ -9847,7 +9947,8 @@
       "frequency": {
         "max": 1,
         "per": "hour"
-      }
+      },
+      "modes": ["encounter"]
     }
   },
   {
@@ -9934,7 +10035,8 @@
       "frequency": {
         "max": 1,
         "per": "hour"
-      }
+      },
+      "modes": ["encounter"]
     }
   },
   {
@@ -10337,7 +10439,9 @@
     },
     "data": {
       "cost": "one",
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["encounter"],
+      "skills": ["skill:performance"]
     }
   },
   {
@@ -10477,7 +10581,7 @@
     "data": {
       "cost": "two",
       "category": "interaction",
-      "requirements": [
+      "requirementsText": [
         {
           "type": "paragraph",
           "content": [
@@ -10495,7 +10599,10 @@
             }
           ]
         }
-      ]
+      ],
+      "modes": ["encounter"],
+      "skills": ["skill:thievery"],
+      "minimumProficiency": "trained"
     }
   },
   {
@@ -10642,7 +10749,7 @@
     "data": {
       "cost": "one",
       "category": "interaction",
-      "requirements": [
+      "requirementsText": [
         {
           "type": "paragraph",
           "content": [
@@ -10652,7 +10759,8 @@
             }
           ]
         }
-      ]
+      ],
+      "modes": ["encounter"]
     }
   },
   {
@@ -10764,7 +10872,8 @@
       "frequency": {
         "max": 1,
         "per": "hour"
-      }
+      },
+      "modes": ["encounter"]
     }
   },
   {
@@ -10876,7 +10985,7 @@
     "data": {
       "cost": "one",
       "category": "defensive",
-      "requirements": [
+      "requirementsText": [
         {
           "type": "paragraph",
           "content": [
@@ -10887,7 +10996,8 @@
           ]
         }
       ],
-      "selfEffect": "6d28ce6a-b876-5711-b183-9f1528122d4b"
+      "selfEffect": "6d28ce6a-b876-5711-b183-9f1528122d4b",
+      "modes": ["encounter"]
     }
   },
   {
@@ -10949,7 +11059,8 @@
             }
           ]
         }
-      ]
+      ],
+      "modes": ["encounter"]
     }
   },
   {
@@ -10992,7 +11103,8 @@
     },
     "data": {
       "cost": "two",
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["encounter"]
     }
   },
   {
@@ -11101,7 +11213,8 @@
     },
     "data": {
       "cost": "one",
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["encounter"]
     }
   },
   {
@@ -11152,7 +11265,7 @@
     },
     "data": {
       "category": "interaction",
-      "requirements": [
+      "requirementsText": [
         {
           "type": "paragraph",
           "content": [
@@ -11162,7 +11275,8 @@
             }
           ]
         }
-      ]
+      ],
+      "modes": ["exploration"]
     }
   },
   {
@@ -11213,7 +11327,8 @@
     },
     "data": {
       "cost": "free",
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["encounter"]
     }
   },
   {
@@ -11314,7 +11429,7 @@
     },
     "data": {
       "category": "interaction",
-      "requirements": [
+      "requirementsText": [
         {
           "type": "paragraph",
           "content": [
@@ -11329,7 +11444,9 @@
             }
           ]
         }
-      ]
+      ],
+      "modes": ["exploration"],
+      "skills": ["skill:crafting"]
     }
   },
   {
@@ -11378,7 +11495,8 @@
       "foundry": "Compendium.pf2e.actionspf2e.Item.OQaFzDtVEOMWizJJ"
     },
     "data": {
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["exploration"]
     }
   },
   {
@@ -11484,7 +11602,7 @@
     "data": {
       "cost": "one",
       "category": "offensive",
-      "requirements": [
+      "requirementsText": [
         {
           "type": "paragraph",
           "content": [
@@ -11494,7 +11612,9 @@
             }
           ]
         }
-      ]
+      ],
+      "modes": ["encounter"],
+      "skills": ["skill:athletics"]
     }
   },
   {
@@ -11596,7 +11716,9 @@
     },
     "data": {
       "cost": "one",
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["encounter"],
+      "skills": ["skill:diplomacy"]
     }
   },
   {
@@ -11888,7 +12010,8 @@
       "foundry": "Compendium.pf2e.actionspf2e.Item.24PSsn1SKpUwYA1X"
     },
     "data": {
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["downtime"]
     }
   },
   {
@@ -11970,7 +12093,8 @@
       "foundry": "Compendium.pf2e.actionspf2e.Item.kV3XM0YJeS2KCSOb"
     },
     "data": {
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["exploration"]
     }
   },
   {
@@ -12019,7 +12143,8 @@
       "foundry": "Compendium.pf2e.actionspf2e.Item.TiNDYUGlMmxzxBYU"
     },
     "data": {
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["exploration"]
     }
   },
   {
@@ -12143,7 +12268,8 @@
     },
     "data": {
       "cost": "one",
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["encounter"]
     }
   },
   {
@@ -12320,7 +12446,9 @@
       "foundry": "Compendium.pf2e.actionspf2e.Item.fJImDBQfqfjKJOhk"
     },
     "data": {
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["exploration"],
+      "skills": ["skill:survival"]
     }
   },
   {
@@ -12422,7 +12550,8 @@
     },
     "data": {
       "cost": "one",
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["encounter"]
     }
   },
   {
@@ -12541,7 +12670,8 @@
       "frequency": {
         "max": 1,
         "per": "ten-minutes"
-      }
+      },
+      "modes": ["encounter"]
     }
   },
   {
@@ -12655,7 +12785,7 @@
     "data": {
       "cost": "one",
       "category": "offensive",
-      "requirements": [
+      "requirementsText": [
         {
           "type": "paragraph",
           "content": [
@@ -12665,7 +12795,9 @@
             }
           ]
         }
-      ]
+      ],
+      "modes": ["encounter"],
+      "skills": ["skill:athletics"]
     }
   },
   {
@@ -12923,7 +13055,9 @@
     },
     "data": {
       "cost": "one",
-      "category": "defensive"
+      "category": "defensive",
+      "modes": ["encounter"],
+      "skills": ["skill:stealth"]
     }
   },
   {
@@ -13190,7 +13324,9 @@
       "foundry": "Compendium.pf2e.actionspf2e.Item.kMcV8e5EZUxa6evt"
     },
     "data": {
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["exploration"],
+      "skills": ["skill:acrobatics"]
     }
   },
   {
@@ -13232,7 +13368,8 @@
     },
     "data": {
       "cost": "one",
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["encounter"]
     }
   },
   {
@@ -13324,7 +13461,9 @@
     },
     "data": {
       "cost": "one",
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["encounter"],
+      "skills": ["skill:thievery"]
     }
   },
   {
@@ -13393,7 +13532,7 @@
     "data": {
       "cost": "one",
       "category": "interaction",
-      "requirements": [
+      "requirementsText": [
         {
           "type": "paragraph",
           "content": [
@@ -13403,7 +13542,8 @@
             }
           ]
         }
-      ]
+      ],
+      "modes": ["encounter"]
     }
   },
   {
@@ -13502,7 +13642,8 @@
       "frequency": {
         "max": 1,
         "per": "ten-minutes"
-      }
+      },
+      "modes": ["encounter"]
     }
   },
   {
@@ -13536,7 +13677,8 @@
     },
     "data": {
       "cost": "one",
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["encounter"]
     }
   },
   {
@@ -13601,7 +13743,8 @@
     },
     "data": {
       "cost": "one",
-      "category": "offensive"
+      "category": "offensive",
+      "modes": ["encounter"]
     }
   },
   {
@@ -13824,7 +13967,9 @@
       "foundry": "Compendium.pf2e.actionspf2e.Item.49y9Ec4bDii8pcD3"
     },
     "data": {
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["downtime"],
+      "skills": ["skill:society", "skill:survival"]
     }
   },
   {
@@ -13876,7 +14021,8 @@
     },
     "data": {
       "cost": "one",
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["encounter"]
     }
   },
   {
@@ -13925,7 +14071,8 @@
       "foundry": "Compendium.pf2e.actionspf2e.Item.UqUDWO0TuSzEAKpw"
     },
     "data": {
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["exploration"]
     }
   },
   {
@@ -14102,7 +14249,9 @@
     },
     "data": {
       "cost": "one",
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["encounter"],
+      "skills": ["skill:athletics"]
     }
   },
   {
@@ -14186,7 +14335,7 @@
     "data": {
       "cost": "one",
       "category": "interaction",
-      "requirements": [
+      "requirementsText": [
         {
           "type": "paragraph",
           "content": [
@@ -14205,7 +14354,8 @@
           ]
         }
       ],
-      "selfEffect": "c0248e28-d9b3-5268-b561-75129e943a39"
+      "selfEffect": "c0248e28-d9b3-5268-b561-75129e943a39",
+      "modes": ["encounter"]
     }
   },
   {
@@ -14512,7 +14662,9 @@
       "foundry": "Compendium.pf2e.actionspf2e.Item.EA5vuSgJfiHH7plD"
     },
     "data": {
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["exploration"],
+      "skills": ["skill:survival"]
     }
   },
   {
@@ -14630,7 +14782,7 @@
     },
     "data": {
       "category": "interaction",
-      "requirements": [
+      "requirementsText": [
         {
           "type": "paragraph",
           "content": [
@@ -14644,7 +14796,10 @@
             }
           ]
         }
-      ]
+      ],
+      "modes": ["downtime"],
+      "skills": ["skill:medicine"],
+      "minimumProficiency": "trained"
     }
   },
   {
@@ -14763,7 +14918,7 @@
     "data": {
       "cost": "one",
       "category": "interaction",
-      "requirements": [
+      "requirementsText": [
         {
           "type": "paragraph",
           "content": [
@@ -14777,7 +14932,10 @@
             }
           ]
         }
-      ]
+      ],
+      "modes": ["encounter"],
+      "skills": ["skill:medicine"],
+      "minimumProficiency": "trained"
     }
   },
   {
@@ -14963,7 +15121,7 @@
     },
     "data": {
       "category": "interaction",
-      "requirements": [
+      "requirementsText": [
         {
           "type": "paragraph",
           "content": [
@@ -14981,7 +15139,10 @@
             }
           ]
         }
-      ]
+      ],
+      "modes": ["exploration"],
+      "skills": ["skill:medicine"],
+      "minimumProficiency": "trained"
     }
   },
   {
@@ -15108,7 +15269,7 @@
     "data": {
       "cost": "one",
       "category": "offensive",
-      "requirements": [
+      "requirementsText": [
         {
           "type": "paragraph",
           "content": [
@@ -15118,7 +15279,9 @@
             }
           ]
         }
-      ]
+      ],
+      "modes": ["encounter"],
+      "skills": ["skill:athletics"]
     }
   },
   {
@@ -15188,7 +15351,7 @@
     "data": {
       "cost": "two",
       "category": "offensive",
-      "requirements": [
+      "requirementsText": [
         {
           "type": "paragraph",
           "content": [
@@ -15206,7 +15369,8 @@
       "frequency": {
         "max": 1,
         "per": "hour"
-      }
+      },
+      "modes": ["encounter"]
     }
   },
   {
@@ -15277,7 +15441,9 @@
     },
     "data": {
       "cost": "one",
-      "category": "interaction"
+      "category": "interaction",
+      "modes": ["encounter"],
+      "skills": ["skill:acrobatics"]
     }
   },
   {
@@ -15456,7 +15622,8 @@
       "frequency": {
         "max": 1,
         "per": "hour"
-      }
+      },
+      "modes": ["encounter"]
     }
   }
 ]

@@ -78,7 +78,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.actionspf2e.Item.4d6QSFBP4lMUYrVK"
     },
-    "data": {}
+    "data": {
+      "modes": ["exploration"]
+    }
   },
   {
     "id": "81aa3ccc-cd6e-5c91-b959-fe848a771f99",
@@ -121,7 +123,8 @@
     "data": {
       "cost": "one",
       "category": "offensive",
-      "selfEffect": "31fb8a06-97ec-5a96-90a3-5b2947025fc2"
+      "selfEffect": "31fb8a06-97ec-5a96-90a3-5b2947025fc2",
+      "modes": ["encounter"]
     }
   },
   {
@@ -404,7 +407,7 @@
     },
     "data": {
       "cost": "reaction",
-      "requirements": [
+      "requirementsText": [
         {
           "type": "paragraph",
           "content": [
@@ -425,7 +428,8 @@
             }
           ]
         }
-      ]
+      ],
+      "modes": ["encounter"]
     }
   },
   {

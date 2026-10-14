@@ -2352,7 +2352,7 @@
       ],
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -3496,7 +3496,7 @@
       "category": "class",
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -3960,7 +3960,7 @@
       "category": "class",
       "action": {
         "cost": "reaction",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -4066,7 +4066,7 @@
       "category": "ancestry",
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -5509,7 +5509,7 @@
       ],
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -5891,7 +5891,7 @@
       "category": "class",
       "action": {
         "cost": "reaction",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -6419,7 +6419,7 @@
       ],
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -7156,7 +7156,7 @@
       "category": "class",
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -7268,7 +7268,7 @@
       "category": "class",
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -9479,7 +9479,7 @@
       "category": "ancestry",
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -9771,7 +9771,7 @@
       "category": "class",
       "action": {
         "cost": "reaction",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -9976,7 +9976,7 @@
       "category": "class",
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -10660,7 +10660,7 @@
       ],
       "action": {
         "cost": "reaction",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -11679,7 +11679,7 @@
       "category": "class",
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -11888,7 +11888,7 @@
       "category": "class",
       "action": {
         "cost": "reaction",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -12026,7 +12026,7 @@
       "category": "class",
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -12298,7 +12298,7 @@
       "category": "class",
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -13544,7 +13544,7 @@
       ],
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -13681,7 +13681,7 @@
       ],
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -14764,7 +14764,7 @@
       "category": "class",
       "action": {
         "cost": "reaction",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -15688,7 +15688,7 @@
       "category": "class",
       "action": {
         "cost": "two",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -15783,7 +15783,7 @@
       "category": "class",
       "action": {
         "cost": "two",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -16115,7 +16115,7 @@
       "category": "class",
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -16264,7 +16264,7 @@
       "prerequisitePredicate": ["feat:dueling-parry"],
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -16351,7 +16351,7 @@
       "category": "class",
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -16459,7 +16459,7 @@
       "prerequisitePredicate": ["feat:dueling-parry"],
       "action": {
         "cost": "reaction",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -17004,7 +17004,7 @@
       "category": "ancestry",
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -23748,7 +23748,7 @@
       "category": "class",
       "action": {
         "cost": "reaction",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -23846,7 +23846,7 @@
       "category": "class",
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -26039,7 +26039,7 @@
       "category": "class",
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -26415,7 +26415,7 @@
       ],
       "action": {
         "cost": "two",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -26534,7 +26534,7 @@
       "category": "class",
       "action": {
         "cost": "three",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -26776,7 +26776,7 @@
       "category": "class",
       "action": {
         "cost": "three",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -30704,7 +30704,7 @@
       "category": "ancestry",
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -31150,7 +31150,7 @@
       "category": "class",
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -31242,7 +31242,7 @@
       ],
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -33155,7 +33155,7 @@
       "category": "class",
       "action": {
         "cost": "reaction",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -34088,7 +34088,7 @@
       "prerequisitePredicate": ["feat:double-shot"],
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -34846,7 +34846,7 @@
       "category": "class",
       "action": {
         "cost": "reaction",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -36644,7 +36644,7 @@
       "category": "class",
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -36717,7 +36717,7 @@
       "category": "class",
       "action": {
         "cost": "two",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -37076,7 +37076,7 @@
       "category": "class",
       "action": {
         "cost": "two",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -37346,7 +37346,7 @@
       "category": "class",
       "action": {
         "cost": "three",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -38198,7 +38198,7 @@
       "category": "class",
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -38372,7 +38372,7 @@
       "category": "class",
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -38449,7 +38449,7 @@
       "category": "class",
       "action": {
         "cost": "two",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -39329,7 +39329,7 @@
     "data": {
       "category": "general",
       "action": {
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -40269,7 +40269,7 @@
       "category": "class",
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -40844,7 +40844,7 @@
       "category": "class",
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -41516,7 +41516,7 @@
       ],
       "action": {
         "cost": "reaction",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -41771,7 +41771,7 @@
       "category": "class",
       "action": {
         "cost": "reaction",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -42328,7 +42328,7 @@
       "category": "class",
       "action": {
         "cost": "two",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -42759,7 +42759,7 @@
       ],
       "action": {
         "cost": "reaction",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -43476,7 +43476,7 @@
       "category": "class",
       "action": {
         "cost": "two",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -44422,7 +44422,7 @@
       "category": "class",
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -45654,7 +45654,7 @@
       "category": "class",
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -46762,7 +46762,7 @@
       "category": "class",
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -47075,7 +47075,7 @@
       ],
       "action": {
         "cost": "free",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -47398,7 +47398,7 @@
       "category": "class",
       "action": {
         "cost": "free",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -47956,7 +47956,7 @@
       "category": "class",
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -48307,7 +48307,7 @@
       "category": "class",
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -51056,7 +51056,7 @@
       ],
       "action": {
         "cost": "reaction",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -52063,7 +52063,7 @@
       "category": "class",
       "action": {
         "cost": "reaction",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -52440,7 +52440,7 @@
       "category": "class",
       "action": {
         "cost": "two",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -52831,7 +52831,7 @@
       ],
       "action": {
         "cost": "free",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -54817,7 +54817,7 @@
       ],
       "prerequisitePredicate": ["feat:twin-feint"],
       "action": {
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -54890,7 +54890,7 @@
       "category": "class",
       "action": {
         "cost": "two",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -54977,7 +54977,7 @@
       "category": "class",
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -55073,7 +55073,7 @@
       "category": "class",
       "action": {
         "cost": "reaction",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -55157,7 +55157,7 @@
       "category": "class",
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -55242,7 +55242,7 @@
       "prerequisitePredicate": ["feat:twin-parry"],
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -55316,7 +55316,7 @@
       "category": "class",
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -55389,7 +55389,7 @@
       "category": "class",
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -58223,7 +58223,7 @@
       "category": "class",
       "action": {
         "cost": "free",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [

@@ -68,7 +68,7 @@ const aidAction = {
   kind: 'action',
   data: {
     cost: 'reaction',
-    requirements: prose('The ally is willing to accept your aid, and you have prepared to help.'),
+    requirementsText: prose('The ally is willing to accept your aid, and you have prepared to help.'),
     trigger: prose('An ally is about to use an action that requires a skill check or attack roll.'),
   },
 };

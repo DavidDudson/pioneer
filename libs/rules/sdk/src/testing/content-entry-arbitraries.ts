@@ -99,7 +99,7 @@ const statisticData: Arbitrary<object> = withOptional(
 
 const actionUse = {
   category: constantFrom(...Object.values(ActionCategory)),
-  requirements: richTextJson,
+  requirementsText: richTextJson,
   frequency: record({ max: positive, per: constantFrom(...Object.values(FrequencyPeriod)) }),
   selfEffect: contentIdJson,
 };

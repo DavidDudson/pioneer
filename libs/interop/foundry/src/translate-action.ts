@@ -198,7 +198,7 @@ function usageOf(
 function usage(fields: FoundryActionSystem, { references, links, log }: KindInput): object {
   const set = {
     category: categoryOf(fields, log),
-    requirements: usageOf('requirements', fields, links),
+    requirementsText: usageOf('requirements', fields, links),
     trigger: usageOf('trigger', fields, links),
     frequency: frequencyOf(fields, log),
     selfEffect: selfEffectOf(fields, references, log),

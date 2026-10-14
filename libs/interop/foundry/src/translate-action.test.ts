@@ -125,7 +125,7 @@ describe('translateKindData: action values', () => {
       cost: ActionCost.Reaction,
       category: 'interaction',
       trigger: [{ type: 'paragraph', content: [{ type: 'text', text: 'An ally is about to use an action.' }] }],
-      requirements: [{ type: 'paragraph', content: [{ type: 'text', text: 'The ally is willing.' }] }],
+      requirementsText: [{ type: 'paragraph', content: [{ type: 'text', text: 'The ally is willing.' }] }],
       frequency: { max: 1, per: FrequencyPeriod.Hour },
     });
   });
@@ -160,7 +160,7 @@ describe('translateKindData: action values', () => {
 
     expect(dataOf([action({ actions: { value: 1 }, description })], 'test-action')).toEqual({
       cost: ActionCost.One,
-      requirements: [
+      requirementsText: [
         {
           type: 'paragraph',
           content: [

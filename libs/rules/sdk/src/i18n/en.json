@@ -170,7 +170,8 @@
     },
     "action": {
       "reactionTrigger": "A reaction needs a trigger.",
-      "upTo": "A variable cost starts at one, two or three actions and runs to more, at most six."
+      "upTo": "A variable cost starts at one, two or three actions and runs to more, at most six.",
+      "minimumProficiency": "A minimum proficiency needs skills to test it against."
     },
     "condition": {
       "impliesWithoutGrant": "Grant this condition with a GrantItem rule too; listing it in implies does not apply it."
