@@ -14,10 +14,18 @@
               [placeholder]="'character.list.namePlaceholder' | transloco"
               [formField]="form.name"
             />
-            <fr-select-field
+            <fr-picker-field
               [label]="'character.list.ancestryLabel' | transloco"
-              [options]="ancestries.options()"
+              [placeholder]="'character.list.ancestryPlaceholder' | transloco"
+              [rows]="shown()"
+              [columns]="columns()"
+              [rowValue]="rowValue"
+              [rowLabel]="rowLabel"
+              [rowDisabled]="rowDisabled"
+              [loading]="ancestries.loading()"
               [formField]="form.ancestry"
+              (searched)="query.set($event)"
+              (sorted)="sorting.set($event)"
             />
           </fr-grid>
           <fr-stack direction="horizontal" justify="end">

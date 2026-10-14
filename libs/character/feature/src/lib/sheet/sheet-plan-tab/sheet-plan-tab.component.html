@@ -39,10 +39,12 @@
           />
         </fr-inline-field>
         <fr-inline-field #ancestryField [label]="'character.sheet.ancestry' | transloco" [edit]="ancestry">
-          <fr-select
+          <pio-ancestry-picker
             frInlineEditor
+            [rows]="origins.ancestries()"
+            [loading]="origins.loading()"
             [ariaLabel]="'character.sheet.ancestry' | transloco"
-            [options]="ancestries.options()"
+            [placeholder]="'character.sheet.ancestryPlaceholder' | transloco"
             [value]="ancestry.draft()"
             (valueChange)="ancestry.change($event)"
             (committed)="ancestry.flushSoon()"
@@ -50,10 +52,12 @@
           />
         </fr-inline-field>
         <fr-inline-field #heritageField [label]="'character.sheet.heritage' | transloco" [edit]="heritage">
-          <fr-select
+          <pio-heritage-picker
             frInlineEditor
+            [rows]="origins.heritages()"
+            [loading]="origins.loading()"
             [ariaLabel]="'character.sheet.heritage' | transloco"
-            [options]="heritageOptions()"
+            [placeholder]="'character.sheet.heritagePlaceholder' | transloco"
             [value]="heritage.draft()"
             (valueChange)="heritage.change($event)"
             (committed)="heritage.flushSoon()"
@@ -61,10 +65,12 @@
           />
         </fr-inline-field>
         <fr-inline-field [label]="'character.sheet.background' | transloco" [edit]="background">
-          <fr-select
+          <pio-background-picker
             frInlineEditor
+            [rows]="origins.backgrounds()"
+            [loading]="origins.loading()"
             [ariaLabel]="'character.sheet.background' | transloco"
-            [options]="backgroundOptions()"
+            [placeholder]="'character.sheet.backgroundPlaceholder' | transloco"
             [value]="background.draft()"
             (valueChange)="background.change($event)"
             (committed)="background.flushSoon()"

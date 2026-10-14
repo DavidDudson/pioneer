@@ -34,13 +34,20 @@ import {
   Section,
   SectionIndex,
   SectionLink,
-  Select,
   Stack,
   Surface,
   TextInput,
 } from '@pioneer/frontier';
 import { AncestryId, ChoiceValue } from '@pioneer/rules/sdk';
-import { AttributesView, BuildSummaryView, ChoicesView, ClassFeaturesView } from '@pioneer/rules/ui';
+import {
+  AncestryPicker,
+  AttributesView,
+  BackgroundPicker,
+  BuildSummaryView,
+  ChoicesView,
+  ClassFeaturesView,
+  HeritagePicker,
+} from '@pioneer/rules/ui';
 
 import { AncestryOptions } from '../../data/ancestry-options';
 import { ImportResult } from '../../import/import-result/import-result.component';
@@ -48,6 +55,7 @@ import { SheetClassFields } from '../sheet-class-fields/sheet-class-fields.compo
 import { SheetFeats } from '../sheet-feats/sheet-feats.component';
 import { sheetField } from '../sheet-field';
 import { SheetLevelPlan } from '../sheet-level-plan/sheet-level-plan.component';
+import { injectOriginRows } from '../sheet-origin-rows';
 import { SheetPacks } from '../sheet-packs/sheet-packs.component';
 import { SheetPickFields } from '../sheet-pick-fields/sheet-pick-fields.component';
 import { SHEET_SECTIONS, SHEET_TAB_SECTIONS } from '../sheet-sections';
@@ -67,16 +75,19 @@ function focusField(field: ElementRef<HTMLElement>): void {
 @Component({
   selector: 'pio-sheet-plan-tab',
   imports: [
+    AncestryPicker,
     AsyncData,
     AsyncPending,
     AsyncRegion,
     AttributesView,
+    BackgroundPicker,
     BuildSummaryView,
     Button,
     ChoicesView,
     ClassFeaturesView,
     Grid,
     Heading,
+    HeritagePicker,
     ImportResult,
     InlineField,
     Message,
@@ -84,7 +95,6 @@ function focusField(field: ElementRef<HTMLElement>): void {
     Section,
     SectionIndex,
     SectionLink,
-    Select,
     SheetClassFields,
     SheetFeats,
     SheetLevelPlan,
@@ -123,13 +133,14 @@ export class SheetPlanTab {
     schema: CharacterName,
     save: async (value) => this.store.patch({ field: CharacterPatchField.Name, value: CharacterName.parse(value) }),
   });
-  protected readonly ancestry = sheetField<AncestryId | undefined>(this.sheet.character, {
+  protected readonly ancestry = sheetField<string | undefined>(this.sheet.character, {
     read: (character) => character.ancestry,
     empty: undefined,
     schema: AncestryId,
     save: async (value) => this.store.selectSlot(ANCESTRY_SLOT, ChoiceValue.parse(AncestryId.parse(value))),
     format: (value) => this.ancestries.name(value),
   });
+  protected readonly origins = injectOriginRows(this.sheet);
   protected readonly heritageOptions = this.picks.rootOptions(HERITAGE_SLOT);
   protected readonly heritage = this.picks.rootField(HERITAGE_SLOT, this.heritageOptions);
   protected readonly backgroundOptions = this.picks.rootOptions(BACKGROUND_SLOT);

@@ -4,17 +4,9 @@ import { Router } from '@angular/router';
 import { SheetMode } from '@pioneer/character/domain';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
+import { pickAncestry } from '../../testing/origin-table-testing';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
-import {
-  HUMAN,
-  id,
-  MERISIEL,
-  NO_TAB,
-  openSheet,
-  patchedOf,
-  pickAncestry,
-  present,
-} from '../../testing/sheet-page-harness';
+import { HUMAN, id, MERISIEL, NO_TAB, openSheet, patchedOf, present } from '../../testing/sheet-page-harness';
 import { openTab, regionsOf, render, settle, textOf } from '../../testing/sheet-tabs-testing';
 
 const SHEET_MODE_URL = `/api/characters/${id}/sheet-mode`;

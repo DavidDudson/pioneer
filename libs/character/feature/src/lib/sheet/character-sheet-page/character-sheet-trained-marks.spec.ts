@@ -6,6 +6,7 @@ import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { openFeatTable } from '../../testing/feat-table-testing';
 import { settle } from '../../testing/inventory-sheet-testing';
+import { backgroundRowsShown } from '../../testing/origin-table-testing';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
 import { TEST_PACKS } from '../../testing/test-packs';
@@ -108,10 +109,11 @@ describe('CharacterSheetPage options that train a skill again', () => {
   it('marks the background that trains a skill the class trains, and leaves it pickable', async () => {
     const { root } = await openSheet(cleric(), AS_CLERIC);
 
-    const options = await selectOptions(await fieldNamed(root, 'Background'));
+    const rows = await backgroundRowsShown(root);
 
-    expect(options).toContainEqual([`Acolyte ${MARK}`, 'false']);
-    expect(options.filter(([text]) => text.includes('Already trained'))).toHaveLength(1);
+    expect(
+      rows.filter((row) => row.note !== undefined).map((row) => [row.name, row.note, row.disabledReason]),
+    ).toStrictEqual([['Acolyte', MARK, undefined]]);
   });
 
   it('marks the class that trains a skill the background trains', async () => {
@@ -154,8 +156,8 @@ describe('CharacterSheetPage options that train a skill again', () => {
   it('marks nothing before the character is trained in the skill', async () => {
     const { root } = await openSheet(MERISIEL, { packs: PACKS });
 
-    const options = await selectOptions(await fieldNamed(root, 'Background'));
+    const rows = await backgroundRowsShown(root);
 
-    expect(options.map(([text]) => text).join(' ')).not.toContain('Already trained');
+    expect(rows.filter((row) => row.note !== undefined)).toStrictEqual([]);
   });
 });

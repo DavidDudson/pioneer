@@ -1,45 +1,33 @@
 import { computed, inject, Injectable } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { TranslocoService } from '@jsverse/transloco';
-import { LocaleFormat } from '@pioneer/frontier';
-import type { SelectOption } from '@pioneer/frontier';
 import { ContentLoader } from '@pioneer/rules/data-access';
-import type { AncestryId } from '@pioneer/rules/sdk';
+import { AncestryId } from '@pioneer/rules/sdk';
+import type { AncestryPickerRow } from '@pioneer/rules/ui';
 import { injectQuery } from '@tanstack/angular-query-experimental';
-import { filter, merge } from 'rxjs';
 
 import { CHARACTER_CONTENT_KINDS, contentRegistryQuery } from './content-registry-query';
+import { ancestryRows } from './origin-rows';
 
-/** Ancestry choices from every official pack, loaded on first use and kept for the session. */
+/** Ancestries from every official pack, loaded on first use and kept for the session. */
 @Injectable({ providedIn: 'root' })
 export class AncestryOptions {
-  readonly #i18n = inject(TranslocoService);
-  readonly #format = inject(LocaleFormat);
-  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
-  /** Ticks when the locale changes or a message scope (e.g. `character`) finishes loading. */
-  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
   readonly #content = inject(ContentLoader);
   readonly #registry = injectQuery(() => contentRegistryQuery(this.#content, CHARACTER_CONTENT_KINDS));
 
-  public readonly options = computed<readonly SelectOption<AncestryId>[]>(() => {
-    // Re-run when messages change, not only when packs load.
-    this.#messages();
-    return (this.#registry.data()?.ancestries() ?? [])
-      .map((entry) => ({
-        value: entry.id,
-        label: this.#i18n.translate('character.ancestryOption', {
-          name: entry.definition.name,
-          pack: entry.pack.manifest.title,
-        }),
-      }))
-      .toSorted((left, right) => this.#format.compare(left.label, right.label));
+  /** Every loaded ancestry with the facts to choose by, by name; none while the content loads. */
+  public readonly rows = computed((): readonly AncestryPickerRow[] => {
+    const registry = this.#registry.data();
+    return registry === undefined ? [] : ancestryRows(registry, undefined);
   });
 
+  /** The content is still loading, so no ancestry is on offer yet. */
+  public readonly loading = computed(() => this.#registry.data() === undefined);
+
   /** The ancestry's name, its id while content loads, or empty while the ancestry slot is unpicked. */
-  public name(id: AncestryId | undefined): string {
+  public name(id: string | undefined): string {
     if (id === undefined) {
       return '';
     }
-    return this.#registry.data()?.ancestry(id)?.definition.name ?? id;
+    const ancestry = AncestryId.safeParse(id);
+    return (ancestry.success ? this.#registry.data()?.ancestry(ancestry.data)?.definition.name : undefined) ?? id;
   }
 }
