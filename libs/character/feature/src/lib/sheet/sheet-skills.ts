@@ -8,7 +8,7 @@ import {
 } from '@pioneer/character/domain';
 import type { Character, SkillOption, SkillSlot, SkillTrainingSource, TrainedSkill } from '@pioneer/character/domain';
 import type { SelectOption } from '@pioneer/frontier';
-import { statisticContent } from '@pioneer/rules/engine';
+import { CHECK_PENALTY, LineStatusKind, statisticContent } from '@pioneer/rules/engine';
 import { Proficiency } from '@pioneer/rules/sdk';
 import type { ContentId, ContentRegistry, Level, SlotKey } from '@pioneer/rules/sdk';
 import type { NamedStatistic, SkillPickerRow } from '@pioneer/rules/ui';
@@ -156,7 +156,7 @@ type SkillRows = (options: readonly SkillOption[]) => readonly SkillPickerRow[];
 
 /**
  * The skill table's row for each skill a slot offers: the attribute that governs it, the rank the character has in it
- * and its total now. A skill the engine derives nothing for has no modifier.
+ * its total now and the armor penalty in it. A skill the engine derives nothing for has no modifier.
  */
 function skillRowsOf(registry: ContentRegistry, character: Character): SkillRows {
   const results = sheetDerivation(registry, character);
@@ -173,6 +173,12 @@ function skillRowsOf(registry: ContentRegistry, character: Character): SkillRows
         attribute: attributes.get(selector),
         rank: ranks.get(selector) ?? Proficiency.Untrained,
         modifier: result?.ok === true ? result.total : undefined,
+        armorPenalty:
+          result?.ok === true
+            ? result.lines.find(
+                ({ modifier, status }) => modifier.slug === CHECK_PENALTY && status.kind === LineStatusKind.Applied,
+              )?.value
+            : undefined,
         disabledReason: undefined,
       };
     });

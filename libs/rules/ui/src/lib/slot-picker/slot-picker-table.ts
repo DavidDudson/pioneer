@@ -84,7 +84,10 @@ export function slotPickerColumns(say: Say): readonly TableColumn<SlotPickerRow>
     .build();
 }
 
-/** The columns of a skill picker: the skill, its governing attribute, the character's rank and modifier in it. */
+/**
+ * The columns of a skill picker: the skill, its governing attribute, the character's rank and modifier in it, and the
+ * penalty the worn armour gives it.
+ */
 export function skillPickerColumns(say: Say): readonly TableColumn<SkillPickerRow>[] {
   return withName(new OriginTableSchema<SkillPickerRow>(), say)
     .addFacts({
@@ -104,6 +107,12 @@ export function skillPickerColumns(say: Say): readonly TableColumn<SkillPickerRo
       id: SlotPickerColumn.Modifier,
       header: say(SlotPickerMessage.Modifier),
       value: (row) => chips(row.modifier === undefined ? [] : [SIGNED.format(row.modifier)]),
+      width: 'sm',
+    })
+    .addFacts({
+      id: SlotPickerColumn.ArmorPenalty,
+      header: say(SlotPickerMessage.ArmorPenalty),
+      value: (row) => chips(row.armorPenalty === undefined ? [] : [SIGNED.format(row.armorPenalty)]),
       width: 'sm',
     })
     .build();
@@ -164,10 +173,13 @@ function slotOrder(left: SlotPickerRow, right: SlotPickerRow, sort: PickerSort):
   return sort.column === SlotPickerColumn.Level ? (left.facts?.level ?? -1) - (right.facts?.level ?? -1) : 0;
 }
 
-/** How a skill orders by a column: the rank the character has in it, or its modifier, then name. */
+/** How a skill orders by a column: the rank the character has in it, its modifier or its armor penalty, then name. */
 function skillOrder(left: SkillPickerRow, right: SkillPickerRow, sort: PickerSort): number {
   if (sort.column === SlotPickerColumn.Rank) {
     return RANK_ORDER.indexOf(left.rank) - RANK_ORDER.indexOf(right.rank);
+  }
+  if (sort.column === SlotPickerColumn.ArmorPenalty) {
+    return (left.armorPenalty ?? 0) - (right.armorPenalty ?? 0);
   }
   return sort.column === SlotPickerColumn.Modifier ? (left.modifier ?? 0) - (right.modifier ?? 0) : 0;
 }
@@ -191,7 +203,7 @@ function languageOrder(left: LanguagePickerRow, right: LanguagePickerRow, sort: 
 /** The options whose name holds `query`, by name or level when asked. */
 export const shownSlotRows: ShownRows<SlotPickerRow> = shownBy(slotOrder);
 
-/** The skills whose name holds `query`, by name, rank or modifier when asked. */
+/** The skills whose name holds `query`, by name, rank, modifier or armor penalty when asked. */
 export const shownSkillRows: ShownRows<SkillPickerRow> = shownBy(skillOrder);
 
 /** The languages whose name holds `query`, by name, rarity or script when asked. */

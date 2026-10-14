@@ -74,10 +74,11 @@ function anvils(count: number): CharacterDocument {
 }
 
 describe('equippedInputs', () => {
-  test('worn armour gives its bonus and Dexterity cap, reached through the inventory', () => {
+  test('worn armour gives its bonus, check penalty and Dexterity cap, reached through the inventory', () => {
     const inputs = equippedInputs(carrying([ItemFixture.LeatherArmor, WORN]), content);
     expect(inputs.armor).toMatchObject({
       bonus: 1,
+      checkPenalty: 1,
       origin: {
         hops: [{ kind: OriginHopKind.Inventory, item: idAt(0), state: ItemState.Worn }],
         entry: itemFixtureId(ItemFixture.LeatherArmor),

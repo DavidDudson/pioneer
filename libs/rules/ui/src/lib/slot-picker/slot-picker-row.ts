@@ -7,6 +7,7 @@ export const SlotPickerColumn = {
   Modifier: 'modifier',
   Level: 'level',
   Boosted: 'boosted',
+  ArmorPenalty: 'armorPenalty',
   Rarity: 'rarity',
   Script: 'script',
 } as const;
@@ -43,6 +44,8 @@ export interface SkillPickerRow {
   readonly rank: Proficiency;
   /** The skill's total modifier now; undefined while the engine has no value for it. */
   readonly modifier: number | undefined;
+  /** The penalty the worn armour gives it now, negative; undefined when the armour gives it none. */
+  readonly armorPenalty: number | undefined;
   readonly disabledReason: string | undefined;
 }
 

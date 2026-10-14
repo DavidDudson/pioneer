@@ -1074,6 +1074,7 @@
         "rank": "Rank",
         "modifier": "Modifier",
         "boosted": "With boost",
+        "armorPenalty": "Armor penalty",
         "rarity": "Rarity",
         "script": "Script",
         "known": "Known"

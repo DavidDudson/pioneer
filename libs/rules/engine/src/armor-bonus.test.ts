@@ -134,3 +134,71 @@ describe('resilient rune', () => {
     expect(fortitude(1, [cloak])).toMatchObject({ ok: true, total: 2 + 3 });
   });
 });
+
+const ATHLETICS = StatisticDefinition.parse({
+  slug: 'statistic:athletics',
+  name: 'athletics',
+  selector: 'skill:athletics',
+  domains: ['check', 'skill', 'str-based'],
+  base: '@attr.str + @prof.skill.athletics',
+  kind: StatisticKind.Check,
+});
+
+const DIPLOMACY = StatisticDefinition.parse({
+  slug: 'statistic:diplomacy',
+  name: 'diplomacy',
+  selector: 'skill:diplomacy',
+  domains: ['check', 'skill', 'cha-based'],
+  base: '@attr.cha + @prof.skill.diplomacy',
+  kind: StatisticKind.Check,
+});
+
+/** Armour with a check penalty of 2 and a Strength entry of 2. */
+const PENALISED = { checkPenalty: 2, strength: 2 };
+
+/** A level 1 character with Strength `str` wearing armour with a check penalty of 2 and a Strength entry of 2. */
+function skill(selector: string, str: number, armor: object): StatisticResult | undefined {
+  const inputs = StatisticInputsJson.parse({
+    level: 1,
+    attributes: { str, dex: 0, con: 0, int: 0, wis: 0, cha: 0 },
+    ranks: {},
+    armor: { bonus: 1, origin: ORIGIN, ...armor },
+  });
+  const content = { definitions: [ATHLETICS, DIPLOMACY], proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS };
+  return deriveStatistics(content, inputs, { rules: [], facts: new PredicateFacts([], CORE_NAMESPACES) }).get(
+    Selector.parse(selector),
+  );
+}
+
+describe('armour check penalty', () => {
+  test('reaches a Strength- or Dexterity-based skill as an item penalty named by the armour', () => {
+    const result = skill('skill:athletics', 1, PENALISED);
+    expect(result).toMatchObject({ ok: true, baseValue: 1, total: 1 - 2 });
+    expect(result).toMatchObject({
+      ok: true,
+      lines: [
+        {
+          modifier: { slug: 'check-penalty', label: { entry: LEATHER }, type: 'item', origin: ORIGIN },
+          value: -2,
+          status: { kind: LineStatusKind.Applied },
+        },
+      ],
+    });
+  });
+
+  test('goes away once Strength meets the armour', () => {
+    expect(skill('skill:athletics', 2, PENALISED)).toMatchObject({ ok: true, total: 2, lines: [] });
+  });
+
+  test('applies at any Strength when the armour names none', () => {
+    expect(skill('skill:athletics', 4, { checkPenalty: 2 })).toMatchObject({ ok: true, total: 4 - 2 });
+  });
+
+  test('leaves a skill keyed to another attribute alone', () => {
+    expect(skill('skill:diplomacy', 0, PENALISED)).toMatchObject({ ok: true, total: 0, lines: [] });
+  });
+
+  test('armour with no check penalty adds none', () => {
+    expect(skill('skill:athletics', 0, {})).toMatchObject({ ok: true, total: 0, lines: [] });
+  });
+});

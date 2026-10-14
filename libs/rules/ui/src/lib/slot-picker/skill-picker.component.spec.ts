@@ -38,9 +38,9 @@ describe(SkillPicker, () => {
     vi.restoreAllMocks();
   });
 
-  it('has a column for the attribute, the rank and the modifier', async () => {
+  it('has a column for the attribute, the rank, the modifier and the armor penalty', async () => {
     const { host } = await render(SkillPicker, { rows: [ARCANA, ATHLETICS] });
-    expect(headers(host)).toStrictEqual(['Name', 'Attribute', 'Rank', 'Modifier']);
+    expect(headers(host)).toStrictEqual(['Name', 'Attribute', 'Rank', 'Modifier', 'Armor penalty']);
   });
 
   it('shows where the character stands in each skill', async () => {
@@ -64,6 +64,14 @@ describe(SkillPicker, () => {
     sortButton(rendered.host, MODIFIER_HEADER).click();
     await settle(rendered.fixture);
     expect(rowLabels(rendered.host)).toStrictEqual(['Athletics', 'Arcana']);
+  });
+
+  it('shows the penalty the worn armour gives a skill, and nothing for one it gives none', async () => {
+    const { host } = await render(SkillPicker, {
+      rows: [ARCANA, skillRow({ id: 'stealth', name: 'Stealth', armorPenalty: -2 })],
+    });
+    expect(rowText(host, 0)).not.toContain('-2');
+    expect(rowText(host, 1)).toContain('-2');
   });
 
   it('says why a skill cannot be picked', async () => {

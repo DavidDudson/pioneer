@@ -22,7 +22,7 @@ export {
 } from './deity';
 export { EffectBadgeType, EffectCategory, EffectData, EffectDurationType } from './effect';
 export { RitualCheckPick, RitualData } from './ritual';
-export { ArmorData, ArmorGroup, ArmorItemCategory, ShieldData } from './armor';
+export { ArmorData, CheckPenalty, ArmorGroup, ArmorItemCategory, ShieldData } from './armor';
 export { ConsumableCategory, ConsumableData } from './consumable';
 export { EquipmentData, type ItemContainer, KitData, TreasureCategory, TreasureData } from './equipment';
 export { bulkInTenths, COPPER_PER_COIN, CopperValue, priceInCopper } from './equipment-facet-values';

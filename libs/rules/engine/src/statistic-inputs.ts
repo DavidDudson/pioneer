@@ -5,6 +5,7 @@ import {
   AttributeModifier,
   AttributeModifiers,
   AttributeSchema,
+  CheckPenalty,
   Feet,
   HitPoints,
   isSourceReference,
@@ -69,7 +70,13 @@ export interface StatisticInputs {
 
 const AncestryInputsJson = z.strictObject({ hitPoints: HitPoints, speed: Feet });
 const ClassInputsJson = z.strictObject({ hitPoints: HitPoints, keyAttribute: AttributeSchema });
-const ArmorInputsJson = z.strictObject({ bonus: Modifier, resilient: RuneGrade.optional(), origin: Origin });
+const ArmorInputsJson = z.strictObject({
+  bonus: Modifier,
+  resilient: RuneGrade.optional(),
+  checkPenalty: CheckPenalty.optional(),
+  strength: AttributeModifier.optional(),
+  origin: Origin,
+});
 
 /** The inputs as JSON, with ranks as an object keyed by selector, decoded into `StatisticInputs`. */
 export const StatisticInputsJson = z

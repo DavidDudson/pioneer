@@ -43,7 +43,7 @@ export function deriveStatistics(
   const values = { inputs, proficiency: proficiencyBonuses(proficiencyBonus, { rules, facts, level: inputs.level }) };
   const bases = new StatisticBases(definitions, values, { changes: changes.base, facts });
   const fromRules = modifierRules(rules);
-  const synthetic = [...weaponPotencies(inputs.weapons ?? []), ...armorBonus(inputs.armor)];
+  const synthetic = [...weaponPotencies(inputs.weapons ?? []), ...armorBonus(inputs.armor, inputs.attributes)];
   const modifiers = { ...fromRules, modifiers: [...fromRules.modifiers, ...synthetic] };
   const context = {
     facts,
