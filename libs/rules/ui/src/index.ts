@@ -102,3 +102,13 @@ export {
   spellRowLabel,
   spellRowValue,
 } from './lib/spell-picker/spell-picker-table';
+export { DeityTableSchema } from './lib/picker-cells/deity-table-schema';
+export { DeityPicker } from './lib/deity-picker/deity-picker.component';
+export { DeityPickerColumn, type DeityPickerRow } from './lib/deity-picker/deity-picker-row';
+export {
+  deityPickerColumns,
+  deityRowDisabled,
+  deityRowLabel,
+  deityRowValue,
+  shownDeityRows,
+} from './lib/deity-picker/deity-picker-table';

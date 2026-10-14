@@ -109,6 +109,7 @@ export {
   CLASS_SLOT,
   DEITY_SLOT,
   HERITAGE_SLOT,
+  needsDeity,
 } from './character-slots';
 export { ClearedPick, unfitPicks } from './dependent-picks';
 export {
@@ -153,7 +154,7 @@ export { deityContent } from './deity-content';
 export { favoredWeapons } from './favored-weapons';
 export { characterTraits } from './character-traits';
 export { grantedStrikes } from './granted-strikes';
-export type { DeityContent, DeityRead } from './deity-content';
+export type { DeityContent, DeityOption, DeityRead } from './deity-content';
 export { CharacterLanguages, characterLanguages, SheetLanguage } from './character-languages';
 export { type SkillContent, skillContent, type SkillOption } from './skill-content';
 export { type SkillSlot, SkillSlotKind, skillSlots } from './skill-training';

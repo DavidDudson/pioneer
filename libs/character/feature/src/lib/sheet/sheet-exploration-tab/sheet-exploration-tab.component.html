@@ -13,7 +13,7 @@
     <fr-async-region>
       <ng-template frAsyncPending><pio-deity loading /></ng-template>
       <ng-template let-content [frAsyncData]="sheet.registry">
-        <pio-sheet-deity-section [field]="deity" [options]="deityOptions()" [registry]="content" />
+        <pio-sheet-deity-section [field]="deity" [registry]="content" />
       </ng-template>
     </fr-async-region>
   </fr-section>

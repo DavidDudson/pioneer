@@ -202,6 +202,7 @@
       "label": "Deity",
       "placeholder": "Search deities by name",
       "none": "No deity",
+      "needsFont": "A cleric needs a deity with a divine font",
       "unlistedWeapon": "{weapon} (not in the loaded content)"
     },
     "tabs": {

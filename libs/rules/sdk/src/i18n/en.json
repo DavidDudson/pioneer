@@ -667,6 +667,18 @@
         "unique": "Unique"
       }
     },
+    "deityPicker": {
+      "column": {
+        "name": "Name",
+        "sanctification": "Sanctification",
+        "font": "Divine font",
+        "domains": "Domains",
+        "favoredWeapon": "Favored weapon",
+        "skill": "Divine skill",
+        "edictsAnathema": "Edicts and anathema",
+        "source": "Source"
+      }
+    },
     "featPicker": {
       "column": {
         "name": "Name",

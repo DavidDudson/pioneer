@@ -1,4 +1,6 @@
-import { DeityDomain, DivineFont } from '@pioneer/rules/sdk';
+import { DeityDomain, DivineFont, Sanctification, SanctificationModal } from '@pioneer/rules/sdk';
+
+import type { DeitySanctificationLine } from './deity-line';
 
 /** Message keys the deity block renders with, spelled out so the key check sees them. */
 export const DeityMessage = {
@@ -101,3 +103,20 @@ export const DEITY_DOMAIN_MESSAGES: Readonly<Record<DeityDomain, string>> = {
   [DeityDomain.Wyrmkin]: 'rules.deity.domain.wyrmkin',
   [DeityDomain.Zeal]: 'rules.deity.domain.zeal',
 };
+
+/** The words for whether followers may or must be sanctified, and to what; "None" when the deity sanctifies no one. */
+export function sanctificationMessage(sanctification: DeitySanctificationLine | undefined): string {
+  if (sanctification === undefined) {
+    return DeityMessage.NoSanctification;
+  }
+  const { modal, what } = sanctification;
+  const must = modal === SanctificationModal.Must;
+  if (what.length > 1) {
+    return must ? DeityMessage.MustEither : DeityMessage.CanEither;
+  }
+  const holy = what.includes(Sanctification.Holy);
+  if (must) {
+    return holy ? DeityMessage.MustHoly : DeityMessage.MustUnholy;
+  }
+  return holy ? DeityMessage.CanHoly : DeityMessage.CanUnholy;
+}
