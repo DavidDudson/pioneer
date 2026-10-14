@@ -22,6 +22,7 @@ import { fieldIssues } from '@pioneer/shared/kernel';
 import type { FieldIssue, ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
+import { EXAMPLE_ACTIONS } from './actions-example';
 import { EXAMPLE_CONTENT_ENTRIES } from './content-entry-examples';
 import { EXAMPLE_FILTER_ENTRIES } from './filter-examples';
 import { EXAMPLE_GRANT_ENTRIES } from './grant-examples';
@@ -81,6 +82,7 @@ export const RulesTool = {
   Statistics: 'statistics',
   Grants: 'grants',
   Filters: 'filters',
+  Actions: 'actions',
 } as const;
 export type RulesTool = ValueOf<typeof RulesTool>;
 
@@ -91,6 +93,7 @@ export const RULES_TOOL_KEYS: Readonly<Record<RulesTool, string>> = {
   [RulesTool.Statistics]: 'play.rules.schema.statistics',
   [RulesTool.Grants]: 'play.rules.schema.grants',
   [RulesTool.Filters]: 'play.rules.schema.filters',
+  [RulesTool.Actions]: 'play.rules.schema.actions',
 };
 
 const PLAYER_CORE = PackId.parse('player-core');
@@ -193,6 +196,9 @@ export function rulesExample(tool: RulesTool): string {
   }
   if (tool === RulesTool.Filters) {
     return EXAMPLE_FILTER_ENTRIES;
+  }
+  if (tool === RulesTool.Actions) {
+    return EXAMPLE_ACTIONS;
   }
   const schema = tool === RulesTool.Verdict ? RulesSchema.Predicate : tool;
   return JSON.stringify(EXAMPLE_VALUES[schema], undefined, JSON_INDENT);

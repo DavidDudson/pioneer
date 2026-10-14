@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
+import { ActionsResult } from '../actions-result/actions-result.component';
 import { ContentEntryResult } from '../content-entry-result/content-entry-result.component';
 import { FiltersResult } from '../filters-result/filters-result.component';
 import { FormulaResult } from '../formula-result/formula-result.component';
@@ -15,6 +16,7 @@ import { StatisticsResult } from '../statistics-result/statistics-result.compone
 @Component({
   selector: 'pio-tool-result',
   imports: [
+    ActionsResult,
     ContentEntryResult,
     FiltersResult,
     FormulaResult,

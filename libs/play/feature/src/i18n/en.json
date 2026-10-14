@@ -142,7 +142,8 @@
       "grants": "Grants",
       "filters": "Content filters",
       "richText": "Rich text",
-      "contentEntry": "Content entry"
+      "contentEntry": "Content entry",
+      "actions": "Available actions"
     },
     "contentKind": {
       "action": "Action",
@@ -199,7 +200,31 @@
     "overrideNumber": "Override {number}",
     "pinnedFlag": "Pinned",
     "previewHeading": "Preview",
-    "sourceHeading": "Source"
+    "sourceHeading": "Source",
+    "actionsLabel": "Actions on offer, skill ranks and used frequencies",
+    "actionsHint": "A JSON object. Each action has an id, a name and its data; the origin is basic or skill. Ranks (a skill and its rank) and spent (action ids whose frequency is used up) are optional.",
+    "actions": {
+      "none": "No actions on offer.",
+      "roll": "Rolls {total, number}",
+      "factsNotChecked": "Fix the roll options to see the actions.",
+      "status": {
+        "available": "Available",
+        "conditional": "Conditional",
+        "unavailable": "Unavailable"
+      },
+      "cost": {
+        "one": "1 action",
+        "two": "2 actions",
+        "three": "3 actions",
+        "free": "Free action",
+        "reaction": "Reaction"
+      },
+      "mode": {
+        "encounter": "Encounter",
+        "exploration": "Exploration",
+        "downtime": "Downtime"
+      }
+    }
   },
   "damageGroup": {
     "all": "All damage",

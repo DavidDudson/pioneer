@@ -1,4 +1,13 @@
-export { ActionCategory, ActionData, ActionMode, Frequency, FrequencyPeriod, TriggerEvent, TriggerEventType, Uses } from './action';
+export {
+  ActionCategory,
+  ActionData,
+  ActionMode,
+  Frequency,
+  FrequencyPeriod,
+  TriggerEvent,
+  TriggerEventType,
+  Uses,
+} from './action';
 export { Activation, ActivationName, Activations } from './activation';
 export { AncestryData, AncestryDefinition, AncestryId, LanguageList } from './ancestry';
 export {
@@ -252,7 +261,7 @@ export {
 } from './predicate';
 export { RollOption, RollOptionTail } from './roll-option';
 export { NamespaceKind, NamespaceKindSchema, RollOptionNamespace, RollOptionNamespaces } from './roll-option-namespace';
-export { Domain, Selector, SlotKey, ToggleKey } from './selector';
+export { Domain, Selector, SkillSelector, SlotKey, ToggleKey } from './selector';
 export { AonUrl, BookId, PageNumber, SourceKind, SourceRef, SourceTitle, WebUrl } from './source-ref';
 export { default as rulesMessages } from './i18n/en.json';
 export { ActorFormulaSource, type FormulaProblem, formulaProblems, FormulaSource } from './formula-source';

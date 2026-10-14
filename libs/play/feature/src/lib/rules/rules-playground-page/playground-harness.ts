@@ -48,7 +48,11 @@ export async function chooseSchema(harness: RouterTestingHarness, label: string)
   await harness.fixture.whenStable();
 }
 
-export async function typeInto(harness: RouterTestingHarness, input: HTMLInputElement, text: string): Promise<void> {
+export async function typeInto(
+  harness: RouterTestingHarness,
+  input: HTMLInputElement | HTMLTextAreaElement,
+  text: string,
+): Promise<void> {
   input.value = text;
   input.dispatchEvent(new Event('input'));
   await harness.fixture.whenStable();

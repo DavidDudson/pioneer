@@ -139,7 +139,11 @@ describe('trigger matches', () => {
       entry('untriggered', 'action', { cost: 'one' }),
       entry('unmatched', 'action', triggered('An ally is about to use an action.')),
       entry('passive', 'feat', { category: 'general' }),
-      entry('shielded', 'action', triggered('Your turn begins.', { requirementsText: prose('Your shield is raised.') })),
+      entry(
+        'shielded',
+        'action',
+        triggered('Your turn begins.', { requirementsText: prose('Your shield is raised.') }),
+      ),
     ];
 
     expect(triggerMatches(entries, NAMES)).toStrictEqual([]);
