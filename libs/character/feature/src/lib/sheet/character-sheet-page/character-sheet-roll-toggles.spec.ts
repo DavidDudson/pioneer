@@ -64,12 +64,37 @@ function buttonIn(within: Element, text: string): HTMLButtonElement {
   return present([...within.querySelectorAll('button')].find((button) => textOf(button).includes(text)));
 }
 
-async function pressPerception(root: HTMLElement): Promise<void> {
+async function pressPerception(root: HTMLElement, label = 'Roll Perception'): Promise<void> {
   const button = await vi.waitFor(() =>
-    present(root.querySelector<HTMLButtonElement>('button[aria-label="Roll Perception"]')),
+    present(root.querySelector<HTMLButtonElement>(`button[aria-label="${label}"]`)),
   );
   button.click();
   render();
+}
+
+/** Opens the check for review instead of rolling it. */
+async function setUpPerception(root: HTMLElement): Promise<void> {
+  await pressPerception(root, 'Roll Perception with options');
+}
+
+/** The toggle on the sheet that claims the undead situation for the next Perception roll. */
+async function undeadToggle(root: HTMLElement): Promise<HTMLButtonElement> {
+  return vi.waitFor(() =>
+    present(
+      [...root.querySelectorAll<HTMLButtonElement>('pio-statistic-conditions button')].find((button) =>
+        textOf(button).includes('when the target is undead'),
+      ),
+    ),
+  );
+}
+
+/** Perception's total as the vitals list it, "+4" giving 4; throws until it is listed. */
+function perceptionTotal(root: HTMLElement): number {
+  const row = present(root.querySelector('button[aria-label="Roll Perception"]')?.closest('fr-list-item'));
+  const total = present(row.querySelector('pio-statistic-total'));
+  const match = /(?<sign>[+−-])(?<value>\d+)/u.exec(textOf(total));
+  const value = Number(match?.groups?.['value']);
+  return match?.groups?.['sign'] === '+' ? value : -value;
 }
 
 /** The modifier the set-up check reads, "Modifier +4" giving 4. */
@@ -103,7 +128,7 @@ describe('CharacterSheetPage conditional toggles when rolling', () => {
   it('sets a check up when the cloak offers toggles, listing a situation for this roll and a toggle it keeps', async () => {
     const { root } = await openSheet(HUNTER);
 
-    await pressPerception(root);
+    await setUpPerception(root);
 
     await vi.waitFor(() => {
       const setup = textOf(setupOf(root));
@@ -117,7 +142,7 @@ describe('CharacterSheetPage conditional toggles when rolling', () => {
 
   it('adds a situation to the modifier when it is chosen, and takes it off again', async () => {
     const { root } = await openSheet(HUNTER);
-    await pressPerception(root);
+    await setUpPerception(root);
     const before = await vi.waitFor(() => {
       const setup = setupOf(root);
       expect(textOf(setup)).toContain('Modifier');
@@ -140,7 +165,7 @@ describe('CharacterSheetPage conditional toggles when rolling', () => {
   it('rolls with the situation chosen, and the card says what it was rolled with', async () => {
     rolling(12);
     const { root } = await openSheet(HUNTER);
-    await pressPerception(root);
+    await setUpPerception(root);
     const before = await vi.waitFor(() => {
       const setup = setupOf(root);
       expect(textOf(setup)).toContain('Modifier');
@@ -166,7 +191,7 @@ describe('CharacterSheetPage conditional toggles when rolling', () => {
 
   it('keeps a RollOption toggle on the character, and the roll follows it', async () => {
     const { root } = await openSheet(HUNTER);
-    await pressPerception(root);
+    await setUpPerception(root);
     const before = await vi.waitFor(() => {
       const setup = setupOf(root);
       expect(textOf(setup)).toContain('Kept between rolls');
@@ -195,7 +220,7 @@ describe('CharacterSheetPage conditional toggles when rolling', () => {
 
   it('cancels a check set up without rolling it', async () => {
     const { root } = await openSheet(HUNTER);
-    await pressPerception(root);
+    await setUpPerception(root);
     await vi.waitFor(() => {
       expect(textOf(setupOf(root))).toContain('Cancel');
     });
@@ -207,5 +232,65 @@ describe('CharacterSheetPage conditional toggles when rolling', () => {
       expect(root.querySelector('pio-sheet-roll-setup pio-roll-toggles')).toBeNull();
     });
     expect(root.querySelector('pio-roll-card')).toBeNull();
+  });
+
+  it('offers the situation as a toggle on the sheet, and the total follows it', async () => {
+    const { root } = await openSheet(HUNTER);
+    const toggle = await undeadToggle(root);
+    const before = await vi.waitFor(() => perceptionTotal(root));
+
+    toggle.click();
+    render();
+
+    await vi.waitFor(() => {
+      expect(perceptionTotal(root)).toBe(before + 1);
+    });
+    const claimed = await undeadToggle(root);
+    claimed.click();
+    render();
+    await vi.waitFor(() => {
+      expect(perceptionTotal(root)).toBe(before);
+    });
+  });
+
+  it('rolls at once with a situation claimed on the sheet, says so on the card, and lets the claim go', async () => {
+    rolling(12);
+    const { root } = await openSheet(HUNTER);
+    const before = await vi.waitFor(() => perceptionTotal(root));
+    const claimed = await undeadToggle(root);
+    claimed.click();
+    render();
+    await vi.waitFor(() => {
+      expect(perceptionTotal(root)).toBe(before + 1);
+    });
+
+    await pressPerception(root);
+
+    await vi.waitFor(() => {
+      const text = textOf(lastRoll(root));
+      expect(text).toContain(`Total ${12 + before + 1}`);
+      expect(text).toContain('when the target is undead');
+    });
+    expect(root.querySelector('pio-sheet-roll-setup pio-roll-toggles')).toBeNull();
+    await vi.waitFor(() => {
+      expect(perceptionTotal(root)).toBe(before);
+    });
+  });
+
+  it('opens the check for review with the situations claimed on the sheet already chosen', async () => {
+    const { root } = await openSheet(HUNTER);
+    const before = await vi.waitFor(() => perceptionTotal(root));
+    const claimed = await undeadToggle(root);
+    claimed.click();
+    render();
+    await vi.waitFor(() => {
+      expect(perceptionTotal(root)).toBe(before + 1);
+    });
+
+    await setUpPerception(root);
+
+    await vi.waitFor(() => {
+      expect(modifierIn(setupOf(root))).toBe(before + 1);
+    });
   });
 });

@@ -328,6 +328,8 @@ export {
   type RollRequest,
   type RollSetup,
   rollSetup,
+  rollSetups,
+  type RollSetupsRequest,
   type StatisticSources,
 } from './character-statistics';
 export {

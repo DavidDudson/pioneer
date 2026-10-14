@@ -609,7 +609,8 @@
       "pinned": "Pinned",
       "computed": "computed {computed}",
       "conditional": "{value} {hasSummary, select, yes {when {summary}} other {in some situations}} ({name})",
-      "roll": "Roll {name}"
+      "roll": "Roll {name}",
+      "rollWithOptions": "Roll {name} with options"
     },
     "strikes": {
       "damage": "{roll} {type}",

@@ -1,7 +1,7 @@
 import type { TranslocoService } from '@jsverse/transloco';
 import type { LocaleFormat } from '@pioneer/frontier';
 import { LineStatusKind } from '@pioneer/rules/engine';
-import type { BreakdownLine, StatisticValue } from '@pioneer/rules/engine';
+import type { BreakdownLine, RuleId, StatisticValue } from '@pioneer/rules/engine';
 import { formatSummary } from '@pioneer/rules/predicate';
 
 import { labelName, lineValue, summaryFormat } from '../breakdown/line-words';
@@ -32,10 +32,17 @@ export function conditionalLineText(line: BreakdownLine, { i18n, format, names }
 /**
  * The lines of a derived statistic that apply only in some situations and that no applied line of their type beats,
  * worded in the engine's order: "+2 circumstance when your shield is raised (Steel Shield)"; "in some situations" when
- * nothing words when.
+ * nothing words when. `claimable` leaves out the lines the page offers as toggles instead.
  */
-export function conditionalLines(statistic: StatisticValue, words: ConditionWords): readonly string[] {
+export function conditionalLines(
+  statistic: StatisticValue,
+  words: ConditionWords,
+  claimable: ReadonlySet<RuleId> = new Set(),
+): readonly string[] {
   return statistic.lines
-    .filter(({ status }) => status.kind === LineStatusKind.Conditional && status.beatenBy === undefined)
+    .filter(
+      ({ status, modifier }) =>
+        status.kind === LineStatusKind.Conditional && status.beatenBy === undefined && !claimable.has(modifier.id),
+    )
     .map((line) => conditionalLineText(line, words));
 }

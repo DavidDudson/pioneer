@@ -1,5 +1,13 @@
-@if (conditions().length > 0) {
+@if (toggles().length > 0 || conditions().length > 0) {
   <fr-stack gap="3xs">
+    @for (toggle of toggles(); track toggle.id) {
+      <fr-toggle-button
+        [size]="small"
+        [value]="toggle.on"
+        (valueChange)="toggled.emit({ id: toggle.id, on: $event })"
+        >{{ toggle.text }}</fr-toggle-button
+      >
+    }
     @for (condition of conditions(); track $index) {
       <fr-text variant="caption" tone="muted">{{ condition }}</fr-text>
     }

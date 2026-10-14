@@ -712,6 +712,9 @@ sheet, where the situation is unknown, so predicates use **three-valued (Kleene)
   - `rollSetup` in `libs/character/domain` joins them for a character: given a `RollRequest` (selector plus chosen
     rule ids) it returns the offered lines, the `RollOption` toggles the lines read, and the statistic as chosen. The
     total always equals the base plus the applied lines, whatever the toggles.
+  - `rollSetups` does the same for many statistics at once, each with its own chosen rules, from the sheet's own
+    derivation, so a statistic with nothing claimed costs no derivation. The sheet claims situations per statistic and
+    derives only the claimed ones again.
 
 ### Evaluation
 

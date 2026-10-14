@@ -1,5 +1,6 @@
 import { InjectionToken } from '@angular/core';
-import type { StatisticValue } from '@pioneer/rules/engine';
+import type { RuleId, StatisticValue } from '@pioneer/rules/engine';
+import type { Selector } from '@pioneer/rules/sdk';
 
 /** A check on the sheet that can be rolled: what it is called and what the engine derived for it. */
 export interface RollableStatistic {
@@ -13,6 +14,10 @@ export interface RollableStatistic {
  */
 export interface StatisticRoller {
   readonly roll: (rollable: RollableStatistic) => void;
+  /** Opens the roll for the player to review and change before it is made; unset where a roll has nothing to review. */
+  readonly setUp?: (rollable: RollableStatistic) => void;
+  /** Claims the situation of a conditional line for the next roll of a statistic, or lets it go; unset where it cannot be. */
+  readonly claim?: (selector: Selector, rule: RuleId, on: boolean) => void;
 }
 
 export const STATISTIC_ROLLER = new InjectionToken<StatisticRoller>('STATISTIC_ROLLER');

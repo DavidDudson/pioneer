@@ -40,3 +40,28 @@ const CLIMBER_ATHLETICS: StatisticValue = statistic('skill:athletics', {
 export const BEATEN_STATISTICS: readonly NamedStatistic[] = [
   { name: 'Athletics', kind: StatisticKind.Check, result: CLIMBER_ATHLETICS },
 ];
+
+/** The line of `CLIMBER_ATHLETICS` whose situation a roll can claim: Sure Footing, when you Climb. */
+const FOOTING_LINE = line(SURE_FOOTING, {
+  type: ModifierType.Circumstance,
+  value: FOOTING_BONUS,
+  status: FOOTING_STATUS,
+});
+
+/** The rule of the line `CLAIMABLE_STATISTICS` offers to claim. */
+export const FOOTING_RULE: RuleId = ruleId(SURE_FOOTING);
+
+/** Athletics with Sure Footing's situation up for claiming, as the sheet offers it, and `claimed` of it claimed. */
+export function claimable(claimed: boolean): readonly NamedStatistic[] {
+  return [
+    {
+      name: 'Athletics',
+      kind: StatisticKind.Check,
+      result: CLIMBER_ATHLETICS,
+      situations: { offered: [FOOTING_LINE], claimed: new Set(claimed ? [FOOTING_RULE] : []) },
+    },
+  ];
+}
+
+/** Athletics with Sure Footing's situation up for claiming and not claimed. */
+export const CLAIMABLE_STATISTICS: readonly NamedStatistic[] = claimable(false);

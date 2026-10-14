@@ -22,7 +22,7 @@ export { type CoinCount, coinCounts, type KitLine, ShopBillFor, type ShopOffer }
 export { KitContents } from './lib/shop/kit-contents/kit-contents.component';
 export { ShopBill } from './lib/shop/shop-bill/shop-bill.component';
 export { ShopOffersView } from './lib/shop/shop-offers.component';
-export { type NamedStatistic, StatisticsView } from './lib/statistics/statistics.component';
+export { type NamedStatistic, type StatisticSituations, StatisticsView } from './lib/statistics/statistics.component';
 export { type NamedStrike, StrikesView, type StrikesShield } from './lib/strikes/strikes.component';
 export { StrikesMessage } from './lib/strikes/strikes-messages';
 export { StatisticsMessage } from './lib/statistics/statistics-messages';
@@ -143,5 +143,9 @@ export {
   shownBackgroundRows,
   shownHeritageRows,
 } from './lib/origin-picker/origin-picker-table';
+export type {
+  ConditionChange,
+  ConditionToggle,
+} from './lib/statistics/statistic-conditions/statistic-conditions.component';
 export { STATISTIC_ROLLER, type RollableStatistic, type StatisticRoller } from './lib/statistics/statistic-roller';
 export { type ConditionWords, conditionalLineText } from './lib/statistics/conditional-lines';

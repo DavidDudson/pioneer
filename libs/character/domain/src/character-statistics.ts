@@ -1,5 +1,12 @@
 import { deriveStatistics, LineStatusKind, NO_SITUATION, rollSituation, statisticContent } from '@pioneer/rules/engine';
-import type { BreakdownLine, RuleId, StatisticInputs, StatisticResult, StatisticValue } from '@pioneer/rules/engine';
+import type {
+  BreakdownLine,
+  RuleId,
+  StatisticContent,
+  StatisticInputs,
+  StatisticResult,
+  StatisticValue,
+} from '@pioneer/rules/engine';
 import type { ToggleSlot } from '@pioneer/rules/grants';
 import { predicateOptions } from '@pioneer/rules/predicate';
 import { AncestryId, HitPoints, Selector } from '@pioneer/rules/sdk';
@@ -130,21 +137,63 @@ export interface RollRequest {
  */
 export function rollSetup(
   document: CharacterDocument,
-  { registry, slots, inputs }: StatisticSources,
+  sources: StatisticSources,
   { selector, chosen }: RollRequest,
 ): RollSetup | undefined {
+  const derived = characterStatistics(document, sources);
+  return rollSetups(document, sources, { derived, claims: new Map([[selector, chosen]]) }).get(selector);
+}
+
+/** The sheet's own derivation, and the situations claimed for each statistic's roll. */
+export interface RollSetupsRequest {
+  /** The character's statistics as `characterStatistics` returns them. */
+  readonly derived: ReadonlyMap<Selector, StatisticResult>;
+  readonly claims: ReadonlyMap<Selector, ReadonlySet<RuleId>>;
+}
+
+/** What a statistic is derived again from when a roll claims a situation. */
+interface Rederivation {
+  readonly content: StatisticContent;
+  readonly inputs: StatisticInputs;
+  readonly rules: EquippedRules;
+}
+
+/**
+ * `rollSetup` for several statistics at once, each with the situations its own roll has claimed, offered from the
+ * sheet's own derivation so a statistic with nothing claimed costs no derivation. One that has no value is left out.
+ */
+export function rollSetups(
+  document: CharacterDocument,
+  { registry, slots, inputs }: StatisticSources,
+  { derived, claims }: RollSetupsRequest,
+): ReadonlyMap<Selector, RollSetup> {
   const content = statisticContent(registry);
   if (content === undefined) {
-    return undefined;
+    return new Map();
   }
-  const rules = equippedRules(document, itemContent(registry), slots);
-  const sheet = deriveStatistics(content, inputs, rules).get(selector);
+  const rederivation = { content, inputs, rules: equippedRules(document, itemContent(registry), slots) };
+  const setups = [...claims].flatMap(([selector, chosen]): [Selector, RollSetup][] => {
+    const setup = setupFor(derived.get(selector), chosen, rederivation);
+    return setup === undefined ? [] : [[selector, setup]];
+  });
+  return new Map(setups);
+}
+
+/** What rolling the statistic `sheet` offers with `chosen` claimed; undefined when it has no value. */
+function setupFor(
+  sheet: StatisticResult | undefined,
+  chosen: ReadonlySet<RuleId>,
+  { content, inputs, rules }: Rederivation,
+): RollSetup | undefined {
   if (sheet?.ok !== true) {
     return undefined;
   }
   const { conditional, toggles } = offerFor(sheet, rules);
   const claimed = new Set(conditional.map(({ modifier }) => modifier.id).filter((id) => chosen.has(id)));
-  const statistic = deriveStatistics(content, inputs, { ...rules, situation: claimed }).get(selector);
+  const statistic =
+    claimed.size === 0
+      ? sheet
+      : deriveStatistics(content, inputs, { ...rules, situation: claimed }).get(sheet.selector);
   return statistic?.ok === true ? { statistic, conditional, toggles } : undefined;
 }
 

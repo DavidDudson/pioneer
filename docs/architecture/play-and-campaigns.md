@@ -47,6 +47,9 @@ UI behaviour:
 - Actions with rolls are one click to roll, and conditional modifiers for that roll are offered as toggles: the
   conditional lines ("+1 circumstance when in forest") and the character's `RollOption` toggles that the roll reads.
   A check with nothing to toggle still rolls in one click. The roll card lists what it was rolled with.
+  The same conditional lines sit beside each statistic as toggles: claiming one counts it in that statistic's total and
+  breakdown at once, a roll uses the claims made for its statistic and lets them go, and a button beside the roll
+  opens the setup panel with the claims already chosen. `RollOption` toggles stay on the character.
 
 Turn tracking (actions spent, reaction used, start/end of turn effects such as frightened decreasing) is local to the
 sheet. Campaign play runs in Foundry VTT, which tracks turns itself (ADR-0018).
