@@ -1,17 +1,18 @@
-import { computed, signal, untracked } from '@angular/core';
+import { computed, untracked } from '@angular/core';
 import type { Signal } from '@angular/core';
 import type { Character, CharacterSlot, PickedPreparation } from '@pioneer/character/domain';
-import type { InlineEdit, SelectOption } from '@pioneer/frontier';
-import { ChoiceValue } from '@pioneer/rules/sdk';
+import type { InlineEdit } from '@pioneer/frontier';
+import { ChoiceValue, ContentId, SpellPreparation } from '@pioneer/rules/sdk';
 import type { ContentRegistry, MagicTradition, SlotKey, Slug } from '@pioneer/rules/sdk';
-import type { SpellDetailLine, Translate } from '@pioneer/rules/ui';
+import type { SpellDetailLine, SpellPickerRow, Translate } from '@pioneer/rules/ui';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { NOT_CHOSEN, RootPick } from './sheet-build';
 import { sheetField } from './sheet-field';
-import { sheetPreparedSlots, spellMatches } from './sheet-prepared-spells';
+import { sheetPreparedSlots } from './sheet-prepared-spells';
 import type { SheetPreparedEntry, SheetPreparedSlot } from './sheet-prepared-spells';
 import { sheetSpellDetail } from './sheet-spell-details';
+import { spellRows } from './sheet-spell-rows';
 
 /** What the spell pickers read and write through. */
 export interface SpellPickSources {
@@ -23,14 +24,15 @@ export interface SpellPickSources {
   readonly select: (slot: SlotKey, selection: ChoiceValue) => Promise<void>;
   readonly clear: (slot: SlotKey) => Promise<void>;
   readonly translate: Translate;
+  /** Changes when the language changes or the messages load, so translated text is read again. */
+  readonly messages: Signal<unknown>;
 }
 
-/** A prepared slot as an inline pick: the spells matching what was typed, and why its pick counts for nothing. */
+/** A prepared slot as an inline pick: the spells it offers as table rows, and why its pick counts for nothing. */
 interface PreparedField {
   readonly key: SlotKey;
   readonly label: MessageDescriptor;
-  readonly matches: Signal<readonly SelectOption<string>[]>;
-  readonly search: (query: string) => void;
+  readonly rows: Signal<readonly SpellPickerRow[]>;
   readonly reason: Signal<MessageDescriptor | undefined>;
   /** The spell the slot holds, with what casting it takes and does at the rank it is cast; undefined while the slot is empty. */
   readonly detail: Signal<SpellDetailLine | undefined>;
@@ -63,6 +65,33 @@ function slotIn(entries: readonly SheetPreparedEntry[] | undefined, key: SlotKey
   return entries?.flatMap((entry) => entry.ranks.flatMap((rank) => rank.slots)).find((slot) => slot.key === key);
 }
 
+const NONE_TAKEN: ReadonlySet<ContentId> = new Set();
+
+/**
+ * The spells a spontaneous entry's repertoire holds in slots other than `key`: it knows a spell once, so another slot
+ * of the entry can't take them. A prepared entry may prepare a spell in several slots, and a signature slot picks
+ * from the repertoire, so neither has any.
+ */
+function takenElsewhere(
+  entries: readonly SheetPreparedEntry[] | undefined,
+  character: Character | undefined,
+  key: SlotKey,
+): ReadonlySet<ContentId> {
+  const entry = entries?.find((each) => each.ranks.some((rank) => rank.slots.some((slot) => slot.key === key)));
+  const own = slotIn(entries, key);
+  if (entry === undefined || character === undefined || own?.signature === true) {
+    return NONE_TAKEN;
+  }
+  if (entry.preparation !== SpellPreparation.Spontaneous) {
+    return NONE_TAKEN;
+  }
+  const picks = entry.ranks
+    .flatMap((rank) => rank.slots)
+    .filter((slot) => !slot.signature && slot.key !== key)
+    .map((slot) => ContentId.safeParse(character.document.build.choices[slot.key]));
+  return new Set(picks.flatMap((pick) => (pick.success ? [pick.data] : [])));
+}
+
 /** One prepared slot as an inline pick, saved by `selectSlot`, cleared by `clearSlot`. */
 function preparedField(
   sources: SpellPickSources,
@@ -72,7 +101,6 @@ function preparedField(
   const { key, label } = read;
   const slot = computed(() => slotIn(entries(), key));
   const options = computed(() => slot()?.options ?? []);
-  const query = signal('');
   const field = sheetField<string | undefined>(sources.character, {
     read: (character) => character.document.build.choices[key] ?? NOT_CHOSEN,
     empty: NOT_CHOSEN,
@@ -93,10 +121,14 @@ function preparedField(
   return {
     key,
     label,
-    matches: computed(() => spellMatches(options(), query())),
-    search: (typed) => {
-      query.set(typed);
-    },
+    rows: computed(() => {
+      sources.messages();
+      return spellRows(slot()?.spells ?? [], {
+        translate: sources.translate,
+        castRank: slot()?.castRank,
+        taken: takenElsewhere(entries(), sources.character(), key),
+      });
+    }),
     reason: computed(() => slot()?.reason),
     detail: computed(() => {
       const registry = sources.registry();

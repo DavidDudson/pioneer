@@ -2,12 +2,17 @@ import { Character, CharacterLevel, CharacterName } from '@pioneer/character/dom
 import { Endpoint, HttpMethod, NoParams, NoQuery } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
+import { HomebrewPackReport } from './homebrew-import-plan';
 import { UnmatchedContentGroup } from './unmatched-content';
 
-/** What importing a file would make: the character's name and level, and the content no loaded pack has. */
+/**
+ * What importing a file would make: the character's name and level, what happens to each embedded homebrew entry, and
+ * the content neither a loaded pack nor the file has.
+ */
 export const PioneerImportPreview = z.object({
   name: CharacterName,
   level: CharacterLevel,
+  homebrew: z.array(HomebrewPackReport).readonly(),
   unmatched: z.array(UnmatchedContentGroup).readonly(),
 });
 export type PioneerImportPreview = z.infer<typeof PioneerImportPreview>;

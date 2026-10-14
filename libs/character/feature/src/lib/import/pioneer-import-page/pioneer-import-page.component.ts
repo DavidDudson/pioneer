@@ -26,6 +26,7 @@ import { ApiError } from '@pioneer/shared/web';
 import { injectQuery } from '@tanstack/angular-query-experimental';
 
 import { CharacterStore } from '../../data/character-store';
+import { PioneerImportHomebrew } from '../pioneer-import-homebrew/pioneer-import-homebrew.component';
 import { CONTENT_KIND_KEYS } from '../pioneer-import-labels';
 
 interface ImportModel {
@@ -54,8 +55,8 @@ function parsed(text: string): ParsedFile | undefined {
 }
 
 /**
- * Upload or paste a Pioneer character file to see the character it makes and the content in it no loaded pack has,
- * then create it or cancel (#666). Both the preview and the creating are the server's: it holds every pack, reads the
+ * Upload or paste a Pioneer character file to see the character it makes, what happens to the homebrew it carries
+ * (#667) and the content in it no loaded pack has, then create it or cancel (#666). Both the preview and the creating are the server's: it holds every pack, reads the
  * file again on create and never takes the preview's word for it.
  */
 @Component({
@@ -73,6 +74,7 @@ function parsed(text: string): ParsedFile | undefined {
     ListItem,
     Message,
     Page,
+    PioneerImportHomebrew,
     Stack,
     Surface,
     Text,

@@ -26,9 +26,7 @@ const TARGET_OF_FILTER: Readonly<Record<Exclude<SpellTargetFilter, 'all'>, Targe
 /** Whether a spell passes `filter`; a slot with no spell yet always does, so it can still be picked. */
 export function passesTargetFilter(detail: SpellDetailLine | undefined, filter: SpellTargetFilter): boolean {
   return (
-    filter === SpellTargetFilter.All ||
-    detail === undefined ||
-    detail.targetValues.includes(TARGET_OF_FILTER[filter])
+    filter === SpellTargetFilter.All || detail === undefined || detail.targetValues.includes(TARGET_OF_FILTER[filter])
   );
 }
 
@@ -43,7 +41,10 @@ export function filterPrepared(
         .map((entry) => ({
           ...entry,
           ranks: entry.ranks
-            .map((rank) => ({ ...rank, fields: rank.fields.filter((slot) => passesTargetFilter(slot.detail(), filter)) }))
+            .map((rank) => ({
+              ...rank,
+              fields: rank.fields.filter((slot) => passesTargetFilter(slot.detail(), filter)),
+            }))
             .filter((rank) => rank.fields.length > 0),
         }))
         .filter((entry) => entry.ranks.length > 0);
@@ -56,7 +57,10 @@ export function filterFocus(focus: FocusLine, filter: SpellTargetFilter): FocusL
     : {
         ...focus,
         entries: focus.entries
-          .map((entry) => ({ ...entry, spells: entry.spells.filter((spell) => passesTargetFilter(spell.detail, filter)) }))
+          .map((entry) => ({
+            ...entry,
+            spells: entry.spells.filter((spell) => passesTargetFilter(spell.detail, filter)),
+          }))
           .filter((entry) => entry.spells.length > 0),
       };
 }

@@ -16,6 +16,7 @@ import {
 } from '@pioneer/frontier';
 import { VitalsView } from '@pioneer/rules/ui';
 
+import { CharacterPackStore } from '../../data/character-pack-store';
 import { FeatDisplayStore } from '../../data/feat-display-store';
 import { PlayStore } from '../../data/play-store';
 import { SheetConditions } from '../sheet-conditions/sheet-conditions.component';
@@ -59,7 +60,7 @@ import { SheetState } from '../sheet-state';
     VitalsView,
   ],
   templateUrl: './character-sheet-page.component.html',
-  providers: [SheetState, PlayStore, FeatDisplayStore],
+  providers: [SheetState, PlayStore, FeatDisplayStore, CharacterPackStore],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CharacterSheetPage {

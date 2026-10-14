@@ -1,19 +1,21 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input, signal } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { AsyncData, AsyncPending, AsyncRegion, Grid, Segmented, Skeleton, Stack } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
 import { ENTRY_PREVIEWS, FocusSpellsView, SpellAccessListView } from '@pioneer/rules/ui';
 import type { EntryPreviews, FocusLine } from '@pioneer/rules/ui';
+import { filter, merge } from 'rxjs';
 
 import { CharacterStore } from '../../data/character-store';
 import { injectContentRegistry } from '../../data/content-registry-query';
 import { sheetEntryPreviews } from '../sheet-entry-previews';
 import { sheetFocus } from '../sheet-focus-spells';
-import { filterFocus, filterPrepared, SPELL_TARGET_FILTER_MESSAGES, SpellTargetFilter } from '../sheet-spell-targets';
 import { sheetSpellAccess, SPELL_CONTENT_KINDS } from '../sheet-prepared-spells';
 import type { SheetSpellAccess } from '../sheet-prepared-spells';
 import { SheetPreparedSpells } from '../sheet-prepared-spells/sheet-prepared-spells.component';
 import { preparedFieldsOf } from '../sheet-spell-picks';
+import { filterFocus, filterPrepared, SPELL_TARGET_FILTER_MESSAGES, SpellTargetFilter } from '../sheet-spell-targets';
 import { SpellAccess } from '../spell-access/spell-access.component';
 
 const LOADING_SLOTS = 3;
@@ -54,6 +56,9 @@ export class SheetSpells {
 
   readonly #store = inject(CharacterStore);
   readonly #i18n = inject(TranslocoService);
+  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
+  /** Changes when the language changes or the messages load, so the pickers' rows are read again. */
+  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
 
   /** The registry with the spells; loads once the character casts. */
   protected readonly spells = injectContentRegistry(SPELL_CONTENT_KINDS, () => this.casts());
@@ -67,6 +72,7 @@ export class SheetSpells {
     select: async (slot, selection) => this.#store.selectSlot(slot, selection),
     clear: async (slot) => this.#store.clearSlot(slot),
     translate: (key, params) => this.#i18n.translate(key, params),
+    messages: this.#messages,
   });
   /** The character's focus spells and focus pool; undefined without a focus entry or while the spells load. */
   protected readonly focus = computed((): FocusLine | undefined => {

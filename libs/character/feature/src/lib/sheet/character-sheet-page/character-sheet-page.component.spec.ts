@@ -24,6 +24,7 @@ describe('CharacterSheetPage', () => {
       ['Level timeline', true],
       ['Feats', true],
       ['Class features', true],
+      ['Content packs', true],
     ]);
     await openTab(root, 'Encounter', 'Defences');
     expect(regionsOf(root)).toStrictEqual([
@@ -58,6 +59,7 @@ describe('CharacterSheetPage', () => {
       'Level timeline',
       'Feats',
       'Class features',
+      'Content packs',
     ]);
 
     links[2]?.click();

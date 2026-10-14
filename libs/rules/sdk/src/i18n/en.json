@@ -648,6 +648,37 @@
       "remove": "Remove {language}",
       "open": "{count, plural, one {# language left to add} other {# languages left to add}}"
     },
+    "spellPicker": {
+      "column": {
+        "name": "Name",
+        "rank": "Rank",
+        "traditions": "Traditions",
+        "cast": "Cast",
+        "range": "Range",
+        "areaTargets": "Area or targets",
+        "duration": "Duration",
+        "save": "Save",
+        "traits": "Traits",
+        "source": "Source"
+      },
+      "rarity": {
+        "uncommon": "Uncommon",
+        "rare": "Rare",
+        "unique": "Unique"
+      }
+    },
+    "deityPicker": {
+      "column": {
+        "name": "Name",
+        "sanctification": "Sanctification",
+        "font": "Divine font",
+        "domains": "Domains",
+        "favoredWeapon": "Favored weapon",
+        "skill": "Divine skill",
+        "edictsAnathema": "Edicts and anathema",
+        "source": "Source"
+      }
+    },
     "featPicker": {
       "column": {
         "name": "Name",
@@ -807,6 +838,9 @@
       "poolSlots": "{source} slots",
       "cantrips": "Cantrips",
       "rank": "{rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank",
+      "cantrip": "Cantrip",
+      "rankHeightened": "{rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank, heightened to {to, selectordinal, one {#st} two {#nd} few {#rd} other {#th}}",
+      "cantripHeightened": "Cantrip, heightened to {to, selectordinal, one {#st} two {#nd} few {#rd} other {#th}}",
       "preparation": {
         "prepared": "Prepared",
         "spontaneous": "Spontaneous",
@@ -828,6 +862,7 @@
       "level": "Level {level}",
       "action": {
         "variable": { "label": "One to three actions", "glyph": "◆ to ◆◆◆" },
+        "time": { "label": "Minutes or longer to cast", "glyph": "min+" },
         "passive": { "label": "Passive", "glyph": "—" }
       },
       "prerequisite": {

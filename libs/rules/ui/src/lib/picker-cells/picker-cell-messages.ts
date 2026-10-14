@@ -17,7 +17,7 @@ export const PickerCellMessage = {
 } as const;
 
 /** The costs a rich text mark has, plus a cost that varies and none at all. */
-export const ActionKind = { ...ActionCost, Variable: 'variable', Passive: 'passive' } as const;
+export const ActionKind = { ...ActionCost, Variable: 'variable', Time: 'time', Passive: 'passive' } as const;
 export type ActionKind = (typeof ActionKind)[keyof typeof ActionKind];
 
 /** Each cost's glyph and the words a screen reader says in its place. */
@@ -26,6 +26,10 @@ export const ACTION_KIND_MESSAGES: Readonly<Record<ActionKind, ActionCostMessage
   [ActionKind.Variable]: {
     label: 'rules.pickerCell.action.variable.label',
     glyph: 'rules.pickerCell.action.variable.glyph',
+  },
+  [ActionKind.Time]: {
+    label: 'rules.pickerCell.action.time.label',
+    glyph: 'rules.pickerCell.action.time.glyph',
   },
   [ActionKind.Passive]: {
     label: 'rules.pickerCell.action.passive.label',

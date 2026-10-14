@@ -18,6 +18,7 @@ import {
 import { CampaignStore } from '../../data/campaign-store';
 import { CampaignInvitePanel } from '../campaign-invite-panel/campaign-invite-panel.component';
 import { CampaignMemberList } from '../campaign-member-list/campaign-member-list.component';
+import { CampaignPacksPanel } from '../campaign-packs/campaign-packs.component';
 import { CampaignPartyPanel } from '../campaign-party/campaign-party.component';
 
 /** One campaign's home: when it started, who is in it, their characters, and for its GM, the invite links. */
@@ -29,6 +30,7 @@ import { CampaignPartyPanel } from '../campaign-party/campaign-party.component';
     AsyncRegion,
     CampaignInvitePanel,
     CampaignMemberList,
+    CampaignPacksPanel,
     CampaignPartyPanel,
     DateDisplay,
     DescriptionItem,

@@ -8,9 +8,11 @@ import {
   CampaignMemberId,
   CampaignName,
   CharacterId,
+  EnabledPackId,
   InviteToken,
 } from './campaign-fields';
 import { InviteSummary } from './campaign-invite';
+import { CampaignPacks } from './campaign-packs';
 import { CampaignParty } from './campaign-party';
 import { CampaignRoster } from './campaign-roster';
 
@@ -18,6 +20,7 @@ const ById = z.object({ id: CampaignId });
 const ByInvite = z.object({ id: CampaignId, inviteId: CampaignInviteId });
 const ByMember = z.object({ id: CampaignId, memberId: CampaignMemberId });
 const ByCharacter = z.object({ id: CampaignId, characterId: CharacterId });
+const ByPack = z.object({ id: CampaignId, packId: EnabledPackId });
 
 /** An empty answer: the request did what it says. */
 const Done = z.strictObject({});
@@ -39,6 +42,10 @@ export type TransferGmBody = z.infer<typeof TransferGmBody>;
 /** Which of the actor's characters joins the party. */
 export const AttachCharacterBody = z.object({ characterId: CharacterId });
 export type AttachCharacterBody = z.infer<typeof AttachCharacterBody>;
+
+/** Which pack the GM enables. */
+export const EnablePackBody = z.object({ packId: EnabledPackId });
+export type EnablePackBody = z.infer<typeof EnablePackBody>;
 
 /** The campaign HTTP API, shared by `campaign-infrastructure` and `campaign-feature`. */
 export const CampaignContract = {
@@ -132,6 +139,39 @@ export const CampaignContract = {
     query: NoQuery,
     body: NoBody,
     response: CampaignParty,
+  }),
+  /** The packs the campaign uses, and, for the GM, the ones they could add. */
+  packs: new Endpoint({
+    method: HttpMethod.Get,
+    path: '/campaigns/:id/packs',
+    params: ById,
+    query: NoQuery,
+    body: NoBody,
+    response: CampaignPacks,
+  }),
+  /**
+   * GM only: enables a pack they may read, with the packs it extends. A private pack is a 409 asking for it to be
+   * shared with campaigns first; one they cannot read is a 404. Enabling it twice is harmless.
+   */
+  enablePack: new Endpoint({
+    method: HttpMethod.Post,
+    path: '/campaigns/:id/packs',
+    params: ById,
+    query: NoQuery,
+    body: EnablePackBody,
+    response: CampaignPacks,
+  }),
+  /**
+   * GM only: stops the campaign using a homebrew pack. Official packs are always on, and a pack an enabled pack
+   * extends stays on: each is a 409. Disabling it twice is harmless.
+   */
+  disablePack: new Endpoint({
+    method: HttpMethod.Delete,
+    path: '/campaigns/:id/packs/:packId',
+    params: ByPack,
+    query: NoQuery,
+    body: NoBody,
+    response: CampaignPacks,
   }),
   /** GM only: invites that still work, newest first. */
   invites: new Endpoint({

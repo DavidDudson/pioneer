@@ -185,6 +185,7 @@
       "poolRankSlot": "{pool} {rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank slot {number}",
       "poolEmpty": "These slots take no spell until the {pool} choice is made.",
       "placeholder": "Search spells by name",
+      "alreadyKnown": "Already in this repertoire",
       "unknownSpell": "Unknown spell"
     },
     "repertoire": {
@@ -207,6 +208,7 @@
       "label": "Deity",
       "placeholder": "Search deities by name",
       "none": "No deity",
+      "needsFont": "A cleric needs a deity with a divine font",
       "unlistedWeapon": "{weapon} (not in the loaded content)"
     },
     "tabs": {
@@ -299,7 +301,8 @@
       "poolSlots": "{amount, plural, one {# {source} {pool} rank {rank} slot} other {# {source} {pool} rank {rank} slots}}",
       "uses": "{amount, plural, one {# use of {name}} other {# uses of {name}}}",
       "heading": "Rest and preparations"
-    }
+    },
+    "packsHeading": "Content packs"
   },
   "validation": {
     "unknownAncestry": "That ancestry is not available. Choose another.",
@@ -423,6 +426,23 @@
       "groupSummary": "{kind} · {count, number} not found",
       "cancel": "Cancel",
       "create": "Create character",
+      "homebrew": {
+        "heading": "Homebrew in this file",
+        "summary": "This character uses homebrew, which the file carries with its author and licence. Importing makes it yours, or reuses an identical copy, and never overwrites an entry that is already here.",
+        "clashes": "{count, plural, one {# entry clashes} other {# entries clash}} with a different entry already here. Those are kept as they are and not imported.",
+        "pack": "{title} by {publisher} ({pack})",
+        "entry": "{name} · {outcome}",
+        "status": {
+          "new": "A new pack, private to you, is made for it.",
+          "own": "You already own this pack. Entries it lacks are added.",
+          "taken": "This pack id is already used here. Nothing is added to it."
+        },
+        "outcome": {
+          "create": "added",
+          "reuse": "already here, reused",
+          "clash": "clashes, not imported"
+        }
+      },
       "kind": {
         "action": "Actions",
         "ancestry": "Ancestries",
@@ -456,5 +476,28 @@
         "weapon": "Weapons"
       }
     }
+  },
+  "packs": {
+    "loadError": "Could not load the packs.",
+    "empty": "No packs are on for this character.",
+    "campaignDecides": "{campaign} decides which packs this character uses. Leave the campaign to choose your own.",
+    "alwaysOn": "Always on",
+    "requiredBy": "Needed by {packs}",
+    "disable": "Disable",
+    "disabling": "Disabling",
+    "disabled": "Disabled",
+    "disableFailed": "Could not disable the pack. Try again.",
+    "enableHeading": "Add a pack",
+    "packLabel": "Pack",
+    "privateOption": "{title} (private)",
+    "enable": "Enable pack",
+    "enabling": "Enabling",
+    "enabled": "Enabled",
+    "enableFailed": "Could not enable the pack. Try again.",
+    "noneToEnable": "No more packs to enable. Packs you own, and packs shared with you, appear here.",
+    "toHomebrew": "Go to your packs",
+    "dependencyUnreadable": "{pack} extends {dependency}, which you cannot read, so it cannot be enabled.",
+    "alwaysOnRefusal": "Official packs are always on.",
+    "requiredByRefusal": "{packs} still extend this pack. Disable them first."
   }
 }

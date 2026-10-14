@@ -72,3 +72,11 @@ export type EnabledPackId = z.infer<typeof EnabledPackId>;
 /** Row id of one pack enabled in a campaign; the audit log keys every row by an `id`. */
 export const CampaignPackId = Uuid.brand<'CampaignPackId'>();
 export type CampaignPackId = z.infer<typeof CampaignPackId>;
+
+/** A pack's title as the content tables show it; the campaign context only displays it. */
+export const PackTitle = z.string().min(1).brand<'PackTitle'>();
+export type PackTitle = z.infer<typeof PackTitle>;
+
+/** A pack's publisher as the content tables show it; the campaign context only displays it. */
+export const PackPublisher = z.string().min(1).brand<'PackPublisher'>();
+export type PackPublisher = z.infer<typeof PackPublisher>;

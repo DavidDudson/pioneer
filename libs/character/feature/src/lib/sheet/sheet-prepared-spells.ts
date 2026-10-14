@@ -13,6 +13,7 @@ import type {
   PickedPreparation,
   PreparedSlot,
   SignatureSlot,
+  SlotContent,
   SpellOption,
 } from '@pioneer/character/domain';
 import type { SelectOption } from '@pioneer/frontier';
@@ -30,14 +31,17 @@ import type { SpellOnSheet } from './sheet-spell-details';
 /** The kinds the spell pickers read: the character's, so its entries resolve, and the spells. */
 export const SPELL_CONTENT_KINDS: readonly ContentKind[] = [...CHARACTER_CONTENT_KINDS, ContentKind.Spell];
 
-/** The most spells a spell picker lists for one query; typing narrows it. */
-const SPELL_MATCHES_MAX = 50;
-
 /** One prepared slot on the sheet: its label, the spells it offers by name, and why its pick counts for nothing. */
 export interface SheetPreparedSlot {
   readonly key: SlotKey;
   readonly label: MessageDescriptor;
   readonly options: readonly SelectOption<string>[];
+  /** The same spells with the facts a picker table shows. */
+  readonly spells: readonly SpellOption[];
+  /** The rank a spell cast from the slot has; undefined for a signature slot, whose spell is cast at a range of ranks. */
+  readonly castRank: SpellRank | undefined;
+  /** Whether it picks a signature spell from the entry's repertoire: never one the repertoire already holds twice. */
+  readonly signature: boolean;
   /** The stored pick's name, so a pick the slot no longer offers still reads by name. */
   readonly storedName: string | undefined;
   /** The spell the slot holds, at the rank it is cast; undefined while the slot is empty or holds something it no longer offers. */
@@ -159,6 +163,19 @@ function signatureIn(signatures: readonly SignatureSlot[], { slot }: NamedSlot):
     : undefined;
 }
 
+/** The prepared slots, each with the name of the entry that gave its pool. */
+function namedSlots(slots: readonly PreparedSlot[], content: SlotContent): NamedSlot[] {
+  return slots.map((slot): NamedSlot => ({
+    slot,
+    pool: slot.pool === undefined ? undefined : (content.lookup.entry(slot.pool.origin.entry)?.name ?? slot.pool.slug),
+  }));
+}
+
+/** The badge a slot of `rank` puts on its spell: a cantrip says so. */
+function cantripTags(rank: PreparedSlot['rank']): readonly string[] {
+  return rank === SlotRank.Cantrip ? [SpellListMessage.TagCantrip] : [];
+}
+
 /**
  * Each prepared entry's slots at the character's level (#478), rank by rank, cantrips first, then each of its pools'
  * (#581) the same way, under the name of the entry that gave the pool; and each spontaneous entry's repertoire the same
@@ -176,28 +193,27 @@ export function sheetPreparedSlots(
     key: named.slot.key,
     label: slotLabel(named, index + 1),
     options: named.slot.options.map((spell) => optionOf(spell)),
+    spells: named.slot.options,
+    castRank: named.slot.castRank,
+    signature: false,
     storedName: named.slot.stored === undefined ? undefined : content.spells.spell(named.slot.stored)?.name,
     reason: reasonOf(slots, named.slot.key),
-    spell: spellOf(
-      named.slot.pick,
-      named.slot.castRank,
-      named.slot.rank === SlotRank.Cantrip ? [SpellListMessage.TagCantrip] : [],
-    ),
+    spell: spellOf(named.slot.pick, named.slot.castRank, cantripTags(named.slot.rank)),
   });
   const signatureSlot = (signature: SignatureSlot): SheetPreparedSlot => ({
     key: signature.key,
     label: signatureLabel(signature),
     options: signature.options.map((spell) => optionOf(spell)),
+    spells: signature.options,
+    castRank: undefined,
+    signature: true,
     storedName: signature.stored === undefined ? undefined : content.spells.spell(signature.stored)?.name,
     reason: reasonOf(slots, signature.key),
     spell: spellOf(signature.pick, signature.castRanks.at(-1) ?? signature.rank, [SpellListMessage.TagSignature]),
   });
   const reads = preparedReads(character.document, content);
   const signatures = signatureSlots(character.document, reads);
-  const all = preparedSlots(character.document, reads).map((slot): NamedSlot => ({
-    slot,
-    pool: slot.pool === undefined ? undefined : (content.lookup.entry(slot.pool.origin.entry)?.name ?? slot.pool.slug),
-  }));
+  const all = namedSlots(preparedSlots(character.document, reads), content);
   return runs(all, ({ slot }) => slot.entry).map(([first, entrySlots]) => ({
     key: first.slot.entry,
     preparation: first.slot.preparation,
@@ -234,17 +250,11 @@ function runs<Item>(items: readonly Item[], keyOf: (item: Item) => string): Run<
   return grouped;
 }
 
-/** `options` whose label holds `query`, ignoring case, up to the most a picker lists. */
-export function spellMatches(options: readonly SelectOption<string>[], query: string): readonly SelectOption<string>[] {
-  const needle = query.trim().toLocaleLowerCase();
-  return options.filter((option) => option.label.toLocaleLowerCase().includes(needle)).slice(0, SPELL_MATCHES_MAX);
-}
-
 /** The uncommon and rare spells the build has access to, and those it may add. */
 export interface SheetSpellAccess {
   readonly granted: readonly SpellAccessLine[];
   /** Uncommon and rare spells of the traditions of the character's entries it has no access to yet, by name. */
-  readonly offered: readonly SelectOption<string>[];
+  readonly offered: readonly SpellOption[];
 }
 
 /**
@@ -260,8 +270,7 @@ export function sheetSpellAccess(registry: ContentRegistry, character: Character
   );
   const offered = content.spells.spells
     .filter((spell) => needsAccess(spell.rarity) && !granted.has(spell.id))
-    .filter((spell) => spell.traditions.some((tradition) => traditions.has(tradition)))
-    .map((spell) => optionOf(spell));
+    .filter((spell) => spell.traditions.some((tradition) => traditions.has(tradition)));
   return {
     granted: spellAccess.map((spell) => ({ spell, name: content.spells.spell(spell)?.name })),
     offered,

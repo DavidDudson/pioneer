@@ -2,6 +2,7 @@ import type {
   CharacterId,
   CharacterLevel,
   CharacterName,
+  CharacterPackId,
   CharacterSchemaVersion,
   FeatDisplayId,
   FeatDisplaySection,
@@ -11,6 +12,7 @@ import type {
   SheetModeId,
   StoredCharacterDocument,
 } from '@pioneer/character/domain';
+import type { ContentPackId } from '@pioneer/rules/sdk';
 import type { UserId, Version } from '@pioneer/shared/kernel';
 import {
   boolean,
@@ -135,4 +137,34 @@ export const characterPlay = pgTable(
     updatedAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
   },
   (table) => [uniqueIndex('character_play_character_idx').on(table.characterId)],
+);
+
+/**
+ * The content packs a character has enabled, one row each, used while it is in no campaign (a character in a campaign
+ * uses the campaign's packs and ignores these). The audit log keys rows by `id`, so an enablement has its own id. The
+ * foreign keys on `pack_id` (to content_packs, on delete cascade) and `enabled_by` (to users, on delete set null) are in
+ * the migration, as the rules and identity contexts' tables are outside this one's boundary; deleting the character
+ * deletes its rows too.
+ */
+export const characterPacks = pgTable(
+  'character_packs',
+  {
+    id: uuid().$type<CharacterPackId>().primaryKey(),
+    characterId: uuid()
+      .$type<CharacterId>()
+      .notNull()
+      .references(() => characters.id, { onDelete: 'cascade' }),
+    packId: uuid().$type<ContentPackId>().notNull(),
+    // Null once the user who enabled it is deleted.
+    enabledBy: uuid().$type<UserId>(),
+    enabledAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
+  },
+  (table) => [
+    // A character enables a pack once; also serves the character's list and the cascade when it is deleted.
+    uniqueIndex('character_packs_character_pack_idx').on(table.characterId, table.packId),
+    // The characters enabling a pack; also serves the cascade when the pack is deleted.
+    index('character_packs_pack_idx').on(table.packId),
+    // Serves clearing `enabled_by` when the user is deleted.
+    index('character_packs_enabled_by_idx').on(table.enabledBy),
+  ],
 );

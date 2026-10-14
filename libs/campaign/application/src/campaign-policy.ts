@@ -38,3 +38,8 @@ export function mayDetachCharacter(actor: UserId, campaign: Campaign, ownerId: U
   const role = campaign.roleOf(actor);
   return role === CampaignRole.Gm || (role !== undefined && ownerId === actor);
 }
+
+/** Who may enable and disable a campaign's packs: its GM. Every member may read the list. */
+export function mayManagePacks(actor: UserId, campaign: Campaign): boolean {
+  return campaign.roleOf(actor) === CampaignRole.Gm;
+}

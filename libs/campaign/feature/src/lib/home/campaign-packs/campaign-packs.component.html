@@ -1,0 +1,40 @@
+<fr-surface>
+  <fr-stack gap="md">
+    <fr-heading variant="subheading" [level]="2">{{ 'campaign.packs.heading' | transloco }}</fr-heading>
+    <fr-async-region [errorMessage]="'campaign.packs.loadError' | transloco">
+      <ng-template frAsyncPending>
+        <fr-stack gap="sm">
+          @for (placeholder of placeholders; track placeholder) {
+            <fr-stack gap="3xs">
+              <fr-skeleton width="sm" />
+              <fr-skeleton width="md" />
+            </fr-stack>
+          }
+        </fr-stack>
+      </ng-template>
+      <ng-template let-packs [frAsyncData]="store.packs">
+        <fr-stack gap="md">
+          @if (packs.enabled.length === 0) {
+            <fr-empty-state [icon]="emptyIcon" [title]="'campaign.packs.empty' | transloco" />
+          } @else {
+            <fr-list gap="sm">
+              @for (pack of packs.enabled; track pack.packId) {
+                <pio-campaign-pack-row
+                  [pack]="pack"
+                  [disabled]="disabled().has(pack.packId)"
+                  (turnedOff)="turnedOff($event)"
+                />
+              }
+            </fr-list>
+          }
+
+          @if (packs.manageable) {
+            <pio-campaign-pack-picker [candidates]="packs.candidates" (enabled)="reenabled($event)" />
+          } @else {
+            <fr-text variant="caption" tone="subtle">{{ 'campaign.packs.gmOnly' | transloco }}</fr-text>
+          }
+        </fr-stack>
+      </ng-template>
+    </fr-async-region>
+  </fr-stack>
+</fr-surface>

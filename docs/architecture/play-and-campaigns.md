@@ -373,6 +373,8 @@ campaign_members      id, campaign_id, user_id, role (gm | player), joined_at
 campaign_invites      id, campaign_id, token_hash (unique), created_by, created_at, expires_at, revoked_at
 campaign_characters   id, campaign_id, member_id, character_id (unique), attached_at
                       (a character is in one campaign at most and leaves with its member)
+character_packs       id, character_id, pack_id, enabled_by, enabled_at
+                      (the packs a character outside campaigns uses; in a campaign it uses the campaign's, ADR-0060)
 campaign_links        id, campaign_id, token_hash (unique), created_at, last_used_at, revoked_at
                       (one live link per campaign; a new one revokes the last)
 ```

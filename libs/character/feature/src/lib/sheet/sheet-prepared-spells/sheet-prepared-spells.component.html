@@ -12,22 +12,21 @@
         }
         <fr-list gap="sm">
           @for (slot of rank.fields; track slot.key) {
+            @let reason = slot.reason();
             <fr-list-item>
               <fr-stack gap="2xs">
-                @let reason = slot.reason();
                 <fr-inline-field
                   [label]="slot.label.key | transloco: slot.label.params"
                   [edit]="slot.field"
                   [notice]="reason === undefined ? undefined : (reason.key | transloco: reason.params)"
                 >
-                  <fr-combobox
+                  <pio-spell-picker
                     frInlineEditor
                     [ariaLabel]="slot.label.key | transloco: slot.label.params"
                     [placeholder]="'character.sheet.prepared.placeholder' | transloco"
-                    [options]="slot.matches()"
+                    [rows]="slot.rows()"
                     [value]="slot.field.draft()"
                     (valueChange)="slot.field.change($event)"
-                    (searched)="slot.search($event)"
                     (committed)="slot.field.flushSoon()"
                     (cancelled)="slot.field.cancel()"
                   />

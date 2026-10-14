@@ -1,13 +1,12 @@
 <fr-stack gap="md">
   <fr-inline-field [label]="'character.sheet.deity.label' | transloco" [edit]="field()">
-    <fr-combobox
+    <pio-deity-picker
       frInlineEditor
+      [rows]="rows()"
       [ariaLabel]="'character.sheet.deity.label' | transloco"
       [placeholder]="'character.sheet.deity.placeholder' | transloco"
-      [options]="matches()"
       [value]="field().draft()"
       (valueChange)="field().change($event)"
-      (searched)="search($event)"
       (committed)="field().flushSoon()"
       (cancelled)="field().cancel()"
     />

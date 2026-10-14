@@ -104,3 +104,22 @@ export { type SpellIdentity, spellDetailLine } from './lib/spell-list/spell-deta
 export { SpellDetails } from './lib/spell-list/spell-details.component';
 export { SpellListMessage } from './lib/spell-list/spell-list-messages';
 export type { Translate } from './lib/spell-list/spell-text';
+export { SpellPicker } from './lib/spell-picker/spell-picker.component';
+export { SpellPickerColumn, type SpellPickerRow } from './lib/spell-picker/spell-picker-row';
+export {
+  shownSpellRows,
+  spellPickerColumns,
+  spellRowDisabled,
+  spellRowLabel,
+  spellRowValue,
+} from './lib/spell-picker/spell-picker-table';
+export { DeityTableSchema } from './lib/picker-cells/deity-table-schema';
+export { DeityPicker } from './lib/deity-picker/deity-picker.component';
+export { DeityPickerColumn, type DeityPickerRow } from './lib/deity-picker/deity-picker-row';
+export {
+  deityPickerColumns,
+  deityRowDisabled,
+  deityRowLabel,
+  deityRowValue,
+  shownDeityRows,
+} from './lib/deity-picker/deity-picker-table';

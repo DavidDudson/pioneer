@@ -125,7 +125,7 @@ export const campaignCharacters = pgTable(
 /**
  * The content packs a campaign has enabled, one row each. The audit log keys rows by `id`, so an enablement has its
  * own id. The foreign key on `pack_id` (to content_packs, on delete cascade) is in the migration, as the rules
- * context's tables are outside this one's boundary.
+ * context's tables are outside this one's boundary; so is the one on `enabled_by` (to users, on delete set null).
  */
 export const campaignPacks = pgTable(
   'campaign_packs',
@@ -136,6 +136,8 @@ export const campaignPacks = pgTable(
       .notNull()
       .references(() => campaigns.id, { onDelete: 'cascade' }),
     packId: uuid().$type<EnabledPackId>().notNull(),
+    // Null once the user who enabled it is deleted: the campaign keeps the pack.
+    enabledBy: uuid().$type<UserId>(),
     enabledAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
   },
   (table) => [
@@ -143,5 +145,7 @@ export const campaignPacks = pgTable(
     uniqueIndex('campaign_packs_campaign_pack_idx').on(table.campaignId, table.packId),
     // The campaigns enabling a pack; also serves the cascade when the pack is deleted.
     index('campaign_packs_pack_idx').on(table.packId),
+    // Serves clearing `enabled_by` when the user is deleted.
+    index('campaign_packs_enabled_by_idx').on(table.enabledBy),
   ],
 );

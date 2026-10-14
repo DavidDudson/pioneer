@@ -1,12 +1,11 @@
 import { booleanAttribute, ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { DescriptionItem, DescriptionList, EmptyState, HeadingLevel, Skeleton, Stack, Text } from '@pioneer/frontier';
-import { Sanctification, SanctificationModal } from '@pioneer/rules/sdk';
 
 import { ATTRIBUTE_MESSAGES } from '../attributes/attributes-messages';
 import { RichTextView } from '../rich-text/rich-text.component';
-import type { DeityLine, DeitySanctificationLine } from './deity-line';
-import { DEITY_DOMAIN_MESSAGES, DeityMessage, DIVINE_FONT_MESSAGES } from './deity-messages';
+import type { DeityLine } from './deity-line';
+import { DEITY_DOMAIN_MESSAGES, DeityMessage, DIVINE_FONT_MESSAGES, sanctificationMessage } from './deity-messages';
 
 /** One term of the block and its values, each a message key or a name; none reads as "None". */
 interface DeityTerm {
@@ -34,27 +33,13 @@ const TERMS = [
 const keyed = (key: string): DeityValue => ({ key });
 const named = (name: string): DeityValue => ({ name });
 
-/** "Can be holy", "Must be unholy", "Can be holy or unholy", or none. */
-function sanctificationOf(sanctification: DeitySanctificationLine | undefined): DeityValue {
-  if (sanctification === undefined) {
-    return keyed(DeityMessage.NoSanctification);
-  }
-  const { modal, what } = sanctification;
-  const must = modal === SanctificationModal.Must;
-  if (what.length > 1) {
-    return keyed(must ? DeityMessage.MustEither : DeityMessage.CanEither);
-  }
-  const holy = what.includes(Sanctification.Holy);
-  if (must) {
-    return keyed(holy ? DeityMessage.MustHoly : DeityMessage.MustUnholy);
-  }
-  return keyed(holy ? DeityMessage.CanHoly : DeityMessage.CanUnholy);
-}
-
 function termsOf(deity: DeityLine): readonly DeityTerm[] {
   return [
     { term: DeityMessage.Font, values: deity.fonts.map((font) => keyed(DIVINE_FONT_MESSAGES[font])) },
-    { term: DeityMessage.Sanctification, values: [sanctificationOf(deity.sanctification)] },
+    {
+      term: DeityMessage.Sanctification,
+      values: [keyed(sanctificationMessage(deity.sanctification))],
+    },
     { term: DeityMessage.Domains, values: deity.domains.map((domain) => keyed(DEITY_DOMAIN_MESSAGES[domain])) },
     {
       term: DeityMessage.AlternateDomains,

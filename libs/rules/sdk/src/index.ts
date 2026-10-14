@@ -139,9 +139,13 @@ export { facetsFor } from './kind-facets';
 export {
   AreaValue,
   CastActions,
+  castActions,
   DefenseValue,
+  defenseValues,
   DurationValue,
+  durationValues,
   RangeBand,
+  rangeBands,
   TargetValue,
   targetValues,
 } from './spell-facet-values';
