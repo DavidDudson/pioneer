@@ -492,6 +492,10 @@
         "type": "untyped",
         "value": 1,
         "damageType": "spirit"
+      },
+      {
+        "key": "TempHP",
+        "value": "@attr.con + @level"
       }
     ],
     "externalIds": {
@@ -915,7 +919,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 10
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.QKpx9S3JeIMeqFnw"
     },
@@ -1371,6 +1380,10 @@
         "mode": "override",
         "value": "spirit",
         "predicate": ["option:one-with-the-spirits-damage"]
+      },
+      {
+        "key": "FastHealing",
+        "value": 5
       }
     ],
     "externalIds": {
@@ -1772,6 +1785,10 @@
       {
         "key": "Immunity",
         "type": ["bleed", "precision"]
+      },
+      {
+        "key": "FastHealing",
+        "value": 3
       }
     ],
     "externalIds": {
@@ -2234,7 +2251,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@item.level * 5"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.AAypmg9Jz6Ysf02a"
     },
@@ -3261,7 +3283,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FastHealing",
+        "value": "@item.level"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.oNAqqcxPjzPCJJmW"
     },

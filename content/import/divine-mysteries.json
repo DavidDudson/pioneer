@@ -2897,22 +2897,6 @@
     {
       "type": "entry",
       "pack": "divine-mysteries",
-      "slug": "effect:effect-enter-spirit-trance",
-      "foundry": "Compendium.pf2e.feat-effects.Item.2O1MmFvLdGZodvVc",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "TempHP",
-          "raw": {
-            "key": "TempHP",
-            "value": "@actor.system.abilities.con.mod + @actor.level"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
       "slug": "effect:effect-familiar-of-bolstering-aid",
       "foundry": "Compendium.pf2e.feat-effects.Item.IgLMAwovQ9roTsRN",
       "gaps": [
@@ -2980,22 +2964,6 @@
             "mode": "add",
             "property": "property-runes",
             "value": "{item|flags.system.rulesSelections.rune}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
-      "slug": "effect:effect-healing-sanctuary",
-      "foundry": "Compendium.pf2e.feat-effects.Item.QKpx9S3JeIMeqFnw",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "TempHP",
-          "raw": {
-            "key": "TempHP",
-            "value": 10
           }
         }
       ]
@@ -3216,14 +3184,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "FastHealing",
-          "raw": {
-            "key": "FastHealing",
-            "value": 5
-          }
-        },
-        {
-          "type": "rule",
           "key": "AdjustStrike",
           "raw": {
             "key": "AdjustStrike",
@@ -3378,14 +3338,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "FastHealing",
-          "raw": {
-            "key": "FastHealing",
-            "value": 3
-          }
-        },
-        {
-          "type": "rule",
           "key": "Immunity",
           "raw": {
             "definition": ["fall-damage"],
@@ -3464,22 +3416,6 @@
             "property": "damage-type",
             "selectors": ["spell-damage"],
             "value": "{item|flags.system.rulesSelections.draconicBarrage}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
-      "slug": "effect:spell-effect-endure",
-      "foundry": "Compendium.pf2e.spell-effects.Item.AAypmg9Jz6Ysf02a",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "TempHP",
-          "raw": {
-            "key": "TempHP",
-            "value": "@item.level*5"
           }
         }
       ]
@@ -3633,22 +3569,6 @@
             "selector": ["attack-roll", "skill-check"],
             "type": "status",
             "value": "ternary(gte(@item.level,9),3,ternary(gte(@item.level,5),2,1))"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
-      "slug": "effect:spell-effect-trade-death-for-life",
-      "foundry": "Compendium.pf2e.spell-effects.Item.oNAqqcxPjzPCJJmW",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FastHealing",
-          "raw": {
-            "key": "FastHealing",
-            "value": "@item.level"
           }
         }
       ]

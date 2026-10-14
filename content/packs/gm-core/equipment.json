@@ -3194,7 +3194,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 15
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.K2rMmiBlzcysNuj6"
     },

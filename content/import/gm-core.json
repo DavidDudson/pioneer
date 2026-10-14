@@ -1728,22 +1728,6 @@
     {
       "type": "entry",
       "pack": "gm-core",
-      "slug": "effect:effect-aeon-stone-sprouting",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.eyXUwWx5omiQWGZw",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "TempHP",
-          "raw": {
-            "key": "TempHP",
-            "value": 8
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
       "slug": "effect:effect-alloy-orb-exquisite-high-grade",
       "foundry": "Compendium.pf2e.equipment-effects.Item.o6GSF420m6cdTkZo",
       "gaps": [
@@ -2380,22 +2364,6 @@
     {
       "type": "entry",
       "pack": "gm-core",
-      "slug": "effect:effect-call-upon-the-ancient-life",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.TYxcUvcFuuBxWXF2",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FastHealing",
-          "raw": {
-            "key": "FastHealing",
-            "value": 15
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
       "slug": "effect:effect-clawed-bracers",
       "foundry": "Compendium.pf2e.equipment-effects.Item.lh2YM9yNJixOC8RI",
       "gaps": [
@@ -2653,22 +2621,6 @@
             "key": "ChoiceSet",
             "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
             "rollOption": "elixir-of-life"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "effect:effect-forgefathers-seal-stalwart-sacrifice",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.Elj69wSjv91ouC7v",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FastHealing",
-          "raw": {
-            "key": "FastHealing",
-            "value": 15
           }
         }
       ]
@@ -3973,22 +3925,6 @@
         {
           "type": "enricher",
           "enricher": "[[/act]]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:belt-of-long-life",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.K2rMmiBlzcysNuj6",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "TempHP",
-          "raw": {
-            "key": "TempHP",
-            "value": 15
-          }
         }
       ]
     },
