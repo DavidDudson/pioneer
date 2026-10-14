@@ -46,6 +46,32 @@ describe('withSkillRaise', () => {
   });
 });
 
+describe('withSkillRaise on a category or spellcasting', () => {
+  test.each([
+    ['system.proficiencies.attacks.martial.rank', 'attack:martial'],
+    ['system.proficiencies.attacks.unarmed.rank', 'attack:unarmed'],
+    ['system.proficiencies.defenses.heavy.rank', 'defense:heavy'],
+    ['system.proficiencies.defenses.unarmored.rank', 'defense:unarmored'],
+    ['system.proficiencies.spellcasting.rank', 'spellcasting'],
+  ])('%s is a Proficiency element on %s', (path, selector) => {
+    const predicate = ['class:fighter'];
+    const translated = withSkillRaise(upgrade(path, 2, { predicate }));
+
+    expect(translated).toEqual({ key: 'Proficiency', selector, rank: 'expert', predicate });
+    expect(RuleElement.safeParse(translated).success).toBe(true);
+  });
+
+  test.each([
+    ['a base weapon', 'system.proficiencies.attacks.weapon-base-club.rank'],
+    ['a category Pioneer does not have', 'system.proficiencies.defenses.shield.rank'],
+    ['a defence pick', 'system.proficiencies.defenses.{item|flags.system.rulesSelections.armorProficiency}.rank'],
+  ])('%s is left as Foundry wrote it', (_name, path) => {
+    const raw = upgrade(path, 1);
+
+    expect(withSkillRaise(raw)).toBe(raw);
+  });
+});
+
 describe('withSkillRaise on a ChoiceSet pick', () => {
   const CHOSEN = 'system.skills.{item|flags.system.rulesSelections.skillExpert}.rank';
 
