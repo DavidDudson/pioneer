@@ -21230,6 +21230,11 @@
           "prefix": "skill"
         },
         "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:simple",
+        "rank": "trained"
       }
     ],
     "externalIds": {
@@ -58162,6 +58167,16 @@
         "key": "Proficiency",
         "selector": "attack:martial",
         "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:martial",
+        "rank": "expert",
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
+          }
+        ]
       }
     ],
     "externalIds": {

@@ -750,7 +750,12 @@ FlatModifier` appends the import's rules of the keys named to the committed entr
     predicate kept, or on the skill a `ChoiceSet` on the same item stored when the path is
     `system.skills.{item|flags.system.rulesSelections.<flag>}.rank`
     ([ADR-0053](../adr/0053-proficiency-selector-follows-a-choice.md)); a Lore, a formula value (a Lore feat's
-    level-scaled override) or an override stays in the backlog. Its other `subfeatures`
+    level-scaled override) or an override stays in the backlog. The same upgrade of
+    `system.proficiencies.attacks.<category>.rank` (`unarmed`, `simple`, `martial`, `advanced`),
+    `system.proficiencies.defenses.<category>.rank` (`unarmored`, `light`, `medium`, `heavy`) and
+    `system.proficiencies.spellcasting.rank` is a `Proficiency` on `attack:<category>`, `defense:<category>` or
+    `spellcasting`; a base weapon (`weapon-base-club`), a pick, a formula rank and a `self:level` predicate stay in
+    the backlog. Its other `subfeatures`
     (`suppressedFeatures`, and key attribute options on any but a class feature) are reported by name
     (`subfeatures.suppressedFeatures`).
   - Player Core's casters get their spellcasting entries and rank raises by entry slug, since Foundry records neither

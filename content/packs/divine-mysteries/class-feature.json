@@ -2619,6 +2619,18 @@
         "key": "Proficiency",
         "selector": "defense:medium",
         "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "defense:light",
+        "rank": "expert",
+        "predicate": ["feature:divine-defense"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "defense:medium",
+        "rank": "expert",
+        "predicate": ["feature:divine-defense"]
       }
     ],
     "externalIds": {

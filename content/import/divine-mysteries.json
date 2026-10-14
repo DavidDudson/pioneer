@@ -408,28 +408,6 @@
       "foundry": "Compendium.pf2e.classfeatures.Item.BoZ3nSssFYcwuLIT",
       "gaps": [
         {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.proficiencies.defenses.light.rank",
-            "predicate": ["feature:divine-defense"],
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.proficiencies.defenses.medium.rank",
-            "predicate": ["feature:divine-defense"],
-            "value": 2
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[feats-srd]"
         },

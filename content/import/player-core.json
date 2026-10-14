@@ -1452,46 +1452,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "class-feature:first-doctrine-warpriest",
-      "foundry": "Compendium.pf2e.classfeatures.Item.xxkszluN9icAiTO4",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.proficiencies.defenses.light.rank",
-            "predicate": [
-              {
-                "gte": ["self:level", 13]
-              },
-              "feature:divine-defense"
-            ],
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.proficiencies.defenses.medium.rank",
-            "predicate": [
-              {
-                "gte": ["self:level", 13]
-              },
-              "feature:divine-defense"
-            ],
-            "value": 2
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "class-feature:flurry",
       "foundry": "Compendium.pf2e.classfeatures.Item.6v4Rj7wWfOH1882r",
       "gaps": [
@@ -1924,25 +1884,6 @@
           "type": "text",
           "reason": "runtime-key",
           "key": "PF2E.SpecificRule.ClassFeatures.Spellcaster.{actor|class.slug}.Master"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "class-feature:masterful-hunter",
-      "foundry": "Compendium.pf2e.classfeatures.Item.RVZC4wVy5B5W2OeS",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.proficiencies.spellcasting.rank",
-            "predicate": ["feat:initiate-warden"],
-            "value": 3
-          }
         }
       ]
     },
@@ -2392,29 +2333,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "class-feature:ranger-expertise",
-      "foundry": "Compendium.pf2e.classfeatures.Item.5likl5SAxQPrQ3KF",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.proficiencies.spellcasting.rank",
-            "predicate": [
-              {
-                "or": ["feat:initiate-warden", "feature:vindicator"]
-              }
-            ],
-            "value": 2
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "class-feature:ranger-weapon-expertise",
       "foundry": "Compendium.pf2e.classfeatures.Item.QhoW8ivPvYmWzyEZ",
       "gaps": [
@@ -2522,28 +2440,6 @@
             ],
             "property": "other-tags",
             "value": "sneak-attack"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.proficiencies.defenses.medium.rank",
-            "predicate": ["feature:light-armor-expertise"],
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.proficiencies.defenses.medium.rank",
-            "predicate": ["feature:light-armor-mastery"],
-            "value": 3
           }
         },
         {
@@ -3137,30 +3033,6 @@
       "slug": "class-feature:weapon-expertise",
       "foundry": "Compendium.pf2e.classfeatures.Item.9XLUh9iMepZesdmc",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.proficiencies.attacks.martial.rank",
-            "predicate": [
-              {
-                "or": [
-                  "class:champion",
-                  "class:exemplar",
-                  "class:guardian",
-                  "class:investigator",
-                  "class:magus",
-                  "class:runesmith",
-                  "class:swashbuckler",
-                  "class:thaumaturge"
-                ]
-              }
-            ],
-            "value": 2
-          }
-        },
         {
           "type": "rule",
           "key": "CriticalSpecialization",
@@ -19213,16 +19085,6 @@
           }
         },
         {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.proficiencies.attacks.simple.rank",
-            "value": 1
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[journals]"
         }
@@ -24631,29 +24493,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[against]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:weapon-proficiency",
-      "foundry": "Compendium.pf2e.feats-srd.Item.x9wxQ61HNkAVbDHr",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.proficiencies.attacks.martial.rank",
-            "predicate": [
-              {
-                "gte": ["self:level", 11]
-              }
-            ],
-            "value": 2
-          }
         }
       ]
     },
