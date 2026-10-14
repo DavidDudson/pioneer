@@ -1,5 +1,13 @@
 import { contentPackId, PackVisibility } from '@pioneer/rules/sdk';
-import type { ContentEntry, ContentLevel, Level, PackContents, PackContentsLoader, PackId } from '@pioneer/rules/sdk';
+import type {
+  ContentEntry,
+  ContentLevel,
+  ContentPackId,
+  Level,
+  PackContents,
+  PackContentsLoader,
+  PackId,
+} from '@pioneer/rules/sdk';
 import { FIRST_VERSION, nextVersion } from '@pioneer/shared/kernel';
 import type { Clock, ValueOf, Version } from '@pioneer/shared/kernel';
 import { and, eq, isNull, sql } from 'drizzle-orm';
@@ -63,9 +71,9 @@ function levelOf(entry: ContentEntry): ContentLevel | Level | undefined {
   return 'level' in entry ? entry.level : undefined;
 }
 
-function entryRow(write: PackWrite, entry: ContentEntry): EntryRow {
+/** The row that stores `entry` in the pack `packId`, as written at `at`. */
+export function contentEntryRow(packId: ContentPackId, entry: ContentEntry, at: string): EntryRow {
   const { id, kind, slug, name, rarity, traits } = entry;
-  const packId = contentPackId(write.contents.file.id);
   return {
     id,
     packId,
@@ -76,8 +84,12 @@ function entryRow(write: PackWrite, entry: ContentEntry): EntryRow {
     rarity,
     traits: [...traits],
     data: entry,
-    updatedAt: write.at,
+    updatedAt: at,
   };
+}
+
+function entryRow(write: PackWrite, entry: ContentEntry): EntryRow {
+  return contentEntryRow(contentPackId(write.contents.file.id), entry, write.at);
 }
 
 async function upsertPack(write: PackWrite, stored: StoredPack | undefined): Promise<Version> {

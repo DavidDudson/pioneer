@@ -1,0 +1,34 @@
+@if (packs().length > 0) {
+  <fr-surface>
+    <fr-stack gap="md">
+      <fr-heading variant="subheading" [level]="2">{{
+        'character.import.pioneer.homebrew.heading' | transloco
+      }}</fr-heading>
+      <fr-text tone="muted">{{ 'character.import.pioneer.homebrew.summary' | transloco }}</fr-text>
+      @if (clashes() > 0) {
+        <fr-message>{{ 'character.import.pioneer.homebrew.clashes' | transloco: { count: clashes() } }}</fr-message>
+      }
+      @for (pack of views(); track pack.pack) {
+        <fr-disclosure>
+          <fr-text frDisclosureSummary>{{
+            'character.import.pioneer.homebrew.pack'
+              | transloco: { title: pack.title, publisher: pack.publisher, pack: pack.pack }
+          }}</fr-text>
+          <fr-stack gap="sm">
+            <fr-text tone="muted">{{ pack.statusKey | transloco }}</fr-text>
+            <fr-list>
+              @for (entry of pack.entries; track entry.name) {
+                <fr-list-item>
+                  <fr-text>{{
+                    'character.import.pioneer.homebrew.entry'
+                      | transloco: { name: entry.name, outcome: entry.outcomeKey | transloco }
+                  }}</fr-text>
+                </fr-list-item>
+              }
+            </fr-list>
+          </fr-stack>
+        </fr-disclosure>
+      }
+    </fr-stack>
+  </fr-surface>
+}

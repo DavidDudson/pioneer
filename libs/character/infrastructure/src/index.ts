@@ -8,3 +8,4 @@ export { playRoutes } from './play-routes';
 export { characterFeatDisplays } from './character.table';
 export { DrizzleFeatDisplayRepository } from './drizzle-feat-display-repository';
 export { featDisplayRoutes } from './feat-display-routes';
+export { pioneerFileRoutes } from './pioneer-file-routes';

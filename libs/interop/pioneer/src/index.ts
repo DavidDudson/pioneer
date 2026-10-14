@@ -24,3 +24,14 @@ export { registryNamer } from './registry-namer';
 export { PioneerExportContract } from './pioneer-export-contract';
 export { PioneerImportContract, PioneerImportPreview } from './pioneer-import-contract';
 export { UnmatchedContentGroup, unmatchedContent } from './unmatched-content';
+export { embeddedNamer, EmbeddedPack } from './embedded-homebrew';
+export {
+  type ExistingPack,
+  type ExistingPacks,
+  HomebrewEntryOutcome,
+  HomebrewEntryReport,
+  HomebrewPackReport,
+  HomebrewPackStatus,
+  type HomebrewPackPlan,
+  planHomebrewImport,
+} from './homebrew-import-plan';

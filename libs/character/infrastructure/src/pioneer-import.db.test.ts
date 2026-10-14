@@ -1,6 +1,6 @@
 import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
 
-import { CharacterService } from '@pioneer/character/application';
+import { CharacterService, InMemoryEmbeddedHomebrew, PioneerFileService } from '@pioneer/character/application';
 import { CharacterCommand, CharacterName } from '@pioneer/character/domain';
 import { fixtureOwnerId, humanAncestryId } from '@pioneer/character/domain/testing';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
@@ -20,6 +20,7 @@ const clock = fixedClock('2026-10-07T10:00:00Z');
 describe.skipIf(adminUrl === undefined)('Pioneer file import (postgres)', () => {
   let database: TestDatabase;
   let service: CharacterService;
+  let files: PioneerFileService;
 
   beforeAll(async () => {
     database = await createTestDatabase(adminUrl ?? '');
@@ -28,7 +29,9 @@ describe.skipIf(adminUrl === undefined)('Pioneer file import (postgres)', () => 
       sql`insert into users (id, display_name, email_verified, created_at, updated_at) values (${fixtureOwnerId}, 'Owner', false, ${at}, ${at})`,
     );
     const content = fixedContent(new ContentPackBuilder().withId('player-core').withAncestry('human').build());
-    service = new CharacterService(new DrizzleCharacterRepository(database.db), content, clock);
+    const repository = new DrizzleCharacterRepository(database.db);
+    service = new CharacterService(repository, content, clock);
+    files = new PioneerFileService({ repository, content, clock, homebrew: new InMemoryEmbeddedHomebrew() });
   });
 
   afterAll(async () => {
@@ -40,22 +43,22 @@ describe.skipIf(adminUrl === undefined)('Pioneer file import (postgres)', () => 
       name: CharacterName.parse('Kyra'),
       ancestry: humanAncestryId,
     });
-    const file = await service.exportPioneer(fixtureOwnerId, original.id);
+    const file = await files.export(fixtureOwnerId, original.id);
 
-    const imported = await service.importPioneer(fixtureOwnerId, file);
+    const imported = await files.import(fixtureOwnerId, file);
 
     expect(imported.id).not.toBe(original.id);
     const entries = await database.db.select().from(auditLog).where(eq(auditLog.rowId, imported.id));
     expect(entries.map((entry) => [entry.action, entry.rowVersion, entry.actorId, entry.command])).toStrictEqual([
       ['insert', 1, fixtureOwnerId, CharacterCommand.ImportPioneer],
     ]);
-    expect(await service.exportPioneer(fixtureOwnerId, imported.id)).toStrictEqual(file);
+    expect(await files.export(fixtureOwnerId, imported.id)).toStrictEqual(file);
   });
 
   test('a refused file writes nothing', async () => {
     const before = await database.db.select().from(auditLog);
 
-    await rejection(service.importPioneer(fixtureOwnerId, { hello: 'world' }));
+    await rejection(files.import(fixtureOwnerId, { hello: 'world' }));
 
     expect(await database.db.select().from(auditLog)).toHaveLength(before.length);
   });

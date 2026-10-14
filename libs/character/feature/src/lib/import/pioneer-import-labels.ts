@@ -1,3 +1,4 @@
+import { HomebrewEntryOutcome, HomebrewPackStatus } from '@pioneer/interop/pioneer';
 import { ContentKind } from '@pioneer/rules/sdk';
 
 /** Label key per kind of content a Pioneer file can name that no loaded pack has. */
@@ -32,4 +33,18 @@ export const CONTENT_KIND_KEYS: Readonly<Record<ContentKind, string>> = {
   [ContentKind.Treasure]: 'character.import.pioneer.kind.treasure',
   [ContentKind.VariantRule]: 'character.import.pioneer.kind.variantRule',
   [ContentKind.Weapon]: 'character.import.pioneer.kind.weapon',
+};
+
+/** What importing does with a homebrew pack in the file, by who holds the pack id on this server. */
+export const HOMEBREW_STATUS_KEYS: Readonly<Record<HomebrewPackStatus, string>> = {
+  [HomebrewPackStatus.New]: 'character.import.pioneer.homebrew.status.new',
+  [HomebrewPackStatus.Own]: 'character.import.pioneer.homebrew.status.own',
+  [HomebrewPackStatus.Taken]: 'character.import.pioneer.homebrew.status.taken',
+};
+
+/** What importing does with one homebrew entry in the file. */
+export const HOMEBREW_OUTCOME_KEYS: Readonly<Record<HomebrewEntryOutcome, string>> = {
+  [HomebrewEntryOutcome.Create]: 'character.import.pioneer.homebrew.outcome.create',
+  [HomebrewEntryOutcome.Reuse]: 'character.import.pioneer.homebrew.outcome.reuse',
+  [HomebrewEntryOutcome.Clash]: 'character.import.pioneer.homebrew.outcome.clash',
 };

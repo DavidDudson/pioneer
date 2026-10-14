@@ -4,6 +4,8 @@ import { ContentId } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
 import type { ReferenceNamer } from './content-reference';
+import { embeddedNamer, embeddedUsing } from './embedded-homebrew';
+import type { EmbeddedPack } from './embedded-homebrew';
 import { CURRENT_FORMAT_VERSION, PIONEER_CHARACTER_FORMAT, PioneerCharacterFile } from './pioneer-character-file';
 import { isFields, rewriteReferences } from './rewrite-references';
 import type { Fields } from './rewrite-references';
@@ -49,16 +51,27 @@ function portableInputs(document: CharacterDocument): Fields {
 
 /**
  * The file for a character: its stored inputs with each content id replaced by the pack and slug that hash to it. An
- * id the namer does not know fails the export instead of writing a reference nothing could read back.
+ * id neither `loaded` nor `embedded` (homebrew the character uses, each entry carried in the file) can name fails the
+ * export instead of writing a reference nothing could read back.
  */
-export function exportPioneerCharacter(document: CharacterDocument, name: ReferenceNamer): PioneerExportResult {
+export function exportPioneerCharacter(
+  document: CharacterDocument,
+  loaded: ReferenceNamer,
+  embedded: readonly EmbeddedPack[] = [],
+): PioneerExportResult {
   const unnamed = new Set<ContentId>();
+  const used = new Set<ContentId>();
+  const fromEmbedded = embeddedNamer(embedded);
   const character = rewriteReferences(portableInputs(document), (value) => {
     const id = ContentId.safeParse(value);
     if (!id.success) {
       return value;
     }
-    const reference = name(id.data);
+    const official = loaded(id.data);
+    const reference = official ?? fromEmbedded(id.data);
+    if (official === undefined && reference !== undefined) {
+      used.add(id.data);
+    }
     if (reference === undefined) {
       unnamed.add(id.data);
       return value;
@@ -68,10 +81,12 @@ export function exportPioneerCharacter(document: CharacterDocument, name: Refere
   if (unnamed.size > 0) {
     return { ok: false, unnamed: [...unnamed] };
   }
+  const homebrew = embeddedUsing(embedded, used);
   const file = PioneerCharacterFile.parse({
     format: PIONEER_CHARACTER_FORMAT,
     formatVersion: CURRENT_FORMAT_VERSION,
     character,
+    ...(homebrew.length === 0 ? {} : { homebrew }),
   });
   return { ok: true, file };
 }
