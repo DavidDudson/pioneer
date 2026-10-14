@@ -432,6 +432,62 @@
             "not": "item:rune:property:underwater"
           }
         ]
+      },
+      {
+        "key": "DamageAlteration",
+        "selectors": ["inline-damage", "attack-damage", "spell-damage"],
+        "property": "dice-number",
+        "mode": "override",
+        "value": 0,
+        "predicate": [
+          {
+            "or": ["item:damage:persistent:fire", "item:damage:fire"]
+          },
+          {
+            "not": "item:trait:impulse"
+          }
+        ]
+      },
+      {
+        "key": "Note",
+        "selectors": ["all"],
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You can't cast fire spells or use actions with the fire trait underwater."
+              }
+            ]
+          }
+        ],
+        "predicate": [
+          "item:trait:fire",
+          {
+            "not": "item:rune:property:underwater"
+          }
+        ]
+      },
+      {
+        "key": "Note",
+        "selectors": ["ranged-attack-roll"],
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Ranged attacks made by an underwater creature or against an underwater target have their range increments halved."
+              }
+            ]
+          }
+        ],
+        "predicate": [
+          {
+            "not": "item:rune:property:underwater"
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -722,6 +778,22 @@
         "type": "untyped",
         "value": "@item.level",
         "damageType": "spirit"
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon"],
+        "property": "traits",
+        "mode": "add",
+        "value": "holy",
+        "predicate": ["self:trait:holy"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon"],
+        "property": "traits",
+        "mode": "add",
+        "value": "unholy",
+        "predicate": ["self:trait:unholy"]
       }
     ],
     "externalIds": {
@@ -1383,7 +1455,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["melee-strike-damage"],
+        "diceNumber": "ternary(gte(@item.level, 8), 3, ternary(gte(@item.level, 5), 2, 1))",
+        "dieSize": "d6",
+        "damageType": "vitality",
+        "predicate": ["parent:trait:vitality"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["melee-strike-damage"],
+        "diceNumber": "ternary(gte(@item.level, 8), 3, ternary(gte(@item.level, 5), 2, 1))",
+        "dieSize": "d6",
+        "damageType": "void",
+        "predicate": ["parent:trait:void"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.eecIuD6sGPX0FJcT"
     },
@@ -3433,7 +3522,21 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 2,
+        "dieSize": "d6",
+        "category": "precision",
+        "predicate": [
+          "target:mark:precise-debilitations",
+          {
+            "not": "parent:tag:precise-debilitations-dice-added"
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.ZZXIUvZqqIxkMfYa"
     },
@@ -3878,7 +3981,59 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["attack"],
+        "title": "Remaining Air",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "If you attack or Cast any spells, you reduce your remaining air by 2 instead of 1 at the end of your turn."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "Note",
+        "selectors": ["saving-throw"],
+        "title": "Remaining Air",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You lose 1 round worth of air."
+              }
+            ]
+          }
+        ],
+        "outcome": ["criticalFailure"],
+        "predicate": ["option:damaging-effect"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["damage-received"],
+        "title": "Remaining Air",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You lose 1 round worth of air."
+              }
+            ]
+          }
+        ],
+        "outcome": ["criticalSuccess"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.other-effects.Item.2u26bmArDPuoCljc"
     },
@@ -4816,6 +4971,33 @@
         "display": {
           "label": "Precision — Hit against Hunted Prey"
         }
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "slug": "precision",
+        "diceNumber": "ternary(lt(@level, 11), 1, ternary(lt(@level, 19), 2, 3))",
+        "dieSize": "d8",
+        "category": "precision",
+        "predicate": ["option:precision-hunters-edge", "target:mark:share-hunters-edge"]
+      },
+      {
+        "key": "DamageAlteration",
+        "selectors": ["strike-damage"],
+        "slug": "precision",
+        "property": "dice-number",
+        "mode": "override",
+        "value": "ternary(gte(@level, 19), 2, 1)",
+        "predicate": ["precision-hunters-edge:second-hit"]
+      },
+      {
+        "key": "DamageAlteration",
+        "selectors": ["strike-damage"],
+        "slug": "precision",
+        "property": "dice-number",
+        "mode": "override",
+        "value": 1,
+        "predicate": ["precision-hunters-edge:third-hit"]
       }
     ],
     "externalIds": {
@@ -4931,6 +5113,36 @@
         "display": {
           "label": "Precision — Hit against Hunted Prey"
         }
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "slug": "precision",
+        "diceNumber": "ternary(gte(@level, 19), 3, 2)",
+        "dieSize": "d8",
+        "category": "precision",
+        "predicate": ["option:precision-hunters-edge", "target:mark:share-hunters-edge"],
+        "display": {
+          "label": "Flurry"
+        }
+      },
+      {
+        "key": "DamageAlteration",
+        "selectors": ["strike-damage"],
+        "slug": "precision",
+        "property": "dice-number",
+        "mode": "override",
+        "value": "ternary(gte(@level, 19), 2, 1)",
+        "predicate": ["precision-hunters-edge:second-hit"]
+      },
+      {
+        "key": "DamageAlteration",
+        "selectors": ["strike-damage"],
+        "slug": "precision",
+        "property": "dice-number",
+        "mode": "override",
+        "value": 1,
+        "predicate": ["precision-hunters-edge:third-hit"]
       }
     ],
     "externalIds": {
@@ -6292,6 +6504,15 @@
         ],
         "prompt": "Select a form.",
         "rollOption": "aerial-form"
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["stinger-damage"],
+        "diceNumber": "ternary(gte(@item.level, 6), 2, 1)",
+        "dieSize": "d6",
+        "damageType": "poison",
+        "category": "persistent",
+        "predicate": ["aerial-form:wasp"]
       }
     ],
     "externalIds": {
@@ -8663,7 +8884,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["fangs-damage"],
+        "diceNumber": "ternary(gte(@item.level, 5), 2, 1)",
+        "dieSize": "d6",
+        "damageType": "poison"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.kz3mlFwb9tV9bFwu"
     },
@@ -11047,7 +11276,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["horn-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "bleed",
+        "critical": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.iOKhr2El8R6cz6YI"
     },
@@ -12558,6 +12796,60 @@
         "key": "Resistance",
         "type": ["precision"],
         "value": 10
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": "ternary(gte(@item.level, 9), 2, 1)",
+        "dieSize": "d4",
+        "damageType": "fire",
+        "predicate": ["option:unarmed"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["spell-damage"],
+        "diceNumber": 1,
+        "damageType": "fire",
+        "predicate": ["option:fire"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["damage-received"],
+        "title": "Spell Effect: Fiery Body",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The attacker takes "
+              },
+              {
+                "type": "damage",
+                "instances": [
+                  {
+                    "formula": "(ternary(gte(@item.level,9),4,3))d6",
+                    "damageType": "fire"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " damage."
+              }
+            ]
+          }
+        ],
+        "predicate": [
+          {
+            "or": [
+              "item:category:unarmed",
+              {
+                "not": "item:trait:reach"
+              }
+            ]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -14144,7 +14436,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": "ternary(gte(@item.level, 5), 3, ternary(gte(@item.level, 3), 2, 1))",
+        "dieSize": "d4",
+        "damageType": "vitality"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.X7RD0JRxhJV9u2LC"
     },
@@ -15366,6 +15666,32 @@
         ],
         "prompt": "Select a form.",
         "rollOption": "monstrosity-form"
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["stinger-damage"],
+        "diceNumber": 2,
+        "dieSize": "d6",
+        "damageType": "poison",
+        "category": "persistent",
+        "predicate": ["monstrosity-form:cave-worm"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["beak-damage"],
+        "diceNumber": "ternary(gte(@item.level, 9), 3, 2)",
+        "dieSize": "d4",
+        "damageType": "fire",
+        "predicate": ["monstrosity-form:phoenix"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["beak-damage"],
+        "diceNumber": 2,
+        "dieSize": "d4",
+        "damageType": "fire",
+        "category": "persistent",
+        "predicate": ["monstrosity-form:phoenix"]
       }
     ],
     "externalIds": {
@@ -15434,6 +15760,19 @@
         "selectors": ["land-speed"],
         "type": "status",
         "value": 10
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 1,
+        "dieSize": "d4",
+        "damageType": "bleed",
+        "critical": true,
+        "predicate": [
+          {
+            "or": ["item:slug:moon-frenzy-claws", "item:slug:moon-frenzy-fangs"]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -16824,6 +17163,23 @@
         ],
         "prompt": "Select a form.",
         "rollOption": "plant-form"
+      },
+      {
+        "key": "Note",
+        "selectors": ["leaf-damage"],
+        "title": "Spell Effect: Plant Form",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You can spend an action immediately after a hit to Grab the target."
+              }
+            ]
+          }
+        ],
+        "predicate": ["plant-form:flytrap"]
       }
     ],
     "externalIds": {
@@ -17101,6 +17457,39 @@
         "key": "Resistance",
         "type": ["fire"],
         "value": 5,
+        "predicate": ["primal-summons:water"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "fire",
+        "predicate": ["primal-summons:fire"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "electricity",
+        "predicate": ["primal-summons:metal"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["melee-strike-damage"],
+        "title": "Spell Effect: Primal Summons",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You can spend an action immediately after a hit to push the target 5 feet with the effects of a successful Shove."
+              }
+            ]
+          }
+        ],
         "predicate": ["primal-summons:water"]
       }
     ],
@@ -19370,7 +19759,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["saving-throw"],
+        "title": "Spell Effect: Tempt Fate",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "If the saving throw's result is a success, it becomes a critical success. If it's a failure, it becomes a critical failure, and the critical failure can't be reduced by abilities that usually reduce critical failure."
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.AJkRUIdYLnt4QOOg"
     },

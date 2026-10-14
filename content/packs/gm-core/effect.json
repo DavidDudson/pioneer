@@ -960,7 +960,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 1,
+        "dieSize": "d4",
+        "category": "precision",
+        "predicate": ["bloodseeker-beak:bloodseeker-beak"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 2,
+        "dieSize": "d4",
+        "category": "precision",
+        "predicate": ["bloodseeker-beak:bloodseeker-beak-greater"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.5XdkHIUgc6psBxQq"
     },
@@ -2373,6 +2390,18 @@
         "key": "Resistance",
         "type": ["fire"],
         "value": 40
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:armor"],
+        "property": "ac-bonus",
+        "mode": "add",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["armor:category:light", "armor:category:medium"]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -4938,7 +4967,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:shield", "item:equipped"],
+        "property": "hardness",
+        "mode": "add",
+        "value": 5
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.4IwCyYdSn2gUYAwL"
     },

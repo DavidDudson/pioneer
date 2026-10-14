@@ -5470,6 +5470,30 @@
         "key": "RollOption",
         "option": "option:oath-of-the-avenger",
         "toggleable": true
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:lay-on-hands"],
+        "property": "traits",
+        "mode": "remove",
+        "value": "vitality",
+        "predicate": ["option:oath-of-the-avenger"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:lay-on-hands"],
+        "property": "traits",
+        "mode": "add",
+        "value": "spirit",
+        "predicate": ["option:oath-of-the-avenger"]
+      },
+      {
+        "key": "DamageAlteration",
+        "selectors": ["spell-damage"],
+        "property": "damage-type",
+        "mode": "override",
+        "value": "spirit",
+        "predicate": ["item:slug:lay-on-hands", "option:oath-of-the-avenger"]
       }
     ],
     "externalIds": {
@@ -6002,6 +6026,15 @@
         "key": "RollOption",
         "option": "option:palatine-strike",
         "toggleable": true
+      },
+      {
+        "key": "DamageAlteration",
+        "selectors": ["strike-damage"],
+        "slug": "strategic-strike",
+        "property": "dice-number",
+        "mode": "add",
+        "value": 2,
+        "predicate": ["option:palatine-strike"]
       }
     ],
     "externalIds": {

@@ -81,6 +81,8 @@ export interface RollView {
   readonly degree: DegreeView | undefined;
   /** Unset when the roll was not applied to a target. */
   readonly damage: DamageView | undefined;
+  /** The toggles the roll was made with, worded, so the card can say why the total is what it is; none for a plain roll. */
+  readonly reasons: readonly string[];
 }
 
 function termView(result: TermResult, index: number): TermView {
@@ -147,9 +149,11 @@ export interface FinishedRoll {
   readonly degree: DegreeResult | undefined;
   /** Unset when not applied to a target. */
   readonly damage: DamageApplication | undefined;
+  /** The toggles the roll was made with, worded; none when left out. */
+  readonly reasons?: readonly string[];
 }
 
-export function rollView(id: number, { expression, roll, degree, damage }: FinishedRoll): RollView {
+export function rollView(id: number, { expression, roll, degree, damage, reasons = [] }: FinishedRoll): RollView {
   return {
     id,
     notation: formatExpression(expression),
@@ -158,5 +162,6 @@ export function rollView(id: number, { expression, roll, degree, damage }: Finis
     attempts: roll.rolls.map(attemptView),
     degree: degree === undefined ? undefined : degreeView(degree),
     damage: damage === undefined ? undefined : damageView(damage),
+    reasons,
   };
 }

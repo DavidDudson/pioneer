@@ -15,6 +15,8 @@ import {
   MISFORTUNE_CHECK,
   PLAIN_CHECK,
   SUCCESS,
+  TOGGLE_REASONS,
+  WITH_TOGGLES,
 } from '../testing/roll-fixtures';
 import { RollCard } from './roll-card.component';
 
@@ -151,5 +153,16 @@ describe(RollCard, () => {
     await fixture.whenStable();
 
     expect(textOf(hostOf(fixture))).toContain('Enter a DC as a whole number.');
+  });
+
+  it('says which toggles the roll was made with, and nothing for a plain roll', async () => {
+    const plain = textOf(hostOf(await render(PLAIN_CHECK)));
+    expect(plain).not.toContain('Rolled with');
+
+    const toggled = textOf(hostOf(await render(WITH_TOGGLES)));
+    expect(toggled).toContain('Rolled with');
+    for (const reason of TOGGLE_REASONS) {
+      expect(toggled).toContain(reason);
+    }
   });
 });

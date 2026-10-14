@@ -18,8 +18,10 @@ import type { Arbitrary } from 'fast-check';
 import { Attribute } from '../attribute';
 import { ContentKind } from '../content-kind';
 import { DamageAdjustmentTarget, DamageType } from '../damage';
+import { DegreeOfSuccess } from '../degree-of-success';
 import { ModifierType } from '../modifier-type';
 import { Proficiency } from '../proficiency';
+import { DamageDiceCategory, DamageProperty } from '../rule-element-damage';
 import { NumericAlterationMode, NumericItemProperty, TraitAlterationMode } from '../rule-element-item-alteration';
 import { AdjustMode, ChangeMode } from '../rule-element-numbers';
 import { ArmorCategory, MartialKind, WeaponCategory } from '../rule-element-proficiency';
@@ -27,7 +29,9 @@ import { SlotRank, SpellPreparation } from '../rule-element-spellcasting';
 import { SenseAcuity } from '../sense';
 import { SPELL_RANK_MAX } from '../spell-rank';
 import { MagicTradition } from '../spellcasting-tradition';
+import { DieSize } from '../weapon';
 import { keyPathText, predicateJson, rollOptionText, validFormulaText } from './arbitraries';
+import { richTextJson } from './rich-text-arbitraries';
 
 const LIST_MAX = 3;
 const SMALLINT_MAX = 32_767;
@@ -224,8 +228,24 @@ const actorTraits = oneof(
 );
 
 const strike = element('Strike', { fist: constant(true) });
+const diceNumber = integer({ min: 0, max: LIST_MAX });
+const diceOptional = { slug: slugText, damageType, category: anyOf(DamageDiceCategory), critical: boolean() };
+const dice = (required: Readonly<Record<string, Arbitrary<unknown>>>, optional = {}): Arbitrary<object> =>
+  element('DamageDice', { selectors: targets, ...required }, { ...diceOptional, ...optional });
+const damageDice = oneof(
+  dice({ dieSize: anyOf(DieSize) }, { diceNumber }),
+  dice({ diceNumber }),
+  dice({ override: record({ damageType }) }),
+);
+const alteration = (property: string, mode: Arbitrary<string>, value: Arbitrary<unknown>): Arbitrary<object> =>
+  element('DamageAlteration', { selectors: targets, property: constant(property), mode, value });
+const damageAlteration = oneof(
+  alteration(DamageProperty.DiceNumber, anyOf(NumericAlterationMode), ruleValue),
+  alteration(DamageProperty.DamageType, constant('override'), damageType),
+);
+const outcomes = uniqueArray(anyOf(DegreeOfSuccess), { minLength: 1, maxLength: LIST_MAX });
+const note = element('Note', { selectors: targets, text: richTextJson }, { title: contentText, outcome: outcomes });
 const signatureSpells = element('SignatureSpells', { entry: slugText });
-
 const focusSpells = element('FocusSpells', {
   entry: slugText,
   spells: uniqueArray(uuid(), { minLength: 1, maxLength: LIST_MAX }),
@@ -274,4 +294,7 @@ export const ruleElementJson: Arbitrary<object> = oneof(
   language,
   actorTraits,
   strike,
+  damageDice,
+  damageAlteration,
+  note,
 );

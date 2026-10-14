@@ -1,0 +1,28 @@
+<fr-stack gap="sm">
+  @if (perRoll().length > 0) {
+    <fr-stack gap="xs">
+      <fr-text variant="caption" tone="muted">{{ 'roll.toggles.perRoll' | transloco }}</fr-text>
+      @for (toggle of perRoll(); track toggle.id) {
+        <fr-toggle-button
+          [size]="small"
+          [value]="toggle.on"
+          (valueChange)="perRollChange.emit({ id: toggle.id, on: $event })"
+          >{{ toggle.text }}</fr-toggle-button
+        >
+      }
+    </fr-stack>
+  }
+  @if (remembered().length > 0) {
+    <fr-stack gap="xs">
+      <fr-text variant="caption" tone="muted">{{ 'roll.toggles.remembered' | transloco }}</fr-text>
+      @for (toggle of remembered(); track toggle.id) {
+        <fr-toggle-button
+          [size]="small"
+          [value]="toggle.on"
+          (valueChange)="rememberedChange.emit({ id: toggle.id, on: $event })"
+          >{{ toggle.text }}</fr-toggle-button
+        >
+      }
+    </fr-stack>
+  }
+</fr-stack>

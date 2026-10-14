@@ -486,7 +486,30 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["saving-throw"],
+        "title": "Death Warden Dwarf",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "If you roll a success on a saving throw against an effect that has the void trait or was created by an undead creature, you get a critical success instead."
+              }
+            ]
+          }
+        ],
+        "outcome": ["criticalSuccess", "success"],
+        "predicate": [
+          {
+            "or": ["origin:trait:undead", "option:void"]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.heritages.Item.VTtXwBxrfRUXSL38"
     },
@@ -1835,6 +1858,24 @@
         "key": "Resistance",
         "type": ["poison"],
         "value": "max(1, floor(@level / 2))"
+      },
+      {
+        "key": "Note",
+        "selectors": ["saving-throw"],
+        "title": "Strong-Blooded Dwarf",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Your successful saving throws against a poison reduce its stage by 2 (or 1 for a virulent poison). Each critical success reduces its stage by 3 (or 2 for a virulent poison)."
+              }
+            ]
+          }
+        ],
+        "outcome": ["success", "criticalSuccess"],
+        "predicate": ["option:poison"]
       }
     ],
     "externalIds": {

@@ -7,16 +7,16 @@ import {
 } from '@pioneer/character/domain';
 import type { Character, SkillSlot, SkillTrainingSource, TrainedSkill } from '@pioneer/character/domain';
 import type { SelectOption } from '@pioneer/frontier';
-import { deriveStatistics, statisticContent } from '@pioneer/rules/engine';
+import { statisticContent } from '@pioneer/rules/engine';
 import type { ContentId, ContentRegistry, Level, SlotKey } from '@pioneer/rules/sdk';
 import type { NamedStatistic } from '@pioneer/rules/ui';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { sheetEntryNames } from './sheet-entry-names';
-import { statisticInputsOf } from './sheet-inputs';
 import type { Translate } from './sheet-skill-repeats';
 import { sheetSlotContent } from './sheet-slot-content';
+import { sheetDerivation } from './sheet-statistics';
 
 /** What each skill slot is called, by whether it trains a skill or raises one. */
 export const SKILL_SLOT_LABEL_KEYS: Readonly<Record<SkillSlotKind, string>> = {
@@ -42,7 +42,7 @@ export function sheetSkills(
   if (content === undefined) {
     return [];
   }
-  const results = deriveStatistics(content, statisticInputsOf(registry, character));
+  const results = sheetDerivation(registry, character);
   const skills = registry.statistics().filter((entry) => entry.definition.selector.startsWith(SKILL_PREFIX));
   const twice = trainedTwiceNotes(registry, character, translate);
   return skills

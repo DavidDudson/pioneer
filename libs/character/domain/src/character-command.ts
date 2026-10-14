@@ -53,6 +53,7 @@ export const CharacterCommand = {
   DailyPreparations: 'dailyPreparations',
   Refocus: 'refocus',
   StartSession: 'startSession',
+  SetToggle: 'setToggle',
   SetAppearance: 'setAppearance',
   SetPersonality: 'setPersonality',
 } as const;
@@ -108,4 +109,5 @@ export const PLAY_COMMANDS = {
   [PlayCommandField.DailyPreparations]: CharacterCommand.DailyPreparations,
   [PlayCommandField.Refocus]: CharacterCommand.Refocus,
   [PlayCommandField.StartSession]: CharacterCommand.StartSession,
+  [PlayCommandField.SetToggle]: CharacterCommand.SetToggle,
 } as const satisfies Record<PlayCommandField, CharacterCommand>;

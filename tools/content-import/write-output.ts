@@ -133,6 +133,20 @@ async function mergedEntryFiles(targets: PackTargets, merge: RulesMerge): Promis
   return changed.flat();
 }
 
+/** The gapped entries the import holds, whose gaps may be cleared. */
+function importedGaps(output: PackOutput, gapped: ReadonlySet<string>): ReadonlySet<string> {
+  const imported = new Set(output.entries.map(({ pack, slug }) => `${pack}/${slug}`));
+  return new Set([...gapped].filter((entry) => imported.has(entry)));
+}
+
+/** Writes `writes`, formats them and returns their paths. */
+async function writeAndFormat(writes: readonly PackWrite[]): Promise<readonly string[]> {
+  await Promise.all(writes.map(async (each) => write(each)));
+  const written = writes.map(({ path: file }) => file);
+  await format(written);
+  return written;
+}
+
 /**
  * Takes the import's rules of `keys` into the committed pack files (`apply-rules.ts`), clears their gaps from the
  * backlog and formats what changed.
@@ -144,14 +158,12 @@ export async function applyRules(
 ): Promise<AppliedOutput> {
   const { pin, backlog } = await committedBacklog(targets);
   const committed = await committedEntries(targets);
-  const merge = mergeRules(committed, output.entries, { gapped: gappedEntries(backlog, keys), keys });
-  const merged = new Set(committed.filter(({ id }) => merge.has(id)).map(({ pack, slug }) => `${pack}/${slug}`));
+  const gapped = gappedEntries(backlog, keys);
+  const merge = mergeRules(committed, output.entries, { gapped, keys });
+  const merged = importedGaps(output, gapped);
   const remaining = clearAppliedGaps(backlog, output.backlog, { merged, keys });
   const cleared = { path: backlogPath(targets.pack), json: ImportFile.parse({ pin, backlog: remaining }) };
   const files = await mergedEntryFiles(targets, merge);
-  const writes = [...files, cleared];
-  await Promise.all(writes.map(async (each) => write(each)));
-  const written = writes.map(({ path: file }) => file);
-  await format(written);
+  const written = await writeAndFormat([...files, cleared]);
   return { written, applied: merge.size };
 }

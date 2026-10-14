@@ -1,9 +1,11 @@
 import { RuleElementKey } from '@pioneer/rules/sdk';
 
+import { fromFoundryFormula } from './foundry-formula';
 import { SKILLS } from './foundry-skills';
 
 /**
- * Foundry's `FlatModifier` and `AdjustModifier`, and the predicate every element carries, in Pioneer's spelling (ADR-0008): `selector`
+ * Foundry's `FlatModifier`, `AdjustModifier`, `DamageDice` and `Note`, and the predicate every element carries, in
+ * Pioneer's spelling (ADR-0008): `selector`
  * becomes `selectors` in Pioneer's vocabulary, an unnamespaced roll option gets one, an omitted `type` is `untyped`,
  * and fields that only steer Foundry's UI are dropped. What this cannot carry over (`removeAfterRoll`,
  * `requiresEquipped`, a damage category, a selector built from the item's id) is left as it is, so the element fails
@@ -80,7 +82,15 @@ function selectorsOf(selector: unknown): readonly string[] | undefined {
 }
 
 /** The elements that name what they reach by `selector`, which Pioneer spells `selectors`. */
-const SELECTOR_KEYS: ReadonlySet<string> = new Set([RuleElementKey.FlatModifier, RuleElementKey.AdjustModifier]);
+const SELECTOR_KEYS: ReadonlySet<string> = new Set([
+  RuleElementKey.FlatModifier,
+  RuleElementKey.AdjustModifier,
+  RuleElementKey.DamageDice,
+  RuleElementKey.Note,
+]);
+
+/** The elements that drop `hideIfDisabled`: it only decides whether their line shows. */
+const HIDEABLE_KEYS: ReadonlySet<string> = new Set([RuleElementKey.FlatModifier, RuleElementKey.DamageDice]);
 
 /**
  * A `FlatModifier` or `AdjustModifier` as Pioneer's element; any other element, or a selector that is not text, as it
@@ -95,8 +105,24 @@ export function withModifierSelectors(raw: unknown): unknown {
     return raw;
   }
   const flat = raw.key === RuleElementKey.FlatModifier;
+  const hideable = HIDEABLE_KEYS.has(raw.key);
   const kept = Object.entries(raw).filter(
-    ([field]) => field !== 'selector' && !(flat && DISPLAY_ONLY_FIELDS.has(field)),
+    ([field]) => field !== 'selector' && !(hideable && DISPLAY_ONLY_FIELDS.has(field)),
   );
   return { ...(flat ? { type: 'untyped' } : {}), ...Object.fromEntries(kept), selectors };
+}
+
+/**
+ * A `DamageDice` with a formula `diceNumber` in Pioneer's reference spelling; any other element as it is. A selector
+ * built from the item (`{item|id}-damage`), a damage type or dice read from a pick, and a formula Pioneer cannot read
+ * are left as they are, so the element fails and is kept for the backlog.
+ */
+export function withDiceFormula(raw: unknown): unknown {
+  if (typeof raw !== 'object' || raw === null || !('key' in raw) || raw.key !== RuleElementKey.DamageDice) {
+    return raw;
+  }
+  if (!('diceNumber' in raw) || typeof raw.diceNumber !== 'string') {
+    return raw;
+  }
+  return { ...raw, diceNumber: fromFoundryFormula(raw.diceNumber) };
 }

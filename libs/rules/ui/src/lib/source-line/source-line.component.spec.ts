@@ -1,11 +1,13 @@
+import { signal } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { PackId, SourceRef } from '@pioneer/rules/sdk';
+import { contentPackId, PackId, SourceRef } from '@pioneer/rules/sdk';
 import type { UserId as UserIdType } from '@pioneer/shared/kernel';
 import { UserId } from '@pioneer/shared/kernel';
 import { describe, expect, it } from 'vitest';
 
 import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing';
 import { SourceLineView } from './source-line.component';
+import { SOURCE_PACKS } from './source-packs';
 
 const AUTHOR = UserId.parse('0b6f1c9e-4f8a-4d3b-9a51-6b0e8f2c7d14');
 const PACK = PackId.parse('lost-lands');
@@ -131,6 +133,24 @@ describe(SourceLineView, () => {
       const { line } = await render([{ kind: 'homebrew', pack: PACK, author: AUTHOR }]);
 
       expect(line.textContent).toBe('lost-lands by an unknown author');
+    });
+
+    it('names the pack and its publisher from the packs the page provides', async () => {
+      const lostLands = new Map([[contentPackId(PACK), { title: 'The Lost Lands', publisher: 'Ezren' }]]);
+      TestBed.configureTestingModule({
+        providers: [
+          provideRulesUiI18nTesting(),
+          {
+            provide: SOURCE_PACKS,
+            useValue: signal(lostLands),
+          },
+        ],
+      });
+      const fixture = TestBed.createComponent(SourceLineView);
+      fixture.componentRef.setInput('sources', [SourceRef.parse({ kind: 'homebrew', pack: PACK, author: AUTHOR })]);
+      await fixture.whenStable();
+
+      expect((fixture.nativeElement as HTMLElement).textContent.trim()).toBe('The Lost Lands by Ezren');
     });
   });
 

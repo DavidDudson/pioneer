@@ -2914,22 +2914,6 @@
     {
       "type": "entry",
       "pack": "divine-mysteries",
-      "slug": "effect:effect-enforce-oath",
-      "foundry": "Compendium.pf2e.feat-effects.Item.LF8xzzFsFJKxejqv",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "TokenMark",
-          "raw": {
-            "key": "TokenMark",
-            "slug": "enforce-oath"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
       "slug": "effect:effect-enter-spirit-trance",
       "foundry": "Compendium.pf2e.feat-effects.Item.2O1MmFvLdGZodvVc",
       "gaps": [
@@ -3265,18 +3249,6 @@
             "selectors": ["strike-attack-roll", "strike-damage"],
             "value": "ghost-touch"
           }
-        },
-        {
-          "type": "rule",
-          "key": "DamageAlteration",
-          "raw": {
-            "key": "DamageAlteration",
-            "mode": "override",
-            "predicate": ["one-with-the-spirits-damage"],
-            "property": "damage-type",
-            "selectors": ["strike-damage"],
-            "value": "spirit"
-          }
         }
       ]
     },
@@ -3486,32 +3458,6 @@
     {
       "type": "entry",
       "pack": "divine-mysteries",
-      "slug": "effect:spell-effect-cloak-of-light",
-      "foundry": "Compendium.pf2e.spell-effects.Item.eRRiss7y7TsneiEu",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "TokenLight",
-          "raw": {
-            "key": "TokenLight",
-            "value": {
-              "animation": {
-                "intensity": 4,
-                "speed": 3,
-                "type": "vortex"
-              },
-              "bright": 30,
-              "color": "#343434",
-              "coloration": 101,
-              "dim": 60
-            }
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
       "slug": "effect:spell-effect-draconic-barrage",
       "foundry": "Compendium.pf2e.spell-effects.Item.iXQCXCMiiJ8WV6K7",
       "gaps": [
@@ -3535,22 +3481,6 @@
             "property": "damage-type",
             "selectors": ["spell-damage"],
             "value": "{item|flags.system.rulesSelections.draconicBarrage}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
-      "slug": "effect:spell-effect-dutiful-challenge",
-      "foundry": "Compendium.pf2e.spell-effects.Item.UH2sT6eW5e31Xytd",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "TokenMark",
-          "raw": {
-            "key": "TokenMark",
-            "slug": "dutiful-challenge"
           }
         }
       ]
@@ -4769,42 +4699,6 @@
       "foundry": "Compendium.pf2e.feats-srd.Item.483yvMrNZFV3fiSo",
       "gaps": [
         {
-          "type": "rule",
-          "key": "DamageAlteration",
-          "raw": {
-            "key": "DamageAlteration",
-            "mode": "override",
-            "predicate": ["item:slug:lay-on-hands", "oath-of-the-avenger"],
-            "property": "damage-type",
-            "selectors": ["spell-damage"],
-            "value": "spirit"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "remove",
-            "predicate": ["item:slug:lay-on-hands", "oath-of-the-avenger"],
-            "property": "traits",
-            "value": "vitality"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:lay-on-hands", "oath-of-the-avenger"],
-            "property": "traits",
-            "value": "spirit"
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
         }
@@ -4986,19 +4880,6 @@
       "slug": "feat:palatine-strike",
       "foundry": "Compendium.pf2e.feats-srd.Item.OfKfYPrlxo8jdqmp",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "DamageAlteration",
-          "raw": {
-            "key": "DamageAlteration",
-            "mode": "add",
-            "predicate": ["palatine-strike"],
-            "property": "dice-number",
-            "selectors": ["strike-damage"],
-            "slug": "strategic-strike",
-            "value": 2
-          }
-        },
         {
           "type": "field",
           "reason": "unresolved-reference",

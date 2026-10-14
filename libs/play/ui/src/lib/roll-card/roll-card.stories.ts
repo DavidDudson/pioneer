@@ -12,6 +12,8 @@ import {
   MISFORTUNE_CHECK,
   PLAIN_CHECK,
   SUCCESS,
+  TOGGLE_REASONS,
+  WITH_TOGGLES,
 } from '../testing/roll-fixtures';
 import { RollCard } from './roll-card.component';
 
@@ -94,4 +96,14 @@ export const AdjustedDegree: RollCardStory = {
 /** The DC box, empty: typing a DC is how a roll gets a degree. */
 export const WithoutDc: RollCardStory = {
   args: { roll: PLAIN_CHECK, dcEditable: true },
+};
+
+/** A roll made with toggles on: the card names them under the total. */
+export const RolledWithToggles: RollCardStory = {
+  args: { roll: WITH_TOGGLES },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('Rolled with')).toBeVisible();
+    await Promise.all(TOGGLE_REASONS.map(async (reason) => expect(canvas.getByText(reason)).toBeVisible()));
+  },
 };

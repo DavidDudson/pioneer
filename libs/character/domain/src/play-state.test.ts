@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { DegreeOfSuccess, HitPoints } from '@pioneer/rules/sdk';
+import { DegreeOfSuccess, HitPoints, ToggleKey } from '@pioneer/rules/sdk';
 
 import { Doomed, Dying, Wounded } from './death-track';
 import {
@@ -210,5 +210,25 @@ describe('dying', () => {
       ...FRESH_PLAY,
       hp: { damage: hp(3), temp: hp(0) },
     });
+  });
+});
+
+describe('toggles in play', () => {
+  const rage = ToggleKey.parse('pack:effect:rage:0');
+
+  test('a character with no play state yet has set no toggles', () => {
+    expect(FRESH_PLAY.toggles).toStrictEqual({});
+    expect(PlayStateSchema.parse({}).toggles).toStrictEqual({});
+  });
+
+  test('a toggle set is kept in the play state and leaves the rest of it alone', () => {
+    const raging = applyPlayCommand(
+      state(3),
+      { field: PlayCommandField.SetToggle, toggle: rage, state: { on: true } },
+      within(MAX),
+    );
+    expect(raging.toggles).toStrictEqual({ [rage]: { on: true } });
+    expect(raging.hp).toStrictEqual(state(3).hp);
+    expect(PlayStateSchema.parse(raging)).toStrictEqual(raging);
   });
 });

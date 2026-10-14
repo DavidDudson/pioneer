@@ -17,6 +17,8 @@ export {
 export { RichTextView } from './lib/rich-text/rich-text.component';
 export { provideRichTextLinks, RICH_TEXT_LINKS, type RichTextLinks } from './lib/rich-text/rich-text-links';
 export { SourceLineView } from './lib/source-line/source-line.component';
+export { SOURCE_PACKS } from './lib/source-line/source-packs';
+export type { SourcePack } from './lib/source-line/source-packs';
 export { FacetFilterView } from './lib/facet-filter/facet-filter.component';
 export { type CoinCount, coinCounts, type KitLine, ShopBillFor, type ShopOffer } from './lib/shop/shop-offer';
 export { KitContents } from './lib/shop/kit-contents/kit-contents.component';
@@ -163,3 +165,4 @@ export {
 export { KeyAttributePicker } from './lib/class-picker/key-attribute-picker.component';
 export { SubclassPicker } from './lib/class-picker/subclass-picker.component';
 export { PROFICIENCY_NAMES } from './lib/proficiency-rank/proficiency-rank-messages';
+export { type ConditionWords, conditionalLineText } from './lib/statistics/conditional-lines';

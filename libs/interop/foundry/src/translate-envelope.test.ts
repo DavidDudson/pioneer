@@ -287,6 +287,7 @@ describe('translationReport', () => {
         { key: 'FlatModifier', count: 2 },
         { key: 'Note', count: 1 },
       ],
+      droppedRules: [],
       unknownTraits: [
         { key: 'fortune', count: 2 },
         { key: 'mental', count: 1 },

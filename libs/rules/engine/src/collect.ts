@@ -2,7 +2,7 @@ import { FormulaValue } from '@pioneer/rules/formula';
 import { summarisePredicate, Truth } from '@pioneer/rules/predicate';
 import type { PredicateFacts } from '@pioneer/rules/predicate';
 import { Domain } from '@pioneer/rules/sdk';
-import type { ModifierTarget, Predicate, StatisticDefinition } from '@pioneer/rules/sdk';
+import type { ModifierTarget, StatisticDefinition } from '@pioneer/rules/sdk';
 
 import { InactiveReason, LineStatusKind, SuppressionReason } from './breakdown';
 import type { BreakdownLine, LineStatus } from './breakdown';
@@ -42,10 +42,12 @@ type Step =
 class Collection {
   readonly #context: RuleContext;
   readonly #adjustments: readonly Adjustment[];
+  readonly #situation: ReadonlySet<RuleId>;
 
-  public constructor(context: RuleContext, adjustments: readonly Adjustment[]) {
+  public constructor(context: RuleContext, adjustments: readonly Adjustment[], situation: ReadonlySet<RuleId>) {
     this.#context = context;
     this.#adjustments = adjustments;
+    this.#situation = situation;
   }
 
   /** The line for one modifier before stacking: applied, inactive, conditional, failed or suppressed by adjustment. */
@@ -90,7 +92,10 @@ class Collection {
     return result === undefined ? { value: undefined, status: OUT_OF_RANGE } : { value: result };
   }
 
-  /** Applied when the predicate holds, inactive when it does not, conditional while it depends on the situation. */
+  /**
+   * Applied when the predicate holds, inactive when it does not, conditional while it depends on the situation, and
+   * applied after all when the roll chose that situation.
+   */
   #gate({ modifier, summary }: ModifierSource): LineStatus {
     const { predicate } = modifier;
     const truth = truthOf(predicate, this.#context.facts);
@@ -99,6 +104,9 @@ class Collection {
     }
     if (truth === Truth.False) {
       return { kind: LineStatusKind.Inactive, reason: InactiveReason.Predicate };
+    }
+    if (this.#situation.has(modifier.id)) {
+      return { kind: LineStatusKind.Applied };
     }
     return {
       kind: LineStatusKind.Conditional,
@@ -109,9 +117,18 @@ class Collection {
   }
 }
 
-/** Whether an adjustment's predicate is known to hold; one that depends on the situation does not run. */
-function holds(predicate: Predicate | undefined, facts: PredicateFacts): boolean {
-  return truthOf(predicate, facts) === Truth.True;
+/**
+ * Whether an adjustment's predicate is known to hold, or depends on the situation and the roll chose it; one that
+ * depends on the situation and was not chosen does not run.
+ */
+function holds({ id, predicate }: Adjustment, facts: PredicateFacts, situation: ReadonlySet<RuleId>): boolean {
+  const truth = truthOf(predicate, facts);
+  return truth === Truth.True || (truth === Truth.Unknown && situation.has(id));
+}
+
+/** What a collection reads besides the rules: the facts and formulas, and the rules a roll chose the situation of. */
+export interface CollectContext extends RuleContext {
+  readonly situation: ReadonlySet<RuleId>;
 }
 
 /**
@@ -119,22 +136,25 @@ function holds(predicate: Predicate | undefined, facts: PredicateFacts): boolean
  * order. Adjustments that reach it and hold run in priority order, then id order. Each line is then gated by its
  * predicate (Kleene: true applies, false is inactive, unknown is conditional), and the applied ones are stacked
  * and decide which conditional ones could never count. Adjustments that depend on the situation do not run, but
- * keep the lines they could change from being marked beaten.
+ * keep the lines they could change from being marked beaten. A modifier or adjustment in `situation` that depends
+ * on it counts as holding.
  * A formula that fails to evaluate makes its line failed, never an exception.
  */
 export function collectLines(
   definition: StatisticDefinition,
   rules: ModifierRules,
-  context: RuleContext,
+  { situation, ...context }: CollectContext,
 ): readonly BreakdownLine[] {
   const reaching = rules.adjustments.filter((adjustment) => reaches(adjustment.targets, definition));
   const adjustments = reaching
-    .filter((adjustment) => holds(adjustment.predicate, context.facts))
+    .filter((adjustment) => holds(adjustment, context.facts, situation))
     .toSorted(
       (left, right) => left.priority - right.priority || Number(left.id > right.id) - Number(left.id < right.id),
     );
-  const pending = reaching.filter((adjustment) => truthOf(adjustment.predicate, context.facts) === Truth.Unknown);
-  const collection = new Collection(context, adjustments);
+  const pending = reaching.filter(
+    (adjustment) => truthOf(adjustment.predicate, context.facts) === Truth.Unknown && !situation.has(adjustment.id),
+  );
+  const collection = new Collection(context, adjustments, situation);
   const lines = rules.modifiers
     .filter(({ modifier }) => reaches(modifier.targets, definition))
     .toSorted(

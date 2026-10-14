@@ -7,3 +7,4 @@ export { formatSummary, ListStyle, type SummaryFormat } from './format';
 export { PredicateMessage } from './messages';
 export { Negated, type PredicateSummary, SummaryKind, summarisePredicate } from './summary';
 export { default as predicateMessages } from './i18n/en.json';
+export { predicateOptions } from './options';
