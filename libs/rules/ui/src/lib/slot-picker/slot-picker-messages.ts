@@ -4,6 +4,9 @@ import { Rarity } from '@pioneer/rules/sdk';
 export const SlotPickerMessage = {
   Name: 'rules.slotPicker.column.name',
   Source: 'rules.slotPicker.column.source',
+  Level: 'rules.slotPicker.column.level',
+  Traits: 'rules.slotPicker.column.traits',
+  Summary: 'rules.slotPicker.column.summary',
   Attribute: 'rules.slotPicker.column.attribute',
   Rank: 'rules.slotPicker.column.rank',
   Modifier: 'rules.slotPicker.column.modifier',

@@ -1,7 +1,7 @@
 import { contentId, ContentId, ContentKind, RollOption, slugName } from '@pioneer/rules/sdk';
 import type { ContentEntry, ContentPack, ContentRegistry, PackAncestry, Trait } from '@pioneer/rules/sdk';
 
-import type { ContentLookup, GrantEntry } from './grant-entry';
+import type { ContentLookup, EntryFacts, GrantEntry } from './grant-entry';
 
 /**
  * The kinds grants read from the registry's envelope entries (`otherEntries`): those a character picks in a root slot,
@@ -99,6 +99,17 @@ function levelOptions(entry: ContentEntry): RollOption[] {
   return level === undefined ? [] : [RollOption.parse(`level:${level}`)];
 }
 
+/** The facts a list shows of an envelope entry: its level when it has one, rarity, traits and description. */
+function factsOf(entry: ContentEntry): EntryFacts {
+  const level = 'level' in entry ? entry.level : undefined;
+  return {
+    ...(level === undefined ? {} : { level }),
+    rarity: entry.rarity,
+    traits: entry.traits,
+    description: entry.description,
+  };
+}
+
 /** An ancestry as grants read it, with its rule elements: the ancestry features and feat slots it grants. */
 function ancestryEntry(pack: ContentPack, ancestry: PackAncestry): GrantEntry | undefined {
   const [source, ...sources] = ancestry.sources;
@@ -131,6 +142,7 @@ function envelopeEntry(entry: ContentEntry): GrantEntry | undefined {
     rules: entry.rules,
     sources: [source, ...sources],
     rollOptions: [...traitOptions(entry.traits), ...tagOptions(entry), ...levelOptions(entry)],
+    facts: factsOf(entry),
     ...belongsTo(entry),
     ...valued(entry),
     ...overrides(entry),

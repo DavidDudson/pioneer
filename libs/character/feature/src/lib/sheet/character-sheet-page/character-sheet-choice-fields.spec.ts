@@ -3,9 +3,10 @@ import { TestBed } from '@angular/core/testing';
 import { playerCoreClassId } from '@pioneer/character/domain/testing';
 import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { SlotPicker } from '@pioneer/rules/ui';
+import type { SlotPickerRow } from '@pioneer/rules/ui';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
-import { pickRow } from '../../testing/origin-table-testing';
+import { pickRow, rowsShown } from '../../testing/origin-table-testing';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
 
@@ -64,6 +65,18 @@ describe('CharacterSheetPage choice pickers', () => {
       TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
     );
     expect(request.request.body).toMatchObject({ patch: { field: 'selectSlot', slot: FONT_SLOT, selection: 'heal' } });
+  });
+
+  it('offers an option that names no content entry by its name alone', async () => {
+    const { root } = await openSheet(cleric());
+    const rows = await rowsShown<SlotPickerRow, SlotPicker>(root, {
+      label: 'Divine Font: Select a Divine Font.',
+      type: SlotPicker,
+    });
+
+    const healing = present(rows.find((row) => row.name === 'Healing'));
+    expect(healing.facts).toBeUndefined();
+    expect(healing.sources).toStrictEqual([]);
   });
 
   it('shows a picked choice by its option name', async () => {

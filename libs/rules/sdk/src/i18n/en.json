@@ -1067,6 +1067,9 @@
       "column": {
         "name": "Name",
         "source": "Source",
+        "level": "Level",
+        "traits": "Traits",
+        "summary": "Summary",
         "attribute": "Attribute",
         "rank": "Rank",
         "modifier": "Modifier",

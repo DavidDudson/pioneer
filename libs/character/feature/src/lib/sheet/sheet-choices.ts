@@ -1,10 +1,11 @@
 import { characterGrants, listedChoices, SlotStatus, SlotSubjectKind } from '@pioneer/character/domain';
 import type { Character, CharacterSlot, SlotSubject } from '@pioneer/character/domain';
 import type { SelectOption } from '@pioneer/frontier';
+import type { EntryFacts } from '@pioneer/rules/grants';
 import { AttributeSchema, ContentId, ContentKind, SlotRank } from '@pioneer/rules/sdk';
 import type { ChoiceValue, ContentRegistry, SlotKey } from '@pioneer/rules/sdk';
 import { ChoiceState } from '@pioneer/rules/ui';
-import type { ChoiceLine, ChoiceSelection, SlotPickerRow } from '@pioneer/rules/ui';
+import type { ChoiceLine, ChoiceSelection, SlotPickerFacts, SlotPickerRow } from '@pioneer/rules/ui';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
@@ -139,6 +140,11 @@ export function sheetChoices(slots: readonly CharacterSlot[]): readonly ChoiceLi
   return slots.filter((slot) => isShown(slot)).map((slot) => lineOf(slot));
 }
 
+/** What an option's entry says of itself, as the slot picker's table shows it. */
+function factsOf({ level, rarity, traits, description }: EntryFacts): SlotPickerFacts {
+  return { level, rarity, traits, summary: description };
+}
+
 /** A `ChoiceSet` that lists its options, as the Choices section's picker for it reads it (#596). */
 export interface SheetChoiceSlot {
   readonly key: SlotKey;
@@ -162,10 +168,12 @@ export function sheetChoiceSlots(registry: ContentRegistry, character: Character
     options: slot.options.map((option) => ({ value: option.value, label: option.label })),
     rows: slot.options.map((option): SlotPickerRow => {
       const id = ContentId.safeParse(option.value);
+      const entry = id.success ? content.lookup.entry(id.data) : undefined;
       return {
         id: option.value,
         name: option.label,
-        sources: (id.success ? content.lookup.entry(id.data)?.sources : undefined) ?? [],
+        sources: entry?.sources ?? [],
+        facts: entry?.facts === undefined ? undefined : factsOf(entry.facts),
         disabledReason: undefined,
       };
     }),
