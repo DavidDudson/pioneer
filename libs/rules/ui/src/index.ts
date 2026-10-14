@@ -112,3 +112,23 @@ export {
   deityRowValue,
   shownDeityRows,
 } from './lib/deity-picker/deity-picker-table';
+export { AncestryPicker } from './lib/origin-picker/ancestry-picker.component';
+export { BackgroundPicker } from './lib/origin-picker/background-picker.component';
+export { HeritagePicker } from './lib/origin-picker/heritage-picker.component';
+export {
+  type AncestryPickerRow,
+  type BackgroundPickerRow,
+  type HeritagePickerRow,
+  OriginPickerColumn,
+} from './lib/origin-picker/origin-picker-row';
+export {
+  ancestryPickerColumns,
+  backgroundPickerColumns,
+  heritagePickerColumns,
+  originRowDisabled,
+  originRowLabel,
+  originRowValue,
+  shownAncestryRows,
+  shownBackgroundRows,
+  shownHeritageRows,
+} from './lib/origin-picker/origin-picker-table';
