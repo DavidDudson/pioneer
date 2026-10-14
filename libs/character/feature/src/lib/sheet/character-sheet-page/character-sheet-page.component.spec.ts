@@ -28,6 +28,7 @@ describe('CharacterSheetPage', () => {
       ['Feats', true],
       ['Class features', true],
       ['Content packs', true],
+      ['Variant rules', true],
     ]);
     await openTab(root, 'Encounter', 'Defences');
     expect(regionsOf(root)).toStrictEqual([
@@ -63,6 +64,7 @@ describe('CharacterSheetPage', () => {
       'Feats',
       'Class features',
       'Content packs',
+      'Variant rules',
     ]);
 
     links[2]?.click();

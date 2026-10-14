@@ -99,6 +99,20 @@
     "noneToAttach": "None of your characters is free to bring. A character is in one campaign at a time.",
     "toCharacters": "Go to your characters"
   },
+  "variantRules": {
+    "heading": "Variant rules",
+    "loadError": "Could not load the variant rules.",
+    "empty": "The packs this campaign uses have no variant rules.",
+    "gmOnly": "Only the GM changes which variant rules the campaign uses.",
+    "on": "On",
+    "turnOn": "Turn on",
+    "turningOn": "Turning on",
+    "turnedOn": "Turned on",
+    "turnOff": "Turn off",
+    "turningOff": "Turning off",
+    "turnedOff": "Turned off",
+    "changeFailed": "Could not change the variant rule. Try again."
+  },
   "packs": {
     "heading": "Packs",
     "loadError": "Could not load the packs.",
