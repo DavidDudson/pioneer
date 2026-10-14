@@ -1,11 +1,12 @@
 import { HttpTestingController } from '@angular/common/http/testing';
-import { ApplicationRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { SheetMode } from '@pioneer/character/domain';
 import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
+import { LanguagePicker } from '@pioneer/rules/ui';
 import { describe, expect, it, vi } from 'vitest';
 
-import { id, MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
+import { harnessOf, id, MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
 
 const openSheet = openerAt(SheetMode.Exploration);
 
@@ -62,17 +63,11 @@ describe('CharacterSheetPage languages', () => {
 
     const add = await vi.waitFor(() => present(buttonIn(root, 'Add language')));
     add.click();
-    await TestBed.inject(ApplicationRef).whenStable();
-    present(languagesSection(root).querySelector<HTMLElement>('fr-select button')).click();
-    await TestBed.inject(ApplicationRef).whenStable();
-    const option = await vi.waitFor(() =>
-      present(
-        [...document.querySelectorAll<HTMLElement>('[role="option"]')].find(
-          (each) => each.textContent.trim() === 'Draconic',
-        ),
-      ),
+    // The table renders no rows in the page harness (#734), so the pick is made on the picker: its own specs press rows.
+    const picker = await vi.waitFor(() =>
+      harnessOf(root).fixture.debugElement.query(By.directive(LanguagePicker)).injector.get(LanguagePicker),
     );
-    option.click();
+    picker.value.set(language('draconic'));
 
     await expect(patchBody()).resolves.toMatchObject({
       patch: { field: 'selectSlot', slot: 'language:1:0', selection: language('draconic') },
