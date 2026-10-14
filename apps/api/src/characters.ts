@@ -27,8 +27,8 @@ import type { ContractRouter, RequestAuthenticator } from '@pioneer/shared/serve
 import { CampaignPackDirectory } from './attached-campaign-pack-directory';
 import { CampaignPackEnablementDirectory } from './campaign-pack-enablement-directory';
 import type { Database } from './database';
-import { PioneerEmbeddedHomebrew } from './pioneer-embedded-homebrew';
 import { HomebrewPackCatalog } from './homebrew-pack-catalog';
+import { PioneerEmbeddedHomebrew } from './pioneer-embedded-homebrew';
 
 /**
  * The character context's part of the composition root: content, services and routes. Content is read from the
