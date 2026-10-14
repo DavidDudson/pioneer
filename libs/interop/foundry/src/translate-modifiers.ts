@@ -126,3 +126,29 @@ export function withDiceFormula(raw: unknown): unknown {
   }
   return { ...raw, diceNumber: fromFoundryFormula(raw.diceNumber) };
 }
+
+const BASE_SPEED_KEY = 'BaseSpeed';
+
+/** The movement types Foundry names in a `BaseSpeed` selector; a selector built from the item is none of them. */
+const MOVEMENT_TYPES: ReadonlySet<string> = new Set(['land', 'burrow', 'climb', 'fly', 'swim']);
+
+/**
+ * A Foundry `BaseSpeed` as a `Change` that upgrades the `speed:<type>` statistic, keeping its base fields: it raises a
+ * movement speed to its value, and never lowers one. A selector that is no movement type (one built from a pick) is
+ * left as it is, so the element fails and is kept for the backlog; any other element as it is.
+ */
+export function withBaseSpeed(raw: unknown): unknown {
+  if (typeof raw !== 'object' || raw === null || !('key' in raw) || raw.key !== BASE_SPEED_KEY) {
+    return raw;
+  }
+  if (!('selector' in raw) || typeof raw.selector !== 'string' || !MOVEMENT_TYPES.has(raw.selector)) {
+    return raw;
+  }
+  const rest = Object.entries(raw).filter(([field]) => field !== 'key' && field !== 'selector');
+  return {
+    ...Object.fromEntries(rest),
+    key: RuleElementKey.Change,
+    selector: `speed${SEPARATOR}${raw.selector}`,
+    mode: 'upgrade',
+  };
+}

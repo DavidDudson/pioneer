@@ -2166,23 +2166,6 @@
     {
       "type": "entry",
       "pack": "gm-core",
-      "slug": "effect:effect-barding-of-the-zephyr",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.P7Y7pO2ulZ5wBgxU",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "BaseSpeed",
-          "raw": {
-            "key": "BaseSpeed",
-            "selector": "fly",
-            "value": 30
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
       "slug": "effect:effect-bloodseeker-beak",
       "foundry": "Compendium.pf2e.equipment-effects.Item.5XdkHIUgc6psBxQq",
       "gaps": [
@@ -2418,15 +2401,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "BaseSpeed",
-          "raw": {
-            "key": "BaseSpeed",
-            "selector": "climb",
-            "value": 20
-          }
-        },
-        {
-          "type": "rule",
           "key": "Strike",
           "raw": {
             "baseType": "claw",
@@ -2443,23 +2417,6 @@
             "range": null,
             "slug": "claw",
             "traits": ["agile", "finesse", "unarmed"]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "effect:effect-cloak-of-swiftness",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.Qf7ksK6sjC4x7SWw",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "BaseSpeed",
-          "raw": {
-            "key": "BaseSpeed",
-            "selector": "fly",
-            "value": 30
           }
         }
       ]
@@ -3380,40 +3337,6 @@
     {
       "type": "entry",
       "pack": "gm-core",
-      "slug": "effect:effect-potion-of-flying-greater",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.Zdh2uO1vVYJmaqld",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "BaseSpeed",
-          "raw": {
-            "key": "BaseSpeed",
-            "selector": "fly",
-            "value": 40
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "effect:effect-potion-of-flying-standard",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.Mf9EBLhYmZerf0nS",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "BaseSpeed",
-          "raw": {
-            "key": "BaseSpeed",
-            "selector": "fly",
-            "value": 40
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
       "slug": "effect:effect-potion-of-sonic-resistance",
       "foundry": "Compendium.pf2e.equipment-effects.Item.nBGodDOQTCWBXjNd",
       "gaps": [
@@ -3596,57 +3519,6 @@
             "mode": "add",
             "property": "traits",
             "value": "holy"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "effect:effect-sea-touch-elixir-greater",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.RRusoN3HEGnDO1Dg",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "BaseSpeed",
-          "raw": {
-            "key": "BaseSpeed",
-            "selector": "swim",
-            "value": 20
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "effect:effect-sea-touch-elixir-lesser",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.thOpQunbQr77XWdF",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "BaseSpeed",
-          "raw": {
-            "key": "BaseSpeed",
-            "selector": "swim",
-            "value": 20
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "effect:effect-sea-touch-elixir-moderate",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.9keegq0GdS1eSrNr",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "BaseSpeed",
-          "raw": {
-            "key": "BaseSpeed",
-            "selector": "swim",
-            "value": 20
           }
         }
       ]
@@ -3915,23 +3787,6 @@
             "mode": "add",
             "property": "traits",
             "value": "sweep"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "effect:effect-winged-sandals",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.1S51uIRb9bnZtpFU",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "BaseSpeed",
-          "raw": {
-            "key": "BaseSpeed",
-            "selector": "fly",
-            "value": 30
           }
         }
       ]
