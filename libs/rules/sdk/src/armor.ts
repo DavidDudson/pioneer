@@ -41,7 +41,8 @@ const AcBonus = Pg.smallint().nonnegative().brand<'AcBonus'>();
 const DexCap = Pg.smallint().nonnegative().brand<'DexCap'>();
 
 /** The size of the penalty armour gives to Strength- and Dexterity-based checks: 1 is "-1". */
-const CheckPenalty = Pg.smallint().positive().brand<'CheckPenalty'>();
+export const CheckPenalty = Pg.smallint().positive().brand<'CheckPenalty'>();
+export type CheckPenalty = z.infer<typeof CheckPenalty>;
 
 /** A specific magic armour's runes ("+1 resilient"); armour that isn't one has none. */
 const ArmorRunes = z.strictObject({

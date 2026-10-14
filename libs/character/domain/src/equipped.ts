@@ -88,11 +88,13 @@ function armorInputs(active: ActiveItem | undefined): Pick<EquippedInputs, 'armo
     return {};
   }
   const { item, entry } = active;
-  const { acBonus, dexCap } = entry.data;
+  const { acBonus, dexCap, checkPenalty, strength } = entry.data;
   const runes = activeState(item, entry) === undefined ? NO_RUNES : itemRunes(item, entry);
   const armor = {
     bonus: Modifier.parse(acBonus + (runes.potency ?? NO_POTENCY)),
     resilient: runes.resilient,
+    checkPenalty,
+    strength,
     origin: originOf(active),
   };
   return dexCap === undefined ? { armor } : { armor, dexterityCap: AttributeModifier.parse(dexCap) };

@@ -1,4 +1,4 @@
-export { type ArmorInputs } from './armor-bonus';
+export { type ArmorInputs, CHECK_PENALTY } from './armor-bonus';
 export { type BaseTerm, BaseTermKind, TermSign } from './base-term';
 export {
   type BreakdownLine,

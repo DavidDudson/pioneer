@@ -22,6 +22,7 @@ export function skillRow(overrides: Partial<SkillPickerRow> & Pick<SkillPickerRo
     attribute: Attribute.Intelligence,
     rank: Proficiency.Trained,
     modifier: 5,
+    armorPenalty: undefined,
     disabledReason: undefined,
     ...overrides,
   };

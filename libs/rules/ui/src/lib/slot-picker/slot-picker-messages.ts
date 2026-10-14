@@ -11,6 +11,7 @@ export const SlotPickerMessage = {
   Rank: 'rules.slotPicker.column.rank',
   Modifier: 'rules.slotPicker.column.modifier',
   Boosted: 'rules.slotPicker.column.boosted',
+  ArmorPenalty: 'rules.slotPicker.column.armorPenalty',
   Rarity: 'rules.slotPicker.column.rarity',
   Script: 'rules.slotPicker.column.script',
   Known: 'rules.slotPicker.column.known',
