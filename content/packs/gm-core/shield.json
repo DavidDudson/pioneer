@@ -821,7 +821,22 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "lions-head",
+        "category": "martial",
+        "group": "shield",
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "bludgeoning"
+        },
+        "display": {
+          "label": "Lion's Head"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.eMDt5vCQztp7cC6B"
     },

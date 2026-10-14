@@ -4260,22 +4260,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "AdjustStrike",
-          "raw": {
-            "definition": [
-              "item:ranged",
-              {
-                "not": "item:rune:property:underwater"
-              }
-            ],
-            "key": "AdjustStrike",
-            "mode": "multiply",
-            "property": "range-increment",
-            "value": 0.5
-          }
-        },
-        {
-          "type": "rule",
           "key": "AdjustModifier",
           "raw": {
             "damageType": "fire",
@@ -14674,26 +14658,6 @@
             "selector": "swim",
             "value": "floor(@actor.system.movement.speeds.land.value/2)"
           }
-        },
-        {
-          "type": "rule",
-          "key": "Strike",
-          "raw": {
-            "baseType": "claw",
-            "category": "unarmed",
-            "damage": {
-              "base": {
-                "damageType": "slashing",
-                "dice": 1,
-                "die": "d8"
-              }
-            },
-            "key": "Strike",
-            "label": "PF2E.Weapon.Base.claw",
-            "predicate": ["shifting-form:claw"],
-            "range": null,
-            "traits": ["agile", "finesse", "unarmed", "magical"]
-          }
         }
       ]
     },
@@ -18371,30 +18335,6 @@
       "foundry": "Compendium.pf2e.feats-srd.Item.iLFK11lcw5hViTBS",
       "gaps": [
         {
-          "type": "rule",
-          "key": "AdjustStrike",
-          "raw": {
-            "definition": ["item:deity-favored"],
-            "key": "AdjustStrike",
-            "mode": "add",
-            "predicate": ["divine-rebuttal", "self:trait:holy"],
-            "property": "traits",
-            "value": "holy"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustStrike",
-          "raw": {
-            "definition": ["item:deity-favored"],
-            "key": "AdjustStrike",
-            "mode": "add",
-            "predicate": ["divine-rebuttal", "self:trait:unholy"],
-            "property": "traits",
-            "value": "unholy"
-          }
-        },
-        {
           "type": "link",
           "entry": "player-core/effect:effect-divine-rebuttal",
           "element": {
@@ -19320,25 +19260,6 @@
             "mode": "add",
             "property": "traits",
             "value": "{actor|system.proficiencies.aliases.witch}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:far-shot",
-      "foundry": "Compendium.pf2e.feats-srd.Item.r6dvGxru3FWNLVE2",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustStrike",
-          "raw": {
-            "definition": ["item:ranged"],
-            "key": "AdjustStrike",
-            "mode": "multiply",
-            "property": "range-increment",
-            "value": 2
           }
         }
       ]
@@ -22289,28 +22210,6 @@
               }
             ]
           }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustStrike",
-          "raw": {
-            "definition": ["item:tag:verdant-weapon"],
-            "key": "AdjustStrike",
-            "mode": "add",
-            "property": "materials",
-            "value": "cold-iron"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustStrike",
-          "raw": {
-            "definition": ["item:tag:verdant-weapon"],
-            "key": "AdjustStrike",
-            "mode": "add",
-            "property": "materials",
-            "value": "silver"
-          }
         }
       ]
     },
@@ -23474,17 +23373,6 @@
             "slug": "slag-may-claw",
             "traits": ["grapple"]
           }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustStrike",
-          "raw": {
-            "definition": ["item:slug:slag-may-claw"],
-            "key": "AdjustStrike",
-            "mode": "add",
-            "property": "materials",
-            "value": "cold-iron"
-          }
         }
       ]
     },
@@ -23973,25 +23861,6 @@
         {
           "type": "enricher",
           "enricher": "[[/act]][skill]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:strong-arm",
-      "foundry": "Compendium.pf2e.feats-srd.Item.OiY0L3WvjwlQQ4iG",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustStrike",
-          "raw": {
-            "definition": ["item:thrown"],
-            "key": "AdjustStrike",
-            "mode": "add",
-            "property": "range-increment",
-            "value": 10
-          }
         }
       ]
     },
@@ -25814,34 +25683,6 @@
             "path": "system.build.languages.max",
             "priority": 21,
             "value": "@actor.flags.system.multilingualTaken"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "heritage:razortooth-goblin",
-      "foundry": "Compendium.pf2e.heritages.Item.a6F2WjYU8D0suT8T",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Strike",
-          "raw": {
-            "baseType": "jaws",
-            "category": "unarmed",
-            "damage": {
-              "base": {
-                "damageType": "piercing",
-                "dice": 1,
-                "die": "d6"
-              }
-            },
-            "group": "brawling",
-            "key": "Strike",
-            "label": "PF2E.Weapon.Base.jaws",
-            "slug": "razortooth-jaws",
-            "traits": ["finesse"]
           }
         }
       ]

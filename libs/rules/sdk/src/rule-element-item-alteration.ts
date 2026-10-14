@@ -1,6 +1,7 @@
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
+import { Slug } from './content-id';
 import { DamageTypeSchema } from './damage';
 import { Predicate } from './predicate';
 import { RuleElementKey, ruleElementBase, RuleValue } from './rule-element-base';
@@ -24,6 +25,7 @@ export const NumericItemProperty = {
   DexCap: 'dex-cap',
   Hardness: 'hardness',
   HitPointsMax: 'hp-max',
+  RangeIncrement: 'range-increment',
   SpeedPenalty: 'speed-penalty',
   Strength: 'strength',
 } as const;
@@ -33,7 +35,12 @@ export const TraitAlterationMode = { Add: 'add', Remove: 'remove' } as const;
 export type TraitAlterationMode = ValueOf<typeof TraitAlterationMode>;
 
 /** Item properties that are not numbers. */
-export const ItemProperty = { Traits: 'traits', DamageType: 'damage-type' } as const;
+export const ItemProperty = {
+  Traits: 'traits',
+  DamageType: 'damage-type',
+  Materials: 'materials',
+  PropertyRunes: 'property-runes',
+} as const;
 export type ItemProperty = ValueOf<typeof ItemProperty>;
 
 const OverrideMode = z.literal(NumericAlterationMode.Override);
@@ -46,7 +53,7 @@ const alterationBase = {
 
 /**
  * Changes a property of the character's items that satisfy `items`: a shield's hardness, a
- * weapon's traits or damage type. The `property` decides which modes and values fit.
+ * weapon's traits, damage type, range increment, materials or property runes. The `property` decides which modes and values fit.
  */
 export const ItemAlterationElement = z.discriminatedUnion('property', [
   z.strictObject({
@@ -61,6 +68,13 @@ export const ItemAlterationElement = z.discriminatedUnion('property', [
     property: z.literal(ItemProperty.Traits),
     mode: z.enum(TraitAlterationMode),
     value: Trait,
+    ...ruleElementBase,
+  }),
+  z.strictObject({
+    ...alterationBase,
+    property: z.enum([ItemProperty.Materials, ItemProperty.PropertyRunes]),
+    mode: z.enum(TraitAlterationMode),
+    value: Slug,
     ...ruleElementBase,
   }),
   z.strictObject({

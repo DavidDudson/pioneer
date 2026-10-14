@@ -2364,34 +2364,6 @@
     {
       "type": "entry",
       "pack": "gm-core",
-      "slug": "effect:effect-clawed-bracers",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.lh2YM9yNJixOC8RI",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Strike",
-          "raw": {
-            "baseType": "claw",
-            "category": "unarmed",
-            "damage": {
-              "base": {
-                "damageType": "slashing",
-                "dice": 1,
-                "die": "d6"
-              }
-            },
-            "key": "Strike",
-            "label": "PF2E.Weapon.Base.claw",
-            "range": null,
-            "slug": "claw",
-            "traits": ["agile", "finesse", "unarmed"]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
       "slug": "effect:effect-dragon-turtle-scale",
       "foundry": "Compendium.pf2e.equipment-effects.Item.4tepFOJLhZSelPoa",
       "gaps": [
@@ -3471,25 +3443,6 @@
             "mode": "add",
             "property": "traits",
             "value": "holy"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "effect:effect-searing-blade-greater",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.jqbEIA6249vqgqwq",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustStrike",
-          "raw": {
-            "definition": ["item:type:weapon"],
-            "key": "AdjustStrike",
-            "mode": "add",
-            "property": "property-runes",
-            "value": "flaming"
           }
         }
       ]
@@ -6512,25 +6465,6 @@
       "slug": "shield:lions-shield",
       "foundry": "Compendium.pf2e.equipment-srd.Item.eMDt5vCQztp7cC6B",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "Strike",
-          "raw": {
-            "category": "martial",
-            "damage": {
-              "base": {
-                "damageType": "bludgeoning",
-                "dice": 1,
-                "die": "d6"
-              }
-            },
-            "group": "shield",
-            "key": "Strike",
-            "label": "PF2E.SpecificRule.Equipment.LionsShield.LionsHeadLabel",
-            "range": null,
-            "slug": "lions-head"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",

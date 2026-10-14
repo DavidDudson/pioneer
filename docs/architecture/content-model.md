@@ -630,6 +630,12 @@ FlatModifier` appends the import's rules of the keys named to the committed entr
   A value read from the origin item (`@item.origin.level`), from a pick (`@item.flags.system.rulesSelections.rank`) or
   from another actor's attribute stays in the backlog, as does Foundry's `TempHP` `expiration`, which no content in the
   packs sets.
+- **Strikes.** A `Strike` of its own takes its `baseType` as its `slug` when it has none (Foundry names it so), drops
+  `baseType`, reads `range: { increment }` as the number and `range: null` as none. An attack with neither `slug` nor
+  `baseType`, damage dice read from a formula, and `otherTags` stay in the backlog. An `AdjustStrike` becomes an
+  `ItemAlteration` of the weapons its `definition` reaches, for `traits`, `materials`, `property-runes` (add or remove
+  a slug) and `range-increment` (add or multiply); one with no `definition`, with `selectors`, or with a value or
+  definition read from a pick stays in the backlog.
 - **Dropped on purpose.** `TokenLight`, `TokenEffectIcon` and `TokenMark` only change a Foundry token (its light, the
   icon of an effect on it, a mark), and Pioneer has no token. The import drops them with the reason `token-only` and
   prints them apart from the untranslated rule elements; they are not in the backlog, so an entry whose only gap
