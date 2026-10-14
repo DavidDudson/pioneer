@@ -722,6 +722,22 @@
         "type": "untyped",
         "value": "@item.level",
         "damageType": "spirit"
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon"],
+        "property": "traits",
+        "mode": "add",
+        "value": "holy",
+        "predicate": ["self:trait:holy"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon"],
+        "property": "traits",
+        "mode": "add",
+        "value": "unholy",
+        "predicate": ["self:trait:unholy"]
       }
     ],
     "externalIds": {
