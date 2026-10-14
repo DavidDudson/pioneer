@@ -7,23 +7,6 @@
     {
       "type": "entry",
       "pack": "divine-mysteries",
-      "slug": "action:animated",
-      "foundry": "Compendium.pf2e.familiar-abilities.Item.wcFeaZ0TmoaLtpIQ",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "BaseSpeed",
-          "raw": {
-            "key": "BaseSpeed",
-            "selector": "land",
-            "value": 25
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
       "slug": "action:enter-spirit-trance",
       "foundry": "Compendium.pf2e.actionspf2e.Item.djULKW76BbSoN3zb",
       "gaps": [

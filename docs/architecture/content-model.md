@@ -620,6 +620,11 @@ FlatModifier` appends the import's rules of the keys named to the committed entr
   text as a paragraph, `@Localize` inlined), and a title of `{item|name}` is the item's name. `outcome` and a predicate
   stand. A title or text read from the item (`{item|description}`), a selector built from the item (`{item|_id}-damage`)
   and text with unresolved lang keys stay in the backlog.
+- **Base speeds.** A `BaseSpeed` becomes a `Change` that upgrades `speed:<type>` for `land`, `burrow`, `climb`, `fly`
+  or `swim`: it raises a speed to its value and never lowers one. `value` and a predicate stand. A selector built from a
+  pick (`{item|flags.system.rulesSelections.speed}`) and a value read from the actor's land Speed
+  (`@actor.system.movement.speeds.land.value`, which is the Speed after modifiers, not the base `@stat.speed.land`)
+  stay in the backlog.
 - **Dropped on purpose.** `TokenLight`, `TokenEffectIcon` and `TokenMark` only change a Foundry token (its light, the
   icon of an effect on it, a mark), and Pioneer has no token. The import drops them with the reason `token-only` and
   prints them apart from the untranslated rule elements; they are not in the backlog, so an entry whose only gap

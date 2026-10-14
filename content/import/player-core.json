@@ -24,24 +24,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "BaseSpeed",
-          "raw": {
-            "key": "BaseSpeed",
-            "selector": "land",
-            "value": 25
-          }
-        },
-        {
-          "type": "rule",
-          "key": "BaseSpeed",
-          "raw": {
-            "key": "BaseSpeed",
-            "selector": "swim",
-            "value": 25
-          }
-        },
-        {
-          "type": "rule",
           "key": "ActorTraits",
           "raw": {
             "add": ["amphibious"],
@@ -59,40 +41,6 @@
         {
           "type": "markup",
           "markup": "h2[class]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "action:burrower",
-      "foundry": "Compendium.pf2e.familiar-abilities.Item.uy15sDBuYNK48N3v",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "BaseSpeed",
-          "raw": {
-            "key": "BaseSpeed",
-            "selector": "burrow",
-            "value": 5
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "action:climber",
-      "foundry": "Compendium.pf2e.familiar-abilities.Item.dWTfO5WbLkD5mw2H",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "BaseSpeed",
-          "raw": {
-            "key": "BaseSpeed",
-            "selector": "climb",
-            "value": 25
-          }
         }
       ]
     },
@@ -276,23 +224,6 @@
             "key": "BaseSpeed",
             "selector": "{item|flags.system.rulesSelections.speed}",
             "value": 40
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "action:flier",
-      "foundry": "Compendium.pf2e.familiar-abilities.Item.ZHSzNt3NxkXbj1mI",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "BaseSpeed",
-          "raw": {
-            "key": "BaseSpeed",
-            "selector": "fly",
-            "value": 25
           }
         }
       ]
@@ -12630,15 +12561,6 @@
             "type": ["cold", "water"],
             "value": 5
           }
-        },
-        {
-          "type": "rule",
-          "key": "BaseSpeed",
-          "raw": {
-            "key": "BaseSpeed",
-            "selector": "fly",
-            "value": "ternary(gte(@item.level,9), 60, 40)"
-          }
         }
       ]
     },
@@ -14528,52 +14450,12 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "BaseSpeed",
-          "raw": {
-            "key": "BaseSpeed",
-            "predicate": ["primal-summons:air"],
-            "selector": "fly",
-            "value": 60
-          }
-        },
-        {
-          "type": "rule",
-          "key": "BaseSpeed",
-          "raw": {
-            "key": "BaseSpeed",
-            "predicate": ["primal-summons:earth"],
-            "selector": "burrow",
-            "value": 20
-          }
-        },
-        {
-          "type": "rule",
           "key": "Weakness",
           "raw": {
             "key": "Weakness",
             "predicate": ["primal-summons:fire"],
             "type": ["cold", "water"],
             "value": 5
-          }
-        },
-        {
-          "type": "rule",
-          "key": "BaseSpeed",
-          "raw": {
-            "key": "BaseSpeed",
-            "predicate": ["primal-summons:water"],
-            "selector": "swim",
-            "value": 60
-          }
-        },
-        {
-          "type": "rule",
-          "key": "BaseSpeed",
-          "raw": {
-            "key": "BaseSpeed",
-            "predicate": ["primal-summons:wood"],
-            "selector": "climb",
-            "value": 30
           }
         }
       ]
@@ -15663,16 +15545,6 @@
             "path": "system.attributes.reach.base",
             "predicate": ["untamed-shift:long-vines"],
             "value": 10
-          }
-        },
-        {
-          "type": "rule",
-          "key": "BaseSpeed",
-          "raw": {
-            "key": "BaseSpeed",
-            "predicate": ["untamed-shift:wings"],
-            "selector": "fly",
-            "value": 30
           }
         },
         {
@@ -17841,23 +17713,6 @@
             ],
             "property": "other-tags",
             "value": "ancestral-spell:gnome"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:cave-climber",
-      "foundry": "Compendium.pf2e.feats-srd.Item.bo4JG09pkoS7ywSZ",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "BaseSpeed",
-          "raw": {
-            "key": "BaseSpeed",
-            "selector": "climb",
-            "value": 10
           }
         }
       ]
@@ -24633,23 +24488,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:tree-climber-elf",
-      "foundry": "Compendium.pf2e.feats-srd.Item.qS2VcFLez4PLOpIS",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "BaseSpeed",
-          "raw": {
-            "key": "BaseSpeed",
-            "selector": "climb",
-            "value": 10
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:triple-shot",
       "foundry": "Compendium.pf2e.feats-srd.Item.hkdP5tsTAoqJDR8v",
       "gaps": [
@@ -26174,23 +26012,6 @@
             "mode": "override",
             "path": "system.attributes.ancestryhp",
             "value": 10
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "heritage:seaweed-leshy",
-      "foundry": "Compendium.pf2e.heritages.Item.hTl3uc6y1kTuo9ac",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "BaseSpeed",
-          "raw": {
-            "key": "BaseSpeed",
-            "selector": "swim",
-            "value": 20
           }
         }
       ]
