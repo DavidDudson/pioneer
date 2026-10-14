@@ -105,7 +105,7 @@ export interface SheetOptions {
 }
 
 /** The packs of a character that has enabled none, which its owner may change. */
-export const NO_CHARACTER_PACKS = { decidedBy: 'character', manageable: true, enabled: [], candidates: [] };
+const NO_CHARACTER_PACKS = { decidedBy: 'character', manageable: true, enabled: [], candidates: [] };
 
 /** The play state the server holds, at `revision`. */
 export function playOf(damage: number, temp: number, revision = 1): object {
