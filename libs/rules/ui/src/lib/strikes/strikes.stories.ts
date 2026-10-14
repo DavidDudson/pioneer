@@ -41,7 +41,8 @@ export const Expanded: StrikesStory = {
   play: async ({ canvasElement, userEvent }) => {
     const canvas = within(canvasElement);
     await userEvent.click(canvas.getByText('Longsword'));
-    await expect(canvas.getByText('Damage bonus')).toBeVisible();
+    const [damageBonus] = canvas.getAllByText('Damage bonus');
+    await expect(damageBonus).toBeVisible();
   },
 };
 
