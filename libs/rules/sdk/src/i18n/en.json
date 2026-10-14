@@ -925,6 +925,86 @@
     },
     "vitals": {
       "unarmored": "Unarmored"
+    },
+    "spellList": {
+      "castAt": "Cast at {rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank",
+      "none": "No spell",
+      "costTo": "to",
+      "or": "or",
+      "range": {
+        "feet": "{feet} feet",
+        "miles": "{miles, plural, one {# mile} other {# miles}}",
+        "touch": "touch",
+        "planetary": "planetary",
+        "interplanar": "interplanar",
+        "unlimited": "unlimited"
+      },
+      "area": "{size}-foot {shape, select, burst {burst} cone {cone} cube {cube} cylinder {cylinder} emanation {emanation} line {line} square {square} other {}}{width, select, none {} other {, {width} feet wide}}",
+      "targets": {
+        "count": {
+          "any": "any number of",
+          "all": "all",
+          "number": "{number}",
+          "upTo": "up to {number}"
+        },
+        "kind": {
+          "creature": "{count, plural, one {creature} other {creatures}}",
+          "object": "{count, plural, one {object} other {objects}}",
+          "ally": "{count, plural, one {ally} other {allies}}",
+          "enemy": "{count, plural, one {enemy} other {enemies}}",
+          "corpse": "{count, plural, one {corpse} other {corpses}}",
+          "weapon": "{count, plural, one {weapon} other {weapons}}",
+          "item": "{count, plural, one {item} other {items}}",
+          "spellEffect": "{count, plural, one {spell effect} other {spell effects}}",
+          "companion": "{count, plural, one {companion} other {companions}}",
+          "animalCompanion": "{count, plural, one {animal companion} other {animal companions}}",
+          "familiar": "{count, plural, one {familiar} other {familiars}}",
+          "eidolon": "{count, plural, one {eidolon} other {eidolons}}"
+        },
+        "qualifier": "{qualifier, select, willing {willing} living {living} dead {dead} dying {dying} sleeping {sleeping} falling {falling} flying {flying} corporeal {corporeal} unattended {unattended} magical {magical} other {}}",
+        "trait": "with the {trait} trait",
+        "within": "{within, select, area {in the area} range {within range} other {}}",
+        "triggering": "the triggering {kind}",
+        "you": "{you, select, and {you and} or {you or} other {}}"
+      },
+      "duration": {
+        "time": "{span}",
+        "rolled": "{dice}d{die} {unit, select, round {rounds} minute {minutes} hour {hours} day {days} week {weeks} month {months} year {years} other {}}",
+        "sustained": "sustained",
+        "until": "until {when, select, turnEnd {the end of {owner, select, target {the target’s} other {your}} turn} nextTurnStart {the start of {owner, select, target {the target’s} other {your}} next turn} nextTurnEnd {the end of {owner, select, target {the target’s} other {your}} next turn} dailyPreparations {your next daily preparations} other {}}",
+        "unlimited": "unlimited",
+        "varies": "varies",
+        "upTo": "up to {span}",
+        "sustainedUpTo": "sustained up to {span}"
+      },
+      "defence": {
+        "save": "{basic, select, yes {basic } other {}}{save, select, fortitude {Fortitude} reflex {Reflex} will {Will} other {}}",
+        "dc": "{save, select, fortitude {Fortitude DC} reflex {Reflex DC} will {Will DC} other {}}",
+        "ac": "AC"
+      },
+      "counteract": "Counteract",
+      "tag": {
+        "cantrip": "Cantrip",
+        "focus": "Focus",
+        "signature": "Signature",
+        "attack": "Spell attack"
+      },
+      "effect": {
+        "damage": "{formula}{hasCategory, select, yes { {category}} other {}}{hasType, select, yes { {damageType}} other {}}",
+        "healing": "{formula} healing",
+        "both": "{formula}{hasType, select, yes { {damageType}} other {}} damage or healing"
+      },
+      "effectLabel": "Effect",
+      "and": "and",
+      "unit": {
+        "round": "{count, plural, one {# round} other {# rounds}}",
+        "minute": "{count, plural, one {# minute} other {# minutes}}",
+        "hour": "{count, plural, one {# hour} other {# hours}}",
+        "day": "{count, plural, one {# day} other {# days}}",
+        "week": "{count, plural, one {# week} other {# weeks}}",
+        "month": "{count, plural, one {# month} other {# months}}",
+        "year": "{count, plural, one {# year} other {# years}}"
+      }
     }
   }
 }

@@ -1,0 +1,12 @@
+@if (spell().detail; as detail) {
+  <pio-spell-details [spell]="detail" />
+} @else {
+  <fr-stack direction="horizontal" gap="xs" align="center">
+    <pio-entry-hover [entry]="spell().id">
+      <fr-text tabindex="0">{{ spell().name }}</fr-text>
+    </pio-entry-hover>
+    @for (tag of tags(); track tag) {
+      <fr-badge>{{ tag | transloco }}</fr-badge>
+    }
+  </fr-stack>
+}

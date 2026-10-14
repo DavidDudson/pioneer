@@ -87,3 +87,33 @@ describe('CharacterSheetPage spell repertoire', () => {
     });
   });
 });
+
+/** The labelled fields of each spell detailed under `root` as "Term: value", in order. */
+function detailsIn(root: HTMLElement): string[][] {
+  return [...root.querySelectorAll('pio-spell-details')].map((details) =>
+    [...details.querySelectorAll('fr-description-item')].map((row) =>
+      [...row.querySelectorAll('[role=term], [role=definition]')].map((part) => textOf(part)).join(': '),
+    ),
+  );
+}
+
+describe('CharacterSheetPage spell details', () => {
+  beforeAll(async () => {
+    await prebuildServerStateTesting();
+  }, PREBUILD_TIMEOUT);
+
+  it('details a repertoire spell under its picker at the rank it is cast', async () => {
+    const choices = { 'repertoire:bard:1:0': SOOTHE, 'signature:bard:1': SOOTHE };
+    const { root } = await openSheet(bard(3, choices), { packs: SPELL_PACKS });
+    const pickers = await pickersOf(root);
+
+    const soothe = ['Range: 30 feet', 'Targets: 1 willing creature', 'Duration: 1 minute'];
+
+    await vi.waitFor(() => {
+      expect(detailsIn(pickers)).toStrictEqual([
+        [...soothe.slice(0, 2), 'Effect: 1d10+4 healing', soothe[2]],
+        [...soothe.slice(0, 2), 'Effect: 2d10+8 healing', soothe[2]],
+      ]);
+    });
+  });
+});

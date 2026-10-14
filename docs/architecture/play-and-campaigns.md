@@ -202,7 +202,7 @@ one of its type and direction already beats is left out, since it could never ch
 lists them all in full. Conditional `Change`s and set overrides appear only in the breakdown. `pio-statistics` does
 this for any statistic it is given, so a skills list gets it too.
 A Strike row words the same lines beneath its attack steps (the attack's) and beneath its damage (the flat damage
-bonus's). Spell and action rows are not built yet; they take the same `conditionalLines` helper when they are.
+bonus's). Spell rows (Spell lists, below) and action rows do not word conditions yet; they take the same `conditionalLines` helper when they do.
 
 The breakdown is given the statistic's kind, so it formats its numbers as the summary does: a check's base, pinned
 and computed totals and override values carry a sign ("Base +6", "override +6 → +9"); a DC's or value's do not.
@@ -211,6 +211,18 @@ The list is `pio-statistics` and the breakdown `pio-breakdown`, both in `libs/ru
 `StatisticResult`s; the rules playground shows its statistics with the same `pio-breakdown`. The sheet derives them
 with `deriveStatistics` over the content registry. Until the builder puts the character's rule elements in play and
 sets ranks, each statistic is its base with every rank untrained.
+
+### Spell lists
+
+Each prepared, repertoire, signature and focus spell sits in its slot's row under the pick, detailed at the rank it is
+cast: casting time as action glyphs, range, area, targets, defence (a save, a basic save, AC, a DC), damage or healing,
+and duration. Every one is read from the spell's structured fields, never its description. `spellAtRank` (rules engine)
+resolves a spell at a rank: an interval heightening adds its step per whole interval above the spell (dice of the same
+die merge, `1d4+1` twice is `2d4+2`, any other step is a further term), a fixed heightening lays each rank reached over
+the spell, and each variant (Heal's versions) is resolved the same way over the spell's fields. A cantrip is cast at
+half the level rounded up, a signature spell at the highest rank it can be. The entry's spell attack and DC are the
+entry's statistics above the list. Filtering by single or multiple targets waits on the spell facets (Epic 3.6), and
+staff spells on their own section (Staves and charged items).
 
 ## Sheet modes
 

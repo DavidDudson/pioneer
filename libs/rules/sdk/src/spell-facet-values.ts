@@ -130,7 +130,7 @@ export function castActions({ time }: SpellFields): readonly CastActions[] {
   return from === -1 ? [time.cost] : ACTION_ORDER.slice(from, to + 1);
 }
 
-export function targetValues({ targets }: SpellFields): readonly TargetValue[] {
+export function targetValues({ targets }: Pick<SpellFields, 'targets'>): readonly TargetValue[] {
   if (targets === undefined) {
     return [TargetValue.None];
   }
