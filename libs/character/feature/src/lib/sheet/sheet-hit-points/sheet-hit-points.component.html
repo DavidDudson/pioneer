@@ -18,6 +18,9 @@
               [max]="hp.max"
               [optimum]="hp.max"
             />
+            @for (line of granted(); track line) {
+              <fr-text tone="muted">{{ line }}</fr-text>
+            }
             <fr-stack direction="horizontal" align="center" gap="xs" wrap>
               <fr-number-input
                 [ariaLabel]="'character.sheet.hp.amount' | transloco"

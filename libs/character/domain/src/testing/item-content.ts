@@ -71,6 +71,8 @@ export const ItemFixture = {
   FlameTongue: 'flame-tongue',
   /** Worn boots with an activation once per hour, to count its uses. */
   WingedBoots: 'winged-boots',
+  /** A worn invested charm that gives fast healing 2, 4 temporary Hit Points and one size larger. */
+  TrollCharm: 'troll-charm',
 } as const;
 export type ItemFixture = (typeof ItemFixture)[keyof typeof ItemFixture];
 
@@ -219,6 +221,16 @@ const ITEMS: Readonly<Record<ItemFixture, ItemFixtureFields>> = {
       activations: [{ slug: 'take-to-the-skies', name: 'Take to the Skies', frequency: { max: 1, per: 'hour' } }],
     },
     traits: ['magical'],
+  },
+  [ItemFixture.TrollCharm]: {
+    kind: ContentKind.Equipment,
+    data: { bulk: 'light', usage: { type: 'worn', slot: 'necklace' } },
+    traits: ['invested', 'magical'],
+    rules: [
+      { key: 'FastHealing', value: 2, deactivatedBy: ['fire'] },
+      { key: 'TempHP', value: 4 },
+      { key: 'CreatureSize', value: 1 },
+    ],
   },
   [ItemFixture.RuneArmor]: {
     kind: ContentKind.Armor,

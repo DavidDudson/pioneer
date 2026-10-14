@@ -1,6 +1,6 @@
-import { characterStatistics } from '@pioneer/character/domain';
+import { characterStatistics, characterVitals } from '@pioneer/character/domain';
 import type { Character } from '@pioneer/character/domain';
-import type { StatisticResult } from '@pioneer/rules/engine';
+import type { StatisticResult, VitalsInPlay } from '@pioneer/rules/engine';
 import { Selector } from '@pioneer/rules/sdk';
 import type { ContentRegistry } from '@pioneer/rules/sdk';
 import type { NamedStatistic } from '@pioneer/rules/ui';
@@ -55,4 +55,15 @@ export function sheetStatistics(registry: ContentRegistry, character: Character)
     }
     return [{ name: entry.definition.name, kind: entry.definition.kind, result }];
   });
+}
+
+/**
+ * The fast healing, temporary Hit Points and size the character's rule elements give, from the engine (`vitalsInPlay`);
+ * undefined until the character has an ancestry.
+ */
+export function sheetVitalsInPlay(registry: ContentRegistry, character: Character): VitalsInPlay | undefined {
+  return characterVitals(
+    { registry, slots: sheetSlotContent(registry), inputs: statisticInputsOf(registry, character) },
+    character.document,
+  );
 }

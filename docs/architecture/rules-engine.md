@@ -686,6 +686,17 @@ The engine reads an element's acuity and range as written. A sense whose definit
 darkvision is precise and unlimited) should not give them; the importer leaves them off, as Foundry ignores them.
 Foundry's `force` (a sense replacing a better one) is not read, so the importer keeps such elements in the backlog.
 
+### Vitals and size
+
+`vitalsInPlay` in `libs/rules/engine` reads the `FastHealing`, `TempHP` and `CreatureSize` elements whose predicate
+holds; one that depends on the situation gives nothing on the sheet. Values are numbers or formulas over the
+character, and one below 1, or a formula with no value, is ignored. Recovery and temporary Hit Points do not add up
+(Player Core): of fast healing, of regeneration and of temporary Hit Points the highest counts, with every element that
+gives it as an origin. `CreatureSize` applies in the order found: a named size sets the size, a number of steps moves it
+(never below tiny, never past its `maximumSize` when growing). The reach is the size's, unless the last element that
+names one overrides it or adds to it. The result is read-only on the sheet: the play state still holds the temporary
+Hit Points a player enters, and no recovery is applied for them.
+
 ## Predicates and conditional modifiers
 
 Predicates use Foundry's JSON shape so imported content needs no rewriting: an array means _all_, plus `or`, `and`,

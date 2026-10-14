@@ -237,6 +237,11 @@
       "heal": "Heal",
       "set": "Set HP",
       "setTemp": "Set temp HP",
+      "fastHealing": "Fast healing {amount}.",
+      "regeneration": "Regeneration {amount}.",
+      "stoppedBy": "Stopped by {types} damage.",
+      "grantedTemp": "{amount} temporary Hit Points from effects.",
+      "size": "Size {size}, reach {reach} feet.",
       "noMax": "Hit Points show once the character has an ancestry and a class."
     },
     "death": {

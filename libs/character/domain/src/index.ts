@@ -323,6 +323,7 @@ export {
 export {
   characterStatisticInputs,
   characterStatistics,
+  characterVitals,
   MAX_HP_SELECTOR,
   maxHitPoints,
   type RollRequest,
