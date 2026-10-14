@@ -1,17 +1,20 @@
 import { HttpTestingController } from '@angular/common/http/testing';
-import { ApplicationRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { SheetMode } from '@pioneer/character/domain';
 import { playerCoreClassId, playerCoreId } from '@pioneer/character/domain/testing';
 import { contentId, ContentKind, EntrySlug, PackId } from '@pioneer/rules/sdk';
+import { SkillPicker } from '@pioneer/rules/ui';
+import type { SkillPickerRow } from '@pioneer/rules/ui';
 import { describe, expect, it, vi } from 'vitest';
 
+import { pickRow, rowsShown } from '../../testing/origin-table-testing';
 import { id, MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
 
 const openSheet = openerAt(SheetMode.Encounter);
 
 const ATHLETICS = contentId(PackId.parse('core-rules'), EntrySlug.parse('statistic:athletics'));
 const TRAINING = ['Level 1 trained skill 1', 'Level 1 trained skill 2', 'Level 1 trained skill 3'];
+const FIRST_SLOT = 'Level 1 trained skill 1';
 
 /** Merisiel as a fighter, with `choices` picked besides. */
 function fighter(choices: Readonly<Record<string, string>> = {}): object {
@@ -57,20 +60,7 @@ describe('CharacterSheetPage skills', () => {
 
   it('picks a trained skill in its slot', async () => {
     const { root } = await openSheet(fighter());
-    const field = await vi.waitFor(() => present(skillsSection(root).querySelector<HTMLElement>('fr-inline-field')));
-
-    present(field.querySelector<HTMLElement>('button')).click();
-    await TestBed.inject(ApplicationRef).whenStable();
-    present(field.querySelector<HTMLElement>('[frInlineEditor] button')).click();
-    await TestBed.inject(ApplicationRef).whenStable();
-    const option = await vi.waitFor(() =>
-      present(
-        [...document.querySelectorAll<HTMLElement>('[role="option"]')].find(
-          (each) => each.textContent.trim() === 'Athletics',
-        ),
-      ),
-    );
-    option.click();
+    await pickRow(root, { label: FIRST_SLOT, type: SkillPicker }, 'Athletics');
 
     const request = await vi.waitFor(() =>
       TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
@@ -78,6 +68,18 @@ describe('CharacterSheetPage skills', () => {
     expect(request.request.body).toMatchObject({
       patch: { field: 'selectSlot', slot: 'skill-training:1:0', selection: ATHLETICS },
     });
+  });
+
+  it('offers each skill with its attribute, rank and modifier', async () => {
+    const { root } = await openSheet(fighter());
+
+    const rows = await rowsShown<SkillPickerRow, SkillPicker>(root, { label: FIRST_SLOT, type: SkillPicker });
+
+    expect(rows.find((row) => row.name === 'Athletics')).toMatchObject({
+      attribute: 'str',
+      rank: 'untrained',
+    });
+    expect(rows.find((row) => row.name === 'Athletics')?.modifier).toBeTypeOf('number');
   });
 
   it('says beside the pickers which earlier slot trained a skill they cannot offer', async () => {

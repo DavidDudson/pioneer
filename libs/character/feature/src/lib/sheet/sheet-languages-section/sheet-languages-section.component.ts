@@ -10,11 +10,13 @@ import {
 import { Stack } from '@pioneer/frontier';
 import { ChoiceValue, SlotKey } from '@pioneer/rules/sdk';
 import { LanguageAdd, LanguagesView } from '@pioneer/rules/ui';
-import type { AddLanguage, RemoveLanguage } from '@pioneer/rules/ui';
+import type { AddLanguage, LanguagePickerRow, RemoveLanguage } from '@pioneer/rules/ui';
 
 import { CharacterStore } from '../../data/character-store';
+import { languageRows } from '../../data/language-rows';
 import { sheetLanguages } from '../sheet-languages';
 import type { SheetLanguages } from '../sheet-languages';
+import { SheetState } from '../sheet-state';
 
 /**
  * The Languages section's content (#470): the languages the character knows as the server read them, a picked one
@@ -29,6 +31,7 @@ import type { SheetLanguages } from '../sheet-languages';
 })
 export class SheetLanguagesSection {
   readonly #store = inject(CharacterStore);
+  readonly #sheet = inject(SheetState);
   readonly #host = inject<ElementRef<HTMLElement>>(ElementRef);
   readonly #injector = inject(Injector);
 
@@ -37,6 +40,17 @@ export class SheetLanguagesSection {
     const read = this.#store.languages();
     return read === undefined ? undefined : sheetLanguages(read);
   });
+
+  /** What the next open slot offers, with the facts to choose by; none while the content loads. */
+  protected readonly rows = computed((): readonly LanguagePickerRow[] => {
+    const registry = this.#sheet.registry.data();
+    const languages = this.languages();
+    return registry === undefined || languages === undefined
+      ? []
+      : languageRows(registry, languages.options, { known: new Set(languages.lines.map((line) => line.key)) });
+  });
+
+  protected readonly loading = computed(() => this.#sheet.registry.data() === undefined);
 
   protected readonly add: AddLanguage = async (selection) => {
     const slot = this.languages()?.next;

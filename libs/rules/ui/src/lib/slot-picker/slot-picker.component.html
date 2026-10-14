@@ -1,0 +1,17 @@
+<fr-picker
+  [openOnInit]="openOnInit()"
+  [rows]="shown()"
+  [columns]="columns()"
+  [rowValue]="rowValue"
+  [rowLabel]="rowLabel"
+  [rowDisabled]="rowDisabled"
+  [ariaLabel]="ariaLabel()"
+  [placeholder]="placeholder()"
+  [disabled]="disabled()"
+  [loading]="loading()"
+  [(value)]="value"
+  (searched)="query.set($event)"
+  (sorted)="sorting.set($event)"
+  (committed)="committed.emit()"
+  (cancelled)="cancelled.emit()"
+/>

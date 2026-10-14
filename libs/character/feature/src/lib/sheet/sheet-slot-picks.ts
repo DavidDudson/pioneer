@@ -4,11 +4,17 @@ import type { Character, CharacterSlot } from '@pioneer/character/domain';
 import type { InlineEdit, SelectOption } from '@pioneer/frontier';
 import { ChoiceValue } from '@pioneer/rules/sdk';
 import type { SlotKey } from '@pioneer/rules/sdk';
+import type { SkillPickerRow, SlotPickerRow } from '@pioneer/rules/ui';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { NOT_CHOSEN, RootPick } from './sheet-build';
 import { sheetField } from './sheet-field';
 import type { TrainedNote } from './sheet-skills';
+
+/** What a slot pick's table shows: the skills a skill slot offers, or the options of a choice. */
+type SlotPickRows =
+  | { readonly kind: 'skills'; readonly rows: readonly SkillPickerRow[] }
+  | { readonly kind: 'choices'; readonly rows: readonly SlotPickerRow[] };
 
 /** What a slot pick reads and writes through. */
 export interface SlotPickSources {
@@ -28,6 +34,8 @@ export interface SlotPickField {
   readonly key: SlotKey;
   readonly label: MessageDescriptor;
   readonly options: Signal<readonly SelectOption<string>[]>;
+  /** What its table shows of each option. */
+  readonly rows: Signal<SlotPickRows>;
   /** The skills the slot can't offer because the character is trained already, and what trains them. */
   readonly trained: Signal<readonly TrainedNote[]>;
   readonly field: InlineEdit<string | undefined>;
@@ -76,6 +84,9 @@ export function slotField(
   });
 }
 
+/** What a slot shows while it has gone: nothing. */
+const NO_ROWS: SlotPickRows = { kind: 'choices', rows: [] };
+
 function sameKeys(left: readonly SlotKey[], right: readonly SlotKey[]): boolean {
   return left.length === right.length && left.every((key, index) => key === right[index]);
 }
@@ -85,6 +96,8 @@ interface PickSlot {
   readonly key: SlotKey;
   readonly label: MessageDescriptor;
   readonly options: readonly SelectOption<string>[];
+  /** Absent for a planned slot, which the timeline offers as a select. */
+  readonly rows?: SlotPickRows;
   readonly trained?: readonly TrainedNote[];
 }
 
@@ -105,7 +118,8 @@ export function slotFieldsOf(
       }
       const options = computed(() => slots()?.find((slot) => slot.key === key)?.options ?? []);
       const trained = computed(() => slots()?.find((slot) => slot.key === key)?.trained ?? []);
-      return [{ key, label, options, trained, field: slotField(sources, signal(key), options) }];
+      const rows = computed((): SlotPickRows => slots()?.find((slot) => slot.key === key)?.rows ?? NO_ROWS);
+      return [{ key, label, options, rows, trained, field: slotField(sources, signal(key), options) }];
     }),
   );
 }

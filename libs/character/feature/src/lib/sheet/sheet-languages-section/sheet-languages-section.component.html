@@ -1,7 +1,8 @@
 <fr-stack gap="md">
   <pio-languages [lines]="languages()?.lines" [remove]="remove" />
   <pio-language-add
-    [options]="languages()?.options ?? []"
+    [rows]="rows()"
+    [loading]="loading()"
     [open]="languages()?.open ?? 0"
     [add]="add"
     (added)="focusAfterEdit()"

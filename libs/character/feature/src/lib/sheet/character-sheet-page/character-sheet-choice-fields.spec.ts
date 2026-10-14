@@ -1,10 +1,11 @@
 import { HttpTestingController } from '@angular/common/http/testing';
-import { ApplicationRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { playerCoreClassId } from '@pioneer/character/domain/testing';
 import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
+import { SlotPicker } from '@pioneer/rules/ui';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
+import { pickRow } from '../../testing/origin-table-testing';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
 
@@ -44,16 +45,9 @@ async function pickerOf(root: HTMLElement, label: string): Promise<HTMLElement> 
   );
 }
 
-/** Opens `field`'s picker and picks the option named `name`. */
-async function pick(field: HTMLElement, name: string): Promise<void> {
-  present(field.querySelector<HTMLElement>('button')).click();
-  await TestBed.inject(ApplicationRef).whenStable();
-  present(field.querySelector<HTMLElement>('[frInlineEditor] button')).click();
-  await TestBed.inject(ApplicationRef).whenStable();
-  const option = await vi.waitFor(() =>
-    present([...document.querySelectorAll<HTMLElement>('[role="option"]')].find((each) => textOf(each) === name)),
-  );
-  option.click();
+/** Opens the Choices section's picker labelled `label` and picks the option named `name`; returns its field. */
+async function pick(root: HTMLElement, label: string, name: string): Promise<HTMLElement> {
+  return pickRow(root, { label, type: SlotPicker }, name);
 }
 
 describe('CharacterSheetPage choice pickers', () => {
@@ -64,9 +58,7 @@ describe('CharacterSheetPage choice pickers', () => {
 
   it("asks a cleric for the deity's divine font in the Choices section, and saves the pick", async () => {
     const { root } = await openSheet(cleric());
-    const font = await pickerOf(root, 'Divine Font: Select a Divine Font.');
-
-    await pick(font, 'Healing');
+    await pick(root, 'Divine Font: Select a Divine Font.', 'Healing');
 
     const request = await vi.waitFor(() =>
       TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),

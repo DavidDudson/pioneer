@@ -2,9 +2,10 @@
   <fr-stack gap="xs">
     <fr-text variant="caption" tone="subtle">{{ Message.Open | transloco: { count: open() } }}</fr-text>
     @if (adding()) {
-      <fr-select
+      <pio-language-picker
         [ariaLabel]="Message.AddLabel | transloco"
-        [options]="options()"
+        [rows]="rows()"
+        [loading]="loading()"
         [disabled]="saving.isPending()"
         (valueChange)="pick($event)"
         (cancelled)="cancel()"

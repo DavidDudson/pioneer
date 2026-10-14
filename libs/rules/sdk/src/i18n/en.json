@@ -1062,6 +1062,25 @@
       "hitPointsValue": "{{value}} HP",
       "additionalSkills": "+{{count}} of your choice",
       "proficiency": "{{statistic}}: {{rank}}"
+    },
+    "slotPicker": {
+      "column": {
+        "name": "Name",
+        "source": "Source",
+        "attribute": "Attribute",
+        "rank": "Rank",
+        "modifier": "Modifier",
+        "rarity": "Rarity",
+        "known": "Known"
+      },
+      "rarity": {
+        "common": "Common",
+        "uncommon": "Uncommon",
+        "rare": "Rare",
+        "unique": "Unique"
+      },
+      "knownYes": "Known",
+      "knownNo": "Not known"
     }
   }
 }

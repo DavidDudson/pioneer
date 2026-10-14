@@ -1,15 +1,17 @@
 import {
+  buildRanks,
   skillReads,
   SkillSlotKind,
   skillSlots,
   skillsTrainedTwice,
   SkillTrainingSourceKind,
 } from '@pioneer/character/domain';
-import type { Character, SkillSlot, SkillTrainingSource, TrainedSkill } from '@pioneer/character/domain';
+import type { Character, SkillOption, SkillSlot, SkillTrainingSource, TrainedSkill } from '@pioneer/character/domain';
 import type { SelectOption } from '@pioneer/frontier';
 import { statisticContent } from '@pioneer/rules/engine';
+import { Proficiency } from '@pioneer/rules/sdk';
 import type { ContentId, ContentRegistry, Level, SlotKey } from '@pioneer/rules/sdk';
-import type { NamedStatistic } from '@pioneer/rules/ui';
+import type { NamedStatistic, SkillPickerRow } from '@pioneer/rules/ui';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
@@ -66,6 +68,8 @@ export interface SheetSkillSlot {
   readonly key: SlotKey;
   readonly label: MessageDescriptor;
   readonly options: readonly SelectOption<string>[];
+  /** What the skill table shows of each skill on offer. */
+  readonly rows: readonly SkillPickerRow[];
   readonly trained: readonly TrainedNote[];
 }
 
@@ -147,6 +151,33 @@ function trainedTwiceNotes(
   );
 }
 
+/** The rows of the skills a slot offers. */
+type SkillRows = (options: readonly SkillOption[]) => readonly SkillPickerRow[];
+
+/**
+ * The skill table's row for each skill a slot offers: the attribute that governs it, the rank the character has in it
+ * and its total now. A skill the engine derives nothing for has no modifier.
+ */
+function skillRowsOf(registry: ContentRegistry, character: Character): SkillRows {
+  const results = sheetDerivation(registry, character);
+  const ranks = buildRanks(character.document, sheetSlotContent(registry));
+  const attributes = new Map(
+    registry.statistics().map((entry) => [entry.definition.selector, entry.definition.keyAttribute]),
+  );
+  return (options) =>
+    options.map(({ id, selector, name }): SkillPickerRow => {
+      const result = results.get(selector);
+      return {
+        id,
+        name,
+        attribute: attributes.get(selector),
+        rank: ranks.get(selector) ?? Proficiency.Untrained,
+        modifier: result?.ok === true ? result.total : undefined,
+        disabledReason: undefined,
+      };
+    });
+}
+
 /** The skill slots whose level `wanted` accepts, in the order they are read, each with what it offers. */
 function skillSlotsWhere(
   registry: ContentRegistry,
@@ -156,12 +187,14 @@ function skillSlotsWhere(
   const content = sheetSlotContent(registry);
   const slots = skillSlots(character.document, skillReads(character.document, content));
   const names = sourceNamesOf(registry, slots);
+  const rowsOf = skillRowsOf(registry, character);
   return slots
     .filter((slot) => wanted(slot.level))
     .map((slot) => ({
       key: slot.key,
       label: skillSlotLabel(slot, slots),
       options: slot.options.map((skill) => ({ value: skill.id, label: skill.name })),
+      rows: rowsOf(slot.options),
       trained: trainedNotes(slot.trained, names),
     }));
 }

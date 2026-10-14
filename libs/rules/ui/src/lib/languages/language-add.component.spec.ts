@@ -1,9 +1,10 @@
 import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
 import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-experimental';
-import { describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { DWARF_LANGUAGE_OPTIONS } from '../testing/languages-fixtures';
+import { DWARF_LANGUAGE_ROWS } from '../testing/languages-fixtures';
+import { nameCells, stubLayout } from '../testing/origin-picker-testing';
 import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing';
 import type { AddLanguage } from './language-add.component';
 import { LanguageAdd } from './language-add.component';
@@ -13,7 +14,7 @@ async function render(open: number, add: AddLanguage = async () => undefined): P
     providers: [provideTanStackQuery(new QueryClient()), provideRulesUiI18nTesting()],
   });
   const fixture = TestBed.createComponent(LanguageAdd);
-  fixture.componentRef.setInput('options', DWARF_LANGUAGE_OPTIONS);
+  fixture.componentRef.setInput('rows', DWARF_LANGUAGE_ROWS);
   fixture.componentRef.setInput('open', open);
   fixture.componentRef.setInput('add', add);
   document.body.append(fixture.nativeElement as HTMLElement);
@@ -29,38 +30,52 @@ function addButton(fixture: ComponentFixture<LanguageAdd>): HTMLButtonElement | 
   return [...host(fixture).querySelectorAll('button')].find((each) => each.textContent.trim() === 'Add language');
 }
 
-function selectTrigger(fixture: ComponentFixture<LanguageAdd>): HTMLElement | null {
-  return host(fixture).querySelector<HTMLElement>('fr-select button');
+function searchBox(fixture: ComponentFixture<LanguageAdd>): HTMLElement | null {
+  return host(fixture).querySelector<HTMLElement>('pio-language-picker input');
 }
 
 async function choose(fixture: ComponentFixture<LanguageAdd>, label: string): Promise<void> {
-  selectTrigger(fixture)?.click();
-  await fixture.whenStable();
-  const option = await vi.waitFor(() => {
-    const found = [...document.querySelectorAll<HTMLElement>('[role="option"]')].find(
-      (each) => each.textContent.trim() === label,
-    );
+  const cell = await vi.waitFor(() => {
+    const found = nameCells(host(fixture)).find((each) => each.textContent.trim() === label);
     expect(found).toBeDefined();
     return found;
   });
-  option?.click();
+  cell?.click();
   await fixture.whenStable();
 }
 
 describe(LanguageAdd, () => {
+  beforeEach(() => {
+    stubLayout();
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
   it('shows nothing when no languages are left to add', async () => {
     const fixture = await render(0);
     expect(addButton(fixture)).toBeUndefined();
   });
 
-  it('says how many are left, and shows the picker in place, focused, when Add language is pressed', async () => {
+  it('says how many are left, and shows the table in place, focused, when Add language is pressed', async () => {
     const fixture = await render(2);
     expect(host(fixture).textContent).toContain('2 languages left to add');
 
     addButton(fixture)?.click();
     await fixture.whenStable();
-    expect(document.activeElement).toBe(selectTrigger(fixture));
+    expect(document.activeElement).toBe(searchBox(fixture));
     expect(addButton(fixture)).toBeUndefined();
+  });
+
+  it('offers each language with its rarity and whether it is known', async () => {
+    const fixture = await render(1);
+    addButton(fixture)?.click();
+    await fixture.whenStable();
+
+    await vi.waitFor(() => {
+      expect(host(fixture).querySelector('fr-picker-row')?.textContent).toContain('Uncommon');
+    });
   });
 
   it('adds the picked language, then closes and says so', async () => {
@@ -78,10 +93,10 @@ describe(LanguageAdd, () => {
       expect(added).toHaveBeenCalledTimes(1);
     });
     expect(add).toHaveBeenCalledWith('elven');
-    expect(selectTrigger(fixture)).toBeNull();
+    expect(searchBox(fixture)).toBeNull();
   });
 
-  it('keeps the picker open with the failure beside it when saving fails', async () => {
+  it('keeps the picker in place with the failure beside it when saving fails', async () => {
     const fixture = await render(1, async () => {
       throw new Error('offline');
     });
@@ -92,7 +107,7 @@ describe(LanguageAdd, () => {
     await vi.waitFor(() => {
       expect(host(fixture).querySelector('fr-message')).not.toBeNull();
     });
-    expect(selectTrigger(fixture)).not.toBeNull();
+    expect(host(fixture).querySelector('pio-language-picker')).not.toBeNull();
   });
 
   it('closes on Escape and returns focus to Add language', async () => {
@@ -100,7 +115,7 @@ describe(LanguageAdd, () => {
     addButton(fixture)?.click();
     await fixture.whenStable();
 
-    selectTrigger(fixture)?.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+    searchBox(fixture)?.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
     await fixture.whenStable();
     expect(document.activeElement).toBe(addButton(fixture));
   });

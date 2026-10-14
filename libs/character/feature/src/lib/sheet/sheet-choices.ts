@@ -1,10 +1,10 @@
 import { characterGrants, listedChoices, SlotStatus, SlotSubjectKind } from '@pioneer/character/domain';
 import type { Character, CharacterSlot, SlotSubject } from '@pioneer/character/domain';
 import type { SelectOption } from '@pioneer/frontier';
-import { AttributeSchema, ContentKind, SlotRank } from '@pioneer/rules/sdk';
+import { AttributeSchema, ContentId, ContentKind, SlotRank } from '@pioneer/rules/sdk';
 import type { ChoiceValue, ContentRegistry, SlotKey } from '@pioneer/rules/sdk';
 import { ChoiceState } from '@pioneer/rules/ui';
-import type { ChoiceLine, ChoiceSelection } from '@pioneer/rules/ui';
+import type { ChoiceLine, ChoiceSelection, SlotPickerRow } from '@pioneer/rules/ui';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
@@ -145,6 +145,8 @@ export interface SheetChoiceSlot {
   /** "Domain Initiate: Select a domain." */
   readonly label: MessageDescriptor;
   readonly options: readonly SelectOption<string>[];
+  /** What the table shows of each option: its name, and its source when the option names a content entry. */
+  readonly rows: readonly SlotPickerRow[];
 }
 
 /**
@@ -158,5 +160,14 @@ export function sheetChoiceSlots(registry: ContentRegistry, character: Character
     key: slot.key,
     label: labelOf({ kind: SlotSubjectKind.Choice, entry: slot.origin.entry, entryName, prompt: slot.prompt }),
     options: slot.options.map((option) => ({ value: option.value, label: option.label })),
+    rows: slot.options.map((option): SlotPickerRow => {
+      const id = ContentId.safeParse(option.value);
+      return {
+        id: option.value,
+        name: option.label,
+        sources: (id.success ? content.lookup.entry(id.data)?.sources : undefined) ?? [],
+        disabledReason: undefined,
+      };
+    }),
   }));
 }
