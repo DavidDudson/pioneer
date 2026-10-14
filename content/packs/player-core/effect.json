@@ -1750,7 +1750,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "item",
+        "choices": [
+          {
+            "value": "shield",
+            "label": "TYPES.Item.shield"
+          },
+          {
+            "value": "weapon",
+            "label": "TYPES.Item.weapon"
+          }
+        ],
+        "prompt": "Select shield or weapon.",
+        "rollOption": "emblazon-antimagic:item"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.RyGaB5hDRcOeb34Q"
     },
@@ -1829,7 +1846,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "item",
+        "choices": [
+          {
+            "value": "shield",
+            "label": "TYPES.Item.shield"
+          },
+          {
+            "value": "weapon",
+            "label": "TYPES.Item.weapon"
+          }
+        ],
+        "prompt": "Select shield or weapon.",
+        "rollOption": "emblazon-armament:item"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.CXMDSu8pKh0OJkUo"
     },
@@ -1908,7 +1942,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "item",
+        "choices": [
+          {
+            "value": "shield",
+            "label": "TYPES.Item.shield"
+          },
+          {
+            "value": "weapon",
+            "label": "TYPES.Item.weapon"
+          }
+        ],
+        "prompt": "Select shield or weapon.",
+        "rollOption": "emblazon-energy:item"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.jUUjgpEEOeZeG7II"
     },
@@ -2085,6 +2136,25 @@
         "acuity": "imprecise",
         "range": 60,
         "predicate": ["familiar-of-keen-senses:wavesense"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-familiar-of-keen-senses",
+        "choices": [
+          {
+            "value": "scent",
+            "label": "Scent"
+          },
+          {
+            "value": "tremorsense",
+            "label": "Tremorsense"
+          },
+          {
+            "value": "wavesense",
+            "label": "Wavesense"
+          }
+        ],
+        "rollOption": "familiar-of-keen-senses"
       }
     ],
     "externalIds": {
@@ -2840,6 +2910,22 @@
         "type": "circumstance",
         "value": -15,
         "predicate": ["manacles:legs"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-manacles",
+        "choices": [
+          {
+            "value": "legs",
+            "label": "Legs"
+          },
+          {
+            "value": "wrists",
+            "label": "Wrists"
+          }
+        ],
+        "prompt": "Select a body part.",
+        "rollOption": "manacles"
       }
     ],
     "externalIds": {
@@ -3270,6 +3356,23 @@
         "type": "circumstance",
         "value": 1,
         "slug": "parry-bonus"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-parry",
+        "choices": [
+          {
+            "value": "no",
+            "label": "No"
+          },
+          {
+            "value": "yes",
+            "label": "Yes"
+          }
+        ],
+        "prompt": "Does your weapon have the parry trait?",
+        "rollOption": "parry-bonus-upgrade",
+        "predicate": ["option:weapon-parry"]
       }
     ],
     "externalIds": {
@@ -3701,6 +3804,15 @@
         "selectors": ["saving-throw"],
         "type": "circumstance",
         "value": 2
+      },
+      {
+        "key": "GrantItem",
+        "item": "6d28ce6a-b876-5711-b183-9f1528122d4b",
+        "predicate": [
+          {
+            "or": ["emblazon-armament:item:shield", "option:shield-religious-symbol"]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -6130,7 +6242,52 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "spell-effect-aerial-form",
+        "choices": [
+          {
+            "value": "bat",
+            "label": "Bat"
+          },
+          {
+            "value": "bird",
+            "label": "Bird"
+          },
+          {
+            "value": "pterosaur",
+            "label": "Pterosaur",
+            "predicate": [
+              {
+                "or": [
+                  {
+                    "not": "self:effect:untamed-form"
+                  },
+                  "feat:ferocious-shape"
+                ]
+              }
+            ]
+          },
+          {
+            "value": "wasp",
+            "label": "Wasp",
+            "predicate": [
+              {
+                "or": [
+                  {
+                    "not": "self:effect:untamed-form"
+                  },
+                  "feat:insect-shape"
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select a form.",
+        "rollOption": "aerial-form"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.mvMWmP3m9Xawbwpx"
     },
@@ -11765,7 +11922,40 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "spell-effect-elemental-form",
+        "choices": [
+          {
+            "value": "air",
+            "label": "Air"
+          },
+          {
+            "value": "earth",
+            "label": "Earth"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "metal",
+            "label": "Metal"
+          },
+          {
+            "value": "water",
+            "label": "Water"
+          },
+          {
+            "value": "wood",
+            "label": "Wood"
+          }
+        ],
+        "prompt": "Select an element.",
+        "rollOption": "elemental-form"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.Qp0dlhJaCzXIx73r"
     },
@@ -13604,6 +13794,56 @@
         "display": {
           "label": "Human Form — Pass as Humanoid"
         }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "humanoid-form",
+        "choices": [
+          {
+            "value": "small",
+            "label": "Small Humanoid"
+          },
+          {
+            "value": "medium",
+            "label": "Medium Humanoid"
+          },
+          {
+            "value": "large",
+            "label": "Large Humanoid",
+            "predicate": [
+              {
+                "gte": ["parent:origin:item:level", 5]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select a form.",
+        "rollOption": "humanoid-form"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "spell-effect-humanoid-form",
+        "choices": [
+          {
+            "value": "none",
+            "label": "None"
+          },
+          {
+            "value": "low-light-vision",
+            "label": "Low-Light Vision"
+          },
+          {
+            "value": "darkvision",
+            "label": "Darkvision"
+          }
+        ],
+        "prompt": "Select a sense.",
+        "rollOption": "vision-type",
+        "predicate": [
+          {
+            "gte": ["parent:origin:item:level", 3]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -13712,7 +13952,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "ill-omen",
+        "choices": [
+          {
+            "value": "failure",
+            "label": "Failure"
+          },
+          {
+            "value": "critical-failure",
+            "label": "Critical Failure"
+          }
+        ],
+        "prompt": "Select the degree of success.",
+        "rollOption": "ill-omen"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.AmsVO5Q6078mEvNt"
     },
@@ -15026,6 +15283,36 @@
         "display": {
           "label": "Shroud of Flame"
         }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "spell-effect-monstrosity-form",
+        "choices": [
+          {
+            "value": "cave-worm",
+            "label": "Cave Worm"
+          },
+          {
+            "value": "phoenix",
+            "label": "Phoenix",
+            "predicate": [
+              {
+                "not": "self:effect:untamed-form"
+              }
+            ]
+          },
+          {
+            "value": "phoenix",
+            "label": "Phoenix",
+            "predicate": ["self:effect:untamed-form", "feat:soaring-shape"]
+          },
+          {
+            "value": "sea-serpent",
+            "label": "Sea Serpent"
+          }
+        ],
+        "prompt": "Select a form.",
+        "rollOption": "monstrosity-form"
       }
     ],
     "externalIds": {
@@ -15672,7 +15959,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "nature-incarnate",
+        "choices": [
+          {
+            "value": "green-man",
+            "label": "Green Man"
+          },
+          {
+            "value": "kaiju",
+            "label": "Kaiju"
+          }
+        ],
+        "prompt": "Select a form.",
+        "rollOption": "nature-incarnate"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.hfcFc8cV5wF2evWP"
     },
@@ -16429,7 +16733,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "spell-effect-plant-form",
+        "choices": [
+          {
+            "value": "arboreal",
+            "label": "Arboreal"
+          },
+          {
+            "value": "flytrap",
+            "label": "Flytrap"
+          }
+        ],
+        "prompt": "Select a form.",
+        "rollOption": "plant-form"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.tu8FyCtmL3YYR2jL"
     },
@@ -16650,6 +16971,38 @@
         "type": "untyped",
         "value": -10,
         "predicate": ["primal-summons:earth"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "spell-effect-primal-summons",
+        "choices": [
+          {
+            "value": "air",
+            "label": "Air"
+          },
+          {
+            "value": "earth",
+            "label": "Earth"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "metal",
+            "label": "Metal"
+          },
+          {
+            "value": "water",
+            "label": "Water"
+          },
+          {
+            "value": "wood",
+            "label": "Wood"
+          }
+        ],
+        "prompt": "Select an element.",
+        "rollOption": "primal-summons"
       }
     ],
     "externalIds": {
@@ -17723,6 +18076,38 @@
         "type": "status",
         "value": 20,
         "predicate": ["shifting-form:speed"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "shifting-form",
+        "choices": [
+          {
+            "value": "speed",
+            "label": "Speed"
+          },
+          {
+            "value": "climb",
+            "label": "Climb"
+          },
+          {
+            "value": "swim",
+            "label": "Swim"
+          },
+          {
+            "value": "darkvision",
+            "label": "Darkvision"
+          },
+          {
+            "value": "claw",
+            "label": "Claw"
+          },
+          {
+            "value": "scent",
+            "label": "Scent"
+          }
+        ],
+        "prompt": "Select a form.",
+        "rollOption": "shifting-form"
       }
     ],
     "externalIds": {
@@ -18410,6 +18795,26 @@
         "type": "status",
         "value": 5,
         "predicate": ["sweet-dream:voyaging"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "sweet-dream",
+        "choices": [
+          {
+            "value": "insight",
+            "label": "Dream of Insight"
+          },
+          {
+            "value": "glamor",
+            "label": "Dream of Glamor"
+          },
+          {
+            "value": "voyaging",
+            "label": "Dream of Voyaging"
+          }
+        ],
+        "prompt": "Select a dream.",
+        "rollOption": "sweet-dream"
       }
     ],
     "externalIds": {
@@ -18719,6 +19124,22 @@
         "selectors": ["all-speeds"],
         "type": "circumstance",
         "value": -10
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "spell-effect-tangle-vine",
+        "choices": [
+          {
+            "value": "success",
+            "label": "Success"
+          },
+          {
+            "value": "critical-success",
+            "label": "Critical Success"
+          }
+        ],
+        "prompt": "Select the degree of success.",
+        "rollOption": "tangle-vine"
       }
     ],
     "externalIds": {
@@ -19510,7 +19931,41 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "spell-effect-untamed-shift",
+        "choices": [
+          {
+            "value": "untamed-claws",
+            "label": "Untamed Claws",
+            "predicate": ["feat:untamed-form"]
+          },
+          {
+            "value": "untamed-jaws",
+            "label": "Untamed Jaws",
+            "predicate": ["feat:insect-shape"]
+          },
+          {
+            "value": "elemental-matter",
+            "label": "Elemental Matter",
+            "predicate": ["feat:elemental-shape"]
+          },
+          {
+            "value": "long-vines",
+            "label": "Long Vines",
+            "predicate": ["feat:plant-shape"]
+          },
+          {
+            "value": "wings",
+            "label": "Wings",
+            "predicate": ["feat:soaring-shape"]
+          }
+        ],
+        "prompt": "Select a shift.",
+        "rollOption": "untamed-shift"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.rTVZ0zwiKeslRw6p"
     },

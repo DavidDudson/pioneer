@@ -579,6 +579,17 @@ FlatModifier` appends the import's rules of the keys named to the committed entr
   and are dropped. `mergeable` (suboptions pooled across items into one choice), `disabledIf`, a `toggleable` that is
   not a flag (`totm`), `count`, `requiresEquipped` and an option read from an actor flag have no Pioneer meaning yet
   and stay in the backlog.
+- **Choice sets.** A `ChoiceSet`'s camel-case `flag` becomes a slug (`fighterSkill` is `fighter-skill`), and one with no
+  flag takes the slug of its item, as Foundry does. A choice's numeric value is text, its predicate reads bare roll
+  options as above, and its icon and the set's `adjustName` are dropped. `choices` as a list, a query by `itemType`
+  (`feat`, `action`, `spell`, `weapon`, `shield`, `heritage`, `ancestry`) with a `filter`, and the `skills` config
+  are translated; a `rollOption` may be a namespace of its own (`kinetic-gate:initial`). A pick that has no
+  `rollOption` and that no translated element reads (a skill chosen for a rank raise whose rule is still in the
+  backlog) stays in the backlog with the rules that would read it, as it would ask the player for nothing. A choice
+  with an object value, an unlabelled pick of an item, another config (`damageTypes`), a query of the deity (the root
+  slot replaces it), `slugsAsValues`, `allowedDrops`, `actorFlag` and `slug` stay in the backlog. A pack's rules for
+  the pick (`Proficiency`, `GrantItem`) are taken with it, as in
+  `--apply-rules ChoiceSet,Proficiency,ActiveEffectLike,GrantItem`.
 - **References across packs.** A compendium UUID naming a document an earlier import brought in resolves to that
   import's entry, found by the document's UUID in the entry's `externalIds.foundry`, never by name or slug: a Divine
   Mysteries deity's Player Core spells. A reference to a book not imported yet (Player Core 2, Impossible Magic)

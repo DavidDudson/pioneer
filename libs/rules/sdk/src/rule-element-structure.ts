@@ -8,6 +8,7 @@ import { RulesMessage } from './messages';
 import { ConditionValue } from './origin';
 import { Predicate } from './predicate';
 import { RollOption } from './roll-option';
+import { RollOptionNamespace } from './roll-option-namespace';
 import { RuleElementKey, ruleElementBase, RuleSlug } from './rule-element-base';
 import { Domain } from './selector';
 
@@ -55,14 +56,15 @@ export type ChoiceQuery = z.infer<typeof ChoiceQuery>;
 
 /**
  * Asks the player to pick, and stores the pick under `flag`. Unanswered, it is an open slot in the
- * builder. With `rollOption`, the pick also becomes a roll option (`favored-terrain:forest`).
+ * builder. With `rollOption`, a namespace (`favored-terrain`, `kinetic-gate:initial`), the pick also becomes a roll
+ * option in it (`favored-terrain:forest`).
  */
 export const ChoiceSetElement = z.strictObject({
   key: z.literal(RuleElementKey.ChoiceSet),
   flag: RuleSlug,
   choices: z.union([z.array(ChoiceOption).min(1).max(CHOICES_MAX), ChoiceQuery]),
   prompt: ContentText.optional(),
-  rollOption: RuleSlug.optional(),
+  rollOption: RollOptionNamespace.optional(),
   ...ruleElementBase,
 });
 export type ChoiceSetElement = z.infer<typeof ChoiceSetElement>;

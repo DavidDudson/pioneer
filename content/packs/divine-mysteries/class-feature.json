@@ -245,6 +245,11 @@
       {
         "key": "GrantItem",
         "item": "ea64f9a0-8988-521b-8e7d-c0b1d987e2bc"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:occultism",
+        "rank": "trained"
       }
     ],
     "externalIds": {
@@ -2157,6 +2162,11 @@
       {
         "key": "GrantItem",
         "item": "9dc864e7-6f49-56d7-862d-b36de6f50cc8"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:nature",
+        "rank": "trained"
       }
     ],
     "externalIds": {
@@ -2264,7 +2274,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:society",
+        "rank": "trained"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.v2JQB6j3VIKWqPpQ"
     },
@@ -2838,7 +2854,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:nature",
+        "rank": "trained"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.zy0toWeGIeQstbT4"
     },
@@ -2936,6 +2958,29 @@
       {
         "key": "Proficiency",
         "selector": "spellcasting",
+        "rank": "trained"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill",
+        "choices": [
+          {
+            "value": "occultism",
+            "label": "Occultism"
+          },
+          {
+            "value": "religion",
+            "label": "Religion"
+          }
+        ],
+        "prompt": "Select a skill."
+      },
+      {
+        "key": "Proficiency",
+        "selector": {
+          "choice": "skill",
+          "prefix": "skill"
+        },
         "rank": "trained"
       }
     ],
@@ -3036,7 +3081,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:religion",
+        "rank": "trained"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.RdOzBNPKLTMUWrJs"
     },
@@ -3134,7 +3185,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:occultism",
+        "rank": "trained"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.ydI39ViUy22nBRn6"
     },

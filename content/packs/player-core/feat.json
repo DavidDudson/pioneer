@@ -1099,7 +1099,28 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "advanced-general-training",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            {
+              "lte": ["item:level", 7]
+            },
+            "item:trait:general"
+          ]
+        },
+        "prompt": "Select a 7th-level or lower general feat."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "advanced-general-training"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.Ht6b8H9DpA9lWzAg"
     },
@@ -2543,6 +2564,11 @@
       {
         "key": "Language",
         "grant": ["c60a69f8-1fae-5452-9c94-4cf2bd4662b1"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:society",
+        "rank": "trained"
       }
     ],
     "externalIds": {
@@ -3996,6 +4022,16 @@
         "key": "Proficiency",
         "selector": "spellcasting",
         "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:performance",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:occultism",
+        "rank": "trained"
       }
     ],
     "externalIds": {
@@ -4270,7 +4306,29 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "basic-arcana",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:category:class",
+            "item:trait:wizard",
+            {
+              "lte": ["item:level", 2]
+            }
+          ]
+        },
+        "prompt": "Select a 1st or 2nd-level class feat."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "basic-arcana"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.DBsqWivnSaEo8jz5"
     },
@@ -4479,7 +4537,29 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "basic-dogma",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:category:class",
+            "item:trait:cleric",
+            {
+              "lte": ["item:level", 2]
+            }
+          ]
+        },
+        "prompt": "Select a 1st or 2nd-level class feat."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "basic-dogma"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.7Pb1WL8abrPBTPrH"
     },
@@ -4607,7 +4687,29 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "basic-hunters-trick",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:category:class",
+            "item:trait:ranger",
+            {
+              "lte": ["item:level", 2]
+            }
+          ]
+        },
+        "prompt": "Select a 1st or 2nd-level class feat."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "basic-hunters-trick"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.mV911W6MTGMvHPbE"
     },
@@ -4688,7 +4790,29 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "basic-maneuver",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:category:class",
+            "item:trait:fighter",
+            {
+              "lte": ["item:level", 2]
+            }
+          ]
+        },
+        "prompt": "Select a 1st or 2nd-level class feat."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "basic-maneuver"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.baD02AcIpU7xUBlD"
     },
@@ -4735,7 +4859,29 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "basic-muses-whispers",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:category:class",
+            "item:trait:bard",
+            {
+              "lte": ["item:level", 2]
+            }
+          ]
+        },
+        "prompt": "Select a 1st or 2nd-level class feat."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "basic-muses-whispers"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.JM0umAUx30mAkuTz"
     },
@@ -4782,7 +4928,29 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "basic-trickery",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:category:class",
+            "item:trait:rogue",
+            {
+              "lte": ["item:level", 2]
+            }
+          ]
+        },
+        "prompt": "Select a 1st or 2nd-level class feat."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "basic-trickery"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.xMTC8UOerwGyCtaN"
     },
@@ -4829,7 +4997,29 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "basic-wilding",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:category:class",
+            "item:trait:druid",
+            {
+              "lte": ["item:level", 2]
+            }
+          ]
+        },
+        "prompt": "Select a 1st or 2nd-level class feat."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "basic-wilding"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.kUa8PBjKmBk04zmc"
     },
@@ -4923,7 +5113,29 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "basic-witchcraft",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:category:class",
+            "item:trait:witch",
+            {
+              "lte": ["item:level", 2]
+            }
+          ]
+        },
+        "prompt": "Select a 1st or 2nd-level class feat."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "basic-witchcraft"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.geESDWQVvwScyPph"
     },
@@ -5230,7 +5442,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:nature",
+        "rank": "trained"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.wtTye8OrC9cuK7YP"
     },
@@ -5337,7 +5555,32 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "bestial-manifestation",
+        "choices": [
+          {
+            "value": "claw",
+            "label": "Claw"
+          },
+          {
+            "value": "hoof",
+            "label": "Hoof"
+          },
+          {
+            "value": "jaws",
+            "label": "Jaws"
+          },
+          {
+            "value": "tail",
+            "label": "Tail"
+          }
+        ],
+        "prompt": "Select an unarmed attack.",
+        "rollOption": "bestial-manifestation"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.eUyZBi8vV5QDxOXD"
     },
@@ -8179,6 +8422,16 @@
       {
         "key": "GrantItem",
         "item": "50ac17a9-a644-58e8-8ee0-ce4c6cfbf17b"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:deception",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:occultism",
+        "rank": "trained"
       }
     ],
     "externalIds": {
@@ -8578,6 +8831,11 @@
       {
         "key": "Proficiency",
         "selector": "spellcasting",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:religion",
         "rank": "trained"
       }
     ],
@@ -15147,6 +15405,11 @@
         "key": "Proficiency",
         "selector": "spellcasting",
         "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:nature",
+        "rank": "trained"
       }
     ],
     "externalIds": {
@@ -15677,6 +15940,16 @@
       {
         "key": "GrantItem",
         "item": "50ac17a9-a644-58e8-8ee0-ce4c6cfbf17b"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:crafting",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:religion",
+        "rank": "trained"
       }
     ],
     "externalIds": {
@@ -15873,6 +16146,11 @@
       {
         "key": "GrantItem",
         "item": "73f460e2-feec-5d78-983c-ecf0c7a4b1e8"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:performance",
+        "rank": "trained"
       }
     ],
     "externalIds": {
@@ -16617,7 +16895,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "heritage",
+        "choices": {
+          "kind": "heritage",
+          "filter": ["item:ancestry:elf"]
+        },
+        "prompt": "Select an elf heritage."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "heritage"
+        },
+        "allowDuplicate": false
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.7BVl9lFf0wuTjBgM"
     },
@@ -16710,6 +17005,16 @@
       {
         "key": "GrantItem",
         "item": "50ac17a9-a644-58e8-8ee0-ce4c6cfbf17b"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:arcana",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:nature",
+        "rank": "trained"
       }
     ],
     "externalIds": {
@@ -20281,6 +20586,29 @@
         "key": "Proficiency",
         "selector": "attack:martial",
         "rank": "trained"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill",
+        "choices": [
+          {
+            "value": "acrobatics",
+            "label": "Acrobatics"
+          },
+          {
+            "value": "athletics",
+            "label": "Athletics"
+          }
+        ],
+        "prompt": "Select a skill."
+      },
+      {
+        "key": "Proficiency",
+        "selector": {
+          "choice": "skill",
+          "prefix": "skill"
+        },
+        "rank": "trained"
       }
     ],
     "externalIds": {
@@ -21531,7 +21859,23 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "feat",
+        "choices": {
+          "kind": "feat",
+          "filter": ["item:level:1", "item:trait:general"]
+        },
+        "prompt": "Select a 1st-level general feat."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "feat"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.D3SuA5MaKucO1flE"
     },
@@ -21772,6 +22116,16 @@
       {
         "key": "GrantItem",
         "item": "50ac17a9-a644-58e8-8ee0-ce4c6cfbf17b"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:nature",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:stealth",
+        "rank": "trained"
       }
     ],
     "externalIds": {
@@ -23127,6 +23481,16 @@
       {
         "key": "GrantItem",
         "item": "50ac17a9-a644-58e8-8ee0-ce4c6cfbf17b"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:acrobatics",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:stealth",
+        "rank": "trained"
       }
     ],
     "externalIds": {
@@ -23911,6 +24275,11 @@
       {
         "key": "GrantItem",
         "item": "9f1831c4-3f8f-5ed2-8a7d-11dc22cce082"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:deception",
+        "rank": "trained"
       }
     ],
     "externalIds": {
@@ -24579,6 +24948,54 @@
             ]
           }
         ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "hold-mark",
+        "choices": [
+          {
+            "value": "burning-sun",
+            "label": "Burning Sun"
+          },
+          {
+            "value": "deaths-head",
+            "label": "Death's Head"
+          },
+          {
+            "value": "defiled-corpse",
+            "label": "Defiled Corpse"
+          },
+          {
+            "value": "empty-hand",
+            "label": "Empty Hand"
+          }
+        ],
+        "prompt": "Choose your hold mark emblem.",
+        "rollOption": "hold-mark"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:diplomacy",
+        "rank": "trained",
+        "predicate": ["hold-mark:burning-sun"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:survival",
+        "rank": "trained",
+        "predicate": ["hold-mark:deaths-head"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:religion",
+        "rank": "trained",
+        "predicate": ["hold-mark:defiled-corpse"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:intimidation",
+        "rank": "trained",
+        "predicate": ["hold-mark:empty-hand"]
       }
     ],
     "externalIds": {
@@ -29042,6 +29459,16 @@
       {
         "key": "GrantItem",
         "item": "50ac17a9-a644-58e8-8ee0-ce4c6cfbf17b"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:nature",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:stealth",
+        "rank": "trained"
       }
     ],
     "externalIds": {
@@ -32443,6 +32870,21 @@
           "filter": ["item:tag:bard-muse"]
         },
         "prompt": "Select a muse."
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "feat",
+        "choices": {
+          "kind": "feat",
+          "filter": ["item:level:1", "item:category:class", "item:trait:bard"]
+        },
+        "prompt": "Select a feat."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "feat"
+        }
       }
     ],
     "externalIds": {
@@ -32677,7 +33119,23 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "multitalented",
+        "choices": {
+          "kind": "feat",
+          "filter": ["item:level:2", "item:category:class", "item:trait:dedication", "item:trait:multiclass"]
+        },
+        "prompt": "Select a multiclass dedication feat."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "multitalented"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.C80vQCKQBGRaqcmq"
     },
@@ -32924,7 +33382,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": {
+          "choice": "skill-one",
+          "prefix": "skill"
+        },
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": {
+          "choice": "skill-two",
+          "prefix": "skill"
+        },
+        "rank": "trained"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.Rfyhlyql1GSoDkI2"
     },
@@ -33041,6 +33516,19 @@
       {
         "key": "GrantItem",
         "item": "50ac17a9-a644-58e8-8ee0-ce4c6cfbf17b"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:religion",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": {
+          "choice": "skill",
+          "prefix": "skill"
+        },
+        "rank": "trained"
       }
     ],
     "externalIds": {
@@ -34163,6 +34651,16 @@
       {
         "key": "GrantItem",
         "item": "50ac17a9-a644-58e8-8ee0-ce4c6cfbf17b"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:athletics",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:survival",
+        "rank": "trained"
       }
     ],
     "externalIds": {
@@ -36263,7 +36761,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:athletics",
+        "rank": "trained"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.gxQheZ4xuDWwyzy4"
     },
@@ -37068,6 +37572,11 @@
             "or": ["target:pony", "target:riding-dog"]
           }
         ]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:nature",
+        "rank": "trained"
       }
     ],
     "externalIds": {
@@ -39296,6 +39805,11 @@
       {
         "key": "Proficiency",
         "selector": "class-dc",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:survival",
         "rank": "trained"
       }
     ],
@@ -42385,6 +42899,26 @@
         "key": "Proficiency",
         "selector": "class-dc",
         "rank": "trained"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill-feat",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:skill",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Select a skill feat."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "skill-feat"
+        }
       }
     ],
     "externalIds": {
@@ -45509,7 +46043,39 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": {
+          "choice": "skill-expert",
+          "prefix": "skill"
+        },
+        "rank": "expert"
+      },
+      {
+        "key": "Proficiency",
+        "selector": {
+          "choice": "skill-master",
+          "prefix": "skill"
+        },
+        "rank": "master"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill-mastery",
+        "choices": {
+          "kind": "feat",
+          "filter": ["item:trait:skill"]
+        },
+        "prompt": "Select a skill feat."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "skill-mastery"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.c9rhGmKft1BVT4JO"
     },
@@ -45573,7 +46139,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": {
+          "choice": "skill",
+          "prefix": "skill"
+        },
+        "rank": "trained"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.P6icK2DbRoZ3H6kc"
     },
@@ -47379,7 +47954,124 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "specialty-crafting",
+        "choices": [
+          {
+            "value": "alchemy",
+            "label": "Alchemy",
+            "predicate": [
+              {
+                "not": "feat:specialty-crafting:alchemy"
+              }
+            ]
+          },
+          {
+            "value": "artistry",
+            "label": "Artistry",
+            "predicate": [
+              {
+                "not": "feat:specialty-crafting:artistry"
+              }
+            ]
+          },
+          {
+            "value": "blacksmithing",
+            "label": "Blacksmithing",
+            "predicate": [
+              {
+                "not": "feat:specialty-crafting:blacksmithing"
+              }
+            ]
+          },
+          {
+            "value": "bookmaking",
+            "label": "Bookmaking",
+            "predicate": [
+              {
+                "not": "feat:specialty-crafting:bookmaking"
+              }
+            ]
+          },
+          {
+            "value": "glassmaking",
+            "label": "Glassmaking",
+            "predicate": [
+              {
+                "not": "feat:specialty-crafting:glassmaking"
+              }
+            ]
+          },
+          {
+            "value": "leatherworking",
+            "label": "Leatherworking",
+            "predicate": [
+              {
+                "not": "feat:specialty-crafting:leatherworking"
+              }
+            ]
+          },
+          {
+            "value": "pottery",
+            "label": "Pottery",
+            "predicate": [
+              {
+                "not": "feat:specialty-crafting:pottery"
+              }
+            ]
+          },
+          {
+            "value": "shipbuilding",
+            "label": "Shipbuilding",
+            "predicate": [
+              {
+                "not": "feat:specialty-crafting:shipbuilding"
+              }
+            ]
+          },
+          {
+            "value": "stonemasonry",
+            "label": "Stonemasonry",
+            "predicate": [
+              {
+                "not": "feat:specialty-crafting:stonemasonry"
+              }
+            ]
+          },
+          {
+            "value": "tailoring",
+            "label": "Tailoring",
+            "predicate": [
+              {
+                "not": "feat:specialty-crafting:tailoring"
+              }
+            ]
+          },
+          {
+            "value": "weaving",
+            "label": "Weaving",
+            "predicate": [
+              {
+                "not": "feat:specialty-crafting:weaving"
+              }
+            ]
+          },
+          {
+            "value": "woodworking",
+            "label": "Woodworking",
+            "predicate": [
+              {
+                "not": "feat:specialty-crafting:woodworking"
+              }
+            ]
+          }
+        ],
+        "prompt": "Select a specialty.",
+        "rollOption": "feat:specialty-crafting"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.QLeMH5mQgh28sa5o"
     },
@@ -48540,6 +49232,11 @@
         "type": "circumstance",
         "value": 2,
         "predicate": ["action:seek", "terrain:unusual-stonework"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:crafting",
+        "rank": "trained"
       }
     ],
     "externalIds": {
@@ -50866,7 +51563,43 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "terrain-stalker",
+        "choices": [
+          {
+            "value": "rubble",
+            "label": "Rubble",
+            "predicate": [
+              {
+                "not": "terrain-stalker:rubble"
+              }
+            ]
+          },
+          {
+            "value": "snow",
+            "label": "Snow",
+            "predicate": [
+              {
+                "not": "terrain-stalker:snow"
+              }
+            ]
+          },
+          {
+            "value": "underbrush",
+            "label": "Underbrush",
+            "predicate": [
+              {
+                "not": "terrain-stalker:underbrush"
+              }
+            ]
+          }
+        ],
+        "prompt": "Select a terrain.",
+        "rollOption": "terrain-stalker"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.beyw5bdA5hkQbmaG"
     },
@@ -54275,7 +55008,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:thievery",
+        "rank": "trained"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.7ZwXUlnqjj9zEYbO"
     },
@@ -54381,7 +55120,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "verdant-weapon",
+        "choices": [
+          {
+            "value": "granted",
+            "label": "Grant me a new item."
+          },
+          {
+            "value": "existing",
+            "label": "Use an existing item in my inventory."
+          }
+        ],
+        "prompt": "What item will be your ikon?",
+        "rollOption": "verdant-weapon-origin"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.qPFWEyihvbWsCcUv"
     },
@@ -56381,7 +57137,43 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "witch-s-armaments",
+        "choices": [
+          {
+            "value": "nails",
+            "label": "Eldritch Nails",
+            "predicate": [
+              {
+                "not": "witchs-armaments:nails"
+              }
+            ]
+          },
+          {
+            "value": "teeth",
+            "label": "Iron Teeth",
+            "predicate": [
+              {
+                "not": "witchs-armaments:teeth"
+              }
+            ]
+          },
+          {
+            "value": "hair",
+            "label": "Living Hair",
+            "predicate": [
+              {
+                "not": "witchs-armaments:hair"
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an unarmed attack.",
+        "rollOption": "witchs-armaments"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.XHaxSBOaFMnBbBKt"
     },
@@ -56817,6 +57609,11 @@
       {
         "key": "Proficiency",
         "selector": "spellcasting",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:arcana",
         "rank": "trained"
       }
     ],

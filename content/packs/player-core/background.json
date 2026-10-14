@@ -2228,6 +2228,29 @@
       {
         "key": "GrantItem",
         "item": "ea6c8962-0fc5-5db6-8fbd-0ad99296eae2"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill",
+        "choices": [
+          {
+            "value": "nature",
+            "label": "Nature"
+          },
+          {
+            "value": "occultism",
+            "label": "Occultism"
+          }
+        ],
+        "prompt": "Select a skill."
+      },
+      {
+        "key": "Proficiency",
+        "selector": {
+          "choice": "skill",
+          "prefix": "skill"
+        },
+        "rank": "trained"
       }
     ],
     "externalIds": {
@@ -2521,6 +2544,30 @@
       {
         "key": "Proficiency",
         "selector": "skill:lore:warfare",
+        "rank": "trained"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill",
+        "choices": [
+          {
+            "value": "acrobatics",
+            "label": "Acrobatics"
+          },
+          {
+            "value": "athletics",
+            "label": "Athletics"
+          }
+        ],
+        "prompt": "Select a skill.",
+        "rollOption": "martial-disciple"
+      },
+      {
+        "key": "Proficiency",
+        "selector": {
+          "choice": "skill",
+          "prefix": "skill"
+        },
         "rank": "trained"
       }
     ],
@@ -3263,6 +3310,14 @@
         "key": "Proficiency",
         "selector": "skill:lore:academia",
         "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": {
+          "choice": "skill",
+          "prefix": "skill"
+        },
+        "rank": "trained"
       }
     ],
     "externalIds": {
@@ -3533,6 +3588,29 @@
       {
         "key": "GrantItem",
         "item": "e6283293-2c8f-5f74-8b61-f753cf4abb4f"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill",
+        "choices": [
+          {
+            "value": "performance",
+            "label": "Performance"
+          },
+          {
+            "value": "society",
+            "label": "Society"
+          }
+        ],
+        "prompt": "Select a skill."
+      },
+      {
+        "key": "Proficiency",
+        "selector": {
+          "choice": "skill",
+          "prefix": "skill"
+        },
+        "rank": "trained"
       }
     ],
     "externalIds": {

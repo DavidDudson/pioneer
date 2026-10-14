@@ -32,7 +32,7 @@ export function namespaced(option: string): string {
 }
 
 /** A predicate statement with each bare roll option given a namespace; anything it does not recognise is as it was. */
-function namespacedStatement(statement: unknown): unknown {
+export function namespacedStatement(statement: unknown): unknown {
   if (typeof statement === 'string') {
     return namespaced(statement);
   }

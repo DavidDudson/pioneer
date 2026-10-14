@@ -111,9 +111,7 @@ interface Valued {
 /** The namespaces `entry`'s `ChoiceSet`s write their picks to. */
 function pickNamespaces(entry: GrantEntry): RollOptionNamespace[] {
   return entry.rules.flatMap((element): RollOptionNamespace[] =>
-    element.key === RuleElementKey.ChoiceSet && element.rollOption !== undefined
-      ? [RollOptionNamespace.parse(element.rollOption)]
-      : [],
+    element.key === RuleElementKey.ChoiceSet && element.rollOption !== undefined ? [element.rollOption] : [],
   );
 }
 
