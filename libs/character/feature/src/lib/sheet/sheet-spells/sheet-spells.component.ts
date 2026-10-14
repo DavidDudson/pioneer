@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
-import { TranslocoService } from '@jsverse/transloco';
-import { AsyncData, AsyncPending, AsyncRegion, Grid, Skeleton, Stack } from '@pioneer/frontier';
+import { ChangeDetectionStrategy, Component, computed, inject, input, signal } from '@angular/core';
+import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
+import { AsyncData, AsyncPending, AsyncRegion, Grid, Segmented, Skeleton, Stack } from '@pioneer/frontier';
+import type { SelectOption } from '@pioneer/frontier';
 import { ENTRY_PREVIEWS, FocusSpellsView, SpellAccessListView } from '@pioneer/rules/ui';
 import type { EntryPreviews, FocusLine } from '@pioneer/rules/ui';
 
@@ -8,6 +9,7 @@ import { CharacterStore } from '../../data/character-store';
 import { injectContentRegistry } from '../../data/content-registry-query';
 import { sheetEntryPreviews } from '../sheet-entry-previews';
 import { sheetFocus } from '../sheet-focus-spells';
+import { filterFocus, filterPrepared, SPELL_TARGET_FILTER_MESSAGES, SpellTargetFilter } from '../sheet-spell-targets';
 import { sheetSpellAccess, SPELL_CONTENT_KINDS } from '../sheet-prepared-spells';
 import type { SheetSpellAccess } from '../sheet-prepared-spells';
 import { SheetPreparedSpells } from '../sheet-prepared-spells/sheet-prepared-spells.component';
@@ -30,10 +32,12 @@ const LOADING_SLOTS = 3;
     FocusSpellsView,
     Grid,
     SheetPreparedSpells,
+    Segmented,
     Skeleton,
     SpellAccess,
     SpellAccessListView,
     Stack,
+    TranslocoPipe,
   ],
   templateUrl: './sheet-spells.component.html',
   providers: [{ provide: ENTRY_PREVIEWS, useFactory: (): EntryPreviews => inject(SheetSpells).previews }],
@@ -71,6 +75,22 @@ export class SheetSpells {
     return registry === undefined || character === undefined
       ? undefined
       : sheetFocus(registry, character, (key, params) => this.#i18n.translate(key, params));
+  });
+  /** Which spells the lists show by what they target. */
+  protected readonly targetFilter = signal<SpellTargetFilter>(SpellTargetFilter.All);
+  /** The filter's choices, worded in the viewer's locale. */
+  protected readonly targetOptions = computed((): readonly SelectOption<SpellTargetFilter>[] =>
+    Object.values(SpellTargetFilter).map((value) => ({
+      value,
+      label: this.#i18n.translate(SPELL_TARGET_FILTER_MESSAGES[value]),
+    })),
+  );
+  /** The prepared and repertoire picks that pass the filter. */
+  protected readonly shownPrepared = computed(() => filterPrepared(this.prepared(), this.targetFilter()));
+  /** The focus spells that pass the filter. */
+  protected readonly shownFocus = computed((): FocusLine | undefined => {
+    const focusLine = this.focus();
+    return focusLine === undefined ? undefined : filterFocus(focusLine, this.targetFilter());
   });
   /** The uncommon and rare spells the build has access to, and those it may add; undefined while the spells load. */
   protected readonly access = computed((): SheetSpellAccess | undefined => {

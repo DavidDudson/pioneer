@@ -1,4 +1,4 @@
-import type { ActionCost, ContentId, SpellRank } from '@pioneer/rules/sdk';
+import type { ActionCost, ContentId, SpellRank, TargetValue } from '@pioneer/rules/sdk';
 
 /** What casting costs: action glyphs (a variable cost runs from `cost` to `upTo`), or a time counted in minutes or longer. */
 export type SpellCostLine =
@@ -36,6 +36,8 @@ export interface SpellDetailLine extends SpellFieldsLine {
   readonly name: string;
   /** The rank it is cast at: heightened to the slot's. */
   readonly rank: SpellRank;
+  /** What it targets as the spell facets sort it: one target, several, allies, itself or nothing. */
+  readonly targetValues: readonly TargetValue[];
   /** It counteracts (Dispel Magic). */
   readonly counteract: boolean;
   /** Badges, as message keys: "Cantrip", "Focus", "Signature". */

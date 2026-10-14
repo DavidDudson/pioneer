@@ -30,6 +30,7 @@ const FIREBALL: SpellDetailLine = {
   area: '20-foot burst',
   defence: 'basic Reflex',
   effects: [{ key: '0', text: '10d6 fire' }],
+  targetValues: [],
   counteract: false,
   tags: [],
   variants: [],
@@ -44,6 +45,7 @@ const HEAL: SpellDetailLine = {
   cost: { kind: 'actions', cost: 'one', upTo: 'three' },
   targets: 'you or 1 willing creature',
   effects: [{ key: '0', text: '3d8 damage or healing' }],
+  targetValues: [],
   counteract: false,
   tags: [],
   variants: [
@@ -75,6 +77,7 @@ const DISPEL_MAGIC: SpellDetailLine = {
   targets: '1 creature or 1 object',
   duration: '10 minutes',
   effects: [],
+  targetValues: [],
   counteract: true,
   tags: [SpellListMessage.TagSignature],
   variants: [],

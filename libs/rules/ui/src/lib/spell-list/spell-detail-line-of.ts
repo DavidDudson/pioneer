@@ -1,5 +1,5 @@
 import type { SpellAtRank, SpellCast } from '@pioneer/rules/engine';
-import { CastTimeType } from '@pioneer/rules/sdk';
+import { CastTimeType, targetValues } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
 
 import type { SpellCostLine, SpellDetailLine, SpellFieldsLine } from './spell-detail-line';
@@ -42,6 +42,7 @@ export function spellDetailLine(who: SpellIdentity, cast: SpellAtRank, translate
     id: who.id,
     name: who.name,
     rank: cast.rank,
+    targetValues: targetValues(cast),
     counteract: cast.counteraction,
     tags: who.tags,
     variants: cast.variants.map((variant) => ({ ...fieldsOf(variant, translate), name: variant.name ?? who.name })),
