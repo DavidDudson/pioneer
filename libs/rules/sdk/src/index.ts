@@ -99,7 +99,7 @@ export {
 } from './damage';
 export { DegreeChange, DegreeChangeSchema, DegreeOfSuccess, DegreeOfSuccessSchema } from './degree-of-success';
 export { DamageException, Immunity, Trait, TraitData } from './trait';
-export { LanguageData } from './language';
+export { LanguageData, LanguageScript } from './language';
 export { SenseAcuity, SenseData } from './sense';
 export { VariantRuleData, VariantRuleDefinition, VariantRuleId } from './variant-rule';
 export { ContentEntry } from './content-entry';

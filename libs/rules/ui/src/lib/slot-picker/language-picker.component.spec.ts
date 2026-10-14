@@ -17,6 +17,7 @@ import { languageRow } from '../testing/slot-picker-fixtures';
 import { LanguagePicker } from './language-picker.component';
 
 const RARITY_HEADER = 1;
+const SCRIPT_HEADER = 2;
 
 const COMMON = languageRow({ id: 'common', name: 'Common', known: true });
 const DRACONIC = languageRow({ id: 'draconic', name: 'Draconic', rarity: Rarity.Uncommon });
@@ -31,9 +32,9 @@ describe(LanguagePicker, () => {
     vi.restoreAllMocks();
   });
 
-  it('has a column for the rarity, whether it is known and the source', async () => {
+  it('has a column for the rarity, the script, whether it is known and the source', async () => {
     const { host } = await render(LanguagePicker, { rows: [COMMON, DRACONIC] });
-    expect(headers(host)).toStrictEqual(['Name', 'Rarity', 'Known', 'Source']);
+    expect(headers(host)).toStrictEqual(['Name', 'Rarity', 'Script', 'Known', 'Source']);
   });
 
   it('says whether the character knows each language', async () => {
@@ -51,6 +52,23 @@ describe(LanguagePicker, () => {
     sortButton(rendered.host, RARITY_HEADER).click();
     await settle(rendered.fixture);
     expect(rowLabels(rendered.host)).toStrictEqual(['Draconic', 'Common']);
+  });
+
+  it('shows the script of a language that has one', async () => {
+    const { host } = await render(LanguagePicker, {
+      rows: [COMMON, languageRow({ id: 'draconic', name: 'Draconic', script: 'Iokharic' })],
+    });
+    expect(rowText(host, 0)).not.toContain('Iokharic');
+    expect(rowText(host, 1)).toContain('Iokharic');
+  });
+
+  it('sorts by script, those without one first', async () => {
+    const rendered = await render(LanguagePicker, {
+      rows: [languageRow({ id: 'draconic', name: 'Draconic', script: 'Iokharic' }), COMMON],
+    });
+    sortButton(rendered.host, SCRIPT_HEADER).click();
+    await settle(rendered.fixture);
+    expect(rowLabels(rendered.host)).toStrictEqual(['Common', 'Draconic']);
   });
 
   it('says why a language cannot be picked', async () => {

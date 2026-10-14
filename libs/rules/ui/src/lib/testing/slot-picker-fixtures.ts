@@ -31,7 +31,14 @@ export function skillRow(overrides: Partial<SkillPickerRow> & Pick<SkillPickerRo
 export function languageRow(
   overrides: Partial<LanguagePickerRow> & Pick<LanguagePickerRow, 'id' | 'name'>,
 ): LanguagePickerRow {
-  return { rarity: Rarity.Common, known: false, sources: PLAYER_CORE, disabledReason: undefined, ...overrides };
+  return {
+    rarity: Rarity.Common,
+    script: undefined,
+    known: false,
+    sources: PLAYER_CORE,
+    disabledReason: undefined,
+    ...overrides,
+  };
 }
 
 /** Strength at +2, which a boost would make +3. */

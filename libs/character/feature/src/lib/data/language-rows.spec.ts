@@ -52,6 +52,7 @@ describe(languageRows, () => {
         id: 'core-rules:language:unheard-of',
         name: 'Unheard-of',
         rarity: Rarity.Common,
+        script: undefined,
         known: false,
         sources: [],
         disabledReason: undefined,

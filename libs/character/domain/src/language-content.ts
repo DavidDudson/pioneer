@@ -1,11 +1,13 @@
 import { AncestryId, ContentId, ContentKind, LanguageCount } from '@pioneer/rules/sdk';
-import type { ChoiceValue, ContentRegistry, ContentText, Rarity } from '@pioneer/rules/sdk';
+import type { ChoiceValue, ContentRegistry, ContentText, LanguageScript, Rarity } from '@pioneer/rules/sdk';
 
-/** A language a pick names: its entry, name and rarity. */
+/** A language a pick names: its entry, name, rarity and script. */
 export interface LanguageOption {
   readonly id: ContentId;
   readonly name: ContentText;
   readonly rarity: Rarity;
+  /** The writing system it is written in; undefined where the rules give none. */
+  readonly script: LanguageScript | undefined;
 }
 
 /** What an ancestry gives the languages: those every member speaks, and how many more to pick, from which. */
@@ -33,7 +35,9 @@ export function languageContent(registry: ContentRegistry): LanguageContent {
   const entries = registry.packs.flatMap((pack) => pack.otherEntries);
   const byId = new Map(
     entries.flatMap((entry): [ContentId, LanguageOption][] =>
-      entry.kind === ContentKind.Language ? [[entry.id, { id: entry.id, name: entry.name, rarity: entry.rarity }]] : [],
+      entry.kind === ContentKind.Language
+        ? [[entry.id, { id: entry.id, name: entry.name, rarity: entry.rarity, script: entry.data.script }]]
+        : [],
     ),
   );
   const languages = [...byId.values()].toSorted((left, right) => left.name.localeCompare(right.name));
