@@ -1,4 +1,5 @@
 import {
+  CharacterContent,
   CharacterPackService,
   CharacterService,
   FeatDisplayService,
@@ -37,16 +38,6 @@ import { PioneerEmbeddedHomebrew } from './pioneer-embedded-homebrew';
 export function characters(db: Database, clock: Clock, authenticator: RequestAuthenticator): ContractRouter['app'] {
   const content = new StoredContentSource(new ContentRepository(db));
   const repository = new DrizzleCharacterRepository(db);
-  const service = new CharacterService(repository, content, clock);
-  const homebrew = new PioneerEmbeddedHomebrew(
-    db,
-    clock,
-    new PackAccessPolicy(new CampaignPackEnablementDirectory(db)),
-  );
-  const pioneerFiles = new PioneerFileService({ repository, content, clock, homebrew });
-  const sheetModes = new SheetModeService(repository, new DrizzleSheetModeRepository(db), clock);
-  const featDisplay = new FeatDisplayService(repository, new DrizzleFeatDisplayRepository(db), clock);
-  const play = new PlayService(repository, content, clock);
   const catalog = new HomebrewPackCatalog(
     new DrizzlePackDirectory(db),
     new DrizzlePackDependencyRepository(db),
@@ -61,6 +52,17 @@ export function characters(db: Database, clock: Clock, authenticator: RequestAut
     },
     clock,
   );
+  const characterContent = new CharacterContent(content, packs);
+  const service = new CharacterService(repository, characterContent, clock);
+  const homebrew = new PioneerEmbeddedHomebrew(
+    db,
+    clock,
+    new PackAccessPolicy(new CampaignPackEnablementDirectory(db)),
+  );
+  const pioneerFiles = new PioneerFileService({ repository, content: characterContent, clock, homebrew });
+  const sheetModes = new SheetModeService(repository, new DrizzleSheetModeRepository(db), clock);
+  const featDisplay = new FeatDisplayService(repository, new DrizzleFeatDisplayRepository(db), clock);
+  const play = new PlayService(repository, characterContent, clock);
   return characterRoutes(service, authenticator)
     .use(pioneerFileRoutes(pioneerFiles, authenticator))
     .use(sheetModeRoutes(sheetModes, authenticator))

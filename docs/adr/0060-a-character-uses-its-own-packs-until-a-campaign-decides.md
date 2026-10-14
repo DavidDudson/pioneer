@@ -34,8 +34,8 @@ The character and campaign contexts may not import each other, and the packs bel
 
 ## Consequences
 
-- Building the sheet's registry from the effective set is left to #701, which owns `StoredContentSource`'s per-request
-  build; this story supplies the set (`CharacterPackService`'s view) and the rows. Until then the sheet still loads the
-  official packs only.
+- The server builds a character's registry from the effective set (`StoredContentSource.registry(packs)` through
+  `CharacterContent`, which asks `CharacterPackService.of`), so the sheet, play, inventory edits and export see the
+  character's homebrew. The browser still loads the official bundles until the homebrew bundles ([#701](https://github.com/DavidDudson/pioneer/issues/701)) land.
 - The owner of a pack cannot see which characters use it, so making it private does not warn about them.
 - Two services now enumerate the pack catalogue per request. Both are small; revisit with real catalogue size.

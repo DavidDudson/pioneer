@@ -6,7 +6,7 @@ import { CampaignBuilder } from '@pioneer/campaign/domain/testing';
 import { DrizzleCampaignPackRepository, DrizzleCampaignRepository } from '@pioneer/campaign/infrastructure';
 import { CharacterPackService } from '@pioneer/character/application';
 import { CharacterCommand, PackAuthority } from '@pioneer/character/domain';
-import type { CharacterId, CharacterPack } from '@pioneer/character/domain';
+import type { Character, CharacterId, CharacterPack } from '@pioneer/character/domain';
 import { CharacterBuilder } from '@pioneer/character/domain/testing';
 import { DrizzleCharacterPackRepository, DrizzleCharacterRepository } from '@pioneer/character/infrastructure';
 import { PackAccessPolicy } from '@pioneer/homebrew/application';
@@ -44,6 +44,7 @@ describe.skipIf(adminUrl === undefined)('CharacterPackService over postgres', ()
   let feats: HomebrewPack;
   let items: HomebrewPack;
   let kyra: CharacterId;
+  let kyraCharacter: Character;
   let campaignId: CampaignId;
   let memberId: CampaignMemberId;
 
@@ -72,6 +73,7 @@ describe.skipIf(adminUrl === undefined)('CharacterPackService over postgres', ()
     const character = new CharacterBuilder().named('Kyra').ownedBy(amiri).build();
     await characters.insert(character, { actor: amiri, command: CharacterCommand.CreateCharacter });
     kyra = character.id;
+    kyraCharacter = character;
 
     const campaigns = new DrizzleCampaignRepository(database.db);
     const campaign = await campaigns.insert(
@@ -174,7 +176,9 @@ describe.skipIf(adminUrl === undefined)('CharacterPackService over postgres', ()
       },
       async () => {},
     );
+    expect(await service.of(kyraCharacter)).toStrictEqual([ContentPackId.parse(spells.id)]);
     await attach();
+    expect(await service.of(kyraCharacter)).toStrictEqual([ContentPackId.parse(items.id)]);
 
     const attached = await service.packs(amiri, kyra);
     expect(attached.decidedBy).toBe(PackAuthority.Campaign);
