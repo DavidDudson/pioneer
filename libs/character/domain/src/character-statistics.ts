@@ -1,4 +1,11 @@
-import { deriveStatistics, LineStatusKind, NO_SITUATION, rollSituation, statisticContent } from '@pioneer/rules/engine';
+import {
+  deriveStatistics,
+  LineStatusKind,
+  NO_SITUATION,
+  rollSituation,
+  statisticContent,
+  vitalsInPlay,
+} from '@pioneer/rules/engine';
 import type {
   BreakdownLine,
   RuleId,
@@ -6,6 +13,7 @@ import type {
   StatisticInputs,
   StatisticResult,
   StatisticValue,
+  VitalsInPlay,
 } from '@pioneer/rules/engine';
 import type { ToggleSlot } from '@pioneer/rules/grants';
 import { predicateOptions } from '@pioneer/rules/predicate';
@@ -214,4 +222,26 @@ function offerFor(sheet: StatisticValue, rules: EquippedRules): Pick<RollSetup, 
 function standsFor(when: Predicate, stood: ReadonlySet<RollOption>): boolean {
   const read = predicateOptions(when);
   return read.size > 0 && [...read].every((option) => stood.has(option));
+}
+
+/**
+ * The fast healing, regeneration, temporary Hit Points and size the character's rule elements give (`vitalsInPlay`),
+ * read against its ancestry's size. Without an ancestry or a proficiency bonus table there is nothing to read them
+ * against, so none is given.
+ */
+export function characterVitals(
+  { registry, slots, inputs }: StatisticSources,
+  document: CharacterDocument,
+): VitalsInPlay | undefined {
+  const content = statisticContent(registry);
+  const picked = AncestryId.safeParse(document.build.choices[ANCESTRY_SLOT]);
+  const ancestry = picked.success ? registry.ancestry(picked.data) : undefined;
+  if (content === undefined || ancestry === undefined) {
+    return undefined;
+  }
+  return vitalsInPlay(equippedRules(document, itemContent(registry), slots), {
+    statistics: content,
+    character: inputs,
+    size: ancestry.definition.size,
+  });
 }

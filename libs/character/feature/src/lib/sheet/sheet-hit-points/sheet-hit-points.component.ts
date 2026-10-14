@@ -18,6 +18,8 @@ import { HitPoints } from '@pioneer/rules/sdk';
 import { PlayStore } from '../../data/play-store';
 import { describeSaveError } from '../sheet-field';
 import { SheetState } from '../sheet-state';
+import { grantedLines } from './granted-vitals';
+import type { GrantedLine } from './granted-vitals';
 
 /** Damage of `amount`, entered by hand. */
 function damageOf(amount: HitPoints): PlayCommand {
@@ -85,6 +87,12 @@ export class SheetHitPoints {
     return { current: currentHitPoints(read.play.hp, max), max, temp: read.play.hp.temp };
   });
 
+  /** What the rule elements in play give besides the Hit Points above, as lines of text. */
+  protected readonly granted = computed((): readonly string[] => {
+    const vitals = this.#sheet.grantedVitals();
+    return vitals === undefined ? [] : grantedLines(vitals).map((line) => this.#grantedText(line));
+  });
+
   /** The reads behind Hit Points, each shown in its own region so a failure reads as one. */
   protected readonly playQuery = this.#play.play;
   protected readonly engineQuery = this.#sheet.engineQuery;
@@ -105,6 +113,22 @@ export class SheetHitPoints {
     return this.#i18n.translate(key, params);
   };
 
+  #translated(key: string, params?: Readonly<Record<string, string | number | undefined>>): string {
+    return this.#i18n.translate(key, params);
+  }
+
+  #grantedText({ key, amount, reach, size, stoppedBy }: GrantedLine): string {
+    const text = this.#translated(key, {
+      amount,
+      reach,
+      size: size === undefined ? undefined : this.#translated(size),
+    });
+    if (stoppedBy.length === 0) {
+      return text;
+    }
+    const types = stoppedBy.map((type) => this.#translated(type)).join(', ');
+    return `${text} ${this.#translated('character.sheet.hp.stoppedBy', { types })}`;
+  }
   async #send(command: (amount: HitPoints) => PlayCommand): Promise<void> {
     const amount = HitPoints.parse(this.amount());
     this.busy.set(true);

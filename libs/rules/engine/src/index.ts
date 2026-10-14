@@ -51,3 +51,11 @@ export { type ClassInputs, type StatisticInputs, StatisticInputsJson } from './s
 export { type WeaponInputs } from './source-inputs';
 export { default as engineMessages } from './i18n/en.json';
 export { rollSituation, type RollSituation } from './roll-situation';
+export {
+  type RecoveryInPlay,
+  type SizeInPlay,
+  type TemporaryHitPointsInPlay,
+  type VitalsInPlay,
+  type VitalsScope,
+  vitalsInPlay,
+} from './vitals-in-play';

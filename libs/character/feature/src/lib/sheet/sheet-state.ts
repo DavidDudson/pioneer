@@ -3,7 +3,7 @@ import type { Signal } from '@angular/core';
 import { TranslocoService } from '@jsverse/transloco';
 import { itemContent, maxHitPoints, resourceMaxima, withPlay } from '@pioneer/character/domain';
 import type { Character, ResourceMaxima } from '@pioneer/character/domain';
-import type { RuleId } from '@pioneer/rules/engine';
+import type { RuleId, VitalsInPlay } from '@pioneer/rules/engine';
 import { FocusPoints, SpellPreparation } from '@pioneer/rules/sdk';
 import type { ContentRegistry, HitPoints, Selector } from '@pioneer/rules/sdk';
 import type { EntryPreviews, Investment, Vital } from '@pioneer/rules/ui';
@@ -23,7 +23,7 @@ import type { PlayedInputs } from './sheet-played';
 import { SPELL_CONTENT_KINDS } from './sheet-prepared-spells';
 import { claimSituation, NO_CLAIMS } from './sheet-situations';
 import type { SituationClaims } from './sheet-situations';
-import { sheetDerivation } from './sheet-statistics';
+import { sheetDerivation, sheetVitalsInPlay } from './sheet-statistics';
 import { sheetVitals } from './sheet-vitals';
 
 /**
@@ -129,6 +129,16 @@ export class SheetState {
     return registry === undefined || character === undefined
       ? undefined
       : maxHitPoints(sheetDerivation(registry, character));
+  });
+
+  /**
+   * What the character's rule elements give besides the numbers above: fast healing, regeneration, temporary Hit
+   * Points and a change of size. Undefined while the registry loads and until the character has an ancestry.
+   */
+  public readonly grantedVitals = computed((): VitalsInPlay | undefined => {
+    const registry = this.#engineRegistry();
+    const character = this.character();
+    return registry === undefined || character === undefined ? undefined : sheetVitalsInPlay(registry, character);
   });
 
   /** Whether one of the character's spellcasting entries is a focus entry, so the focus pool needs its spells. */
