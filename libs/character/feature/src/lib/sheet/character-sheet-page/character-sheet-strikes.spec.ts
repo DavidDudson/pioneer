@@ -1,10 +1,12 @@
 import { SheetMode } from '@pioneer/character/domain';
-import { playerCoreClassId } from '@pioneer/character/domain/testing';
+import { ITEM_FIXTURE_FILES, ItemFixture, itemFixtureId, playerCoreClassId } from '@pioneer/character/domain/testing';
 import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
+import { render } from '../../testing/sheet-tabs-testing';
+import { TEST_PACKS } from '../../testing/test-packs';
 
 /** Irori, whose favoured weapon is the fist. */
 const IRORI = contentId(PackId.parse('divine-mysteries'), EntrySlug.parse('deity:irori'));
@@ -47,6 +49,68 @@ describe('CharacterSheetPage Strikes', () => {
 
     await vi.waitFor(() => {
       expect(textOf(strikesSection(root))).toContain('No Strikes listed yet. Hold a weapon to add its Strike.');
+    });
+  });
+});
+
+const BLADE = '77777777-7777-4777-8777-777777777777';
+const PACKS = [...TEST_PACKS, ITEM_FIXTURE_FILES];
+
+/** Merisiel holding a sword whose Strikes gain +2 against undead. */
+const SWORDSWOMAN = {
+  ...MERISIEL,
+  inventory: {
+    items: [
+      {
+        id: BLADE,
+        item: itemFixtureId(ItemFixture.HuntersBlade),
+        quantity: 1,
+        carry: { state: 'held', hands: 1 },
+      },
+    ],
+    coins: { pp: 0, gp: 0, sp: 0, cp: 0 },
+  },
+};
+
+/** The first Strike's attack bonus as its row lists it, "Hunter's Blade +7" giving 7; throws until it is listed. */
+function attackBonus(root: HTMLElement): number {
+  const row = present(strikesSection(root).querySelector('[frDisclosureSummary]'));
+  const match = /(?<sign>[+−-])(?<value>\d+)/u.exec(textOf(row));
+  const value = Number(match?.groups?.['value']);
+  return match?.groups?.['sign'] === '+' ? value : -value;
+}
+
+async function undeadToggle(root: HTMLElement): Promise<HTMLButtonElement> {
+  return vi.waitFor(() =>
+    present(
+      [...strikesSection(root).querySelectorAll<HTMLButtonElement>('pio-statistic-conditions button')].find((button) =>
+        textOf(button).includes('when the target is undead'),
+      ),
+    ),
+  );
+}
+
+describe('CharacterSheetPage Strike conditional lines', () => {
+  beforeAll(async () => {
+    await prebuildServerStateTesting([], PACKS);
+  }, PREBUILD_TIMEOUT);
+
+  it("counts a claimed line in a held weapon's attack, and leaves the total as it was when let go", async () => {
+    const { root } = await openSheet(SWORDSWOMAN, { tab: SheetMode.Encounter, packs: PACKS });
+    const before = await vi.waitFor(() => attackBonus(root));
+
+    const claim = await undeadToggle(root);
+    claim.click();
+    render();
+    await vi.waitFor(() => {
+      expect(attackBonus(root)).toBe(before + 2);
+    });
+
+    const release = await undeadToggle(root);
+    release.click();
+    render();
+    await vi.waitFor(() => {
+      expect(attackBonus(root)).toBe(before);
     });
   });
 });
