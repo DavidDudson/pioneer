@@ -15,6 +15,9 @@ import { expect, onTestFinished, vi } from 'vitest';
 import { characterRoutes } from '../character.routes';
 import { prebuildServerStateTesting, provideServerStateTesting } from './provide-server-state-testing';
 
+/** How long a sheet may take to open: its registries build from the official packs, slow on a busy CI runner. */
+const SHEET_OPEN_TIMEOUT = 20_000;
+
 export const id = CharacterId.parse('0d9f7c1e-3b7a-4c55-9d1f-2a8f2b9c6e10');
 
 export const HUMAN = contentId(PackId.parse('player-core'), EntrySlug.parse('ancestry:human'));
@@ -209,7 +212,7 @@ export async function openSheet(character: object = MERISIEL, options: SheetOpti
     expect(root.textContent).toContain('Merisiel');
     // The content registries build once the packs are known; a spec holding an element before then holds a placeholder.
     expect(TestBed.inject(QueryClient).isFetching({ queryKey: ['content'] })).toBe(0);
-  });
+  }, SHEET_OPEN_TIMEOUT);
   return remembered({ harness, root });
 }
 

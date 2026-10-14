@@ -136,10 +136,22 @@ describe('CharacterSheetPage', () => {
 
   it('edits only the chosen inputs inline on Plan: name, ancestry, heritage, background, level, class and feats', async () => {
     const { root } = await openSheet();
-    const labels = [...root.querySelectorAll('section fr-inline-field')]
-      .filter((field) => field.closest('pio-level-timeline') === null)
-      .map((field) => present(field.querySelector('fr-text')).textContent.trim());
-    expect(labels).toStrictEqual(['Name', 'Ancestry', 'Heritage', 'Background', 'Level', 'Class', 'Elf feat, level 1']);
+    const inlineLabels = (): string[] =>
+      [...root.querySelectorAll('section fr-inline-field')]
+        .filter((field) => field.closest('pio-level-timeline') === null)
+        .map((field) => present(field.querySelector('fr-text')).textContent.trim());
+    // The feat slot renders once the feats' content has loaded, which can trail the sheet's first paint.
+    await vi.waitFor(() => {
+      expect(inlineLabels()).toStrictEqual([
+        'Name',
+        'Ancestry',
+        'Heritage',
+        'Background',
+        'Level',
+        'Class',
+        'Elf feat, level 1',
+      ]);
+    });
   });
 
   it('offers a picker on each planned slot of the level timeline', async () => {
