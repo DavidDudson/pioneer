@@ -14,6 +14,7 @@ import type { ContentEntry, ContentId } from '@pioneer/rules/sdk';
 import { Glob } from 'bun';
 
 import { clearAppliedGaps, gappedEntries, mergeRules, withMergedRules } from './apply-rules.ts';
+import type { RulesMerge } from './apply-rules.ts';
 import { backlogPath, importedDirectory, missing, PACKS_DIRECTORY, packWrites, unregistered } from './pack-writes.ts';
 import type { PackTargets, PackWrite } from './pack-writes.ts';
 
@@ -105,21 +106,23 @@ export async function registrationReport(): Promise<string> {
   ].join('\n');
 }
 
-/**
- * Takes the import's rules of `keys` into the committed pack files (`apply-rules.ts`), clears their gaps from the
- * backlog and formats what changed. Returns the paths written and how many entries gained rules.
- */
-export async function applyRules(
-  output: PackOutput,
-  targets: PackTargets,
-  keys: ReadonlySet<string>,
-): Promise<{ readonly written: readonly string[]; readonly applied: number }> {
-  const backlogFile = Bun.file(path.join(ROOT, backlogPath(targets.pack)));
-  const { pin, backlog } = ImportFile.parse(await backlogFile.json());
-  const committed = await committedEntries(targets);
-  const merge = mergeRules(committed, output.entries, gappedEntries(backlog, keys), keys);
+/** The pack's committed pin and backlog. */
+async function committedBacklog({ pack }: PackTargets): Promise<ImportFile> {
+  const json: unknown = await Bun.file(path.join(ROOT, backlogPath(pack))).json();
+  return ImportFile.parse(json);
+}
+
+/** The files `applyRules` wrote, and how many entries gained rules. */
+export interface AppliedOutput {
+  readonly written: readonly string[];
+  readonly applied: number;
+}
+
+/** The committed entry files of the target pack, with `merge`'s rules in the ones it touches. */
+async function mergedEntryFiles(targets: PackTargets, merge: RulesMerge): Promise<readonly PackWrite[]> {
   const directory = path.posix.join(PACKS_DIRECTORY, targets.pack);
-  const files = (await scan('*.json', directory)).filter((file) => path.posix.basename(file) !== MANIFEST);
+  const scanned = await scan('*.json', directory);
+  const files = scanned.filter((file) => path.posix.basename(file) !== MANIFEST);
   const changed = await Promise.all(
     files.map(async (file) => {
       const entries = ContentEntryFile.parse(await Bun.file(path.join(ROOT, file)).json());
@@ -127,12 +130,26 @@ export async function applyRules(
       return touched ? [{ path: file, json: withMergedRules(entries, merge) }] : [];
     }),
   );
+  return changed.flat();
+}
+
+/**
+ * Takes the import's rules of `keys` into the committed pack files (`apply-rules.ts`), clears their gaps from the
+ * backlog and formats what changed.
+ */
+export async function applyRules(
+  output: PackOutput,
+  targets: PackTargets,
+  keys: ReadonlySet<string>,
+): Promise<AppliedOutput> {
+  const { pin, backlog } = await committedBacklog(targets);
+  const committed = await committedEntries(targets);
+  const merge = mergeRules(committed, output.entries, { gapped: gappedEntries(backlog, keys), keys });
   const merged = new Set(committed.filter(({ id }) => merge.has(id)).map(({ pack, slug }) => `${pack}/${slug}`));
-  const cleared = {
-    path: backlogPath(targets.pack),
-    json: ImportFile.parse({ pin, backlog: clearAppliedGaps(backlog, output.backlog, merged, keys) }),
-  };
-  const writes = [...changed.flat(), cleared];
+  const remaining = clearAppliedGaps(backlog, output.backlog, { merged, keys });
+  const cleared = { path: backlogPath(targets.pack), json: ImportFile.parse({ pin, backlog: remaining }) };
+  const files = await mergedEntryFiles(targets, merge);
+  const writes = [...files, cleared];
   await Promise.all(writes.map(async (each) => write(each)));
   const written = writes.map(({ path: file }) => file);
   await format(written);

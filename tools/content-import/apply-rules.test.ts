@@ -25,30 +25,36 @@ function entry(id: ContentId, rules: readonly RuleElement[]): ContentEntry {
 const ruleGap = { type: BacklogGapType.Rule, key: 'FlatModifier', raw: { key: 'FlatModifier' } } as const;
 const enricher = { type: BacklogGapType.Enricher, enricher: '@UUID[spells-srd]' } as const;
 function item(gaps: readonly (typeof ruleGap | typeof enricher)[]): BacklogItem {
-  return { type: BacklogItemType.Entry, pack, slug, gaps } as BacklogItem;
+  return { type: BacklogItemType.Entry, pack, slug, gaps };
 }
 
 describe('mergeRules', () => {
   test('appends the import’s rules of the keys to an entry the backlog lists with a gap of one', () => {
-    const merge = mergeRules([entry(ID, [toggle])], [entry(ID, [toggle, modifier])], GAPPED, KEYS);
+    const merge = mergeRules([entry(ID, [toggle])], [entry(ID, [toggle, modifier])], { gapped: GAPPED, keys: KEYS });
 
     expect(merge.get(ID)).toEqual([toggle, modifier]);
   });
 
   test('leaves out rules of other keys, and rules the entry holds already', () => {
-    const merge = mergeRules([entry(ID, [modifier])], [entry(ID, [modifier, proficiency])], GAPPED, KEYS);
+    const merge = mergeRules([entry(ID, [modifier])], [entry(ID, [modifier, proficiency])], {
+      gapped: GAPPED,
+      keys: KEYS,
+    });
 
     expect(merge.size).toBe(0);
   });
 
   test('leaves an entry the backlog does not list with such a gap as it is', () => {
-    const merge = mergeRules([entry(ID, [])], [entry(ID, [modifier])], new Set(), KEYS);
+    const merge = mergeRules([entry(ID, [])], [entry(ID, [modifier])], { gapped: new Set(), keys: KEYS });
 
     expect(merge.size).toBe(0);
   });
 
   test('withMergedRules replaces only the rules of entries that gained some', () => {
-    const merge = mergeRules([entry(ID, []), entry(OTHER, [])], [entry(ID, [modifier])], GAPPED, KEYS);
+    const merge = mergeRules([entry(ID, []), entry(OTHER, [])], [entry(ID, [modifier])], {
+      gapped: GAPPED,
+      keys: KEYS,
+    });
 
     expect(
       withMergedRules(
@@ -75,12 +81,16 @@ describe('gappedEntries', () => {
 
 describe('clearAppliedGaps', () => {
   test('drops the rule gaps the import no longer reports, and the item once nothing is left', () => {
-    expect(clearAppliedGaps([item([ruleGap, enricher])], [item([enricher])], GAPPED, KEYS)).toEqual([item([enricher])]);
-    expect(clearAppliedGaps([item([ruleGap])], [], GAPPED, KEYS)).toEqual([]);
+    expect(clearAppliedGaps([item([ruleGap, enricher])], [item([enricher])], { merged: GAPPED, keys: KEYS })).toEqual([
+      item([enricher]),
+    ]);
+    expect(clearAppliedGaps([item([ruleGap])], [], { merged: GAPPED, keys: KEYS })).toEqual([]);
   });
 
   test('keeps the gaps of an entry that gained nothing, and gaps the import still reports', () => {
-    expect(clearAppliedGaps([item([ruleGap])], [], new Set(), KEYS)).toEqual([item([ruleGap])]);
-    expect(clearAppliedGaps([item([ruleGap])], [item([ruleGap])], GAPPED, KEYS)).toEqual([item([ruleGap])]);
+    expect(clearAppliedGaps([item([ruleGap])], [], { merged: new Set(), keys: KEYS })).toEqual([item([ruleGap])]);
+    expect(clearAppliedGaps([item([ruleGap])], [item([ruleGap])], { merged: GAPPED, keys: KEYS })).toEqual([
+      item([ruleGap]),
+    ]);
   });
 });

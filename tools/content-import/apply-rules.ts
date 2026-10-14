@@ -33,25 +33,27 @@ export function gappedEntries(backlog: readonly BacklogItem[], keys: ReadonlySet
   );
 }
 
+/** The entries (`<pack>/<slug>`) with a rule gap to answer, and the keys whose rules answer it. */
+export interface Gapped {
+  readonly gapped: ReadonlySet<string>;
+  readonly keys: ReadonlySet<string>;
+}
+
 export function mergeRules(
   committed: readonly ContentEntry[],
   fresh: readonly ContentEntry[],
-  gapped: ReadonlySet<string>,
-  keys: ReadonlySet<string>,
+  { gapped, keys }: Gapped,
 ): RulesMerge {
   const imported = new Map(fresh.map((entry) => [entry.id, entry]));
-  const merge = new Map<ContentId, readonly RuleElement[]>();
-  for (const entry of committed) {
+  const gained = committed.flatMap((entry) => {
     const incoming = imported.get(entry.id);
     if (incoming === undefined || !gapped.has(slugKey(entry))) {
-      continue;
+      return [];
     }
     const added = incoming.rules.filter((rule) => keys.has(rule.key) && !entry.rules.some((each) => same(each, rule)));
-    if (added.length > 0) {
-      merge.set(entry.id, [...entry.rules, ...added]);
-    }
-  }
-  return merge;
+    return added.length > 0 ? [[entry.id, [...entry.rules, ...added]] as const] : [];
+  });
+  return new Map(gained);
 }
 
 /** `entries` with the rules `merge` gives them. */
@@ -67,11 +69,16 @@ export function withMergedRules(entries: readonly unknown[], merge: RulesMerge):
  * The committed backlog less the `rule` gaps of `keys` that the import no longer reports for an entry in `merged`;
  * items left with no gaps and no reason to be left out go. Everything else stays.
  */
+/** The entries (`<pack>/<slug>`) that gained rules, and the keys they gained. */
+export interface AppliedRules {
+  readonly merged: ReadonlySet<string>;
+  readonly keys: ReadonlySet<string>;
+}
+
 export function clearAppliedGaps(
   committed: readonly BacklogItem[],
   fresh: readonly BacklogItem[],
-  merged: ReadonlySet<string>,
-  keys: ReadonlySet<string>,
+  { merged, keys }: AppliedRules,
 ): readonly BacklogItem[] {
   const stillGaps = new Map(
     fresh.flatMap((item) => (item.type === BacklogItemType.Entry ? [[slugKey(item), item.gaps] as const] : [])),

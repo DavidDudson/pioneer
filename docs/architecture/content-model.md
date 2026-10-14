@@ -563,7 +563,7 @@ flowchart LR
   the work list for engine and translator stories.
 - **Applying a translator to a committed pack.** Re-running the import would replace a pack's later corrections, so
   once a translator covers more rule elements, `just content-import --pack <pack> --book <book> --apply-rules
-  FlatModifier` appends the import's rules of the keys named to the committed entries the backlog lists with a gap of
+FlatModifier` appends the import's rules of the keys named to the committed entries the backlog lists with a gap of
   one of them, and clears those gaps from the backlog. Rules of other keys, and entries with no such gap, stay.
 - **Modifiers and predicates.** A `FlatModifier`'s `selector` becomes `selectors`: a skill or save by its statistic
   (`diplomacy` is `skill:diplomacy`, `reflex` is `save:reflex`), any other (`saving-throw`, `ac`, `melee-damage`) as it
