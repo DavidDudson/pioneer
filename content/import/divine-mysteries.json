@@ -4723,30 +4723,6 @@
           }
         },
         {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "remove",
-            "predicate": ["item:slug:lay-on-hands", "oath-of-the-avenger"],
-            "property": "traits",
-            "value": "vitality"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:lay-on-hands", "oath-of-the-avenger"],
-            "property": "traits",
-            "value": "spirit"
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
         }

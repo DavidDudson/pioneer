@@ -605,6 +605,11 @@ FlatModifier` appends the import's rules of the keys named to the committed entr
   `ChoiceSet` (`{item|flags...}`), a `custom` type with its own `definition`, a type that is a damage trait rather
   than a damage type (`holy`, `unholy`, `silver`, `area-damage`), `doubleVs`, `mode`, a value read from the actor's
   flags and the `exceptions` of an `Immunity` have no Pioneer meaning yet and stay in the backlog.
+- **Item alterations.** An `ItemAlteration` reaches the items its `itemType` (`item:type:spell`) and the statements of
+  its predicate that read only the item (`item:slug:...`, `item:equipped`) pick out, as `items`; the rest of the
+  predicate stays the element's. Only the `traits`, `hardness` and `ac-bonus` properties with a literal value are
+  translated. An alteration of the item that holds it (`itemId`), the other properties (`description`, `other-tags`,
+  `area-size`, `runes-*`, `name`, `bulk` and the like) and a value read from the actor or a pick stay in the backlog.
 - **Dropped on purpose.** `TokenLight`, `TokenEffectIcon` and `TokenMark` only change a Foundry token (its light, the
   icon of an effect on it, a mark), and Pioneer has no token. The import drops them with the reason `token-only` and
   prints them apart from the untranslated rule elements; they are not in the backlog, so an entry whose only gap

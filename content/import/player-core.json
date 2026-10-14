@@ -5302,38 +5302,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:effect-castigating-weapon",
-      "foundry": "Compendium.pf2e.feat-effects.Item.BTI4obxa5UmNltyU",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "weapon",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["self:trait:holy"],
-            "property": "traits",
-            "value": "holy"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "weapon",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["self:trait:unholy"],
-            "property": "traits",
-            "value": "unholy"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:effect-channeling-block",
       "foundry": "Compendium.pf2e.feat-effects.Item.Rzg3c7hfkvTlxPDp",
       "leftOut": {
@@ -5341,17 +5309,6 @@
         "detail": ""
       },
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "shield",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "property": "hardness",
-            "value": "@item.badge.value"
-          }
-        },
         {
           "type": "field",
           "reason": "unmapped-value",
@@ -7325,23 +7282,6 @@
         "detail": ""
       },
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "remove",
-            "predicate": [
-              "item:cast:actions:1",
-              {
-                "or": ["item:slug:harm", "item:slug:heal"]
-              }
-            ],
-            "property": "traits",
-            "value": "manipulate"
-          }
-        },
         {
           "type": "rule",
           "key": "FlatModifier",
@@ -19249,18 +19189,6 @@
               }
             ]
           }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["spellshape:conceal-spell"],
-            "property": "traits",
-            "value": "subtle"
-          }
         }
       ]
     },
@@ -19873,42 +19801,6 @@
       "slug": "feat:divine-castigation",
       "foundry": "Compendium.pf2e.feats-srd.Item.142QRyK2aPIrJu48",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              "divine-castigation",
-              "self:trait:holy",
-              {
-                "or": ["item:slug:harm", "item:slug:heal"]
-              }
-            ],
-            "property": "traits",
-            "value": "holy"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              "divine-castigation",
-              "self:trait:unholy",
-              {
-                "or": ["item:slug:harm", "item:slug:heal"]
-              }
-            ],
-            "property": "traits",
-            "value": "unholy"
-          }
-        },
         {
           "type": "rule",
           "key": "DamageAlteration",
@@ -21813,18 +21705,6 @@
             ],
             "priority": 119,
             "property": "damage-dice-faces"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "weapon",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["grasping-reach", "item:equipped", "item:melee", "item:usage:hands:2"],
-            "property": "traits",
-            "value": "reach"
           }
         }
       ]
@@ -23871,26 +23751,6 @@
             "selector": "skill-check",
             "text": "PF2E.SpecificRule.Rogue.OverextendingFeint.Note",
             "title": "{item|name}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:overwhelming-blow",
-      "foundry": "Compendium.pf2e.feats-srd.Item.eOwjwVAbl99ZTy5D",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "weapon",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["overwhelming-blow"],
-            "property": "traits",
-            "value": "deadly-d12"
           }
         }
       ]
@@ -26501,26 +26361,6 @@
               }
             ],
             "selector": "sling-weapon-group-damage"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:toppling-dance",
-      "foundry": "Compendium.pf2e.feats-srd.Item.l78KwojlT0AWvS4l",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "weapon",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:melee", "toppling-dance"],
-            "property": "traits",
-            "value": "trip"
           }
         }
       ]

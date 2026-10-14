@@ -10038,7 +10038,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell"],
+        "property": "traits",
+        "mode": "add",
+        "value": "subtle",
+        "predicate": ["spellshape:conceal-spell"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.sIeuPW0j39fTZm08"
     },
@@ -13806,6 +13815,32 @@
         "key": "RollOption",
         "option": "option:divine-castigation",
         "toggleable": true
+      },
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:spell",
+          {
+            "or": ["item:slug:harm", "item:slug:heal"]
+          }
+        ],
+        "property": "traits",
+        "mode": "add",
+        "value": "holy",
+        "predicate": ["option:divine-castigation", "self:trait:holy"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:spell",
+          {
+            "or": ["item:slug:harm", "item:slug:heal"]
+          }
+        ],
+        "property": "traits",
+        "mode": "add",
+        "value": "unholy",
+        "predicate": ["option:divine-castigation", "self:trait:unholy"]
       }
     ],
     "externalIds": {
@@ -22479,6 +22514,14 @@
         "key": "RollOption",
         "option": "option:grasping-reach",
         "toggleable": true
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon", "item:equipped", "item:melee", "item:usage:hands:2"],
+        "property": "traits",
+        "mode": "add",
+        "value": "reach",
+        "predicate": ["option:grasping-reach"]
       }
     ],
     "externalIds": {
@@ -35312,6 +35355,14 @@
         "display": {
           "label": "Critically hit with Overwhelming Blow"
         }
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon"],
+        "property": "traits",
+        "mode": "add",
+        "value": "deadly-d12",
+        "predicate": ["option:overwhelming-blow"]
       }
     ],
     "externalIds": {
@@ -52146,6 +52197,14 @@
         "key": "RollOption",
         "option": "option:toppling-dance",
         "toggleable": true
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon", "item:melee"],
+        "property": "traits",
+        "mode": "add",
+        "value": "trip",
+        "predicate": ["option:toppling-dance"]
       }
     ],
     "externalIds": {

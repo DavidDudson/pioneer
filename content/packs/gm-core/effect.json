@@ -2373,6 +2373,18 @@
         "key": "Resistance",
         "type": ["fire"],
         "value": 40
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:armor"],
+        "property": "ac-bonus",
+        "mode": "add",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["armor:category:light", "armor:category:medium"]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -4938,7 +4950,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:shield", "item:equipped"],
+        "property": "hardness",
+        "mode": "add",
+        "value": 5
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.4IwCyYdSn2gUYAwL"
     },

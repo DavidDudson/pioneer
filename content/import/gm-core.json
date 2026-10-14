@@ -2729,30 +2729,6 @@
     {
       "type": "entry",
       "pack": "gm-core",
-      "slug": "effect:effect-forgefathers-seal",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.0TZLR0PO5TJm9F4l",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "armor",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "or": ["armor:category:light", "armor:category:medium"]
-              }
-            ],
-            "property": "ac-bonus",
-            "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
       "slug": "effect:effect-forgefathers-seal-stalwart-sacrifice",
       "foundry": "Compendium.pf2e.equipment-effects.Item.Elj69wSjv91ouC7v",
       "gaps": [
@@ -3850,26 +3826,6 @@
             "mode": "add",
             "property": "materials",
             "value": "silver"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "effect:effect-swift-block-cabochon",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.4IwCyYdSn2gUYAwL",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "shield",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:equipped"],
-            "property": "hardness",
-            "value": 5
           }
         }
       ]
