@@ -75,6 +75,11 @@ describe(SlotPicker, () => {
     expect(nameCells(host)).toHaveLength(0);
   });
 
+  it('stays closed until it is pressed when it is not to open on init', async () => {
+    const { host } = await render(SlotPicker, { rows: [FIRE, WATER], openOnInit: false });
+    expect(nameCells(host)).toHaveLength(0);
+  });
+
   it('picks on click and commits the option', async () => {
     const rendered = await render(SlotPicker, { rows: [FIRE, WATER] });
     nameCellAt(rendered.host, 1).click();

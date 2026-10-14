@@ -40,7 +40,12 @@
   @for (slot of openSlots(); track slot.slot) {
     <fr-field>
       <fr-label>{{ 'play.rules.openSlotLabel' | transloco: { title: slot.title, slot: slot.slot } }}</fr-label>
-      <fr-select [options]="slot.options" (valueChange)="answer(slot.slot, $event)" />
+      <pio-slot-picker
+        [rows]="slot.rows"
+        [openOnInit]="false"
+        [ariaLabel]="'play.rules.openSlotLabel' | transloco: { title: slot.title, slot: slot.slot }"
+        (valueChange)="answer(slot.slot, $event)"
+      />
     </fr-field>
   }
   <pio-lines-field

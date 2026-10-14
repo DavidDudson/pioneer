@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest';
 
 import {
-  chooseIn,
   chooseSchema,
   openPlayground,
   pageText,
+  pickRowIn,
   present,
   secondTextArea,
   textAreas,
@@ -66,12 +66,12 @@ describe('RulesPlaygroundPage grants', () => {
     expect(pageText(harness)).toContain('Fighter grants itself.');
   });
 
-  it('answers an open choice from its select and grants the pick', async () => {
+  it('answers an open choice from its table and grants the pick', async () => {
     const harness = await openPlayground();
     await chooseSchema(harness, 'Grants');
     expect(pageText(harness)).toContain('Choices to make');
 
-    await chooseIn(harness, 'Fighter feat (fighter:4)', 'Sudden Charge');
+    await pickRowIn(harness, 'Fighter feat (fighter:4)', 'Sudden Charge');
 
     const text = pageText(harness);
     expect(text).toContain('Picked sudden-charge');

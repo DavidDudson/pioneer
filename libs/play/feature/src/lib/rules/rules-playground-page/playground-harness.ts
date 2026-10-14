@@ -1,8 +1,10 @@
 import type { Provider } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { provideRouter } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
 import { frontierMessages } from '@pioneer/frontier';
+import { SlotPicker } from '@pioneer/rules/ui';
 import { kernelMessages } from '@pioneer/shared/kernel';
 import { provideI18n } from '@pioneer/shared/web';
 
@@ -73,6 +75,26 @@ export async function chooseIn(harness: RouterTestingHarness, label: string, opt
   await harness.fixture.whenStable();
   const options = [...document.querySelectorAll<HTMLElement>('[role="option"]')];
   present(options.find((candidate) => candidate.textContent.trim() === option)).click();
+  await harness.fixture.whenStable();
+}
+
+/**
+ * Picks the row named `name` in the slot picker of the field labelled `label`, as a press on its row does. The table
+ * renders no rows in the page harness (#734), so the pick is made on the picker itself: its own specs press the rows.
+ */
+export async function pickRowIn(harness: RouterTestingHarness, label: string, name: string): Promise<void> {
+  const fields = [...present(harness.routeNativeElement).querySelectorAll<HTMLElement>('fr-field')];
+  const field = present(fields.find((candidate) => candidate.querySelector('fr-label')?.textContent.trim() === label));
+  const picker = harness.fixture.debugElement
+    .queryAll(By.directive(SlotPicker))
+    .find((candidate) => field.querySelector('pio-slot-picker') === candidate.nativeElement)
+    ?.injector.get(SlotPicker);
+  const row = present(
+    present(picker)
+      .rows()
+      .find((candidate) => candidate.name === name),
+  );
+  present(picker).value.set(row.id);
   await harness.fixture.whenStable();
 }
 

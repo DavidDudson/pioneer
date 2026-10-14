@@ -1,8 +1,9 @@
 import { ChangeDetectionStrategy, Component, computed, input, model } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { Field, FieldError, FieldHint, Label, NumberInput, Select, Stack, TextArea } from '@pioneer/frontier';
-import type { SelectOption } from '@pioneer/frontier';
+import { Field, FieldError, FieldHint, Label, NumberInput, Stack, TextArea } from '@pioneer/frontier';
 import { LEVEL_MAX, LEVEL_MIN } from '@pioneer/rules/sdk';
+import { SlotPicker } from '@pioneer/rules/ui';
+import type { SlotPickerRow } from '@pioneer/rules/ui';
 
 import { withPick } from '../grant-choices';
 import { GrantsStatus } from '../grants-check';
@@ -29,17 +30,17 @@ const FACT_ROWS = 4;
 interface OpenSlot {
   readonly slot: string;
   readonly title: string;
-  readonly options: readonly SelectOption<string>[];
+  readonly rows: readonly SlotPickerRow[];
 }
 
 /**
  * The grants tool's inputs, each with its own problem: the entries as JSON, the roots, the level, the picks, the
- * toggles and the roll options. Each open slot with something to pick gets a select that writes its pick; one with nothing on offer (a query
+ * toggles and the roll options. Each open slot with something to pick gets a table that writes its pick; one with nothing on offer (a query
  * that matches nothing, or listed options whose predicates are all false) says so in the result instead.
  */
 @Component({
   selector: 'pio-grants-fields',
-  imports: [Field, FieldError, FieldHint, Label, LinesField, NumberInput, Select, Stack, TextArea, TranslocoPipe],
+  imports: [Field, FieldError, FieldHint, Label, LinesField, NumberInput, SlotPicker, Stack, TextArea, TranslocoPipe],
   templateUrl: './grants-fields.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -92,7 +93,16 @@ export class GrantsFields {
     return result.status === GrantsStatus.Valid
       ? result.open
           .filter((open) => open.options.length > 0)
-          .map(({ slot, title, options }) => ({ slot, title, options }))
+          .map(({ slot, title, options }) => ({
+            slot,
+            title,
+            rows: options.map(({ value, label }): SlotPickerRow => ({
+              id: value,
+              name: label,
+              sources: [],
+              disabledReason: undefined,
+            })),
+          }))
       : [];
   });
 

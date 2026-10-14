@@ -34,6 +34,8 @@ export class SlotPicker {
   public readonly disabled = input(false);
   /** The content is still loading: the table shows its loading state instead of the empty one. */
   public readonly loading = input(false);
+  /** Opens at once, focused on the search box, as an inline edit does; off for a field that is always on the page. */
+  public readonly openOnInit = input(true);
   /** An option was picked: save now. */
   public readonly committed = output();
   /** Escape: drop the change. */

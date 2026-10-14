@@ -12,7 +12,7 @@ import { sheetField } from './sheet-field';
 import type { TrainedNote } from './sheet-skills';
 
 /** What a slot pick's table shows: the skills a skill slot offers, or the options of a choice. */
-export type SlotPickRows =
+type SlotPickRows =
   | { readonly kind: 'skills'; readonly rows: readonly SkillPickerRow[] }
   | { readonly kind: 'choices'; readonly rows: readonly SlotPickerRow[] };
 
