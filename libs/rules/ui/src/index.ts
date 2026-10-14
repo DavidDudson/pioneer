@@ -170,3 +170,21 @@ export { KeyAttributePicker } from './lib/class-picker/key-attribute-picker.comp
 export { SubclassPicker } from './lib/class-picker/subclass-picker.component';
 export { PROFICIENCY_NAMES } from './lib/proficiency-rank/proficiency-rank-messages';
 export { type ConditionWords, conditionalLineText } from './lib/statistics/conditional-lines';
+export { LanguagePicker } from './lib/slot-picker/language-picker.component';
+export { SkillPicker } from './lib/slot-picker/skill-picker.component';
+export { SlotPicker } from './lib/slot-picker/slot-picker.component';
+export { SLOT_RARITY_MESSAGES, SlotPickerMessage } from './lib/slot-picker/slot-picker-messages';
+export {
+  type LanguagePickerRow,
+  type SkillPickerRow,
+  SlotPickerColumn,
+  type SlotPickerRow,
+} from './lib/slot-picker/slot-picker-row';
+export {
+  languagePickerColumns,
+  shownLanguageRows,
+  shownSkillRows,
+  shownSlotRows,
+  skillPickerColumns,
+  slotPickerColumns,
+} from './lib/slot-picker/slot-picker-table';
