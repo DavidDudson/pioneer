@@ -28,9 +28,6 @@ import { sheetSlotContent } from './sheet-slot-content';
 /** The kinds the spell pickers read: the character's, so its entries resolve, and the spells. */
 export const SPELL_CONTENT_KINDS: readonly ContentKind[] = [...CHARACTER_CONTENT_KINDS, ContentKind.Spell];
 
-/** The most spells a spell picker lists for one query; typing narrows it. */
-const SPELL_MATCHES_MAX = 50;
-
 /** One prepared slot on the sheet: its label, the spells it offers by name, and why its pick counts for nothing. */
 export interface SheetPreparedSlot {
   readonly key: SlotKey;
@@ -229,12 +226,6 @@ function runs<Item>(items: readonly Item[], keyOf: (item: Item) => string): Run<
     }
   }
   return grouped;
-}
-
-/** `options` whose label holds `query`, ignoring case, up to the most a picker lists. */
-export function spellMatches(options: readonly SelectOption<string>[], query: string): readonly SelectOption<string>[] {
-  const needle = query.trim().toLocaleLowerCase();
-  return options.filter((option) => option.label.toLocaleLowerCase().includes(needle)).slice(0, SPELL_MATCHES_MAX);
 }
 
 /** The uncommon and rare spells the build has access to, and those it may add. */

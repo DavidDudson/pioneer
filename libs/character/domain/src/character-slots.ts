@@ -28,3 +28,9 @@ export const CHARACTER_ROOT_SLOTS: readonly RootSlotDefinition[] = [
 export const OPTIONAL_ROOT_SLOTS: ReadonlyMap<SlotKey, readonly RollOption[]> = new Map([
   [DEITY_SLOT, [RollOption.parse('feature:deity-cleric')]],
 ]);
+
+/** Whether one of the character's roll options makes it need a deity: a cleric's does. */
+export function needsDeity(rollOptions: readonly RollOption[]): boolean {
+  const neededBy = OPTIONAL_ROOT_SLOTS.get(DEITY_SLOT) ?? [];
+  return neededBy.some((option) => rollOptions.includes(option));
+}
