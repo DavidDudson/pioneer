@@ -3,7 +3,7 @@ import { RuleElementKey } from '@pioneer/rules/sdk';
 import { SKILLS } from './foundry-skills';
 
 /**
- * Foundry's `FlatModifier`, and the predicate every element carries, in Pioneer's spelling (ADR-0008): `selector`
+ * Foundry's `FlatModifier` and `AdjustModifier`, and the predicate every element carries, in Pioneer's spelling (ADR-0008): `selector`
  * becomes `selectors` in Pioneer's vocabulary, an unnamespaced roll option gets one, an omitted `type` is `untyped`,
  * and fields that only steer Foundry's UI are dropped. What this cannot carry over (`removeAfterRoll`,
  * `requiresEquipped`, a damage category, a selector built from the item's id) is left as it is, so the element fails
@@ -78,15 +78,24 @@ function selectorsOf(selector: unknown): readonly string[] | undefined {
   return isList ? selector.map((each) => selectorOf(each)) : undefined;
 }
 
-/** A `FlatModifier` as Pioneer's element; any other element, or a selector that is not text, as it is. */
-export function withFlatModifier(raw: unknown): unknown {
-  if (typeof raw !== 'object' || raw === null || !('key' in raw) || raw.key !== RuleElementKey.FlatModifier) {
+/** The elements that name what they reach by `selector`, which Pioneer spells `selectors`. */
+const SELECTOR_KEYS: ReadonlySet<string> = new Set([RuleElementKey.FlatModifier, RuleElementKey.AdjustModifier]);
+
+/**
+ * A `FlatModifier` or `AdjustModifier` as Pioneer's element; any other element, or a selector that is not text, as it
+ * is. A `FlatModifier` also defaults to `untyped`, as Foundry does, and drops the fields that only steer its display.
+ */
+export function withModifierSelectors(raw: unknown): unknown {
+  if (typeof raw !== 'object' || raw === null || !('key' in raw) || typeof raw.key !== 'string') {
     return raw;
   }
-  const selectors = 'selector' in raw ? selectorsOf(raw.selector) : undefined;
+  const selectors = SELECTOR_KEYS.has(raw.key) && 'selector' in raw ? selectorsOf(raw.selector) : undefined;
   if (selectors === undefined) {
     return raw;
   }
-  const kept = Object.entries(raw).filter(([field]) => field !== 'selector' && !DISPLAY_ONLY_FIELDS.has(field));
-  return { type: 'untyped', ...Object.fromEntries(kept), selectors };
+  const flat = raw.key === RuleElementKey.FlatModifier;
+  const kept = Object.entries(raw).filter(
+    ([field]) => field !== 'selector' && !(flat && DISPLAY_ONLY_FIELDS.has(field)),
+  );
+  return { ...(flat ? { type: 'untyped' } : {}), ...Object.fromEntries(kept), selectors };
 }

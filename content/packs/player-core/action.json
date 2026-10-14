@@ -552,6 +552,14 @@
             "or": ["action:reposition", "action:shove", "action:trip", "inflicts:prone", "option:forced-movement"]
           }
         ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["saving-throw"],
+        "slug": "anchor",
+        "mode": "add",
+        "value": 2,
+        "predicate": ["heritage:root-leshy"]
       }
     ],
     "externalIds": {

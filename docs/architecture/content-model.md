@@ -569,7 +569,8 @@ FlatModifier` appends the import's rules of the keys named to the committed entr
   (`diplomacy` is `skill:diplomacy`, `reflex` is `save:reflex`), any other (`saving-throw`, `ac`, `melee-damage`) as it
   is. An omitted `type` is `untyped`, and `hideIfDisabled` is dropped. A roll option Foundry writes bare (`poison`,
   `devils-bargain`) gets the `option:` namespace in every element's predicate, as Pioneer's roll options need one;
-  `option` is not a known namespace, so such a statement reads as situational. `removeAfterRoll`, `requiresEquipped`, a
+  `option` is not a known namespace, so such a statement reads as situational. An `AdjustModifier`'s `selector` is
+  read the same way. `removeAfterRoll`, `requiresEquipped`, `relabel`, `maxApplications`, a
   damage category and a selector built from the item (`{item|id}-damage`) have no Pioneer meaning yet and stay in the
   backlog.
 - **References across packs.** A compendium UUID naming a document an earlier import brought in resolves to that

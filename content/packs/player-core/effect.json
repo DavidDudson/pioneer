@@ -2458,7 +2458,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["ac"],
+        "slug": "cover",
+        "suppress": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.1TsRE7J3BZrcyogi"
     },
@@ -2867,7 +2874,22 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["ac"],
+        "slug": "cover",
+        "mode": "add",
+        "value": -2
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["ac"],
+        "slug": "cover",
+        "mode": "upgrade",
+        "value": 0
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.4HNPQ6pnMDRe8jaN"
     },
@@ -2920,7 +2942,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["attack-roll"],
+        "slug": "monster-hunter",
+        "mode": "upgrade",
+        "value": 2,
+        "predicate": ["parent:origin:item:tag:legendary-monster-hunter"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.W2tWq0gdAcnoz2MO"
     },
@@ -4463,6 +4494,63 @@
         "display": {
           "label": "Outwit"
         }
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["skill-check"],
+        "slug": "outwit",
+        "mode": "upgrade",
+        "value": 4,
+        "predicate": [
+          {
+            "or": ["proficiency:master", "proficiency:legendary"]
+          }
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["ac"],
+        "slug": "outwit",
+        "mode": "upgrade",
+        "value": 2,
+        "predicate": [
+          {
+            "or": [
+              {
+                "and": [
+                  "armor:category:light",
+                  {
+                    "gte": ["defense:light:rank", 3]
+                  }
+                ]
+              },
+              {
+                "and": [
+                  "armor:category:medium",
+                  {
+                    "gte": ["defense:medium:rank", 3]
+                  }
+                ]
+              },
+              {
+                "and": [
+                  "armor:category:heavy",
+                  {
+                    "gte": ["defense:heavy:rank", 3]
+                  }
+                ]
+              },
+              {
+                "and": [
+                  "armor:category:unarmored",
+                  {
+                    "gte": ["defense:unarmored:rank", 3]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -8983,7 +9071,18 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["all"],
+        "suppress": true,
+        "predicate": [
+          {
+            "or": ["bonus:type:circumstance", "bonus:type:status"]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.zHeVGnIj9zl3h6ez"
     },
@@ -9033,7 +9132,18 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["all"],
+        "suppress": true,
+        "predicate": [
+          {
+            "or": ["bonus:type:circumstance", "bonus:type:status"]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.dgkRV3ftyRszPctv"
     },
@@ -9086,7 +9196,18 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["all"],
+        "suppress": true,
+        "predicate": [
+          {
+            "or": ["bonus:type:circumstance", "bonus:type:status"]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.FmqbQqLxUZ2FTN7z"
     },
@@ -9305,6 +9426,14 @@
         "selectors": ["attack-roll", "skill-check"],
         "type": "status",
         "value": "ternary(gte(@item.level, 7), 2, 1)"
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["attack-roll", "skill-check"],
+        "slug": "competitive-edge",
+        "mode": "override",
+        "value": "ternary(gte(@item.level, 7), 4, 3)",
+        "predicate": ["option:competitive-edge"]
       }
     ],
     "externalIds": {
@@ -12975,7 +13104,21 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["attack"],
+        "slug": "guidance",
+        "mode": "upgrade",
+        "value": 2,
+        "predicate": [
+          "parent:origin:item:tag:amped",
+          {
+            "gte": ["parent:origin:item:level", 6]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.3qHKBDF7lrHw8jFK"
     },
@@ -17758,6 +17901,14 @@
         "type": "status",
         "value": "ternary(gte(@item.level, 5), 2, 1)",
         "slug": "soothing-words"
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["save:will"],
+        "slug": "soothing-words",
+        "mode": "upgrade",
+        "value": "ternary(gte(@item.level, 5), 3, 2)",
+        "predicate": ["item:trait:emotion"]
       }
     ],
     "externalIds": {
@@ -18890,7 +19041,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["attack-roll"],
+        "suppress": true,
+        "predicate": ["penalty:type:circumstance", "target:mark:true-target"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.HuvucQ5nfpuVWNrw"
     },
@@ -18943,7 +19101,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["land-speed"],
+        "suppress": true,
+        "predicate": ["penalty:type:circumstance"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.CdAyAiMGESvgNQtz"
     },
@@ -18996,7 +19161,18 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["land-speed"],
+        "suppress": true,
+        "predicate": [
+          {
+            "or": ["penalty:type:circumstance", "penalty:type:status"]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.RZVP5MYaWrANq0J8"
     },
@@ -19302,7 +19478,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["ac"],
+        "suppress": true,
+        "predicate": ["bonus:type:item"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.sILRkGTwoBywy0BU"
     },
@@ -19361,6 +19544,14 @@
         "selectors": ["attack", "perception", "save:will"],
         "type": "status",
         "value": -1
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["save:will"],
+        "slug": "veil-of-dreams",
+        "mode": "override",
+        "value": -2,
+        "predicate": ["item:trait:sleep"]
       }
     ],
     "externalIds": {

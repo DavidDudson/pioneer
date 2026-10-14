@@ -100,3 +100,46 @@ describe('predicates from Foundry', () => {
     });
   });
 });
+
+describe('AdjustModifier from Foundry', () => {
+  test('a selector becomes selectors, and the mode and slug stay', () => {
+    const { rules, untranslated } = translated({
+      key: RuleElementKey.AdjustModifier,
+      mode: 'upgrade',
+      predicate: ['beastmasters-sigil:major'],
+      selector: 'saving-throw',
+      slug: 'sigil-bonus',
+      value: 2,
+    });
+
+    expect(untranslated).toEqual([]);
+    expect(rules as readonly unknown[]).toEqual([
+      {
+        key: RuleElementKey.AdjustModifier,
+        mode: 'upgrade',
+        predicate: ['beastmasters-sigil:major'],
+        selectors: ['saving-throw'],
+        slug: 'sigil-bonus',
+        value: 2,
+      },
+    ]);
+  });
+
+  test('suppressing the modifiers of a slug needs no type', () => {
+    const { rules } = translated({ key: RuleElementKey.AdjustModifier, selector: 'ac', slug: 'cover', suppress: true });
+
+    expect(rules as readonly unknown[]).toEqual([
+      { key: RuleElementKey.AdjustModifier, selectors: ['ac'], slug: 'cover', suppress: true },
+    ]);
+  });
+
+  test.each([
+    ['relabel', { relabel: 'Effect' }],
+    ['a type', { type: 'status' }],
+    ['maxApplications', { maxApplications: 1 }],
+  ])('%s has no Pioneer meaning yet, so the element is kept for the backlog', (_case, extra) => {
+    const raw = { key: RuleElementKey.AdjustModifier, mode: 'add', selector: 'ac', value: 1, ...extra };
+
+    expect(translated(raw).untranslated).toEqual([{ entry: ENTRY, key: RuleElementKey.AdjustModifier, raw }]);
+  });
+});

@@ -2978,29 +2978,6 @@
     {
       "type": "entry",
       "pack": "divine-mysteries",
-      "slug": "effect:effect-emboldened-with-glorious-purpose",
-      "foundry": "Compendium.pf2e.feat-effects.Item.ZNpDvK1r9B8d7aZp",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "upgrade",
-            "predicate": [
-              {
-                "or": ["item:trait:emotion", "item:trait:fear"]
-              }
-            ],
-            "selector": "will",
-            "value": 2
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
       "slug": "effect:effect-empowered-onslaught",
       "foundry": "Compendium.pf2e.feat-effects.Item.ik5QuOpF0IO275Nm",
       "gaps": [
@@ -3080,18 +3057,6 @@
           "raw": {
             "key": "TokenMark",
             "slug": "enforce-oath"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "upgrade",
-            "predicate": ["target:mark:enforce-oath"],
-            "selector": "attack-roll",
-            "slug": "enforce-oath-attack",
-            "value": 1
           }
         }
       ]
@@ -5311,18 +5276,6 @@
             "selector": ["strike-damage", "spell-damage"],
             "slug": "oath-of-the-slayer",
             "value": "ternary(gte(@actor.level,14),3,ternary(gte(@actor.level,7),2,1))"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "multiply",
-            "predicate": ["oath-of-the-slayer-double"],
-            "selectors": ["strike-damage", "spell-damage"],
-            "slug": "oath-of-the-slayer",
-            "value": 2
           }
         }
       ]

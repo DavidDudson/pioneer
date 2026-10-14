@@ -719,6 +719,26 @@
         "value": 2,
         "slug": "antidote-bonus",
         "predicate": ["item:trait:poison"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["save:fortitude"],
+        "slug": "antidote-bonus",
+        "mode": "upgrade",
+        "value": 3,
+        "predicate": ["antidote:antidote-moderate"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["save:fortitude"],
+        "slug": "antidote-bonus",
+        "mode": "upgrade",
+        "value": 4,
+        "predicate": [
+          {
+            "or": ["antidote:antidote-greater", "antidote:antidote-major"]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -805,6 +825,26 @@
         "value": 2,
         "slug": "antiplague-bonus",
         "predicate": ["item:trait:disease"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["save:fortitude"],
+        "slug": "antiplague-bonus",
+        "mode": "upgrade",
+        "value": 3,
+        "predicate": ["antiplague:antiplague-moderate"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["save:fortitude"],
+        "slug": "antiplague-bonus",
+        "mode": "upgrade",
+        "value": 4,
+        "predicate": [
+          {
+            "or": ["antiplague:antiplague-greater", "antiplague:antiplague-major"]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -1031,7 +1071,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["ac"],
+        "slug": "cover",
+        "mode": "upgrade",
+        "value": 0
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.YlIESAmhjHJHGzmi"
     },
@@ -1113,6 +1161,43 @@
         "type": "item",
         "value": 1,
         "slug": "bravos-brew-bonus"
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["save:will"],
+        "slug": "bravos-brew-bonus",
+        "mode": "upgrade",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["item:trait:fear", "bravos-brew:bravos-brew-moderate"]
+          }
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["save:will"],
+        "slug": "bravos-brew-bonus",
+        "mode": "upgrade",
+        "value": 3,
+        "predicate": [
+          {
+            "or": [
+              {
+                "and": ["bravos-brew:bravos-brew-moderate", "item:trait:fear"]
+              },
+              "bravos-brew:bravos-brew-greater"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["save:will"],
+        "slug": "bravos-brew-bonus",
+        "mode": "upgrade",
+        "value": 4,
+        "predicate": ["item:trait:fear", "bravos-brew:bravos-brew-greater"]
       }
     ],
     "externalIds": {
@@ -1908,6 +1993,70 @@
         "type": "item",
         "value": 1,
         "slug": "eagle-eye-elixir-bonus"
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["perception"],
+        "slug": "eagle-eye-elixir-bonus",
+        "mode": "upgrade",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["origin:trait:trap", "option:secret-door"]
+          },
+          "eagle-eye-elixir:eagle-eye-elixir-lesser"
+        ],
+        "priority": 120
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["perception"],
+        "slug": "eagle-eye-elixir-bonus",
+        "mode": "upgrade",
+        "value": 2,
+        "predicate": ["eagle-eye-elixir:eagle-eye-elixir-moderate"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["perception"],
+        "slug": "eagle-eye-elixir-bonus",
+        "mode": "upgrade",
+        "value": 3,
+        "predicate": [
+          {
+            "or": ["origin:trait:trap", "option:secret-door"]
+          },
+          "eagle-eye-elixir:eagle-eye-elixir-moderate"
+        ],
+        "priority": 120
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["perception"],
+        "slug": "eagle-eye-elixir-bonus",
+        "mode": "upgrade",
+        "value": 3,
+        "predicate": [
+          {
+            "or": ["eagle-eye-elixir:eagle-eye-elixir-greater", "eagle-eye-elixir:eagle-eye-elixir-major"]
+          }
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["perception"],
+        "slug": "eagle-eye-elixir-bonus",
+        "mode": "upgrade",
+        "value": 4,
+        "predicate": [
+          {
+            "or": ["origin:trait:trap", "option:secret-door"]
+          },
+          {
+            "or": ["eagle-eye-elixir:eagle-eye-elixir-greater", "eagle-eye-elixir:eagle-eye-elixir-major"]
+          }
+        ],
+        "priority": 120
       }
     ],
     "externalIds": {
@@ -2014,6 +2163,34 @@
             "or": ["item:trait:disease", "item:trait:poison"]
           }
         ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["saving-throw"],
+        "slug": "elixir-of-life-bonus",
+        "mode": "upgrade",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["elixir-of-life:elixir-of-life-moderate", "elixir-of-life:elixir-of-life-greater"]
+          }
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["saving-throw"],
+        "slug": "elixir-of-life-bonus",
+        "mode": "upgrade",
+        "value": 3,
+        "predicate": ["elixir-of-life:elixir-of-life-major"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["saving-throw"],
+        "slug": "elixir-of-life-bonus",
+        "mode": "upgrade",
+        "value": 4,
+        "predicate": ["elixir-of-life:elixir-of-life-true"]
       }
     ],
     "externalIds": {
@@ -2374,6 +2551,26 @@
         "type": "status",
         "value": -10,
         "slug": "glue-bomb-penalty"
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["all-speeds"],
+        "slug": "glue-bomb-penalty",
+        "mode": "downgrade",
+        "value": -15,
+        "predicate": [
+          {
+            "or": ["glue-bomb:glue-bomb-greater", "glue-bomb:glue-bomb-moderate"]
+          }
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["all-speeds"],
+        "slug": "glue-bomb-penalty",
+        "mode": "downgrade",
+        "value": -20,
+        "predicate": ["glue-bomb:glue-bomb-major"]
       }
     ],
     "externalIds": {
@@ -4718,6 +4915,22 @@
         "type": "item",
         "value": 1,
         "slug": "thurible-of-revelation-bonus"
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["skill:religion"],
+        "slug": "thurible-of-revelation-bonus",
+        "mode": "upgrade",
+        "value": 2,
+        "predicate": ["thurible-of-revelation:thurible-of-revelation-moderate"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["skill:religion"],
+        "slug": "thurible-of-revelation-bonus",
+        "mode": "upgrade",
+        "value": 3,
+        "predicate": ["thurible-of-revelation:thurible-of-revelation-greater"]
       }
     ],
     "externalIds": {
