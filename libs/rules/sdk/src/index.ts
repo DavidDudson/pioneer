@@ -101,7 +101,7 @@ export { DegreeChange, DegreeChangeSchema, DegreeOfSuccess, DegreeOfSuccessSchem
 export { DamageException, Immunity, Trait, TraitData } from './trait';
 export { LanguageData, LanguageScript } from './language';
 export { SenseAcuity, SenseData } from './sense';
-export { VariantRuleData, VariantRuleDefinition, VariantRuleId } from './variant-rule';
+export { VariantRuleData, VariantRuleDefinition, VariantRuleId, VariantStructure } from './variant-rule';
 export { ContentEntry } from './content-entry';
 export {
   BundleBody,

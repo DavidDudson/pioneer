@@ -158,7 +158,8 @@ export class PlayService {
     const registry = await this.#contentOf(character).registry();
     const slots = slotContent(registry);
     const inputs = characterStatisticInputs(registry, character.document, slots);
-    const max = maxHitPoints(characterStatistics({ ...character.document, play }, { registry, slots, inputs }));
+    const sources = { registry, slots, inputs, variants: [] };
+    const max = maxHitPoints(characterStatistics({ ...character.document, play }, sources));
     if (max === undefined) {
       throw new ValidationError([{ path: ['command'], message: message('character.validation.noMaxHitPoints') }]);
     }

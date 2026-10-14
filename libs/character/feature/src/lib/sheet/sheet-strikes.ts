@@ -12,6 +12,7 @@ import { statisticInputsOf } from './sheet-inputs';
 import { checkSituations, NO_CLAIMS } from './sheet-situations';
 import type { SituationClaims } from './sheet-situations';
 import { sheetSlotContent } from './sheet-slot-content';
+import { sheetSources } from './sheet-sources';
 import { sheetDerivation } from './sheet-statistics';
 
 /** The family each weapon's Strike is derived under: `strike:<weapon slug>`. */
@@ -47,10 +48,7 @@ export function sheetStrikes(
   }
   const slots = sheetSlotContent(registry);
   const nameOf = (entry: ContentId): string | undefined => slots.lookup.entry(entry)?.name;
-  const rules = characterStrikeRules(
-    { registry, slots, inputs: statisticInputsOf(registry, character) },
-    character.document,
-  );
+  const rules = characterStrikeRules(sheetSources(registry, character), character.document);
   const strikes = deriveStrikes(weapons, sheetDerivation(registry, character), rules);
   const traits = traitNames(registry);
   const selectors = strikes.flatMap(({ attack }) => (attack?.ok === true ? [attack.selector] : []));
