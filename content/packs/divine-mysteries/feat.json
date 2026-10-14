@@ -5539,7 +5539,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["strike-damage", "spell-damage"],
+        "slug": "oath-of-the-slayer",
+        "mode": "multiply",
+        "value": 2,
+        "predicate": ["option:oath-of-the-slayer-double"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.vUBMjoOiZiMzdc18"
     },

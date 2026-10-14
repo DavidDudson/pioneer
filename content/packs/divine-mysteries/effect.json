@@ -260,6 +260,17 @@
         "selectors": ["save:will"],
         "type": "status",
         "value": 1
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["save:will"],
+        "mode": "upgrade",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["item:trait:emotion", "item:trait:fear"]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -403,6 +414,14 @@
         "type": "status",
         "value": -1,
         "slug": "enforce-oath-attack"
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["attack-roll"],
+        "slug": "enforce-oath-attack",
+        "mode": "upgrade",
+        "value": 1,
+        "predicate": ["target:mark:enforce-oath"]
       }
     ],
     "externalIds": {

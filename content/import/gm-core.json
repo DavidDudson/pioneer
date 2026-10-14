@@ -2170,34 +2170,6 @@
             "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
             "rollOption": "antidote"
           }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "upgrade",
-            "predicate": ["antidote:antidote-moderate"],
-            "selector": "fortitude",
-            "slug": "antidote-bonus",
-            "value": 3
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "upgrade",
-            "predicate": [
-              {
-                "or": ["antidote:antidote-greater", "antidote:antidote-major"]
-              }
-            ],
-            "selector": "fortitude",
-            "slug": "antidote-bonus",
-            "value": 4
-          }
         }
       ]
     },
@@ -2269,34 +2241,6 @@
             "key": "ChoiceSet",
             "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
             "rollOption": "antiplague"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "upgrade",
-            "predicate": ["antiplague:antiplague-moderate"],
-            "selector": "fortitude",
-            "slug": "antiplague-bonus",
-            "value": 3
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "upgrade",
-            "predicate": [
-              {
-                "or": ["antiplague:antiplague-greater", "antiplague:antiplague-major"]
-              }
-            ],
-            "selector": "fortitude",
-            "slug": "antiplague-bonus",
-            "value": 4
           }
         }
       ]
@@ -2464,17 +2408,6 @@
             "slug": "cover",
             "value": "@item.origin.flags.system.bombersEyeElixir"
           }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "upgrade",
-            "selector": "ac",
-            "slug": "cover",
-            "value": 0
-          }
         }
       ]
     },
@@ -2533,55 +2466,6 @@
             "key": "ChoiceSet",
             "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
             "rollOption": "bravos-brew"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "upgrade",
-            "predicate": [
-              {
-                "or": ["item:trait:fear", "bravos-brew:bravos-brew-moderate"]
-              }
-            ],
-            "selector": "will",
-            "slug": "bravos-brew-bonus",
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "upgrade",
-            "predicate": [
-              {
-                "or": [
-                  {
-                    "and": ["bravos-brew:bravos-brew-moderate", "item:trait:fear"]
-                  },
-                  "bravos-brew:bravos-brew-greater"
-                ]
-              }
-            ],
-            "selector": "will",
-            "slug": "bravos-brew-bonus",
-            "value": 3
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "upgrade",
-            "predicate": ["item:trait:fear", "bravos-brew:bravos-brew-greater"],
-            "selector": "will",
-            "slug": "bravos-brew-bonus",
-            "value": 4
           }
         },
         {
@@ -2823,90 +2707,6 @@
             "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
             "rollOption": "eagle-eye-elixir"
           }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "upgrade",
-            "predicate": [
-              {
-                "or": ["origin:trait:trap", "secret-door"]
-              },
-              "eagle-eye-elixir:eagle-eye-elixir-lesser"
-            ],
-            "priority": 120,
-            "selector": "perception",
-            "slug": "eagle-eye-elixir-bonus",
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "upgrade",
-            "predicate": ["eagle-eye-elixir:eagle-eye-elixir-moderate"],
-            "selector": "perception",
-            "slug": "eagle-eye-elixir-bonus",
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "upgrade",
-            "predicate": [
-              {
-                "or": ["origin:trait:trap", "secret-door"]
-              },
-              "eagle-eye-elixir:eagle-eye-elixir-moderate"
-            ],
-            "priority": 120,
-            "selector": "perception",
-            "slug": "eagle-eye-elixir-bonus",
-            "value": 3
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "upgrade",
-            "predicate": [
-              {
-                "or": ["eagle-eye-elixir:eagle-eye-elixir-greater", "eagle-eye-elixir:eagle-eye-elixir-major"]
-              }
-            ],
-            "selector": "perception",
-            "slug": "eagle-eye-elixir-bonus",
-            "value": 3
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "upgrade",
-            "predicate": [
-              {
-                "or": ["origin:trait:trap", "secret-door"]
-              },
-              {
-                "or": ["eagle-eye-elixir:eagle-eye-elixir-greater", "eagle-eye-elixir:eagle-eye-elixir-major"]
-              }
-            ],
-            "priority": 120,
-            "selector": "perception",
-            "slug": "eagle-eye-elixir-bonus",
-            "value": 4
-          }
         }
       ]
     },
@@ -3004,46 +2804,6 @@
             "key": "ChoiceSet",
             "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
             "rollOption": "elixir-of-life"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "upgrade",
-            "predicate": [
-              {
-                "or": ["elixir-of-life:elixir-of-life-moderate", "elixir-of-life:elixir-of-life-greater"]
-              }
-            ],
-            "selector": "saving-throw",
-            "slug": "elixir-of-life-bonus",
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "upgrade",
-            "predicate": ["elixir-of-life:elixir-of-life-major"],
-            "selector": "saving-throw",
-            "slug": "elixir-of-life-bonus",
-            "value": 3
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "upgrade",
-            "predicate": ["elixir-of-life:elixir-of-life-true"],
-            "selector": "saving-throw",
-            "slug": "elixir-of-life-bonus",
-            "value": 4
           }
         }
       ]
@@ -3226,34 +2986,6 @@
             "key": "ChoiceSet",
             "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
             "rollOption": "glue-bomb"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "downgrade",
-            "predicate": [
-              {
-                "or": ["glue-bomb:glue-bomb-greater", "glue-bomb:glue-bomb-moderate"]
-              }
-            ],
-            "selector": "all-speeds",
-            "slug": "glue-bomb-penalty",
-            "value": -15
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "downgrade",
-            "predicate": ["glue-bomb:glue-bomb-major"],
-            "selector": "all-speeds",
-            "slug": "glue-bomb-penalty",
-            "value": -20
           }
         }
       ]
@@ -4555,30 +4287,6 @@
             "predicate": ["action:decipher-writing"],
             "selector": "religion"
           }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "upgrade",
-            "predicate": ["thurible-of-revelation:thurible-of-revelation-moderate"],
-            "selector": "religion",
-            "slug": "thurible-of-revelation-bonus",
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "upgrade",
-            "predicate": ["thurible-of-revelation:thurible-of-revelation-greater"],
-            "selector": "religion",
-            "slug": "thurible-of-revelation-bonus",
-            "value": 3
-          }
         }
       ]
     },
@@ -4735,36 +4443,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.3obTVPkQ5mGwXJat",
       "gaps": [
         {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "predicate": [
-              {
-                "or": [
-                  {
-                    "and": ["self:condition:clumsy:1", "penalty:slug:clumsy"]
-                  },
-                  {
-                    "and": ["self:condition:enfeebled:1", "penalty:slug:enfeebled"]
-                  },
-                  {
-                    "and": ["self:condition:frightened:1", "penalty:slug:frightened"]
-                  },
-                  {
-                    "and": ["self:condition:sickened:1", "penalty:slug:sickened"]
-                  },
-                  {
-                    "and": ["self:condition:stupefied:1", "penalty:slug:stupefied"]
-                  }
-                ]
-              }
-            ],
-            "selector": "skill-check",
-            "suppress": true
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[conditionitems]"
         },
@@ -4849,21 +4527,6 @@
           }
         },
         {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "predicate": [
-              "bands-of-force",
-              {
-                "or": ["bonus:type:proficiency", "modifier:type:ability"]
-              }
-            ],
-            "selector": "athletics",
-            "suppress": true
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "[[/act]][options]"
         },
@@ -4888,21 +4551,6 @@
           }
         },
         {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "predicate": [
-              "bands-of-force-greater",
-              {
-                "or": ["bonus:type:proficiency", "modifier:type:ability"]
-              }
-            ],
-            "selector": "athletics",
-            "suppress": true
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "[[/act]][options]"
         },
@@ -4924,21 +4572,6 @@
           "raw": {
             "key": "DexterityModifierCap",
             "value": 5
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "predicate": [
-              "bands-of-force-major",
-              {
-                "or": ["bonus:type:proficiency", "modifier:type:ability"]
-              }
-            ],
-            "selector": "athletics",
-            "suppress": true
           }
         },
         {

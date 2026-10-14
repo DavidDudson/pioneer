@@ -1797,7 +1797,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["strike-damage"],
+        "slug": "advantageous-assault",
+        "mode": "add",
+        "value": 2,
+        "predicate": ["item:hands-held:2"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.Y8Rdt4gHBGAUf2zL"
     },
@@ -3491,7 +3500,20 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["skill-check"],
+        "suppress": true,
+        "predicate": [
+          "action:recall-knowledge",
+          "substitute:assured-knowledge",
+          {
+            "not": "bonus:type:proficiency"
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.c6CS97Zs0DPmInaI"
     },
@@ -15304,7 +15326,28 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["ac"],
+        "slug": "parry-bonus",
+        "mode": "upgrade",
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["option:hands-free", 1]
+          }
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["ac"],
+        "slug": "parry-bonus",
+        "mode": "override",
+        "value": 0,
+        "predicate": ["hands-free:0"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.n7nQQR940OvFbw7T"
     },
@@ -19409,7 +19452,20 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["strike-damage"],
+        "slug": "fearsome-brute",
+        "mode": "multiply",
+        "value": 1.5,
+        "predicate": [
+          {
+            "gte": ["skill:intimidation:rank", 3]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.1k3H7cnARIzAVCsm"
     },
@@ -26973,6 +27029,21 @@
           "target:physically-menaced",
           {
             "or": ["action:coerce", "action:demoralize"]
+          }
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["skill:intimidation"],
+        "slug": "intimidating-prowess",
+        "mode": "upgrade",
+        "value": 2,
+        "predicate": [
+          {
+            "gte": ["attribute:str:mod", 5]
+          },
+          {
+            "gte": ["skill:intimidation:rank", 3]
           }
         ]
       }
@@ -52094,7 +52165,25 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["ac"],
+        "slug": "parry-bonus",
+        "mode": "upgrade",
+        "value": 2,
+        "predicate": [
+          {
+            "or": [
+              {
+                "gte": ["option:hands-free", 1]
+              },
+              "parry-bonus-upgrade:yes"
+            ]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.Y8LHfkzGyOhPlUou"
     },

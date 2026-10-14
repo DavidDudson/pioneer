@@ -64,18 +64,6 @@
             "option": "anchor",
             "toggleable": true
           }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "add",
-            "predicate": ["heritage:root-leshy"],
-            "selector": "saving-throw",
-            "slug": "anchor",
-            "value": 2
-          }
         }
       ]
     },
@@ -2815,79 +2803,6 @@
             ],
             "selector": "attack",
             "value": -1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "class-feature:masterful-hunter-outwit",
-      "foundry": "Compendium.pf2e.classfeatures.Item.vWZaLE2fEKMBw3D5",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "upgrade",
-            "predicate": [
-              {
-                "or": ["proficiency:master", "proficiency:legendary"]
-              }
-            ],
-            "selector": "skill-check",
-            "slug": "outwit",
-            "value": 4
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "upgrade",
-            "predicate": [
-              {
-                "or": [
-                  {
-                    "and": [
-                      "armor:category:light",
-                      {
-                        "gte": ["defense:light:rank", 3]
-                      }
-                    ]
-                  },
-                  {
-                    "and": [
-                      "armor:category:medium",
-                      {
-                        "gte": ["defense:medium:rank", 3]
-                      }
-                    ]
-                  },
-                  {
-                    "and": [
-                      "armor:category:heavy",
-                      {
-                        "gte": ["defense:heavy:rank", 3]
-                      }
-                    ]
-                  },
-                  {
-                    "and": [
-                      "armor:category:unarmored",
-                      {
-                        "gte": ["defense:unarmored:rank", 3]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "selector": "ac",
-            "slug": "outwit",
-            "value": 2
           }
         }
       ]
@@ -7438,24 +7353,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:effect-hunters-aim",
-      "foundry": "Compendium.pf2e.feat-effects.Item.1TsRE7J3BZrcyogi",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "selector": "ac",
-            "slug": "cover",
-            "suppress": true
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:effect-inspired-stratagem",
       "foundry": "Compendium.pf2e.feat-effects.Item.K0Sv9AHgq245hSLC",
       "leftOut": {
@@ -7680,36 +7577,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:effect-methodical-debilitations-cover",
-      "foundry": "Compendium.pf2e.feat-effects.Item.4HNPQ6pnMDRe8jaN",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "add",
-            "selector": "ac",
-            "slug": "cover",
-            "value": -2
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "upgrade",
-            "selector": "ac",
-            "slug": "cover",
-            "value": 0
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:effect-monster-hunter",
       "foundry": "Compendium.pf2e.feat-effects.Item.W2tWq0gdAcnoz2MO",
       "gaps": [
@@ -7732,18 +7599,6 @@
             "slug": "monster-hunter",
             "type": "circumstance",
             "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "upgrade",
-            "predicate": ["parent:origin:item:tag:legendary-monster-hunter"],
-            "selector": "attack-roll",
-            "slug": "monster-hunter",
-            "value": 2
           }
         }
       ]
@@ -8771,71 +8626,6 @@
           "raw": {
             "key": "TokenMark",
             "slug": "share-hunters-edge"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "upgrade",
-            "predicate": [
-              {
-                "or": ["proficiency:master", "proficiency:legendary"]
-              }
-            ],
-            "selector": "skill-check",
-            "slug": "outwit",
-            "value": 4
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "upgrade",
-            "predicate": [
-              {
-                "or": [
-                  {
-                    "and": [
-                      "armor:category:light",
-                      {
-                        "gte": ["defense:light:rank", 3]
-                      }
-                    ]
-                  },
-                  {
-                    "and": [
-                      "armor:category:medium",
-                      {
-                        "gte": ["defense:medium:rank", 3]
-                      }
-                    ]
-                  },
-                  {
-                    "and": [
-                      "armor:category:heavy",
-                      {
-                        "gte": ["defense:heavy:rank", 3]
-                      }
-                    ]
-                  },
-                  {
-                    "and": [
-                      "armor:category:unarmored",
-                      {
-                        "gte": ["defense:unarmored:rank", 3]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "selector": "ac",
-            "slug": "outwit",
-            "value": 2
           }
         }
       ]
@@ -11649,20 +11439,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "predicate": [
-              {
-                "or": ["bonus:type:circumstance", "bonus:type:status"]
-              }
-            ],
-            "selector": "all",
-            "suppress": true
-          }
-        },
-        {
-          "type": "rule",
           "key": "GrantItem",
           "raw": {
             "alterations": [
@@ -11708,20 +11484,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "predicate": [
-              {
-                "or": ["bonus:type:circumstance", "bonus:type:status"]
-              }
-            ],
-            "selector": "all",
-            "suppress": true
-          }
-        },
-        {
-          "type": "rule",
           "key": "GrantItem",
           "raw": {
             "alterations": [
@@ -11746,20 +11508,6 @@
       "slug": "effect:spell-effect-canticle-of-everlasting-grief-success",
       "foundry": "Compendium.pf2e.spell-effects.Item.FmqbQqLxUZ2FTN7z",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "predicate": [
-              {
-                "or": ["bonus:type:circumstance", "bonus:type:status"]
-              }
-            ],
-            "selector": "all",
-            "suppress": true
-          }
-        },
         {
           "type": "rule",
           "key": "GrantItem",
@@ -11955,18 +11703,6 @@
             "label": "PF2E.SpecificRule.Cleric.CompetitiveEdge.RollOptionLabel",
             "option": "competitive-edge",
             "toggleable": true
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "override",
-            "predicate": ["competitive-edge"],
-            "selectors": ["attack-roll", "skill-check"],
-            "slug": "competitive-edge",
-            "value": "ternary(gte(@item.level,7),4,3)"
           }
         }
       ]
@@ -15340,23 +15076,6 @@
             "type": "status",
             "value": 1
           }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "upgrade",
-            "predicate": [
-              "parent:origin:item:tag:amped",
-              {
-                "gte": ["parent:origin:item:level", 6]
-              }
-            ],
-            "selector": "attack",
-            "slug": "guidance",
-            "value": 2
-          }
         }
       ]
     },
@@ -18016,26 +17735,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:spell-effect-soothing-words",
-      "foundry": "Compendium.pf2e.spell-effects.Item.an4yZ6dyIDOFa1wa",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "upgrade",
-            "predicate": ["item:trait:emotion"],
-            "selector": "will",
-            "slug": "soothing-words",
-            "value": "ternary(gte(@item.level,5),3,2)"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:spell-effect-stormwind-flight",
       "foundry": "Compendium.pf2e.spell-effects.Item.8GUkKvCeI0xljCOk",
       "gaps": [
@@ -18389,34 +18088,6 @@
             "predicate": ["target:mark:true-target"],
             "selector": "attack-roll"
           }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "predicate": ["penalty:type:circumstance", "target:mark:true-target"],
-            "selector": "attack-roll",
-            "suppress": true
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-unfettered-movement",
-      "foundry": "Compendium.pf2e.spell-effects.Item.CdAyAiMGESvgNQtz",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "predicate": ["penalty:type:circumstance"],
-            "selector": "land-speed",
-            "suppress": true
-          }
         }
       ]
     },
@@ -18437,20 +18108,6 @@
               "environment": "all",
               "feature": "all"
             }
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "predicate": [
-              {
-                "or": ["penalty:type:circumstance", "penalty:type:status"]
-              }
-            ],
-            "selector": "land-speed",
-            "suppress": true
           }
         }
       ]
@@ -18970,36 +18627,6 @@
             "slug": "vapor-form-fly-speed",
             "value": 10
           }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "predicate": ["bonus:type:item"],
-            "selector": "ac",
-            "suppress": true
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-veil-of-dreams",
-      "foundry": "Compendium.pf2e.spell-effects.Item.hkLhZsH3T6jc9S1y",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "override",
-            "predicate": ["item:trait:sleep"],
-            "selector": "will",
-            "slug": "veil-of-dreams",
-            "value": -2
-          }
         }
       ]
     },
@@ -19262,42 +18889,6 @@
             "requiresEquipped": false,
             "selector": "survival",
             "slug": "no-compass",
-            "suppress": true
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "equipment:crowbar",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.44F1mfJei4GY8f2X",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "selector": "athletics",
-            "slug": "no-crowbar",
-            "suppress": true
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "equipment:crowbar-levered",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.4kz3vhkKPUuXBpxk",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "selector": "athletics",
-            "slug": "no-crowbar",
             "suppress": true
           }
         }
@@ -19938,18 +19529,6 @@
             "type": "circumstance",
             "value": "@weapon.system.damage.dice"
           }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "add",
-            "predicate": ["item:hands-held:2"],
-            "selector": "strike-damage",
-            "slug": "advantageous-assault",
-            "value": 2
-          }
         }
       ]
     },
@@ -20368,22 +19947,6 @@
             "selector": "skill-check",
             "slug": "assured-knowledge",
             "value": 10
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "predicate": [
-              "action:recall-knowledge",
-              "substitute:assured-knowledge",
-              {
-                "not": "bonus:type:proficiency"
-              }
-            ],
-            "selector": "skill-check",
-            "suppress": true
           }
         }
       ]
@@ -23500,42 +23063,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:dueling-parry",
-      "foundry": "Compendium.pf2e.feats-srd.Item.n7nQQR940OvFbw7T",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "upgrade",
-            "predicate": [
-              {
-                "gte": ["hands-free", 1]
-              }
-            ],
-            "selector": "ac",
-            "slug": "parry-bonus",
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "override",
-            "predicate": ["hands-free:0"],
-            "selector": "ac",
-            "slug": "parry-bonus",
-            "value": 0
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:dwarven-lore",
       "foundry": "Compendium.pf2e.feats-srd.Item.9bnkx6VgcO5mOk5b",
       "gaps": [
@@ -24391,22 +23918,6 @@
             "slug": "fearsome-brute",
             "type": "circumstance",
             "value": "2 * @target.conditions.frightened.badge.value"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "multiply",
-            "predicate": [
-              {
-                "gte": ["skill:intimidation:rank", 3]
-              }
-            ],
-            "selector": "strike-damage",
-            "slug": "fearsome-brute",
-            "value": 1.5
           }
         }
       ]
@@ -26190,33 +25701,6 @@
             "value": {
               "value": "Compendium.pf2e.spell-effects.Item.Spell Effect: Insect Form"
             }
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:intimidating-prowess",
-      "foundry": "Compendium.pf2e.feats-srd.Item.XFJiGllNZp8Xebda",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "upgrade",
-            "predicate": [
-              {
-                "gte": ["attribute:str:mod", 5]
-              },
-              {
-                "gte": ["skill:intimidation:rank", 3]
-              }
-            ],
-            "selector": "intimidation",
-            "slug": "intimidating-prowess",
-            "value": 2
           }
         }
       ]
@@ -31065,27 +30549,6 @@
       "slug": "feat:twin-parry",
       "foundry": "Compendium.pf2e.feats-srd.Item.Y8LHfkzGyOhPlUou",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "upgrade",
-            "predicate": [
-              {
-                "or": [
-                  {
-                    "gte": ["hands-free", 1]
-                  },
-                  "parry-bonus-upgrade:yes"
-                ]
-              }
-            ],
-            "selector": "ac",
-            "slug": "parry-bonus",
-            "value": 2
-          }
-        },
         {
           "type": "rule",
           "key": "RollOption",

@@ -1255,7 +1255,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["skill:athletics"],
+        "slug": "no-crowbar",
+        "suppress": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.44F1mfJei4GY8f2X"
     },
@@ -1317,6 +1324,12 @@
         "display": {
           "label": "Levered Crowbar (Force Open)"
         }
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["skill:athletics"],
+        "slug": "no-crowbar",
+        "suppress": true
       }
     ],
     "externalIds": {
