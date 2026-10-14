@@ -11,6 +11,7 @@ import type { AttemptDisplay } from '../roll-attempt/roll-attempt.component';
 import { RollDamage } from '../roll-damage/roll-damage.component';
 import { RollDc } from '../roll-dc/roll-dc.component';
 import { RollDegree } from '../roll-degree/roll-degree.component';
+import { RollReasons } from '../roll-reasons/roll-reasons.component';
 import type { AttemptView, DamageView, DegreeView, RollView } from '../roll-view';
 
 interface RollDisplay {
@@ -20,6 +21,7 @@ interface RollDisplay {
   readonly attempts: readonly AttemptDisplay[];
   readonly degree: DegreeView | undefined;
   readonly damage: DamageView | undefined;
+  readonly reasons: readonly string[];
 }
 
 /**
@@ -35,7 +37,7 @@ interface RollDisplay {
  */
 @Component({
   selector: 'pio-roll-card',
-  imports: [Heading, RollAttempt, RollDamage, RollDc, RollDegree, Stack, Surface, Text, TranslocoPipe],
+  imports: [Heading, RollAttempt, RollDamage, RollDc, RollDegree, RollReasons, Stack, Surface, Text, TranslocoPipe],
   templateUrl: './roll-card.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -60,6 +62,7 @@ export class RollCard {
       attempts: roll.attempts.map((attempt, index) => this.#attempt(attempt, several ? index : undefined)),
       degree: roll.degree,
       damage: roll.damage,
+      reasons: roll.reasons,
     };
   });
 

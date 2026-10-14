@@ -314,6 +314,7 @@ export {
   type EquippedInputs,
   equippedInputs,
   equippedRules,
+  type EquippedRules,
   type HeldShield,
   heldShields,
 } from './equipped';
@@ -322,8 +323,24 @@ export {
   characterStatistics,
   MAX_HP_SELECTOR,
   maxHitPoints,
+  type RollRequest,
+  type RollSetup,
+  rollSetup,
   type StatisticSources,
 } from './character-statistics';
+export {
+  applyToggleCommand,
+  isToggleCommand,
+  type StoredToggle,
+  TOGGLES_MAX,
+  ToggleCommandField,
+  type ToggleCommand,
+  ToggleCommandSchema,
+  toggleStates,
+  ToggleStateSchema,
+  type Toggles,
+  TogglesSchema,
+} from './toggle-commands';
 export {
   hasRunes,
   isSpecific,

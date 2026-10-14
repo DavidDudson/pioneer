@@ -1,0 +1,27 @@
+@if (display(); as shown) {
+  <fr-stack gap="xs">
+    <fr-text weight="semibold">{{ 'character.sheet.roll.setupHeading' | transloco: { name: shown.name } }}</fr-text>
+    <pio-roll-toggles
+      [perRoll]="shown.situations"
+      [remembered]="shown.remembered"
+      (perRollChange)="chooseSituation($event)"
+      (rememberedChange)="flipToggle($event)"
+    />
+    @if (rolls.saveError(); as error) {
+      <fr-text tone="danger">{{ error.key | transloco: error.params }}</fr-text>
+    }
+    <fr-text>{{ 'character.sheet.roll.modifier' | transloco: { modifier: shown.modifier } }}</fr-text>
+    @if (rolls.setup(); as setup) {
+      <fr-disclosure>
+        <fr-text frDisclosureSummary>{{ 'character.sheet.roll.breakdown' | transloco }}</fr-text>
+        <pio-breakdown [statistic]="setup.statistic" [kind]="kind" [entryNames]="entryNames()" />
+      </fr-disclosure>
+    }
+    <fr-stack direction="horizontal" gap="xs">
+      <fr-button (pressed)="rolls.rollSetUp()">{{ 'character.sheet.roll.go' | transloco }}</fr-button>
+      <fr-button [variant]="secondary" (pressed)="rolls.cancel()">{{
+        'character.sheet.roll.cancel' | transloco
+      }}</fr-button>
+    </fr-stack>
+  </fr-stack>
+}

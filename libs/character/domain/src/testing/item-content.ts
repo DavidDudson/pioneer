@@ -15,6 +15,7 @@ import { itemContent } from '../inventory-content';
 import type { ItemContent } from '../inventory-content';
 import { runeContent } from '../item-runes';
 import type { RuneContent } from '../item-runes';
+import { HUNTERS_CLOAK } from './hunters-cloak';
 import { RUNES, RuneFixture } from './rune-fixtures';
 
 const ITEM_PACK = 'item-fixtures';
@@ -54,6 +55,7 @@ export const ItemFixture = {
   HideArmor: 'hide-armor',
   /** A worn cloak with the invested trait that gives +1 item to Perception. */
   Cloak: 'cloak',
+  HuntersCloak: 'hunters-cloak',
   /** Specific magic armour with the invested trait: its bonus to AC needs no investing, its rules do. */
   RuneArmor: 'rune-armor',
   /** Ammunition, light per 10. */
@@ -178,6 +180,7 @@ const ITEMS: Readonly<Record<ItemFixture, ItemFixtureFields>> = {
     traits: ['invested', 'magical'],
     rules: [{ key: 'FlatModifier', selectors: ['perception'], type: 'item', value: 1 }],
   },
+  [ItemFixture.HuntersCloak]: HUNTERS_CLOAK,
   [ItemFixture.LongSword]: {
     kind: ContentKind.Weapon,
     data: {

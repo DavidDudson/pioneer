@@ -69,6 +69,11 @@ export const MISFORTUNE_CHECK = check([HIGH, LOW], MISFORTUNE);
 /** Fortune and misfortune cancel: one d20. */
 export const CANCELLED_CHECK = check([MIDDLING], BOTH);
 
+/** The reasons a check is rolled with: a situation chosen for this roll, and a toggle the character keeps. */
+export const TOGGLE_REASONS = ["+1 circumstance when the target is undead (Hunter's cloak)", "Hunter's focus"];
+/** A d20 of 12 and +7 rolled with two toggles on. */
+export const WITH_TOGGLES: RollView = { ...PLAIN_CHECK, reasons: TOGGLE_REASONS };
+
 /** A success that an effect raises to a critical success. */
 export const ADJUSTED_DEGREE = check([MIDDLING], NO_FORTUNE, {
   dc: EASY_DC,
