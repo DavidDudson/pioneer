@@ -1363,6 +1363,14 @@
         "display": {
           "label": "One with the Spirits — Deal spirit damage"
         }
+      },
+      {
+        "key": "DamageAlteration",
+        "selectors": ["strike-damage"],
+        "property": "damage-type",
+        "mode": "override",
+        "value": "spirit",
+        "predicate": ["option:one-with-the-spirits-damage"]
       }
     ],
     "externalIds": {

@@ -3249,18 +3249,6 @@
             "selectors": ["strike-attack-roll", "strike-damage"],
             "value": "ghost-touch"
           }
-        },
-        {
-          "type": "rule",
-          "key": "DamageAlteration",
-          "raw": {
-            "key": "DamageAlteration",
-            "mode": "override",
-            "predicate": ["one-with-the-spirits-damage"],
-            "property": "damage-type",
-            "selectors": ["strike-damage"],
-            "value": "spirit"
-          }
         }
       ]
     },
@@ -4711,18 +4699,6 @@
       "foundry": "Compendium.pf2e.feats-srd.Item.483yvMrNZFV3fiSo",
       "gaps": [
         {
-          "type": "rule",
-          "key": "DamageAlteration",
-          "raw": {
-            "key": "DamageAlteration",
-            "mode": "override",
-            "predicate": ["item:slug:lay-on-hands", "oath-of-the-avenger"],
-            "property": "damage-type",
-            "selectors": ["spell-damage"],
-            "value": "spirit"
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
         }
@@ -4904,19 +4880,6 @@
       "slug": "feat:palatine-strike",
       "foundry": "Compendium.pf2e.feats-srd.Item.OfKfYPrlxo8jdqmp",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "DamageAlteration",
-          "raw": {
-            "key": "DamageAlteration",
-            "mode": "add",
-            "predicate": ["palatine-strike"],
-            "property": "dice-number",
-            "selectors": ["strike-damage"],
-            "slug": "strategic-strike",
-            "value": 2
-          }
-        },
         {
           "type": "field",
           "reason": "unresolved-reference",

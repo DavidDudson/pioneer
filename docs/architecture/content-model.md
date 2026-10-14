@@ -610,6 +610,12 @@ FlatModifier` appends the import's rules of the keys named to the committed entr
   predicate stays the element's. Only the `traits`, `hardness` and `ac-bonus` properties with a literal value are
   translated. An alteration of the item that holds it (`itemId`), the other properties (`description`, `other-tags`,
   `area-size`, `runes-*`, `name`, `bulk` and the like) and a value read from the actor or a pick stay in the backlog.
+- **Damage dice.** A `DamageDice` takes its `selector` as `selectors` and a formula `diceNumber` in Pioneer's
+  reference spelling, and drops `hideIfDisabled`; `diceNumber`, `dieSize`, `damageType`, `category`
+  (`persistent`, `precision`, `splash`), `critical`, `override` (of the damage type), `slug` and a predicate are read as
+  Foundry writes them. A `DamageAlteration` of `dice-number` or `damage-type` needs no change. A selector built from
+  the item (`{item|id}-damage`), a type or dice read from a pick or the item, and a formula Pioneer cannot read stay in
+  the backlog.
 - **Dropped on purpose.** `TokenLight`, `TokenEffectIcon` and `TokenMark` only change a Foundry token (its light, the
   icon of an effect on it, a mark), and Pioneer has no token. The import drops them with the reason `token-only` and
   prints them apart from the untranslated rule elements; they are not in the backlog, so an entry whose only gap

@@ -2521,32 +2521,6 @@
             ],
             "toggleable": true
           }
-        },
-        {
-          "type": "rule",
-          "key": "DamageAlteration",
-          "raw": {
-            "key": "DamageAlteration",
-            "mode": "override",
-            "predicate": ["precision-hunters-edge:second-hit"],
-            "property": "dice-number",
-            "selectors": ["strike-damage"],
-            "slug": "precision",
-            "value": "ternary(gte(@actor.level,19),2,1)"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "DamageAlteration",
-          "raw": {
-            "key": "DamageAlteration",
-            "mode": "override",
-            "predicate": ["precision-hunters-edge:third-hit"],
-            "property": "dice-number",
-            "selectors": ["strike-damage"],
-            "slug": "precision",
-            "value": 1
-          }
         }
       ]
     },
@@ -2836,19 +2810,6 @@
               }
             ],
             "toggleable": true
-          }
-        },
-        {
-          "type": "rule",
-          "key": "DamageDice",
-          "raw": {
-            "category": "precision",
-            "diceNumber": "ternary(lt(@actor.level,11),1,ternary(lt(@actor.level,19),2,3))",
-            "dieSize": "d8",
-            "key": "DamageDice",
-            "predicate": ["precision-hunters-edge", "target:mark:hunted-prey"],
-            "selector": "strike-damage",
-            "slug": "precision"
           }
         },
         {
@@ -4837,25 +4798,6 @@
         },
         {
           "type": "rule",
-          "key": "DamageAlteration",
-          "raw": {
-            "key": "DamageAlteration",
-            "mode": "override",
-            "predicate": [
-              {
-                "or": ["item:damage:persistent:fire", "item:damage:fire"]
-              },
-              {
-                "not": "item:trait:impulse"
-              }
-            ],
-            "property": "dice-number",
-            "selectors": ["inline-damage", "attack-damage", "spell-damage"],
-            "value": 0
-          }
-        },
-        {
-          "type": "rule",
           "key": "AdjustModifier",
           "raw": {
             "damageType": "fire",
@@ -5625,38 +5567,6 @@
             "phase": "beforeDerived",
             "predicate": ["self:trait:fiend"],
             "value": true
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:effect-divine-infusion",
-      "foundry": "Compendium.pf2e.feat-effects.Item.eecIuD6sGPX0FJcT",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "DamageDice",
-          "raw": {
-            "damageType": "vitality",
-            "diceNumber": "ternary(gte(@item.level,8),3,ternary(gte(@item.level,5),2,1))",
-            "dieSize": "d6",
-            "key": "DamageDice",
-            "predicate": ["parent:trait:vitality"],
-            "selector": "melee-strike-damage"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "DamageDice",
-          "raw": {
-            "damageType": "void",
-            "diceNumber": "ternary(gte(@item.level,8),3,ternary(gte(@item.level,5),2,1))",
-            "dieSize": "d6",
-            "key": "DamageDice",
-            "predicate": ["parent:trait:void"],
-            "selector": "melee-strike-damage"
           }
         }
       ]
@@ -6833,32 +6743,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:effect-precise-debilitations",
-      "foundry": "Compendium.pf2e.feat-effects.Item.ZZXIUvZqqIxkMfYa",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "DamageDice",
-          "raw": {
-            "category": "precision",
-            "diceNumber": 2,
-            "dieSize": "d6",
-            "hideIfDisabled": true,
-            "key": "DamageDice",
-            "predicate": [
-              "target:mark:precise-debilitations",
-              {
-                "not": "parent:tag:precise-debilitations-dice-added"
-              }
-            ],
-            "selector": "strike-damage"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:effect-predictable",
       "foundry": "Compendium.pf2e.feat-effects.Item.5v0ndPPMfZwhiVZF",
       "gaps": [
@@ -7652,101 +7536,6 @@
             ],
             "selector": "attack",
             "value": -2
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:effect-share-hunters-edge-precision",
-      "foundry": "Compendium.pf2e.feat-effects.Item.mNk0KxsZMFnDjUA0",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "DamageDice",
-          "raw": {
-            "category": "precision",
-            "diceNumber": "ternary(lt(@actor.level,11),1,ternary(lt(@actor.level,19),2,3))",
-            "dieSize": "d8",
-            "key": "DamageDice",
-            "predicate": ["precision-hunters-edge", "target:mark:share-hunters-edge"],
-            "selector": "strike-damage",
-            "slug": "precision"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "DamageAlteration",
-          "raw": {
-            "key": "DamageAlteration",
-            "mode": "override",
-            "predicate": ["precision-hunters-edge:second-hit"],
-            "property": "dice-number",
-            "selectors": ["strike-damage"],
-            "slug": "precision",
-            "value": "ternary(gte(@actor.level,19),2,1)"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "DamageAlteration",
-          "raw": {
-            "key": "DamageAlteration",
-            "mode": "override",
-            "predicate": ["precision-hunters-edge:third-hit"],
-            "property": "dice-number",
-            "selectors": ["strike-damage"],
-            "slug": "precision",
-            "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:effect-share-hunters-edge-precision-masterful",
-      "foundry": "Compendium.pf2e.feat-effects.Item.Lt5iSfx8fxHSdYXz",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "DamageDice",
-          "raw": {
-            "category": "precision",
-            "diceNumber": "ternary(gte(@actor.level,19),3,2)",
-            "dieSize": "d8",
-            "key": "DamageDice",
-            "label": "PF2E.SpecificRule.Ranger.HuntersEdge.Flurry.Label",
-            "predicate": ["precision-hunters-edge", "target:mark:share-hunters-edge"],
-            "selector": "strike-damage",
-            "slug": "precision"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "DamageAlteration",
-          "raw": {
-            "key": "DamageAlteration",
-            "mode": "override",
-            "predicate": ["precision-hunters-edge:second-hit"],
-            "property": "dice-number",
-            "selectors": ["strike-damage"],
-            "slug": "precision",
-            "value": "ternary(gte(@actor.level,19),2,1)"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "DamageAlteration",
-          "raw": {
-            "key": "DamageAlteration",
-            "mode": "override",
-            "predicate": ["precision-hunters-edge:third-hit"],
-            "property": "dice-number",
-            "selectors": ["strike-damage"],
-            "slug": "precision",
-            "value": 1
           }
         }
       ]
@@ -8592,19 +8381,6 @@
               "traits": ["animal"]
             },
             "predicate": ["aerial-form:pterosaur"]
-          }
-        },
-        {
-          "type": "rule",
-          "key": "DamageDice",
-          "raw": {
-            "category": "persistent",
-            "damageType": "poison",
-            "diceNumber": "ternary(gte(@item.level, 6), 2, 1)",
-            "dieSize": "d6",
-            "key": "DamageDice",
-            "predicate": ["aerial-form:wasp"],
-            "selector": "stinger-damage"
           }
         },
         {
@@ -10182,17 +9958,6 @@
               "traits": ["animal"]
             }
           }
-        },
-        {
-          "type": "rule",
-          "key": "DamageDice",
-          "raw": {
-            "damageType": "poison",
-            "diceNumber": "ternary(gte(@item.level, 5), 2, 1)",
-            "dieSize": "d6",
-            "key": "DamageDice",
-            "selector": "fangs-damage"
-          }
         }
       ]
     },
@@ -11285,18 +11050,6 @@
               },
               "traits": ["animal", "dinosaur"]
             }
-          }
-        },
-        {
-          "type": "rule",
-          "key": "DamageDice",
-          "raw": {
-            "critical": true,
-            "damageType": "bleed",
-            "diceNumber": 1,
-            "dieSize": "d6",
-            "key": "DamageDice",
-            "selector": "horn-damage"
           }
         }
       ]
@@ -13377,34 +13130,11 @@
         },
         {
           "type": "rule",
-          "key": "DamageDice",
-          "raw": {
-            "damageType": "fire",
-            "diceNumber": "ternary(gte(@item.level, 9),2,1)",
-            "dieSize": "d4",
-            "key": "DamageDice",
-            "predicate": ["unarmed"],
-            "selector": "strike-damage"
-          }
-        },
-        {
-          "type": "rule",
           "key": "BaseSpeed",
           "raw": {
             "key": "BaseSpeed",
             "selector": "fly",
             "value": "ternary(gte(@item.level,9), 60, 40)"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "DamageDice",
-          "raw": {
-            "damageType": "fire",
-            "diceNumber": 1,
-            "key": "DamageDice",
-            "predicate": ["fire"],
-            "selector": "spell-damage"
           }
         },
         {
@@ -13952,17 +13682,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "DamageDice",
-          "raw": {
-            "damageType": "vitality",
-            "diceNumber": "ternary(gte(@item.level,5),3,ternary(gte(@item.level,3),2,1))",
-            "dieSize": "d4",
-            "key": "DamageDice",
-            "selector": "strike-damage"
-          }
-        },
-        {
-          "type": "rule",
           "key": "AdjustStrike",
           "raw": {
             "key": "AdjustStrike",
@@ -14290,19 +14009,6 @@
         },
         {
           "type": "rule",
-          "key": "DamageDice",
-          "raw": {
-            "category": "persistent",
-            "damageType": "poison",
-            "diceNumber": 2,
-            "dieSize": "d6",
-            "key": "DamageDice",
-            "predicate": ["monstrosity-form:cave-worm"],
-            "selector": "stinger-damage"
-          }
-        },
-        {
-          "type": "rule",
           "key": "BattleForm",
           "raw": {
             "brackets": [
@@ -14397,31 +14103,6 @@
               "traits": ["beast"]
             },
             "predicate": ["monstrosity-form:phoenix"]
-          }
-        },
-        {
-          "type": "rule",
-          "key": "DamageDice",
-          "raw": {
-            "damageType": "fire",
-            "diceNumber": "ternary(gte(@item.level, 9), 3, 2)",
-            "dieSize": "d4",
-            "key": "DamageDice",
-            "predicate": ["monstrosity-form:phoenix"],
-            "selector": "beak-damage"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "DamageDice",
-          "raw": {
-            "category": "persistent",
-            "damageType": "fire",
-            "diceNumber": 2,
-            "dieSize": "d4",
-            "key": "DamageDice",
-            "predicate": ["monstrosity-form:phoenix"],
-            "selector": "beak-damage"
           }
         },
         {
@@ -14630,23 +14311,6 @@
             "label": "PF2E.BattleForm.Attack.Claw",
             "slug": "moon-frenzy-claws",
             "traits": ["agile", "finesse", "unarmed", "magical"]
-          }
-        },
-        {
-          "type": "rule",
-          "key": "DamageDice",
-          "raw": {
-            "critical": true,
-            "damageType": "bleed",
-            "diceNumber": 1,
-            "dieSize": "d4",
-            "key": "DamageDice",
-            "predicate": [
-              {
-                "or": ["item:slug:moon-frenzy-claws", "item:slug:moon-frenzy-fangs"]
-              }
-            ],
-            "selector": "strike-damage"
           }
         },
         {
@@ -15412,36 +15076,12 @@
         },
         {
           "type": "rule",
-          "key": "DamageDice",
-          "raw": {
-            "damageType": "fire",
-            "diceNumber": 1,
-            "dieSize": "d6",
-            "key": "DamageDice",
-            "predicate": ["primal-summons:fire"],
-            "selector": "strike-damage"
-          }
-        },
-        {
-          "type": "rule",
           "key": "Weakness",
           "raw": {
             "key": "Weakness",
             "predicate": ["primal-summons:fire"],
             "type": ["cold", "water"],
             "value": 5
-          }
-        },
-        {
-          "type": "rule",
-          "key": "DamageDice",
-          "raw": {
-            "damageType": "electricity",
-            "diceNumber": 1,
-            "dieSize": "d6",
-            "key": "DamageDice",
-            "predicate": ["primal-summons:metal"],
-            "selector": "strike-damage"
           }
         },
         {
@@ -17178,27 +16818,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:accursed-claws",
-      "foundry": "Compendium.pf2e.feats-srd.Item.KsFrWhIPVLOqxV07",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "DamageDice",
-          "raw": {
-            "category": "persistent",
-            "critical": true,
-            "damageType": "mental",
-            "diceNumber": 1,
-            "dieSize": "d4",
-            "key": "DamageDice",
-            "selector": "claw-damage"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:adopted-ancestry",
       "foundry": "Compendium.pf2e.feats-srd.Item.ihN8gkHSdPG9Trte",
       "gaps": [
@@ -18386,31 +18005,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:bloody-blows",
-      "foundry": "Compendium.pf2e.feats-srd.Item.JvTSfyCkG70bmY7f",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "DamageDice",
-          "raw": {
-            "critical": true,
-            "damageType": "bleed",
-            "diceNumber": 1,
-            "dieSize": "d4",
-            "key": "DamageDice",
-            "predicate": [
-              {
-                "not": "nonlethal"
-              }
-            ],
-            "selector": "unarmed-damage"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:bond-conservation",
       "foundry": "Compendium.pf2e.feats-srd.Item.vhHKUooXX3PYqGaU",
       "gaps": [
@@ -18550,16 +18144,6 @@
       "slug": "feat:brutal-finish",
       "foundry": "Compendium.pf2e.feats-srd.Item.tGXJU6yx7bYuyLvd",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "DamageDice",
-          "raw": {
-            "diceNumber": "ternary(gte(@actor.level,18),2,1)",
-            "key": "DamageDice",
-            "predicate": ["item:type:weapon", "brutal-finish"],
-            "selector": "melee-strike-damage"
-          }
-        },
         {
           "type": "rule",
           "key": "Note",
@@ -19478,18 +19062,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "DamageDice",
-          "raw": {
-            "key": "DamageDice",
-            "override": {
-              "damageType": "bludgeoning"
-            },
-            "predicate": ["dazing-blow"],
-            "selector": "strike-damage"
-          }
-        },
-        {
-          "type": "rule",
           "key": "Note",
           "raw": {
             "key": "Note",
@@ -19791,34 +19363,6 @@
             "mode": "add",
             "path": "flags.system.fighterDedicationCount",
             "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:divine-castigation",
-      "foundry": "Compendium.pf2e.feats-srd.Item.142QRyK2aPIrJu48",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "DamageAlteration",
-          "raw": {
-            "key": "DamageAlteration",
-            "mode": "override",
-            "predicate": [
-              "divine-castigation",
-              {
-                "or": ["self:trait:holy", "self:trait:unholy"]
-              },
-              {
-                "or": ["item:slug:harm", "item:slug:heal"]
-              }
-            ],
-            "property": "damage-type",
-            "selectors": ["spell-damage"],
-            "value": "spirit"
           }
         }
       ]
@@ -24014,18 +23558,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "DamageDice",
-          "raw": {
-            "category": "precision",
-            "diceNumber": 2,
-            "dieSize": "d6",
-            "key": "DamageDice",
-            "predicate": ["target:mark:precise-debilitations"],
-            "selector": "strike-damage"
-          }
-        },
-        {
-          "type": "rule",
           "key": "ItemAlteration",
           "raw": {
             "itemType": "effect",
@@ -26276,27 +25808,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:thorned-seedpod",
-      "foundry": "Compendium.pf2e.feats-srd.Item.TRC4DgVq07cZO65B",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "DamageDice",
-          "raw": {
-            "category": "persistent",
-            "critical": true,
-            "damageType": "piercing",
-            "diceNumber": 1,
-            "dieSize": "d4",
-            "key": "DamageDice",
-            "selector": "seedpod-damage"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:thunderclap-spell",
       "foundry": "Compendium.pf2e.feats-srd.Item.vYfRgneZnHYBzUy5",
       "gaps": [
@@ -27102,24 +26613,6 @@
         {
           "type": "enricher",
           "enricher": "[[/act]][statistic]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:vicious-swing",
-      "foundry": "Compendium.pf2e.feats-srd.Item.2xk4jdwcCfmasYfT",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "DamageDice",
-          "raw": {
-            "diceNumber": "ternary(gte(@actor.level,18),3,ternary(gte(@actor.level,10),2,1))",
-            "key": "DamageDice",
-            "predicate": ["vicious-swing"],
-            "selector": "melee-strike-damage"
-          }
         }
       ]
     },

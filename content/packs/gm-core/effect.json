@@ -960,7 +960,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 1,
+        "dieSize": "d4",
+        "category": "precision",
+        "predicate": ["bloodseeker-beak:bloodseeker-beak"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 2,
+        "dieSize": "d4",
+        "category": "precision",
+        "predicate": ["bloodseeker-beak:bloodseeker-beak-greater"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.5XdkHIUgc6psBxQq"
     },

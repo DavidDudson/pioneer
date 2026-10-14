@@ -6745,7 +6745,26 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "DamageAlteration",
+        "selectors": ["strike-damage"],
+        "slug": "precision",
+        "property": "dice-number",
+        "mode": "override",
+        "value": "ternary(gte(@level, 19), 2, 1)",
+        "predicate": ["precision-hunters-edge:second-hit"]
+      },
+      {
+        "key": "DamageAlteration",
+        "selectors": ["strike-damage"],
+        "slug": "precision",
+        "property": "dice-number",
+        "mode": "override",
+        "value": 1,
+        "predicate": ["precision-hunters-edge:third-hit"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.BJYSUbFUGcTLaPDn"
     },
@@ -7754,7 +7773,17 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "slug": "precision",
+        "diceNumber": "ternary(lt(@level, 11), 1, ternary(lt(@level, 19), 2, 3))",
+        "dieSize": "d8",
+        "category": "precision",
+        "predicate": ["option:precision-hunters-edge", "target:mark:hunted-prey"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.u6cBjqz2fiRBadBt"
     },

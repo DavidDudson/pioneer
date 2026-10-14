@@ -18,6 +18,7 @@ export const RulesMessage = {
   LanguageGrantOrSlots: 'rules.element.languageGrantOrSlots',
   ActorTraitsAddOrRemove: 'rules.element.actorTraitsAddOrRemove',
   StrikeShape: 'rules.element.strikeShape',
+  DamageDiceNeedsDice: 'rules.element.damageDiceNeedsDice',
   UnknownReference: 'rules.formula.unknownReference',
   FoundryReference: 'rules.formula.foundryReference',
   ReferenceOutOfScope: 'rules.formula.referenceOutOfScope',

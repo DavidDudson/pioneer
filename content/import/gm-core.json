@@ -2213,32 +2213,6 @@
             "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
             "rollOption": "bloodseeker-beak"
           }
-        },
-        {
-          "type": "rule",
-          "key": "DamageDice",
-          "raw": {
-            "category": "precision",
-            "diceNumber": 1,
-            "dieSize": "d4",
-            "hideIfDisabled": true,
-            "key": "DamageDice",
-            "predicate": ["bloodseeker-beak:bloodseeker-beak"],
-            "selector": "strike-damage"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "DamageDice",
-          "raw": {
-            "category": "precision",
-            "diceNumber": 2,
-            "dieSize": "d4",
-            "hideIfDisabled": true,
-            "key": "DamageDice",
-            "predicate": ["bloodseeker-beak:bloodseeker-beak-greater"],
-            "selector": "strike-damage"
-          }
         }
       ]
     },
