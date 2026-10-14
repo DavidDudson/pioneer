@@ -18,7 +18,7 @@ export {
   unknownReferencePath,
   validFormulaText,
 } from './arbitraries';
-export { ruleElementJson } from './rule-element-arbitraries';
+export { ruleElementJson } from './rule-element-strike-arbitraries';
 export { richTextJson } from './rich-text-arbitraries';
 export { contentEntryJson } from './content-entry-arbitraries';
 export { slugText } from './json-arbitraries';

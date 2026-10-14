@@ -1628,16 +1628,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "AdjustStrike",
-          "raw": {
-            "key": "AdjustStrike",
-            "mode": "add",
-            "property": "property-runes",
-            "value": "holy"
-          }
-        },
-        {
-          "type": "rule",
           "key": "Aura",
           "raw": {
             "effects": [
@@ -2672,51 +2662,6 @@
     {
       "type": "entry",
       "pack": "gm-core",
-      "slug": "effect:effect-horn-of-exorcism-sacred-seeds",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.WBqZA9z7ZbhcR2ye",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustStrike",
-          "raw": {
-            "key": "AdjustStrike",
-            "mode": "add",
-            "property": "property-runes",
-            "value": "ghost-touch"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "effect:effect-lions-bite",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.cP9oWbEa7cJnnK9j",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Strike",
-          "raw": {
-            "category": "martial",
-            "damage": {
-              "base": {
-                "damageType": "piercing",
-                "dice": 2,
-                "die": "d6"
-              }
-            },
-            "group": "shield",
-            "key": "Strike",
-            "label": "PF2E.SpecificRule.Equipment.LionsShield.LionsBiteLabel",
-            "range": null,
-            "traits": ["deadly-d6", "magical"]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
       "slug": "effect:effect-oil-of-keen-edges",
       "foundry": "Compendium.pf2e.equipment-effects.Item.dVvMomZnSTq1wOJd",
       "gaps": [
@@ -3425,24 +3370,6 @@
           "raw": {
             "key": "CriticalSpecialization",
             "predicate": ["item:id:{item|flags.system.rulesSelections.weapon}"]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "effect:effect-righteous-call",
-      "foundry": "Compendium.pf2e.campaign-effects.Item.ywrtR63bJqpN0FsK",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustStrike",
-          "raw": {
-            "key": "AdjustStrike",
-            "mode": "add",
-            "property": "traits",
-            "value": "holy"
           }
         }
       ]

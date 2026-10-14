@@ -1,9 +1,7 @@
 import { RuleElementKey } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
-import { readsOnlyItem } from './translate-item-alterations';
-
-const ADJUST_STRIKE_KEY = 'AdjustStrike';
+import { slugify } from './foundry-slug';
 
 /** Foundry's damage for a `Strike` of its own: `{ base: { damageType, die, dice } }`, `dice` defaulting to 1. */
 const FoundryStrikeDamage = z.strictObject({
@@ -21,7 +19,7 @@ const FoundryStrikeDamage = z.strictObject({
  * whose damage is shaped any other way (a `replaceAll`, a second damage part), is left as it is, so the element
  * fails and is kept for the backlog.
  */
-function withStrikeDamage(raw: unknown): unknown {
+export function withStrikeDamage(raw: unknown): unknown {
   if (typeof raw !== 'object' || raw === null || !('key' in raw) || raw.key !== RuleElementKey.Strike) {
     return raw;
   }
@@ -34,64 +32,76 @@ function withStrikeDamage(raw: unknown): unknown {
   return { ...raw, damage: { dice, ...(die === undefined ? {} : { die }), damageType } };
 }
 
-/** Foundry's `Strike` fields Pioneer has no use for: `baseType` only names the weapon the attack imitates. */
-const STRIKE_FIELDS_DROPPED: ReadonlySet<string> = new Set(['baseType']);
+/** The fields of Foundry's `Strike` that mean nothing to Pioneer's: what a weapon is based on, its tags and its token image. */
+const STRIKE_FIELDS_DROPPED: ReadonlySet<string> = new Set(['baseType', 'img', 'otherTags']);
 
-/** A `Strike`'s `range`: Foundry's `{ increment }` is Pioneer's number, and `null` (a melee attack) is no range. */
-/** The `range` of a Strike element: the number, or nothing for a melee attack. */
-interface StrikeRange {
-  readonly range?: unknown;
+/** Foundry's range for an attack of its own: `null` for a melee one, or `{ increment }` for a ranged one. */
+const FoundryStrikeRange = z.strictObject({ increment: z.number() });
+
+/**
+ * The name Foundry gives an attack of its own: its `slug`, else its base type (`claw`), else its display label (already in
+ * English), as Foundry's own default does. None for an attack with neither.
+ */
+function strikeSlug(raw: object): string | undefined {
+  if ('slug' in raw && typeof raw.slug === 'string') {
+    return raw.slug;
+  }
+  if ('baseType' in raw && typeof raw.baseType === 'string') {
+    return raw.baseType;
+  }
+  const label =
+    'display' in raw && typeof raw.display === 'object' && raw.display !== null && 'label' in raw.display
+      ? raw.display.label
+      : undefined;
+  return typeof label === 'string' ? slugify(label) : undefined;
 }
 
-function strikeRange(range: unknown): StrikeRange {
-  if (typeof range === 'object' && range !== null && 'increment' in range) {
-    return { range: range.increment };
+/** A `Strike`'s range in Pioneer's spelling: a `null` range is no range, and `{ increment }` is the increment. */
+function strikeRange(raw: object): Record<string, unknown> {
+  if (!('range' in raw) || raw.range === null) {
+    return {};
   }
-  return range === null ? {} : { range };
+  const range = FoundryStrikeRange.safeParse(raw.range);
+  return { range: range.success ? range.data.increment : raw.range };
 }
 
 /**
- * A `Strike` that defines an attack of its own with Foundry's `baseType` and `range` in Pioneer's spelling: `baseType`
- * is dropped, an attack with no `slug` is named by its `baseType` as Foundry names it, and `range` is its increment
- * (`null`, a melee attack, is none). Any other element as it is; one with no `baseType` to name it stays without a
- * `slug`, so it fails and is kept for the backlog.
+ * A `Strike` in Pioneer's spelling. It drops the fields Pioneer does not read: `baseType` (the base weapon a Strike
+ * counts as, which no favoured-weapon rule reads for an attack a feature gives), `otherTags` and `img` (the image the
+ * attack shows on a token). A `null` range is no range, and `{ increment }` the range increment. An attack of its own
+ * with no `slug` is named by its base type or label, as Foundry does. The fist form is left as it is.
  */
-function withStrikeFields(raw: unknown): unknown {
+export function withoutStrikeExtras(raw: unknown): unknown {
   if (typeof raw !== 'object' || raw === null || !('key' in raw) || raw.key !== RuleElementKey.Strike) {
     return raw;
   }
-  const kept = Object.entries(raw).filter(([field]) => field !== 'range' && !STRIKE_FIELDS_DROPPED.has(field));
-  const named = 'slug' in raw || !('baseType' in raw) ? {} : { slug: raw.baseType };
-  return { ...named, ...Object.fromEntries(kept), ...('range' in raw ? strikeRange(raw.range) : {}) };
+  const kept = Object.fromEntries(
+    Object.entries(raw).filter(([field]) => !STRIKE_FIELDS_DROPPED.has(field) && field !== 'range' && field !== 'slug'),
+  );
+  const slug = 'damage' in raw ? strikeSlug(raw) : undefined;
+  return { ...kept, ...strikeRange(raw), ...(slug === undefined ? {} : { slug }) };
 }
 
-/** The numeric properties of a weapon `AdjustStrike` changes, and the ones it adds or removes a slug of. */
-const STRIKE_PROPERTIES: ReadonlySet<string> = new Set(['traits', 'materials', 'property-runes', 'range-increment']);
+const READ_FROM_ITEM = '{item|';
 
-/** Whether `definition` is a predicate about the weapon alone, as `items` is. */
-function isItemPredicate(definition: unknown): definition is readonly unknown[] {
-  return Array.isArray(definition) && definition.length > 0 && definition.every((each) => readsOnlyItem(each));
+/** Whether a Foundry value reads a pick or the item that holds the element, anywhere inside it. */
+function readsItem(value: unknown): boolean {
+  return JSON.stringify(value).includes(READ_FROM_ITEM);
 }
 
 /**
- * A Foundry `AdjustStrike` as an `ItemAlteration` of the weapons its `definition` reaches, keeping its mode, value and
- * predicate: Foundry adds a trait, material or property rune to a weapon, or changes its range increment. One with no
- * `definition`, one reaching Strikes by `selectors`, and a property Pioneer does not alter are left as they are, so the
- * element fails and is kept for the backlog; any other element as it is.
+ * Foundry's `AdjustStrike` in Pioneer's spelling (ADR-0008): its `definition`, the roll options of the weapons it
+ * reaches (`item:ranged`), becomes the `strikes` predicate. What this cannot carry over is left as it is, so the
+ * element fails and is kept for the backlog: one aimed at a roll domain (`selectors`), and any field read from a pick
+ * or the item (`{item|...}`), which a Strike cannot be matched to. Any other element is as it was.
  */
-function withStrikeAlteration(raw: unknown): unknown {
-  if (typeof raw !== 'object' || raw === null || !('key' in raw) || raw.key !== ADJUST_STRIKE_KEY) {
+export function withStrikeScope(raw: unknown): unknown {
+  if (typeof raw !== 'object' || raw === null || !('key' in raw) || raw.key !== RuleElementKey.AdjustStrike) {
     return raw;
   }
-  const reachable = 'definition' in raw && isItemPredicate(raw.definition) && !('selectors' in raw);
-  if (!reachable || !('property' in raw) || typeof raw.property !== 'string' || !STRIKE_PROPERTIES.has(raw.property)) {
+  if ('selectors' in raw || readsItem(raw)) {
     return raw;
   }
-  const kept = Object.entries(raw).filter(([field]) => field !== 'key' && field !== 'definition');
-  return { ...Object.fromEntries(kept), key: RuleElementKey.ItemAlteration, items: raw.definition };
-}
-
-/** Both forms of a Foundry `Strike` or `AdjustStrike`, as Pioneer's elements. */
-export function withStrike(raw: unknown): unknown {
-  return withStrikeAlteration(withStrikeFields(withStrikeDamage(raw)));
+  const rest = Object.entries(raw).filter(([field]) => field !== 'definition');
+  return 'definition' in raw ? { ...Object.fromEntries(rest), strikes: raw.definition } : raw;
 }

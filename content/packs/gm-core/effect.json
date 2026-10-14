@@ -38,7 +38,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "AdjustStrike",
+        "property": "property-runes",
+        "mode": "add",
+        "value": "holy"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.campaign-effects.Item.3BZisQv0wVLGEvzp"
     },
@@ -2709,7 +2716,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "AdjustStrike",
+        "property": "property-runes",
+        "mode": "add",
+        "value": "ghost-touch"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.WBqZA9z7ZbhcR2ye"
     },
@@ -2887,7 +2901,23 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "lions-bite",
+        "category": "martial",
+        "group": "shield",
+        "traits": ["deadly-d6", "magical"],
+        "damage": {
+          "dice": 2,
+          "die": "d6",
+          "damageType": "piercing"
+        },
+        "display": {
+          "label": "Lion's Bite"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.cP9oWbEa7cJnnK9j"
     },
@@ -4188,7 +4218,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "AdjustStrike",
+        "property": "traits",
+        "mode": "add",
+        "value": "holy"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.campaign-effects.Item.ywrtR63bJqpN0FsK"
     },

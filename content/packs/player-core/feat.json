@@ -5654,6 +5654,70 @@
         ],
         "prompt": "Select an unarmed attack.",
         "rollOption": "bestial-manifestation"
+      },
+      {
+        "key": "Strike",
+        "slug": "claw",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["agile", "finesse", "unarmed", "versatile-p"],
+        "damage": {
+          "dice": 1,
+          "die": "d4",
+          "damageType": "slashing"
+        },
+        "predicate": ["bestial-manifestation:claw"],
+        "display": {
+          "label": "Claw"
+        }
+      },
+      {
+        "key": "Strike",
+        "slug": "hoof",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["finesse", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "bludgeoning"
+        },
+        "predicate": ["bestial-manifestation:hoof"],
+        "display": {
+          "label": "Hoof"
+        }
+      },
+      {
+        "key": "Strike",
+        "slug": "jaws",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["finesse", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "piercing"
+        },
+        "predicate": ["bestial-manifestation:jaws"],
+        "display": {
+          "label": "Jaws"
+        }
+      },
+      {
+        "key": "Strike",
+        "slug": "tail",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["agile", "finesse", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d4",
+          "damageType": "bludgeoning"
+        },
+        "predicate": ["bestial-manifestation:tail"],
+        "display": {
+          "label": "Tail"
+        }
       }
     ],
     "externalIds": {
@@ -23782,7 +23846,23 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "claw",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["agile", "finesse", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d4",
+          "damageType": "slashing"
+        },
+        "display": {
+          "label": "Claw"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.Qb25uu1gT5CDMSWb"
     },
@@ -47386,7 +47466,30 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "slag-may-claw",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["grapple"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "slashing"
+        },
+        "display": {
+          "label": "Claw"
+        }
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:slug:slag-may-claw"],
+        "property": "materials",
+        "mode": "add",
+        "value": "cold-iron"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.xTe8lNBp76jsrhYh"
     },
@@ -54222,7 +54325,23 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "tusk",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["unarmed", "finesse"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "piercing"
+        },
+        "display": {
+          "label": "Tusk"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.M5195FvfCN3X7gi9"
     },
@@ -58482,6 +58601,54 @@
         ],
         "prompt": "Select an unarmed attack.",
         "rollOption": "witchs-armaments"
+      },
+      {
+        "key": "Strike",
+        "slug": "nails",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["agile", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "slashing"
+        },
+        "predicate": ["witchs-armaments:nails"],
+        "display": {
+          "label": "Eldritch Nails"
+        }
+      },
+      {
+        "key": "Strike",
+        "slug": "jaws",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d8",
+          "damageType": "piercing"
+        },
+        "predicate": ["witchs-armaments:teeth"],
+        "display": {
+          "label": "Iron Teeth"
+        }
+      },
+      {
+        "key": "Strike",
+        "slug": "living-hair",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["agile", "disarm", "finesse", "trip", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d4",
+          "damageType": "bludgeoning"
+        },
+        "predicate": ["witchs-armaments:hair"],
+        "display": {
+          "label": "Living Hair"
+        }
       }
     ],
     "externalIds": {

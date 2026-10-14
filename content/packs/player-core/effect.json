@@ -6587,6 +6587,36 @@
         "key": "Sense",
         "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb",
         "predicate": ["animal-feature:owl-eyes"]
+      },
+      {
+        "key": "Strike",
+        "slug": "claw",
+        "category": "unarmed",
+        "traits": ["agile", "finesse", "magical", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "slashing"
+        },
+        "predicate": ["animal-feature:claw"],
+        "display": {
+          "label": "Claw"
+        }
+      },
+      {
+        "key": "Strike",
+        "slug": "jaws",
+        "category": "unarmed",
+        "traits": ["magical", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d8",
+          "damageType": "piercing"
+        },
+        "predicate": ["animal-feature:jaws"],
+        "display": {
+          "label": "Jaws"
+        }
       }
     ],
     "externalIds": {
@@ -14467,6 +14497,13 @@
         "diceNumber": "ternary(gte(@item.level, 5), 3, ternary(gte(@item.level, 3), 2, 1))",
         "dieSize": "d4",
         "damageType": "vitality"
+      },
+      {
+        "key": "AdjustStrike",
+        "predicate": ["parent:origin:trait:holy"],
+        "property": "traits",
+        "mode": "add",
+        "value": "holy"
       }
     ],
     "externalIds": {
@@ -20574,6 +20611,36 @@
         ],
         "prompt": "Select a shift.",
         "rollOption": "untamed-shift"
+      },
+      {
+        "key": "Strike",
+        "slug": "claw",
+        "category": "unarmed",
+        "traits": ["agile", "finesse", "unarmed", "magical"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "slashing"
+        },
+        "predicate": ["untamed-shift:untamed-claws"],
+        "display": {
+          "label": "Claw"
+        }
+      },
+      {
+        "key": "Strike",
+        "slug": "jaws",
+        "category": "unarmed",
+        "traits": ["unarmed", "magical"],
+        "damage": {
+          "dice": 1,
+          "die": "d8",
+          "damageType": "piercing"
+        },
+        "predicate": ["untamed-shift:untamed-jaws"],
+        "display": {
+          "label": "Jaws"
+        }
       }
     ],
     "externalIds": {
