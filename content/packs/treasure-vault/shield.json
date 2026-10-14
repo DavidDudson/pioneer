@@ -1,0 +1,2904 @@
+[
+  {
+    "id": "9ac1fb35-0c33-5f09-a031-37069d4f194a",
+    "pack": "treasure-vault",
+    "kind": "shield",
+    "slug": "shield:casters-targe",
+    "name": "Caster's Targe",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["inscribed"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This small shield is made from wood. It features a special panel of parchment along the inside surface that allows for writing."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.9WcvCnh6SbIw5Cfw"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2
+        }
+      },
+      "bulk": 1,
+      "hardness": 3,
+      "hitPoints": 12,
+      "baseItem": "casters-targe",
+      "acBonus": 1
+    }
+  },
+  {
+    "id": "58d19e90-11cb-5d68-866b-c93d19f4df04",
+    "pack": "treasure-vault",
+    "kind": "shield",
+    "slug": "shield:clockwork-shield",
+    "name": "Clockwork Shield",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This brass-coated, steel shield (Hardness 12, HP 90, BT 45) has "
+          },
+          {
+            "type": "text",
+            "text": "+2 striking shield spikes",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " made of bronze gears."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The shield's gears begin to spin, subtly adjusting the shield's position as you fight. You gain an extra reaction this turn and at the start of each of your turns for the next minute that you can use only to Shield Block."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.S5CMsB7AyYC8iSa0"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1300
+        }
+      },
+      "bulk": 1,
+      "hardness": 12,
+      "hitPoints": 90,
+      "activations": [
+        {
+          "slug": "clockwork-shield",
+          "name": "Clockwork Shield",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "baseItem": "steel-shield",
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "f4b2172f-0693-50f3-b841-d17411f1d470",
+    "pack": "treasure-vault",
+    "kind": "shield",
+    "slug": "shield:clockwork-shield-greater",
+    "name": "Clockwork Shield (Greater)",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This brass-coated, steel shield (Hardness 17, HP 130, and BT 65) has "
+          },
+          {
+            "type": "text",
+            "text": "+3 greater striking shield spikes",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " made of bronze gears."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The shield's gears begin to spin, subtly adjusting the shield's position as you fight. You gain an extra reaction this turn and at the start of each of your turns for the next minute that you can use only to Shield Block."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ayST5rFSIKy2ynYk"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 22000
+        }
+      },
+      "bulk": 1,
+      "hardness": 17,
+      "hitPoints": 130,
+      "activations": [
+        {
+          "slug": "clockwork-shield-greater",
+          "name": "Clockwork Shield (Greater)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "baseItem": "steel-shield",
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "2f60a225-9128-5f73-88a3-e8082ad69501",
+    "pack": "treasure-vault",
+    "kind": "shield",
+    "slug": "shield:dart-shield",
+    "name": "Dart Shield",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["launching-dart"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This wooden shield features a spring-loaded device on its surface that can fire darts with powerful force. A small mechanism within the shield allows you to fire a dart even while actively holding the shield or blocking with it."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.lV1BKms3SxTvsn3N"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 8
+        }
+      },
+      "bulk": 1,
+      "hardness": 3,
+      "hitPoints": 12,
+      "baseItem": "dart-shield",
+      "acBonus": 1
+    }
+  },
+  {
+    "id": "9ff73111-ab19-56f5-82df-9597c7e10534",
+    "pack": "treasure-vault",
+    "kind": "shield",
+    "slug": "shield:fortress-shield",
+    "name": "Fortress Shield",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["hefty-2"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Also known as portable walls, these thick and heavy shields are slightly larger than tower shields. Like tower shields, they're typically made from wood reinforced with metal, but many are made from larger amounts of metal or even stone."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Getting the higher bonus for this shield requires using the Take Cover action while the shield is raised."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.tugYMolpupNz05cE"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 20
+        }
+      },
+      "bulk": 5,
+      "hardness": 6,
+      "hitPoints": 24,
+      "baseItem": "fortress-shield",
+      "acBonus": 3,
+      "speedPenalty": 10
+    }
+  },
+  {
+    "id": "2ec236fa-73b5-5ae7-aca3-e82630c5ebe7",
+    "pack": "treasure-vault",
+    "kind": "shield",
+    "slug": "shield:gauntlet-buckler",
+    "name": "Gauntlet Buckler",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["foldaway"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This buckler-sized shield is segmented, allowing it to collapse into a housing bound to a gauntlet for easy storage. A small catch enables you to expand the shield quickly in battle when you're in need of defense."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.2RrKSkj27NDREOKQ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": 1,
+      "hardness": 3,
+      "hitPoints": 6,
+      "baseItem": "gauntlet-buckler",
+      "acBonus": 1
+    }
+  },
+  {
+    "id": "cb91eec8-7e52-5f97-8cf0-093940b7dc1f",
+    "pack": "treasure-vault",
+    "kind": "shield",
+    "slug": "shield:harnessed-shield",
+    "name": "Harnessed Shield",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["harnessed"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This large steel shield features a specialized opening to hold lances and similar weapons. Harnessed shields are a common backup for those who fight with jousting weapons in case they're forced into combat without their mounts. Balancing the weapon within the shield's hold is somewhat awkward, and longer weapons, like lances, need to be held closer to the body than usual for proper support."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.3RUL5Oief3hdyUNU"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": 2,
+      "hardness": 5,
+      "hitPoints": 20,
+      "baseItem": "harnessed-shield",
+      "acBonus": 2,
+      "speedPenalty": 5
+    }
+  },
+  {
+    "id": "f01fdae1-6c02-52cf-aeff-479e0df66d39",
+    "pack": "treasure-vault",
+    "kind": "shield",
+    "slug": "shield:heavy-rondache",
+    "name": "Heavy Rondache",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Similar in size to a buckler, this steel shield is intended to absorb as many blows as possible instead of deflecting attacks. It features multiple layers of metal and is reinforced with additional wood."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.7GEV9zi2bz1iSdaW"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": 1,
+      "hardness": 5,
+      "hitPoints": 24,
+      "baseItem": "heavy-rondache",
+      "acBonus": 1
+    }
+  },
+  {
+    "id": "324d3423-f10d-5fe8-a943-139def1e28ae",
+    "pack": "treasure-vault",
+    "kind": "shield",
+    "slug": "shield:helmsmans-recourse",
+    "name": "Helmsman's Recourse",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["magical", "shield-throw-30"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This standard-grade duskwood meteor shield (Hardness 7, HP 28, BT 14) is a wheel from a ship. While wielding the shield, you gain a +1 item bonus to Sailing Lore and to Athletics checks to Swim."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're in a body of water"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " For 10 minutes, you don't sink if you haven't succeeded at a Swim action on a turn, and if you're submerged, you automatically ascend 10 feet at the end of your turn."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["action:swim"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["sailing-lore", "lore-sailing", "sailing"],
+        "type": "item",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.WDmuP3H7jNqobraf"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 150
+        }
+      },
+      "bulk": 1,
+      "hardness": 7,
+      "hitPoints": 28,
+      "material": {
+        "type": "duskwood",
+        "grade": "standard"
+      },
+      "activations": [
+        {
+          "slug": "helmsmans-recourse",
+          "name": "Helmsman's Recourse",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "baseItem": "meteor-shield",
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "5a09396b-e07b-5f1a-affd-19332e1b9227",
+    "pack": "treasure-vault",
+    "kind": "shield",
+    "slug": "shield:helmsmans-recourse-greater",
+    "name": "Helmsman's Recourse (Greater)",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["magical", "shield-throw-30"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Shield throw 30 ft."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This standard-grade duskwood meteor shield (Hardness 8, HP 60, BT 30) is a wheel from a ship. While wielding the shield, you gain a +1 item bonus to Sailing Lore and to Athletics checks to Swim."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're in a body of water"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " For 10 minutes, you don't sink if you haven't succeeded at a Swim action on a turn, and if you're submerged, you automatically ascend 10 feet at the end of your turn. When you Activate the shield, it casts Water Walk on you."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["action:swim"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["sailing-lore", "lore-sailing", "sailing"],
+        "type": "item",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.19T3MHwhB6Wk4AjV"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 625
+        }
+      },
+      "bulk": 1,
+      "hardness": 8,
+      "hitPoints": 60,
+      "material": {
+        "type": "duskwood",
+        "grade": "standard"
+      },
+      "activations": [
+        {
+          "slug": "helmsmans-recourse-greater",
+          "name": "Helmsman's Recourse (Greater)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "baseItem": "meteor-shield",
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "a2b37d7b-93bf-5e84-bfda-b220109a759f",
+    "pack": "treasure-vault",
+    "kind": "shield",
+    "slug": "shield:helmsmans-recourse-major",
+    "name": "Helmsman's Recourse (Major)",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["magical", "shield-throw-30"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Shield throw 30 ft."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This standard-grade duskwood meteor shield (Hardness 11, HP 80, BT 40) is a wheel from a ship. While wielding the shield, you gain a +2 item bonus to Sailing Lore and to Athletics checks to Swim."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " command"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're in a body of water"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " For 10 minutes, you don't sink if you haven't succeeded at a Swim action on a turn, and if you're submerged, you automatically ascend 10 feet at the end of your turn. When you Activate the shield, it casts Water Walk on you. and you can breathe underwater for 10 minutes."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["action:swim"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["sailing-lore", "lore-sailing", "sailing"],
+        "type": "item",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.kSjfrC31qFi2qovr"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2650
+        }
+      },
+      "bulk": 1,
+      "hardness": 11,
+      "hitPoints": 80,
+      "material": {
+        "type": "duskwood",
+        "grade": "standard"
+      },
+      "activations": [
+        {
+          "slug": "helmsmans-recourse-major",
+          "name": "Helmsman's Recourse (Major)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "baseItem": "meteor-shield",
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "f2378c8f-6ee7-5e16-b8a4-e696a4ed4190",
+    "pack": "treasure-vault",
+    "kind": "shield",
+    "slug": "shield:hide-shield",
+    "name": "Hide Shield",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["deflecting-bludgeoning"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Hide shields come in a variety of shapes and sizes. Specialized tanning techniques combined with tough hides from creatures such as owlbears result in these particularly tough shields. The hardened hide of the shield still has enough flexibility to diminish the impact of battering and pummeling attacks."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.L3qye4mR9I0fU1M3"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2
+        }
+      },
+      "bulk": 1,
+      "hardness": 4,
+      "hitPoints": 20,
+      "baseItem": "hide-shield",
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "f4bf8dce-7a06-5f7d-a491-2808932c9ccc",
+    "pack": "treasure-vault",
+    "kind": "shield",
+    "slug": "shield:klar",
+    "name": "Klar",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["integrated-1d6-s-versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This traditional Shoanti armament combines a short metal blade with the skull of a large horned lizard, fashioned as a shield. The lightweight shield allows for quick attacks with its integrated blade."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Li0kDAfCuw7DAiSM"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": 1,
+      "hardness": 3,
+      "hitPoints": 10,
+      "baseItem": "klar",
+      "acBonus": 1
+    }
+  },
+  {
+    "id": "300bf8ed-752f-5bef-a7cc-3443c948344b",
+    "pack": "treasure-vault",
+    "kind": "shield",
+    "slug": "shield:magnetic-shield",
+    "name": "Magnetic Shield",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["alchemical", "aura"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Copper rings spiral around this Steel Shield. Twin electrical probes near the grip can socket into a jar of moderate (or higher leveled) Bottled Lightning, which takes 3 Interact actions to install."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A "
+          },
+          {
+            "type": "text",
+            "text": "bottled lightning",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is installed in the shield"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The shield becomes an electromagnet for 3 rounds. When an activated magnetic shield is raised, the circumstance bonus increases by 1 against attacks made with weapons primarily made of metal. If you use a Shield Block against a creature attacking you with such a weapon, you also gain a +1 item bonus to Disarm attempts against that weapon until the end of your next turn. The activation uses up the "
+          },
+          {
+            "type": "text",
+            "text": "bottled lightning",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", and the shield can't be activated again until a new one is installed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.BPZPA9Y8kPewVYoW"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 130
+        }
+      },
+      "bulk": 1,
+      "hardness": 5,
+      "hitPoints": 20,
+      "baseItem": "steel-shield",
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "de7ca37e-56e7-5442-b056-d1ece2649601",
+    "pack": "treasure-vault",
+    "kind": "shield",
+    "slug": "shield:meteor-shield",
+    "name": "Meteor Shield",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["shield-throw-30"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Meteor shields are specifically designed with throwing in mind. A meteor shield is made from thin steel and has quick-release straps, allowing for easy, long-distance throws."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.XnD9zqlwRFFK1ltc"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": 1,
+      "hardness": 4,
+      "hitPoints": 16,
+      "baseItem": "meteor-shield",
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "bf09429f-f90e-5c7a-8047-00fcddbff6e9",
+    "pack": "treasure-vault",
+    "kind": "shield",
+    "slug": "shield:razor-disc",
+    "name": "Razor Disc",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["integrated-1d6-s", "shield-throw-20"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Several small blades line the outside edge of this steel shield. This specialized throwing shield is common among warriors in the Mwangi Expanse, where its blades can cut down foliage as it flies."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.hcoBRMF0zIA986Of"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": 1,
+      "hardness": 4,
+      "hitPoints": 16,
+      "baseItem": "razor-disc",
+      "acBonus": 1
+    }
+  },
+  {
+    "id": "1d6e8adc-f58a-5f05-b96c-23b480470619",
+    "pack": "treasure-vault",
+    "kind": "shield",
+    "slug": "shield:salvo-shield",
+    "name": "Salvo Shield",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["deflecting-physical-ranged"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This specialized steel shield features an outer layer of angled wooden or steel plates, which help deflect or redirect incoming ranged projectiles but don't offer any additional protection against melee weapons."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.kZYyXUX8dVXnAIVp"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6
+        }
+      },
+      "bulk": 1,
+      "hardness": 4,
+      "hitPoints": 20,
+      "baseItem": "salvo-shield",
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "1229c068-9a84-55cb-a537-3473a5988dfc",
+    "pack": "treasure-vault",
+    "kind": "shield",
+    "slug": "shield:sanguine-klar",
+    "name": "Sanguine Klar",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["integrated-1d6-s-versatile-p", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking wounding klar",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " (Hardness 8, HP 64, BT 32) is built with spikes made of beasts' fangs."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per round"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You or a creature within 5 feet of you suffers bleed damage"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The sanguine klar regains a number of Hit Points equal to the bleed damage, up to an amount equal to its Hardness."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.kFe3JyiO27YBboJy"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 650
+        }
+      },
+      "bulk": 1,
+      "hardness": 8,
+      "hitPoints": 64,
+      "activations": [
+        {
+          "slug": "sanguine-klar",
+          "name": "Sanguine Klar",
+          "frequency": {
+            "max": 1,
+            "per": "round"
+          }
+        }
+      ],
+      "baseItem": "klar",
+      "acBonus": 1
+    }
+  },
+  {
+    "id": "a553cf00-b76d-5031-aedf-86c8126fa86f",
+    "pack": "treasure-vault",
+    "kind": "shield",
+    "slug": "shield:sanguine-klar-greater",
+    "name": "Sanguine Klar (Greater)",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["integrated-1d6-s-versatile-p", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater striking wounding klar",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " (Hardness 13, HP 100, BT 50) is built with spikes made of beasts' fangs."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per round"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You or a creature within 30 feet of you suffers bleed damage"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The sanguine klar regains a number of Hit Points equal to the bleed damage, up to an amount equal to its Hardness."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.vkPNIDJPt2RHpS6T"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3700
+        }
+      },
+      "bulk": 1,
+      "hardness": 13,
+      "hitPoints": 100,
+      "activations": [
+        {
+          "slug": "sanguine-klar-greater",
+          "name": "Sanguine Klar (Greater)",
+          "frequency": {
+            "max": 1,
+            "per": "round"
+          }
+        }
+      ],
+      "baseItem": "klar",
+      "acBonus": 1
+    }
+  },
+  {
+    "id": "04c2f51b-0207-5040-b628-09204328ebd7",
+    "pack": "treasure-vault",
+    "kind": "shield",
+    "slug": "shield:sapling-shield-greater",
+    "name": "Sapling Shield (Greater)",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This surprisingly weighty, though well-balanced, wooden buckler (Hardness 11, HP 88, and BT 44) is emblazoned with the image of a sapling. The sapling withers as the shield takes damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The buckler expands, with the sapling image growing into a mighty oak tree. The buckler becomes a tower shield, gaining the corresponding AC bonus, Speed penalty, and ability to Take Cover. It keeps the same Hit Points and Broken Threshold, but its Hardness and Bulk increase by 2 in this form. The shield remains in this form until you Activate it again to revert it to a buckler."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:expanded-buckler",
+        "toggleable": true
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["speed"],
+        "type": "untyped",
+        "value": -5,
+        "predicate": ["option:expanded-buckler"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.QR7rqHMuU72NA47A"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1820
+        }
+      },
+      "bulk": 2,
+      "hardness": 11,
+      "hitPoints": 88,
+      "baseItem": "buckler",
+      "acBonus": 1
+    }
+  },
+  {
+    "id": "fa639aba-82cf-512a-9c54-9d10b8b383f8",
+    "pack": "treasure-vault",
+    "kind": "shield",
+    "slug": "shield:sapling-shield-lesser",
+    "name": "Sapling Shield (Lesser)",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This surprisingly weighty, though well-balanced, wooden buckler (Hardness 6, HP 48, and BT 24) is emblazoned with the image of a sapling. The sapling withers as the shield takes damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The buckler expands, with the sapling image growing into a mighty oak tree. The buckler becomes a tower shield, gaining the corresponding AC bonus, Speed penalty, and ability to Take Cover. It keeps the same Hit Points and Broken Threshold, but its Hardness and Bulk increase by 2 in this form. The shield remains in this form until you Activate it again to revert it to a buckler."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:expanded-buckler",
+        "toggleable": true
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["speed"],
+        "type": "untyped",
+        "value": -5,
+        "predicate": ["option:expanded-buckler"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.nS4ev4BZn9OUPYgt"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 240
+        }
+      },
+      "bulk": 2,
+      "hardness": 6,
+      "hitPoints": 48,
+      "baseItem": "buckler",
+      "acBonus": 1
+    }
+  },
+  {
+    "id": "6d5d13ea-22bb-5f58-aef5-bb742f4767fa",
+    "pack": "treasure-vault",
+    "kind": "shield",
+    "slug": "shield:sapling-shield-major",
+    "name": "Sapling Shield (Major)",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This surprisingly weighty, though well-balanced, wooden buckler (Hardness 13, HP 104, and BT 52) is emblazoned with the image of a sapling. The sapling withers as the shield takes damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The buckler expands, with the sapling image growing into a mighty oak tree. The buckler becomes a tower shield, gaining the corresponding AC bonus, Speed penalty, and ability to Take Cover. It keeps the same Hit Points and Broken Threshold, but its Hardness and Bulk increase by 2 in this form. The shield remains in this form until you Activate it again to revert it to a buckler."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:expanded-buckler",
+        "toggleable": true
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["speed"],
+        "type": "untyped",
+        "value": -5,
+        "predicate": ["option:expanded-buckler"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Qm9mmqMNKBaMn5so"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5860
+        }
+      },
+      "bulk": 2,
+      "hardness": 13,
+      "hitPoints": 104,
+      "baseItem": "buckler",
+      "acBonus": 1
+    }
+  },
+  {
+    "id": "2a6e908b-ac95-587d-85e9-d03425afb28c",
+    "pack": "treasure-vault",
+    "kind": "shield",
+    "slug": "shield:sapling-shield-minor",
+    "name": "Sapling Shield (Minor)",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This surprisingly weighty, though well-balanced, wooden buckler (Hardness 3, HP 24, and BT 12) is emblazoned with the image of a sapling. The sapling withers as the shield takes damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The buckler expands, with the sapling image growing into a mighty oak tree. The buckler becomes a tower shield, gaining the corresponding AC bonus, Speed penalty, and ability to Take Cover. It keeps the same Hit Points and Broken Threshold, but its Hardness and Bulk increase by 2 in this form. The shield remains in this form until you Activate it again to revert it to a buckler."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:expanded-buckler",
+        "toggleable": true
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["speed"],
+        "type": "untyped",
+        "value": -5,
+        "predicate": ["option:expanded-buckler"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.w0SXrrYSH1EL088n"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 57
+        }
+      },
+      "bulk": 2,
+      "hardness": 3,
+      "hitPoints": 24,
+      "baseItem": "buckler",
+      "acBonus": 1
+    }
+  },
+  {
+    "id": "01f61e60-84a7-5829-9b1a-b29c50d0423e",
+    "pack": "treasure-vault",
+    "kind": "shield",
+    "slug": "shield:sapling-shield-moderate",
+    "name": "Sapling Shield (Moderate)",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This surprisingly weighty, though well-balanced, wooden buckler (Hardness 8, HP 64, and BT 32) is emblazoned with the image of a sapling. The sapling withers as the shield takes damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The buckler expands, with the sapling image growing into a mighty oak tree. The buckler becomes a tower shield, gaining the corresponding AC bonus, Speed penalty, and ability to Take Cover. It keeps the same Hit Points and Broken Threshold, but its Hardness and Bulk increase by 2 in this form. The shield remains in this form until you Activate it again to revert it to a buckler."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:expanded-buckler",
+        "toggleable": true
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["speed"],
+        "type": "untyped",
+        "value": -5,
+        "predicate": ["option:expanded-buckler"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.3yeRZNUF4qZzCzHp"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 680
+        }
+      },
+      "bulk": 2,
+      "hardness": 8,
+      "hitPoints": 64,
+      "baseItem": "buckler",
+      "acBonus": 1
+    }
+  },
+  {
+    "id": "4b2d3415-f86f-5854-b875-5b6cffe76d6e",
+    "pack": "treasure-vault",
+    "kind": "shield",
+    "slug": "shield:sapling-shield-true",
+    "name": "Sapling Shield (True)",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This surprisingly weighty, though well-balanced, wooden buckler (Hardness 15, HP 120, and BT 60) is emblazoned with the image of a sapling. The sapling withers as the shield takes damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The buckler expands, with the sapling image growing into a mighty oak tree. The buckler becomes a tower shield, gaining the corresponding AC bonus, Speed penalty, and ability to Take Cover. It keeps the same Hit Points and Broken Threshold, but its Hardness and Bulk increase by 2 in this form. The shield remains in this form until you Activate it again to revert it to a buckler."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:expanded-buckler",
+        "toggleable": true
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["speed"],
+        "type": "untyped",
+        "value": -5,
+        "predicate": ["option:expanded-buckler"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.VJiKPxewJNLhimEi"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 20220
+        }
+      },
+      "bulk": 2,
+      "hardness": 15,
+      "hitPoints": 120,
+      "baseItem": "buckler",
+      "acBonus": 1
+    }
+  },
+  {
+    "id": "5f6cd670-8769-553d-9d29-c3668fa3f8d7",
+    "pack": "treasure-vault",
+    "kind": "shield",
+    "slug": "shield:scale-of-igroon",
+    "name": "Scale of Igroon",
+    "level": 21,
+    "rarity": "rare",
+    "traits": ["artifact", "primal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Carved from a scale of the kaiju Igroon, this jagged shield refracts light around it in a shimmering haze. A scale of Igroon (Hardness 20, HP 160, BT 80) recovers 4 Hit Points at the start of its wielder's turn. When you Raise a Shield, you can use the Shield Block reaction with the "
+          },
+          {
+            "type": "text",
+            "text": "scale of Igroon",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to block an attack or effect that deals acid, cold, electricity, fire, force, or sonic damage as well as physical damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're in an area of bright or dim light"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You angle the shield to refract light. Until the start of your next turn, you gain a +4 item bonus to Stealth checks to Hide and Sneak and can do so while observed. This bonus ends if you Activate another ability or use the Shield Block reaction."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're in an area of bright light"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You angle the shield at a target within 60 feet, reflecting light into its eyes. It must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 42
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is Blinded until its next turn begins."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is blinded for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is blinded for 2d4 hours."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You use Shield Block and prevent yourself from taking energy damage from a line, ray, or a direct attack, including a Force Barrage spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You reflect the energy along a trajectory you choose. The effect travels only up to its remaining range, using its original parameters if it strikes other targets."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destruction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If a deity, kaiju, spawn of a deity, titan, or being of similar power stomps on a scale of Igroon while in absolute darkness, the shield is destroyed permanently."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.XkIfwSTy0PQL3RPJ"
+    },
+    "data": {
+      "bulk": "light",
+      "hardness": 20,
+      "hitPoints": 160,
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "c27bc32d-515e-513c-b91a-14926b1bcb0f",
+    "pack": "treasure-vault",
+    "kind": "shield",
+    "slug": "shield:starfall-shield",
+    "name": "Starfall Shield",
+    "level": 19,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This high-grade adamantine heavy rondache (Hardness 17, HP 100, BT 50) bears a "
+          },
+          {
+            "type": "text",
+            "text": "+3 greater striking shield boss",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " and has dents that resemble craters on its surface. While wielding the shield, you have fire resistance 15."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Stride up to three times. This movement doesn't trigger reactions and ignores difficult terrain. At the end of your movement, you deal "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d10",
+                "damageType": "bludgeoning"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "14d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 40
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 40,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": ", with the results applying to both the bludgeoning and fire damage). The space where you end your movement and all adjacent spaces become difficult terrain for 1 minute, and the shield glows red-hot for 10 minutes, during which it gains the effect of the greater flaming property rune."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": 15
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.puPx1rmbhjNM2lcz"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 23000
+        }
+      },
+      "bulk": 1,
+      "hardness": 17,
+      "hitPoints": 100,
+      "material": {
+        "type": "adamantine",
+        "grade": "high"
+      },
+      "activations": [
+        {
+          "slug": "starfall-shield",
+          "name": "Starfall Shield",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "baseItem": "heavy-rondache",
+      "acBonus": 1
+    }
+  },
+  {
+    "id": "2c7b6143-d7b6-5173-b94a-a87e8809e612",
+    "pack": "treasure-vault",
+    "kind": "shield",
+    "slug": "shield:swordstealer-shield",
+    "name": "Swordstealer Shield",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["deflecting-slashing"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This specialized steel shield features several wide metal hooks along its surface. These hooks help catch swords and other blades, reducing the impact of their incoming attacks."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.lbAZmrRnV7OZvuol"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6
+        }
+      },
+      "bulk": 1,
+      "hardness": 4,
+      "hitPoints": 20,
+      "baseItem": "swordstealer-shield",
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "e24bbb4c-04cd-59bd-a48d-f011cd6e5c5c",
+    "pack": "treasure-vault",
+    "kind": "shield",
+    "slug": "shield:turnabout-shield",
+    "name": "Turnabout Shield",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["deflecting-physical-ranged", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The face of this standard-grade silver salvo shield (Hardness 7, HP 28, BT 14) is polished to a mirror finish."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A ranged Strike using ammunition such as arrows, bolts, or bullets (but not siege rounds or larger projectiles) misses you"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have the turnabout shield raised"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ammunition enters the shield and is redirected with the same force with which it was originally fired. Make a ranged Strike using the ammunition with an attack modifier of +19, targeting a creature within 60 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.uVmE0wsLw9tMv7hB"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 600
+        }
+      },
+      "bulk": 1,
+      "hardness": 7,
+      "hitPoints": 28,
+      "material": {
+        "type": "silver",
+        "grade": "standard"
+      },
+      "activations": [
+        {
+          "slug": "turnabout-shield",
+          "name": "Turnabout Shield",
+          "frequency": {
+            "max": 1,
+            "per": "ten-minutes"
+          }
+        }
+      ],
+      "baseItem": "salvo-shield",
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "3f29671f-f35f-5637-9373-cba13943e530",
+    "pack": "treasure-vault",
+    "kind": "shield",
+    "slug": "shield:warding-escutcheon",
+    "name": "Warding Escutcheon",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An image of a keyhole adorns the coat of arms of this stone tower shield (Hardness 10, HP 40, BT 20)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The shield becomes a locked door in an empty, adjacent space no wider than 5 feet, becoming flush with the surrounding structure so it blocks all passage. The door has the same Hardness, HP, and Broken Threshold as the shield, with "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:athletics",
+            "dc": 25
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:thievery",
+            "dc": 25
+          },
+          {
+            "type": "text",
+            "text": " to open. The door remains in place for 1 hour, until it's opened or broken, or until you spend an action to end this effect, at which point the shield returns to your hand (or falls to the ground in your space if your hands are full)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The shield floats lazily in the air as bricks quickly fly from it to form a squat stone tower around it. You cast Cozy Cabin, with the shield becoming the door."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TxQvgyLziolSVfqY"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 625
+        }
+      },
+      "bulk": 4,
+      "hardness": 10,
+      "hitPoints": 40,
+      "activations": [
+        {
+          "slug": "warding-escutcheon",
+          "name": "Warding Escutcheon",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "baseItem": "tower-shield",
+      "acBonus": 2,
+      "speedPenalty": 5
+    }
+  }
+]

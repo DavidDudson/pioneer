@@ -1,0 +1,122 @@
+[
+  {
+    "id": "faa17958-536a-5762-8bda-7ef4aed15800",
+    "pack": "treasure-vault",
+    "kind": "spell",
+    "slug": "spell:frosts-touch",
+    "name": "Frost's Touch",
+    "level": 1,
+    "rarity": "rare",
+    "traits": ["cantrip", "cold", "concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your "
+          },
+          {
+            "type": "text",
+            "text": "gelid shard",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " drinks down nearby heat in a futile attempt to sate itself and achieve a level of frigid cold unheard of in the Universe. This allows you to cool a drink, make a hot pot safe to handle, or other, similar minor effects. Once cooled, the object's temperature is subject to its environment as usual. You can also solidify ambient moisture into a solid object; this temporary object is of negligible Bulk, made of non-magical ice. The object looks crude and artificial and is extremely fragile—it can't be used as a tool, weapon, or locus or cost for a spell. Once created, it melts as normal for ice for the ambient conditions."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (3rd)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can create simple objects of ice with up to 1 Bulk and of a level not exceeding 1. Such objects must be rigid. You can only have one such object created at a time; if you create another, the previous object melts instantly."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (5th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Items you create can be up to 4 Bulk and 4th level."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (7th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Items you create can be up to 8 Bulk and 8th level."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (9th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Items you create can be up to 20 Bulk and 12th level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.WFSazGLCUuPsBv1p"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "one"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "object"
+          }
+        ]
+      },
+      "traditions": ["arcane"],
+      "damage": []
+    }
+  }
+]

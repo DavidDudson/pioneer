@@ -1,0 +1,1043 @@
+[
+  {
+    "id": "0c3de7c9-962a-5231-99a0-811cd60ff5ca",
+    "pack": "treasure-vault",
+    "kind": "feat",
+    "slug": "feat:bear-empathy",
+    "name": "Bear Empathy",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["archetype", "primal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have a magical affinity for bears and can speak to them through sounds and body language. You can communicate with all bears, as well as other ursine creatures at the GM's discretion."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.4w73cxvqhGRiozsK"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
+    "id": "89b4218f-0518-5a18-9cf0-c9cecb782b6b",
+    "pack": "treasure-vault",
+    "kind": "feat",
+    "slug": "feat:bear-hug",
+    "name": "Bear Hug",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your last action was a successful claw Strike."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You snatch at your opponent with your claws, pulling them close in a ferocious bear hug. You make another claw Strike against the same target. If this Strike hits, the target is also Grabbed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.U3A0kqJ2HKBYiu7X"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "one",
+        "requirements": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Your last action was a successful claw Strike."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "88ead617-7e74-5eeb-bb89-50132a8d065e",
+    "pack": "treasure-vault",
+    "kind": "feat",
+    "slug": "feat:call-ursine-ally",
+    "name": "Call Ursine Ally",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype", "primal", "summon"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can cast a 3rd-rank Summon Animal as an innate spell, but only to summon a Black Bear. At 10th level, the "
+          },
+          {
+            "type": "text",
+            "text": "summon animal",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " spell is heightened to 4th level, and you can summon a Grizzly Bear. At 12th level, your "
+          },
+          {
+            "type": "text",
+            "text": "summon animal",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " innate spell is heightened to 5th level, and you can summon a Polar Bear. At 14th level, it's heightened to 6th level, and you can summon a Cave Bear."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.kYYB7ziQZjlgQWWu"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "frequency": {
+          "max": 1,
+          "per": "hour"
+        }
+      }
+    }
+  },
+  {
+    "id": "171c5b86-98f7-5022-995b-67a61096ea6f",
+    "pack": "treasure-vault",
+    "kind": "feat",
+    "slug": "feat:expert-snowcasting",
+    "name": "Expert Snowcasting",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You draw ever more magical cold into your being, learning how to manipulate it to your whims. You gain the expert spellcasting benefits."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "expert"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.llDw5DqnB4LbIUCV"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
+    "id": "b99f0680-c5a9-5d9a-be73-e54e9964711a",
+    "pack": "treasure-vault",
+    "kind": "feat",
+    "slug": "feat:fearsome-fangs",
+    "name": "Fearsome Fangs",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your claws and jaws are brutally powerful and efficient, even by ursine standards. The base damage of your jaws unarmed attack from Ursine Avenger Form increases to 1d12. The base damage of your claws unarmed attack from Ursine Avenger Form increases to 1d8."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.CtC7DM1poHDwwu52"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
+    "id": "5aecd459-6cc7-5fe7-8962-f79441faad77",
+    "pack": "treasure-vault",
+    "kind": "feat",
+    "slug": "feat:first-frost",
+    "name": "First Frost",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The gelid shard within your heart may sap your ability to feel and experience emotion, but it also lets you create and manipulate cold. You learn to cast arcane spontaneous spells, and you gain a spell repertoire with the Frostbite and "
+          },
+          {
+            "type": "ref",
+            "id": "faa17958-536a-5762-8bda-7ef4aed15800"
+          },
+          {
+            "type": "text",
+            "text": " cantrips. You're trained in spell attack modifier and spell DC. Your key spellcasting attribute is Charisma."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.j2XKVhDuhdcI15kD"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
+    "id": "c21ac5ad-1fd1-5109-adc3-e3cac88b6348",
+    "pack": "treasure-vault",
+    "kind": "feat",
+    "slug": "feat:frozen-breadth",
+    "name": "Frozen Breadth",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your attunement to arcane cold enhances the depths of your growing power. Increase the number of spells in your repertoire and number of spell slots you gain from "
+          },
+          {
+            "type": "text",
+            "text": "gelid shard",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " archetype feats by 1 for each spell rank other than your two highest "
+          },
+          {
+            "type": "text",
+            "text": "gelid shard",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " spell slots."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.YMrcnO2l3mA71ohM"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
+    "id": "67e72e90-98be-5133-82e8-f0e0be211802",
+    "pack": "treasure-vault",
+    "kind": "feat",
+    "slug": "feat:great-bear",
+    "name": "Great Bear",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you transform, you can take on a bear's bulk and size. You can spend an additional action when using Ursine Avenger Form to gain the effects of a 1st-rank Enlarge spell, which lasts for the spell's normal duration or until you leave your Ursine Avenger Form, whichever comes first."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:great-bear",
+        "toggleable": true
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.ysXXa8K9fa383HAD"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Ursine Avenger Form"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "frequency": {
+          "max": 1,
+          "per": "hour"
+        }
+      }
+    }
+  },
+  {
+    "id": "f8fb045f-658a-58e7-ab36-2377e3f329b3",
+    "pack": "treasure-vault",
+    "kind": "feat",
+    "slug": "feat:greater-snow-step",
+    "name": "Greater Snow Step",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can't be impeded by environmental effects that rely on cold or its byproducts. You ignore greater difficult terrain caused by snow and ice."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.Mix4IwZRuCz7JS3T"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
+    "id": "29f77ced-d551-5b84-bb4c-c531f15552b3",
+    "pack": "treasure-vault",
+    "kind": "feat",
+    "slug": "feat:icy-apotheosis",
+    "name": "Icy Apotheosis",
+    "level": 20,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are as much a creature of cold as whatever ancestry you were born to. You are immune to cold damage and gain the cold trait. You automatically succeed on saving throws against effects that have the cold trait."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ActorTraits",
+        "add": ["cold"]
+      },
+      {
+        "key": "Immunity",
+        "type": ["cold"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["saving-throw"],
+        "adjustment": {
+          "criticalFailure": "to-success",
+          "failure": "to-success"
+        },
+        "predicate": ["option:cold"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.kOqW5ZtnOiWxKl9M"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
+    "id": "1d7d7e16-80df-5140-9854-538abb98a4fa",
+    "pack": "treasure-vault",
+    "kind": "feat",
+    "slug": "feat:immortal-bear",
+    "name": "Immortal Bear",
+    "level": 20,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your body thrums with the primal vitality of the greatest of the ursine beasts. When in Ursine Avenger Form, you gain fast healing 5."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FastHealing",
+        "value": 5,
+        "type": "fast-healing",
+        "predicate": ["self:effect:ursine-avenger-form"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.bwbPuv4JsilmMnPz"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Ursine Avenger Form"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "31012360-8c82-5904-8de3-9272261af1a3",
+    "pack": "treasure-vault",
+    "kind": "feat",
+    "slug": "feat:legendary-tattoo-artist",
+    "name": "Legendary Tattoo Artist",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["general", "skill"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your craftsmanship at decorating flesh is unparalleled. You become legendary in Crafting. Whenever you craft a magical tattoo whose level is at least 3 lower than your level, increase all attack roll and DC values of the tattoo's activated abilities by 1, and increase all resistances granted by the tattoo by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:crafting",
+        "rank": "legendary"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.VRCBTEyrcBf7auGz"
+    },
+    "data": {
+      "category": "skill",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Tattoo Artist; master in Crafting"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "56deba29-bc7f-57c0-a4e8-f96107e607cb",
+    "pack": "treasure-vault",
+    "kind": "feat",
+    "slug": "feat:master-snowcasting",
+    "name": "Master Snowcasting",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have unlocked the deeper magic of your "
+          },
+          {
+            "type": "text",
+            "text": "gelid shard",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", gaining access to new ranks of spells. You gain the master spellcasting benefits."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.syxJQ48bxE8NY91a"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
+    "id": "4d29b6a4-7e4b-5bd6-ab4d-4b82a45c492b",
+    "pack": "treasure-vault",
+    "kind": "feat",
+    "slug": "feat:mighty-bear",
+    "name": "Mighty Bear",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The power of the bear within you can expand your physical presence even further. The Enlarge spell you cast with your Great Bear feat is heightened to 4th level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.YaJ1JTBMhpu1RWXV"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Great Bear"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "1847e43f-82a3-5da5-b86f-994ae836e88f",
+    "pack": "treasure-vault",
+    "kind": "feat",
+    "slug": "feat:quick-setup",
+    "name": "Quick Setup",
+    "level": 7,
+    "rarity": "rare",
+    "traits": ["general", "skill"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you reduce the setup time for a batch of consumables at least 6 levels lower than you to less than 1 day, you can set it up in just 2 hours (allowing you to do so during an adventuring day if you have access to your tools and materials). If you rush the setup of a permanent item at least 6 levels lower than you and reduce the setup time to less than 1 day, you can perform the setup in 4 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.bcEI0iIFhZXqjoaR"
+    },
+    "data": {
+      "category": "skill",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "master in Crafting"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "b3715773-3d1e-5737-9fc3-e0d02bed64fb",
+    "pack": "treasure-vault",
+    "kind": "feat",
+    "slug": "feat:senses-of-the-bear",
+    "name": "Senses of the Bear",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While in ursine form, you gain low-light vision and scent (imprecise) 30 feet. If you already had low-light vision, you instead gain darkvision."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "279973df-e7b9-5fa1-9bb6-1cfdc54b82b6",
+        "acuity": "imprecise",
+        "range": 30,
+        "predicate": ["self:effect:ursine-avenger-form"]
+      },
+      {
+        "key": "Sense",
+        "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c",
+        "predicate": ["self:effect:ursine-avenger-form"]
+      },
+      {
+        "key": "Sense",
+        "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb",
+        "predicate": ["self:low-light-vision:from-ancestry", "self:effect:ursine-avenger-form"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.bj5QmGyrt7OYORjo"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
+    "id": "6189a366-34fa-59c0-9ba0-097cdbbc3357",
+    "pack": "treasure-vault",
+    "kind": "feat",
+    "slug": "feat:snow-step",
+    "name": "Snow Step",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Snow and ice are no hindrance to you. You ignore difficult terrain caused by snow and ice, treat greater difficult terrain created by snow and ice as difficult terrain, and leave no tracks when moving through areas of snow or ice."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.p6j4nLPRwksjfwPW"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
+    "id": "d7f298b5-cc10-5dc0-b401-9cdd33dcf12f",
+    "pack": "treasure-vault",
+    "kind": "feat",
+    "slug": "feat:snowcaster",
+    "name": "Snowcaster",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your magical power grows as the shard's icy influence spreads ever deeper into your being. You gain the basic spellcasting benefits. Each time you gain a spell slot of a new level from this archetype, add a spell of the appropriate spell rank (including heightened versions of lower-rank spells) to your repertoire, either a common spell of the arcane tradition that has the cold trait or another cold spell you have access to."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.81pD03pQup9sPzXv"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
+    "id": "28695a62-371b-578c-875d-290dd484e43c",
+    "pack": "treasure-vault",
+    "kind": "feat",
+    "slug": "feat:terrible-transformation",
+    "name": "Terrible Transformation",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You let out a mighty roar as part of your transformation. When you use Ursine Avenger Form, you can make an Intimidation check to Demoralize against each enemy within 30 feet that can see you, and you don't take a penalty to your Demoralize check if the creature doesn't understand your language."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.Ec9Q8cvOKFgeezx6"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Ursine Avenger Form"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "5b9b989d-e0b0-5380-9e39-e866fe393cf2",
+    "pack": "treasure-vault",
+    "kind": "feat",
+    "slug": "feat:ursine-avenger-form",
+    "name": "Ursine Avenger Form",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["archetype", "artifact", "morph", "primal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You draw the "
+          },
+          {
+            "type": "text",
+            "text": "Ursine Avenger Hood",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " over your head and its fur over your arms, assuming an ursine form that has traits of your original form as well as that of a bear. In your ursine form, you gain a jaws unarmed attack that deals 1d8 piercing damage and a claws unarmed attack that deals 1d6 slashing damage and has the agile trait. Both unarmed attacks are in the brawling group. You lose the ability to speak complex sentences while transformed and can only communicate through grunts and gestures; this prevents you from using effects that require a shared or spoken language until you revert back to your non-hybrid form. You can use this action while transformed to remove the hood and return to your original form."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.zV4vzcl7eoVewz5p"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "one",
+        "selfEffect": "09fbf345-b421-58a3-9fc2-1b92004f93bd"
+      }
+    }
+  },
+  {
+    "id": "5a1444d9-01dc-54d6-975b-adf56e0fffb1",
+    "pack": "treasure-vault",
+    "kind": "feat",
+    "slug": "feat:winters-embrace",
+    "name": "Winter's Embrace",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eyes are accustomed to the harsh glare of the sun on snow and ice. You gain a +1 status bonus to saving throws against effects that inflict the Dazzled condition. Snow doesn't impair your vision; you ignore concealment from snowfall. Your skin becomes cold to the touch, and sometimes frost forms on you. You are protected from severe cold and heat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "saving-throw",
+        "option": "option:winters-embrace",
+        "toggleable": true
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["option:winters-embrace"],
+        "display": {
+          "label": "Winter's Embrace (Dazzled)"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.NLjxAO9Mhx3k7gpc"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
+    "id": "27797af9-40b4-5c8f-aacb-fb65287732e5",
+    "pack": "treasure-vault",
+    "kind": "feat",
+    "slug": "feat:winters-kiss",
+    "name": "Winter's Kiss",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whether in the heart of a volcanic passageway or the glacial tundras of the Crown of the World, the only temperature you ever personally experience is an oddly comfortable chill. You are now protected from extreme cold and extreme heat, and you gain resistance to fire equal to half your level. If you would already have resistance to fire equal to half your level from a heritage, ancestry feat, class feat, or another archetype feat, you instead gain resistance to fire equal to your level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.mprVzno2BR2VhRSJ"
+    },
+    "data": {
+      "category": "class"
+    }
+  }
+]

@@ -26,6 +26,7 @@ export async function coreRulesPack(): Promise<PackContents> {
     import('@pioneer/content/packs/core-rules/imported/player-core/statistic.json'),
     import('@pioneer/content/packs/core-rules/imported/player-core/trait.json'),
     import('@pioneer/content/packs/core-rules/imported/divine-mysteries/trait.json'),
+    import('@pioneer/content/packs/core-rules/imported/treasure-vault/trait.json'),
     import('@pioneer/content/packs/core-rules/imported/gm-core/trait.json'),
   ]);
 }
@@ -86,5 +87,20 @@ export async function gmCorePack(): Promise<PackContents> {
 export async function monsterCorePack(): Promise<PackContents> {
   return pack(import('@pioneer/content/packs/monster-core/pack.json'), [
     import('@pioneer/content/packs/monster-core/creature.json'),
+  ]);
+}
+
+export async function treasureVaultPack(): Promise<PackContents> {
+  return pack(import('@pioneer/content/packs/treasure-vault/pack.json'), [
+    import('@pioneer/content/packs/treasure-vault/action.json'),
+    import('@pioneer/content/packs/treasure-vault/armor.json'),
+    import('@pioneer/content/packs/treasure-vault/consumable.json'),
+    import('@pioneer/content/packs/treasure-vault/effect.json'),
+    import('@pioneer/content/packs/treasure-vault/equipment.json'),
+    import('@pioneer/content/packs/treasure-vault/feat.json'),
+    import('@pioneer/content/packs/treasure-vault/rune.json'),
+    import('@pioneer/content/packs/treasure-vault/shield.json'),
+    import('@pioneer/content/packs/treasure-vault/spell.json'),
+    import('@pioneer/content/packs/treasure-vault/weapon.json'),
   ]);
 }

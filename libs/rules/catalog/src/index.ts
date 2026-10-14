@@ -2,7 +2,7 @@ import { contentPackFromContents, PackId } from '@pioneer/rules/sdk';
 import type { ContentPack, ContentPackLoader, PackContents, PackContentsLoader } from '@pioneer/rules/sdk';
 
 import { bookRegistry } from './book-registry';
-import { coreRulesPack, divineMysteriesPack, gmCorePack, monsterCorePack, playerCorePack } from './json-packs';
+import { coreRulesPack, divineMysteriesPack, gmCorePack, monsterCorePack, playerCorePack, treasureVaultPack } from './json-packs';
 import { checkPackSources } from './source-check';
 
 export { BookRegistry, bookRegistry } from './book-registry';
@@ -50,6 +50,7 @@ export const officialPacks: readonly PackContentsLoader[] = [
   checkedLoader('player-core', playerCorePack),
   checkedLoader('monster-core', monsterCorePack),
   checkedLoader('divine-mysteries', divineMysteriesPack),
+  checkedLoader('treasure-vault', treasureVaultPack),
   checkedLoader('gm-core', gmCorePack),
 ];
 

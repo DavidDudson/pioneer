@@ -38,5 +38,13 @@
     "remaster": true,
     "released": "2025-01-30",
     "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=234"
+  },
+  {
+    "id": "treasure-vault",
+    "publisher": "paizo",
+    "license": "ORC",
+    "remaster": true,
+    "released": "2025-06-04",
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=191"
   }
 ]

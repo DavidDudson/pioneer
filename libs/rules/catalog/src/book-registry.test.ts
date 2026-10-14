@@ -1,22 +1,31 @@
-import { describe, expect, test } from 'bun:test';
+import { describe, expect, test } from "bun:test";
 
-import { Book, BOOK_TITLES, BookId, ContentLicense, Publisher, RulesMessage } from '@pioneer/rules/sdk';
-import { fieldIssues, message, Temporal } from '@pioneer/shared/kernel';
-import type { FieldIssue } from '@pioneer/shared/kernel';
-import * as z from 'zod';
+import {
+  Book,
+  BOOK_TITLES,
+  BookId,
+  ContentLicense,
+  Publisher,
+  RulesMessage,
+} from "@pioneer/rules/sdk";
+import { fieldIssues, message, Temporal } from "@pioneer/shared/kernel";
+import type { FieldIssue } from "@pioneer/shared/kernel";
+import * as z from "zod";
 
-import { BookRegistry, bookRegistry } from './book-registry';
+import { BookRegistry, bookRegistry } from "./book-registry";
 
-const PLAYER_CORE = BookId.parse('player-core');
+const PLAYER_CORE = BookId.parse("player-core");
 
-function playerCore(overrides: Readonly<Record<string, unknown>> = {}): Record<string, unknown> {
+function playerCore(
+  overrides: Readonly<Record<string, unknown>> = {},
+): Record<string, unknown> {
   return {
-    id: 'player-core',
+    id: "player-core",
     publisher: Publisher.Paizo,
     license: ContentLicense.Orc,
     remaster: true,
-    released: '2023-11-15',
-    aonSourceUrl: 'https://2e.aonprd.com/Sources.aspx?ID=216',
+    released: "2023-11-15",
+    aonSourceUrl: "https://2e.aonprd.com/Sources.aspx?ID=216",
     ...overrides,
   };
 }
@@ -33,49 +42,71 @@ function registryIssues(input: unknown): readonly FieldIssue[] {
   }
 }
 
-describe('book registry', () => {
-  test('books.json validates and has the remaster core books', () => {
+describe("book registry", () => {
+  test("books.json validates and has the remaster core books", () => {
     expect(bookRegistry.books.map((book) => book.id).toSorted()).toStrictEqual(
-      ['divine-mysteries', 'gm-core', 'monster-core', 'player-core', 'player-core-2'].map((id) => BookId.parse(id)),
+      [
+        "divine-mysteries",
+        "gm-core",
+        "monster-core",
+        "player-core",
+        "player-core-2",
+        "treasure-vault",
+      ].map((id) => BookId.parse(id)),
     );
   });
 
-  test('every registered book has a title key and its AoN Sources page', () => {
+  test("every registered book has a title key and its AoN Sources page", () => {
     for (const book of bookRegistry.books) {
       expect(BOOK_TITLES.has(book.id)).toBe(true);
       expect(book.aonSourceUrl).toBeDefined();
     }
   });
 
-  test('looks a book up by id, with its release as a date', () => {
+  test("looks a book up by id, with its release as a date", () => {
     const book = bookRegistry.book(PLAYER_CORE);
     expect(book?.license).toBe(ContentLicense.Orc);
-    expect(book?.released?.equals(Temporal.PlainDate.from('2023-11-15'))).toBe(true);
-    expect(bookRegistry.book(BookId.parse('core-rulebook'))).toBeUndefined();
+    expect(book?.released?.equals(Temporal.PlainDate.from("2023-11-15"))).toBe(
+      true,
+    );
+    expect(bookRegistry.book(BookId.parse("core-rulebook"))).toBeUndefined();
   });
 
-  test('rejects a book listed twice', () => {
+  test("rejects a book listed twice", () => {
     expect(registryIssues([playerCore(), playerCore()])).toStrictEqual([
-      { path: [1, 'id'], message: message(RulesMessage.ListDuplicate, { value: 'player-core' }) },
+      {
+        path: [1, "id"],
+        message: message(RulesMessage.ListDuplicate, { value: "player-core" }),
+      },
     ]);
   });
 
-  test('rejects a book without a title key', () => {
-    expect(registryIssues([playerCore({ id: 'core-rulebook' })])).toStrictEqual([
-      { path: [0, 'id'], message: message(RulesMessage.BookUntitled, { book: 'core-rulebook' }) },
+  test("rejects a book without a title key", () => {
+    expect(registryIssues([playerCore({ id: "core-rulebook" })])).toStrictEqual(
+      [
+        {
+          path: [0, "id"],
+          message: message(RulesMessage.BookUntitled, {
+            book: "core-rulebook",
+          }),
+        },
+      ],
+    );
+  });
+
+  test.each([
+    "https://2e.aonprd.com/Sources.aspx",
+    "https://2e.aonprd.com/Feats.aspx?ID=1",
+  ])("rejects %s: a book links one page under AoN Sources", (aonSourceUrl) => {
+    expect(registryIssues([playerCore({ aonSourceUrl })])).toStrictEqual([
+      {
+        path: [0, "aonSourceUrl"],
+        message: message(RulesMessage.BookAonSourceUrl),
+      },
     ]);
   });
 
-  test.each(['https://2e.aonprd.com/Sources.aspx', 'https://2e.aonprd.com/Feats.aspx?ID=1'])(
-    'rejects %s: a book links one page under AoN Sources',
-    (aonSourceUrl) => {
-      expect(registryIssues([playerCore({ aonSourceUrl })])).toStrictEqual([
-        { path: [0, 'aonSourceUrl'], message: message(RulesMessage.BookAonSourceUrl) },
-      ]);
-    },
-  );
-
-  test('every registered book round-trips through the wire schema', () => {
+  test("every registered book round-trips through the wire schema", () => {
     for (const book of bookRegistry.books) {
       expect(Book.parse(z.encode(Book, book))).toStrictEqual(book);
     }
