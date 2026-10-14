@@ -1,0 +1,11 @@
+@if (roller && kind() === Check) {
+  <fr-button
+    iconOnly
+    [variant]="ghost"
+    [size]="small"
+    [ariaLabel]="Message.Roll | transloco: { name: name() }"
+    (pressed)="roll()"
+  >
+    <fr-icon [icon]="Dices" />
+  </fr-button>
+}

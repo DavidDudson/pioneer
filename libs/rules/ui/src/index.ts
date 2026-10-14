@@ -123,3 +123,4 @@ export {
   deityRowValue,
   shownDeityRows,
 } from './lib/deity-picker/deity-picker-table';
+export { STATISTIC_ROLLER, type RollableStatistic, type StatisticRoller } from './lib/statistics/statistic-roller';

@@ -6,10 +6,10 @@
   }
   @for (die of shown.dice; track $index) {
     @if (die.kept) {
-      <fr-text numeric>{{ 'play.dice.die' | transloco: { face: die.face } }}</fr-text>
+      <fr-text numeric>{{ 'roll.card.die' | transloco: { face: die.face } }}</fr-text>
     } @else {
-      <fr-text numeric tone="subtle">{{ 'play.dice.droppedDie' | transloco: { face: die.face } }}</fr-text>
+      <fr-text numeric tone="subtle">{{ 'roll.card.droppedDie' | transloco: { face: die.face } }}</fr-text>
     }
   }
-  <fr-text numeric weight="semibold">{{ 'play.dice.termValue' | transloco: { value: shown.value } }}</fr-text>
+  <fr-text numeric weight="semibold">{{ 'roll.card.termValue' | transloco: { value: shown.value } }}</fr-text>
 </fr-stack>

@@ -37,12 +37,12 @@ export class RollDamage {
   protected readonly sections = computed((): readonly SectionDisplay[] => {
     const damage = this.damage();
     const immediate: SectionDisplay = {
-      headingKey: 'play.dice.damageTaken',
+      headingKey: 'roll.card.damageTaken',
       taken: this.#format.number(damage.taken),
       instances: damage.immediate.map((instance) => this.#instance(instance)),
     };
     const persistent: SectionDisplay = {
-      headingKey: 'play.dice.persistentTaken',
+      headingKey: 'roll.card.persistentTaken',
       taken: this.#format.number(damage.persistentTaken),
       instances: damage.persistent.map((instance) => this.#instance(instance)),
     };

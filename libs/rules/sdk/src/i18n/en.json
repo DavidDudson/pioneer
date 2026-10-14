@@ -608,7 +608,8 @@
       "failed": "Failed",
       "pinned": "Pinned",
       "computed": "computed {computed}",
-      "conditional": "{value} {hasSummary, select, yes {when {summary}} other {in some situations}} ({name})"
+      "conditional": "{value} {hasSummary, select, yes {when {summary}} other {in some situations}} ({name})",
+      "roll": "Roll {name}"
     },
     "strikes": {
       "damage": "{roll} {type}",
@@ -865,9 +866,18 @@
     "pickerCell": {
       "level": "Level {level}",
       "action": {
-        "variable": { "label": "One to three actions", "glyph": "◆ to ◆◆◆" },
-        "time": { "label": "Minutes or longer to cast", "glyph": "min+" },
-        "passive": { "label": "Passive", "glyph": "—" }
+        "variable": {
+          "label": "One to three actions",
+          "glyph": "◆ to ◆◆◆"
+        },
+        "time": {
+          "label": "Minutes or longer to cast",
+          "glyph": "min+"
+        },
+        "passive": {
+          "label": "Passive",
+          "glyph": "—"
+        }
       },
       "prerequisite": {
         "met": "Met: {prerequisite}",

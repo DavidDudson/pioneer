@@ -357,6 +357,12 @@ The sheet lists it as its own row; what overcharging costs stays with the item's
   `all`, which also covers untyped damage. Importers map Foundry's all-damage key onto `all`.
 - Every roll result keeps the full breakdown it was rolled with and the conditional toggles chosen, so the log can
   always answer "why 23?".
+- Rolling from the sheet: a check statistic (a skill, a save, Perception, a Strike or spell attack) has a roll button. It
+  rolls one d20 plus the statistic's total from the engine's breakdown, and the last roll shows in the sheet header on a
+  roll card (`libs/play/ui`) with that breakdown under it. The card has a DC box: with a DC it shows the degree,
+  tinted by status (a critical success and a critical failure solid), and an adjusted degree reads "success to critical
+  success, from Juggernaut". Without a DC no degree shows. A statistics list asks the page to roll through
+  `STATISTIC_ROLLER` (`rules/ui`), so `rules/ui` never depends on the play libraries.
 
 RNG: browser `crypto.getRandomValues`. Pioneer rolls are for solo play; shared and secret rolls in a campaign are
 Foundry's.

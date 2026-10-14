@@ -87,6 +87,10 @@ libs/
                     presentational, own Storybook, ADR-0028)
   content/          (TS packs retired; replaced by content/ JSON data, see content-model.md)
   character/        domain, application, infrastructure, feature (exists)
+  play/
+    ui/             Angular rendering of rolls: the roll card, attempts, degree and damage (frontier components
+                    only; presentational, own Storybook, ADR-0028); the sheet and the dice playground use it
+    feature/        solo play: the dice and rules playgrounds (exists)
   campaign/         domain, application, infrastructure, feature
   homebrew/         authoring use cases and editor UI
   identity/         domain, application, infrastructure, data-access, feature (exists): accounts, OAuth
