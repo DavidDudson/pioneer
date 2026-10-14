@@ -10,13 +10,28 @@ import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import type { PackContentsLoader } from '@pioneer/rules/sdk';
 import { provideI18n } from '@pioneer/shared/web';
 import { QueryClient } from '@tanstack/angular-query-experimental';
-import { expect, onTestFinished, vi } from 'vitest';
+import { beforeAll, expect, onTestFinished, vi } from 'vitest';
 
 import { characterRoutes } from '../character.routes';
-import { prebuildServerStateTesting, provideServerStateTesting } from './provide-server-state-testing';
+import {
+  PREBUILD_TIMEOUT,
+  prebuildServerStateTesting,
+  provideServerStateTesting,
+} from './provide-server-state-testing';
 
+/**
+ * Loads the sheet page's chunk (the page, the engine and the tabs under it) before the first test of each spec file.
+ * The route imports it lazily, and the first import takes seconds, which landed in whichever test ran first and
+ * pushed it past its own timeout on a loaded machine.
+ */
+beforeAll(async () => {
+  await import('../sheet/character-sheet-page/character-sheet-page.component');
+}, PREBUILD_TIMEOUT);
 /** How long a sheet may take to open: its registries build from the official packs, slow on a busy CI runner. */
 const SHEET_OPEN_TIMEOUT = 20_000;
+
+/** How often a read waited for is tried again, in ms: the default 50 ms, chained over a page's reads, was most of an open. */
+const POLL_INTERVAL = 5;
 
 export const id = CharacterId.parse('0d9f7c1e-3b7a-4c55-9d1f-2a8f2b9c6e10');
 
@@ -125,11 +140,14 @@ export function deathOf(track: object, revision = 1): object {
  * application unstable, so a spec waiting on it never settles.
  */
 export async function answerPlayRead(play: object = playOf(0, 0)): Promise<void> {
-  await vi.waitFor(() => {
-    TestBed.inject(HttpTestingController)
-      .expectOne({ method: 'GET', url: `/api/characters/${id}/play` })
-      .flush(play);
-  });
+  await vi.waitFor(
+    () => {
+      TestBed.inject(HttpTestingController)
+        .expectOne({ method: 'GET', url: `/api/characters/${id}/play` })
+        .flush(play);
+    },
+    { interval: POLL_INTERVAL },
+  );
 }
 
 /**
@@ -137,11 +155,14 @@ export async function answerPlayRead(play: object = playOf(0, 0)): Promise<void>
  * unanswered the registry never loads.
  */
 export async function answerPacksRead(packs: object = NO_CHARACTER_PACKS): Promise<void> {
-  await vi.waitFor(() => {
-    TestBed.inject(HttpTestingController)
-      .expectOne({ method: 'GET', url: `/api/characters/${id}/packs` })
-      .flush(packs);
-  });
+  await vi.waitFor(
+    () => {
+      TestBed.inject(HttpTestingController)
+        .expectOne({ method: 'GET', url: `/api/characters/${id}/packs` })
+        .flush(packs);
+    },
+    { interval: POLL_INTERVAL },
+  );
 }
 
 /** The server's answer to an edit of Merisiel: her sheet, and the picks the edit cleared. */
@@ -170,9 +191,12 @@ export interface OpenSheet {
 
 /** Answers the sheet's reads of the character, its play state and its packs. */
 async function answerReads(character: object, options: SheetOptions): Promise<void> {
-  await vi.waitFor(() => {
-    TestBed.inject(HttpTestingController).expectOne(`/api/characters/${id}`).flush(sheetOf(character, options));
-  });
+  await vi.waitFor(
+    () => {
+      TestBed.inject(HttpTestingController).expectOne(`/api/characters/${id}`).flush(sheetOf(character, options));
+    },
+    { interval: POLL_INTERVAL },
+  );
   await answerPlayRead(options.play);
   // Every tab reads the character's packs: the content registry waits for them to build over the right ones.
   await answerPacksRead(options.characterPacks);
@@ -202,17 +226,20 @@ export async function openSheet(character: object = MERISIEL, options: SheetOpti
   });
   await answerReads(character, options);
   const root = present(harness.routeNativeElement);
-  await vi.waitFor(async () => {
-    // The feats section reads the user''s feat filter once it renders; other tabs never ask.
-    for (const read of TestBed.inject(HttpTestingController).match(`/api/characters/${id}/feat-display`)) {
-      read.flush(options.featDisplay ?? { showGrantOnly: [] });
-    }
-    // Through the application, not `harness.detectChanges()`, so render hooks (roving focus) run as in the app.
-    await TestBed.inject(ApplicationRef).whenStable();
-    expect(root.textContent).toContain('Merisiel');
-    // The content registries build once the packs are known; a spec holding an element before then holds a placeholder.
-    expect(TestBed.inject(QueryClient).isFetching({ queryKey: ['content'] })).toBe(0);
-  }, SHEET_OPEN_TIMEOUT);
+  await vi.waitFor(
+    async () => {
+      // The feats section reads the user''s feat filter once it renders; other tabs never ask.
+      for (const read of TestBed.inject(HttpTestingController).match(`/api/characters/${id}/feat-display`)) {
+        read.flush(options.featDisplay ?? { showGrantOnly: [] });
+      }
+      // Through the application, not `harness.detectChanges()`, so render hooks (roving focus) run as in the app.
+      await TestBed.inject(ApplicationRef).whenStable();
+      expect(root.textContent).toContain('Merisiel');
+      // The content registries build once the packs are known; a spec holding an element before then holds a placeholder.
+      expect(TestBed.inject(QueryClient).isFetching({ queryKey: ['content'] })).toBe(0);
+    },
+    { timeout: SHEET_OPEN_TIMEOUT, interval: POLL_INTERVAL },
+  );
   return remembered({ harness, root });
 }
 
