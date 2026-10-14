@@ -2,7 +2,13 @@ import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 import { expect, within } from 'storybook/test';
 
 import { ENTRY_NAMES } from '../testing/breakdown-fixtures';
-import { FAILED_STRIKE, FIGHTER_STRIKES, NO_DAMAGE_STRIKE, STEEL_SHIELD } from '../testing/strike-fixtures';
+import {
+  FAILED_STRIKE,
+  FIGHTER_STRIKES,
+  NO_DAMAGE_STRIKE,
+  STEEL_SHIELD,
+  THROWN_STRIKES,
+} from '../testing/strike-fixtures';
 import { StrikesView } from './strikes.component';
 
 type StrikesStory = StoryObj<StrikesView>;
@@ -54,6 +60,16 @@ export const Failed: StrikesStory = {
 /** A weapon with no dice and no die does no damage. */
 export const NoDamage: StrikesStory = {
   args: { strikes: NO_DAMAGE_STRIKE },
+};
+
+/** A stack of alchemist's fire and a holy water: range increment, persistent and splash damage, stack size. */
+export const Thrown: StrikesStory = {
+  args: { strikes: THROWN_STRIKES },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('1 persistent fire')).toBeVisible();
+    await expect(canvas.getByText('3 in stack')).toBeVisible();
+  },
 };
 
 /** A held shield: its Hardness, Hit Points and Broken Threshold sit with the Strikes. */

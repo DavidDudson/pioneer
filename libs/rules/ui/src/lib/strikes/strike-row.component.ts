@@ -46,6 +46,8 @@ export interface ShownStrike {
   readonly damage: string;
   /** The flat damage statistic's breakdown, when it derived. */
   readonly bonus: StatisticValue | undefined;
+  /** "Range increment 20 ft", "1d6 persistent fire", "1 fire splash", "3 in stack": what a thrown Strike adds. */
+  readonly thrown: readonly string[];
   /** "Multiple attack penalty -5 / -10". */
   readonly penalty: string;
 }

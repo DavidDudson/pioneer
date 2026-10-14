@@ -1,5 +1,5 @@
 import { DiceCount, Modifier, Selector, Trait } from '@pioneer/rules/sdk';
-import type { DamageType, DieSize } from '@pioneer/rules/sdk';
+import type { DamageAmount, DamageType, DieSize, PersistentDamage } from '@pioneer/rules/sdk';
 
 import type { WeaponInputs } from './source-inputs';
 import type { StatisticResult } from './statistic-result';
@@ -19,6 +19,10 @@ export interface StrikeDamage {
   readonly dice: DiceCount;
   readonly die: DieSize | undefined;
   readonly damageType: DamageType;
+  /** A bomb's persistent damage ("1d6 fire"), which neither the flat bonus nor a striking rune changes. */
+  readonly persistent: PersistentDamage | undefined;
+  /** A bomb's splash damage, of the damage's type, dealt to creatures near its target; no bonus adds to it. */
+  readonly splash: DamageAmount | undefined;
   /** The `strike-damage:<slug>` statistic: Strength and whatever else adds to damage. Undefined if not derived. */
   readonly bonus: StatisticResult | undefined;
 }
@@ -68,8 +72,15 @@ function damageOf(weapon: WeaponInputs, results: ReadonlyMap<Selector, Statistic
   if (dice === undefined || weapon.damage === undefined) {
     return undefined;
   }
-  const { die, damageType } = weapon.damage;
-  return { dice, die, damageType, bonus: results.get(Selector.parse(`${DAMAGE}:${weapon.slug}`)) };
+  const { die, damageType, persistent } = weapon.damage;
+  return {
+    dice,
+    die,
+    damageType,
+    persistent,
+    splash: weapon.splash,
+    bonus: results.get(Selector.parse(`${DAMAGE}:${weapon.slug}`)),
+  };
 }
 
 /**

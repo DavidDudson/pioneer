@@ -617,7 +617,11 @@
       "damageHeading": "Damage bonus",
       "noDamage": "No damage",
       "attacks": "Attack {first} / {second} / {third}",
-      "shield": "{name}: Hardness {hardness}, HP {hitPoints}, Broken Threshold {brokenThreshold}"
+      "shield": "{name}: Hardness {hardness}, HP {hitPoints}, Broken Threshold {brokenThreshold}",
+      "persistent": "{formula} persistent {type}",
+      "splash": "{amount} {type} splash",
+      "rangeIncrement": "Range increment {range} ft",
+      "quantity": "{count} in stack"
     },
     "attributes": {
       "str": "Strength",

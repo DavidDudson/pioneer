@@ -10,6 +10,7 @@ import {
   FIGHTER_STRIKES,
   NO_DAMAGE_STRIKE,
   STEEL_SHIELD,
+  THROWN_STRIKES,
 } from '../testing/strike-fixtures';
 import { StrikesView } from './strikes.component';
 import type { NamedStrike } from './strikes.component';
@@ -123,6 +124,27 @@ describe(StrikesView, () => {
     const fixture = await render(FAILED_STRIKE);
 
     expect(textOf(hostOf(fixture))).toContain('Failed');
+  });
+
+  it('shows a thrown stack range, persistent and splash damage, and how many are left', async () => {
+    const fixture = await render(THROWN_STRIKES);
+    const [fire] = rowsOf(fixture).map((row) => textOf(row));
+
+    expect(fire).toContain('1d8 fire');
+    expect(fire).toContain('Range increment 20 ft');
+    expect(fire).toContain('1 persistent fire');
+    expect(fire).toContain('1 fire splash');
+    expect(fire).toContain('3 in stack');
+  });
+
+  it('shows holy water splash in its own type', async () => {
+    const fixture = await render(THROWN_STRIKES);
+    const water = rowsOf(fixture)
+      .map((row) => textOf(row))
+      .at(1);
+
+    expect(water).toContain('1 spirit splash');
+    expect(water).toContain('1 in stack');
   });
 
   it('says a weapon with no dice does no damage', async () => {

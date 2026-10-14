@@ -4,7 +4,10 @@ import { TextPosition } from '@pioneer/rules/formula';
 import {
   ContentId,
   contentId,
+  DamageAmount,
   DiceCount,
+  Feet,
+  ItemCount,
   ModifierType,
   EntrySlug,
   PackId,
@@ -32,9 +35,12 @@ interface FixtureWeapon {
   readonly traits: readonly string[];
   readonly damage: object;
   readonly striking?: RuneGrade;
+  readonly splash?: number;
+  readonly range?: number;
+  readonly quantity?: number;
 }
 
-function weapon({ slug, traits, damage, striking }: FixtureWeapon): WeaponInputs {
+function weapon({ slug, traits, damage, striking, splash, range, quantity }: FixtureWeapon): WeaponInputs {
   const entry = ContentId.parse(contentId(PLAYER_CORE, EntrySlug.parse(`weapon:${slug}`)));
   return {
     slug: Slug.parse(slug),
@@ -42,6 +48,9 @@ function weapon({ slug, traits, damage, striking }: FixtureWeapon): WeaponInputs
     traits: traits.map((trait) => Trait.parse(trait)),
     damage: WeaponDamage.parse(damage),
     striking,
+    splash: splash === undefined ? undefined : DamageAmount.parse(splash),
+    range: range === undefined ? undefined : Feet.parse(range),
+    quantity: quantity === undefined ? undefined : ItemCount.parse(quantity),
     origin: origin(entry),
   };
 }
@@ -66,11 +75,33 @@ const WEAPONS: readonly WeaponInputs[] = [
     striking: STRIKING,
   }),
   weapon({ slug: 'glue-bomb', traits: [], damage: { dice: 0, damageType: 'bludgeoning' } }),
+  weapon({
+    slug: 'alchemists-fire',
+    traits: ['bomb', 'consumable', 'splash'],
+    damage: { dice: 1, die: 'd8', damageType: 'fire', persistent: { formula: '1', damageType: 'fire' } },
+    splash: 1,
+    range: 20,
+    quantity: 3,
+  }),
+  weapon({
+    slug: 'holy-water',
+    traits: ['consumable', 'splash', 'thrown'],
+    damage: { dice: 1, die: 'd6', damageType: 'spirit' },
+    splash: 1,
+    range: 20,
+    quantity: 1,
+  }),
 ];
 
 const DERIVED = deriveStrikes(
   WEAPONS,
-  new Map([...results('longsword', LONGSWORD_DAMAGE), ...results('dagger', 0), ...results('glue-bomb', 0)]),
+  new Map([
+    ...results('longsword', LONGSWORD_DAMAGE),
+    ...results('dagger', 0),
+    ...results('glue-bomb', 0),
+    ...results('alchemists-fire', 0),
+    ...results('holy-water', 0),
+  ]),
 );
 
 function strikeOf(index: number): Strike {
@@ -99,7 +130,13 @@ export const FAILED_STRIKE: readonly NamedStrike[] = [
   { name: 'Longsword', traits: [], strike: { ...strikeOf(0), attack: FAILED_ATTACK } },
 ];
 
-const LONGSWORD_DAMAGE_ROLL = { dice: DiceCount.parse(1), die: 'd8', damageType: 'slashing' } as const;
+const LONGSWORD_DAMAGE_ROLL = {
+  dice: DiceCount.parse(1),
+  die: 'd8',
+  damageType: 'slashing',
+  persistent: undefined,
+  splash: undefined,
+} as const;
 const DARKNESS_ATTACK_BONUS = 1;
 const DARKNESS_DAMAGE_BONUS = 2;
 
@@ -129,6 +166,15 @@ export const CONDITIONAL_STRIKE: readonly NamedStrike[] = [
 
 /** A weapon that rolls no damage says so. */
 export const NO_DAMAGE_STRIKE: readonly NamedStrike[] = [{ name: 'Glue bomb', traits: [], strike: strikeOf(2) }];
+
+const FIRE_AT = 3;
+const WATER_AT = 4;
+
+/** Thrown consumables: a stack of 3 alchemist's fire with persistent damage and splash, and one holy water. */
+export const THROWN_STRIKES: readonly NamedStrike[] = [
+  { name: "Alchemist's fire", traits: ['Bomb', 'Consumable', 'Splash'], strike: strikeOf(FIRE_AT) },
+  { name: 'Holy water', traits: ['Consumable', 'Splash', 'Thrown'], strike: strikeOf(WATER_AT) },
+];
 
 /** A steel shield held beside the weapons. */
 export const STEEL_SHIELD: StrikesShield = { name: 'Steel Shield', hardness: 5, hitPoints: 20, brokenThreshold: 10 };

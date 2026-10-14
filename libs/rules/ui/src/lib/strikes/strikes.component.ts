@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, computed, inject, input } from '@an
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { EmptyState, List, ListItem, LocaleFormat, Skeleton, Text } from '@pioneer/frontier';
-import type { Strike, StatisticResult } from '@pioneer/rules/engine';
+import type { Strike, StrikeDamage, StatisticResult } from '@pioneer/rules/engine';
 import { StatisticKind } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
 import { filter, merge } from 'rxjs';
@@ -94,6 +94,7 @@ export class StrikesView {
         attack: this.#attack(strike.attack),
         attacks: this.#attacks(strike),
         damage: this.#damage(strike),
+        thrown: this.#thrown(strike),
         bonus: bonus?.ok === true ? bonus : undefined,
         attackConditions: strike.attack?.ok === true ? conditionalLines(strike.attack, words) : [],
         damageConditions: bonus?.ok === true ? conditionalLines(bonus, words) : [],
@@ -143,6 +144,41 @@ export class StrikesView {
         ? undefined
         : this.#i18n.translate(StatisticsMessage.Computed, { computed: this.#format.number(result.computed, style) });
     return { ok: true, total: this.#format.number(result.total, style), computed: unpinned, statistic: result };
+  }
+
+  /** "1d6 persistent fire"; undefined without persistent damage. */
+  #persistent(damage: StrikeDamage | undefined): string | undefined {
+    const persistent = damage?.persistent;
+    if (persistent === undefined) {
+      return undefined;
+    }
+    const type = this.#i18n.translate(DAMAGE_TYPE_MESSAGES[persistent.damageType]);
+    return this.#i18n.translate(StrikesMessage.Persistent, { formula: persistent.formula, type });
+  }
+
+  /** "1 fire splash"; undefined without splash damage. */
+  #splash(damage: StrikeDamage | undefined): string | undefined {
+    if (damage?.splash === undefined) {
+      return undefined;
+    }
+    const type = this.#i18n.translate(DAMAGE_TYPE_MESSAGES[damage.damageType]);
+    return this.#i18n.translate(StrikesMessage.Splash, { amount: this.#format.number(damage.splash), type });
+  }
+
+  /** What a bomb or thrown consumable adds to its Strike: range increment, persistent and splash damage, stack size. */
+  #thrown({ weapon, damage }: Strike): readonly string[] {
+    const { range, quantity } = weapon;
+    const lines = [
+      range === undefined
+        ? undefined
+        : this.#i18n.translate(StrikesMessage.RangeIncrement, { range: this.#format.number(range) }),
+      this.#persistent(damage),
+      this.#splash(damage),
+      quantity === undefined
+        ? undefined
+        : this.#i18n.translate(StrikesMessage.Quantity, { count: this.#format.number(quantity) }),
+    ];
+    return lines.filter((line): line is string => line !== undefined);
   }
 
   /** "1d8+4 slashing": the dice, then the flat bonus unless it is nothing or did not derive, then the type. */

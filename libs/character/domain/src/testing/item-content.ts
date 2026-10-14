@@ -66,6 +66,10 @@ export const ItemFixture = {
   LongSword: 'sword-of-the-very-long-name-that-just-fits-in-a-source-slug-ok64',
   /** A ranged weapon, which a melee-only rune doesn't go on. */
   Shortbow: 'shortbow',
+  /** A thrown bomb in a stack: 1d8 fire, 1 persistent fire and 1 splash, range increment 20 feet. */
+  AlchemistsFire: 'alchemists-fire',
+  /** Holy water, a thrown consumable of 1d6 spirit with 1 splash. */
+  HolyWater: 'holy-water',
   /** A specific magic weapon at level 8: +1 striking, with the flaming rune printed on it. */
   FlameTongue: 'flame-tongue',
   /** Worn boots with an activation once per hour, to count its uses. */
@@ -107,6 +111,31 @@ const ITEMS: Readonly<Record<ItemFixture, ItemFixtureFields>> = {
     traits: ['extradimensional', 'magical'],
   },
   [ItemFixture.Anvil]: { kind: ContentKind.Equipment, data: { bulk: 2 } },
+  [ItemFixture.AlchemistsFire]: {
+    kind: ContentKind.Weapon,
+    data: {
+      bulk: 'light',
+      category: 'simple',
+      group: 'bomb',
+      damage: { dice: 1, die: 'd8', damageType: 'fire', persistent: { formula: '1', damageType: 'fire' } },
+      splash: 1,
+      range: 20,
+      usage: { type: 'held', hands: 'one' },
+    },
+    traits: ['alchemical', 'bomb', 'consumable', 'fire', 'splash'],
+  },
+  [ItemFixture.HolyWater]: {
+    kind: ContentKind.Weapon,
+    data: {
+      bulk: 'light',
+      category: 'simple',
+      damage: { dice: 1, die: 'd6', damageType: 'spirit' },
+      splash: 1,
+      range: 20,
+      usage: { type: 'held', hands: 'one' },
+    },
+    traits: ['consumable', 'divine', 'holy', 'splash', 'thrown'],
+  },
   [ItemFixture.Longsword]: {
     kind: ContentKind.Weapon,
     data: {
