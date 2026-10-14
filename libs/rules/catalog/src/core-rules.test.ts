@@ -31,6 +31,7 @@ import {
   SELECTORS,
   SKILL_SELECTORS,
   SKILLS,
+  SPEEDS,
   STRIKE_DAMAGES,
   STRIKES,
   totals,
@@ -64,6 +65,19 @@ const societyLore = ContentPack.define({
     },
   ],
 });
+
+/** A `Change` that upgrades `selector` to `value`, as a rule on a test entry. */
+function upgradeTo(selector: string, value: number): RuleInPlay {
+  return RuleInPlay.parse({
+    element: { key: 'Change', selector, mode: 'upgrade', value },
+    origin: {
+      hops: [],
+      entry: contentId(coreRules.id, EntrySlug.parse('statistic:test-bonus')),
+      sources: [{ kind: 'book', book: 'player-core', page: 1 }],
+    },
+    rule: 0,
+  });
+}
 
 /** A +1 status bonus to everything in `target`, as a rule on a test entry. */
 function bonusTo(target: string): RuleInPlay {
@@ -152,6 +166,18 @@ describe('core rules pack', () => {
     expect(totals(derived)['speed:land']).toBe(25);
   });
 
+  test('a Change upgrading a non-land speed raises it from nothing and never lowers it', () => {
+    const rules = [upgradeTo('speed:fly', 30), upgradeTo('speed:swim', 20), upgradeTo('speed:land', 10)];
+    const derived = deriveStatistics(core, fighter, { rules, facts: noFacts() });
+    expect(totals(derived)).toMatchObject({
+      'speed:land': 25,
+      'speed:fly': 30,
+      'speed:swim': 20,
+      'speed:climb': 0,
+      'speed:burrow': 0,
+    });
+  });
+
   test('derives one Strike per weapon', () => {
     // Longsword: Strength 4 plus expert 7, and its +1 potency line. Dagger: finesse, but Strength 4 beats Dexterity 2.
     expect(totals(deriveStatistics(core, fighter))).toMatchObject({ 'strike:longsword': 12, 'strike:dagger': 11 });
@@ -191,7 +217,7 @@ describe('core rules pack', () => {
   test('domains route modifiers to the right statistics', () => {
     expect(reachedBy('saving-throw')).toStrictEqual(sorted(['save:fortitude', 'save:reflex', 'save:will']));
     expect(reachedBy('skill-check')).toStrictEqual(sorted([...SKILL_SELECTORS, ...LORE_SELECTORS]));
-    const notRolled = new Set(['ac', 'class-dc', 'hp:max', 'speed:land']);
+    const notRolled = new Set(['ac', 'class-dc', 'hp:max', ...SPEEDS]);
     const checks = SELECTORS.filter((selector) => !notRolled.has(selector));
     expect(reachedBy('check')).toStrictEqual(sorted([...checks, ...LORE_SELECTORS, ...STRIKES]));
     expect(reachedBy('attack-roll')).toStrictEqual(sorted(STRIKES));
@@ -202,9 +228,10 @@ describe('core rules pack', () => {
     expect(reachedBy('damage')).toStrictEqual(sorted(STRIKE_DAMAGES));
     expect(reachedBy('strike-damage')).toStrictEqual(sorted(STRIKE_DAMAGES));
     expect(reachedBy('hp')).toStrictEqual(['hp:max']);
-    expect(reachedBy('speed')).toStrictEqual(['speed:land']);
-    expect(reachedBy('all-speeds')).toStrictEqual(['speed:land']);
+    expect(reachedBy('speed')).toStrictEqual(sorted(SPEEDS));
+    expect(reachedBy('all-speeds')).toStrictEqual(sorted(SPEEDS));
     expect(reachedBy('land-speed')).toStrictEqual(['speed:land']);
+    expect(reachedBy('fly-speed')).toStrictEqual(['speed:fly']);
     expect(reachedBy('class')).toStrictEqual(['class-dc']);
     expect(reachedBy('dex-based')).toStrictEqual(sorted(['ac', 'save:reflex', ...skillsKeyedTo(Attribute.Dexterity)]));
     expect(reachedBy('wis-based')).toStrictEqual(

@@ -47,20 +47,21 @@ the engine's choice.
 The core rules pack is hand-authored in `content/packs/core-rules` (pack id `core-rules`), since Foundry defines
 these statistics in code rather than as items. So far it holds:
 
-| Statistic    | Selector               | Kind    | Base                                              | Domains                                                      |
-| ------------ | ---------------------- | ------- | ------------------------------------------------- | ------------------------------------------------------------ |
-| AC           | `ac`                   | `dc`    | `10 + @attr.dex.capped + @prof.ac`                | `dex-based`                                                  |
-| Fortitude    | `save:fortitude`       | `check` | `@attr.con + @prof.save.fortitude`                | `check`, `saving-throw`, `con-based`                         |
-| Reflex       | `save:reflex`          | `check` | `@attr.dex + @prof.save.reflex`                   | `check`, `saving-throw`, `dex-based`                         |
-| Will         | `save:will`            | `check` | `@attr.wis + @prof.save.will`                     | `check`, `saving-throw`, `wis-based`                         |
-| Perception   | `perception`           | `check` | `@attr.wis + @prof.perception`                    | `check`, `wis-based`                                         |
-| Skills       | `skill:<slug>`         | `check` | `@attr.<key> + @prof.skill.<slug>`                | `check`, `skill-check`, `<key>-based`                        |
-| Hit Points   | `hp:max`               | `value` | `@ancestry.hp + (@class.hp + @attr.con) * @level` | `hp`                                                         |
-| Speed        | `speed:land`           | `value` | `@ancestry.speed`                                 | `speed`, `all-speeds`, `land-speed`                          |
-| Class DC     | `class-dc`             | `dc`    | `10 + @attr.key + @prof.class-dc`                 | `class`                                                      |
-| Strike       | `strike:<weapon>`      | `check` | `@weapon.attr + @weapon.prof`                     | `check`, `attack-roll`, `strike-attack-roll`, `<attr>-based` |
-| Spell attack | `spell-attack:<entry>` | `check` | `@spellcasting.attr + @spellcasting.prof`         | `check`, `attack-roll`, `spell-attack-roll`, `<attr>-based`  |
-| Spell DC     | `spell-dc:<entry>`     | `dc`    | `10 + @stat.spell-attack`                         | `spell-dc`, `<attr>-based`                                   |
+| Statistic    | Selector                                                 | Kind    | Base                                              | Domains                                                      |
+| ------------ | -------------------------------------------------------- | ------- | ------------------------------------------------- | ------------------------------------------------------------ |
+| AC           | `ac`                                                     | `dc`    | `10 + @attr.dex.capped + @prof.ac`                | `dex-based`                                                  |
+| Fortitude    | `save:fortitude`                                         | `check` | `@attr.con + @prof.save.fortitude`                | `check`, `saving-throw`, `con-based`                         |
+| Reflex       | `save:reflex`                                            | `check` | `@attr.dex + @prof.save.reflex`                   | `check`, `saving-throw`, `dex-based`                         |
+| Will         | `save:will`                                              | `check` | `@attr.wis + @prof.save.will`                     | `check`, `saving-throw`, `wis-based`                         |
+| Perception   | `perception`                                             | `check` | `@attr.wis + @prof.perception`                    | `check`, `wis-based`                                         |
+| Skills       | `skill:<slug>`                                           | `check` | `@attr.<key> + @prof.skill.<slug>`                | `check`, `skill-check`, `<key>-based`                        |
+| Hit Points   | `hp:max`                                                 | `value` | `@ancestry.hp + (@class.hp + @attr.con) * @level` | `hp`                                                         |
+| Speed        | `speed:land`                                             | `value` | `@ancestry.speed`                                 | `speed`, `all-speeds`, `land-speed`                          |
+| Other Speeds | `speed:fly`, `speed:swim`, `speed:climb`, `speed:burrow` | `value` | `0`                                               | `speed`, `all-speeds`, `<type>-speed`                        |
+| Class DC     | `class-dc`                                               | `dc`    | `10 + @attr.key + @prof.class-dc`                 | `class`                                                      |
+| Strike       | `strike:<weapon>`                                        | `check` | `@weapon.attr + @weapon.prof`                     | `check`, `attack-roll`, `strike-attack-roll`, `<attr>-based` |
+| Spell attack | `spell-attack:<entry>`                                   | `check` | `@spellcasting.attr + @spellcasting.prof`         | `check`, `attack-roll`, `spell-attack-roll`, `<attr>-based`  |
+| Spell DC     | `spell-dc:<entry>`                                       | `dc`    | `10 + @stat.spell-attack`                         | `spell-dc`, `<attr>-based`                                   |
 
 Domains use one vocabulary, following Foundry's names so imported selectors keep their meaning:
 
@@ -85,6 +86,11 @@ Core: untrained `0`, trained `2 + @level` up to legendary `8 + @level`), and the
 `proficiency-without-level` (GM Core): a `ProficiencyBonus` rule element whose table drops level and makes untrained
 -2. A variant enabled for a character is put in play like any rule element, with a `variant` origin hop, and each base
 term reading `@prof` names it ([ADR-0026](../adr/0026-proficiency-bonus-table-is-content.md)).
+
+The fly, swim, climb and burrow Speeds start at 0: an ancestry gives none, so a `Change` that upgrades one
+(`speed:fly`) raises it from nothing, and one that finds a Speed already higher leaves it. A Speed penalty from the
+`all-speeds` domain reaches them too, so a total at or below 0 means the character cannot move that way; the sheet
+lists a non-land Speed, with its breakdown, only above 0.
 
 Hit Points, Speed and class DC read what the character's ancestry and class give: `@ancestry.hp`, `@ancestry.speed`,
 `@class.hp`, and `@attr.key`, the modifier of the key attribute chosen for the class. `StatisticInputs` carries them

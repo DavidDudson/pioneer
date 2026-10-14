@@ -13,6 +13,11 @@ const SHEET_STATISTICS: readonly Selector[] = ['ac', 'save:fortitude', 'save:ref
   (selector) => Selector.parse(selector),
 );
 
+/** The speeds beside the land Speed; each shows only once something gives the character one. */
+const OTHER_SPEEDS: readonly Selector[] = ['speed:fly', 'speed:swim', 'speed:climb', 'speed:burrow'].map((selector) =>
+  Selector.parse(selector),
+);
+
 /** Everything the engine derives for a character, by statistic or instance selector. */
 export type SheetDerivation = ReadonlyMap<Selector, StatisticResult>;
 
@@ -41,16 +46,16 @@ function derive(registry: ContentRegistry, character: Character): SheetDerivatio
 }
 
 /**
- * A character's AC, saves and Perception from the engine (`sheetDerivation`), each named by the statistic that applies:
- * the last pack's definition of its selector, as the engine chooses. A statistic no registered pack defines is left
- * out.
+ * A character's AC, saves and Perception from the engine (`sheetDerivation`), then the fly, swim, climb and burrow
+ * Speeds a rule gives them, each named by the statistic that applies: the last pack's definition of its selector, as
+ * the engine chooses. A statistic no registered pack defines is left out, and so is a Speed that is not above 0.
  */
 export function sheetStatistics(registry: ContentRegistry, character: Character): readonly NamedStatistic[] {
   const results = sheetDerivation(registry, character);
-  return SHEET_STATISTICS.flatMap((selector): NamedStatistic[] => {
+  return [...SHEET_STATISTICS, ...OTHER_SPEEDS].flatMap((selector): NamedStatistic[] => {
     const result = results.get(selector);
     const entry = registry.statisticsFor(selector).at(-1);
-    if (result === undefined || entry === undefined) {
+    if (result === undefined || entry === undefined || (OTHER_SPEEDS.includes(selector) && !hasSpeed(result))) {
       return [];
     }
     return [{ name: entry.definition.name, kind: entry.definition.kind, result }];
@@ -66,4 +71,9 @@ export function sheetVitalsInPlay(registry: ContentRegistry, character: Characte
     { registry, slots: sheetSlotContent(registry), inputs: statisticInputsOf(registry, character) },
     character.document,
   );
+}
+
+/** Whether a derived Speed is above 0: the character moves that way. */
+function hasSpeed(result: StatisticResult): boolean {
+  return result.ok && result.total > 0;
 }

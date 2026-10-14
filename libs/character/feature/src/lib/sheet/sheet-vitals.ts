@@ -1,5 +1,5 @@
 import type { Character } from '@pioneer/character/domain';
-import { Proficiency, Selector } from '@pioneer/rules/sdk';
+import { Proficiency, Selector, StatisticKind } from '@pioneer/rules/sdk';
 import type { ContentId, ContentRegistry } from '@pioneer/rules/sdk';
 import { VitalBasisKind } from '@pioneer/rules/ui';
 import type { NamedStatistic, Vital, VitalBasis } from '@pioneer/rules/ui';
@@ -25,12 +25,16 @@ function armorBasis(registry: ContentRegistry, character: Character, reads: Vita
 
 /**
  * The vitals row: the sheet's statistics (AC, saves, Perception) each with the rank its proficiency bonus reads, and
- * for Armor Class the armour that sets it. A statistic the character has no rank in is untrained.
+ * for Armor Class the armour that sets it. A statistic the character has no rank in is untrained; a plain value, as a
+ * Speed is, has no rank.
  */
 export function sheetVitals(registry: ContentRegistry, character: Character, reads: VitalReads): readonly Vital[] {
   const { ranks } = statisticInputsOf(registry, character);
   return reads.statistics.map((statistic): Vital => {
     const { selector } = statistic.result;
+    if (statistic.kind === StatisticKind.Value) {
+      return { statistic, rank: undefined };
+    }
     const rank = ranks.get(selector) ?? Proficiency.Untrained;
     return selector === AC ? { statistic, rank, basis: armorBasis(registry, character, reads) } : { statistic, rank };
   });
