@@ -1,6 +1,8 @@
 export { RANDOM_SOURCE } from './lib/random-source';
 export { localised } from './lib/localise';
 export { RollCard } from './lib/roll-card/roll-card.component';
+export { RollToggles } from './lib/roll-toggles/roll-toggles.component';
+export type { RollToggleChange, RollToggleView } from './lib/roll-toggles/roll-toggles.component';
 export { default as rollMessages } from './i18n/en.json';
 export { DAMAGE_TYPE_KEYS } from './lib/roll-labels';
 export { rollView } from './lib/roll-view';

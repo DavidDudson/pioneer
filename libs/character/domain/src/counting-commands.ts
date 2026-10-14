@@ -5,9 +5,14 @@ import type { ResourceCommand } from './resource-commands';
 import { applyRestCommand } from './rest-actions';
 import { isRestCommand } from './rest-types';
 import type { RestCommand, RestLimits, RestPlay } from './rest-types';
+import { applyToggleCommand, isToggleCommand } from './toggle-commands';
+import type { ToggleCommand, Toggles } from './toggle-commands';
 
-/** The edits that move pools, slots and uses, change conditions or restore resources. */
-export type CountingCommand = ResourceCommand | ConditionCommand | RestCommand;
+/** The edits that move pools, slots and uses, change conditions, set toggles or restore resources. */
+export type CountingCommand = ResourceCommand | ConditionCommand | RestCommand | ToggleCommand;
+
+/** The part of a play state a counting edit reads and writes: what a restoring action does, and the toggles. */
+export type CountingPlay = RestPlay & { readonly toggles: Toggles };
 
 /** Whether `command` is a pool, slot or use edit. */
 function isResourceCommand<Command extends { readonly field: unknown }>(
@@ -20,17 +25,22 @@ function isResourceCommand<Command extends { readonly field: unknown }>(
 export function isCountingCommand<Command extends { readonly field: unknown }>(
   command: Command,
 ): command is Extract<Command, CountingCommand> {
-  return isResourceCommand(command) || isConditionCommand(command) || isRestCommand(command);
+  return (
+    isResourceCommand(command) || isConditionCommand(command) || isRestCommand(command) || isToggleCommand(command)
+  );
 }
 
-/** `play` after a pool, condition or restoring edit, within the limits. */
-export function applyCountingCommand<Play extends RestPlay>(
+/** `play` after a pool, condition, toggle or restoring edit, within the limits. */
+export function applyCountingCommand<Play extends CountingPlay>(
   play: Play,
   command: CountingCommand,
   limits: RestLimits,
 ): Play {
   if (isRestCommand(command)) {
     return applyRestCommand(play, command, limits).play;
+  }
+  if (isToggleCommand(command)) {
+    return { ...play, toggles: applyToggleCommand(play.toggles, command) };
   }
   if (isConditionCommand(command)) {
     return { ...play, conditions: [...applyConditionCommand(play.conditions, command)] };

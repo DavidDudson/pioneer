@@ -6,7 +6,7 @@ import { changeRules } from './change';
 import { collectLines } from './collect';
 import { modifierRules } from './modifier';
 import { proficiencyBonuses } from './proficiency-bonuses';
-import { NO_MODIFIERS } from './rule-in-play';
+import { NO_MODIFIERS, NO_SITUATION } from './rule-in-play';
 import type { ItemScope, ModifierInputs } from './rule-in-play';
 import { StatisticBases } from './statistic-bases';
 import { resolverFor } from './statistic-inputs';
@@ -26,7 +26,8 @@ export interface StatisticContent {
  * dependency order and runs its `Change`s (`StatisticBases`); the modifier phase then collects the modifiers that
  * reach each statistic, gates them by predicate and stacks them (`collectLines`); last, set overrides may pin the
  * total. Each weapon's potency joins the modifiers as an `item` line on its Strike (`weaponPotencies`), and worn
- * armour's bonus as an `item` line on AC (`armorBonus`). Modifier
+ * armour's bonus as an `item` line on AC (`armorBonus`). A modifier or adjustment in `situation` whose predicate
+ * depends on facts nobody supplied counts as holding, as the toggles chosen on a roll say. Modifier
  * formulas read the inputs, statistics' bases through `@stat.<selector>`, and the level of the item they are on.
  * `@prof.<selector>` reads the proficiency bonus table, unless a `ProficiencyBonus` element in play (a variant rule)
  * replaces it. Never throws: a statistic's failure, or a line's, is reported in the result. The result does not
@@ -36,7 +37,7 @@ export interface StatisticContent {
 export function deriveStatistics(
   { definitions, proficiencyBonus }: StatisticContent,
   inputs: StatisticInputs,
-  { rules, facts }: ModifierInputs = NO_MODIFIERS,
+  { rules, facts, situation = NO_SITUATION }: ModifierInputs = NO_MODIFIERS,
 ): ReadonlyMap<Selector, StatisticResult> {
   const changes = changeRules(rules);
   const values = { inputs, proficiency: proficiencyBonuses(proficiencyBonus, { rules, facts, level: inputs.level }) };
@@ -51,7 +52,7 @@ export function deriveStatistics(
   };
   return new Map(
     bases.bases.map(({ definition, result }) => {
-      const lines = collectLines(definition, modifiers, context);
+      const lines = collectLines(definition, modifiers, { ...context, situation });
       const sets = changes.set.get(definition.selector) ?? [];
       return [definition.selector, finished(result, { lines, sets, context })];
     }),

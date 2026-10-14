@@ -44,7 +44,9 @@ UI behaviour:
   with the actions remaining this turn and whether the reaction is spent. Context changes the list: prone puts
   Stand and Crawl first, grabbed puts Escape first, a raised shield enables Shield Block.
 - **All view:** everything the character can ever do, filterable by mode, trait, cost and source.
-- Actions with rolls are one click to roll, and conditional modifiers for that roll are offered as toggles.
+- Actions with rolls are one click to roll, and conditional modifiers for that roll are offered as toggles: the
+  conditional lines ("+1 circumstance when in forest") and the character's `RollOption` toggles that the roll reads.
+  A check with nothing to toggle still rolls in one click. The roll card lists what it was rolled with.
 
 Turn tracking (actions spent, reaction used, start/end of turn effects such as frightened decreasing) is local to the
 sheet. Campaign play runs in Foundry VTT, which tracks turns itself (ADR-0018).

@@ -1,11 +1,16 @@
 import { PlayCommandField } from './play-state';
 import type { PlayCommand } from './play-state';
 import { isRestCommand } from './rest-types';
+import { isToggleCommand } from './toggle-commands';
 
 /** Whether `command` reads or moves Hit Points, and so needs the maximum the engine derives. Temp Hit Points and the death track don't. */
+// oxlint-disable-next-line complexity -- a case for each play command, with the toggle edit told apart first
 export function needsMaxHitPoints(command: PlayCommand): boolean {
   if (isRestCommand(command)) {
     return command.field === PlayCommandField.Rest;
+  }
+  if (isToggleCommand(command)) {
+    return false;
   }
   switch (command.field) {
     case PlayCommandField.Damage:
@@ -37,9 +42,13 @@ export function needsMaxHitPoints(command: PlayCommand): boolean {
 }
 
 /** Whether `command` moves a pool of points, and so needs the maxima the build and the rules give. */
+// oxlint-disable-next-line complexity -- a case for each play command, with the toggle edit told apart first
 export function needsResourceMaxima(command: PlayCommand): boolean {
   if (isRestCommand(command)) {
     return true;
+  }
+  if (isToggleCommand(command)) {
+    return false;
   }
   switch (command.field) {
     case PlayCommandField.SpendResource:
@@ -71,8 +80,9 @@ export function needsResourceMaxima(command: PlayCommand): boolean {
 }
 
 /** Whether `command` adds or changes a condition, and so needs to know which conditions the content has and which carry a value. */
+// oxlint-disable-next-line complexity -- a case for each play command, with the toggle edit told apart first
 export function needsConditionContent(command: PlayCommand): boolean {
-  if (isRestCommand(command)) {
+  if (isRestCommand(command) || isToggleCommand(command)) {
     return false;
   }
   switch (command.field) {

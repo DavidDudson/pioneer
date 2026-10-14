@@ -144,3 +144,4 @@ export {
   shownHeritageRows,
 } from './lib/origin-picker/origin-picker-table';
 export { STATISTIC_ROLLER, type RollableStatistic, type StatisticRoller } from './lib/statistics/statistic-roller';
+export { type ConditionWords, conditionalLineText } from './lib/statistics/conditional-lines';

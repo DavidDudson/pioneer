@@ -25,6 +25,7 @@ import { ResourceCommandField, ResourceCommandSchema } from './resource-commands
 import { ResourcesSpentSchema } from './resources';
 import { RestCommandField, RestCommandSchema } from './rest-types';
 import type { RestLimits } from './rest-types';
+import { ToggleCommandField, ToggleCommandSchema, TogglesSchema } from './toggle-commands';
 
 const NONE = HitPoints.parse(0);
 
@@ -49,12 +50,13 @@ export type HitPointsState = z.infer<typeof HitPointsStateSchema>;
 /**
  * A character's play state: what changes at the table, apart from the build (character-model.md, `PlayState`). The
  * death track (`dying`, `wounded`, `doomed`, `dead`) sits beside Hit Points, and `resources` holds the points spent
- * from each pool (hero points, focus points).
+ * from each pool (hero points, focus points), and `toggles` the `RollOption` toggles as the player left them.
  */
 export const PlayStateSchema = z.strictObject({
   hp: HitPointsStateSchema.default({ damage: NONE, temp: NONE }),
   resources: ResourcesSpentSchema.default(ResourcesSpentSchema.parse({})),
   conditions: ActiveConditionsSchema,
+  toggles: TogglesSchema,
   ...DeathTrackSchema.shape,
 });
 export type PlayState = z.infer<typeof PlayStateSchema>;
@@ -83,6 +85,8 @@ export const PlayCommandField = {
   ...ConditionCommandField,
   /** Rest, daily preparations, Refocus and start of session (`rest-actions.ts`). */
   ...RestCommandField,
+  /** A `RollOption` toggle set on or off (`toggle-commands.ts`). */
+  ...ToggleCommandField,
 } as const;
 export type PlayCommandField = ValueOf<typeof PlayCommandField>;
 
@@ -104,6 +108,7 @@ export const PlayCommandSchema = z.discriminatedUnion('field', [
   ...ResourceCommandSchema.options,
   ...ConditionCommandSchema.options,
   ...RestCommandSchema.options,
+  ...ToggleCommandSchema.options,
 ]);
 export type PlayCommand = z.infer<typeof PlayCommandSchema>;
 

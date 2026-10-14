@@ -14,6 +14,7 @@
     @if (shown.damage; as damage) {
       <pio-roll-damage [damage]="damage" />
     }
+    <pio-roll-reasons [reasons]="shown.reasons" />
     @if (shown.explanation; as explanation) {
       <fr-text variant="caption" tone="muted">{{ explanation.key | transloco: explanation.params }}</fr-text>
     }

@@ -40,7 +40,7 @@ interface PlayState {
   conditions: readonly ActiveCondition[]; // content ref, value, duration, source event
   effects: readonly ActiveEffect[]; // spell/feat effects, temporary boons: source, lifetime, uses left
   resources: Record<ResourceKey, number>; // points spent per pool: hero points, focus points (#345); spell slots and ability uses (#346); item uses follow (#638)
-  toggles: Record<RollOptionKey, boolean>; // RollOption toggles (e.g. rage, Double Slice second attack)
+  toggles: Record<ToggleKey, { on: boolean; suboption?: Slug }>; // RollOption toggles (e.g. rage, Double Slice second attack); set by the setToggle play command, read by the grants engine
   dying: number; // 0 to 4; reaching 4 less doomed is death (#344)
   wounded: number;
   doomed: number;

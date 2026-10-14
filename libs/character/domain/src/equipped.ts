@@ -1,7 +1,7 @@
 import { RuleInPlay } from '@pioneer/rules/engine';
 import type { ArmorInputs, ModifierInputs, WeaponInputs } from '@pioneer/rules/engine';
 import { resolveGrants } from '@pioneer/rules/grants';
-import type { ContentLookup, GrantEntry, GrantRoot } from '@pioneer/rules/grants';
+import type { ContentLookup, GrantEntry, GrantRoot, ToggleSlot } from '@pioneer/rules/grants';
 import {
   Attribute,
   AttributeModifier,
@@ -32,6 +32,7 @@ import type { ItemContent, ItemEntry } from './inventory-content';
 import { itemRunes, workingPropertyRunes } from './item-runes';
 import { NO_RUNES } from './rune-etching';
 import type { SlotContent } from './slot-offer';
+import { toggleStates } from './toggle-commands';
 
 /** An item that works on the character: its inventory line, its content and how it works (its origin hop's state). */
 export interface ActiveItem {
@@ -225,6 +226,11 @@ function fromInventory(origin: Origin): boolean {
   return kind === OriginHopKind.Inventory || kind === OriginHopKind.Condition;
 }
 
+/** The rules in play and the facts they read, with the `RollOption` toggles the character's items offer. */
+export interface EquippedRules extends ModifierInputs {
+  readonly toggles: readonly ToggleSlot[];
+}
+
 /**
  * The rule elements of the character's active items and the property runes working on them (`workingPropertyRunes`),
  * of the encumbered condition while it carries too much (`encumberedRoots`), of the conditions active in its play state
@@ -232,7 +238,7 @@ function fromInventory(origin: Origin): boolean {
  * the facts their predicates are read against. Grants are resolved with the character's picks, so an item's
  * predicate sees its ancestry and class. Rule elements of the build itself arrive with the builder (Epic 3.3).
  */
-export function equippedRules(document: CharacterDocument, content: ItemContent, slots: SlotContent): ModifierInputs {
+export function equippedRules(document: CharacterDocument, content: ItemContent, slots: SlotContent): EquippedRules {
   const { lookup, namespaces } = slots;
   const active = activeItems(document.inventory, content);
   const roots: GrantRoot[] = [
@@ -249,7 +255,7 @@ export function equippedRules(document: CharacterDocument, content: ItemContent,
     level: Level.parse(document.level),
     situation: [],
     picks: new Map(Object.entries(document.build.choices).map(([key, value]) => [SlotKey.parse(key), value])),
-    toggles: new Map(),
+    toggles: toggleStates(document.play.toggles),
     rootSlots: CHARACTER_ROOT_SLOTS,
     namespaces,
   });
@@ -266,7 +272,8 @@ export function equippedRules(document: CharacterDocument, content: ItemContent,
         }),
       ),
     );
-  return { rules, facts: resolution.facts };
+  const toggles = resolution.toggles.filter(({ origin }) => fromInventory(origin));
+  return { rules, facts: resolution.facts, toggles };
 }
 
 /** An entry grants put in play, and why. */

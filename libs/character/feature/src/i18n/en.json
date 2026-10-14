@@ -310,7 +310,11 @@
     "packsHeading": "Content packs",
     "roll": {
       "heading": "{name} check",
-      "breakdown": "Breakdown"
+      "breakdown": "Breakdown",
+      "setupHeading": "{name} check: choose what applies",
+      "modifier": "Modifier {modifier}",
+      "go": "Roll",
+      "cancel": "Cancel"
     }
   },
   "validation": {

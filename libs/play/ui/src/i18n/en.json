@@ -12,7 +12,12 @@
       "instanceTaken": "{dealt} dealt, {taken} taken",
       "adjusted": "{from} to {to}, from {source}",
       "dcLabel": "DC",
-      "dcInvalid": "Enter a DC as a whole number."
+      "dcInvalid": "Enter a DC as a whole number.",
+      "rolledWith": "Rolled with"
+    },
+    "toggles": {
+      "perRoll": "Counts for this roll only",
+      "remembered": "Kept between rolls"
     },
     "degree": {
       "criticalSuccess": "Critical success",

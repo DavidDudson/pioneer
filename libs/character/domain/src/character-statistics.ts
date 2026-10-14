@@ -1,13 +1,16 @@
-import { deriveStatistics, statisticContent } from '@pioneer/rules/engine';
-import type { StatisticInputs, StatisticResult } from '@pioneer/rules/engine';
+import { deriveStatistics, LineStatusKind, NO_SITUATION, rollSituation, statisticContent } from '@pioneer/rules/engine';
+import type { BreakdownLine, RuleId, StatisticInputs, StatisticResult, StatisticValue } from '@pioneer/rules/engine';
+import type { ToggleSlot } from '@pioneer/rules/grants';
+import { predicateOptions } from '@pioneer/rules/predicate';
 import { AncestryId, HitPoints, Selector } from '@pioneer/rules/sdk';
-import type { ContentRegistry } from '@pioneer/rules/sdk';
+import type { ContentRegistry, Predicate, RollOption } from '@pioneer/rules/sdk';
 
 import { attributeModifiers, boostContent } from './attribute-boosts';
 import type { CharacterDocument } from './character-document';
 import { ANCESTRY_SLOT } from './character-slots';
 import { buildRanks, characterGrants, classContent, classInputs } from './class-build';
 import { equippedInputs, equippedRules } from './equipped';
+import type { EquippedRules } from './equipped';
 import { favoredWeapons } from './favored-weapons';
 import { grantedStrikes } from './granted-strikes';
 import { itemContent } from './inventory-content';
@@ -75,18 +78,20 @@ export interface StatisticSources {
 
 /**
  * Every statistic the engine derives for a character, with the rule elements of the items it wears, holds or has
- * invested in play when the registry holds the item kinds. Empty without a proficiency bonus table, as nothing can be
- * derived.
+ * invested in play when the registry holds the item kinds, and the character's `RollOption` toggles as it left them.
+ * A rule in `situation` that depends on the situation counts as holding. Empty without a proficiency bonus table, as
+ * nothing can be derived.
  */
 export function characterStatistics(
   document: CharacterDocument,
   { registry, slots, inputs }: StatisticSources,
+  situation: ReadonlySet<RuleId> = NO_SITUATION,
 ): ReadonlyMap<Selector, StatisticResult> {
   const content = statisticContent(registry);
   if (content === undefined) {
     return new Map();
   }
-  return deriveStatistics(content, inputs, equippedRules(document, itemContent(registry), slots));
+  return deriveStatistics(content, inputs, { ...equippedRules(document, itemContent(registry), slots), situation });
 }
 
 /**
@@ -99,4 +104,65 @@ export function maxHitPoints(statistics: ReadonlyMap<Selector, StatisticResult>)
     return undefined;
   }
   return HitPoints.parse(Math.max(0, result.total));
+}
+
+/** What a roll of one statistic offers, and what it makes of the choices so far (rules-engine.md, "Conditional lines"). */
+export interface RollSetup {
+  /** The statistic with the situation chosen counted, and the `RollOption` toggles as the character has them. */
+  readonly statistic: StatisticValue;
+  /** The conditional lines the roll may claim the situation of, as the sheet shows them, whatever is chosen. */
+  readonly conditional: readonly BreakdownLine[];
+  /** The character's `RollOption` toggles that move a line of the statistic, with their state. */
+  readonly toggles: readonly ToggleSlot[];
+}
+
+/** The statistic a roll is for, and the rules whose situation it has claimed. */
+export interface RollRequest {
+  readonly selector: Selector;
+  readonly chosen: ReadonlySet<RuleId>;
+}
+
+/**
+ * What rolling `selector` offers: the conditional lines whose situation the roll may claim, and the character's
+ * `RollOption` toggles that its lines read, both listed from the sheet's own derivation so they stay while chosen. The
+ * `statistic` is derived with `chosen` counted as holding; a rule id that is not offered is ignored. A conditional
+ * line a toggle of the character already stands for is not offered twice. Undefined when the statistic has no value.
+ */
+export function rollSetup(
+  document: CharacterDocument,
+  { registry, slots, inputs }: StatisticSources,
+  { selector, chosen }: RollRequest,
+): RollSetup | undefined {
+  const content = statisticContent(registry);
+  if (content === undefined) {
+    return undefined;
+  }
+  const rules = equippedRules(document, itemContent(registry), slots);
+  const sheet = deriveStatistics(content, inputs, rules).get(selector);
+  if (sheet?.ok !== true) {
+    return undefined;
+  }
+  const { conditional, toggles } = offerFor(sheet, rules);
+  const claimed = new Set(conditional.map(({ modifier }) => modifier.id).filter((id) => chosen.has(id)));
+  const statistic = deriveStatistics(content, inputs, { ...rules, situation: claimed }).get(selector);
+  return statistic?.ok === true ? { statistic, conditional, toggles } : undefined;
+}
+
+/** What a roll of a statistic offers on the sheet's own derivation of it: the lines to claim and the toggles to flip. */
+function offerFor(sheet: StatisticValue, rules: EquippedRules): Pick<RollSetup, 'conditional' | 'toggles'> {
+  const { conditional, options } = rollSituation(sheet);
+  const toggles = rules.toggles.filter(({ option }) => options.has(option));
+  const stood = new Set(toggles.map(({ option }) => option));
+  return {
+    toggles,
+    conditional: conditional.filter(
+      ({ status }) => status.kind === LineStatusKind.Conditional && !standsFor(status.when, stood),
+    ),
+  };
+}
+
+/** Whether every option `when` reads has a toggle of its own, so a toggle on the line would only repeat it. */
+function standsFor(when: Predicate, stood: ReadonlySet<RollOption>): boolean {
+  const read = predicateOptions(when);
+  return read.size > 0 && [...read].every((option) => stood.has(option));
 }

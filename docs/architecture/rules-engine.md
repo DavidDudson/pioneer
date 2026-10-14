@@ -704,6 +704,14 @@ sheet, where the situation is unknown, so predicates use **three-valued (Kleene)
 - At roll time the roll dialog lists the conditional lines for that statistic as toggles, pre-filled from the
   known situation (in an encounter, using Stealth for initiative). Choosing them supplies facts, re-evaluates, and
   the roll records which were used.
+  - `deriveStatistics` takes a `situation` input, the rule ids a roll has chosen. A modifier or adjustment in it whose
+    predicate is unknown counts as holding; one whose predicate is false stays inactive.
+  - `rollSituation(statistic)` reports what a roll can choose: the conditional lines that could change the total
+    (one an applied line already beats is left out) and the roll options its lines read (`predicateOptions` in
+    `libs/rules/predicate`).
+  - `rollSetup` in `libs/character/domain` joins them for a character: given a `RollRequest` (selector plus chosen
+    rule ids) it returns the offered lines, the `RollOption` toggles the lines read, and the statistic as chosen. The
+    total always equals the base plus the applied lines, whatever the toggles.
 
 ### Evaluation
 

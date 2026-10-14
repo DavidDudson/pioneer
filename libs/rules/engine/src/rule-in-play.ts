@@ -42,7 +42,15 @@ export function ruleIdOf({ origin, rule }: RuleInPlay): RuleId {
 export interface ModifierInputs {
   readonly rules: readonly RuleInPlay[];
   readonly facts: PredicateFacts;
+  /**
+   * The rules whose situation a roll says holds: a modifier or adjustment whose predicate depends on facts nobody
+   * supplied counts as holding when it is here. One whose predicate is known to be false stays out. None when absent.
+   */
+  readonly situation?: ReadonlySet<RuleId>;
 }
+
+/** No rule's situation is chosen: every predicate that depends on the situation stays conditional. */
+export const NO_SITUATION: ReadonlySet<RuleId> = new Set();
 
 /** No rules, so no predicate reads the facts or their namespace table. */
 export const NO_MODIFIERS: ModifierInputs = { rules: [], facts: new PredicateFacts([], new Map()) };

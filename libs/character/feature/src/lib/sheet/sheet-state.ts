@@ -2,7 +2,7 @@ import { computed, inject, Injectable } from '@angular/core';
 import type { Signal } from '@angular/core';
 import { TranslocoService } from '@jsverse/transloco';
 import { itemContent, maxHitPoints, resourceMaxima, withPlay } from '@pioneer/character/domain';
-import type { ActiveCondition, Character, ResourceMaxima } from '@pioneer/character/domain';
+import type { Character, ResourceMaxima } from '@pioneer/character/domain';
 import { FocusPoints, SpellPreparation } from '@pioneer/rules/sdk';
 import type { ContentRegistry, HitPoints } from '@pioneer/rules/sdk';
 import type { EntryPreviews, Investment, Vital } from '@pioneer/rules/ui';
@@ -13,11 +13,12 @@ import { PlayStore } from '../data/play-store';
 import { sheetBuildPicks } from './sheet-build-picks';
 import type { BuildPicks } from './sheet-build-picks';
 import { sheetConditionPreviews } from './sheet-condition-previews';
-import { sameConditions } from './sheet-conditions';
 import { readsEquipment, EQUIPMENT_CONTENT_KINDS, sheetInvestments } from './sheet-equipment';
 import { sheetFocus } from './sheet-focus-spells';
 import { sheetIdentity } from './sheet-identity';
 import type { IdentityParams } from './sheet-identity';
+import { samePlayed } from './sheet-played';
+import type { PlayedInputs } from './sheet-played';
 import { SPELL_CONTENT_KINDS } from './sheet-prepared-spells';
 import { sheetDerivation } from './sheet-statistics';
 import { sheetVitals } from './sheet-vitals';
@@ -32,20 +33,27 @@ export class SheetState {
   readonly #i18n = inject(TranslocoService);
   public readonly store = inject(CharacterStore);
   readonly #play = inject(PlayStore);
-  /** The conditions active now: the play state read, which a play edit replaces without touching the build. */
-  readonly #conditions = computed(
-    (): readonly ActiveCondition[] | undefined => this.#play.play.data()?.play.conditions,
-    {
-      equal: sameConditions,
-    },
-  );
-  /** The open character with the conditions active now, so every derivation (statistics, Strikes) reads them. */
+  /**
+   * What the play state read says that derivations use: the conditions active now and the toggles as the player left
+   * them. A play edit replaces it without touching the build.
+   */
+  readonly #played = computed((): PlayedInputs | undefined => this.#play.play.data()?.play, {
+    equal: samePlayed,
+  });
+  /**
+   * The open character with the conditions active now and its toggles, so every derivation (statistics, Strikes)
+   * reads them.
+   */
   public readonly character: Signal<Character | undefined> = computed((): Character | undefined => {
     const selected = this.store.selected();
-    const conditions = this.#conditions();
-    return selected === undefined || conditions === undefined
+    const played = this.#played();
+    return selected === undefined || played === undefined
       ? selected
-      : withPlay(selected, { ...selected.document.play, conditions: [...conditions] });
+      : withPlay(selected, {
+          ...selected.document.play,
+          conditions: [...played.conditions],
+          toggles: played.toggles,
+        });
   });
 
   /** The registry the engine reads, shared with the ancestry options, so it loads once. */
@@ -61,6 +69,9 @@ export class SheetState {
   readonly #engineRegistry = computed((): ContentRegistry | undefined =>
     readsEquipment(this.character()) ? this.equipment.data() : this.registry.data(),
   );
+
+  /** The registry the engine reads, for a roll that derives a statistic again; undefined while it loads. */
+  public readonly engine: Signal<ContentRegistry | undefined> = this.#engineRegistry;
 
   /**
    * The previews the header's conditions open: each entry with its value and what it changes for this character, read

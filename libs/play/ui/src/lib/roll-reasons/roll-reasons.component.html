@@ -1,0 +1,8 @@
+@if (reasons().length > 0) {
+  <fr-stack gap="3xs">
+    <fr-text variant="caption" tone="muted">{{ 'roll.card.rolledWith' | transloco }}</fr-text>
+    @for (reason of reasons(); track $index) {
+      <fr-text variant="caption">{{ reason }}</fr-text>
+    }
+  </fr-stack>
+}
