@@ -13,10 +13,12 @@ import type {
   PioneerImportPreview,
   ReferenceNamer,
 } from '@pioneer/interop/pioneer';
-import type { ContentRegistry, ContentSource } from '@pioneer/rules/sdk';
+import type { ContentRegistry } from '@pioneer/rules/sdk';
 import { FIRST_VERSION, message, NotFoundError, ValidationError } from '@pioneer/shared/kernel';
 import type { Clock, UserId } from '@pioneer/shared/kernel';
 
+import { contentOfCharacter } from './character-content';
+import type { CharacterContentSource } from './character-content';
 import { mayAccessCharacter } from './character-policy';
 import type { CharacterRepository } from './character-repository';
 import type { EmbeddedHomebrew } from './embedded-homebrew';
@@ -25,7 +27,7 @@ import { readPioneerFile } from './pioneer-import';
 /** What the Pioneer file use cases are built on. */
 export interface PioneerFileDeps {
   readonly repository: CharacterRepository;
-  readonly content: ContentSource;
+  readonly content: CharacterContentSource;
   readonly clock: Clock;
   /** Where a file's embedded homebrew comes from and goes to (ADR-0059). */
   readonly homebrew: EmbeddedHomebrew;
@@ -59,7 +61,8 @@ export class PioneerFileService {
     if (character === undefined || !mayAccessCharacter(actor, character)) {
       throw new NotFoundError('Character', id);
     }
-    const loaded = registryNamer(await this.#deps.content.registry());
+    const content = contentOfCharacter(this.#deps.content, character);
+    const loaded = registryNamer(await content.registry());
     const firstTry = exportPioneerCharacter(character.document, loaded);
     const exported = firstTry.ok
       ? firstTry

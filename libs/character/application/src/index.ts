@@ -19,3 +19,5 @@ export { CharacterPackMessage } from './character-pack-message';
 export { CharacterPackRepository } from './character-pack-repository';
 export { InMemoryCharacterPackRepository } from './in-memory-character-pack-repository';
 export { CharacterPackService, type CharacterPackPorts } from './character-pack-service';
+export { EffectivePacks } from './effective-packs';
+export { CharacterContent, type CharacterContentSource } from './character-content';

@@ -10,7 +10,7 @@ import {
   PackId,
 } from '@pioneer/rules/sdk';
 import type { PackContents, PackContentsLoader } from '@pioneer/rules/sdk';
-import { fixedClock, newId } from '@pioneer/shared/kernel';
+import { fixedClock, newId, UserId } from '@pioneer/shared/kernel';
 import { createTestDatabase, QueryRecorder, testDatabaseUrl, unindexedQueries } from '@pioneer/shared/server/testing';
 import type { TestDatabase } from '@pioneer/shared/server/testing';
 import { eq, sql } from 'drizzle-orm';
@@ -208,6 +208,88 @@ describe.skipIf(adminUrl === undefined)('StoredContentSource (postgres)', () => 
       const registry = await source.registryWithDependencies(contentPackId(PackId.parse('stored-nowhere')));
 
       expect(registry.ancestries()).toStrictEqual([]);
+    });
+  });
+
+  describe('with homebrew packs', () => {
+    const OWNER = UserId.parse(newId());
+    const ELVES = 'stored-brew-elves';
+    const KOBOLDS = 'stored-brew-kobolds';
+    const UNUSED = 'stored-brew-unused';
+    const elves = contentPackId(PackId.parse(ELVES));
+    const kobolds = contentPackId(PackId.parse(KOBOLDS));
+    const unused = contentPackId(PackId.parse(UNUSED));
+
+    /** Seeds a pack, then gives it to the owner, which is what makes it homebrew. */
+    async function seedBrew(contents: PackContents): Promise<void> {
+      await seed(contents);
+      await database.db
+        .update(contentPacks)
+        .set({ ownerId: OWNER, visibility: 'private' })
+        .where(eq(contentPacks.id, contentPackId(contents.file.id)));
+    }
+
+    beforeAll(async () => {
+      const at = clock.now().toString();
+      await database.db.execute(
+        sql`insert into users (id, display_name, email_verified, created_at, updated_at) values (${OWNER}, 'Owner', false, ${at}, ${at})`,
+      );
+      await seedBrew(ancestryPack([['elf-brew', 'Brew Elf']], ELVES));
+      await seedBrew(ancestryPack([['kobold', 'Kobold']], KOBOLDS));
+      await seedBrew(ancestryPack([['unused', 'Unused']], UNUSED));
+      await depend(KOBOLDS, ELVES);
+    });
+
+    test('holds the official packs and the homebrew packs asked for, with the packs they extend', async () => {
+      const registry = await source.registry([kobolds]);
+
+      expect(registry.ancestry(ancestryId('dwarf'))).toBeDefined();
+      expect(registry.ancestry(ancestryId('kobold', KOBOLDS))).toBeDefined();
+      expect(registry.ancestry(ancestryId('elf-brew', ELVES))).toBeDefined();
+      expect(registry.ancestry(ancestryId('unused', UNUSED))).toBeUndefined();
+    });
+
+    test('serves homebrew to no one who did not ask for it', async () => {
+      const registry = await source.registry();
+
+      expect(registry.ancestry(ancestryId('kobold', KOBOLDS))).toBeUndefined();
+      expect(registry.ancestry(ancestryId('elf-brew', ELVES))).toBeUndefined();
+    });
+
+    test('shares a registry for the same set in any order, and builds another for another set', async () => {
+      const first = await source.registry([kobolds, elves]);
+      const again = await source.registry([elves, kobolds]);
+      const other = await source.registry([unused]);
+
+      expect(again).toBe(first);
+      expect(other).not.toBe(first);
+      expect(other.ancestry(ancestryId('kobold', KOBOLDS))).toBeUndefined();
+    });
+
+    test('registers a pack named twice, or one that is official, once', async () => {
+      const official = contentPackId(PackId.parse(PACK));
+
+      const registry = await source.registry([kobolds, kobolds, official]);
+
+      expect(registry.ancestry(ancestryId('kobold', KOBOLDS))).toBeDefined();
+      expect(registry.ancestry(ancestryId('dwarf'))).toBeDefined();
+    });
+
+    test('builds again when a homebrew pack is edited', async () => {
+      const before = await source.registry([unused]);
+      // An edit stores the pack again under a new hash.
+      await database.db.update(contentPacks).set({ contentHash: 'edited' }).where(eq(contentPacks.id, unused));
+
+      const after = await source.registry([unused]);
+
+      expect(after).not.toBe(before);
+      expect(after.ancestry(ancestryId('unused', UNUSED))).toBeDefined();
+    });
+
+    test('a pack that does not exist adds nothing', async () => {
+      const registry = await source.registry([contentPackId(PackId.parse('stored-brew-nowhere'))]);
+
+      expect(registry.ancestry(ancestryId('dwarf'))).toBeDefined();
     });
   });
 });

@@ -399,6 +399,9 @@ waits for Epic 2.4.
   (`libs/rules/infrastructure`) builds one `ContentRegistry` per process from the official packs' rows, checked
   again as the files they hold and registered in slug order. Each use of content first reads the stored
   `content_hash` values, so a re-seed rebuilds the registry on the next request without a restart.
+  `registry(packs)` adds the homebrew packs in force for a character (its campaign's, else its own that its owner may
+  still read; ADR-0060) and the packs they extend, after the official ones and each after what it extends. One registry
+  is kept per set of packs, under the stored hashes of all of them, up to 64 sets.
 - **Homebrew packs** are created in the app and owned by a user. Visibility is private, campaign or public.
   `libs/homebrew` creates them: a new pack is an empty `pack.json` under the license `homebrew`, private, with a slug
   unique across every pack (official ones included, so a homebrew pack never takes an official pack's key). The

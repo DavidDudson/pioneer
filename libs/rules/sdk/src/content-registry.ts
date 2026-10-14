@@ -3,7 +3,7 @@ import * as z from 'zod';
 
 import { AncestryId } from './ancestry';
 import type { AncestryDefinition } from './ancestry';
-import type { PackId } from './content-id';
+import type { ContentPackId, PackId } from './content-id';
 import type { ContentPack, ContentPackLoader } from './content-pack';
 import { CreatureId } from './creature';
 import type { CreatureDefinition } from './creature';
@@ -201,7 +201,10 @@ export class ContentRegistry {
 /**
  * Where a server use case gets its content: a registry over the packs as they are when asked, so content seeded after
  * the process started is served without a restart. Ask once per use case and keep the answer for its duration.
+ *
+ * Without `packs` the registry holds the official packs. With them it also holds those homebrew packs (the packs in
+ * force for a character or campaign) and the packs they extend, each after the packs it extends.
  */
 export interface ContentSource {
-  readonly registry: () => Promise<ContentRegistry>;
+  readonly registry: (packs?: readonly ContentPackId[]) => Promise<ContentRegistry>;
 }
