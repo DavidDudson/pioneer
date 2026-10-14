@@ -32,7 +32,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "status",
+        "value": -4,
+        "slug": "blinded"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.conditionitems.Item.XgEqL1kFApUbl5Z2"
     },
@@ -117,8 +125,8 @@
         "key": "FlatModifier",
         "selectors": ["dex-based"],
         "type": "status",
-        "slug": "clumsy",
-        "value": "-@item.value"
+        "value": "-@item.value",
+        "slug": "clumsy"
       }
     ],
     "externalIds": {
@@ -390,7 +398,27 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception", "skill-check"],
+        "type": "status",
+        "value": -2,
+        "slug": "deafened",
+        "predicate": [
+          {
+            "or": [
+              {
+                "and": ["check:type:skill", "item:trait:auditory"]
+              },
+              {
+                "and": ["check:statistic:base:perception", "check:statistic:initiative"]
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.conditionitems.Item.9PR9y0bi4JPKnHPR"
     },
@@ -488,7 +516,22 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["con-based"],
+        "type": "status",
+        "value": "-1 * @item.value",
+        "slug": "drained"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["hp"],
+        "type": "status",
+        "value": "min(-1 * @level, -1) * @item.value",
+        "slug": "drained"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.conditionitems.Item.4D2KBtexWXa6oUMR"
     },
@@ -609,8 +652,8 @@
         "key": "FlatModifier",
         "selectors": ["all-speeds"],
         "type": "untyped",
-        "slug": "encumbered",
-        "value": -10
+        "value": -10,
+        "slug": "encumbered"
       }
     ],
     "externalIds": {
@@ -647,7 +690,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["str-based", "str-damage"],
+        "type": "status",
+        "value": "-@item.value",
+        "slug": "enfeebled"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.conditionitems.Item.MIRkyAjyBeXivMa7"
     },
@@ -699,7 +750,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception", "skill-check"],
+        "type": "status",
+        "value": -2,
+        "slug": "fascinated"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.conditionitems.Item.AdPVz7rbaVSRxHFg"
     },
@@ -743,7 +802,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "saving-throw"],
+        "type": "status",
+        "value": -1,
+        "slug": "fatigued"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.conditionitems.Item.HL2l2VRSaQHu9lUw"
     },
@@ -879,7 +946,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["all"],
+        "type": "status",
+        "value": "-@item.value",
+        "slug": "frightened"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.conditionitems.Item.TBSHQspnbcqxsmjL"
     },
@@ -1391,7 +1466,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": -2,
+        "slug": "off-guard"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.conditionitems.Item.AJh5ex99aV6VTggg"
     },
@@ -1641,6 +1724,13 @@
       {
         "key": "GrantItem",
         "item": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll"],
+        "type": "circumstance",
+        "value": -2,
+        "slug": "prone"
       }
     ],
     "externalIds": {
@@ -1805,7 +1895,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["all"],
+        "type": "status",
+        "value": "-@item.value",
+        "slug": "sickened"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.conditionitems.Item.fesd1n5eVhpCSS18"
     },
@@ -1943,7 +2041,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["cha-based", "int-based", "wis-based"],
+        "type": "status",
+        "value": "-@item.value",
+        "slug": "stupefied"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.conditionitems.Item.e1XGnhKNSQIm5IXg"
     },
@@ -2115,6 +2221,13 @@
       {
         "key": "GrantItem",
         "item": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "perception", "save:reflex"],
+        "type": "status",
+        "value": -4,
+        "slug": "unconscious"
       }
     ],
     "externalIds": {

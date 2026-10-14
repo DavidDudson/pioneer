@@ -7,3 +7,4 @@ export type { StoredPackHash } from './content-repository';
 export { StoredContentSource } from './stored-content-source';
 export { StoredContentBundles } from './stored-content-bundles';
 export { BUNDLE_CACHE_CONTROL, contentRoutes, MANIFEST_CACHE_CONTROL } from './content-routes';
+export { StoredPackBundles } from './stored-pack-bundles';

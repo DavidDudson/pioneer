@@ -2222,7 +2222,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["origin:effect:exalted-reaction-desecrator"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.sJtsgS6lUBgvN02R"
     },
@@ -2417,7 +2425,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "status",
+        "value": 4,
+        "slug": "eyes-of-god-sense-motive",
+        "predicate": ["action:sense-motive"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception-dc"],
+        "type": "status",
+        "value": 4,
+        "slug": "eyes-of-god-lie",
+        "predicate": ["action:lie"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.EfIh3sGokwzAwYpQ"
     },
@@ -5514,7 +5539,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["strike-damage", "spell-damage"],
+        "slug": "oath-of-the-slayer",
+        "mode": "multiply",
+        "value": 2,
+        "predicate": ["option:oath-of-the-slayer-double"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.vUBMjoOiZiMzdc18"
     },

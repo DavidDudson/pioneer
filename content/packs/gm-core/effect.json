@@ -711,7 +711,36 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:fortitude"],
+        "type": "item",
+        "value": 2,
+        "slug": "antidote-bonus",
+        "predicate": ["item:trait:poison"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["save:fortitude"],
+        "slug": "antidote-bonus",
+        "mode": "upgrade",
+        "value": 3,
+        "predicate": ["antidote:antidote-moderate"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["save:fortitude"],
+        "slug": "antidote-bonus",
+        "mode": "upgrade",
+        "value": 4,
+        "predicate": [
+          {
+            "or": ["antidote:antidote-greater", "antidote:antidote-major"]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.TjBxxlTvb6tJP1jS"
     },
@@ -788,7 +817,36 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:fortitude"],
+        "type": "item",
+        "value": 2,
+        "slug": "antiplague-bonus",
+        "predicate": ["item:trait:disease"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["save:fortitude"],
+        "slug": "antiplague-bonus",
+        "mode": "upgrade",
+        "value": 3,
+        "predicate": ["antiplague:antiplague-moderate"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["save:fortitude"],
+        "slug": "antiplague-bonus",
+        "mode": "upgrade",
+        "value": 4,
+        "predicate": [
+          {
+            "or": ["antiplague:antiplague-greater", "antiplague:antiplague-major"]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.mVgLCbZgafIylRzh"
     },
@@ -1013,7 +1071,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["ac"],
+        "slug": "cover",
+        "mode": "upgrade",
+        "value": 0
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.YlIESAmhjHJHGzmi"
     },
@@ -1088,7 +1154,52 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:will"],
+        "type": "item",
+        "value": 1,
+        "slug": "bravos-brew-bonus"
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["save:will"],
+        "slug": "bravos-brew-bonus",
+        "mode": "upgrade",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["item:trait:fear", "bravos-brew:bravos-brew-moderate"]
+          }
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["save:will"],
+        "slug": "bravos-brew-bonus",
+        "mode": "upgrade",
+        "value": 3,
+        "predicate": [
+          {
+            "or": [
+              {
+                "and": ["bravos-brew:bravos-brew-moderate", "item:trait:fear"]
+              },
+              "bravos-brew:bravos-brew-greater"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["save:will"],
+        "slug": "bravos-brew-bonus",
+        "mode": "upgrade",
+        "value": 4,
+        "predicate": ["item:trait:fear", "bravos-brew:bravos-brew-greater"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.eh7EqmDBDW30ShCu"
     },
@@ -1254,7 +1365,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "status",
+        "value": 10
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.PeuUz7JaabCgl6Yh"
     },
@@ -1307,7 +1425,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "status",
+        "value": 5
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.lNWACCNe9RYgaFxb"
     },
@@ -1360,7 +1485,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "status",
+        "value": 10
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.j9zVZwRBVAcnpEkE"
     },
@@ -1698,7 +1830,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "item",
+        "value": 2,
+        "slug": "diplomats-bearing",
+        "predicate": ["option:group"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.pAMyEbJzWBoYoGhs"
     },
@@ -1845,7 +1986,79 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "item",
+        "value": 1,
+        "slug": "eagle-eye-elixir-bonus"
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["perception"],
+        "slug": "eagle-eye-elixir-bonus",
+        "mode": "upgrade",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["origin:trait:trap", "option:secret-door"]
+          },
+          "eagle-eye-elixir:eagle-eye-elixir-lesser"
+        ],
+        "priority": 120
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["perception"],
+        "slug": "eagle-eye-elixir-bonus",
+        "mode": "upgrade",
+        "value": 2,
+        "predicate": ["eagle-eye-elixir:eagle-eye-elixir-moderate"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["perception"],
+        "slug": "eagle-eye-elixir-bonus",
+        "mode": "upgrade",
+        "value": 3,
+        "predicate": [
+          {
+            "or": ["origin:trait:trap", "option:secret-door"]
+          },
+          "eagle-eye-elixir:eagle-eye-elixir-moderate"
+        ],
+        "priority": 120
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["perception"],
+        "slug": "eagle-eye-elixir-bonus",
+        "mode": "upgrade",
+        "value": 3,
+        "predicate": [
+          {
+            "or": ["eagle-eye-elixir:eagle-eye-elixir-greater", "eagle-eye-elixir:eagle-eye-elixir-major"]
+          }
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["perception"],
+        "slug": "eagle-eye-elixir-bonus",
+        "mode": "upgrade",
+        "value": 4,
+        "predicate": [
+          {
+            "or": ["origin:trait:trap", "option:secret-door"]
+          },
+          {
+            "or": ["eagle-eye-elixir:eagle-eye-elixir-greater", "eagle-eye-elixir:eagle-eye-elixir-major"]
+          }
+        ],
+        "priority": 120
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.VOSQ77DV4BnAkP7m"
     },
@@ -1938,7 +2151,48 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "item",
+        "value": 1,
+        "slug": "elixir-of-life-bonus",
+        "predicate": [
+          {
+            "or": ["item:trait:disease", "item:trait:poison"]
+          }
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["saving-throw"],
+        "slug": "elixir-of-life-bonus",
+        "mode": "upgrade",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["elixir-of-life:elixir-of-life-moderate", "elixir-of-life:elixir-of-life-greater"]
+          }
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["saving-throw"],
+        "slug": "elixir-of-life-bonus",
+        "mode": "upgrade",
+        "value": 3,
+        "predicate": ["elixir-of-life:elixir-of-life-major"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["saving-throw"],
+        "slug": "elixir-of-life-bonus",
+        "mode": "upgrade",
+        "value": 4,
+        "predicate": ["elixir-of-life:elixir-of-life-true"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.lPRuIRbu0rHBkoKY"
     },
@@ -2153,7 +2407,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "saving-throw"],
+        "type": "status",
+        "value": 4
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.Elj69wSjv91ouC7v"
     },
@@ -2283,7 +2544,35 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "status",
+        "value": -10,
+        "slug": "glue-bomb-penalty"
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["all-speeds"],
+        "slug": "glue-bomb-penalty",
+        "mode": "downgrade",
+        "value": -15,
+        "predicate": [
+          {
+            "or": ["glue-bomb:glue-bomb-greater", "glue-bomb:glue-bomb-moderate"]
+          }
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["all-speeds"],
+        "slug": "glue-bomb-penalty",
+        "mode": "downgrade",
+        "value": -20,
+        "predicate": ["glue-bomb:glue-bomb-major"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.sgQknR94qDt5ILBx"
     },
@@ -2456,7 +2745,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["option:fear"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.xV9rME2l1f10mnF9"
     },
@@ -3239,6 +3536,12 @@
       {
         "key": "GrantItem",
         "item": "f7fea8f9-c457-5b9f-9283-f567fa557184"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "status",
+        "value": 40
       }
     ],
     "externalIds": {
@@ -4305,7 +4608,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "item",
+        "value": 2
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.zd85Ny1RS46OL0TD"
     },
@@ -4415,7 +4725,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:thievery"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["action:pick-a-lock"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.ehcAvmjZVzyFJclB"
     },
@@ -4590,7 +4908,31 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:religion"],
+        "type": "item",
+        "value": 1,
+        "slug": "thurible-of-revelation-bonus"
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["skill:religion"],
+        "slug": "thurible-of-revelation-bonus",
+        "mode": "upgrade",
+        "value": 2,
+        "predicate": ["thurible-of-revelation:thurible-of-revelation-moderate"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["skill:religion"],
+        "slug": "thurible-of-revelation-bonus",
+        "mode": "upgrade",
+        "value": 3,
+        "predicate": ["thurible-of-revelation:thurible-of-revelation-greater"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.lO95TwgihBdTilAB"
     },
@@ -4696,7 +5038,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": "ternary(gte(@level, 13), 3, 2)",
+        "predicate": ["item:ranged"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.campaign-effects.Item.MH3VWOysJ8XboONX"
     },
@@ -4802,7 +5152,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 4,
+        "predicate": ["item:trait:mental"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.DBaMtFHRPEg1JeLs"
     },

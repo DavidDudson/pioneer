@@ -42,6 +42,8 @@ import type { ContentSource } from '@pioneer/rules/sdk';
 import { message, NotFoundError, ValidationError, VersionConflictError } from '@pioneer/shared/kernel';
 import type { Clock, UserId } from '@pioneer/shared/kernel';
 
+import { contentOfCharacter } from './character-content';
+import type { CharacterContentSource } from './character-content';
 import { mayAccessCharacter } from './character-policy';
 import type { CharacterRepository } from './character-repository';
 
@@ -66,13 +68,17 @@ const CONDITION_MESSAGES = {
  */
 export class PlayService {
   readonly #characters: CharacterRepository;
-  readonly #content: ContentSource;
+  readonly #content: CharacterContentSource;
   readonly #clock: Clock;
 
-  public constructor(characters: CharacterRepository, content: ContentSource, clock: Clock) {
+  public constructor(characters: CharacterRepository, content: CharacterContentSource, clock: Clock) {
     this.#characters = characters;
     this.#content = content;
     this.#clock = clock;
+  }
+
+  #contentOf(character: Character): ContentSource {
+    return contentOfCharacter(this.#content, character);
   }
 
   public async get(actor: UserId, id: CharacterId): Promise<CharacterPlay> {
@@ -112,7 +118,7 @@ export class PlayService {
     const hitPoints = needsMaxHitPoints(command) ? await this.#maxHitPoints(character, play) : NO_MAX_HIT_POINTS;
     const resources = needsResourceMaxima(command) ? await this.#resourceMaxima(character) : NO_RESOURCES;
     const counted = needsResourceMaxima(command) ? await this.#counted(character) : NO_COUNTED;
-    const valued = needsConditionContent(command) ? await this.#valued() : NO_VALUED;
+    const valued = needsConditionContent(command) ? await this.#valued(character) : NO_VALUED;
     checkCondition(play, command, valued);
     const healing = needsRestContent(command) ? await this.#healing(character) : NO_MAX_HIT_POINTS;
     const limits: PlayLimits = { hitPoints, healing, recovery: RECOVERY_CONDITIONS, resources, counted, valued };
@@ -121,7 +127,7 @@ export class PlayService {
 
   /** Hero points are at most 3; the focus pool comes from the character's focus spells and feats. */
   async #resourceMaxima(character: Character): Promise<ResourceMaxima> {
-    const registry = await this.#content.registry();
+    const registry = await this.#contentOf(character).registry();
     const slots = slotContent(registry);
     const entries = characterSpellcasting(characterGrants(character.document, slots));
     return resourceMaxima(characterFocus(entries, slots.spells, character.document.level).pool);
@@ -129,7 +135,7 @@ export class PlayService {
 
   /** Spell slots by entry and rank, and ability uses, as the build and the content give them. */
   async #counted(character: Character): Promise<CountedMaxima> {
-    const registry = await this.#content.registry();
+    const registry = await this.#contentOf(character).registry();
     const grants = characterGrants(character.document, slotContent(registry));
     return characterCounted(grants, abilityFrequencies(registry), {
       items: character.document.inventory.items,
@@ -139,17 +145,17 @@ export class PlayService {
 
   /** What Rest heals, from the Constitution modifier and level the build gives. */
   async #healing(character: Character): Promise<HitPoints> {
-    const registry = await this.#content.registry();
+    const registry = await this.#contentOf(character).registry();
     return restHealing(characterStatisticInputs(registry, character.document, slotContent(registry)));
   }
 
   /** Which conditions the server's content has, and which carry a value. */
-  async #valued(): Promise<ConditionValued> {
-    return conditionValued(await this.#content.registry());
+  async #valued(character: Character): Promise<ConditionValued> {
+    return conditionValued(await this.#contentOf(character).registry());
   }
 
   async #maxHitPoints(character: Character, play: PlayState): Promise<HitPoints> {
-    const registry = await this.#content.registry();
+    const registry = await this.#contentOf(character).registry();
     const slots = slotContent(registry);
     const inputs = characterStatisticInputs(registry, character.document, slots);
     const max = maxHitPoints(characterStatistics({ ...character.document, play }, { registry, slots, inputs }));

@@ -13,17 +13,20 @@ import type {
   PickedPreparation,
   PreparedSlot,
   SignatureSlot,
+  SlotContent,
   SpellOption,
 } from '@pioneer/character/domain';
 import type { SelectOption } from '@pioneer/frontier';
 import { ContentKind, SlotRank, SpellPreparation } from '@pioneer/rules/sdk';
 import type { ContentId, ContentRegistry, MagicTradition, SlotKey, Slug, SpellRank } from '@pioneer/rules/sdk';
+import { SpellListMessage } from '@pioneer/rules/ui';
 import type { SpellAccessLine } from '@pioneer/rules/ui';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { CHARACTER_CONTENT_KINDS } from '../data/content-registry-query';
 import { sheetSlotContent } from './sheet-slot-content';
+import type { SpellOnSheet } from './sheet-spell-details';
 
 /** The kinds the spell pickers read: the character's, so its entries resolve, and the spells. */
 export const SPELL_CONTENT_KINDS: readonly ContentKind[] = [...CHARACTER_CONTENT_KINDS, ContentKind.Spell];
@@ -41,6 +44,8 @@ export interface SheetPreparedSlot {
   readonly signature: boolean;
   /** The stored pick's name, so a pick the slot no longer offers still reads by name. */
   readonly storedName: string | undefined;
+  /** The spell the slot holds, at the rank it is cast; undefined while the slot is empty or holds something it no longer offers. */
+  readonly spell: SpellOnSheet | undefined;
   /** The server's reason when the slot's pick is invalid. */
   readonly reason: MessageDescriptor | undefined;
 }
@@ -89,6 +94,11 @@ function slotLabel({ slot, pool }: NamedSlot, place: number): MessageDescriptor 
   return slot.preparation === SpellPreparation.Spontaneous
     ? message('character.sheet.repertoire.rankSpell', { rank: slot.rank, number: place })
     : message('character.sheet.prepared.rankSlot', { rank: slot.rank, number: place });
+}
+
+/** A slot's pick as the sheet details it, cast at `rank`. */
+function spellOf(pick: SpellOption | undefined, rank: SpellRank, tags: readonly string[]): SpellOnSheet | undefined {
+  return pick === undefined ? undefined : { id: pick.id, name: pick.name, rank, tags };
 }
 
 /** "3rd rank signature spell". */
@@ -153,6 +163,19 @@ function signatureIn(signatures: readonly SignatureSlot[], { slot }: NamedSlot):
     : undefined;
 }
 
+/** The prepared slots, each with the name of the entry that gave its pool. */
+function namedSlots(slots: readonly PreparedSlot[], content: SlotContent): NamedSlot[] {
+  return slots.map((slot): NamedSlot => ({
+    slot,
+    pool: slot.pool === undefined ? undefined : (content.lookup.entry(slot.pool.origin.entry)?.name ?? slot.pool.slug),
+  }));
+}
+
+/** The badge a slot of `rank` puts on its spell: a cantrip says so. */
+function cantripTags(rank: PreparedSlot['rank']): readonly string[] {
+  return rank === SlotRank.Cantrip ? [SpellListMessage.TagCantrip] : [];
+}
+
 /**
  * Each prepared entry's slots at the character's level (#478), rank by rank, cantrips first, then each of its pools'
  * (#581) the same way, under the name of the entry that gave the pool; and each spontaneous entry's repertoire the same
@@ -175,6 +198,7 @@ export function sheetPreparedSlots(
     signature: false,
     storedName: named.slot.stored === undefined ? undefined : content.spells.spell(named.slot.stored)?.name,
     reason: reasonOf(slots, named.slot.key),
+    spell: spellOf(named.slot.pick, named.slot.castRank, cantripTags(named.slot.rank)),
   });
   const signatureSlot = (signature: SignatureSlot): SheetPreparedSlot => ({
     key: signature.key,
@@ -185,13 +209,11 @@ export function sheetPreparedSlots(
     signature: true,
     storedName: signature.stored === undefined ? undefined : content.spells.spell(signature.stored)?.name,
     reason: reasonOf(slots, signature.key),
+    spell: spellOf(signature.pick, signature.castRanks.at(-1) ?? signature.rank, [SpellListMessage.TagSignature]),
   });
   const reads = preparedReads(character.document, content);
   const signatures = signatureSlots(character.document, reads);
-  const all = preparedSlots(character.document, reads).map((slot): NamedSlot => ({
-    slot,
-    pool: slot.pool === undefined ? undefined : (content.lookup.entry(slot.pool.origin.entry)?.name ?? slot.pool.slug),
-  }));
+  const all = namedSlots(preparedSlots(character.document, reads), content);
   return runs(all, ({ slot }) => slot.entry).map(([first, entrySlots]) => ({
     key: first.slot.entry,
     preparation: first.slot.preparation,

@@ -50,8 +50,19 @@ export {
   RuneGrade,
   RuneType,
 } from './rune';
-export { AmmunitionType, BaseWeapon, DiceCount, DieSize, WeaponDamage, WeaponData, WeaponGroup } from './weapon';
-export { HeighteningType, SpellData } from './spell';
+export {
+  AmmunitionType,
+  BaseWeapon,
+  DiceCount,
+  DieSize,
+  PersistentDamage,
+  WeaponDamage,
+  WeaponData,
+  WeaponGroup,
+} from './weapon';
+export { DamageKind, HeighteningType, SpellData } from './spell';
+export type { Heightening, SpellDamage, SpellVariant } from './spell';
+export { SpellDamageFormula } from './damage-formula';
 export { CastTimeType, SpellDurationEnd, SpellDurationType, SpellRangeType, SpellTimeUnit } from './spell-casting';
 export { TurnOwner } from './spell-casting';
 export { TargetCountWord, TargetKind, TargetQualifier, TargetWithin, TargetYou } from './spell-targets';
@@ -92,7 +103,16 @@ export { LanguageData } from './language';
 export { SenseAcuity, SenseData } from './sense';
 export { VariantRuleData, VariantRuleDefinition, VariantRuleId } from './variant-rule';
 export { ContentEntry } from './content-entry';
-export { BundleBody, BundleFile, BundleHash, bundlePath, ContentContract, ContentManifest } from './content-bundle';
+export {
+  BundleBody,
+  BundleFile,
+  BundleHash,
+  bundlePath,
+  ContentContract,
+  ContentManifest,
+  HomebrewContentContract,
+  HomebrewManifestRequest,
+} from './content-bundle';
 export { CanonicalJson, canonicalJson, contentBundles, contentPackFromBundles } from './content-bundle';
 export type { BundlePath, ContentBundles, FetchedKind, KindBundles, PackBundles } from './content-bundle';
 export {

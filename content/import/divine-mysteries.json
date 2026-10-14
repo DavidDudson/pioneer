@@ -436,36 +436,6 @@
             "type": "fire",
             "value": "ternary(gte(@actor.conditions.cursebound.value,3),(5 + @actor.level),2)"
           }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "gte": ["self:condition:cursebound", 2]
-              }
-            ],
-            "selector": "ranged-attack-roll",
-            "type": "circumstance",
-            "value": -2
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "gte": ["self:condition:cursebound", 4]
-              }
-            ],
-            "selector": "all-speeds",
-            "type": "status",
-            "value": -10
-          }
         }
       ]
     },
@@ -3008,39 +2978,6 @@
     {
       "type": "entry",
       "pack": "divine-mysteries",
-      "slug": "effect:effect-emboldened-with-glorious-purpose",
-      "foundry": "Compendium.pf2e.feat-effects.Item.ZNpDvK1r9B8d7aZp",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "will",
-            "type": "status",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "upgrade",
-            "predicate": [
-              {
-                "or": ["item:trait:emotion", "item:trait:fear"]
-              }
-            ],
-            "selector": "will",
-            "value": 2
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
       "slug": "effect:effect-empowered-onslaught",
       "foundry": "Compendium.pf2e.feat-effects.Item.ik5QuOpF0IO275Nm",
       "gaps": [
@@ -3121,40 +3058,6 @@
             "key": "TokenMark",
             "slug": "enforce-oath"
           }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": ["ac", "saving-throw"],
-            "slug": "enforce-oath-defense",
-            "type": "status",
-            "value": -1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "attack-roll",
-            "slug": "enforce-oath-attack",
-            "type": "status",
-            "value": -1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "upgrade",
-            "predicate": ["target:mark:enforce-oath"],
-            "selector": "attack-roll",
-            "slug": "enforce-oath-attack",
-            "value": 1
-          }
         }
       ]
     },
@@ -3170,26 +3073,6 @@
           "raw": {
             "key": "TempHP",
             "value": "@actor.system.abilities.con.mod + @actor.level"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": ["fortitude", "will"],
-            "type": "status",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "damageType": "spirit",
-            "key": "FlatModifier",
-            "selector": "melee-damage",
-            "value": 1
           }
         }
       ]
@@ -3599,16 +3482,6 @@
         },
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "ac",
-            "type": "item",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
           "key": "Resistance",
           "raw": {
             "key": "Resistance",
@@ -3769,17 +3642,6 @@
             "predicate": ["self:signature:{item|origin.signature}"],
             "radius": "5 + @item.badge.value * 10"
           }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "ac",
-            "slug": "benediction",
-            "type": "status",
-            "value": 1
-          }
         }
       ]
     },
@@ -3791,70 +3653,12 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["item:trait:electricity"],
-            "selector": "saving-throw",
-            "type": "status",
-            "value": -1
-          }
-        },
-        {
-          "type": "rule",
           "key": "EphemeralEffect",
           "raw": {
             "affects": "origin",
             "key": "EphemeralEffect",
             "selectors": ["attack-roll"],
             "uuid": "Compendium.pf2e.spell-effects.Item.Spell Effect: Charged Javelin (Attacker)"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
-      "slug": "effect:spell-effect-charged-javelin-attacker",
-      "foundry": "Compendium.pf2e.spell-effects.Item.aNomC4orI44YGBGU",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "or": [
-                  "item:trait:electricity",
-                  {
-                    "and": [
-                      {
-                        "or": [
-                          "item:material:abysium",
-                          "item:material:adamantine",
-                          "item:material:cold-iron",
-                          "item:material:dawnsilver",
-                          "item:material:djezet",
-                          "item:material:inubrix",
-                          "item:material:keep-stone",
-                          "item:material:metal",
-                          "item:material:noqual",
-                          "item:material:orichalcum",
-                          "item:material:siccatite",
-                          "item:material:silver",
-                          "item:material:sovereign-steel"
-                        ]
-                      },
-                      "item:type:weapon"
-                    ]
-                  }
-                ]
-              }
-            ],
-            "selector": "attack-roll",
-            "type": "status",
-            "value": 1
           }
         }
       ]
@@ -3956,21 +3760,6 @@
             "key": "TokenMark",
             "slug": "dutiful-challenge"
           }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "not": "target:mark:dutiful-challenge"
-              }
-            ],
-            "selector": ["attack-roll", "damage", "skill-check"],
-            "type": "status",
-            "value": "-floor((@item.level - 1)/3)"
-          }
         }
       ]
     },
@@ -4024,48 +3813,6 @@
     {
       "type": "entry",
       "pack": "divine-mysteries",
-      "slug": "effect:spell-effect-font-of-serenity",
-      "foundry": "Compendium.pf2e.spell-effects.Item.Bc2Bwuan3716eAyY",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["item:trait:emotion"],
-            "selector": "saving-throw",
-            "type": "status",
-            "value": "ternary(gte(@item.level,4),2,1)"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
-      "slug": "effect:spell-effect-guided-introspection",
-      "foundry": "Compendium.pf2e.spell-effects.Item.Me470HI6inX3Bovh",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "or": ["item:trait:emotion", "item:trait:fear"]
-              }
-            ],
-            "selector": "saving-throw",
-            "type": "status",
-            "value": "ternary(gte(@item.level,4),2,1)"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
       "slug": "effect:spell-effect-incendiary-ashes-failure",
       "foundry": "Compendium.pf2e.spell-effects.Item.TrmNSuv6zWEiceqn",
       "gaps": [
@@ -4093,42 +3840,6 @@
             "key": "Weakness",
             "type": "fire",
             "value": "@item.level"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
-      "slug": "effect:spell-effect-lift-natures-caul-bonus",
-      "foundry": "Compendium.pf2e.spell-effects.Item.ihv1azg80N3kj7Vo",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": ["attack-roll", "will"],
-            "type": "status",
-            "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
-      "slug": "effect:spell-effect-malediction",
-      "foundry": "Compendium.pf2e.spell-effects.Item.1jX8W0eyMPJ0MFKY",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "ac",
-            "type": "status",
-            "value": -1
           }
         }
       ]
@@ -4206,67 +3917,6 @@
     {
       "type": "entry",
       "pack": "divine-mysteries",
-      "slug": "effect:spell-effect-penumbral-disguise",
-      "foundry": "Compendium.pf2e.spell-effects.Item.mAofA4oy3cRdT71K",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              "action:hide",
-              {
-                "or": ["lighting:darkness", "lighting:dim-light"]
-              }
-            ],
-            "selector": "stealth",
-            "type": "status",
-            "value": "ternary(gte(@item.level,8),4,ternary(gte(@item.level,6),3,ternary(gte(@item.level,4),2,1)))"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
-      "slug": "effect:spell-effect-repel-metal",
-      "foundry": "Compendium.pf2e.spell-effects.Item.vhFnQBvguBXo6vxx",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "ac",
-            "type": "circumstance",
-            "value": 2
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
-      "slug": "effect:spell-effect-roar-of-the-dragon",
-      "foundry": "Compendium.pf2e.spell-effects.Item.0s6YaL3IjqECmjab",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["target:trait:dragon", "roar-of-the-dragon-area"],
-            "selector": "diplomacy",
-            "type": "circumstance",
-            "value": 2
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
       "slug": "effect:spell-effect-serrate",
       "foundry": "Compendium.pf2e.spell-effects.Item.CDNKDV3UsAp95D1m",
       "gaps": [
@@ -4292,24 +3942,6 @@
             "dieSize": "d4",
             "key": "DamageDice",
             "selector": "{item|flags.system.rulesSelections.serrateWeapon}-damage"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
-      "slug": "effect:spell-effect-share-vision",
-      "foundry": "Compendium.pf2e.spell-effects.Item.eQzFYXLYPrGc9EBI",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "perception",
-            "type": "status",
-            "value": 2
           }
         }
       ]
@@ -4404,21 +4036,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.UaOrOGrjcXgSeBvr",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "or": ["action:lie", "action:feint"]
-              }
-            ],
-            "selector": "deception",
-            "type": "item",
-            "value": 1
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[actionspf2e]"
         },
@@ -4434,21 +4051,6 @@
       "slug": "equipment:razmiri-mask-gold",
       "foundry": "Compendium.pf2e.equipment-srd.Item.HHxX5hA2RK7yI483",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "or": ["action:lie", "action:feint"]
-              }
-            ],
-            "selector": "deception",
-            "type": "item",
-            "value": 3
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[actionspf2e]"
@@ -4470,21 +4072,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.Im9gFhIGtTxRJkS2",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "or": ["action:lie", "action:feint"]
-              }
-            ],
-            "selector": "deception",
-            "type": "item",
-            "value": 4
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[actionspf2e]"
         },
@@ -4504,21 +4091,6 @@
       "slug": "equipment:razmiri-mask-silver",
       "foundry": "Compendium.pf2e.equipment-srd.Item.eAEZWwzLf6Qr1l0Q",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "or": ["action:lie", "action:feint"]
-              }
-            ],
-            "selector": "deception",
-            "type": "item",
-            "value": 2
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[actionspf2e]"
@@ -4871,17 +4443,6 @@
       "foundry": "Compendium.pf2e.feats-srd.Item.sJtsgS6lUBgvN02R",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["origin:effect:exalted-reaction-desecrator"],
-            "selector": "saving-throw",
-            "type": "status",
-            "value": 2
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[actionspf2e]"
         },
@@ -4942,30 +4503,6 @@
       "slug": "feat:eyes-of-god",
       "foundry": "Compendium.pf2e.feats-srd.Item.EfIh3sGokwzAwYpQ",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["action:sense-motive"],
-            "selector": "perception",
-            "slug": "eyes-of-god-sense-motive",
-            "type": "status",
-            "value": 4
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["action:lie"],
-            "selector": "perception-dc",
-            "slug": "eyes-of-god-lie",
-            "type": "status",
-            "value": 4
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
@@ -5739,18 +5276,6 @@
             "selector": ["strike-damage", "spell-damage"],
             "slug": "oath-of-the-slayer",
             "value": "ternary(gte(@actor.level,14),3,ternary(gte(@actor.level,7),2,1))"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "multiply",
-            "predicate": ["oath-of-the-slayer-double"],
-            "selectors": ["strike-damage", "spell-damage"],
-            "slug": "oath-of-the-slayer",
-            "value": 2
           }
         }
       ]

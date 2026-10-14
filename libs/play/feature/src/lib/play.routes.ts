@@ -1,4 +1,5 @@
 import type { Routes } from '@angular/router';
+import { rollMessages } from '@pioneer/play/ui';
 import { diceMessages } from '@pioneer/rules/dice';
 import { engineMessages } from '@pioneer/rules/engine';
 import { formulaMessages } from '@pioneer/rules/formula';
@@ -18,6 +19,7 @@ export const playRoutes: Routes = [
     path: '',
     providers: [
       provideMessageScope('play', { [Locale.English]: async () => import('../i18n/en.json') }),
+      provideMessageScope('roll', { [Locale.English]: async () => rollMessages.roll }),
       provideMessageScope('dice', { [Locale.English]: async () => diceMessages.dice }),
       provideMessageScope('rules', { [Locale.English]: async () => rulesMessages.rules }),
       provideMessageScope('formula', { [Locale.English]: async () => formulaMessages.formula }),

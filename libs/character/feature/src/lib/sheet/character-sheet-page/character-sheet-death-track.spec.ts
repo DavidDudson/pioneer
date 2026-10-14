@@ -1,7 +1,7 @@
 import { HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { playerCoreClassId } from '@pioneer/character/domain/testing';
-import { RANDOM_SOURCE } from '@pioneer/play/feature';
+import { RANDOM_SOURCE } from '@pioneer/play/ui';
 import { DieFace } from '@pioneer/rules/dice';
 import { scriptedRandom } from '@pioneer/rules/dice/testing';
 import { beforeAll, describe, expect, it, vi } from 'vitest';

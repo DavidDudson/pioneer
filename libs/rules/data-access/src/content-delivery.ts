@@ -1,12 +1,15 @@
 import { inject, InjectionToken } from '@angular/core';
-import { ContentContract } from '@pioneer/rules/sdk';
-import type { BundleBody, BundleFile, ContentManifest, PackId } from '@pioneer/rules/sdk';
+import { ContentContract, HomebrewContentContract } from '@pioneer/rules/sdk';
+import type { BundleBody, BundleFile, ContentManifest, ContentPackId, PackId } from '@pioneer/rules/sdk';
 import { ApiClient } from '@pioneer/shared/web';
 
 /** Port: where the browser asks for content it doesn't hold. The API serves it; tests serve packs from memory. */
 export interface ContentDelivery {
   readonly manifest: () => Promise<ContentManifest>;
   readonly bundle: (pack: PackId, file: BundleFile) => Promise<BundleBody>;
+  /** The bundles of the homebrew `packs` (and what they extend) the signed-in user may read. */
+  readonly homebrewManifest: (packs: readonly ContentPackId[]) => Promise<ContentManifest>;
+  readonly homebrewBundle: (pack: PackId, file: BundleFile) => Promise<BundleBody>;
 }
 
 function apiDelivery(api: ApiClient): ContentDelivery {
@@ -14,6 +17,10 @@ function apiDelivery(api: ApiClient): ContentDelivery {
     manifest: async (): Promise<ContentManifest> => api.call(ContentContract.manifest, { params: {}, body: undefined }),
     bundle: async (pack: PackId, file: BundleFile): Promise<BundleBody> =>
       api.call(ContentContract.bundle, { params: { pack, file }, body: undefined }),
+    homebrewManifest: async (packs: readonly ContentPackId[]): Promise<ContentManifest> =>
+      api.call(HomebrewContentContract.manifest, { params: {}, body: { packs } }),
+    homebrewBundle: async (pack: PackId, file: BundleFile): Promise<BundleBody> =>
+      api.call(HomebrewContentContract.bundle, { params: { pack, file }, body: undefined }),
   };
 }
 

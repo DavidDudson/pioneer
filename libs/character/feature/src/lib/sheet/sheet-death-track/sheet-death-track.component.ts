@@ -15,8 +15,8 @@ import {
   Stack,
   Text,
 } from '@pioneer/frontier';
-import { RANDOM_SOURCE, RollCard } from '@pioneer/play/feature';
-import type { RollView } from '@pioneer/play/feature';
+import { RANDOM_SOURCE, RollCard } from '@pioneer/play/ui';
+import type { RollView } from '@pioneer/play/ui';
 import type { Dc } from '@pioneer/rules/sdk';
 
 import { PlayStore } from '../../data/play-store';

@@ -17,6 +17,8 @@ import {
   TextInput,
   ToggleButton,
 } from '@pioneer/frontier';
+import { RANDOM_SOURCE, RollCard, rollView } from '@pioneer/play/ui';
+import type { RollView } from '@pioneer/play/ui';
 import {
   applyDamage,
   checkOutcome,
@@ -39,10 +41,6 @@ import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { DamageTargetEditor } from '../damage-target-editor/damage-target-editor.component';
-import { RANDOM_SOURCE } from '../random-source';
-import { RollCard } from '../roll-card/roll-card.component';
-import { rollView } from '../roll-view';
-import type { RollView } from '../roll-view';
 
 /** Newest rolls shown; older ones fall off. */
 const HISTORY_LIMIT = 10;

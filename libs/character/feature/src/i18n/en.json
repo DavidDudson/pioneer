@@ -173,6 +173,12 @@
       "from": "From {entry}",
       "none": "No feat slots yet. Pick a class and ancestry first."
     },
+    "spellTargets": {
+      "label": "Show spells by targets",
+      "all": "All",
+      "single": "Single target",
+      "multiple": "Multiple targets"
+    },
     "prepared": {
       "heading": "Prepared spells: {tradition}",
       "cantrips": "Cantrips, cast at {rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank",
@@ -301,7 +307,11 @@
       "uses": "{amount, plural, one {# use of {name}} other {# uses of {name}}}",
       "heading": "Rest and preparations"
     },
-    "packsHeading": "Content packs"
+    "packsHeading": "Content packs",
+    "roll": {
+      "heading": "{name} check",
+      "breakdown": "Breakdown"
+    }
   },
   "validation": {
     "unknownAncestry": "That ancestry is not available. Choose another.",

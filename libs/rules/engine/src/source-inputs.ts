@@ -3,8 +3,10 @@ import {
   Attribute,
   ContentText,
   AttributeSchema,
+  DamageAmount,
   FAVORED_WEAPON,
   Feet,
+  ItemCount,
   MagicTraditionSchema,
   Origin,
   ReferenceKind,
@@ -44,6 +46,10 @@ export interface WeaponInputs {
   readonly label?: ContentText | undefined;
   /** Its damage before runes and modifiers: dice, die and type. A weapon with none has no damage line. */
   readonly damage?: WeaponDamage | undefined;
+  /** What a bomb deals to creatures near its target, of its damage's type; undefined for a weapon without splash. */
+  readonly splash?: DamageAmount | undefined;
+  /** How many of it the stack the character throws from holds; undefined for a weapon that isn't used up. */
+  readonly quantity?: ItemCount | undefined;
   /**
    * Whether it is one of the character's deity's favoured weapons: its Strike then reads the better of its category's
    * proficiency and `attack:favored-weapon` (ADR-0048).
@@ -102,6 +108,8 @@ const WeaponInputsJson = z.strictObject({
   striking: RuneGrade.optional(),
   label: ContentText.optional(),
   damage: WeaponDamage.optional(),
+  splash: DamageAmount.optional(),
+  quantity: ItemCount.optional(),
   favored: z.boolean().optional(),
   origin: Origin,
 });

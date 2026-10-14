@@ -1,11 +1,35 @@
 import { loadOrder, packContentsFromFiles } from '@pioneer/rules/sdk';
 import type { ContentPackId, PackContents, PackId } from '@pioneer/rules/sdk';
-import { asc, eq, isNull } from 'drizzle-orm';
+import { and, asc, eq, inArray, isNotNull, isNull } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 
 import { contentEntries, contentPackDeps, contentPacks } from './content.table';
 
 type Database = BunSQLDatabase<Record<string, unknown>>;
+
+/** What the reads below need of a database or a transaction. */
+type Reader = Pick<Database, 'select'>;
+
+/**
+ * The homebrew packs among `roots` and every pack they extend, each once and after the packs it extends, so registering
+ * them in this order resolves a pack's references as it goes. Official packs are left out: a registry holds them already.
+ */
+async function homebrewOrder(reader: Reader, roots: readonly ContentPackId[]): Promise<readonly ContentPackId[]> {
+  const edges = await reader
+    .select({ pack: contentPackDeps.packId, dependsOn: contentPackDeps.dependsOn })
+    .from(contentPackDeps)
+    .orderBy(asc(contentPackDeps.packId), asc(contentPackDeps.dependsOn));
+  const ordered = [...new Set(roots.flatMap((root) => loadOrder(edges, root)))];
+  if (ordered.length === 0) {
+    return [];
+  }
+  const homebrew = await reader
+    .select({ id: contentPacks.id })
+    .from(contentPacks)
+    .where(and(inArray(contentPacks.id, ordered), isNotNull(contentPacks.ownerId)));
+  const kept = new Set(homebrew.map((row) => row.id));
+  return ordered.filter((id) => kept.has(id));
+}
 
 /** A stored pack's `content_hash`: what tells a reader the pack changed since it last loaded it. */
 export interface StoredPackHash {
@@ -87,6 +111,52 @@ export class ContentRepository {
           }),
         );
         return loaded.filter((contents) => contents !== undefined);
+      },
+      { isolationLevel: 'repeatable read', accessMode: 'read only' },
+    );
+  }
+
+  /** The hashes of the homebrew packs `homebrewOrder` gives for `roots`, by slug: what a registry of them is cached under. */
+  public async homebrewHashes(roots: readonly ContentPackId[]): Promise<readonly StoredPackHash[]> {
+    if (roots.length === 0) {
+      return [];
+    }
+    const order = await homebrewOrder(this.#db, roots);
+    if (order.length === 0) {
+      return [];
+    }
+    return this.#db
+      .select({ pack: contentPacks.slug, hash: contentPacks.contentHash })
+      .from(contentPacks)
+      .where(inArray(contentPacks.id, [...order]))
+      .orderBy(asc(contentPacks.slug));
+  }
+
+  /**
+   * The homebrew packs among `roots` and the packs they extend, each after the packs it extends (`homebrewOrder`), with
+   * their entries. One snapshot, like `loadOfficial`. A pack that does not exist is left out.
+   */
+  public async loadHomebrew(roots: readonly ContentPackId[]): Promise<readonly PackContents[]> {
+    if (roots.length === 0) {
+      return [];
+    }
+    return this.#db.transaction(
+      async (tx): Promise<readonly PackContents[]> => {
+        const order = await homebrewOrder(tx, roots);
+        return Promise.all(
+          order.map(async (id): Promise<PackContents> => {
+            const [pack] = await tx
+              .select({ data: contentPacks.data })
+              .from(contentPacks)
+              .where(eq(contentPacks.id, id));
+            const entries = await tx
+              .select({ data: contentEntries.data })
+              .from(contentEntries)
+              .where(eq(contentEntries.packId, id))
+              .orderBy(asc(contentEntries.kind), asc(contentEntries.slug));
+            return packContentsFromFiles(pack?.data, [entries.map((entry) => entry.data)]);
+          }),
+        );
       },
       { isolationLevel: 'repeatable read', accessMode: 'read only' },
     );

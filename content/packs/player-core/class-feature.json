@@ -1040,6 +1040,13 @@
         "key": "Proficiency",
         "selector": "perception",
         "rank": "master"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["initiative"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["option:perception"]
       }
     ],
     "externalIds": {
@@ -6614,7 +6621,65 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["skill-check"],
+        "slug": "outwit",
+        "mode": "upgrade",
+        "value": 4,
+        "predicate": [
+          {
+            "or": ["proficiency:master", "proficiency:legendary"]
+          }
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["ac"],
+        "slug": "outwit",
+        "mode": "upgrade",
+        "value": 2,
+        "predicate": [
+          {
+            "or": [
+              {
+                "and": [
+                  "armor:category:light",
+                  {
+                    "gte": ["defense:light:rank", 3]
+                  }
+                ]
+              },
+              {
+                "and": [
+                  "armor:category:medium",
+                  {
+                    "gte": ["defense:medium:rank", 3]
+                  }
+                ]
+              },
+              {
+                "and": [
+                  "armor:category:heavy",
+                  {
+                    "gte": ["defense:heavy:rank", 3]
+                  }
+                ]
+              },
+              {
+                "and": [
+                  "armor:category:unarmored",
+                  {
+                    "gte": ["defense:unarmored:rank", 3]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.vWZaLE2fEKMBw3D5"
     },
@@ -7120,7 +7185,32 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          {
+            "or": [
+              "check:statistic:deception",
+              "check:statistic:intimidation",
+              "check:statistic:stealth",
+              "action:recall-knowledge"
+            ]
+          },
+          "target:mark:hunted-prey"
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["origin:mark:hunted-prey"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.NBHyoTrI8q62uDsU"
     },

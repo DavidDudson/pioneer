@@ -14,3 +14,6 @@ export { InMemoryPackDirectory, type OfficialPack } from './in-memory-pack-direc
 export { PackDependencyRepository } from './pack-dependency-repository';
 export { PackDependencyService, type PackDependencyPorts } from './pack-dependency-service';
 export { PackDirectory, type ListedPack, type ReadablePack } from './pack-directory';
+export { HomebrewBundleService, type HomebrewBundlePorts } from './homebrew-bundle-service';
+export { PackBundleSource } from './pack-bundle-source';
+export { InMemoryPackBundleSource } from './in-memory-pack-bundle-source';

@@ -2,6 +2,8 @@ import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
 import { describe, expect, it } from 'vitest';
 
+import { STATISTIC_ROLLER } from '../statistics/statistic-roller';
+import type { RollableStatistic } from '../statistics/statistic-roller';
 import { ENTRY_NAMES } from '../testing/breakdown-fixtures';
 import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing';
 import {
@@ -10,6 +12,7 @@ import {
   FIGHTER_STRIKES,
   NO_DAMAGE_STRIKE,
   STEEL_SHIELD,
+  THROWN_STRIKES,
 } from '../testing/strike-fixtures';
 import { StrikesView } from './strikes.component';
 import type { NamedStrike } from './strikes.component';
@@ -125,6 +128,27 @@ describe(StrikesView, () => {
     expect(textOf(hostOf(fixture))).toContain('Failed');
   });
 
+  it('shows a thrown stack range, persistent and splash damage, and how many are left', async () => {
+    const fixture = await render(THROWN_STRIKES);
+    const [fire] = rowsOf(fixture).map((row) => textOf(row));
+
+    expect(fire).toContain('1d8 fire');
+    expect(fire).toContain('Range increment 20 ft');
+    expect(fire).toContain('1 persistent fire');
+    expect(fire).toContain('1 fire splash');
+    expect(fire).toContain('3 in stack');
+  });
+
+  it('shows holy water splash in its own type', async () => {
+    const fixture = await render(THROWN_STRIKES);
+    const water = rowsOf(fixture)
+      .map((row) => textOf(row))
+      .at(1);
+
+    expect(water).toContain('1 spirit splash');
+    expect(water).toContain('1 in stack');
+  });
+
   it('says a weapon with no dice does no damage', async () => {
     const fixture = await render(NO_DAMAGE_STRIKE);
 
@@ -141,5 +165,37 @@ describe(StrikesView, () => {
     const fixture = await render(undefined);
 
     expect(hostOf(fixture).querySelectorAll('fr-skeleton').length).toBeGreaterThan(0);
+  });
+
+  it('rolls a Strike attack from a button beside it, only where the page provides a roller', async () => {
+    const rolled: RollableStatistic[] = [];
+    TestBed.configureTestingModule({
+      providers: [
+        provideRulesUiI18nTesting(),
+        {
+          provide: STATISTIC_ROLLER,
+          useValue: {
+            roll: (rollable: RollableStatistic): undefined => {
+              rolled.push(rollable);
+            },
+          },
+        },
+      ],
+    });
+    const fixture = TestBed.createComponent(StrikesView);
+    fixture.componentRef.setInput('strikes', FIGHTER_STRIKES);
+    await fixture.whenStable();
+    const buttons = hostOf(fixture).querySelectorAll<HTMLButtonElement>('button[aria-label^="Roll "]');
+
+    expect([...buttons].map((button) => button.getAttribute('aria-label'))).toStrictEqual([
+      'Roll Longsword',
+      'Roll Dagger',
+    ]);
+    buttons[0]?.click();
+    expect(rolled.map(({ name }) => name)).toStrictEqual(['Longsword']);
+
+    TestBed.resetTestingModule();
+    const plain = await render(FIGHTER_STRIKES);
+    expect(hostOf(plain).querySelectorAll('button[aria-label^="Roll "]')).toHaveLength(0);
   });
 });

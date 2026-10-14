@@ -1,28 +1,33 @@
 <fr-stack gap="3xs">
   @if (derived(); as attack) {
-    <fr-disclosure>
-      <fr-text frDisclosureSummary
-        >{{ row().name }} <pio-statistic-total [total]="attack.total" [computed]="attack.computed"
-      /></fr-text>
-      <fr-stack gap="xs">
-        <fr-text variant="caption" tone="muted">{{ Message.AttackHeading | transloco }}</fr-text>
-        <pio-breakdown
-          [statistic]="attack.statistic"
-          [kind]="attackKind"
-          [entryNames]="entryNames()"
-          [originNames]="originNames()"
-        />
-        @if (row().bonus; as bonus) {
-          <fr-text variant="caption" tone="muted">{{ Message.DamageHeading | transloco }}</fr-text>
-          <pio-breakdown
-            [statistic]="bonus"
-            [kind]="bonusKind"
-            [entryNames]="entryNames()"
-            [originNames]="originNames()"
-          />
-        }
+    <fr-stack direction="horizontal" gap="xs" align="start">
+      <fr-stack grow>
+        <fr-disclosure>
+          <fr-text frDisclosureSummary
+            >{{ row().name }} <pio-statistic-total [total]="attack.total" [computed]="attack.computed"
+          /></fr-text>
+          <fr-stack gap="xs">
+            <fr-text variant="caption" tone="muted">{{ Message.AttackHeading | transloco }}</fr-text>
+            <pio-breakdown
+              [statistic]="attack.statistic"
+              [kind]="attackKind"
+              [entryNames]="entryNames()"
+              [originNames]="originNames()"
+            />
+            @if (row().bonus; as bonus) {
+              <fr-text variant="caption" tone="muted">{{ Message.DamageHeading | transloco }}</fr-text>
+              <pio-breakdown
+                [statistic]="bonus"
+                [kind]="bonusKind"
+                [entryNames]="entryNames()"
+                [originNames]="originNames()"
+              />
+            }
+          </fr-stack>
+        </fr-disclosure>
       </fr-stack>
-    </fr-disclosure>
+      <pio-statistic-roll [name]="row().name" [kind]="attackKind" [statistic]="attack.statistic" />
+    </fr-stack>
   } @else {
     <fr-stack direction="horizontal" gap="xs" align="center" wrap>
       <fr-text>{{ row().name }}</fr-text>
@@ -38,6 +43,9 @@
   }
   <pio-statistic-conditions [conditions]="row().attackConditions" />
   <fr-text>{{ row().damage }}</fr-text>
+  @for (line of row().thrown; track line) {
+    <fr-text>{{ line }}</fr-text>
+  }
   <pio-statistic-conditions [conditions]="row().damageConditions" />
   <fr-text variant="caption" tone="muted">{{ row().penalty }}</fr-text>
 </fr-stack>

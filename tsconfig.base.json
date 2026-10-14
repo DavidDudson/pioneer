@@ -83,6 +83,7 @@
       "@pioneer/homebrew/infrastructure": ["./libs/homebrew/infrastructure/src/index.ts"],
       "@pioneer/homebrew/feature": ["./libs/homebrew/feature/src/index.ts"],
       "@pioneer/legal/feature": ["./libs/legal/feature/src/index.ts"],
+      "@pioneer/play/ui": ["./libs/play/ui/src/index.ts"],
       "@pioneer/play/feature": ["./libs/play/feature/src/index.ts"],
       "@pioneer/frontier": ["./libs/frontier/src/index.ts"],
       "@pioneer/frontier/data": ["./libs/frontier/src/data.ts"],

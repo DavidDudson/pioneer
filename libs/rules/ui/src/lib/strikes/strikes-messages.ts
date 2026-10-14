@@ -14,4 +14,12 @@ export const StrikesMessage = {
   Attacks: 'rules.strikes.attacks',
   /** "Steel Shield: Hardness 5, HP 20, Broken Threshold 10": a held shield beside the Strikes. */
   Shield: 'rules.strikes.shield',
+  /** "1d6 persistent fire": a bomb's persistent damage beside its damage. */
+  Persistent: 'rules.strikes.persistent',
+  /** "1 fire splash": a bomb's splash damage. */
+  Splash: 'rules.strikes.splash',
+  /** "Range increment 20 ft": how far a ranged or thrown Strike reaches before each penalty. */
+  RangeIncrement: 'rules.strikes.rangeIncrement',
+  /** "3 in stack": how many of a thrown item the stack still holds. */
+  Quantity: 'rules.strikes.quantity',
 } as const;

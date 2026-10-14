@@ -19,6 +19,7 @@ import { CharacterPackMessage } from './character-pack-message';
 import type { CharacterPackRepository } from './character-pack-repository';
 import { mayAccessCharacter } from './character-policy';
 import type { CharacterRepository } from './character-repository';
+import { EffectivePacks } from './effective-packs';
 
 /** The ports `CharacterPackService` works through. */
 export interface CharacterPackPorts {
@@ -64,7 +65,7 @@ function candidateEntry(pack: CatalogPack): PackCandidate {
  * changes the list. Enabling a pack enables the packs it extends, so what a pack references resolves. Framework-free,
  * like `CampaignPackService`.
  */
-export class CharacterPackService {
+export class CharacterPackService extends EffectivePacks {
   readonly #characters: CharacterRepository;
   readonly #packs: CharacterPackRepository;
   readonly #catalog: CharacterPackCatalog;
@@ -72,11 +73,20 @@ export class CharacterPackService {
   readonly #clock: Clock;
 
   public constructor({ characters, packs, catalog, campaigns }: CharacterPackPorts, clock: Clock) {
+    super();
     this.#characters = characters;
     this.#packs = packs;
     this.#catalog = catalog;
     this.#campaigns = campaigns;
     this.#clock = clock;
+  }
+
+  /**
+   * The homebrew packs the character uses now, for the content its sheet is worked out over: the attached campaign's,
+   * else the owner's own that they may still read. No access check; the caller has one.
+   */
+  public override async of(character: Character): Promise<readonly ContentPackId[]> {
+    return this.#inForce(character, await this.#campaigns.of(character.id));
   }
 
   /** The homebrew packs among `order`, in that order. */

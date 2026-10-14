@@ -1,0 +1,24 @@
+@let shown = display();
+<fr-surface>
+  <fr-stack gap="sm">
+    <fr-stack direction="horizontal" justify="between" align="baseline" wrap>
+      <fr-text element="code">{{ shown.notation }}</fr-text>
+      <fr-heading variant="heading" [level]="3">{{ 'roll.card.total' | transloco: { total: shown.total } }}</fr-heading>
+    </fr-stack>
+    @if (dcEditable()) {
+      <pio-roll-dc [dc]="dc()" (dcChange)="dcChange.emit($event)" />
+    }
+    @if (shown.degree; as degree) {
+      <pio-roll-degree [degree]="degree" />
+    }
+    @if (shown.damage; as damage) {
+      <pio-roll-damage [damage]="damage" />
+    }
+    @if (shown.explanation; as explanation) {
+      <fr-text variant="caption" tone="muted">{{ explanation.key | transloco: explanation.params }}</fr-text>
+    }
+    @for (attempt of shown.attempts; track $index) {
+      <pio-roll-attempt [attempt]="attempt" />
+    }
+  </fr-stack>
+</fr-surface>

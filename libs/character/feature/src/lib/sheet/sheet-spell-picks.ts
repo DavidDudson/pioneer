@@ -4,13 +4,14 @@ import type { Character, CharacterSlot, PickedPreparation } from '@pioneer/chara
 import type { InlineEdit } from '@pioneer/frontier';
 import { ChoiceValue, ContentId, SpellPreparation } from '@pioneer/rules/sdk';
 import type { ContentRegistry, MagicTradition, SlotKey, Slug } from '@pioneer/rules/sdk';
-import type { SpellPickerRow } from '@pioneer/rules/ui';
+import type { SpellDetailLine, SpellPickerRow, Translate } from '@pioneer/rules/ui';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { NOT_CHOSEN, RootPick } from './sheet-build';
 import { sheetField } from './sheet-field';
 import { sheetPreparedSlots } from './sheet-prepared-spells';
 import type { SheetPreparedEntry, SheetPreparedSlot } from './sheet-prepared-spells';
+import { sheetSpellDetail } from './sheet-spell-details';
 import { spellRows } from './sheet-spell-rows';
 
 /** What the spell pickers read and write through. */
@@ -22,7 +23,7 @@ export interface SpellPickSources {
   readonly slots: Signal<readonly CharacterSlot[] | undefined>;
   readonly select: (slot: SlotKey, selection: ChoiceValue) => Promise<void>;
   readonly clear: (slot: SlotKey) => Promise<void>;
-  readonly translate: (key: string) => string;
+  readonly translate: Translate;
   /** Changes when the language changes or the messages load, so translated text is read again. */
   readonly messages: Signal<unknown>;
 }
@@ -33,6 +34,8 @@ interface PreparedField {
   readonly label: MessageDescriptor;
   readonly rows: Signal<readonly SpellPickerRow[]>;
   readonly reason: Signal<MessageDescriptor | undefined>;
+  /** The spell the slot holds, with what casting it takes and does at the rank it is cast; undefined while the slot is empty. */
+  readonly detail: Signal<SpellDetailLine | undefined>;
   readonly field: InlineEdit<string | undefined>;
 }
 
@@ -127,6 +130,13 @@ function preparedField(
       });
     }),
     reason: computed(() => slot()?.reason),
+    detail: computed(() => {
+      const registry = sources.registry();
+      const spell = slot()?.spell;
+      return registry === undefined || spell === undefined
+        ? undefined
+        : sheetSpellDetail(registry, spell, sources.translate);
+    }),
     field,
   };
 }

@@ -93,6 +93,17 @@ export { SpellTableSchema } from './lib/picker-cells/spell-table-schema';
 export { SummaryCell } from './lib/picker-cells/summary-cell/summary-cell.component';
 export { FeatPicker } from './lib/feat-picker/feat-picker.component';
 export { FeatPickerColumn, type FeatPickerRow } from './lib/feat-picker/feat-picker-row';
+export type {
+  SpellCostLine,
+  SpellDetailLine,
+  SpellEffectLine,
+  SpellFieldsLine,
+  SpellVariantLine,
+} from './lib/spell-list/spell-detail-line';
+export { type SpellIdentity, spellDetailLine } from './lib/spell-list/spell-detail-line-of';
+export { SpellDetails } from './lib/spell-list/spell-details.component';
+export { SpellListMessage } from './lib/spell-list/spell-list-messages';
+export type { Translate } from './lib/spell-list/spell-text';
 export { SpellPicker } from './lib/spell-picker/spell-picker.component';
 export { SpellPickerColumn, type SpellPickerRow } from './lib/spell-picker/spell-picker-row';
 export {
@@ -132,3 +143,4 @@ export {
   shownBackgroundRows,
   shownHeritageRows,
 } from './lib/origin-picker/origin-picker-table';
+export { STATISTIC_ROLLER, type RollableStatistic, type StatisticRoller } from './lib/statistics/statistic-roller';

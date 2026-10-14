@@ -33,6 +33,8 @@ import type { AncestryId, ContentId, ContentSource } from '@pioneer/rules/sdk';
 import { message, newId, NotFoundError, ValidationError, VersionConflictError } from '@pioneer/shared/kernel';
 import type { Clock, UserId, Version } from '@pioneer/shared/kernel';
 
+import { contentOfCharacter } from './character-content';
+import type { CharacterContentSource } from './character-content';
 import { mayAccessCharacter } from './character-policy';
 import type { CharacterRepository } from './character-repository';
 import { editInputs } from './edit-inputs';
@@ -58,13 +60,18 @@ export interface PatchedCharacter {
  */
 export class CharacterService {
   readonly #repository: CharacterRepository;
-  readonly #content: ContentSource;
+  readonly #content: CharacterContentSource;
   readonly #clock: Clock;
 
-  public constructor(repository: CharacterRepository, content: ContentSource, clock: Clock) {
+  public constructor(repository: CharacterRepository, content: CharacterContentSource, clock: Clock) {
     this.#repository = repository;
     this.#content = content;
     this.#clock = clock;
+  }
+
+  /** The content `character` is worked out over: the official packs and the homebrew packs it uses. */
+  #contentOf(character: Character): ContentSource {
+    return contentOfCharacter(this.#content, character);
   }
 
   /** The actor's own characters; nobody else's are listed. */
@@ -87,7 +94,7 @@ export class CharacterService {
    * (`get`, `patch`).
    */
   public async sheet(character: Character): Promise<CharacterSheet> {
-    const content = await this.#content.registry();
+    const content = await this.#contentOf(character).registry();
     const slots = slotContent(content);
     const deity = characterDeity(character.document, slots, deityContent(content));
     return {
@@ -155,7 +162,7 @@ export class CharacterService {
   ): Promise<PatchedCharacter> {
     const current = await this.get(actor, id);
     await this.#assertAllowed(current, expectedVersion, patch);
-    const inputs = await editInputs(this.#content, current, patch);
+    const inputs = await editInputs(this.#contentOf(current), current, patch);
     const now = this.#clock.now();
     const edited = current.apply(patch, now, inputs);
     const cleared = await this.#unfitPicks(current, edited, patch);
@@ -184,12 +191,12 @@ export class CharacterService {
     if (patch.field === CharacterPatchField.GrantSpellAccess) {
       await this.#assertSpellNeedsAccess(current, patch.spell);
     }
-    await assertInventoryAllows(current, patch, this.#content);
+    await assertInventoryAllows(current, patch, this.#contentOf(current));
   }
 
   /** Refuses access to a spell no loaded pack has for a slot (a focus spell among them), a common one, or past the most. */
   async #assertSpellNeedsAccess(character: Character, spell: ContentId): Promise<void> {
-    const content = await this.#content.registry();
+    const content = await this.#contentOf(character).registry();
     const problem = spellAccessProblem(spellContent(content), character.document.build.spellAccess, spell);
     if (problem !== undefined) {
       const refusal =
@@ -206,7 +213,7 @@ export class CharacterService {
     if (!isSlotEdit) {
       return [];
     }
-    const content = await this.#content.registry();
+    const content = await this.#contentOf(before).registry();
     return unfitPicks(before.document, after.document, slotContent(content));
   }
 
@@ -215,7 +222,7 @@ export class CharacterService {
    * selection already stored is never checked again here: one a lower level hides, or content later invalidates, stays.
    */
   async #assertSlotOffers(character: Character, pick: SlotPick): Promise<void> {
-    const content = await this.#content.registry();
+    const content = await this.#contentOf(character).registry();
     const refusal = slotRefusal(character.document, slotContent(content), pick);
     if (refusal !== undefined) {
       throw new ValidationError([{ path: ['patch', refusal.field], message: refusal.message }]);

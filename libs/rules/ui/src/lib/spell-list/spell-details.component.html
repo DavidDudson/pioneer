@@ -1,0 +1,20 @@
+<fr-stack gap="2xs">
+  <fr-stack direction="horizontal" gap="xs" align="center" wrap>
+    <pio-entry-hover [entry]="spell().id">
+      <fr-text weight="semibold" tabindex="0">{{ spell().name }}</fr-text>
+    </pio-entry-hover>
+    @for (tag of spell().tags; track tag) {
+      <fr-badge>{{ tag | transloco }}</fr-badge>
+    }
+    @if (spell().counteract) {
+      <fr-badge>{{ Message.Counteract | transloco }}</fr-badge>
+    }
+  </fr-stack>
+  <pio-spell-fields [fields]="spell()" />
+  @for (variant of spell().variants; track variant.name) {
+    <fr-stack gap="3xs">
+      <fr-text variant="caption" tone="muted">{{ variant.name }}</fr-text>
+      <pio-spell-fields [fields]="variant" />
+    </fr-stack>
+  }
+</fr-stack>

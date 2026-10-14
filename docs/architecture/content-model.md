@@ -399,6 +399,9 @@ waits for Epic 2.4.
   (`libs/rules/infrastructure`) builds one `ContentRegistry` per process from the official packs' rows, checked
   again as the files they hold and registered in slug order. Each use of content first reads the stored
   `content_hash` values, so a re-seed rebuilds the registry on the next request without a restart.
+  `registry(packs)` adds the homebrew packs in force for a character (its campaign's, else its own that its owner may
+  still read; ADR-0060) and the packs they extend, after the official ones and each after what it extends. One registry
+  is kept per set of packs, under the stored hashes of all of them, up to 64 sets.
 - **Homebrew packs** are created in the app and owned by a user. Visibility is private, campaign or public.
   `libs/homebrew` creates them: a new pack is an empty `pack.json` under the license `homebrew`, private, with a slug
   unique across every pack (official ones included, so a homebrew pack never takes an official pack's key). The
@@ -455,6 +458,16 @@ when idle. Content browser search is server-side through per-locale `tsvector` a
   languages, and so on through building a character) when idle. A bundle that fails to load (a re-seed since the
   session read the manifest makes it a 404) sends the loader back for a new manifest, once. Descriptions arrive
   with their own bundles in Epic 2.4; until then an entry read from bundles has none.
+- **Homebrew packs, for signed-in members.** `POST /api/content/homebrew/manifest` takes the pack ids a page uses
+  and answers with the manifest of those packs and the packs they extend; `GET /api/content/homebrew/bundles/<pack>/<file>`
+  serves one bundle (`HomebrewContentContract`, `libs/rules/sdk`). `HomebrewBundleService` (`libs/homebrew/application`)
+  keeps to the packs the user may read: a pack they may not read is left out of the manifest and its bundle is a 404,
+  the same as a missing one. `StoredPackBundles` and `PackSetCache` (`libs/rules/infrastructure`) build the bundles once
+  per set of stored `content_hash` values. Responses are `private`, so the edge Worker, which keeps only `public`
+  ones, never caches them. `ContentLoader.registry(kinds, homebrew)` adds those packs to the official ones. They are
+  kept in memory for the session, never in IndexedDB, since they are the signed-in user's and change when they edit a
+  pack. The sheet asks for the packs its character uses (the campaign's, else its own, ADR-0060), so it waits for that
+  list before the registry builds.
 
 ## Filters
 
@@ -558,6 +571,18 @@ flowchart LR
   links, and fields with no place in a schema go to the pack's backlog, `content/import/<pack>.json`, with the
   entry and Foundry's raw JSON; the entry is imported without them. The backlog is committed with the pack and is
   the work list for engine and translator stories.
+- **Applying a translator to a committed pack.** Re-running the import would replace a pack's later corrections, so
+  once a translator covers more rule elements, `just content-import --pack <pack> --book <book> --apply-rules
+FlatModifier` appends the import's rules of the keys named to the committed entries the backlog lists with a gap of
+  one of them, and clears those gaps from the backlog. Rules of other keys, and entries with no such gap, stay.
+- **Modifiers and predicates.** A `FlatModifier`'s `selector` becomes `selectors`: a skill or save by its statistic
+  (`diplomacy` is `skill:diplomacy`, `reflex` is `save:reflex`), any other (`saving-throw`, `ac`, `melee-damage`) as it
+  is. An omitted `type` is `untyped`, and `hideIfDisabled` is dropped. A roll option Foundry writes bare (`poison`,
+  `devils-bargain`) gets the `option:` namespace in every element's predicate, as Pioneer's roll options need one;
+  `option` is not a known namespace, so such a statement reads as situational. An `AdjustModifier`'s `selector` is
+  read the same way. `removeAfterRoll`, `requiresEquipped`, `relabel`, `maxApplications`, a
+  damage category and a selector built from the item (`{item|id}-damage`) have no Pioneer meaning yet and stay in the
+  backlog.
 - **References across packs.** A compendium UUID naming a document an earlier import brought in resolves to that
   import's entry, found by the document's UUID in the entry's `externalIds.foundry`, never by name or slug: a Divine
   Mysteries deity's Player Core spells. A reference to a book not imported yet (Player Core 2, Impossible Magic)

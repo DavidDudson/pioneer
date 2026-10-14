@@ -48,7 +48,7 @@ import { BookId, PackId } from '@pioneer/rules/sdk';
 import { formatCoverage } from './coverage-table.ts';
 import { loadFoundryConfig } from './foundry-config-loader';
 import type { PackTargets } from './pack-writes.ts';
-import { committedEntries, previousImport, registrationReport, writeOutput } from './write-output.ts';
+import { applyRules, committedEntries, previousImport, registrationReport, writeOutput } from './write-output.ts';
 
 const ROOT = path.resolve(import.meta.dir, '../..');
 const CACHE = path.join(ROOT, '.data/foundry');
@@ -63,6 +63,8 @@ interface Options {
   readonly pack: PackId;
   readonly books: ReadonlySet<BookId>;
   readonly dryRun: boolean;
+  /** Keep the committed pack and take only the rules the translators now cover (`apply-rules.ts`). */
+  readonly applyRules: ReadonlySet<string> | undefined;
 }
 
 function options(): Options {
@@ -71,6 +73,7 @@ function options(): Options {
       pack: { type: 'string' },
       book: { type: 'string', multiple: true },
       'dry-run': { type: 'boolean', default: false },
+      'apply-rules': { type: 'string' },
     },
   });
   const books = (values.book ?? []).map((book) => BookId.parse(book));
@@ -85,7 +88,12 @@ function options(): Options {
   if (books.length === 0) {
     throw new Error('Name at least one target book with --book');
   }
-  return { pack: PackId.parse(values.pack), books: new Set(books), dryRun: values['dry-run'] };
+  return {
+    pack: PackId.parse(values.pack),
+    books: new Set(books),
+    dryRun: values['dry-run'],
+    applyRules: values['apply-rules'] === undefined ? undefined : new Set(values['apply-rules'].split(',')),
+  };
 }
 
 async function readPin(pack: PackId): Promise<ImportPin> {
@@ -233,7 +241,7 @@ function formatKindData(translation: ImportTranslation): string {
   ].join('\n');
 }
 
-const { pack, books, dryRun } = options();
+const { pack, books, dryRun, applyRules: rulesOnly } = options();
 const targets: PackTargets = { pack, vocabularyPack: VOCABULARY_PACK };
 const pin = await readPin(pack);
 const files = await archiveFiles(await archive(pin));
@@ -260,7 +268,15 @@ const generated = packOutput(translation, { known });
 const output = { ...generated, entries: carrySources(generated.entries, await committedEntries(targets)) };
 console.log(formatLeftOut(output.backlog));
 console.log(formatCoverage(importCoverage(output.entries, output.backlog)));
-if (!dryRun) {
+if (!dryRun && rulesOnly !== undefined) {
+  const { written, applied } = await applyRules(output, targets, rulesOnly);
+  console.log(
+    [
+      `Took the import's ${[...rulesOnly].join(', ')} rules into ${applied} committed entries; wrote:`,
+      ...written.map((file) => `  ${file}`),
+    ].join('\n'),
+  );
+} else if (!dryRun) {
   const written = await writeOutput(output, targets, pin);
   console.log([`Wrote ${written.length} files:`, ...written.map((file) => `  ${file}`)].join('\n'));
   const registration = await registrationReport();
