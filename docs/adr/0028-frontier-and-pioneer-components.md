@@ -26,8 +26,8 @@ loading the pack or running the engine can only be shown or tested with a live b
   - **Container** (smart): in a `feature` library. They load or derive data (queries, stores, the engine) and pass
     it to presentational components.
 - **Every presentational component has a story** in its library's own Storybook. Each such library has a
-  `.storybook` built on the shared preview (`@pioneer/frontier/storybook`) and the shared theme × colour mode test
-  projects (`libs/frontier/.storybook/theme-projects.ts`), so its stories run as tests with axe exactly like frontier's.
+  `.storybook` built on the shared preview (`@pioneer/frontier/storybook`) and the shared Storybook test
+  project (`libs/frontier/.storybook/storybook-project.ts`), so its stories run as tests with axe exactly like frontier's.
 - **One Pioneer Storybook composes them.** `apps/storybook` has an introduction page and composes each library's
   Storybook through `refs`: local ports in development (`nx storybook storybook` starts them all), and the
   libraries' static builds copied in beside it for a static build.
@@ -41,5 +41,5 @@ loading the pack or running the engine can only be shown or tested with a live b
   every library's `test-storybook`, so CI picks it up without a change.
 - Every library's Storybook runs in each CI Storybook job, so job times grow with the story count. Split the matrix
   by library when that matters.
-- Frontier's `@pioneer/frontier/storybook` entry and `.storybook/theme-projects.ts` are shared Storybook setup, not
+- Frontier's `@pioneer/frontier/storybook` entry and `.storybook/storybook-project.ts` are shared Storybook setup, not
   product code: they have no schema imports and ship in no bundle.
