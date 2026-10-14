@@ -206,7 +206,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "circumstance",
+        "value": -2,
+        "predicate": ["action:subsist"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.other-effects.Item.wHWWHkjDXmJl4Ia6"
     },
@@ -402,6 +410,28 @@
             "nor": ["aquatic-combat:not-off-guard", "speed:swim"]
           }
         ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll"],
+        "type": "circumstance",
+        "value": -2,
+        "predicate": [
+          {
+            "or": ["item:damage:type:slashing", "item:damage:type:bludgeoning"]
+          },
+          {
+            "nand": [
+              {
+                "or": ["self:trait:amphibious", "self:trait:aquatic"]
+              },
+              "self:type:npc"
+            ]
+          },
+          {
+            "not": "item:rune:property:underwater"
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -506,7 +536,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["item:trait:visual"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.other-effects.Item.ZXUOdZqUW22OX3ge"
     },
@@ -559,7 +597,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "untyped",
+        "value": -5,
+        "predicate": ["self:condition:persistent-damage:bleed"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.5DaEI4I7cVdOD507"
     },
@@ -609,7 +655,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "status",
+        "value": -10
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.Ve1CRFI8ikL6dqcL"
     },
@@ -662,7 +715,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-damage"],
+        "type": "untyped",
+        "value": "@item.level",
+        "damageType": "spirit"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.BTI4obxa5UmNltyU"
     },
@@ -833,6 +894,13 @@
           }
         ],
         "prompt": "Select an element."
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 1,
+        "slug": "effect-current-spell"
       }
     ],
     "externalIds": {
@@ -891,7 +959,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 4
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.gWwG7MNAesJgpmRW"
     },
@@ -941,7 +1016,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "saving-throw"],
+        "type": "status",
+        "value": 2
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.jwxurN6JPQm9wXug"
     },
@@ -1051,7 +1133,18 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["action:disarm"],
+        "display": {
+          "label": "Disarm (vs. weakened grasp)"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.other-effects.Item.EpvyTaklBQAOr1eT"
     },
@@ -1151,7 +1244,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception", "save:reflex"],
+        "type": "circumstance",
+        "value": -2,
+        "predicate": ["self:condition:off-guard"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.7hRgBo0fRQBxMK7g"
     },
@@ -1382,7 +1483,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.1nCwQErK6hpkNvfw"
     },
@@ -2191,7 +2299,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.w6X7io56B2HHTOvs"
     },
@@ -2380,7 +2495,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll"],
+        "type": "untyped",
+        "value": -2,
+        "predicate": ["option:improvised"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.eSIYyxi6uTKiP6W5"
     },
@@ -2495,7 +2618,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["option:monster-hunter"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.LB0PTV5yqMlBmRFj"
     },
@@ -2566,7 +2697,18 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "attack", "saving-throw"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["option:monster-hunter"],
+        "display": {
+          "label": "Monster Warden"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.aUpcWqaLBlmpnJgW"
     },
@@ -2667,7 +2809,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "circumstance",
+        "value": -15,
+        "predicate": ["manacles:legs"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.OJg3cA6viR3sA3jB"
     },
@@ -2820,7 +2970,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "saving-throw"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["origin:mark:monster-warden"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.nlaxROgSSLVHZ1hx"
     },
@@ -2919,7 +3077,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:reflex"],
+        "type": "circumstance",
+        "value": -2
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.other-effects.Item.9c93NfZpENofiGUp"
     },
@@ -3050,7 +3215,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 1,
+        "slug": "parry-bonus"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.fRlvmul3LbLo2xvR"
     },
@@ -3474,7 +3647,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.A6i55HQ59lzsHXVQ"
     },
@@ -3932,6 +4112,26 @@
         "domain": "ranged-attack-roll",
         "option": "ignore-range-penalty:2",
         "predicate": ["target:mark:share-hunters-edge"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["action:seek", "target:mark:share-hunters-edge"],
+        "display": {
+          "label": "To Seek Hunted Prey"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:survival"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["action:track", "target:mark:share-hunters-edge"],
+        "display": {
+          "label": "To Track Hunted Prey"
+        }
       }
     ],
     "externalIds": {
@@ -3997,6 +4197,26 @@
         "domain": "ranged-attack-roll",
         "option": "ignore-range-penalty:3",
         "predicate": ["target:mark:share-hunters-edge"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "circumstance",
+        "value": 4,
+        "predicate": ["action:seek", "target:mark:share-hunters-edge"],
+        "display": {
+          "label": "To Seek Hunted Prey"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:survival"],
+        "type": "circumstance",
+        "value": 4,
+        "predicate": ["action:track", "target:mark:share-hunters-edge"],
+        "display": {
+          "label": "To Track Hunted Prey"
+        }
       }
     ],
     "externalIds": {
@@ -4078,6 +4298,56 @@
         "domain": "ranged-attack-roll",
         "option": "ignore-range-penalty:2",
         "predicate": ["target:mark:share-hunters-edge"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["action:seek", "target:mark:share-hunters-edge"],
+        "display": {
+          "label": "To Seek Hunted Prey"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:survival"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["action:track", "target:mark:share-hunters-edge"],
+        "display": {
+          "label": "To Track Hunted Prey"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["origin:mark:share-hunters-edge"],
+        "display": {
+          "label": "Outwit"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          {
+            "or": [
+              "check:statistic:deception",
+              "check:statistic:intimidation",
+              "check:statistic:stealth",
+              "action:recall-knowledge"
+            ]
+          },
+          "target:mark:share-hunters-edge"
+        ],
+        "display": {
+          "label": "Outwit"
+        }
       }
     ],
     "externalIds": {
@@ -4143,6 +4413,56 @@
         "domain": "ranged-attack-roll",
         "option": "ignore-range-penalty:3",
         "predicate": ["target:mark:share-hunters-edge"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "circumstance",
+        "value": 4,
+        "predicate": ["action:seek", "target:mark:share-hunters-edge"],
+        "display": {
+          "label": "To Seek Hunted Prey"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:survival"],
+        "type": "circumstance",
+        "value": 4,
+        "predicate": ["action:track", "target:mark:share-hunters-edge"],
+        "display": {
+          "label": "To Track Hunted Prey"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["origin:mark:share-hunters-edge"],
+        "display": {
+          "label": "Outwit"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          {
+            "or": [
+              "check:statistic:deception",
+              "check:statistic:intimidation",
+              "check:statistic:stealth",
+              "action:recall-knowledge"
+            ]
+          },
+          "target:mark:share-hunters-edge"
+        ],
+        "display": {
+          "label": "Outwit"
+        }
       }
     ],
     "externalIds": {
@@ -4224,6 +4544,26 @@
         "domain": "ranged-attack-roll",
         "option": "ignore-range-penalty:2",
         "predicate": ["target:mark:share-hunters-edge"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["action:seek", "target:mark:share-hunters-edge"],
+        "display": {
+          "label": "To Seek Hunted Prey"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:survival"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["action:track", "target:mark:share-hunters-edge"],
+        "display": {
+          "label": "To Track Hunted Prey"
+        }
       }
     ],
     "externalIds": {
@@ -4292,7 +4632,28 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "circumstance",
+        "value": 4,
+        "predicate": ["action:seek", "target:mark:share-hunters-edge"],
+        "display": {
+          "label": "To Seek Hunted Prey"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:survival"],
+        "type": "circumstance",
+        "value": 4,
+        "predicate": ["action:track", "target:mark:share-hunters-edge"],
+        "display": {
+          "label": "To Track Hunted Prey"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.Lt5iSfx8fxHSdYXz"
     },
@@ -4498,7 +4859,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "status",
+        "value": 1
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.5uMMLUvJOEmfMgeV"
     },
@@ -4551,7 +4919,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["item:magical"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.OochfTTXnDLVXeSS"
     },
@@ -5020,7 +5396,22 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["target:mark:watch-your-back"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:will"],
+        "type": "status",
+        "value": -2,
+        "predicate": ["option:fear"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.ttIvoQUl1yG5K62o"
     },
@@ -5073,7 +5464,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "status",
+        "value": -10,
+        "predicate": ["self:condition:persistent-damage:acid"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.6TGcfVyzzVHEo7ke"
     },
@@ -8050,7 +8449,20 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "status",
+        "value": 10
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "status",
+        "value": 2
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.57lnrCzGUcNUBP2O"
     },
@@ -8107,7 +8519,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack"],
+        "type": "status",
+        "value": -1
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.UTLp7omqsiC36bso"
     },
@@ -8263,7 +8682,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll"],
+        "type": "status",
+        "value": 1,
+        "slug": "bless"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.Gqy7K6FnbLtwGpud"
     },
@@ -8496,7 +8923,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack"],
+        "type": "status",
+        "value": -1
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.Qr5rgoZvI4KmFY0N"
     },
@@ -8865,7 +9299,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll", "skill-check"],
+        "type": "status",
+        "value": "ternary(gte(@item.level, 7), 2, 1)"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.iJ7TVW5tDnZG9DG8"
     },
@@ -8919,7 +9360,21 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll", "damage"],
+        "type": "status",
+        "value": 1
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["option:fear"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.beReeFroAx24hj83"
     },
@@ -9725,7 +10180,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["talon-damage"],
+        "type": "untyped",
+        "value": 1,
+        "damageType": "bleed"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.oJbcmpBSHwmx6FD4"
     },
@@ -10502,7 +10965,19 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception", "skill-check"],
+        "type": "status",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["action:seek", "action:recall-knowledge", "action:sense-motive"]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.pzbU0cdyRvE66XBi"
     },
@@ -10959,7 +11434,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "attack-roll", "skill-check"],
+        "type": "circumstance",
+        "value": -2
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.09rtx50laDw68FGT"
     },
@@ -11389,7 +11871,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "circumstance",
+        "value": -10
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.rjM25qfw5BKj9h97"
     },
@@ -11489,7 +11978,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception", "skill:stealth"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["terrain:crowd"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.4iakL7fDcZ8RT6Tu"
     },
@@ -11674,7 +12171,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["action:create-a-diversion"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.2Hg3a06gZCSnUgSA"
     },
@@ -11844,7 +12349,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "status",
+        "value": 30
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.ThFug45WHkQQXcoF"
     },
@@ -12003,7 +12515,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "saving-throw"],
+        "type": "status",
+        "value": "ternary(gte(@item.level, 6), 2, 1)",
+        "predicate": ["origin:mark:forbidding-ward"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.ctMxYPGEpstvhW9C"
     },
@@ -12061,6 +12581,12 @@
       {
         "key": "GrantItem",
         "item": "baddfcdf-0c1b-5e97-84e7-c05424ad1e3e"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["initiative"],
+        "type": "status",
+        "value": 2
       }
     ],
     "externalIds": {
@@ -12115,7 +12641,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["all"],
+        "type": "status",
+        "value": 1
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.UtIOWubq7akdHMOh"
     },
@@ -12553,7 +13086,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["healing-received"],
+        "type": "untyped",
+        "value": "2 * @item.level",
+        "predicate": ["item:type:spell", "item:trait:healing", "option:vitality"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.IjoYgBgEYSTZKmab"
     },
@@ -12606,7 +13147,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack", "saving-throw", "skill-check", "perception"],
+        "type": "status",
+        "value": "ternary(gte(@item.level, 9), 3, ternary(gte(@item.level, 6), 2, 1))"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.l9HRQggofFGIxEse"
     },
@@ -12659,7 +13207,23 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "status",
+        "value": 4,
+        "predicate": ["action:lie"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "proficiency",
+        "value": "@level",
+        "slug": "honeyed-words-proficiency",
+        "predicate": ["action:lie"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.6vodhSeI3ClMfOGd"
     },
@@ -12760,6 +13324,29 @@
         "key": "ActorTraits",
         "add": ["humanoid"],
         "remove": []
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "status",
+        "value": 4,
+        "slug": "humanoid-form-status-bonus",
+        "predicate": ["option:pass-as-humanoid"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "proficiency",
+        "value": "@level",
+        "slug": "humanoid-form-proficiency-bonus",
+        "predicate": ["option:pass-as-humanoid", "proficiency:untrained"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["melee-damage"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["humanoid-form:large"]
       }
     ],
     "externalIds": {
@@ -12921,7 +13508,23 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "status",
+        "value": 4,
+        "predicate": ["action:impersonate"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "proficiency",
+        "value": "@level",
+        "slug": "illusiory-disguise-proficiency",
+        "predicate": ["action:impersonate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.3Ktyd5F9lOPo4myk"
     },
@@ -13027,7 +13630,19 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics", "skill:thievery"],
+        "type": "status",
+        "value": 4,
+        "predicate": [
+          {
+            "or": ["action:force-open", "action:pick-a-lock"]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.OSapCU8heNHst21y"
     },
@@ -13137,7 +13752,19 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack"],
+        "type": "circumstance",
+        "value": -2,
+        "predicate": [
+          {
+            "not": "option:stabilized"
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.JqrTrvwV7pYStMXz"
     },
@@ -13367,7 +13994,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "status",
+        "value": 1
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.qhNUfwpkD8BRw4zj"
     },
@@ -13420,7 +14054,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 1
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.zpxIwEjnLUSO1B4z"
     },
@@ -14171,6 +14812,12 @@
         "display": {
           "label": "Full Moon"
         }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "status",
+        "value": 10
       }
     ],
     "externalIds": {
@@ -14964,7 +15611,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "status",
+        "value": -10,
+        "predicate": ["self:condition:sickened"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.UL5eKHxrLJZw2If1"
     },
@@ -15712,6 +16367,13 @@
         "type": ["bludgeoning", "piercing"],
         "value": 2,
         "predicate": ["primal-summons:wood"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "untyped",
+        "value": -10,
+        "predicate": ["primal-summons:earth"]
       }
     ],
     "externalIds": {
@@ -15767,7 +16429,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "saving-throw"],
+        "type": "status",
+        "value": 1
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.RawLEPwyT5CtCZ4D"
     },
@@ -15820,7 +16489,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "status",
+        "value": 1
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.dWbg2gACxMkSnZag"
     },
@@ -15924,7 +16600,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "saving-throw"],
+        "type": "status",
+        "value": 1
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.DLwTvjjnqs2sNGuG"
     },
@@ -16305,7 +16988,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "saving-throw"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["option:safe-passage"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.5blVLpIH65hvFJpn"
     },
@@ -16363,7 +17054,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "status",
+        "value": 4,
+        "predicate": ["option:safeguard-secret"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.3HEiYVhqypfc4IsP"
     },
@@ -16416,7 +17115,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll", "skill-check"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["target:condition:persistent-damage:mental", "target:mark:savor-the-sting"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.TBohBF0ASta9rf9a"
     },
@@ -16531,6 +17238,13 @@
       {
         "key": "Sense",
         "sense": "1853ffc0-c400-5107-bcde-24728797d4e1"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception", "save:will"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["option:illusion"]
       }
     ],
     "externalIds": {
@@ -16721,6 +17435,13 @@
         "acuity": "imprecise",
         "range": 60,
         "predicate": ["shifting-form:scent"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "status",
+        "value": 20,
+        "predicate": ["shifting-form:speed"]
       }
     ],
     "externalIds": {
@@ -16898,7 +17619,25 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "status",
+        "value": 1
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:fortitude", "save:reflex"],
+        "type": "status",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["action:disarm", "action:reposition", "action:trip", "action:shove"]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.8adLKKzJy49USYJt"
     },
@@ -16951,7 +17690,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["item:trait:mental"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.nkk4O5fyzrC0057i"
     },
@@ -17004,7 +17751,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:will"],
+        "type": "status",
+        "value": "ternary(gte(@item.level, 5), 2, 1)",
+        "slug": "soothing-words"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.an4yZ6dyIDOFa1wa"
     },
@@ -17112,7 +17867,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["damage"],
+        "type": "status",
+        "value": "ceil(1 + @item.level / 2)"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.TpVkVALUBrBQjULn"
     },
@@ -17338,7 +18100,29 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["int-skill-check"],
+        "type": "status",
+        "value": "ternary(gte(@item.level, 7), 3, ternary(gte(@item.level, 4), 2, 1))",
+        "predicate": ["sweet-dream:insight"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["cha-skill-check"],
+        "type": "status",
+        "value": "ternary(gte(@item.level, 7), 3, ternary(gte(@item.level, 4), 2, 1))",
+        "predicate": ["sweet-dream:glamor"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "status",
+        "value": 5,
+        "predicate": ["sweet-dream:voyaging"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.yEQXaB7XyaROVqyb"
     },
@@ -17391,7 +18175,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "status",
+        "value": 10
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.PQHP7Oph3BQX1GhF"
     },
@@ -17444,7 +18235,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "status",
+        "value": 10
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.7vIUF5zbvHzVcJA0"
     },
@@ -17501,7 +18299,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["option:affliction"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.nHXKK4pRXAzrLdEP"
     },
@@ -17555,7 +18361,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": -2,
+        "predicate": ["option:affliction"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.R27azQfzeFuFc48G"
     },
@@ -17610,6 +18424,12 @@
         "key": "GrantItem",
         "item": "64278392-4910-5a32-b819-56f6e54952dd",
         "predicate": ["tangle-vine:critical-success"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "circumstance",
+        "value": -10
       }
     ],
     "externalIds": {
@@ -17664,7 +18484,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["swim-speed", "land-speed", "climb-speed"],
+        "type": "circumstance",
+        "value": -10
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.5RiskDnSXaRI6F4n"
     },
@@ -17840,7 +18667,41 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll"],
+        "type": "status",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["self:effect:touch-of-the-moon:2", "self:effect:touch-of-the-moon:3"]
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["damage"],
+        "type": "status",
+        "value": 4,
+        "predicate": [
+          {
+            "or": ["self:effect:touch-of-the-moon:2", "self:effect:touch-of-the-moon:3"]
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "saving-throw"],
+        "type": "status",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["self:effect:touch-of-the-moon:3", "self:effect:touch-of-the-moon:4"]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.3hDKcbhn0j6DsRgm"
     },
@@ -17969,7 +18830,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "status",
+        "value": 10
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.HtaDbgTIzdiTiKLX"
     },
@@ -18261,7 +19129,21 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack"],
+        "type": "status",
+        "value": 2,
+        "predicate": [
+          "option:battle-form",
+          "battle-form:own-attack-modifier",
+          {
+            "not": "self:effect:pest-form"
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.a5rWrWwuevTzs9Io"
     },
@@ -18473,7 +19355,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack", "perception", "save:will"],
+        "type": "status",
+        "value": -1
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.hkLhZsH3T6jc9S1y"
     },
@@ -18674,6 +19563,12 @@
       {
         "key": "GrantItem",
         "item": "69f88e3c-d871-5fb9-82c6-120348a7c0e8"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "status",
+        "value": -10
       }
     ],
     "externalIds": {
@@ -18778,7 +19673,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "status",
+        "value": 2
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.Wsgum7pZrPtASRf6"
     },
@@ -18831,7 +19733,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ranged-strike-attack-roll"],
+        "type": "circumstance",
+        "value": -4
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.SjxqjPDILhQWUcWf"
     },
@@ -18884,7 +19793,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:will"],
+        "type": "status",
+        "value": "ternary(gte(@item.level, 9), 3, 2)",
+        "predicate": ["item:trait:mental"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.nemThuhp3praALY6"
     },
@@ -18941,7 +19858,22 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["action:disarm"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["reflex-dc"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["action:disarm"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.LxSev4GNKv26DbZw"
     },
@@ -19050,7 +19982,17 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2,
+        "display": {
+          "label": "Dueling Parry"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.KiuBRoMFxL2Npt51"
     },
@@ -19276,6 +20218,18 @@
         "key": "RollOption",
         "domain": "attack-roll",
         "option": "self:ignore-volley-penalty"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ranged-strike-damage"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          "target:range-increment:1",
+          {
+            "nor": ["item:trait:volley-20", "item:trait:volley-30", "item:trait:volley-50"]
+          }
+        ]
       }
     ],
     "externalIds": {

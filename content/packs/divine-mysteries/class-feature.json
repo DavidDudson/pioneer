@@ -2354,7 +2354,30 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ranged-attack-roll"],
+        "type": "circumstance",
+        "value": -2,
+        "predicate": [
+          {
+            "gte": ["self:condition:cursebound", 2]
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "status",
+        "value": -10,
+        "predicate": [
+          {
+            "gte": ["self:condition:cursebound", 4]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.2VclK5CWR1Vz1vqL"
     },

@@ -78,7 +78,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:will"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["action:frightful-presence", "origin:trait:dragon"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.Q8BscHUFiM1a86PO"
     },
@@ -1306,7 +1314,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["self:shield:raised", "option:reflecting-shield", "item:type:spell"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.La9qYc5NHsg423Jb"
     },
@@ -1363,7 +1379,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["self:shield:raised", "option:spellguard-shield", "item:type:spell"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.OqDAx4HJ39ojVtvg"
     },

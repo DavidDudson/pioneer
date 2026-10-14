@@ -67,21 +67,6 @@
         },
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "or": ["action:reposition", "action:shove", "action:trip", "inflicts:prone", "forced-movement"]
-              }
-            ],
-            "selector": "saving-throw",
-            "type": "circumstance",
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
           "key": "AdjustModifier",
           "raw": {
             "key": "AdjustModifier",
@@ -129,17 +114,6 @@
       "slug": "action:call-on-ancient-blood",
       "foundry": "Compendium.pf2e.actionspf2e.Item.8w6esW689NNbbq3i",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["call-on-ancient-blood", "item:magical"],
-            "selector": "saving-throw",
-            "type": "circumstance",
-            "value": 1
-          }
-        },
         {
           "type": "rule",
           "key": "RollOption",
@@ -394,38 +368,6 @@
         {
           "type": "markup",
           "markup": "h2[class]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "action:hunt-prey",
-      "foundry": "Compendium.pf2e.actionspf2e.Item.JYi4MnsdFu618hPm",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "PF2E.SpecificRule.HuntPrey.SeekHuntedPrey",
-            "predicate": ["action:seek", "target:mark:hunted-prey"],
-            "selector": "perception",
-            "type": "circumstance",
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "PF2E.SpecificRule.HuntPrey.TrackHuntedPrey",
-            "predicate": ["action:track", "target:mark:hunted-prey"],
-            "selector": "survival",
-            "type": "circumstance",
-            "value": 2
-          }
         }
       ]
     },
@@ -757,24 +699,6 @@
         {
           "type": "markup",
           "markup": "section"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "action:tough",
-      "foundry": "Compendium.pf2e.familiar-abilities.Item.Le8UWr5BU8rV3iBf",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "hp",
-            "type": "untyped",
-            "value": "2 * @actor.level"
-          }
         }
       ]
     },
@@ -1338,25 +1262,6 @@
             },
             "key": "AdjustDegreeOfSuccess",
             "selector": "fortitude"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "class-feature:battlefield-surveyor",
-      "foundry": "Compendium.pf2e.classfeatures.Item.TIvzBALymvb56L79",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["perception"],
-            "selector": "initiative",
-            "type": "circumstance",
-            "value": 2
           }
         }
       ]
@@ -3191,38 +3096,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "or": [
-                  "check:statistic:deception",
-                  "check:statistic:intimidation",
-                  "check:statistic:stealth",
-                  "action:recall-knowledge"
-                ]
-              },
-              "target:mark:hunted-prey"
-            ],
-            "selector": "skill-check",
-            "type": "circumstance",
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["origin:mark:hunted-prey"],
-            "selector": "ac",
-            "type": "circumstance",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
           "key": "ItemAlteration",
           "raw": {
             "itemType": "feat",
@@ -5028,17 +4901,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "perception",
-            "slug": "blinded",
-            "type": "status",
-            "value": -4
-          }
-        },
-        {
-          "type": "rule",
           "key": "Immunity",
           "raw": {
             "key": "Immunity",
@@ -5086,29 +4948,6 @@
       "slug": "condition:deafened",
       "foundry": "Compendium.pf2e.conditionitems.Item.9PR9y0bi4JPKnHPR",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "or": [
-                  {
-                    "and": ["check:type:skill", "item:trait:auditory"]
-                  },
-                  {
-                    "and": ["check:statistic:base:perception", "check:statistic:initiative"]
-                  }
-                ]
-              }
-            ],
-            "selector": ["perception", "skill-check"],
-            "slug": "deafened",
-            "type": "status",
-            "value": -2
-          }
-        },
         {
           "type": "rule",
           "key": "Immunity",
@@ -5191,109 +5030,11 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "con-based",
-            "slug": "drained",
-            "type": "status",
-            "value": "-1 * @item.badge.value"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "hp",
-            "slug": "drained",
-            "type": "status",
-            "value": "min(-1 * @actor.level,-1) * @item.badge.value"
-          }
-        },
-        {
-          "type": "rule",
           "key": "LoseHitPoints",
           "raw": {
             "key": "LoseHitPoints",
             "reevaluateOnUpdate": true,
             "value": "max(1,@actor.level) * @item.badge.value"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "condition:enfeebled",
-      "foundry": "Compendium.pf2e.conditionitems.Item.MIRkyAjyBeXivMa7",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": ["str-based", "str-damage"],
-            "slug": "enfeebled",
-            "type": "status",
-            "value": "-@item.badge.value"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "condition:fascinated",
-      "foundry": "Compendium.pf2e.conditionitems.Item.AdPVz7rbaVSRxHFg",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": ["perception", "skill-check"],
-            "slug": "fascinated",
-            "type": "status",
-            "value": -2
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "condition:fatigued",
-      "foundry": "Compendium.pf2e.conditionitems.Item.HL2l2VRSaQHu9lUw",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": ["ac", "saving-throw"],
-            "slug": "fatigued",
-            "type": "status",
-            "value": -1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "condition:frightened",
-      "foundry": "Compendium.pf2e.conditionitems.Item.TBSHQspnbcqxsmjL",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "all",
-            "slug": "frightened",
-            "type": "status",
-            "value": "-@item.badge.value"
           }
         }
       ]
@@ -5357,25 +5098,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "condition:off-guard",
-      "foundry": "Compendium.pf2e.conditionitems.Item.AJh5ex99aV6VTggg",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "ac",
-            "slug": "off-guard",
-            "type": "circumstance",
-            "value": -2
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "condition:paralyzed",
       "foundry": "Compendium.pf2e.conditionitems.Item.6uEgoh53GbXuHpTF",
       "gaps": [
@@ -5387,25 +5109,6 @@
             "mode": "override",
             "path": "system.attributes.flanking.canFlank",
             "value": false
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "condition:prone",
-      "foundry": "Compendium.pf2e.conditionitems.Item.j91X7x0XSomq8d60",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "attack-roll",
-            "slug": "prone",
-            "type": "circumstance",
-            "value": -2
           }
         }
       ]
@@ -5499,17 +5202,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "all",
-            "slug": "sickened",
-            "type": "status",
-            "value": "-@item.badge.value"
-          }
-        },
-        {
-          "type": "rule",
           "key": "ItemAlteration",
           "raw": {
             "itemType": "consumable",
@@ -5545,17 +5237,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": ["cha-based", "int-based", "wis-based"],
-            "slug": "stupefied",
-            "type": "status",
-            "value": "-@item.badge.value"
-          }
-        },
-        {
-          "type": "rule",
           "key": "ItemAlteration",
           "raw": {
             "itemType": "spell",
@@ -5581,17 +5262,6 @@
       "slug": "condition:unconscious",
       "foundry": "Compendium.pf2e.conditionitems.Item.fBnFDH2MTzgFijKf",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": ["ac", "perception", "reflex"],
-            "slug": "unconscious",
-            "type": "status",
-            "value": -4
-          }
-        },
         {
           "type": "rule",
           "key": "GrantItem",
@@ -5739,25 +5409,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:effect-adverse-subsist-situation",
-      "foundry": "Compendium.pf2e.other-effects.Item.wHWWHkjDXmJl4Ia6",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["action:subsist"],
-            "selector": "skill-check",
-            "type": "circumstance",
-            "value": -2
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:effect-aid",
       "foundry": "Compendium.pf2e.other-effects.Item.AHMUpMbaVkZ5A1KX",
       "gaps": [
@@ -5824,32 +5475,6 @@
             ],
             "selector": "all",
             "text": "PF2E.SpecificRule.AquaticCombat.FireNote"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "or": ["item:damage:type:slashing", "item:damage:type:bludgeoning"]
-              },
-              {
-                "nand": [
-                  {
-                    "or": ["self:trait:amphibious", "self:trait:aquatic"]
-                  },
-                  "self:type:npc"
-                ]
-              },
-              {
-                "not": "item:rune:property:underwater"
-              }
-            ],
-            "selector": "attack-roll",
-            "type": "circumstance",
-            "value": -2
           }
         },
         {
@@ -6080,25 +5705,6 @@
         },
         "folder": "dHkIfyfz2uyglAR2"
       }
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:effect-avert-gaze",
-      "foundry": "Compendium.pf2e.other-effects.Item.ZXUOdZqUW22OX3ge",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["item:trait:visual"],
-            "selector": "saving-throw",
-            "type": "circumstance",
-            "value": 2
-          }
-        }
-      ]
     },
     {
       "type": "entry",
@@ -6362,34 +5968,6 @@
             },
             "uuid": "Compendium.pf2e.conditionitems.Item.Persistent Damage"
           }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["self:condition:persistent-damage:bleed"],
-            "selector": "land-speed",
-            "value": -5
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:effect-cast-down",
-      "foundry": "Compendium.pf2e.feat-effects.Item.Ve1CRFI8ikL6dqcL",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "land-speed",
-            "type": "status",
-            "value": -10
-          }
         }
       ]
     },
@@ -6421,16 +5999,6 @@
             "predicate": ["self:trait:unholy"],
             "property": "traits",
             "value": "unholy"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "damageType": "spirit",
-            "key": "FlatModifier",
-            "selector": "strike-damage",
-            "value": "@item.level"
           }
         }
       ]
@@ -6688,17 +6256,6 @@
           "key": "FlatModifier",
           "raw": {
             "key": "FlatModifier",
-            "selector": "ac",
-            "slug": "effect-current-spell",
-            "type": "circumstance",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
             "predicate": ["{item|flags.system.rulesSelections.element}"],
             "selector": "saving-throw",
             "type": "circumstance",
@@ -6724,42 +6281,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:effect-cut-from-the-air",
-      "foundry": "Compendium.pf2e.feat-effects.Item.gWwG7MNAesJgpmRW",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "ac",
-            "type": "circumstance",
-            "value": 4
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:effect-defensive-recovery",
-      "foundry": "Compendium.pf2e.feat-effects.Item.jwxurN6JPQm9wXug",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": ["ac", "saving-throw"],
-            "type": "status",
-            "value": 2
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:effect-deitys-protection",
       "foundry": "Compendium.pf2e.feat-effects.Item.3xsComVKLuLn7etk",
       "gaps": [
@@ -6770,26 +6291,6 @@
             "key": "Resistance",
             "type": "all-damage",
             "value": "@item.level"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:effect-disarm-bonus",
-      "foundry": "Compendium.pf2e.other-effects.Item.EpvyTaklBQAOr1eT",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "PF2E.SpecificRule.Disarm.WeakenedGraspBonusLabel",
-            "predicate": ["action:disarm"],
-            "selector": "skill-check",
-            "type": "circumstance",
-            "value": 2
           }
         }
       ]
@@ -6836,25 +6337,6 @@
             "key": "EphemeralEffect",
             "selectors": "skill-check",
             "uuid": "Compendium.pf2e.other-effects.Item.Effect: Disarm (Bonus)"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:effect-distracting-feint",
-      "foundry": "Compendium.pf2e.feat-effects.Item.7hRgBo0fRQBxMK7g",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["self:condition:off-guard"],
-            "selector": ["perception", "reflex"],
-            "type": "circumstance",
-            "value": -2
           }
         }
       ]
@@ -7247,24 +6729,6 @@
             "key": "BaseSpeed",
             "selector": "fly",
             "value": "@actor.system.movement.speeds.land.value"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:effect-dueling-parry",
-      "foundry": "Compendium.pf2e.feat-effects.Item.1nCwQErK6hpkNvfw",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "ac",
-            "type": "circumstance",
-            "value": 2
           }
         }
       ]
@@ -7950,16 +7414,6 @@
       "foundry": "Compendium.pf2e.feat-effects.Item.w6X7io56B2HHTOvs",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "ac",
-            "type": "circumstance",
-            "value": 2
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[feats-srd]"
         }
@@ -7995,25 +7449,6 @@
             "selector": "ac",
             "slug": "cover",
             "suppress": true
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:effect-improvised-weapon",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.eSIYyxi6uTKiP6W5",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["improvised"],
-            "selector": "attack-roll",
-            "type": "untyped",
-            "value": -2
           }
         }
       ]
@@ -8146,17 +7581,6 @@
             "option": "monster-hunter",
             "toggleable": true
           }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["monster-hunter"],
-            "selector": "attack",
-            "type": "circumstance",
-            "value": 2
-          }
         }
       ]
     },
@@ -8174,18 +7598,6 @@
             "label": "Target is the subject of Monster Hunter",
             "option": "monster-hunter",
             "toggleable": true
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "Monster Warden",
-            "predicate": ["monster-hunter"],
-            "selector": ["ac", "attack", "saving-throw"],
-            "type": "circumstance",
-            "value": 2
           }
         }
       ]
@@ -8213,17 +7625,6 @@
             "key": "ChoiceSet",
             "prompt": "PF2E.SpecificRule.BodyParts.Prompt",
             "rollOption": "manacles"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["manacles:legs"],
-            "selector": "all-speeds",
-            "type": "circumstance",
-            "value": -15
           }
         },
         {
@@ -8360,17 +7761,6 @@
             "key": "TokenMark",
             "slug": "monster-warden"
           }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["origin:mark:monster-warden"],
-            "selector": ["ac", "saving-throw"],
-            "type": "circumstance",
-            "value": 2
-          }
         }
       ]
     },
@@ -8396,16 +7786,6 @@
       "slug": "effect:effect-mounted",
       "foundry": "Compendium.pf2e.other-effects.Item.9c93NfZpENofiGUp",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "reflex",
-            "type": "circumstance",
-            "value": -2
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[journals]"
@@ -8471,17 +7851,6 @@
             "predicate": ["weapon-parry"],
             "prompt": "PF2E.SpecificRule.Parry.Prompt",
             "rollOption": "parry-bonus-upgrade"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "ac",
-            "slug": "parry-bonus",
-            "type": "circumstance",
-            "value": 1
           }
         }
       ]
@@ -8700,16 +8069,6 @@
       "slug": "effect:effect-raise-symbol",
       "foundry": "Compendium.pf2e.feat-effects.Item.A6i55HQ59lzsHXVQ",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "saving-throw",
-            "type": "circumstance",
-            "value": 2
-          }
-        },
         {
           "type": "rule",
           "key": "AdjustDegreeOfSuccess",
@@ -9314,30 +8673,6 @@
         },
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "PF2E.SpecificRule.HuntPrey.SeekHuntedPrey",
-            "predicate": ["action:seek", "target:mark:share-hunters-edge"],
-            "selector": "perception",
-            "type": "circumstance",
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "PF2E.SpecificRule.HuntPrey.TrackHuntedPrey",
-            "predicate": ["action:track", "target:mark:share-hunters-edge"],
-            "selector": "survival",
-            "type": "circumstance",
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
           "key": "MultipleAttackPenalty",
           "raw": {
             "key": "MultipleAttackPenalty",
@@ -9377,30 +8712,6 @@
           "raw": {
             "key": "TokenMark",
             "slug": "share-hunters-edge"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "PF2E.SpecificRule.HuntPrey.SeekHuntedPrey",
-            "predicate": ["action:seek", "target:mark:share-hunters-edge"],
-            "selector": "perception",
-            "type": "circumstance",
-            "value": 4
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "PF2E.SpecificRule.HuntPrey.TrackHuntedPrey",
-            "predicate": ["action:track", "target:mark:share-hunters-edge"],
-            "selector": "survival",
-            "type": "circumstance",
-            "value": 4
           }
         },
         {
@@ -9445,64 +8756,6 @@
             "key": "TokenMark",
             "slug": "share-hunters-edge"
           }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "PF2E.SpecificRule.HuntPrey.SeekHuntedPrey",
-            "predicate": ["action:seek", "target:mark:share-hunters-edge"],
-            "selector": "perception",
-            "type": "circumstance",
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "PF2E.SpecificRule.HuntPrey.TrackHuntedPrey",
-            "predicate": ["action:track", "target:mark:share-hunters-edge"],
-            "selector": "survival",
-            "type": "circumstance",
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "PF2E.SpecificRule.Ranger.HuntersEdge.Outwit.Label",
-            "predicate": ["origin:mark:share-hunters-edge"],
-            "selector": "ac",
-            "type": "circumstance",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "PF2E.SpecificRule.Ranger.HuntersEdge.Outwit.Label",
-            "predicate": [
-              {
-                "or": [
-                  "check:statistic:deception",
-                  "check:statistic:intimidation",
-                  "check:statistic:stealth",
-                  "action:recall-knowledge"
-                ]
-              },
-              "target:mark:share-hunters-edge"
-            ],
-            "selector": "skill-check",
-            "type": "circumstance",
-            "value": 2
-          }
         }
       ]
     },
@@ -9518,64 +8771,6 @@
           "raw": {
             "key": "TokenMark",
             "slug": "share-hunters-edge"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "PF2E.SpecificRule.HuntPrey.SeekHuntedPrey",
-            "predicate": ["action:seek", "target:mark:share-hunters-edge"],
-            "selector": "perception",
-            "type": "circumstance",
-            "value": 4
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "PF2E.SpecificRule.HuntPrey.TrackHuntedPrey",
-            "predicate": ["action:track", "target:mark:share-hunters-edge"],
-            "selector": "survival",
-            "type": "circumstance",
-            "value": 4
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "PF2E.SpecificRule.Ranger.HuntersEdge.Outwit.Label",
-            "predicate": ["origin:mark:share-hunters-edge"],
-            "selector": "ac",
-            "type": "circumstance",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "PF2E.SpecificRule.Ranger.HuntersEdge.Outwit.Label",
-            "predicate": [
-              {
-                "or": [
-                  "check:statistic:deception",
-                  "check:statistic:intimidation",
-                  "check:statistic:stealth",
-                  "action:recall-knowledge"
-                ]
-              },
-              "target:mark:share-hunters-edge"
-            ],
-            "selector": "skill-check",
-            "type": "circumstance",
-            "value": 2
           }
         },
         {
@@ -9657,30 +8852,6 @@
           "raw": {
             "key": "TokenMark",
             "slug": "share-hunters-edge"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "PF2E.SpecificRule.HuntPrey.SeekHuntedPrey",
-            "predicate": ["action:seek", "target:mark:share-hunters-edge"],
-            "selector": "perception",
-            "type": "circumstance",
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "PF2E.SpecificRule.HuntPrey.TrackHuntedPrey",
-            "predicate": ["action:track", "target:mark:share-hunters-edge"],
-            "selector": "survival",
-            "type": "circumstance",
-            "value": 2
           }
         },
         {
@@ -9767,30 +8938,6 @@
           "raw": {
             "key": "TokenMark",
             "slug": "share-hunters-edge"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "PF2E.SpecificRule.HuntPrey.SeekHuntedPrey",
-            "predicate": ["action:seek", "target:mark:share-hunters-edge"],
-            "selector": "perception",
-            "type": "circumstance",
-            "value": 4
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "PF2E.SpecificRule.HuntPrey.TrackHuntedPrey",
-            "predicate": ["action:track", "target:mark:share-hunters-edge"],
-            "selector": "survival",
-            "type": "circumstance",
-            "value": 4
           }
         },
         {
@@ -9900,43 +9047,6 @@
             "selector": "saving-throw",
             "type": "circumstance",
             "value": 2
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:effect-shield-of-faith",
-      "foundry": "Compendium.pf2e.feat-effects.Item.5uMMLUvJOEmfMgeV",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "ac",
-            "type": "status",
-            "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:effect-spell-protection-array",
-      "foundry": "Compendium.pf2e.feat-effects.Item.OochfTTXnDLVXeSS",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["item:magical"],
-            "selector": "saving-throw",
-            "type": "status",
-            "value": 1
           }
         }
       ]
@@ -10264,47 +9374,6 @@
           "raw": {
             "key": "TokenMark",
             "slug": "watch-your-back"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["target:mark:watch-your-back"],
-            "selector": "perception",
-            "type": "status",
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["fear"],
-            "selector": "will",
-            "type": "status",
-            "value": -2
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-acid-grip",
-      "foundry": "Compendium.pf2e.spell-effects.Item.6TGcfVyzzVHEo7ke",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["self:condition:persistent-damage:acid"],
-            "selector": "all-speeds",
-            "type": "status",
-            "value": -10
           }
         }
       ]
@@ -12481,52 +11550,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:spell-effect-athletic-rush",
-      "foundry": "Compendium.pf2e.spell-effects.Item.57lnrCzGUcNUBP2O",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "land-speed",
-            "type": "status",
-            "value": 10
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "athletics",
-            "type": "status",
-            "value": 2
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-bane",
-      "foundry": "Compendium.pf2e.spell-effects.Item.UTLp7omqsiC36bso",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "attack",
-            "type": "status",
-            "value": -1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:spell-effect-bind-undead",
       "foundry": "Compendium.pf2e.spell-effects.Item.rVkUzqS4rpZp9LS3",
       "gaps": [
@@ -12596,17 +11619,6 @@
             "predicate": ["self:signature:{item|origin.signature}"],
             "radius": "5 + @item.badge.value * 10"
           }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "attack-roll",
-            "slug": "bless",
-            "type": "status",
-            "value": 1
-          }
         }
       ]
     },
@@ -12625,24 +11637,6 @@
             "selector": ["ac", "saving-throw"],
             "type": "status",
             "value": "ternary(gte(@item.level,5),2,1)"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-calm",
-      "foundry": "Compendium.pf2e.spell-effects.Item.Qr5rgoZvI4KmFY0N",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "attack",
-            "type": "status",
-            "value": -1
           }
         }
       ]
@@ -12965,16 +11959,6 @@
         },
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": ["attack-roll", "skill-check"],
-            "type": "status",
-            "value": "ternary(gte(@item.level,7),2,1)"
-          }
-        },
-        {
-          "type": "rule",
           "key": "AdjustModifier",
           "raw": {
             "key": "AdjustModifier",
@@ -12993,27 +11977,6 @@
       "slug": "effect:spell-effect-courageous-anthem",
       "foundry": "Compendium.pf2e.spell-effects.Item.beReeFroAx24hj83",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": ["attack-roll", "damage"],
-            "type": "status",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["fear"],
-            "selector": "saving-throw",
-            "type": "status",
-            "value": 1
-          }
-        },
         {
           "type": "rule",
           "key": "DamageDice",
@@ -13472,16 +12435,6 @@
               "traits": ["animal", "dinosaur"]
             }
           }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "damageType": "bleed",
-            "key": "FlatModifier",
-            "selector": "talon-damage",
-            "value": 1
-          }
         }
       ]
     },
@@ -13894,29 +12847,6 @@
               },
               "traits": ["animal", "dinosaur"]
             }
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-discern-secrets",
-      "foundry": "Compendium.pf2e.spell-effects.Item.pzbU0cdyRvE66XBi",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "or": ["action:seek", "action:recall-knowledge", "action:sense-motive"]
-              }
-            ],
-            "selector": ["perception", "skill-check"],
-            "type": "status",
-            "value": 1
           }
         }
       ]
@@ -14849,24 +13779,6 @@
           "type": "text",
           "reason": "runtime-key",
           "key": "PF2E.SpecificRule.DragonForm.DragonBreath.{item|flags.system.rulesSelections.dragonForm.breathShape}.{item|flags.system.rulesSelections.dragonForm.saveType}"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-earthquake-shaking-ground",
-      "foundry": "Compendium.pf2e.spell-effects.Item.09rtx50laDw68FGT",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": ["ac", "attack-roll", "skill-check"],
-            "type": "circumstance",
-            "value": -2
-          }
         }
       ]
     },
@@ -15913,24 +14825,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:spell-effect-entangling-flora",
-      "foundry": "Compendium.pf2e.spell-effects.Item.rjM25qfw5BKj9h97",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "all-speeds",
-            "type": "circumstance",
-            "value": -10
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:spell-effect-everlight",
       "foundry": "Compendium.pf2e.spell-effects.Item.hpbCDbDOoVyhOmck",
       "gaps": [
@@ -15951,25 +14845,6 @@
               "coloration": 101,
               "dim": 40
             }
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-face-in-the-crowd",
-      "foundry": "Compendium.pf2e.spell-effects.Item.4iakL7fDcZ8RT6Tu",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["terrain:crowd"],
-            "selector": ["deception", "stealth"],
-            "type": "status",
-            "value": 2
           }
         }
       ]
@@ -16072,25 +14947,6 @@
             "selector": "damage-received",
             "text": "PF2E.SpecificRule.SpellEffectFieryBody.Note",
             "title": "{item|name}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-figment",
-      "foundry": "Compendium.pf2e.spell-effects.Item.2Hg3a06gZCSnUgSA",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["action:create-a-diversion"],
-            "selector": "deception",
-            "type": "circumstance",
-            "value": 2
           }
         }
       ]
@@ -16222,24 +15078,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:spell-effect-fleet-step",
-      "foundry": "Compendium.pf2e.spell-effects.Item.ThFug45WHkQQXcoF",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "land-speed",
-            "type": "status",
-            "value": 30
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:spell-effect-flicker",
       "foundry": "Compendium.pf2e.spell-effects.Item.ZlsuhS9J0S3PuvCO",
       "gaps": [
@@ -16285,17 +15123,6 @@
             "key": "TokenMark",
             "slug": "forbidding-ward"
           }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["origin:mark:forbidding-ward"],
-            "selector": ["ac", "saving-throw"],
-            "type": "status",
-            "value": "ternary(gte(@item.level,6),2,1)"
-          }
         }
       ]
     },
@@ -16307,40 +15134,12 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "initiative",
-            "type": "status",
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
           "key": "ActiveEffectLike",
           "raw": {
             "key": "ActiveEffectLike",
             "mode": "override",
             "path": "system.attributes.flanking.flankable",
             "value": false
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-fortify-summoning",
-      "foundry": "Compendium.pf2e.spell-effects.Item.UtIOWubq7akdHMOh",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "all",
-            "type": "status",
-            "value": 1
           }
         }
       ]
@@ -16677,73 +15476,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:spell-effect-healers-blessing",
-      "foundry": "Compendium.pf2e.spell-effects.Item.IjoYgBgEYSTZKmab",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["item:type:spell", "item:trait:healing", "vitality"],
-            "selector": "healing-received",
-            "value": "2 * @item.level"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-heroism",
-      "foundry": "Compendium.pf2e.spell-effects.Item.l9HRQggofFGIxEse",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": ["attack", "saving-throw", "skill-check", "perception"],
-            "type": "status",
-            "value": "ternary(gte(@item.level,9),3,ternary(gte(@item.level,6),2,1))"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-honeyed-words",
-      "foundry": "Compendium.pf2e.spell-effects.Item.6vodhSeI3ClMfOGd",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["action:lie"],
-            "selector": "deception",
-            "type": "status",
-            "value": 4
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["action:lie"],
-            "selector": "deception",
-            "slug": "honeyed-words-proficiency",
-            "type": "proficiency",
-            "value": "@actor.level"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:spell-effect-humanoid-form",
       "foundry": "Compendium.pf2e.spell-effects.Item.B9Hzt4ki8eqlXxyh",
       "gaps": [
@@ -16845,43 +15577,6 @@
             "option": "pass-as-humanoid",
             "toggleable": true
           }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "hideIfDisabled": true,
-            "key": "FlatModifier",
-            "predicate": ["pass-as-humanoid"],
-            "selector": "deception",
-            "slug": "humanoid-form-status-bonus",
-            "type": "status",
-            "value": 4
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "hideIfDisabled": true,
-            "key": "FlatModifier",
-            "predicate": ["pass-as-humanoid", "proficiency:untrained"],
-            "selector": "deception",
-            "slug": "humanoid-form-proficiency-bonus",
-            "type": "proficiency",
-            "value": "@actor.level"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["humanoid-form:large"],
-            "selector": "melee-damage",
-            "type": "status",
-            "value": 2
-          }
         }
       ]
     },
@@ -16969,37 +15664,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:spell-effect-illusory-disguise",
-      "foundry": "Compendium.pf2e.spell-effects.Item.3Ktyd5F9lOPo4myk",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["action:impersonate"],
-            "selector": "deception",
-            "type": "status",
-            "value": 4
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["action:impersonate"],
-            "selector": "deception",
-            "slug": "illusiory-disguise-proficiency",
-            "type": "proficiency",
-            "value": "@actor.level"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:spell-effect-infuse-vitality",
       "foundry": "Compendium.pf2e.spell-effects.Item.X7RD0JRxhJV9u2LC",
       "gaps": [
@@ -17030,29 +15694,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:spell-effect-knock",
-      "foundry": "Compendium.pf2e.spell-effects.Item.OSapCU8heNHst21y",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "or": ["action:force-open", "action:pick-a-lock"]
-              }
-            ],
-            "selector": ["athletics", "thievery"],
-            "type": "status",
-            "value": 4
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:spell-effect-know-the-enemy",
       "foundry": "Compendium.pf2e.spell-effects.Item.ZmoLNdkOWwZgSrti",
       "gaps": [
@@ -17074,21 +15715,6 @@
       "slug": "effect:spell-effect-levitate",
       "foundry": "Compendium.pf2e.spell-effects.Item.JqrTrvwV7pYStMXz",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "not": "stabilized"
-              }
-            ],
-            "selector": "attack",
-            "type": "circumstance",
-            "value": -2
-          }
-        },
         {
           "type": "rule",
           "key": "RollOption",
@@ -17159,42 +15785,6 @@
             "predicate": ["action:recall-knowledge"],
             "removeAfterRoll": true,
             "selector": "skill-check"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-magic-hide",
-      "foundry": "Compendium.pf2e.spell-effects.Item.qhNUfwpkD8BRw4zj",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "ac",
-            "type": "status",
-            "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-magics-vessel",
-      "foundry": "Compendium.pf2e.spell-effects.Item.zpxIwEjnLUSO1B4z",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "saving-throw",
-            "type": "status",
-            "value": 1
           }
         }
       ]
@@ -17790,16 +16380,6 @@
         },
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "land-speed",
-            "type": "status",
-            "value": 10
-          }
-        },
-        {
-          "type": "rule",
           "key": "Weakness",
           "raw": {
             "key": "Weakness",
@@ -18220,17 +16800,6 @@
           "raw": {
             "key": "RollOption",
             "option": "overstuff:{item|flags.system.rulesSelections.overstuff.degree}"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["self:condition:sickened"],
-            "selector": ["land-speed"],
-            "type": "status",
-            "value": -10
           }
         },
         {
@@ -18785,16 +17354,6 @@
         },
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["primal-summons:earth"],
-            "selector": "land-speed",
-            "value": -10
-          }
-        },
-        {
-          "type": "rule",
           "key": "Resistance",
           "raw": {
             "key": "Resistance",
@@ -18903,42 +17462,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:spell-effect-protection",
-      "foundry": "Compendium.pf2e.spell-effects.Item.RawLEPwyT5CtCZ4D",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": ["ac", "saving-throw"],
-            "type": "status",
-            "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-protective-wards",
-      "foundry": "Compendium.pf2e.spell-effects.Item.dWbg2gACxMkSnZag",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "ac",
-            "type": "status",
-            "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:spell-effect-protectors-sphere",
       "foundry": "Compendium.pf2e.spell-effects.Item.XXtz5BDNNBmP9ub2",
       "gaps": [
@@ -18959,16 +17482,6 @@
       "slug": "effect:spell-effect-rallying-anthem",
       "foundry": "Compendium.pf2e.spell-effects.Item.DLwTvjjnqs2sNGuG",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": ["ac", "saving-throw"],
-            "type": "status",
-            "value": 1
-          }
-        },
         {
           "type": "rule",
           "key": "Resistance",
@@ -19229,42 +17742,12 @@
         },
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["safe-passage"],
-            "selector": ["ac", "saving-throw"],
-            "type": "status",
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
           "key": "Resistance",
           "raw": {
             "key": "Resistance",
             "predicate": ["safe-passage"],
             "type": "all-damage",
             "value": "ternary(gte(@item.level,8),15,ternary(gte(@item.level,5),10,5))"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-safeguard-secret",
-      "foundry": "Compendium.pf2e.spell-effects.Item.3HEiYVhqypfc4IsP",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["safeguard-secret"],
-            "selector": "skill-check",
-            "type": "status",
-            "value": 4
           }
         }
       ]
@@ -19281,17 +17764,6 @@
           "raw": {
             "key": "TokenMark",
             "slug": "savor-the-sting"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["target:condition:persistent-damage:mental", "target:mark:savor-the-sting"],
-            "selector": ["attack-roll", "skill-check"],
-            "type": "status",
-            "value": 1
           }
         }
       ]
@@ -19327,25 +17799,6 @@
             ],
             "removeAfterRoll": true,
             "selector": "skill-check"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-see-the-unseen",
-      "foundry": "Compendium.pf2e.spell-effects.Item.T5bk6UH7yuYog1Fp",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["illusion"],
-            "selector": ["perception", "will"],
-            "type": "status",
-            "value": 2
           }
         }
       ]
@@ -19440,17 +17893,6 @@
             "key": "ChoiceSet",
             "prompt": "PF2E.SpecificRule.Prompt.Form",
             "rollOption": "shifting-form"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["shifting-form:speed"],
-            "selector": "land-speed",
-            "type": "status",
-            "value": 20
           }
         },
         {
@@ -19563,54 +18005,10 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "athletics",
-            "type": "status",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "or": ["action:disarm", "action:reposition", "action:trip", "action:shove"]
-              }
-            ],
-            "selector": ["fortitude", "reflex"],
-            "type": "status",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
           "key": "RollOption",
           "raw": {
             "key": "RollOption",
             "option": "song-of-strength:origin:signature:{item|origin.signature}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-soothe",
-      "foundry": "Compendium.pf2e.spell-effects.Item.nkk4O5fyzrC0057i",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["item:trait:mental"],
-            "selector": "saving-throw",
-            "type": "status",
-            "value": 2
           }
         }
       ]
@@ -19623,17 +18021,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "will",
-            "slug": "soothing-words",
-            "type": "status",
-            "value": "ternary(gte(@item.level,5),2,1)"
-          }
-        },
-        {
-          "type": "rule",
           "key": "AdjustModifier",
           "raw": {
             "key": "AdjustModifier",
@@ -19642,24 +18029,6 @@
             "selector": "will",
             "slug": "soothing-words",
             "value": "ternary(gte(@item.level,5),3,2)"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-stoke-the-heart",
-      "foundry": "Compendium.pf2e.spell-effects.Item.TpVkVALUBrBQjULn",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "damage",
-            "type": "status",
-            "value": "ceil(1+(@item.level / 2))"
           }
         }
       ]
@@ -19840,113 +18209,6 @@
             "prompt": "PF2E.SpecificRule.SpellEffectSweetDream.Prompt",
             "rollOption": "sweet-dream"
           }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["sweet-dream:insight"],
-            "selector": "int-skill-check",
-            "type": "status",
-            "value": "ternary(gte(@item.level,7),3,ternary(gte(@item.level,4),2,1))"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["sweet-dream:glamor"],
-            "selector": "cha-skill-check",
-            "type": "status",
-            "value": "ternary(gte(@item.level,7),3,ternary(gte(@item.level,4),2,1))"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["sweet-dream:voyaging"],
-            "selector": "land-speed",
-            "type": "status",
-            "value": 5
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-tailwind",
-      "foundry": "Compendium.pf2e.spell-effects.Item.PQHP7Oph3BQX1GhF",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "land-speed",
-            "type": "status",
-            "value": 10
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-tailwind-8-hours",
-      "foundry": "Compendium.pf2e.spell-effects.Item.7vIUF5zbvHzVcJA0",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "land-speed",
-            "type": "status",
-            "value": 10
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-take-its-course-affliction-help",
-      "foundry": "Compendium.pf2e.spell-effects.Item.nHXKK4pRXAzrLdEP",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["affliction"],
-            "selector": "saving-throw",
-            "type": "status",
-            "value": 2
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-take-its-course-affliction-hinder",
-      "foundry": "Compendium.pf2e.spell-effects.Item.R27azQfzeFuFc48G",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["affliction"],
-            "selector": "saving-throw",
-            "type": "status",
-            "value": -2
-          }
         }
       ]
     },
@@ -19973,34 +18235,6 @@
             "key": "ChoiceSet",
             "prompt": "PF2E.SpecificRule.Prompt.DegreeOfSuccess",
             "rollOption": "tangle-vine"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "all-speeds",
-            "type": "circumstance",
-            "value": -10
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-tangling-creepers",
-      "foundry": "Compendium.pf2e.spell-effects.Item.5RiskDnSXaRI6F4n",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": ["swim-speed", "land-speed", "climb-speed"],
-            "type": "circumstance",
-            "value": -10
           }
         }
       ]
@@ -20069,51 +18303,6 @@
               "shadows": 0.2
             }
           }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "or": ["self:effect:touch-of-the-moon:2", "self:effect:touch-of-the-moon:3"]
-              }
-            ],
-            "selector": "attack-roll",
-            "type": "status",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "or": ["self:effect:touch-of-the-moon:2", "self:effect:touch-of-the-moon:3"]
-              }
-            ],
-            "selector": "damage",
-            "type": "status",
-            "value": 4
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "or": ["self:effect:touch-of-the-moon:3", "self:effect:touch-of-the-moon:4"]
-              }
-            ],
-            "selector": ["ac", "saving-throw"],
-            "type": "status",
-            "value": 1
-          }
         }
       ]
     },
@@ -20167,16 +18356,6 @@
       "slug": "effect:spell-effect-triple-time",
       "foundry": "Compendium.pf2e.spell-effects.Item.HtaDbgTIzdiTiKLX",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "all-speeds",
-            "type": "status",
-            "value": 10
-          }
-        },
         {
           "type": "rule",
           "key": "RollOption",
@@ -20305,23 +18484,6 @@
             },
             "predicate": ["feat:untamed-form"],
             "uuid": "{item|flags.system.rulesSelections.formEffect}"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              "battle-form",
-              "battle-form:own-attack-modifier",
-              {
-                "not": "self:effect:pest-form"
-              }
-            ],
-            "selector": "attack",
-            "type": "status",
-            "value": 2
           }
         },
         {
@@ -20829,16 +18991,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": ["attack", "perception", "will"],
-            "type": "status",
-            "value": -1
-          }
-        },
-        {
-          "type": "rule",
           "key": "AdjustModifier",
           "raw": {
             "key": "AdjustModifier",
@@ -20901,24 +19053,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:spell-effect-volcanic-eruption",
-      "foundry": "Compendium.pf2e.spell-effects.Item.8UqFvOCZqecPam4Y",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "all-speeds",
-            "type": "status",
-            "value": -10
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:spell-effect-weapon-surge",
       "foundry": "Compendium.pf2e.spell-effects.Item.qlz0sJIvqc0FdUdr",
       "gaps": [
@@ -20973,57 +19107,9 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:spell-effect-word-of-truth",
-      "foundry": "Compendium.pf2e.spell-effects.Item.Wsgum7pZrPtASRf6",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "diplomacy",
-            "type": "status",
-            "value": 2
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-wrathful-storm",
-      "foundry": "Compendium.pf2e.spell-effects.Item.SjxqjPDILhQWUcWf",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "hideIfDisabled": true,
-            "key": "FlatModifier",
-            "selector": "ranged-strike-attack-roll",
-            "type": "circumstance",
-            "value": -4
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:spell-effect-zealous-conviction",
       "foundry": "Compendium.pf2e.spell-effects.Item.nemThuhp3praALY6",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["item:trait:mental"],
-            "selector": "will",
-            "type": "status",
-            "value": "ternary(gte(@item.level,9),3,2)"
-          }
-        },
         {
           "type": "rule",
           "key": "TempHP",
@@ -21037,50 +19123,9 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:stance-disarming-stance",
-      "foundry": "Compendium.pf2e.feat-effects.Item.LxSev4GNKv26DbZw",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["action:disarm"],
-            "selector": "athletics",
-            "type": "circumstance",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["action:disarm"],
-            "selector": "reflex-dc",
-            "type": "circumstance",
-            "value": 2
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:stance-dueling-dance",
       "foundry": "Compendium.pf2e.feat-effects.Item.KiuBRoMFxL2Npt51",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "Dueling Parry",
-            "selector": "ac",
-            "type": "circumstance",
-            "value": 2
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[feats-srd]"
@@ -21119,30 +19164,6 @@
             "selector": "ranged-attack-roll",
             "slug": "double-shot",
             "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:stance-point-blank-stance",
-      "foundry": "Compendium.pf2e.feat-effects.Item.9HPxAKpP3WJmICBx",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              "target:range-increment:1",
-              {
-                "nor": ["item:trait:volley-20", "item:trait:volley-30", "item:trait:volley-50"]
-              }
-            ],
-            "selector": "ranged-strike-damage",
-            "type": "circumstance",
-            "value": 2
           }
         }
       ]
@@ -21191,46 +19212,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "equipment:alchemists-lab-expanded",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.uhka9LHEP3wDKytG",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "Alchemist's Lab, Expanded (craft alchemical items)",
-            "predicate": ["alchemical", "action:craft"],
-            "selector": "crafting",
-            "type": "item",
-            "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "equipment:artisans-toolkit-sterling",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.0QgniSjpzksm5riV",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "Artisan's Tools, Sterling (craft items)",
-            "predicate": ["action:craft"],
-            "selector": "crafting",
-            "type": "item",
-            "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "equipment:chair-storage",
       "foundry": "Compendium.pf2e.equipment-srd.Item.HgS4FYX0itxQvwub",
       "gaps": [
@@ -21245,45 +19226,6 @@
           "reason": "unmapped-value",
           "field": "bulk.capacity",
           "raw": 0
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "equipment:climbing-kit-extreme",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.TWv2EeDJaCjtmGUN",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["action:climb"],
-            "selector": "athletics",
-            "type": "item",
-            "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "equipment:clothing-high-fashion-fine",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.rXZxM7SbqEnvXyal",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "High-Fashion Clothes (Make an Impression on nobility)",
-            "predicate": ["action:make-an-impression"],
-            "selector": "diplomacy",
-            "type": "item",
-            "value": 1
-          }
         }
       ]
     },
@@ -21322,42 +19264,6 @@
             "slug": "no-compass",
             "suppress": true
           }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "Lensatic Compass (Sense Direction or navigate)",
-            "predicate": [
-              {
-                "or": ["action:sense-direction", "action:navigate"]
-              }
-            ],
-            "selector": "survival",
-            "type": "item",
-            "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "equipment:concealed-sheath",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.laU7xnX42wXch2Dv",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "Concealed Sheath (hide or conceal contents)",
-            "predicate": ["action:conceal-an-object", "target:contents"],
-            "selector": "stealth",
-            "type": "item",
-            "value": 1
-          }
         }
       ]
     },
@@ -21387,18 +19293,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "Levered Crowbar (Force Open)",
-            "predicate": ["action:force-open"],
-            "selector": "athletics",
-            "type": "item",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
           "key": "AdjustModifier",
           "raw": {
             "key": "AdjustModifier",
@@ -21412,79 +19306,12 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "equipment:detectives-kit",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.ItLZL9Bd6xwgfeB8",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["action:investigate"],
-            "selector": ["perception", "skill-check"],
-            "type": "item",
-            "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "equipment:disguise-kit-elite",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.YhkomhtKBK3i9C7Q",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "Elite Disguise Kit (Impersonate)",
-            "predicate": ["action:impersonate"],
-            "selector": "deception",
-            "type": "item",
-            "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "equipment:dueling-cape",
       "foundry": "Compendium.pf2e.equipment-srd.Item.DA3HgyEBGEbtRNOo",
       "gaps": [
         {
           "type": "enricher",
           "enricher": "@UUID[equipment-effects]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "equipment:healers-toolkit-expanded",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.SGkOHFyBbzWdBk8D",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "or": [
-                  "action:administer-first-aid",
-                  "action:treat-disease",
-                  "action:treat-poison",
-                  "action:treat-wounds"
-                ]
-              }
-            ],
-            "selector": "medicine",
-            "type": "item",
-            "value": 1
-          }
         }
       ]
     },
@@ -21634,26 +19461,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "equipment:magnifying-glass",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.5GbC7RTgyAeaOcAI",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "Magnifying Glass (minute details)",
-            "predicate": ["minute-details"],
-            "selector": "perception",
-            "type": "item",
-            "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "equipment:manacles-average",
       "foundry": "Compendium.pf2e.equipment-srd.Item.lWeADBqMFwFlVIuV",
       "gaps": [
@@ -21727,17 +19534,6 @@
             "option": "playing",
             "toggleable": true
           }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["playing"],
-            "selector": "performance",
-            "type": "item",
-            "value": 1
-          }
         }
       ]
     },
@@ -21756,17 +19552,6 @@
             "label": "PF2E.SpecificRule.PlayingItem",
             "option": "playing",
             "toggleable": true
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["playing"],
-            "selector": "performance",
-            "type": "item",
-            "value": 1
           }
         }
       ]
@@ -21824,26 +19609,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "equipment:repair-toolkit-superb",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.aDsdYMPpVc8hOnM5",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "Repair Kit, Superb (Repair)",
-            "predicate": ["action:repair"],
-            "selector": "crafting",
-            "type": "item",
-            "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "equipment:sack",
       "foundry": "Compendium.pf2e.equipment-srd.Item.DujblC14ytJEZMaz",
       "gaps": [
@@ -21852,113 +19617,6 @@
           "reason": "unmapped-value",
           "field": "stowing",
           "raw": false
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "equipment:spyglass-fine",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.rV7MTDCseZmEZKDw",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "Fine Spyglass (Notice details at distance)",
-            "predicate": ["distance"],
-            "selector": "perception",
-            "type": "item",
-            "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "equipment:survey-map",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.UhcRWtnjU2WLSClx",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "Survey Map (mapped area)",
-            "predicate": ["mapped-area"],
-            "selector": "survival",
-            "type": "item",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "Survey Map (Recall knowledge on mapped area)",
-            "predicate": ["mapped-area", "action:recall-knowledge"],
-            "selector": "skill-check",
-            "type": "item",
-            "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "equipment:survey-map-atlas",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.1M4SSDuTv2SwBltC",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "Survey Map (mapped area)",
-            "predicate": ["mapped-area"],
-            "selector": "survival",
-            "type": "item",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "Survey Map (Recall knowledge on mapped area)",
-            "predicate": ["mapped-area", "action:recall-knowledge"],
-            "selector": "skill-check",
-            "type": "item",
-            "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "equipment:thieves-toolkit-infiltrator",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.6nrCxNQFycUVFOV2",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "or": ["action:disable-a-device", "action:pick-a-lock"]
-              }
-            ],
-            "selector": "thievery",
-            "type": "item",
-            "value": 1
-          }
         }
       ]
     },
@@ -22313,17 +19971,6 @@
         },
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["ageless-patience"],
-            "selector": ["perception", "skill-check"],
-            "type": "circumstance",
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
           "key": "AdjustDegreeOfSuccess",
           "raw": {
             "adjustment": {
@@ -22516,28 +20163,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["inflicts:controlled"],
-            "selector": "saving-throw",
-            "type": "circumstance",
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["action:sense-motive", "ancestral-suspicion"],
-            "selector": "perception",
-            "type": "circumstance",
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
           "key": "Note",
           "raw": {
             "key": "Note",
@@ -22593,25 +20218,6 @@
                 "text": "PF2E.SpecificRule.Ranger.AnimalCompanion.HuntPreyAddendum"
               }
             ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:animal-elocutionist",
-      "foundry": "Compendium.pf2e.feats-srd.Item.evwCimenReYvcruj",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["target:trait:animal", "action:make-an-impression"],
-            "selector": "diplomacy",
-            "type": "circumstance",
-            "value": 1
           }
         }
       ]
@@ -23752,18 +21358,6 @@
       "foundry": "Compendium.pf2e.feats-srd.Item.BuaOQzmRNgIhGsfN",
       "gaps": [
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "Blessed Blood (craft Holy Water with own blood)",
-            "predicate": ["action:craft", "item:holy-water", "own-blood"],
-            "selector": "crafting",
-            "type": "circumstance",
-            "value": 4
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[equipment-srd]"
         },
@@ -23858,17 +21452,6 @@
       "slug": "feat:breath-control",
       "foundry": "Compendium.pf2e.feats-srd.Item.aJUXbe9HJVvv0Mxa",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["item:trait:inhaled"],
-            "selector": "saving-throw",
-            "type": "circumstance",
-            "value": 1
-          }
-        },
         {
           "type": "rule",
           "key": "AdjustDegreeOfSuccess",
@@ -23999,17 +21582,6 @@
             "option": "bullseye",
             "toggleable": true
           }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["bullseye"],
-            "selector": "attack",
-            "type": "circumstance",
-            "value": 1
-          }
         }
       ]
     },
@@ -24139,17 +21711,6 @@
       "slug": "feat:called",
       "foundry": "Compendium.pf2e.feats-srd.Item.2vlQ09QIBli5u9Gz",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["mental"],
-            "selector": "will",
-            "type": "circumstance",
-            "value": 1
-          }
-        },
         {
           "type": "rule",
           "key": "Note",
@@ -24596,39 +22157,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:city-scavenger",
-      "foundry": "Compendium.pf2e.feats-srd.Item.g388ImzpenYBoiEF",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["action:subsist"],
-            "selector": ["society", "survival"],
-            "slug": "scavenger-subsist",
-            "type": "circumstance",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "PF2E.SpecificRule.Goblin.CityScavenger.EarnIncome",
-            "predicate": ["action:earn-income", "with-subsist"],
-            "selector": ["society", "survival"],
-            "slug": "scavenger-earn",
-            "type": "circumstance",
-            "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:cleric-dedication",
       "foundry": "Compendium.pf2e.feats-srd.Item.smCDaPlpRDA47xjK",
       "gaps": [
@@ -24645,26 +22173,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[journals]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:combat-assessment",
-      "foundry": "Compendium.pf2e.feats-srd.Item.5FyvwI24mnROzh61",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["action:recall-knowledge", "critical-assessment"],
-            "selector": "skill-check",
-            "slug": "combat-assessment",
-            "type": "circumstance",
-            "value": 2
-          }
         }
       ]
     },
@@ -24774,25 +22282,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[against]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:cooperative-nature",
-      "foundry": "Compendium.pf2e.feats-srd.Item.lwLcUHQMOqfaNND4",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["action:aid"],
-            "selector": "check",
-            "type": "circumstance",
-            "value": 4
-          }
         }
       ]
     },
@@ -25058,24 +22547,6 @@
             "option": "cut-from-the-air",
             "toggleable": true
           }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              "cut-from-the-air",
-              "item:damage:category:physical",
-              "item:ranged",
-              {
-                "not": "self:condition:off-guard"
-              }
-            ],
-            "selector": "ac",
-            "type": "circumstance",
-            "value": 4
-          }
         }
       ]
     },
@@ -25137,17 +22608,6 @@
             "key": "RollOption",
             "option": "deadly-aim",
             "toggleable": true
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["deadly-aim"],
-            "selector": "attack",
-            "type": "circumstance",
-            "value": -2
           }
         },
         {
@@ -25510,25 +22970,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:divine-countermeasures",
-      "foundry": "Compendium.pf2e.feats-srd.Item.ovMIxhiStlPE7tty",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["item:trait:divine"],
-            "selector": "saving-throw",
-            "type": "circumstance",
-            "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:divine-declaration",
       "foundry": "Compendium.pf2e.feats-srd.Item.KL3Pk10ReItAHTw9",
       "gaps": [
@@ -25810,17 +23251,6 @@
             "option": "double-shot",
             "toggleable": true
           }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["double-shot", "item:reload:0"],
-            "selector": "ranged-attack-roll",
-            "slug": "double-shot",
-            "value": -2
-          }
         }
       ]
     },
@@ -25838,21 +23268,6 @@
             "label": "PF2E.SpecificRule.Fighter.DoubleSlice.SecondAttackLabel",
             "option": "double-slice-second",
             "toggleable": true
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              "double-slice-second",
-              {
-                "not": "item:trait:agile"
-              }
-            ],
-            "selector": ["melee-strike-attack-roll"],
-            "value": -2
           }
         }
       ]
@@ -25902,21 +23317,6 @@
       "slug": "feat:dream-may",
       "foundry": "Compendium.pf2e.feats-srd.Item.kqnFdIhToKTnOpMl",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "or": ["sleep", "dream"]
-              }
-            ],
-            "selector": "saving-throw",
-            "type": "circumstance",
-            "value": 2
-          }
-        },
         {
           "type": "rule",
           "key": "ActiveEffectLike",
@@ -26330,26 +23730,6 @@
               }
             ],
             "toggleable": true
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:eclectic-skill",
-      "foundry": "Compendium.pf2e.feats-srd.Item.TOyqtUUnOkOLl1Pm",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "hideIfDisabled": true,
-            "key": "FlatModifier",
-            "predicate": ["proficiency:untrained"],
-            "selector": "skill-check",
-            "type": "proficiency",
-            "value": "@actor.level"
           }
         }
       ]
@@ -27039,17 +24419,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["self:effect:untamed-form", "battle-form:athletics"],
-            "selector": "athletics",
-            "type": "status",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
           "key": "ActiveEffectLike",
           "raw": {
             "key": "ActiveEffectLike",
@@ -27124,36 +24493,6 @@
             "value": {
               "value": "Compendium.pf2e.spell-effects.Item.Spell Effect: Dinosaur Form (Tyrannosaurus)"
             }
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:fey-fellowship",
-      "foundry": "Compendium.pf2e.feats-srd.Item.FWCULKnVXhSPL0ST",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["target:trait:fey"],
-            "selector": "perception",
-            "type": "circumstance",
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["origin:trait:fey"],
-            "selector": "saving-throw",
-            "type": "circumstance",
-            "value": 2
           }
         }
       ]
@@ -27380,23 +24719,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:fleet",
-      "foundry": "Compendium.pf2e.feats-srd.Item.Ux73dmoF8KnavyUD",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "land-speed",
-            "value": 5
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:flourish-and-ruin",
       "foundry": "Compendium.pf2e.feats-srd.Item.U9nJy5suyYDE0b20",
       "gaps": [
@@ -27540,18 +24862,6 @@
       "slug": "feat:forlorn",
       "foundry": "Compendium.pf2e.feats-srd.Item.AogIo1gHLdz7DyHx",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "Against emotion effects",
-            "predicate": ["emotion"],
-            "selector": "saving-throw",
-            "type": "circumstance",
-            "value": 1
-          }
-        },
         {
           "type": "rule",
           "key": "Note",
@@ -28225,16 +25535,6 @@
             "path": "inventory.bulk.maxAddend",
             "value": 1
           }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "travel-speed",
-            "type": "circumstance",
-            "value": 10
-          }
         }
       ]
     },
@@ -28254,25 +25554,6 @@
             },
             "predicate": ["item:slug:harm"],
             "selector": ["spell-damage", "spell-healing"]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:harmlessly-cute",
-      "foundry": "Compendium.pf2e.feats-srd.Item.GYdLf1LhvSUeu95Y",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["deception"],
-            "selector": "initiative",
-            "type": "circumstance",
-            "value": 1
           }
         }
       ]
@@ -28336,62 +25617,6 @@
             "predicate": ["mental", "inflicts:controlled"],
             "selector": "will",
             "type": "save"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:hazard-finder",
-      "foundry": "Compendium.pf2e.feats-srd.Item.16MOW7deoOoDwE9z",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "Hazard Finder (to find traps and hazards)",
-            "predicate": [
-              {
-                "or": ["trap", "hazard"]
-              }
-            ],
-            "selector": "perception",
-            "type": "circumstance",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "Hazard Finder (vs. attacks from traps and hazards)",
-            "predicate": [
-              {
-                "or": ["trap", "hazard"]
-              }
-            ],
-            "selector": "ac",
-            "type": "circumstance",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "Hazard Finder (saves vs. traps and hazards)",
-            "predicate": [
-              {
-                "or": ["trap", "hazard"]
-              }
-            ],
-            "selector": "saving-throw",
-            "type": "circumstance",
-            "value": 1
           }
         }
       ]
@@ -28663,35 +25888,6 @@
           }
         },
         {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              "item:type:spell",
-              {
-                "or": [
-                  {
-                    "and": ["arcane", "hold-mark:burning-sun"]
-                  },
-                  {
-                    "and": ["hold-mark:deaths-head", "primal"]
-                  },
-                  {
-                    "and": ["divine", "hold-mark:defiled-corpse"]
-                  },
-                  {
-                    "and": ["hold-mark:empty-hand", "occult"]
-                  }
-                ]
-              }
-            ],
-            "selector": "saving-throw",
-            "type": "status",
-            "value": 1
-          }
-        },
-        {
           "type": "markup",
           "markup": "table[class]"
         }
@@ -28735,17 +25931,6 @@
         },
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["hunters-aim", "target:mark:hunted-prey"],
-            "selector": "ranged-strike-attack-roll",
-            "type": "circumstance",
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
           "key": "Note",
           "raw": {
             "key": "Note",
@@ -28776,25 +25961,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:illusion-sense",
-      "foundry": "Compendium.pf2e.feats-srd.Item.tFgsBRsEo9ZEA5fU",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["illusion"],
-            "selector": ["perception", "will"],
-            "type": "circumstance",
-            "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:impeccable-crafting",
       "foundry": "Compendium.pf2e.feats-srd.Item.PiUe3tpv7UVtnfvS",
       "gaps": [
@@ -28807,25 +25973,6 @@
             "selector": "crafting",
             "text": "Whenever you roll a success at a Crafting check to make an item of the type you chose with Specialty Crafting, you get a critical success instead.",
             "title": "{item|name}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:impossible-volley",
-      "foundry": "Compendium.pf2e.feats-srd.Item.NY2AkQscVIHEC8hQ",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "Impossible Volley",
-            "predicate": ["impossible-volley", "volley-30", "reload-0"],
-            "selector": "ranged-attack-roll",
-            "value": -2
           }
         }
       ]
@@ -28898,17 +26045,6 @@
             "key": "RollOption",
             "option": "incredible-aim",
             "toggleable": true
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["incredible-aim"],
-            "selector": "ranged-attack-roll",
-            "type": "circumstance",
-            "value": 2
           }
         },
         {
@@ -29009,41 +26145,12 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["proficiency:untrained", "incredible-improvisation"],
-            "selector": "skill-check",
-            "type": "circumstance",
-            "value": 4
-          }
-        },
-        {
-          "type": "rule",
           "key": "RollOption",
           "raw": {
             "domain": "skill-check",
             "key": "RollOption",
             "option": "incredible-improvisation",
             "toggleable": true
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:incredible-initiative",
-      "foundry": "Compendium.pf2e.feats-srd.Item.2kwXTUjYYhoAGySr",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "initiative",
-            "type": "circumstance",
-            "value": 2
           }
         }
       ]
@@ -29093,23 +26200,6 @@
       "slug": "feat:intimidating-prowess",
       "foundry": "Compendium.pf2e.feats-srd.Item.XFJiGllNZp8Xebda",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              "target:physically-menaced",
-              {
-                "or": ["action:coerce", "action:demoralize"]
-              }
-            ],
-            "selector": "intimidation",
-            "slug": "intimidating-prowess",
-            "type": "circumstance",
-            "value": 1
-          }
-        },
         {
           "type": "rule",
           "key": "AdjustModifier",
@@ -29199,17 +26289,6 @@
       "slug": "feat:lawbringer",
       "foundry": "Compendium.pf2e.feats-srd.Item.g3oJlWGHc74qX2z5",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["emotion"],
-            "selector": "saving-throw",
-            "type": "circumstance",
-            "value": 1
-          }
-        },
         {
           "type": "rule",
           "key": "Note",
@@ -29362,22 +26441,6 @@
       "slug": "feat:leshy-superstition",
       "foundry": "Compendium.pf2e.feats-srd.Item.fYVFBnv9aVHv1UNg",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              "leshy-superstition",
-              {
-                "or": ["arcane", "divine", "primal", "occult"]
-              }
-            ],
-            "selector": "saving-throw",
-            "type": "circumstance",
-            "value": 1
-          }
-        },
         {
           "type": "rule",
           "key": "RollOption",
@@ -29606,22 +26669,6 @@
       "slug": "feat:martial-experience",
       "foundry": "Compendium.pf2e.feats-srd.Item.qXl2cOh3wL3QszCy",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "hideIfDisabled": true,
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "lte": ["self:level", 10]
-              }
-            ],
-            "selector": "strike-attack-roll",
-            "type": "proficiency",
-            "value": "@actor.level"
-          }
-        },
         {
           "type": "rule",
           "key": "ActiveEffectLike",
@@ -29985,25 +27032,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:monstrous-peacemaker",
-      "foundry": "Compendium.pf2e.feats-srd.Item.ZZzgqFTOtUgnzSLZ",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["monstrous-peacemaker"],
-            "selector": ["diplomacy", "perception"],
-            "type": "circumstance",
-            "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:mountain-strategy",
       "foundry": "Compendium.pf2e.feats-srd.Item.UFn85K7uDsZj5Hep",
       "gaps": [
@@ -30047,15 +27075,6 @@
       "slug": "feat:mountains-stoutness",
       "foundry": "Compendium.pf2e.feats-srd.Item.COP89tjrNhEucuRW",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "hp",
-            "value": "@actor.level"
-          }
-        },
         {
           "type": "rule",
           "key": "ActiveEffectLike",
@@ -30189,18 +27208,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "Musetouched (to Escape)",
-            "predicate": ["action:escape"],
-            "selector": ["attack", "acrobatics", "athletics"],
-            "type": "circumstance",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
           "key": "AdjustDegreeOfSuccess",
           "raw": {
             "adjustment": {
@@ -30327,25 +27334,6 @@
           "raw": {
             "key": "GrantItem",
             "uuid": "{item|flags.system.rulesSelections.naturalAmbition}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:natural-medicine",
-      "foundry": "Compendium.pf2e.feats-srd.Item.WC4xLBGmBsdOdHWu",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["action:treat-wounds", "fresh-ingredients"],
-            "selector": "nature",
-            "type": "circumstance",
-            "value": 2
           }
         }
       ]
@@ -30494,70 +27482,6 @@
             "option": "nimble-dodge",
             "toggleable": true
           }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["nimble-dodge"],
-            "selector": "ac",
-            "type": "circumstance",
-            "value": 2
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:nimble-elf",
-      "foundry": "Compendium.pf2e.feats-srd.Item.kCO4r8NOm8E2T3eH",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "land-speed",
-            "value": 5
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:nimble-hooves",
-      "foundry": "Compendium.pf2e.feats-srd.Item.Ffi8L4EDO5OH5tpA",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "land-speed",
-            "value": 5
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:nimble-roll",
-      "foundry": "Compendium.pf2e.feats-srd.Item.F6ZAceuDpiM9bUiF",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["nimble-dodge"],
-            "selector": "reflex",
-            "type": "circumstance",
-            "value": 2
-          }
         }
       ]
     },
@@ -30611,55 +27535,9 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:occult-resistance",
-      "foundry": "Compendium.pf2e.feats-srd.Item.zPJ2NyMv97AfkN3P",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["item:trait:occult"],
-            "selector": "saving-throw",
-            "type": "circumstance",
-            "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:oddity-identification",
       "foundry": "Compendium.pf2e.feats-srd.Item.hDGosy2ZTwnyctEP",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              "item:magical",
-              {
-                "or": ["action:identify-magic", "action:recall-knowledge"]
-              },
-              {
-                "or": [
-                  "item:trait:detection",
-                  "item:trait:fortune",
-                  "item:trait:mental",
-                  "item:trait:misfortune",
-                  "item:trait:prediction",
-                  "item:trait:revelation",
-                  "item:trait:scrying"
-                ]
-              }
-            ],
-            "selector": "occultism",
-            "type": "circumstance",
-            "value": 2
-          }
-        },
         {
           "type": "enricher",
           "enricher": "[[/act]][skill]"
@@ -30726,22 +27604,6 @@
               }
             ],
             "toggleable": true
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              "orc-superstition",
-              {
-                "or": ["arcane", "divine", "primal", "occult", "magical"]
-              }
-            ],
-            "selector": "saving-throw",
-            "type": "circumstance",
-            "value": 1
           }
         }
       ]
@@ -31127,17 +27989,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["poison"],
-            "selector": "saving-throw",
-            "type": "status",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
           "key": "Resistance",
           "raw": {
             "key": "Resistance",
@@ -31189,22 +28040,6 @@
             "path": "system.skills.nature.rank",
             "value": 1
           }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              "action:command-an-animal",
-              {
-                "or": ["target:pony", "target:riding-dog"]
-              }
-            ],
-            "selector": "nature",
-            "type": "circumstance",
-            "value": 1
-          }
         }
       ]
     },
@@ -31254,17 +28089,6 @@
             "key": "RollOption",
             "option": "premonition-of-avoidance",
             "toggleable": true
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["origin:type:hazard", "premonition-of-avoidance"],
-            "selector": "saving-throw",
-            "type": "circumstance",
-            "value": 2
           }
         }
       ]
@@ -31620,17 +28444,6 @@
             "option": "rapid-response",
             "toggleable": true
           }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["rapid-response"],
-            "selector": "speed",
-            "type": "circumstance",
-            "value": 10
-          }
         }
       ]
     },
@@ -31722,17 +28535,6 @@
             "label": "PF2E.SpecificRule.SkillFeat.RecognizeSpell.RollOptionLabel",
             "option": "recognize-spell",
             "toggleable": true
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["recognize-spell"],
-            "selector": ["ac", "saving-throw"],
-            "type": "circumstance",
-            "value": 1
           }
         }
       ]
@@ -31932,30 +28734,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:ritual-researcher",
-      "foundry": "Compendium.pf2e.feats-srd.Item.DUuCOQ9FiZf7vS5b",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              "ritual",
-              {
-                "or": ["primary-check", "secondary-check"]
-              }
-            ],
-            "selector": "skill-check",
-            "type": "circumstance",
-            "value": 2
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:rock-runner",
       "foundry": "Compendium.pf2e.feats-srd.Item.NIUSBGMmdqhkYtmo",
       "gaps": [
@@ -32062,30 +28840,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[journals]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:rough-rider",
-      "foundry": "Compendium.pf2e.feats-srd.Item.GF9kkULUYowgjEWM",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              "action:command-an-animal",
-              {
-                "or": ["target:goblin-dog", "target:wolf"]
-              }
-            ],
-            "selector": "nature",
-            "type": "circumstance",
-            "value": 1
-          }
         }
       ]
     },
@@ -32375,39 +29129,6 @@
           "element": {
             "type": "ref",
             "id": "bcf25d1c-bf58-56a0-b90a-dd1431d32675"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:seasoned",
-      "foundry": "Compendium.pf2e.feats-srd.Item.1Eceqc6zbMj2x0q9",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              "action:craft",
-              {
-                "or": [
-                  "item:tag:food",
-                  "item:tag:drink",
-                  {
-                    "and": ["feat:magical-crafting", "item:trait:potion"]
-                  },
-                  {
-                    "and": ["feat:alchemical-crafting", "item:trait:elixir"]
-                  }
-                ]
-              }
-            ],
-            "selector": "crafting",
-            "type": "circumstance",
-            "value": "ternary(gte(@actor.system.skills.crafting.rank,3),2,1)"
           }
         }
       ]
@@ -33142,17 +29863,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["battle-form:acrobatics"],
-            "selector": "acrobatics",
-            "type": "status",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
           "key": "ActiveEffectLike",
           "raw": {
             "key": "ActiveEffectLike",
@@ -33237,25 +29947,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[against]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:speak-with-kindred",
-      "foundry": "Compendium.pf2e.feats-srd.Item.KYKK1vLqGIxXH5Tu",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["speak-with-kindred"],
-            "selector": "diplomacy",
-            "type": "circumstance",
-            "value": 2
-          }
         }
       ]
     },
@@ -33574,17 +30265,6 @@
       "slug": "feat:stonemasons-eye",
       "foundry": "Compendium.pf2e.feats-srd.Item.HOUHs5rahwIsQoBf",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["action:seek", "terrain:unusual-stonework"],
-            "selector": "perception",
-            "type": "circumstance",
-            "value": 2
-          }
-        },
         {
           "type": "rule",
           "key": "GrantItem",
@@ -34119,29 +30799,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:timeless-nature",
-      "foundry": "Compendium.pf2e.feats-srd.Item.TpWS2b9ISHnXVfZg",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "or": ["disease", "primal"]
-              }
-            ],
-            "selector": "saving-throw",
-            "type": "status",
-            "value": 2
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:titan-slinger",
       "foundry": "Compendium.pf2e.feats-srd.Item.50CRpoP5XS1MVbu8",
       "gaps": [
@@ -34200,15 +30857,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "hp",
-            "value": "@actor.level"
-          }
-        },
-        {
-          "type": "rule",
           "key": "ActiveEffectLike",
           "raw": {
             "key": "ActiveEffectLike",
@@ -34244,28 +30892,6 @@
             "label": "PF2E.SpecificRule.TrapFinder.DefendingLabel",
             "option": "origin:trait:trap",
             "toggleable": "totm"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["origin:trait:trap"],
-            "selector": ["saving-throw", "ac"],
-            "type": "circumstance",
-            "value": "ternary(gte(@actor.system.skills.thievery.rank,3),2,1)"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["trap-finder"],
-            "selector": "perception",
-            "type": "circumstance",
-            "value": "ternary(gte(@actor.system.skills.thievery.rank,3),2,1)"
           }
         }
       ]
@@ -34536,17 +31162,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["emotion"],
-            "selector": "saving-throw",
-            "type": "circumstance",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
           "key": "Note",
           "raw": {
             "key": "Note",
@@ -34578,16 +31193,6 @@
       "slug": "feat:underhanded-assault",
       "foundry": "Compendium.pf2e.feats-srd.Item.eoDDjIGAA67Z7rQt",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["action:sneak", "underhanded-assault"],
-            "selector": "stealth",
-            "value": -2
-          }
-        },
         {
           "type": "enricher",
           "enricher": "[[/act]][options]"
@@ -35294,56 +31899,12 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:wary-disarmament",
-      "foundry": "Compendium.pf2e.feats-srd.Item.RLBYJiGMVkaGL5w9",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "Wary Disarmament (vs. traps)",
-            "predicate": ["trap"],
-            "selector": ["ac", "saving-throw"],
-            "type": "circumstance",
-            "value": 2
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:watch-your-back",
       "foundry": "Compendium.pf2e.feats-srd.Item.zZCyJhsaugHB6mZW",
       "gaps": [
         {
           "type": "enricher",
           "enricher": "@Check[against]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:watchful-halfling",
-      "foundry": "Compendium.pf2e.feats-srd.Item.zAZJpgeEf5TWvdq4",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              "action:sense-motive",
-              {
-                "or": ["target:trait:possessed", "target:trait:enchanted"]
-              }
-            ],
-            "selector": "perception",
-            "type": "circumstance",
-            "value": 2
-          }
         }
       ]
     },
@@ -35390,31 +31951,6 @@
                 "text": "{item|description}"
               }
             ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:well-versed",
-      "foundry": "Compendium.pf2e.feats-srd.Item.iX5HEqRImhKzfPR2",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "Well-Versed (vs. performative effects)",
-            "predicate": [
-              {
-                "or": ["auditory", "illusion", "linguistic", "sonic", "visual"]
-              }
-            ],
-            "selector": "saving-throw",
-            "slug": "well-versed",
-            "type": "circumstance",
-            "value": 1
           }
         }
       ]
@@ -35729,17 +32265,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["action:demoralize", "youre-next"],
-            "selector": "intimidation",
-            "type": "circumstance",
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
           "key": "ItemAlteration",
           "raw": {
             "itemId": "{item|id}",
@@ -35899,25 +32424,6 @@
             "label": "PF2E.BattleForm.Attack.Spine",
             "range": null,
             "traits": ["finesse", "unarmed"]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "heritage:chameleon-gnome",
-      "foundry": "Compendium.pf2e.heritages.Item.XeXWsvcWU3Zaj5WC",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["coloration-matches"],
-            "selector": "stealth",
-            "type": "circumstance",
-            "value": 2
           }
         }
       ]
@@ -36098,16 +32604,6 @@
             "option": "gourd-head",
             "toggleable": true
           }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["action:steal", "gourd-head"],
-            "selector": "perception-dc",
-            "value": 4
-          }
         }
       ]
     },
@@ -36124,21 +32620,6 @@
             "key": "Resistance",
             "type": "void",
             "value": "max(1,floor(@actor.level/2))"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "or": ["item:trait:death", "item:trait:void"]
-              }
-            ],
-            "selector": ["saving-throw"],
-            "type": "circumstance",
-            "value": 1
           }
         }
       ]
@@ -36179,16 +32660,6 @@
             "path": "system.attributes.hp.recoveryAddend",
             "value": "@actor.level"
           }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["action:treat-wounds"],
-            "selector": "healing-received",
-            "value": "@actor.level"
-          }
         }
       ]
     },
@@ -36216,23 +32687,6 @@
       "slug": "heritage:irongut-goblin",
       "foundry": "Compendium.pf2e.heritages.Item.gyoN45SVfRZwHMkk",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              "item:trait:ingested",
-              {
-                "or": ["inflicts:sickened", "item:type:affliction"]
-              }
-            ],
-            "selector": "saving-throw",
-            "slug": "irongut-save-bonus",
-            "type": "circumstance",
-            "value": 2
-          }
-        },
         {
           "type": "rule",
           "key": "AdjustDegreeOfSuccess",
@@ -36324,40 +32778,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "heritage:rainfall-orc",
-      "foundry": "Compendium.pf2e.heritages.Item.dwKCwwtWetvPmJks",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "or": ["action:climb", "action:swim"]
-              }
-            ],
-            "selector": "athletics",
-            "type": "circumstance",
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["disease"],
-            "selector": "saving-throw",
-            "type": "circumstance",
-            "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "heritage:razortooth-goblin",
       "foundry": "Compendium.pf2e.heritages.Item.a6F2WjYU8D0suT8T",
       "gaps": [
@@ -36386,43 +32806,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "heritage:rock-dwarf",
-      "foundry": "Compendium.pf2e.heritages.Item.VSyOvtgJ1ZNpIVgC",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "hideIfDisabled": true,
-            "key": "FlatModifier",
-            "label": "PF2E.SkillVariant.VsShoveOrTrip",
-            "predicate": [
-              {
-                "or": ["action:shove", "action:trip", "action:reposition"]
-              }
-            ],
-            "selector": ["fortitude", "reflex"],
-            "type": "circumstance",
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "label": "PF2E.SkillVariant.VsProne",
-            "predicate": ["inflicts:prone"],
-            "selector": "saving-throw",
-            "type": "circumstance",
-            "value": 2
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "heritage:root-leshy",
       "foundry": "Compendium.pf2e.heritages.Item.CZx9HMmoOwcpkLY8",
       "gaps": [
@@ -36434,23 +32817,6 @@
             "mode": "override",
             "path": "system.attributes.ancestryhp",
             "value": 10
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "hideIfDisabled": true,
-            "key": "FlatModifier",
-            "label": "PF2E.SkillVariant.VsShoveOrTrip",
-            "predicate": [
-              {
-                "or": ["action:shove", "action:trip", "action:reposition", "inflicts:prone", "forced-movement"]
-              }
-            ],
-            "selector": ["fortitude", "reflex"],
-            "type": "circumstance",
-            "value": 2
           }
         }
       ]
@@ -36469,15 +32835,6 @@
             "selector": "swim",
             "value": 20
           }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "land-speed",
-            "value": -5
-          }
         }
       ]
     },
@@ -36487,21 +32844,6 @@
       "slug": "heritage:seer-elf",
       "foundry": "Compendium.pf2e.heritages.Item.jEtVesbqYcWGbBYk",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "or": ["action:identify-magic", "action:decipher-writing"]
-              }
-            ],
-            "selector": "skill-check",
-            "type": "circumstance",
-            "value": 1
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -36524,30 +32866,6 @@
             "predicate": ["item:slug:detect-magic", "spellcasting:innate"],
             "property": "other-tags",
             "value": "ancestral-spell:elf"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "heritage:sensate-gnome",
-      "foundry": "Compendium.pf2e.heritages.Item.tXC5Gwn9D5x0ouJh",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              "action:seek",
-              {
-                "lte": ["target:distance", 30]
-              }
-            ],
-            "selector": "perception",
-            "type": "circumstance",
-            "value": 2
           }
         }
       ]
@@ -36692,33 +33010,6 @@
             "key": "AdjustDegreeOfSuccess",
             "predicate": ["action:climb"],
             "selector": "athletics"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "heritage:whisper-elf",
-      "foundry": "Compendium.pf2e.heritages.Item.1wVDYY9Wue0G5R9Q",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "or": ["target:condition:undetected", "target:condition:hidden"]
-              },
-              {
-                "lte": ["target:distance", 30]
-              },
-              "target:audible"
-            ],
-            "selector": "perception",
-            "type": "circumstance",
-            "value": 2
           }
         }
       ]

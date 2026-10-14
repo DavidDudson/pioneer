@@ -77,7 +77,18 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:crafting"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["option:alchemical", "action:craft"],
+        "display": {
+          "label": "Alchemist's Lab, Expanded (craft alchemical items)"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.uhka9LHEP3wDKytG"
     },
@@ -214,7 +225,18 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:crafting"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["action:craft"],
+        "display": {
+          "label": "Artisan's Tools, Sterling (craft items)"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.0QgniSjpzksm5riV"
     },
@@ -750,7 +772,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["action:climb"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.TWv2EeDJaCjtmGUN"
     },
@@ -867,7 +897,18 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["action:make-an-impression"],
+        "display": {
+          "label": "High-Fashion Clothes (Make an Impression on nobility)"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.rXZxM7SbqEnvXyal"
     },
@@ -1019,7 +1060,22 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:survival"],
+        "type": "item",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["action:sense-direction", "action:navigate"]
+          }
+        ],
+        "display": {
+          "label": "Lensatic Compass (Sense Direction or navigate)"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.xVhd8NF9KQ6VWfMu"
     },
@@ -1071,7 +1127,18 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["action:conceal-an-object", "target:contents"],
+        "display": {
+          "label": "Concealed Sheath (hide or conceal contents)"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.laU7xnX42wXch2Dv"
     },
@@ -1240,7 +1307,18 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["action:force-open"],
+        "display": {
+          "label": "Levered Crowbar (Force Open)"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.4kz3vhkKPUuXBpxk"
     },
@@ -1326,7 +1404,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception", "skill-check"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["action:investigate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.ItLZL9Bd6xwgfeB8"
     },
@@ -1412,7 +1498,18 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["action:impersonate"],
+        "display": {
+          "label": "Elite Disguise Kit (Impersonate)"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.YhkomhtKBK3i9C7Q"
     },
@@ -1963,7 +2060,19 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:medicine"],
+        "type": "item",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["action:administer-first-aid", "action:treat-disease", "action:treat-poison", "action:treat-wounds"]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.SGkOHFyBbzWdBk8D"
     },
@@ -2501,7 +2610,18 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["option:minute-details"],
+        "display": {
+          "label": "Magnifying Glass (minute details)"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.5GbC7RTgyAeaOcAI"
     },
@@ -3088,7 +3208,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:performance"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["option:playing"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.3ld14dsn2RLu9owg"
     },
@@ -3140,7 +3268,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:performance"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["option:playing"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.yw1kPxsdCoDUzOaE"
     },
@@ -3657,7 +3793,18 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:crafting"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["action:repair"],
+        "display": {
+          "label": "Repair Kit, Superb (Repair)"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.aDsdYMPpVc8hOnM5"
     },
@@ -4094,7 +4241,18 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["option:distance"],
+        "display": {
+          "label": "Fine Spyglass (Notice details at distance)"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.rV7MTDCseZmEZKDw"
     },
@@ -4137,7 +4295,28 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:survival"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["option:mapped-area"],
+        "display": {
+          "label": "Survey Map (mapped area)"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["option:mapped-area", "action:recall-knowledge"],
+        "display": {
+          "label": "Survey Map (Recall knowledge on mapped area)"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.UhcRWtnjU2WLSClx"
     },
@@ -4207,7 +4386,28 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:survival"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["option:mapped-area"],
+        "display": {
+          "label": "Survey Map (mapped area)"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["option:mapped-area", "action:recall-knowledge"],
+        "display": {
+          "label": "Survey Map (Recall knowledge on mapped area)"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.1M4SSDuTv2SwBltC"
     },
@@ -4548,7 +4748,19 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:thievery"],
+        "type": "item",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["action:disable-a-device", "action:pick-a-lock"]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.6nrCxNQFycUVFOV2"
     },

@@ -711,7 +711,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:fortitude"],
+        "type": "item",
+        "value": 2,
+        "slug": "antidote-bonus",
+        "predicate": ["item:trait:poison"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.TjBxxlTvb6tJP1jS"
     },
@@ -788,7 +797,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:fortitude"],
+        "type": "item",
+        "value": 2,
+        "slug": "antiplague-bonus",
+        "predicate": ["item:trait:disease"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.mVgLCbZgafIylRzh"
     },
@@ -1088,7 +1106,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:will"],
+        "type": "item",
+        "value": 1,
+        "slug": "bravos-brew-bonus"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.eh7EqmDBDW30ShCu"
     },
@@ -1254,7 +1280,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "status",
+        "value": 10
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.PeuUz7JaabCgl6Yh"
     },
@@ -1307,7 +1340,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "status",
+        "value": 5
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.lNWACCNe9RYgaFxb"
     },
@@ -1360,7 +1400,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "status",
+        "value": 10
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.j9zVZwRBVAcnpEkE"
     },
@@ -1698,7 +1745,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "item",
+        "value": 2,
+        "slug": "diplomats-bearing",
+        "predicate": ["option:group"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.pAMyEbJzWBoYoGhs"
     },
@@ -1845,7 +1901,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "item",
+        "value": 1,
+        "slug": "eagle-eye-elixir-bonus"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.VOSQ77DV4BnAkP7m"
     },
@@ -1938,7 +2002,20 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "item",
+        "value": 1,
+        "slug": "elixir-of-life-bonus",
+        "predicate": [
+          {
+            "or": ["item:trait:disease", "item:trait:poison"]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.lPRuIRbu0rHBkoKY"
     },
@@ -2153,7 +2230,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "saving-throw"],
+        "type": "status",
+        "value": 4
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.Elj69wSjv91ouC7v"
     },
@@ -2283,7 +2367,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "status",
+        "value": -10,
+        "slug": "glue-bomb-penalty"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.sgQknR94qDt5ILBx"
     },
@@ -2456,7 +2548,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["option:fear"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.xV9rME2l1f10mnF9"
     },
@@ -3239,6 +3339,12 @@
       {
         "key": "GrantItem",
         "item": "f7fea8f9-c457-5b9f-9283-f567fa557184"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "status",
+        "value": 40
       }
     ],
     "externalIds": {
@@ -4305,7 +4411,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "item",
+        "value": 2
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.zd85Ny1RS46OL0TD"
     },
@@ -4415,7 +4528,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:thievery"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["action:pick-a-lock"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.ehcAvmjZVzyFJclB"
     },
@@ -4590,7 +4711,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:religion"],
+        "type": "item",
+        "value": 1,
+        "slug": "thurible-of-revelation-bonus"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.lO95TwgihBdTilAB"
     },
@@ -4696,7 +4825,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": "ternary(gte(@level, 13), 3, 2)",
+        "predicate": ["item:ranged"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.campaign-effects.Item.MH3VWOysJ8XboONX"
     },
@@ -4802,7 +4939,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 4,
+        "predicate": ["item:trait:mental"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.DBaMtFHRPEg1JeLs"
     },

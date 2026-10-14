@@ -11,6 +11,7 @@ import type { LangValues, UnresolvedKey, UnresolvedText } from './foundry-lang';
 import type { FoundryLang } from './foundry-release';
 import { withFavoredWeaponRank } from './translate-favored-weapon';
 import { withFontChoice } from './translate-font-choice';
+import { withFlatModifier, withNamespacedOptions } from './translate-modifiers';
 import { withSense } from './translate-senses';
 import type { FoundrySenses } from './translate-senses';
 import { withSkillRaise } from './translate-skill-raises';
@@ -268,9 +269,11 @@ export function translateRules(entry: ContentId, raws: readonly unknown[], conte
   const references = context.references ?? NO_REFERENCES;
   const shapedRaws = raws.map((raw) => {
     const text = withDisplayLabel(localized(raw, context, unresolved));
-    const granted = withGrantedId(withPioneerFormula(text), references);
+    const options = withNamespacedOptions(text);
+    const granted = withGrantedId(withPioneerFormula(options), references);
     const struck = withStrikeDamage(granted);
-    const queried = withLanguageSlots(withTagQuery(withGrantValue(struck)));
+    const modifier = withFlatModifier(struck);
+    const queried = withLanguageSlots(withTagQuery(withGrantValue(modifier)));
     const font = withSkillRaise(withFavoredWeaponRank(withFontChoice(queried)));
     return withSense(font, { references, senses: context.senses });
   });
