@@ -144,3 +144,22 @@ export {
   shownHeritageRows,
 } from './lib/origin-picker/origin-picker-table';
 export { STATISTIC_ROLLER, type RollableStatistic, type StatisticRoller } from './lib/statistics/statistic-roller';
+export { ClassPicker } from './lib/class-picker/class-picker.component';
+export { ClassPickerMessage } from './lib/class-picker/class-picker-messages';
+export {
+  ClassPickerColumn,
+  type ClassPickerRow,
+  type KeyAttributePickerRow,
+  type SubclassPickerRow,
+} from './lib/class-picker/class-picker-row';
+export {
+  classPickerColumns,
+  keyAttributePickerColumns,
+  shownClassRows,
+  shownKeyAttributeRows,
+  shownSubclassRows,
+  subclassPickerColumns,
+} from './lib/class-picker/class-picker-table';
+export { KeyAttributePicker } from './lib/class-picker/key-attribute-picker.component';
+export { SubclassPicker } from './lib/class-picker/subclass-picker.component';
+export { PROFICIENCY_NAMES } from './lib/proficiency-rank/proficiency-rank-messages';

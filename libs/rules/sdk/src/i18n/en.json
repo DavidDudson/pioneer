@@ -1042,6 +1042,24 @@
         "month": "{count, plural, one {# month} other {# months}}",
         "year": "{count, plural, one {# year} other {# years}}"
       }
+    },
+    "classPicker": {
+      "column": {
+        "name": "Name",
+        "keyAttribute": "Key attribute",
+        "hitPoints": "Hit points per level",
+        "skills": "Trained skills",
+        "tradition": "Tradition",
+        "proficiencies": "Starting ranks",
+        "summary": "Summary",
+        "modifier": "Modifier",
+        "score": "Score",
+        "notes": "Notes",
+        "source": "Source"
+      },
+      "hitPointsValue": "{{value}} HP",
+      "additionalSkills": "+{{count}} of your choice",
+      "proficiency": "{{statistic}}: {{rank}}"
     }
   }
 }
