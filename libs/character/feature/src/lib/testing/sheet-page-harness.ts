@@ -9,6 +9,7 @@ import { frontierMessages } from '@pioneer/frontier';
 import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import type { PackContentsLoader } from '@pioneer/rules/sdk';
 import { provideI18n } from '@pioneer/shared/web';
+import { QueryClient } from '@tanstack/angular-query-experimental';
 import { expect, onTestFinished, vi } from 'vitest';
 
 import { characterRoutes } from '../character.routes';
@@ -104,7 +105,7 @@ export interface SheetOptions {
 }
 
 /** The packs of a character that has enabled none, which its owner may change. */
-const NO_CHARACTER_PACKS = { decidedBy: 'character', manageable: true, enabled: [], candidates: [] };
+export const NO_CHARACTER_PACKS = { decidedBy: 'character', manageable: true, enabled: [], candidates: [] };
 
 /** The play state the server holds, at `revision`. */
 export function playOf(damage: number, temp: number, revision = 1): object {
@@ -125,6 +126,18 @@ export async function answerPlayRead(play: object = playOf(0, 0)): Promise<void>
     TestBed.inject(HttpTestingController)
       .expectOne({ method: 'GET', url: `/api/characters/${id}/play` })
       .flush(play);
+  });
+}
+
+/**
+ * Answers the sheet's read of the character's packs, which the content registry waits for on every tab; left
+ * unanswered the registry never loads.
+ */
+export async function answerPacksRead(packs: object = NO_CHARACTER_PACKS): Promise<void> {
+  await vi.waitFor(() => {
+    TestBed.inject(HttpTestingController)
+      .expectOne({ method: 'GET', url: `/api/characters/${id}/packs` })
+      .flush(packs);
   });
 }
 
@@ -149,12 +162,14 @@ export interface OpenSheet {
   readonly root: HTMLElement;
 }
 
-/** Answers the sheet's read of the character and then of its play state. */
+/** Answers the sheet's reads of the character, its play state and its packs. */
 async function answerReads(character: object, options: SheetOptions): Promise<void> {
   await vi.waitFor(() => {
     TestBed.inject(HttpTestingController).expectOne(`/api/characters/${id}`).flush(sheetOf(character, options));
   });
   await answerPlayRead(options.play);
+  // Every tab reads the character's packs: the content registry waits for them to build over the right ones.
+  await answerPacksRead(options.characterPacks);
 }
 
 /**
@@ -186,13 +201,11 @@ export async function openSheet(character: object = MERISIEL, options: SheetOpti
     for (const read of TestBed.inject(HttpTestingController).match(`/api/characters/${id}/feat-display`)) {
       read.flush(options.featDisplay ?? { showGrantOnly: [] });
     }
-    // The packs section reads the character's packs once the Plan tab renders; other tabs never ask.
-    for (const read of TestBed.inject(HttpTestingController).match(`/api/characters/${id}/packs`)) {
-      read.flush(options.characterPacks ?? NO_CHARACTER_PACKS);
-    }
     // Through the application, not `harness.detectChanges()`, so render hooks (roving focus) run as in the app.
     await TestBed.inject(ApplicationRef).whenStable();
     expect(root.textContent).toContain('Merisiel');
+    // The content registries build once the packs are known; a spec holding an element before then holds a placeholder.
+    expect(TestBed.inject(QueryClient).isFetching({ queryKey: ['content'] })).toBe(0);
   });
   return { harness, root };
 }
