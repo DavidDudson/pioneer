@@ -1,6 +1,6 @@
 import type { Routes } from '@angular/router';
 import { SheetMode } from '@pioneer/character/domain';
-import { rollCardMessages } from '@pioneer/play/feature';
+import { rollCardMessages } from '@pioneer/play/ui';
 import { engineMessages } from '@pioneer/rules/engine';
 import { formulaMessages } from '@pioneer/rules/formula';
 import { predicateMessages } from '@pioneer/rules/predicate';

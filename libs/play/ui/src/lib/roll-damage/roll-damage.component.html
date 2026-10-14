@@ -6,7 +6,7 @@
         <fr-stack direction="horizontal" gap="sm" align="baseline" wrap>
           <fr-text variant="caption">{{ instance.typeKey | transloco }}</fr-text>
           <fr-text variant="caption" numeric>{{
-            'play.dice.instanceTaken' | transloco: { dealt: instance.dealt, taken: instance.taken }
+            'roll.card.instanceTaken' | transloco: { dealt: instance.dealt, taken: instance.taken }
           }}</fr-text>
         </fr-stack>
         @for (line of instance.lines; track $index) {

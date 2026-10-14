@@ -7,7 +7,7 @@ import { scriptedRandom } from '@pioneer/rules/dice/testing';
 import { provideI18n } from '@pioneer/shared/web';
 
 import { playRoutes } from '../../../play.routes';
-import { RANDOM_SOURCE } from '../../random-source';
+import { RANDOM_SOURCE } from '@pioneer/play/ui';
 
 /* Drives the dice playground through its route, as the page specs do. */
 

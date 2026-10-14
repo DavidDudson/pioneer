@@ -1,0 +1,42 @@
+{
+  "card": {
+    "total": "Total {total}",
+    "die": "{face}",
+    "droppedDie": "{face} dropped",
+    "termValue": "= {value}",
+    "keptRoll": "Roll {number}: {total}, kept",
+    "discardedRoll": "Roll {number}: {total}, discarded",
+    "damageTaken": "Damage taken: {taken}",
+    "persistentTaken": "Persistent damage: {taken} at the end of each turn",
+    "instanceTaken": "{dealt} dealt, {taken} taken"
+  },
+  "degree": {
+    "criticalSuccess": "Critical success",
+    "success": "Success",
+    "failure": "Failure",
+    "criticalFailure": "Critical failure"
+  },
+  "damageCategory": {
+    "persistent": "Persistent",
+    "splash": "Splash"
+  },
+  "damageType": {
+    "bludgeoning": "Bludgeoning",
+    "piercing": "Piercing",
+    "slashing": "Slashing",
+    "acid": "Acid",
+    "cold": "Cold",
+    "electricity": "Electricity",
+    "fire": "Fire",
+    "sonic": "Sonic",
+    "vitality": "Vitality",
+    "void": "Void",
+    "force": "Force",
+    "spirit": "Spirit",
+    "mental": "Mental",
+    "poison": "Poison",
+    "bleed": "Bleed",
+    "precision": "Precision",
+    "untyped": "Untyped"
+  }
+}

@@ -6,7 +6,8 @@ import { DamageGroup, DamageType } from '@pioneer/rules/sdk';
 import type { DamageAdjustmentTarget } from '@pioneer/rules/sdk';
 import { filter, merge } from 'rxjs';
 
-import { DAMAGE_ADJUSTMENT_TARGET_KEYS, DAMAGE_TYPE_KEYS } from './dice-labels';
+import { DAMAGE_TYPE_KEYS } from '@pioneer/play/ui';
+import { DAMAGE_ADJUSTMENT_TARGET_KEYS } from './dice-labels';
 
 /** Choices for a target's immunities (damage types) and its weaknesses and resistances (types and groups). */
 @Injectable({ providedIn: 'root' })

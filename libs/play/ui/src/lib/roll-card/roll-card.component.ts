@@ -51,7 +51,7 @@ export class RollCard {
   /** `index` is set only when there are several rolls to tell apart. */
   #attempt(attempt: AttemptView, index: number | undefined): AttemptDisplay {
     const params = { number: this.#format.number((index ?? 0) + 1), total: this.#format.number(attempt.total) };
-    const key = attempt.kept ? 'play.dice.keptRoll' : 'play.dice.discardedRoll';
+    const key = attempt.kept ? 'roll.card.keptRoll' : 'roll.card.discardedRoll';
     return {
       heading: index === undefined ? undefined : message(key, params),
       tone: attempt.kept ? Tone.Default : Tone.Subtle,

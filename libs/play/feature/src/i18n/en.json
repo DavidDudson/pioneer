@@ -8,16 +8,10 @@
     "historyHeading": "Rolls",
     "empty": "No rolls yet.",
     "emptyHint": "Enter an expression and roll; results show here.",
-    "total": "Total {total}",
-    "die": "{face}",
-    "droppedDie": "{face} dropped",
-    "termValue": "= {value}",
     "fortune": "Fortune",
     "misfortune": "Misfortune",
     "playgroundFortune": "Fortune toggle",
     "playgroundMisfortune": "Misfortune toggle",
-    "keptRoll": "Roll {number}: {total}, kept",
-    "discardedRoll": "Roll {number}: {total}, discarded",
     "againstDc": "Against a DC",
     "dcLabel": "DC",
     "dcHint": "The kept roll is compared with this DC for a degree of success.",
@@ -41,10 +35,7 @@
     "addWeakness": "Add weakness",
     "removeWeakness": "Remove weakness {target} {value}",
     "addResistance": "Add resistance",
-    "removeResistance": "Remove resistance {target} {value}",
-    "damageTaken": "Damage taken: {taken}",
-    "persistentTaken": "Persistent damage: {taken} at the end of each turn",
-    "instanceTaken": "{dealt} dealt, {taken} taken"
+    "removeResistance": "Remove resistance {target} {value}"
   },
   "rules": {
     "title": "Rules",
@@ -210,38 +201,9 @@
     "previewHeading": "Preview",
     "sourceHeading": "Source"
   },
-  "damageType": {
-    "bludgeoning": "Bludgeoning",
-    "piercing": "Piercing",
-    "slashing": "Slashing",
-    "acid": "Acid",
-    "cold": "Cold",
-    "electricity": "Electricity",
-    "fire": "Fire",
-    "sonic": "Sonic",
-    "vitality": "Vitality",
-    "void": "Void",
-    "force": "Force",
-    "spirit": "Spirit",
-    "mental": "Mental",
-    "poison": "Poison",
-    "bleed": "Bleed",
-    "precision": "Precision",
-    "untyped": "Untyped"
-  },
   "damageGroup": {
     "all": "All damage",
     "physical": "Physical",
     "energy": "Energy"
-  },
-  "degree": {
-    "criticalSuccess": "Critical success",
-    "success": "Success",
-    "failure": "Failure",
-    "criticalFailure": "Critical failure"
-  },
-  "damageCategory": {
-    "persistent": "Persistent",
-    "splash": "Splash"
   }
 }

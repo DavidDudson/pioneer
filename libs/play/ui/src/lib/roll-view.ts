@@ -13,7 +13,7 @@ import type {
 } from '@pioneer/rules/dice';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
-import { DAMAGE_CATEGORY_KEYS, DAMAGE_TYPE_KEYS, DEGREE_KEYS, UNTYPED_DAMAGE_KEY } from './dice-labels';
+import { DAMAGE_CATEGORY_KEYS, DAMAGE_TYPE_KEYS, DEGREE_KEYS, UNTYPED_DAMAGE_KEY } from './roll-labels';
 
 /** One term of a roll as shown: signed notation, damage labels, dice and its share of the total. */
 interface TermView {

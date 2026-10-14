@@ -4,7 +4,7 @@ import { Button, EmptyState, Field, Heading, Label, Select, Stack, Text } from '
 import type { DamageType } from '@pioneer/rules/sdk';
 
 import { DamageTargetOptions } from '../damage-target-options';
-import { DAMAGE_TYPE_KEYS } from '../dice-labels';
+import { DAMAGE_TYPE_KEYS } from '@pioneer/play/ui';
 
 /** A target's immunities: each damage type it ignores, with a picker to add one and a button to remove each. */
 @Component({

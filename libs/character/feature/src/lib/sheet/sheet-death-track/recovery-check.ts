@@ -1,6 +1,6 @@
 import type { Dying } from '@pioneer/character/domain';
-import { rollView } from '@pioneer/play/feature';
-import type { RollView } from '@pioneer/play/feature';
+import { rollView } from '@pioneer/play/ui';
+import type { RollView } from '@pioneer/play/ui';
 import {
   checkOutcome,
   degreeOfSuccess,
