@@ -12,6 +12,7 @@ import type { FoundryLang } from './foundry-release';
 import { withFavoredWeaponRank } from './translate-favored-weapon';
 import { withFontChoice } from './translate-font-choice';
 import { withModifierSelectors, withNamespacedOptions } from './translate-modifiers';
+import { withRollOption } from './translate-roll-options';
 import { withSense } from './translate-senses';
 import type { FoundrySenses } from './translate-senses';
 import { withSkillRaise } from './translate-skill-raises';
@@ -269,7 +270,7 @@ export function translateRules(entry: ContentId, raws: readonly unknown[], conte
   const references = context.references ?? NO_REFERENCES;
   const shapedRaws = raws.map((raw) => {
     const text = withDisplayLabel(localized(raw, context, unresolved));
-    const options = withNamespacedOptions(text);
+    const options = withRollOption(withNamespacedOptions(text), context.values.item);
     const granted = withGrantedId(withPioneerFormula(options), references);
     const struck = withStrikeDamage(granted);
     const modifier = withModifierSelectors(struck);

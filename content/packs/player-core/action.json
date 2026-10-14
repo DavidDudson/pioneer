@@ -560,6 +560,11 @@
         "mode": "add",
         "value": 2,
         "predicate": ["heritage:root-leshy"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:anchor",
+        "toggleable": true
       }
     ],
     "externalIds": {
@@ -1215,6 +1220,11 @@
         "type": "circumstance",
         "value": 1,
         "predicate": ["option:call-on-ancient-blood", "item:magical"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:call-on-ancient-blood",
+        "toggleable": true
       }
     ],
     "externalIds": {

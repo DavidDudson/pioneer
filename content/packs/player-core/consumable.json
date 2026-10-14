@@ -153,7 +153,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:lit-candle",
+        "toggleable": true,
+        "display": {
+          "label": "Candle is lit"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.Ti4gWILk69LPxKuU"
     },

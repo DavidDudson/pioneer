@@ -1343,6 +1343,14 @@
       {
         "key": "GrantItem",
         "item": "f410da96-b56a-5c7c-857b-7096defec0a1"
+      },
+      {
+        "key": "RollOption",
+        "option": "option:one-with-the-spirits-damage",
+        "toggleable": true,
+        "display": {
+          "label": "One with the Spirits — Deal spirit damage"
+        }
       }
     ],
     "externalIds": {
@@ -2047,7 +2055,31 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:draconic-barrage",
+        "toggleable": true,
+        "suboptions": [
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "force",
+            "label": "Force"
+          },
+          {
+            "value": "mental",
+            "label": "Mental"
+          },
+          {
+            "value": "spirit",
+            "label": "Spirit"
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.iXQCXCMiiJ8WV6K7"
     },
@@ -3118,7 +3150,17 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "check",
+        "option": "option:swear-oath",
+        "toggleable": true,
+        "display": {
+          "label": "Swear Oath — Apply bonus to readied action"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.GcEFca6I8f5Y06z7"
     },
@@ -3234,7 +3276,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:divine-presence",
+        "toggleable": true,
+        "display": {
+          "label": "Divine Presence — Make target Off-Guard"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.rOKA405aECklgq42"
     },

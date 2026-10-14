@@ -5442,7 +5442,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:oath-of-the-avenger",
+        "toggleable": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.483yvMrNZFV3fiSo"
     },
@@ -5496,7 +5502,45 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:oath-of-the-defender",
+        "toggleable": true,
+        "suboptions": [
+          {
+            "value": "aberration",
+            "label": "Aberration"
+          },
+          {
+            "value": "celestial",
+            "label": "Celestial",
+            "predicate": [
+              {
+                "not": "self:trait:holy"
+              }
+            ]
+          },
+          {
+            "value": "dragon",
+            "label": "Dragon"
+          },
+          {
+            "value": "fiend",
+            "label": "Fiend",
+            "predicate": [
+              {
+                "not": "self:trait:unholy"
+              }
+            ]
+          },
+          {
+            "value": "undead",
+            "label": "Undead"
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.imBsp1Tg7KMut4Lf"
     },
@@ -5547,6 +5591,51 @@
         "mode": "multiply",
         "value": 2,
         "predicate": ["option:oath-of-the-slayer-double"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:oath-of-the-slayer",
+        "toggleable": true,
+        "suboptions": [
+          {
+            "value": "aberration",
+            "label": "Aberration"
+          },
+          {
+            "value": "celestial",
+            "label": "Celestial",
+            "predicate": [
+              {
+                "not": "self:trait:holy"
+              }
+            ]
+          },
+          {
+            "value": "dragon",
+            "label": "Dragon"
+          },
+          {
+            "value": "fiend",
+            "label": "Fiend",
+            "predicate": [
+              {
+                "not": "self:trait:unholy"
+              }
+            ]
+          },
+          {
+            "value": "undead",
+            "label": "Undead"
+          }
+        ]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:oath-of-the-slayer-double",
+        "toggleable": true,
+        "display": {
+          "label": "Oath of the Slayer — Double additional damage"
+        }
       }
     ],
     "externalIds": {
@@ -5823,7 +5912,23 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:palatine-enchantment",
+        "toggleable": true,
+        "suboptions": [
+          {
+            "value": "ghost-touch",
+            "label": "Ghost Touch"
+          },
+          {
+            "value": "disrupting",
+            "label": "Vitalizing"
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.UVgRZf3zHV8aXa5L"
     },
@@ -5869,7 +5974,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:palatine-strike",
+        "toggleable": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.OfKfYPrlxo8jdqmp"
     },
@@ -7114,7 +7225,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:stand-for-the-fallen",
+        "toggleable": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.qTxgIym89ehgW684"
     },

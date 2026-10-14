@@ -726,7 +726,17 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:lit-life-saver-mail",
+        "toggleable": true,
+        "value": true,
+        "display": {
+          "label": "Life-Saver Mail is lit"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.h9sZfo6UmHIOU5wb"
     },
@@ -912,7 +922,17 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:lit-life-saver-mail",
+        "toggleable": true,
+        "value": true,
+        "display": {
+          "label": "Life-Saver Mail (Greater) is lit"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.oRBcuFdQDRCn1pwo"
     },

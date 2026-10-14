@@ -2278,7 +2278,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:active-lantern",
+        "toggleable": true,
+        "display": {
+          "label": "Lantern (Hooded) is lit"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.dIRZ0LL7G31fJNYz"
     },
@@ -3228,6 +3237,15 @@
         "type": "item",
         "value": 1,
         "predicate": ["option:playing"]
+      },
+      {
+        "key": "RollOption",
+        "domain": "skill:performance",
+        "option": "option:playing",
+        "toggleable": true,
+        "display": {
+          "label": "Playing Musical Instrument (Virtuoso handheld)"
+        }
       }
     ],
     "externalIds": {
@@ -3288,6 +3306,15 @@
         "type": "item",
         "value": 1,
         "predicate": ["option:playing"]
+      },
+      {
+        "key": "RollOption",
+        "domain": "skill:performance",
+        "option": "option:playing",
+        "toggleable": true,
+        "display": {
+          "label": "Playing Musical Instrument (Virtuoso heavy)"
+        }
       }
     ],
     "externalIds": {
@@ -5000,7 +5027,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:lit-torch",
+        "toggleable": true,
+        "display": {
+          "label": "Torch is lit"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.8Jdw4yAzWYylGePS"
     },

@@ -386,7 +386,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:mystic-aegis",
+        "toggleable": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.actionspf2e.Item.ur4AfegC9RqRgy3e"
     },

@@ -4429,7 +4429,17 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "damage",
+        "option": "option:retribution-axe",
+        "toggleable": true,
+        "display": {
+          "label": "Target was last creature to damage you"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.q6ZvspNDkzJSP6dg"
     },
@@ -5135,6 +5145,15 @@
             "or": ["option:death", "option:void"]
           }
         ]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:lit-serithtial",
+        "toggleable": true,
+        "value": true,
+        "display": {
+          "label": "Serithtial is lit"
+        }
       }
     ],
     "externalIds": {
