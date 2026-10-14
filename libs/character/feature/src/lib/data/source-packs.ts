@@ -20,5 +20,8 @@ function sourcePacksOf(): Signal<ReadonlyMap<ContentPackId, SourcePack>> {
   );
 }
 
-/** Provide beside `CharacterPackStore`: every source line below names the character's homebrew packs. */
-export const SOURCE_PACKS_PROVIDER: Provider = { provide: SOURCE_PACKS, useFactory: sourcePacksOf };
+/** Names the character's homebrew packs in every source line below. */
+const SOURCE_PACKS_PROVIDER: Provider = { provide: SOURCE_PACKS, useFactory: sourcePacksOf };
+
+/** The open character's packs, and the source-line names drawn from them. */
+export const CHARACTER_PACK_PROVIDERS: readonly Provider[] = [CharacterPackStore, SOURCE_PACKS_PROVIDER];
