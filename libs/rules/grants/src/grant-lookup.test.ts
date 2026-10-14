@@ -86,6 +86,23 @@ describe('grantLookup', () => {
     ]);
   });
 
+  test('exposes the level, rarity, traits and description of an envelope entry, and nothing for an ancestry', () => {
+    const registry = new ContentRegistry();
+    registry.register(
+      new ContentPackBuilder()
+        .withAncestry('human')
+        .withFeat('sudden-charge', { level: 3, traits: ['fighter'] })
+        .build(),
+    );
+    const lookup = grantLookup(registry);
+    const [feat] = lookup.ofKind(ContentKind.Feat);
+    expect(Number(feat?.facts?.level)).toBe(3);
+    expect(feat?.facts?.rarity).toBe('common');
+    expect(feat?.facts?.traits.map(String)).toEqual(['fighter']);
+    expect(feat?.facts?.description).toBeDefined();
+    expect(lookup.ofKind(ContentKind.Ancestry)[0]?.facts).toBeUndefined();
+  });
+
   test('says nothing of the character beyond its kind for any other kind', () => {
     expect(grantLookup(registryOf('human')).ofKind(ContentKind.Ancestry)[0]?.characterOptions).toBeUndefined();
   });

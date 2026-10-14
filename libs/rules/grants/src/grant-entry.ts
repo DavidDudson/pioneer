@@ -1,9 +1,13 @@
 import type {
   ContentId,
   ContentKind,
+  ContentLevel,
   ContentText,
   DeitySpell,
+  Level,
   OriginHop,
+  Rarity,
+  RichText,
   RollOption,
   RuleElement,
   Slug,
@@ -11,6 +15,15 @@ import type {
   Trait,
 } from '@pioneer/rules/sdk';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
+
+/** What a player weighs when picking an entry from a list: the facts of its envelope. */
+export interface EntryFacts {
+  /** Absent for an entry without a level. */
+  readonly level?: ContentLevel | Level;
+  readonly rarity: Rarity;
+  readonly traits: readonly Trait[];
+  readonly description: RichText;
+}
 
 /**
  * What grant resolution reads of a content entry: its kind, slug, name, rule elements, sources and own roll options.
@@ -34,6 +47,8 @@ export interface GrantEntry {
    * under. Its kind's schema derives them once it lands.
    */
   readonly rollOptions: readonly RollOption[];
+  /** What the entry says of itself for a list to show; absent for an entry that is not read from an envelope. */
+  readonly facts?: EntryFacts;
   /**
    * The entry it belongs to, which a root slot `within` another reads: a heritage's ancestry. Absent for an entry that
    * belongs to none, such as a versatile heritage, which any ancestry can take.

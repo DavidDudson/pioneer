@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 import { expect, waitFor, within } from 'storybook/test';
 
-import { slotRow } from '../testing/slot-picker-fixtures';
+import { SLOT_FACTS, slotRow } from '../testing/slot-picker-fixtures';
 import type { SlotPickerRow } from './slot-picker-row';
 import { SlotPicker } from './slot-picker.component';
 
@@ -53,3 +53,21 @@ export const Loading: SlotPickerStory = { args: { rows: [], loading: true } };
 
 /** The slot offers nothing. */
 export const Empty: SlotPickerStory = { args: { rows: [] } };
+
+/** Options that name a content entry show its level, rarity, traits and summary; the one without an entry shows its name. */
+export const EntryFacts: SlotPickerStory = {
+  args: {
+    rows: [
+      slotRow({ id: 'ember', name: 'Ember', facts: SLOT_FACTS }),
+      slotRow({ id: 'frost', name: 'Frost', facts: { ...SLOT_FACTS, level: 1, traits: ['Cold'] } }),
+      slotRow({ id: 'plain', name: 'Plain', sources: [] }),
+    ],
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await waitFor(async () => {
+      await expect(canvas.getByRole('grid')).toBeVisible();
+    });
+    await expect(canvas.getAllByText('Burns what it touches.')).not.toHaveLength(0);
+  },
+};

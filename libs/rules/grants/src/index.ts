@@ -1,6 +1,6 @@
 export { type AnsweredSlot, type ChoicePicks, type ChoiceSlot, slotKeyOf } from './choices';
 export type { OfferedOption } from './offers';
-export type { ContentLookup, GrantEntry, GrantError, GrantRoot } from './grant-entry';
+export type { ContentLookup, EntryFacts, GrantEntry, GrantError, GrantRoot } from './grant-entry';
 export type { ConditionalGrant, GrantedItem } from './grant-walk';
 export { GrantsMessage } from './messages';
 export { kindOption } from './character-facts';

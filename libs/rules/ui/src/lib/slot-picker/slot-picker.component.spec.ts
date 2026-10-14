@@ -12,7 +12,7 @@ import {
   settle,
   stubLayout,
 } from '../testing/origin-picker-testing';
-import { slotRow } from '../testing/slot-picker-fixtures';
+import { SLOT_FACTS, slotRow } from '../testing/slot-picker-fixtures';
 import { SlotPicker } from './slot-picker.component';
 
 const LONG_LIST = 300;
@@ -20,6 +20,7 @@ const SEARCH_DELAY = 500;
 
 const FIRE = slotRow({ id: 'fire', name: 'Fire' });
 const WATER = slotRow({ id: 'water', name: 'Water' });
+const EMBER = slotRow({ id: 'ember', name: 'Ember', facts: SLOT_FACTS });
 const LOCKED = slotRow({ id: 'void', name: 'Void', disabledReason: 'Not in the loaded packs' });
 
 describe(SlotPicker, () => {
@@ -32,15 +33,30 @@ describe(SlotPicker, () => {
     vi.useRealTimers();
   });
 
-  it('is a name and source table', async () => {
+  it("is a table of the name, the entry's facts and the source", async () => {
     const { host } = await render(SlotPicker, { rows: [FIRE, WATER] });
-    expect(headers(host)).toStrictEqual(['Name', 'Source']);
+    expect(headers(host)).toStrictEqual(['Name', 'Level', 'Traits', 'Summary', 'Source']);
   });
 
   it('shows the source of each option', async () => {
     const { host } = await render(SlotPicker, { rows: [FIRE, WATER] });
     expect(rowText(host, 0)).toContain('Player Core');
     expect(rowText(host, 1)).toContain('Player Core');
+  });
+
+  it('shows the level, rarity, traits and summary of an option that names a content entry', async () => {
+    const { host } = await render(SlotPicker, { rows: [EMBER] });
+    const text = rowText(host, 0);
+    expect(
+      ['3', 'Uncommon', 'Fire', 'Magical', 'Burns what it touches.'].filter((fact) => !text.includes(fact)),
+    ).toStrictEqual([]);
+  });
+
+  it('falls back to the name and source for an option no entry stands behind', async () => {
+    const { host } = await render(SlotPicker, { rows: [FIRE, EMBER] });
+    expect(rowLabels(host)).toStrictEqual(['Fire', 'Ember']);
+    expect(rowText(host, 0)).toContain('Player Core');
+    expect(rowText(host, 0)).not.toContain('Uncommon');
   });
 
   it('says why an option cannot be picked', async () => {

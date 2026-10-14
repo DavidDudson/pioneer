@@ -1,13 +1,22 @@
 import type { PickerSort, TableColumn } from '@pioneer/frontier/data';
+import { Rarity } from '@pioneer/rules/sdk';
 
 import { ATTRIBUTE_MESSAGES } from '../attributes/attributes-messages';
 import { chips, shownBy } from '../origin-picker/origin-picker-table';
 import type { NamedRow, Say, ShownRows } from '../origin-picker/origin-picker-table';
+import { RARITY_TONES } from '../picker-cells/chip-list/chip-list.component';
+import type { Chip } from '../picker-cells/chip-list/chip-list.component';
 import { OriginTableSchema } from '../picker-cells/origin-table-schema';
 import { PROFICIENCY_NAMES } from '../proficiency-rank/proficiency-rank-messages';
 import { SLOT_RARITY_MESSAGES, SlotPickerMessage } from './slot-picker-messages';
 import { SlotPickerColumn } from './slot-picker-row';
-import type { AttributePickerRow, LanguagePickerRow, SkillPickerRow, SlotPickerRow } from './slot-picker-row';
+import type {
+  AttributePickerRow,
+  LanguagePickerRow,
+  SkillPickerRow,
+  SlotPickerFacts,
+  SlotPickerRow,
+} from './slot-picker-row';
 
 /** A modifier with its sign, in the active language: +3, 0, -1. */
 const SIGNED = new Intl.NumberFormat(undefined, { signDisplay: 'exceptZero' });
@@ -28,12 +37,43 @@ function withName<TRow extends NamedRow>(schema: OriginTableSchema<TRow>, say: S
   });
 }
 
+/** The traits as chips, an entry above common rarity first and toned by it. */
+function traitChips(facts: SlotPickerFacts | undefined, say: Say): readonly Chip[] {
+  if (facts === undefined) {
+    return [];
+  }
+  const traits = facts.traits.map((label): Chip => ({ label }));
+  if (facts.rarity === Rarity.Common) {
+    return traits;
+  }
+  return [{ label: say(SLOT_RARITY_MESSAGES[facts.rarity]), tone: RARITY_TONES[facts.rarity] }, ...traits];
+}
+
 /**
- * The columns of a slot picker: the name, then where its content entry comes from. An option that no entry stands
- * behind is the name alone.
+ * The columns of a slot picker: the name, then what its content entry says of itself (level, traits and summary), then
+ * where it comes from. An option that no entry stands behind is the name alone, with empty cells.
  */
 export function slotPickerColumns(say: Say): readonly TableColumn<SlotPickerRow>[] {
   return withName(new OriginTableSchema<SlotPickerRow>(), say)
+    .addFacts({
+      id: SlotPickerColumn.Level,
+      header: say(SlotPickerMessage.Level),
+      value: (row) => chips(row.facts?.level === undefined ? [] : [String(row.facts.level)]),
+      width: 'sm',
+    })
+    .addTraits({
+      id: 'traits',
+      header: say(SlotPickerMessage.Traits),
+      sortable: false,
+      value: (row) => traitChips(row.facts, say),
+      width: 'md',
+    })
+    .addSummary({
+      id: 'summary',
+      header: say(SlotPickerMessage.Summary),
+      value: (row) => row.facts?.summary ?? [],
+      width: 'lg',
+    })
     .addSource({
       id: 'source',
       header: say(SlotPickerMessage.Source),
@@ -113,6 +153,11 @@ export function languagePickerColumns(say: Say): readonly TableColumn<LanguagePi
     .build();
 }
 
+/** How an option orders by a column: the level of its entry, those without one first, then name. */
+function slotOrder(left: SlotPickerRow, right: SlotPickerRow, sort: PickerSort): number {
+  return sort.column === SlotPickerColumn.Level ? (left.facts?.level ?? -1) - (right.facts?.level ?? -1) : 0;
+}
+
 /** How a skill orders by a column: the rank the character has in it, or its modifier, then name. */
 function skillOrder(left: SkillPickerRow, right: SkillPickerRow, sort: PickerSort): number {
   if (sort.column === SlotPickerColumn.Rank) {
@@ -136,8 +181,8 @@ function languageOrder(left: LanguagePickerRow, right: LanguagePickerRow, sort: 
     : 0;
 }
 
-/** The options whose name holds `query`, by name when asked. */
-export const shownSlotRows: ShownRows<SlotPickerRow> = shownBy(() => 0);
+/** The options whose name holds `query`, by name or level when asked. */
+export const shownSlotRows: ShownRows<SlotPickerRow> = shownBy(slotOrder);
 
 /** The skills whose name holds `query`, by name, rank or modifier when asked. */
 export const shownSkillRows: ShownRows<SkillPickerRow> = shownBy(skillOrder);

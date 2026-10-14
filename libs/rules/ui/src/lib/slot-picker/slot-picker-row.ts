@@ -1,13 +1,24 @@
-import type { Attribute, Proficiency, Rarity, SourceRef } from '@pioneer/rules/sdk';
+import type { Attribute, Proficiency, Rarity, RichText, SourceRef } from '@pioneer/rules/sdk';
 
 /** The columns a slot picker sorts by; the others show facts to choose by. */
 export const SlotPickerColumn = {
   Name: 'name',
   Rank: 'rank',
   Modifier: 'modifier',
+  Level: 'level',
   Boosted: 'boosted',
   Rarity: 'rarity',
 } as const;
+
+/** What an option's content entry says of itself, to choose by. */
+export interface SlotPickerFacts {
+  /** Absent for an entry without a level. */
+  readonly level: number | undefined;
+  readonly rarity: Rarity;
+  /** Trait names. */
+  readonly traits: readonly string[];
+  readonly summary: RichText;
+}
 
 /** One option of a slot that lists its options: its name, and the source of its content entry when it has one. */
 export interface SlotPickerRow {
@@ -15,6 +26,8 @@ export interface SlotPickerRow {
   readonly id: string;
   readonly name: string;
   readonly sources: readonly SourceRef[];
+  /** What its content entry says of itself; undefined for an option no entry stands behind. */
+  readonly facts: SlotPickerFacts | undefined;
   readonly disabledReason: string | undefined;
 }
 

@@ -181,6 +181,7 @@ export {
   type LanguagePickerRow,
   type SkillPickerRow,
   SlotPickerColumn,
+  type SlotPickerFacts,
   type SlotPickerRow,
 } from './lib/slot-picker/slot-picker-row';
 export {
