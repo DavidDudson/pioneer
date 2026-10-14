@@ -2245,7 +2245,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["physical"],
+        "value": 5
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.A4FWOpQ8G45LMocX"
     },
@@ -2298,7 +2304,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": 5
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.IwcnAH2a7JVwskO7"
     },
@@ -2356,6 +2368,11 @@
       {
         "key": "RollOption",
         "option": "armor:ignore-speed-penalty"
+      },
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": 40
       }
     ],
     "externalIds": {
@@ -2687,7 +2704,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["physical"],
+        "value": "@item.value"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.ZRr3fsaw9676L4JT"
     },
@@ -3410,7 +3433,26 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["acid"],
+        "value": 5,
+        "predicate": ["potion-of-acid-resistance:potion-of-acid-resistance-lesser"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["acid"],
+        "value": 10,
+        "predicate": ["potion-of-acid-resistance:potion-of-acid-resistance-moderate"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["acid"],
+        "value": 15,
+        "predicate": ["potion-of-acid-resistance:potion-of-acid-resistance-greater"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.k8Gt8zfPOhkYOn1A"
     },
@@ -3479,7 +3521,26 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["electricity"],
+        "value": 5,
+        "predicate": ["potion-of-electricity-resistance:potion-of-electricity-resistance-lesser"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["electricity"],
+        "value": 10,
+        "predicate": ["potion-of-electricity-resistance:potion-of-electricity-resistance-moderate"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["electricity"],
+        "value": 15,
+        "predicate": ["potion-of-electricity-resistance:potion-of-electricity-resistance-greater"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.DbUEGIKxH6d1GgVw"
     },
@@ -3604,7 +3665,26 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": 5,
+        "predicate": ["potion-of-fire-resistance:potion-of-fire-resistance-lesser"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": 10,
+        "predicate": ["potion-of-fire-resistance:potion-of-fire-resistance-moderate"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": 15,
+        "predicate": ["potion-of-fire-resistance:potion-of-fire-resistance-greater"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.34gtdURRTZMS5bDK"
     },
@@ -3779,7 +3859,26 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["sonic"],
+        "value": 5,
+        "predicate": ["potion-of-sonic-resistance:potion-of-sonic-resistance-lesser"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["sonic"],
+        "value": 10,
+        "predicate": ["potion-of-sonic-resistance:potion-of-sonic-resistance-moderate"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["sonic"],
+        "value": 15,
+        "predicate": ["potion-of-sonic-resistance:potion-of-sonic-resistance-greater"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.nBGodDOQTCWBXjNd"
     },

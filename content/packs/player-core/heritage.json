@@ -159,7 +159,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["cold"],
+        "value": "max(1, floor(@level / 2))"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.heritages.Item.1dYDucCIaZpCJqBc"
     },
@@ -441,7 +447,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": "max(1, floor(@level / 2))"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.heritages.Item.32oX6hHUY6K8N70Q"
     },
@@ -639,7 +651,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": "max(1, floor(@level / 2))"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.heritages.Item.5CqsBKCZuGON53Hk"
     },
@@ -830,6 +848,11 @@
             "or": ["item:trait:death", "item:trait:void"]
           }
         ]
+      },
+      {
+        "key": "Resistance",
+        "type": ["void"],
+        "value": "max(1, floor(@level / 2))"
       }
     ],
     "externalIds": {
@@ -1768,7 +1791,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["cold"],
+        "value": "max(1, floor(@level / 2))"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.heritages.Item.gQyPU441J3rGt8mD"
     },
@@ -1801,7 +1830,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["poison"],
+        "value": "max(1, floor(@level / 2))"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.heritages.Item.UV2sABrTC5teOXTE"
     },

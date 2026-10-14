@@ -4293,22 +4293,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "condition:blinded",
-      "foundry": "Compendium.pf2e.conditionitems.Item.XgEqL1kFApUbl5Z2",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Immunity",
-          "raw": {
-            "key": "Immunity",
-            "type": "visual"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "condition:confused",
       "foundry": "Compendium.pf2e.conditionitems.Item.yblD8fOR1J8rDwEQ",
       "gaps": [
@@ -4345,14 +4329,6 @@
       "slug": "condition:deafened",
       "foundry": "Compendium.pf2e.conditionitems.Item.9PR9y0bi4JPKnHPR",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "Immunity",
-          "raw": {
-            "key": "Immunity",
-            "type": "auditory"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -5661,23 +5637,6 @@
             "slug": "effect-current-spell",
             "type": "circumstance",
             "value": 2
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:effect-deitys-protection",
-      "foundry": "Compendium.pf2e.feat-effects.Item.3xsComVKLuLn7etk",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "all-damage",
-            "value": "@item.level"
           }
         }
       ]
@@ -11737,23 +11696,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:spell-effect-downpour",
-      "foundry": "Compendium.pf2e.spell-effects.Item.LMXxICrByo7XZ3Q3",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "fire",
-            "value": "2 + 2*@item.level"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:spell-effect-dragon-form",
       "foundry": "Compendium.pf2e.spell-effects.Item.1pC1qjvCuAKzjYo8",
       "gaps": [
@@ -12519,26 +12461,6 @@
               },
               "traits": ["dragon"]
             }
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "predicate": ["parent:spellcasting:tradition:primal", "dragon-form-tradition:primal"],
-            "type": "physical",
-            "value": 5
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "predicate": ["parent:spellcasting:tradition:occult", "dragon-form-tradition:occult"],
-            "type": "mental",
-            "value": 10
           }
         },
         {
@@ -13720,23 +13642,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "Immunity",
-          "raw": {
-            "key": "Immunity",
-            "type": "fire"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "precision",
-            "value": 10
-          }
-        },
-        {
-          "type": "rule",
           "key": "Weakness",
           "raw": {
             "key": "Weakness",
@@ -13898,41 +13803,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:spell-effect-flame-barrier",
-      "foundry": "Compendium.pf2e.spell-effects.Item.UXdt1WVA66oZOoZS",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "fire",
-            "value": "5 + 5*floor(@item.level/2)"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-flicker",
-      "foundry": "Compendium.pf2e.spell-effects.Item.ZlsuhS9J0S3PuvCO",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "exceptions": ["force"],
-            "key": "Resistance",
-            "type": "all-damage",
-            "value": "5 + 3*floor((@item.level -4)/2)"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:spell-effect-fly",
       "foundry": "Compendium.pf2e.spell-effects.Item.MuRBCiZn5IKeaoxi",
       "gaps": [
@@ -14043,23 +13913,6 @@
             ],
             "selectors": ["ac", "saving-throw", "attack-roll", "damage", "athletics", "fortitude", "reflex"],
             "value": "@item.flags.system.rulesSelections.fortissimoBonus"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-frostbite",
-      "foundry": "Compendium.pf2e.spell-effects.Item.DdqWMj7cuf4S1bgr",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Weakness",
-          "raw": {
-            "key": "Weakness",
-            "type": "bludgeoning",
-            "value": "@item.level"
           }
         }
       ]
@@ -15131,24 +14984,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:spell-effect-mountain-resilience",
-      "foundry": "Compendium.pf2e.spell-effects.Item.JHpYudY14g0H4VWU",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "exceptions": ["adamantine"],
-            "key": "Resistance",
-            "type": "physical",
-            "value": "ternary(gte(@item.level,10),20,ternary(gte(@item.level,8),15,ternary(gte(@item.level,6),10,5)))"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:spell-effect-mystic-armor",
       "foundry": "Compendium.pf2e.spell-effects.Item.qkwb5DD3zmKwvbk0",
       "gaps": [
@@ -15343,23 +15178,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:spell-effect-oaken-resilience",
-      "foundry": "Compendium.pf2e.spell-effects.Item.HoOujAdQWCN4E6sQ",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Weakness",
-          "raw": {
-            "key": "Weakness",
-            "type": "fire",
-            "value": "3*floor(@item.level/2)"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:spell-effect-outcasts-curse-failure",
       "foundry": "Compendium.pf2e.spell-effects.Item.QccOlLHtnVEmD67m",
       "gaps": [
@@ -15534,31 +15352,6 @@
                 }
               ]
             }
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-phase-familiar",
-      "foundry": "Compendium.pf2e.spell-effects.Item.61Hl31nyzt63vvX9",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "all-damage",
-            "value": "2*(@item.level)+3"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Immunity",
-          "raw": {
-            "key": "Immunity",
-            "type": "precision"
           }
         }
       ]
@@ -15936,16 +15729,6 @@
         },
         {
           "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "predicate": ["primal-summons:earth"],
-            "type": "physical",
-            "value": 5
-          }
-        },
-        {
-          "type": "rule",
           "key": "DamageDice",
           "raw": {
             "damageType": "fire",
@@ -15954,16 +15737,6 @@
             "key": "DamageDice",
             "predicate": ["primal-summons:fire"],
             "selector": "strike-damage"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "predicate": ["primal-summons:fire"],
-            "type": "fire",
-            "value": 10
           }
         },
         {
@@ -15990,16 +15763,6 @@
         },
         {
           "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "predicate": ["primal-summons:metal"],
-            "type": "electricity",
-            "value": 5
-          }
-        },
-        {
-          "type": "rule",
           "key": "BaseSpeed",
           "raw": {
             "key": "BaseSpeed",
@@ -16021,16 +15784,6 @@
         },
         {
           "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "predicate": ["primal-summons:water"],
-            "type": "fire",
-            "value": 5
-          }
-        },
-        {
-          "type": "rule",
           "key": "BaseSpeed",
           "raw": {
             "key": "BaseSpeed",
@@ -16044,35 +15797,9 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:spell-effect-protectors-sphere",
-      "foundry": "Compendium.pf2e.spell-effects.Item.XXtz5BDNNBmP9ub2",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "all-damage",
-            "value": "max(@item.level -1,0)"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:spell-effect-rallying-anthem",
       "foundry": "Compendium.pf2e.spell-effects.Item.DLwTvjjnqs2sNGuG",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "physical",
-            "value": "floor(( @item.level ) / 2 )"
-          }
-        },
         {
           "type": "rule",
           "key": "RollOption",
@@ -16303,24 +16030,6 @@
             "mode": "upgrade",
             "property": "runes-striking",
             "value": "ternary(gte(@item.level,9),3,ternary(gte(@item.level,6),2,1))"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-safe-passage",
-      "foundry": "Compendium.pf2e.spell-effects.Item.5blVLpIH65hvFJpn",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "predicate": ["safe-passage"],
-            "type": "all-damage",
-            "value": "ternary(gte(@item.level,8),15,ternary(gte(@item.level,5),10,5))"
           }
         }
       ]
@@ -17323,23 +17032,6 @@
       "slug": "effect:spell-effect-vapor-form",
       "foundry": "Compendium.pf2e.spell-effects.Item.sILRkGTwoBywy0BU",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "physical",
-            "value": 8
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Immunity",
-          "raw": {
-            "key": "Immunity",
-            "type": "precision"
-          }
-        },
         {
           "type": "rule",
           "key": "BaseSpeed",
@@ -21313,21 +21005,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "predicate": [
-              "self:effect:untamed-form",
-              {
-                "not": "self:effect:elemental-form"
-              }
-            ],
-            "type": "fire",
-            "value": 5
-          }
-        },
-        {
-          "type": "rule",
           "key": "ActiveEffectLike",
           "raw": {
             "key": "ActiveEffectLike",
@@ -24858,21 +24535,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "predicate": [
-              "self:effect:untamed-form",
-              {
-                "not": "self:effect:plant-form"
-              }
-            ],
-            "type": "poison",
-            "value": 5
-          }
-        },
-        {
-          "type": "rule",
           "key": "ActiveEffectLike",
           "raw": {
             "key": "ActiveEffectLike",
@@ -24918,23 +24580,6 @@
           "raw": {
             "initiative": null,
             "value": 103462347
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:poison-resistance",
-      "foundry": "Compendium.pf2e.feats-srd.Item.0lieFKdwgNVXep7u",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "poison",
-            "value": "floor(@actor.level/2)"
           }
         }
       ]
@@ -28683,23 +28328,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "heritage:arctic-elf",
-      "foundry": "Compendium.pf2e.heritages.Item.1dYDucCIaZpCJqBc",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "cold",
-            "value": "max(1,floor(@actor.level/2))"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "heritage:cactus-leshy",
       "foundry": "Compendium.pf2e.heritages.Item.2cii5ZkBsJ4DYdd2",
       "gaps": [
@@ -28747,15 +28375,6 @@
       "slug": "heritage:charhide-goblin",
       "foundry": "Compendium.pf2e.heritages.Item.32oX6hHUY6K8N70Q",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "fire",
-            "value": "max(1,floor(@actor.level/2))"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -28864,40 +28483,6 @@
             "mode": "add",
             "path": "system.details.ancestry.countsAs",
             "value": "orc"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "heritage:forge-dwarf",
-      "foundry": "Compendium.pf2e.heritages.Item.5CqsBKCZuGON53Hk",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "fire",
-            "value": "max(1,floor(@actor.level/2))"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "heritage:grave-orc",
-      "foundry": "Compendium.pf2e.heritages.Item.VvEAFoxuddYNBmNc",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "void",
-            "value": "max(1,floor(@actor.level/2))"
           }
         }
       ]
@@ -29181,23 +28766,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "heritage:snow-goblin",
-      "foundry": "Compendium.pf2e.heritages.Item.gQyPU441J3rGt8mD",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "cold",
-            "value": "max(1,floor(@actor.level/2))"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "heritage:strong-blooded-dwarf",
       "foundry": "Compendium.pf2e.heritages.Item.UV2sABrTC5teOXTE",
       "gaps": [
@@ -29211,15 +28779,6 @@
             "selector": "saving-throw",
             "text": "PF2E.SpecificRule.Dwarf.StrongBloodedDwarf.Note",
             "title": "{item|name}"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "poison",
-            "value": "max(1,floor(@actor.level/2))"
           }
         }
       ]

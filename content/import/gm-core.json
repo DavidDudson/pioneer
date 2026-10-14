@@ -2789,52 +2789,9 @@
     {
       "type": "entry",
       "pack": "gm-core",
-      "slug": "effect:effect-force-shield",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.A4FWOpQ8G45LMocX",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "physical",
-            "value": 5
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "effect:effect-forge-warden",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.IwcnAH2a7JVwskO7",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "fire",
-            "value": 5
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
       "slug": "effect:effect-forgefathers-seal",
       "foundry": "Compendium.pf2e.equipment-effects.Item.0TZLR0PO5TJm9F4l",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "fire",
-            "value": 40
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -2982,23 +2939,6 @@
             "mode": "add",
             "property": "property-runes",
             "value": "ghost-touch"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "effect:effect-impenetrable-scale",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.ZRr3fsaw9676L4JT",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "physical",
-            "value": "@item.badge.value"
           }
         }
       ]
@@ -3449,36 +3389,6 @@
             "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
             "rollOption": "potion-of-acid-resistance"
           }
-        },
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "predicate": ["potion-of-acid-resistance:potion-of-acid-resistance-lesser"],
-            "type": "acid",
-            "value": 5
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "predicate": ["potion-of-acid-resistance:potion-of-acid-resistance-moderate"],
-            "type": "acid",
-            "value": 10
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "predicate": ["potion-of-acid-resistance:potion-of-acid-resistance-greater"],
-            "type": "acid",
-            "value": 15
-          }
         }
       ]
     },
@@ -3538,36 +3448,6 @@
             "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
             "rollOption": "potion-of-electricity-resistance"
           }
-        },
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "predicate": ["potion-of-electricity-resistance:potion-of-electricity-resistance-lesser"],
-            "type": "electricity",
-            "value": 5
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "predicate": ["potion-of-electricity-resistance:potion-of-electricity-resistance-moderate"],
-            "type": "electricity",
-            "value": 10
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "predicate": ["potion-of-electricity-resistance:potion-of-electricity-resistance-greater"],
-            "type": "electricity",
-            "value": 15
-          }
         }
       ]
     },
@@ -3626,36 +3506,6 @@
             "key": "ChoiceSet",
             "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
             "rollOption": "potion-of-fire-resistance"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "predicate": ["potion-of-fire-resistance:potion-of-fire-resistance-lesser"],
-            "type": "fire",
-            "value": 5
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "predicate": ["potion-of-fire-resistance:potion-of-fire-resistance-moderate"],
-            "type": "fire",
-            "value": 10
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "predicate": ["potion-of-fire-resistance:potion-of-fire-resistance-greater"],
-            "type": "fire",
-            "value": 15
           }
         },
         {
@@ -3753,36 +3603,6 @@
             "key": "ChoiceSet",
             "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
             "rollOption": "potion-of-sonic-resistance"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "predicate": ["potion-of-sonic-resistance:potion-of-sonic-resistance-lesser"],
-            "type": "sonic",
-            "value": 5
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "predicate": ["potion-of-sonic-resistance:potion-of-sonic-resistance-moderate"],
-            "type": "sonic",
-            "value": 10
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "predicate": ["potion-of-sonic-resistance:potion-of-sonic-resistance-greater"],
-            "type": "sonic",
-            "value": 15
           }
         }
       ]
@@ -5491,23 +5311,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:hellfire-boots",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.vBgElXswf6xBx4k9",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "fire",
-            "value": 10
-          }
         }
       ]
     },
@@ -8133,15 +7936,6 @@
       "slug": "weapon:icicle",
       "foundry": "Compendium.pf2e.equipment-srd.Item.NARrXbTyQ2X6hA7e",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "fire",
-            "value": 5
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@Damage[options]"

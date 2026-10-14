@@ -16782,7 +16782,19 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": 5,
+        "predicate": [
+          "self:effect:untamed-form",
+          {
+            "not": "self:effect:elemental-form"
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.F0MYBfiyOD8YHq5t"
     },
@@ -36992,7 +37004,19 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["poison"],
+        "value": 5,
+        "predicate": [
+          "self:effect:untamed-form",
+          {
+            "not": "self:effect:plant-form"
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.I9rSWQyueWHQyNxe"
     },
@@ -37141,6 +37165,11 @@
         "type": "status",
         "value": 1,
         "predicate": ["option:poison"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["poison"],
+        "value": "floor(@level / 2)"
       }
     ],
     "externalIds": {

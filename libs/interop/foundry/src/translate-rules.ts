@@ -10,6 +10,7 @@ import { isLangKey, isUnresolved, localize } from './foundry-lang';
 import type { LangValues, UnresolvedKey, UnresolvedText } from './foundry-lang';
 import type { FoundryLang } from './foundry-release';
 import { withChoiceSet, withTagQuery } from './translate-choice-sets';
+import { withDefenceTypes } from './translate-defences';
 import { withFavoredWeaponRank } from './translate-favored-weapon';
 import { withFontChoice } from './translate-font-choice';
 import { withLanguageSlots } from './translate-language-slots';
@@ -238,7 +239,7 @@ interface Shaped {
 function shapeRule(raw: unknown, context: RuleContext, unresolved: UnresolvedKey[]): Shaped {
   const references = context.references ?? NO_REFERENCES;
   const text = withDisplayLabel(localized(raw, context, unresolved));
-  const options = withRollOption(withNamespacedOptions(text), context.values.item);
+  const options = withDefenceTypes(withRollOption(withNamespacedOptions(text), context.values.item));
   const granted = withGrantedId(withPioneerFormula(options), references);
   const struck = withStrikeDamage(granted);
   const modifier = withModifierSelectors(struck);

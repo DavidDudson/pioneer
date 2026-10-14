@@ -7273,6 +7273,12 @@
         "key": "RollOption",
         "option": "option:stand-for-the-fallen",
         "toggleable": true
+      },
+      {
+        "key": "Resistance",
+        "type": ["all"],
+        "value": "@level",
+        "predicate": ["option:stand-for-the-fallen"]
       }
     ],
     "externalIds": {
