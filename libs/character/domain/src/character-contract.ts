@@ -1,4 +1,4 @@
-import { AncestryId } from '@pioneer/rules/sdk';
+import { AncestryId, ContentPackId } from '@pioneer/rules/sdk';
 import { Endpoint, HttpMethod, listQuery, NoBody, NoParams, NoQuery } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
@@ -7,6 +7,7 @@ import { Character } from './character';
 import { SheetDeity } from './character-deity';
 import { CharacterId, CharacterName } from './character-fields';
 import { CharacterLanguages } from './character-languages';
+import { CharacterPacks, EnablePackBody } from './character-packs';
 import { PatchCharacterBody } from './character-patch';
 import { CharacterSlot } from './character-slot';
 import { ClearedPick } from './dependent-picks';
@@ -15,6 +16,7 @@ import { CharacterPlay, PatchPlayBody } from './play-state';
 import { SetSheetModeBody, SheetModeChoice } from './sheet-mode';
 
 const ById = z.object({ id: CharacterId });
+const ByPack = z.object({ id: CharacterId, packId: ContentPackId });
 
 /** The only orders the character list supports; each is backed by an index. */
 export const CharacterSort = { CreatedAt: 'created-at', Name: 'name' } as const;
@@ -132,5 +134,40 @@ export const CharacterContract = {
     query: NoQuery,
     body: SetFeatDisplayBody,
     response: FeatDisplayChoice,
+  }),
+  /** The packs this character uses, and who decides them: its owner, or the campaign it is attached to. */
+  packs: new Endpoint({
+    method: HttpMethod.Get,
+    path: '/characters/:id/packs',
+    params: ById,
+    query: NoQuery,
+    body: NoBody,
+    response: CharacterPacks,
+  }),
+  /**
+   * Owner only: enables a pack they may read, with the packs it extends. A character in a campaign uses the campaign's
+   * packs, so that is a 409; so is a pack extending one the owner cannot read. A pack they cannot read is a 404.
+   * Enabling it twice is harmless.
+   */
+  enablePack: new Endpoint({
+    method: HttpMethod.Post,
+    path: '/characters/:id/packs',
+    params: ById,
+    query: NoQuery,
+    body: EnablePackBody,
+    response: CharacterPacks,
+  }),
+  /**
+   * Owner only: stops the character using a homebrew pack. Official packs are always on, a pack an enabled pack
+   * extends stays on, and a campaign's packs are not the character's to change: each is a 409. Disabling it twice is
+   * harmless.
+   */
+  disablePack: new Endpoint({
+    method: HttpMethod.Delete,
+    path: '/characters/:id/packs/:packId',
+    params: ByPack,
+    query: NoQuery,
+    body: NoBody,
+    response: CharacterPacks,
   }),
 } as const;

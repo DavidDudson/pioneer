@@ -141,6 +141,13 @@
       "when": 1791930364083,
       "tag": "0019_campaign_pack_enabled_by",
       "breakpoints": true
+    },
+    {
+      "idx": 20,
+      "version": "7",
+      "when": 1791932532740,
+      "tag": "0020_character_packs",
+      "breakpoints": true
     }
   ]
 }

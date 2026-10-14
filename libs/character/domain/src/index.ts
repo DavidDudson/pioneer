@@ -380,3 +380,15 @@ export {
   type RestOutcome,
   type RestPlay,
 } from './rest-types';
+export {
+  AttachedCampaignName,
+  type CharacterPack,
+  CharacterPackId,
+  CharacterPacks,
+  EnabledPack,
+  EnablePackBody,
+  PackAuthority,
+  PackCandidate,
+  PackPublisher,
+  PackTitle,
+} from './character-packs';
