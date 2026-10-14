@@ -15821,6 +15821,15 @@
         "key": "TempHP",
         "value": "ternary(gte(@item.level, 10), 20, ternary(gte(@item.level, 6), 15, 5))",
         "predicate": ["parent:origin:item:tag:ancestral-spell:beastkin"]
+      },
+      {
+        "key": "CreatureSize",
+        "value": 1,
+        "maximumSize": "large",
+        "reach": {
+          "add": 5
+        },
+        "predicate": ["terrain:full-moon"]
       }
     ],
     "externalIds": {
@@ -18737,7 +18746,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "CreatureSize",
+        "value": "tiny",
+        "resizeEquipment": true,
+        "reach": {
+          "override": 0
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.LXf1Cqi1zyo4DaLv"
     },

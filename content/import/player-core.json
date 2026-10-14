@@ -19,44 +19,12 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "action:amphibious",
-      "foundry": "Compendium.pf2e.familiar-abilities.Item.A0C86V3MUECpX5jd",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ActorTraits",
-          "raw": {
-            "add": ["amphibious"],
-            "key": "ActorTraits"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "action:balance",
       "foundry": "Compendium.pf2e.actionspf2e.Item.M76ycLAqHoAgbcej",
       "gaps": [
         {
           "type": "markup",
           "markup": "h2[class]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "action:construct",
-      "foundry": "Compendium.pf2e.familiar-abilities.Item.5eqcXtPsYunphMOZ",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ActorTraits",
-          "raw": {
-            "add": ["construct"],
-            "key": "ActorTraits"
-          }
         }
       ]
     },
@@ -146,22 +114,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "action:dragon",
-      "foundry": "Compendium.pf2e.familiar-abilities.Item.embGS7NjgydDw8KO",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ActorTraits",
-          "raw": {
-            "add": ["dragon"],
-            "key": "ActorTraits"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "action:dragon-breath-dragon-form",
       "foundry": "Compendium.pf2e.actionspf2e.Item.yMt7EeLqxzM3WLgn",
       "gaps": [
@@ -224,22 +176,6 @@
             "key": "BaseSpeed",
             "selector": "{item|flags.system.rulesSelections.speed}",
             "value": 40
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "action:fungus",
-      "foundry": "Compendium.pf2e.familiar-abilities.Item.jew52aXGdNyR4N5B",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ActorTraits",
-          "raw": {
-            "add": ["fungus"],
-            "key": "ActorTraits"
           }
         }
       ]
@@ -339,22 +275,6 @@
         {
           "type": "markup",
           "markup": "h2[class]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "action:plant",
-      "foundry": "Compendium.pf2e.familiar-abilities.Item.lLWkoGiNLNIEm5Sp",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ActorTraits",
-          "raw": {
-            "add": ["plant"],
-            "key": "ActorTraits"
-          }
         }
       ]
     },
@@ -13583,19 +13503,6 @@
             "slug": "moon-frenzy-claws",
             "traits": ["agile", "finesse", "unarmed", "magical"]
           }
-        },
-        {
-          "type": "rule",
-          "key": "CreatureSize",
-          "raw": {
-            "key": "CreatureSize",
-            "maximumSize": "lg",
-            "predicate": ["terrain:full-moon"],
-            "reach": {
-              "add": 5
-            },
-            "value": 1
-          }
         }
       ]
     },
@@ -14657,26 +14564,6 @@
             "predicate": ["shifting-form:swim"],
             "selector": "swim",
             "value": "floor(@actor.system.movement.speeds.land.value/2)"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-shrink",
-      "foundry": "Compendium.pf2e.spell-effects.Item.LXf1Cqi1zyo4DaLv",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "CreatureSize",
-          "raw": {
-            "key": "CreatureSize",
-            "reach": {
-              "override": 0
-            },
-            "resizeEquipment": true,
-            "value": "tiny"
           }
         }
       ]

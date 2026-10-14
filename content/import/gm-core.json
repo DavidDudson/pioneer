@@ -3518,40 +3518,6 @@
     {
       "type": "entry",
       "pack": "gm-core",
-      "slug": "effect:effect-shrinking-potion",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.o0baLY5VdjLhdsS7",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "CreatureSize",
-          "raw": {
-            "key": "CreatureSize",
-            "resizeEquipment": true,
-            "value": "tiny"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "effect:effect-shrinking-potion-greater",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.zd85Ny1RS46OL0TD",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "CreatureSize",
-          "raw": {
-            "key": "CreatureSize",
-            "resizeEquipment": true,
-            "value": "tiny"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
       "slug": "effect:effect-silver-salve",
       "foundry": "Compendium.pf2e.equipment-effects.Item.dfnhwI5pJgLtXh2k",
       "gaps": [

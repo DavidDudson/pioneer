@@ -15,7 +15,13 @@ import { withFavoredWeaponRank } from './translate-favored-weapon';
 import { withFontChoice } from './translate-font-choice';
 import { withItemScope } from './translate-item-alterations';
 import { withLanguageSlots } from './translate-language-slots';
-import { withBaseSpeed, withDiceFormula, withModifierSelectors, withNamespacedOptions } from './translate-modifiers';
+import {
+  withBaseSpeed,
+  withCreatureSize,
+  withDiceFormula,
+  withModifierSelectors,
+  withNamespacedOptions,
+} from './translate-modifiers';
 import { withNoteText } from './translate-notes';
 import { withRollOption } from './translate-roll-options';
 import { withSense } from './translate-senses';
@@ -238,7 +244,7 @@ function shapeRule(raw: unknown, context: RuleContext, unresolved: UnresolvedKey
   const options = withNoteText(scoped, context);
   const granted = withGrantedId(withPioneerFormula(options), references);
   const struck = withStrike(granted);
-  const modifier = withBaseSpeed(withModifierSelectors(struck));
+  const modifier = withBaseSpeed(withModifierSelectors(withCreatureSize(struck)));
   const queried = withLanguageSlots(withTagQuery(withGrantValue(modifier)));
   const font = withSkillRaise(withFavoredWeaponRank(withFontChoice(queried)));
   const senses = { references, senses: context.senses };

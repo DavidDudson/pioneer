@@ -454,7 +454,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ActorTraits",
+        "add": ["amphibious"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.familiar-abilities.Item.A0C86V3MUECpX5jd"
     },
@@ -2146,7 +2151,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ActorTraits",
+        "add": ["construct"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.familiar-abilities.Item.5eqcXtPsYunphMOZ"
     },
@@ -3740,7 +3750,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ActorTraits",
+        "add": ["dragon"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.familiar-abilities.Item.embGS7NjgydDw8KO"
     },
@@ -6393,7 +6408,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ActorTraits",
+        "add": ["fungus"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.familiar-abilities.Item.jew52aXGdNyR4N5B"
     },
@@ -10503,7 +10523,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ActorTraits",
+        "add": ["plant"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.familiar-abilities.Item.lLWkoGiNLNIEm5Sp"
     },

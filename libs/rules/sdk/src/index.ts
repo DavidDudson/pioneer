@@ -319,6 +319,7 @@ export { ActorTraitsElement } from './rule-element-actor-traits';
 export { StrikeElement } from './rule-element-strike';
 export { NoteElement } from './rule-element-note';
 export { FastHealingElement, FastHealingType, TempHPElement } from './rule-element-healing';
+export { CreatureSizeElement, SizeSteps } from './rule-element-creature-size';
 export { DamageAlterationElement, DamageDiceCategory, DamageDiceElement, DamageProperty } from './rule-element-damage';
 export {
   DeitySpellsElement,

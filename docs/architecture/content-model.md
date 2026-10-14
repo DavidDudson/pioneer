@@ -636,6 +636,10 @@ FlatModifier` appends the import's rules of the keys named to the committed entr
   `ItemAlteration` of the weapons its `definition` reaches, for `traits`, `materials`, `property-runes` (add or remove
   a slug) and `range-increment` (add or multiply); one with no `definition`, with `selectors`, or with a value or
   definition read from a pick stays in the backlog.
+- **Size and traits.** A `CreatureSize` takes its `value` and `maximumSize` as Pioneer names a size (`sm` is `small`,
+  `med` `medium`, `lg` `large`, `grg` `gargantuan`) or, as a number, as steps from the current size; `resizeEquipment` and
+  `reach` (`override` or `add`) stand. A size or reach read from a pick stays in the backlog. An `ActorTraits` needs no
+  change; one whose predicate compares with the item level (`{item|level}`) stays in the backlog.
 - **Dropped on purpose.** `TokenLight`, `TokenEffectIcon` and `TokenMark` only change a Foundry token (its light, the
   icon of an effect on it, a mark), and Pioneer has no token. The import drops them with the reason `token-only` and
   prints them apart from the untranslated rule elements; they are not in the backlog, so an entry whose only gap
