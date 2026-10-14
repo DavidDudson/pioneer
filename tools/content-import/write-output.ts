@@ -144,8 +144,10 @@ export async function applyRules(
 ): Promise<AppliedOutput> {
   const { pin, backlog } = await committedBacklog(targets);
   const committed = await committedEntries(targets);
-  const merge = mergeRules(committed, output.entries, { gapped: gappedEntries(backlog, keys), keys });
-  const merged = new Set(committed.filter(({ id }) => merge.has(id)).map(({ pack, slug }) => `${pack}/${slug}`));
+  const gapped = gappedEntries(backlog, keys);
+  const merge = mergeRules(committed, output.entries, { gapped, keys });
+  const imported = new Set(output.entries.map(({ pack, slug }) => `${pack}/${slug}`));
+  const merged = new Set([...gapped].filter((entry) => imported.has(entry)));
   const remaining = clearAppliedGaps(backlog, output.backlog, { merged, keys });
   const cleared = { path: backlogPath(targets.pack), json: ImportFile.parse({ pin, backlog: remaining }) };
   const files = await mergedEntryFiles(targets, merge);

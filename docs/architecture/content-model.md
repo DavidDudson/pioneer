@@ -605,6 +605,13 @@ FlatModifier` appends the import's rules of the keys named to the committed entr
   `ChoiceSet` (`{item|flags...}`), a `custom` type with its own `definition`, a type that is a damage trait rather
   than a damage type (`holy`, `unholy`, `silver`, `area-damage`), `doubleVs`, `mode`, a value read from the actor's
   flags and the `exceptions` of an `Immunity` have no Pioneer meaning yet and stay in the backlog.
+- **Dropped on purpose.** `TokenLight`, `TokenEffectIcon` and `TokenMark` only change a Foundry token (its light, the
+  icon of an effect on it, a mark), and Pioneer has no token. The import drops them with the reason `token-only` and
+  prints them apart from the untranslated rule elements; they are not in the backlog, so an entry whose only gap
+  was one counts as having its rules translated. A light's bright and dim radii stay in the item's text and in the
+  pinned release, for the light levels of
+  [#685 feat(content): light levels and terrain contexts](https://github.com/DavidDudson/pioneer/issues/685).
+  `--apply-rules` also clears a gap the import no longer reports, as for these, in an entry that gains no rule.
 - **References across packs.** A compendium UUID naming a document an earlier import brought in resolves to that
   import's entry, found by the document's UUID in the entry's `externalIds.foundry`, never by name or slug: a Divine
   Mysteries deity's Player Core spells. A reference to a book not imported yet (Player Core 2, Impossible Magic)

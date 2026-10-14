@@ -53,6 +53,7 @@ export { type UnknownMarkup, type UntranslatedEnricher } from './describe-entrie
 export { type FoundryLinks } from './enricher-context';
 export { htmlToRichText, OVERSIZED_MARKUP, type RichTextTranslation } from './html-rich-text';
 export { type RuleContext, type RuleTranslation, translateRules, type UntranslatedRule } from './translate-rules';
+export { type DroppedReason, type DroppedRule } from './translate-token-rules';
 export {
   expandLocalize,
   type ExpandedText,

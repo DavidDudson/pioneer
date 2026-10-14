@@ -171,36 +171,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.h9sZfo6UmHIOU5wb",
       "gaps": [
         {
-          "type": "rule",
-          "key": "TokenLight",
-          "raw": {
-            "key": "TokenLight",
-            "predicate": ["lit-life-saver-mail"],
-            "value": {
-              "alpha": 0.45,
-              "animation": {
-                "intensity": 1,
-                "speed": 2,
-                "type": "flame"
-              },
-              "attenuation": 0.4,
-              "bright": 20,
-              "color": "#88ff88",
-              "coloration": 101,
-              "dim": 40,
-              "shadows": 0.2
-            }
-          }
-        },
-        {
-          "type": "rule",
-          "key": "TokenEffectIcon",
-          "raw": {
-            "key": "TokenEffectIcon",
-            "predicate": ["lit-life-saver-mail"]
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
         }
@@ -212,36 +182,6 @@
       "slug": "armor:life-saver-mail-greater",
       "foundry": "Compendium.pf2e.equipment-srd.Item.oRBcuFdQDRCn1pwo",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "TokenLight",
-          "raw": {
-            "key": "TokenLight",
-            "predicate": ["lit-life-saver-mail"],
-            "value": {
-              "alpha": 0.45,
-              "animation": {
-                "intensity": 1,
-                "speed": 2,
-                "type": "flame"
-              },
-              "attenuation": 0.4,
-              "bright": 20,
-              "color": "#88ff88",
-              "coloration": 101,
-              "dim": 40,
-              "shadows": 0.2
-            }
-          }
-        },
-        {
-          "type": "rule",
-          "key": "TokenEffectIcon",
-          "raw": {
-            "key": "TokenEffectIcon",
-            "predicate": ["lit-life-saver-mail"]
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
@@ -2829,33 +2769,6 @@
     {
       "type": "entry",
       "pack": "gm-core",
-      "slug": "effect:effect-glow-rod",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.BaosUEePGMqw0nWn",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "TokenLight",
-          "raw": {
-            "key": "TokenLight",
-            "value": {
-              "animation": {
-                "intensity": 4,
-                "speed": 2,
-                "type": "torch"
-              },
-              "bright": 20,
-              "color": "#ffae3d",
-              "coloration": 101,
-              "dim": 60,
-              "shadows": 0.2
-            }
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
       "slug": "effect:effect-glue-bomb",
       "foundry": "Compendium.pf2e.equipment-effects.Item.sgQknR94qDt5ILBx",
       "gaps": [
@@ -3843,33 +3756,6 @@
     {
       "type": "entry",
       "pack": "gm-core",
-      "slug": "effect:effect-shining-ammunition",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.Sf6UO6vgCeicggOK",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "TokenLight",
-          "raw": {
-            "key": "TokenLight",
-            "value": {
-              "animation": {
-                "intensity": 1,
-                "speed": 1,
-                "type": "pulse"
-              },
-              "bright": 20,
-              "color": "#975335",
-              "coloration": 101,
-              "dim": 40,
-              "shadows": 0.2
-            }
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
       "slug": "effect:effect-shining-symbol",
       "foundry": "Compendium.pf2e.equipment-effects.Item.gn7kNxKGUsKwnv1L",
       "gaps": [
@@ -3964,35 +3850,6 @@
             "mode": "add",
             "property": "materials",
             "value": "silver"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "effect:effect-staff-of-illumination",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.XgIY3j2VFUSQ5Or9",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "TokenLight",
-          "raw": {
-            "key": "TokenLight",
-            "value": {
-              "alpha": 0.35,
-              "animation": {
-                "intensity": 3,
-                "speed": 1,
-                "type": "starlight"
-              },
-              "attenuation": 0.4,
-              "bright": 20,
-              "color": "#aaaaaa",
-              "coloration": 101,
-              "dim": 40,
-              "shadows": 0.2
-            }
           }
         }
       ]
@@ -5237,40 +5094,6 @@
     {
       "type": "entry",
       "pack": "gm-core",
-      "slug": "equipment:everlight-crystal",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.mRz8Jmk4Q06SsZpC",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "TokenLight",
-          "raw": {
-            "key": "TokenLight",
-            "value": {
-              "alpha": 0.15,
-              "animation": {
-                "speed": 1,
-                "type": "starlight"
-              },
-              "attenuation": 0.4,
-              "bright": 20,
-              "color": "#ffdf3d",
-              "coloration": 101,
-              "dim": 40
-            }
-          }
-        },
-        {
-          "type": "rule",
-          "key": "TokenEffectIcon",
-          "raw": {
-            "key": "TokenEffectIcon"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
       "slug": "equipment:genius-diadem",
       "foundry": "Compendium.pf2e.equipment-srd.Item.QZaOQ8luuxWXpFqJ",
       "gaps": [
@@ -5857,58 +5680,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "TokenLight",
-          "raw": {
-            "key": "TokenLight",
-            "predicate": [
-              {
-                "not": "self:effect:aura-shining-symbol"
-              }
-            ],
-            "value": {
-              "animation": {
-                "intensity": 2,
-                "speed": 1,
-                "type": "starlight"
-              },
-              "color": "#bfbfbf",
-              "coloration": 101,
-              "dim": 20
-            }
-          }
-        },
-        {
-          "type": "rule",
-          "key": "TokenLight",
-          "raw": {
-            "key": "TokenLight",
-            "predicate": ["self:effect:aura-shining-symbol"],
-            "value": {
-              "animation": {
-                "intensity": 2,
-                "speed": 1,
-                "type": "starlight"
-              },
-              "bright": 20,
-              "color": "#bfbfbf",
-              "coloration": 101
-            }
-          }
-        },
-        {
-          "type": "rule",
-          "key": "TokenEffectIcon",
-          "raw": {
-            "key": "TokenEffectIcon",
-            "predicate": [
-              {
-                "not": "self:effect:aura-shining-symbol"
-              }
-            ]
-          }
-        },
-        {
-          "type": "rule",
           "key": "ActiveEffectLike",
           "raw": {
             "key": "ActiveEffectLike",
@@ -5937,58 +5708,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "TokenLight",
-          "raw": {
-            "key": "TokenLight",
-            "predicate": [
-              {
-                "not": "self:effect:aura-shining-symbol"
-              }
-            ],
-            "value": {
-              "animation": {
-                "intensity": 2,
-                "speed": 1,
-                "type": "starlight"
-              },
-              "color": "#bfbfbf",
-              "coloration": 101,
-              "dim": 20
-            }
-          }
-        },
-        {
-          "type": "rule",
-          "key": "TokenLight",
-          "raw": {
-            "key": "TokenLight",
-            "predicate": ["self:effect:aura-shining-symbol"],
-            "value": {
-              "animation": {
-                "intensity": 2,
-                "speed": 1,
-                "type": "starlight"
-              },
-              "bright": 20,
-              "color": "#bfbfbf",
-              "coloration": 101
-            }
-          }
-        },
-        {
-          "type": "rule",
-          "key": "TokenEffectIcon",
-          "raw": {
-            "key": "TokenEffectIcon",
-            "predicate": [
-              {
-                "not": "self:effect:aura-shining-symbol"
-              }
-            ]
-          }
-        },
-        {
-          "type": "rule",
           "key": "ActiveEffectLike",
           "raw": {
             "key": "ActiveEffectLike",
@@ -6015,58 +5734,6 @@
       "slug": "equipment:shining-symbol-major",
       "foundry": "Compendium.pf2e.equipment-srd.Item.etnis6HOeGZEbScD",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "TokenLight",
-          "raw": {
-            "key": "TokenLight",
-            "predicate": [
-              {
-                "not": "self:effect:aura-shining-symbol"
-              }
-            ],
-            "value": {
-              "animation": {
-                "intensity": 2,
-                "speed": 1,
-                "type": "starlight"
-              },
-              "color": "#bfbfbf",
-              "coloration": 101,
-              "dim": 20
-            }
-          }
-        },
-        {
-          "type": "rule",
-          "key": "TokenLight",
-          "raw": {
-            "key": "TokenLight",
-            "predicate": ["self:effect:aura-shining-symbol"],
-            "value": {
-              "animation": {
-                "intensity": 2,
-                "speed": 1,
-                "type": "starlight"
-              },
-              "bright": 20,
-              "color": "#bfbfbf",
-              "coloration": 101
-            }
-          }
-        },
-        {
-          "type": "rule",
-          "key": "TokenEffectIcon",
-          "raw": {
-            "key": "TokenEffectIcon",
-            "predicate": [
-              {
-                "not": "self:effect:aura-shining-symbol"
-              }
-            ]
-          }
-        },
         {
           "type": "rule",
           "key": "ActiveEffectLike",
@@ -8008,31 +7675,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.G3a60Ug3YNCMyMVR",
       "gaps": [
         {
-          "type": "rule",
-          "key": "TokenLight",
-          "raw": {
-            "key": "TokenLight",
-            "value": {
-              "animation": {
-                "intensity": 4,
-                "speed": 1,
-                "type": "torch"
-              },
-              "color": "#9b7337",
-              "coloration": 101,
-              "dim": 10,
-              "shadows": 0.2
-            }
-          }
-        },
-        {
-          "type": "rule",
-          "key": "TokenEffectIcon",
-          "raw": {
-            "key": "TokenEffectIcon"
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
         }
@@ -8044,31 +7686,6 @@
       "slug": "weapon:searing-blade-greater",
       "foundry": "Compendium.pf2e.equipment-srd.Item.pvxRcuBexbFawjCg",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "TokenLight",
-          "raw": {
-            "key": "TokenLight",
-            "value": {
-              "animation": {
-                "intensity": 4,
-                "speed": 1,
-                "type": "torch"
-              },
-              "color": "#9b7337",
-              "coloration": 101,
-              "dim": 10,
-              "shadows": 0.2
-            }
-          }
-        },
-        {
-          "type": "rule",
-          "key": "TokenEffectIcon",
-          "raw": {
-            "key": "TokenEffectIcon"
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
@@ -8101,36 +7718,6 @@
             "mode": "add",
             "property": "materials",
             "value": "silver"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "TokenLight",
-          "raw": {
-            "key": "TokenLight",
-            "predicate": ["lit-serithtial"],
-            "value": {
-              "alpha": 0.45,
-              "animation": {
-                "intensity": 3,
-                "speed": 1,
-                "type": "emanation"
-              },
-              "attenuation": 0.4,
-              "bright": 20,
-              "color": "#aaaaaa",
-              "coloration": 101,
-              "dim": 40,
-              "shadows": 0.2
-            }
-          }
-        },
-        {
-          "type": "rule",
-          "key": "TokenEffectIcon",
-          "raw": {
-            "key": "TokenEffectIcon",
-            "predicate": ["lit-serithtial"]
           }
         },
         {
