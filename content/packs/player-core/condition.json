@@ -39,6 +39,10 @@
         "type": "status",
         "value": -4,
         "slug": "blinded"
+      },
+      {
+        "key": "Immunity",
+        "type": ["visual"]
       }
     ],
     "externalIds": {
@@ -417,6 +421,10 @@
             ]
           }
         ]
+      },
+      {
+        "key": "Immunity",
+        "type": ["auditory"]
       }
     ],
     "externalIds": {

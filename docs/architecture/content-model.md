@@ -590,6 +590,11 @@ FlatModifier` appends the import's rules of the keys named to the committed entr
   slot replaces it), `slugsAsValues`, `allowedDrops`, `actorFlag` and `slug` stay in the backlog. A pack's rules for
   the pick (`Proficiency`, `GrantItem`) are taken with it, as in
   `--apply-rules ChoiceSet,Proficiency,ActiveEffectLike,GrantItem`.
+- **Defences.** A `Resistance`, `Weakness` or `Immunity` takes its `type` as a list, with Foundry's `all-damage` as the
+  `all` group; a formula `value`, `exceptions` and a predicate are read as for any element. A type picked by a
+  `ChoiceSet` (`{item|flags...}`), a `custom` type with its own `definition`, a type that is a damage trait rather
+  than a damage type (`holy`, `unholy`, `silver`, `area-damage`), `doubleVs`, `mode`, a value read from the actor's
+  flags and the `exceptions` of an `Immunity` have no Pioneer meaning yet and stay in the backlog.
 - **References across packs.** A compendium UUID naming a document an earlier import brought in resolves to that
   import's entry, found by the document's UUID in the entry's `externalIds.foundry`, never by name or slug: a Divine
   Mysteries deity's Player Core spells. A reference to a book not imported yet (Player Core 2, Impossible Magic)

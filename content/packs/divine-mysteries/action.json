@@ -391,6 +391,12 @@
         "key": "RollOption",
         "option": "option:mystic-aegis",
         "toggleable": true
+      },
+      {
+        "key": "Resistance",
+        "type": ["all"],
+        "value": "2 + ceil(@level / 2)",
+        "predicate": ["option:mystic-aegis"]
       }
     ],
     "externalIds": {

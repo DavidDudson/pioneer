@@ -201,7 +201,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Weakness",
+        "type": ["spirit"],
+        "value": 10
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.gyfPLgqeIgW7fYD0"
     },
@@ -1227,7 +1233,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Weakness",
+        "type": ["all"],
+        "value": 10
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.mNc42XjBVlxcr9k8"
     },
@@ -2509,7 +2521,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Weakness",
+        "type": ["fire"],
+        "value": "@item.level"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.TrmNSuv6zWEiceqn"
     },
@@ -2562,7 +2580,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Weakness",
+        "type": ["fire"],
+        "value": "@item.level"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.4dnt1P2SfcePzkrF"
     },

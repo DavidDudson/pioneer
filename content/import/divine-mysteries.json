@@ -84,24 +84,6 @@
     {
       "type": "entry",
       "pack": "divine-mysteries",
-      "slug": "action:mystic-aegis",
-      "foundry": "Compendium.pf2e.actionspf2e.Item.ur4AfegC9RqRgy3e",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "predicate": ["mystic-aegis"],
-            "type": "all-damage",
-            "value": "2 + ceil(@actor.level/2)"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
       "slug": "class-feature:ashes",
       "foundry": "Compendium.pf2e.classfeatures.Item.g3HTg0z3doXZZzAV",
       "gaps": [
@@ -2862,23 +2844,6 @@
     {
       "type": "entry",
       "pack": "divine-mysteries",
-      "slug": "effect:effect-declare-anathema",
-      "foundry": "Compendium.pf2e.feat-effects.Item.gyfPLgqeIgW7fYD0",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Weakness",
-          "raw": {
-            "key": "Weakness",
-            "type": "spirit",
-            "value": 10
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
       "slug": "effect:effect-empowered-onslaught",
       "foundry": "Compendium.pf2e.feat-effects.Item.ik5QuOpF0IO275Nm",
       "gaps": [
@@ -3236,23 +3201,6 @@
             ],
             "property": "runes-striking",
             "value": "ternary(gte(@actor.level,20),3,ternary(gte(@actor.level,12),2,1))"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
-      "slug": "effect:effect-marked-for-rebuke",
-      "foundry": "Compendium.pf2e.feat-effects.Item.mNc42XjBVlxcr9k8",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Weakness",
-          "raw": {
-            "key": "Weakness",
-            "type": "all-damage",
-            "value": 10
           }
         }
       ]
@@ -3650,40 +3598,6 @@
             "selector": ["saving-throw", "{item|flags.system.rulesSelections.skill}"],
             "type": "status",
             "value": "ternary(gte(@item.level,8),3,ternary(gte(@item.level,4),2,1))"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
-      "slug": "effect:spell-effect-incendiary-ashes-failure",
-      "foundry": "Compendium.pf2e.spell-effects.Item.TrmNSuv6zWEiceqn",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Weakness",
-          "raw": {
-            "key": "Weakness",
-            "type": "fire",
-            "value": "@item.level"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
-      "slug": "effect:spell-effect-incendiary-ashes-success",
-      "foundry": "Compendium.pf2e.spell-effects.Item.4dnt1P2SfcePzkrF",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Weakness",
-          "raw": {
-            "key": "Weakness",
-            "type": "fire",
-            "value": "@item.level"
           }
         }
       ]
@@ -5226,24 +5140,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[feats-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
-      "slug": "feat:stand-for-the-fallen",
-      "foundry": "Compendium.pf2e.feats-srd.Item.qTxgIym89ehgW684",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "predicate": ["stand-for-the-fallen"],
-            "type": "all-damage",
-            "value": "@actor.level"
-          }
         }
       ]
     },

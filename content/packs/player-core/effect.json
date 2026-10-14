@@ -1076,7 +1076,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["all"],
+        "value": "@item.level"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.3xsComVKLuLn7etk"
     },
@@ -11405,7 +11411,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": "2 + 2 * @item.level"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.LMXxICrByo7XZ3Q3"
     },
@@ -11754,6 +11766,18 @@
         "type": ["spirit", "void", "vitality"],
         "value": 10,
         "predicate": ["parent:spellcasting:tradition:divine", "dragon-form-tradition:divine"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["physical"],
+        "value": 5,
+        "predicate": ["parent:spellcasting:tradition:primal", "dragon-form-tradition:primal"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["mental"],
+        "value": 10,
+        "predicate": ["parent:spellcasting:tradition:occult", "dragon-form-tradition:occult"]
       }
     ],
     "externalIds": {
@@ -12525,7 +12549,17 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Immunity",
+        "type": ["fire"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["precision"],
+        "value": 10
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.uIMaMzd6pcKmMNPJ"
     },
@@ -12711,7 +12745,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": "5 + 5 * floor(@item.level / 2)"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.UXdt1WVA66oZOoZS"
     },
@@ -12824,7 +12864,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["all"],
+        "value": "5 + 3 * floor((@item.level - 4) / 2)",
+        "exceptions": ["force"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.ZlsuhS9J0S3PuvCO"
     },
@@ -13169,7 +13216,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Weakness",
+        "type": ["bludgeoning"],
+        "value": "@item.level"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.DdqWMj7cuf4S1bgr"
     },
@@ -15435,7 +15488,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["physical"],
+        "value": "ternary(gte(@item.level, 10), 20, ternary(gte(@item.level, 8), 15, ternary(gte(@item.level, 6), 10, 5)))",
+        "exceptions": ["adamantine"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.JHpYudY14g0H4VWU"
     },
@@ -16034,6 +16094,11 @@
         "key": "Resistance",
         "type": ["bludgeoning", "piercing"],
         "value": "2 * floor(@item.level / 2)"
+      },
+      {
+        "key": "Weakness",
+        "type": ["fire"],
+        "value": "3 * floor(@item.level / 2)"
       }
     ],
     "externalIds": {
@@ -16380,7 +16445,17 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["all"],
+        "value": "2 * @item.level + 3"
+      },
+      {
+        "key": "Immunity",
+        "type": ["precision"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.61Hl31nyzt63vvX9"
     },
@@ -17003,6 +17078,30 @@
         ],
         "prompt": "Select an element.",
         "rollOption": "primal-summons"
+      },
+      {
+        "key": "Resistance",
+        "type": ["physical"],
+        "value": 5,
+        "predicate": ["primal-summons:earth"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": 10,
+        "predicate": ["primal-summons:fire"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["electricity"],
+        "value": 5,
+        "predicate": ["primal-summons:metal"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": 5,
+        "predicate": ["primal-summons:water"]
       }
     ],
     "externalIds": {
@@ -17179,7 +17278,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["all"],
+        "value": "max(@item.level - 1, 0)"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.XXtz5BDNNBmP9ub2"
     },
@@ -17235,6 +17340,11 @@
         "selectors": ["ac", "saving-throw"],
         "type": "status",
         "value": 1
+      },
+      {
+        "key": "Resistance",
+        "type": ["physical"],
+        "value": "floor(@item.level / 2)"
       }
     ],
     "externalIds": {
@@ -17629,6 +17739,12 @@
         "key": "RollOption",
         "option": "option:safe-passage",
         "toggleable": true
+      },
+      {
+        "key": "Resistance",
+        "type": ["all"],
+        "value": "ternary(gte(@item.level, 8), 15, ternary(gte(@item.level, 5), 10, 5))",
+        "predicate": ["option:safe-passage"]
       }
     ],
     "externalIds": {
@@ -20077,6 +20193,15 @@
         "selectors": ["ac"],
         "suppress": true,
         "predicate": ["bonus:type:item"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["physical"],
+        "value": 8
+      },
+      {
+        "key": "Immunity",
+        "type": ["precision"]
       }
     ],
     "externalIds": {
