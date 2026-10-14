@@ -133,6 +133,12 @@ async function mergedEntryFiles(targets: PackTargets, merge: RulesMerge): Promis
   return changed.flat();
 }
 
+/** The gapped entries the import holds, whose gaps may be cleared. */
+function importedGaps(output: PackOutput, gapped: ReadonlySet<string>): ReadonlySet<string> {
+  const imported = new Set(output.entries.map(({ pack, slug }) => `${pack}/${slug}`));
+  return new Set([...gapped].filter((entry) => imported.has(entry)));
+}
+
 /**
  * Takes the import's rules of `keys` into the committed pack files (`apply-rules.ts`), clears their gaps from the
  * backlog and formats what changed.
@@ -146,8 +152,7 @@ export async function applyRules(
   const committed = await committedEntries(targets);
   const gapped = gappedEntries(backlog, keys);
   const merge = mergeRules(committed, output.entries, { gapped, keys });
-  const imported = new Set(output.entries.map(({ pack, slug }) => `${pack}/${slug}`));
-  const merged = new Set([...gapped].filter((entry) => imported.has(entry)));
+  const merged = importedGaps(output, gapped);
   const remaining = clearAppliedGaps(backlog, output.backlog, { merged, keys });
   const cleared = { path: backlogPath(targets.pack), json: ImportFile.parse({ pin, backlog: remaining }) };
   const files = await mergedEntryFiles(targets, merge);
