@@ -1227,6 +1227,14 @@
         "mode": "upgrade",
         "value": 4,
         "predicate": ["item:trait:fear", "bravos-brew:bravos-brew-greater"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["saving-throw"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "predicate": ["item:trait:fear", "bravos-brew:bravos-brew-greater"]
       }
     ],
     "externalIds": {
@@ -4493,7 +4501,17 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill:acrobatics"],
+        "adjustment": {
+          "criticalFailure": "one-degree-better",
+          "success": "one-degree-better"
+        },
+        "predicate": ["action:escape"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.YxzBnkm20uEg4HtJ"
     },
@@ -5144,6 +5162,14 @@
         "mode": "upgrade",
         "value": 3,
         "predicate": ["thurible-of-revelation:thurible-of-revelation-greater"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill:religion"],
+        "adjustment": {
+          "criticalFailure": "one-degree-better"
+        },
+        "predicate": ["action:decipher-writing"]
       }
     ],
     "externalIds": {

@@ -87,6 +87,9 @@ const SELECTOR_KEYS: ReadonlySet<string> = new Set([
   RuleElementKey.AdjustModifier,
   RuleElementKey.DamageDice,
   RuleElementKey.Note,
+  RuleElementKey.AdjustDegreeOfSuccess,
+  RuleElementKey.RollTwice,
+  RuleElementKey.SubstituteRoll,
 ]);
 
 /** The elements that drop `hideIfDisabled`: it only decides whether their line shows. */
@@ -96,7 +99,7 @@ const HIDEABLE_KEYS: ReadonlySet<string> = new Set([RuleElementKey.FlatModifier,
  * A `FlatModifier` or `AdjustModifier` as Pioneer's element; any other element, or a selector that is not text, as it
  * is. A `FlatModifier` also defaults to `untyped`, as Foundry does, and drops the fields that only steer its display.
  */
-export function withModifierSelectors(raw: unknown): unknown {
+function withSelectors(raw: unknown): unknown {
   if (typeof raw !== 'object' || raw === null || !('key' in raw) || typeof raw.key !== 'string') {
     return raw;
   }
@@ -110,6 +113,11 @@ export function withModifierSelectors(raw: unknown): unknown {
     ([field]) => field !== 'selector' && !(hideable && DISPLAY_ONLY_FIELDS.has(field)),
   );
   return { ...(flat ? { type: 'untyped' } : {}), ...Object.fromEntries(kept), selectors };
+}
+
+/** A modifier-like element with its `selector` as `selectors`, and a check-shaping one with its fields renamed too. */
+export function withModifierSelectors(raw: unknown): unknown {
+  return withSelectors(withRollFields(raw));
 }
 
 /**
@@ -184,4 +192,29 @@ export function withCreatureSize(raw: unknown): unknown {
     field === 'value' || field === 'maximumSize' ? sizeOf(value) : value,
   ]);
   return Object.fromEntries(sized);
+}
+
+/** The check-shaping elements, which read a `selector` as `selectors` and share `type` and `removeAfterRoll`. */
+const ROLL_KEYS: ReadonlySet<string> = new Set([
+  RuleElementKey.AdjustDegreeOfSuccess,
+  RuleElementKey.RollTwice,
+  RuleElementKey.SubstituteRoll,
+]);
+
+/**
+ * An `AdjustDegreeOfSuccess`, `RollTwice` or `SubstituteRoll` with Foundry's `type` as `checkType`, and a
+ * `removeAfterRoll: false`, which is Foundry's default, dropped. `removeAfterRoll: true` (an effect spent by the roll)
+ * stays, so the element fails and is kept for the backlog; any other element as it is.
+ */
+function withRollFields(raw: unknown): unknown {
+  if (typeof raw !== 'object' || raw === null || !('key' in raw) || typeof raw.key !== 'string') {
+    return raw;
+  }
+  if (!ROLL_KEYS.has(raw.key)) {
+    return raw;
+  }
+  const renamed = Object.entries(raw)
+    .filter(([field, value]) => !(field === 'removeAfterRoll' && value === false))
+    .map(([field, value]) => [field === 'type' ? 'checkType' : field, value]);
+  return Object.fromEntries(renamed);
 }

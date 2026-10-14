@@ -2316,18 +2316,6 @@
             "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
             "rollOption": "bravos-brew"
           }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "success": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": ["item:trait:fear", "bravos-brew:bravos-brew-greater"],
-            "selector": "saving-throw"
-          }
         }
       ]
     },
@@ -3391,19 +3379,6 @@
             "type": "item",
             "value": 1
           }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "criticalFailure": "one-degree-better",
-              "success": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": ["action:escape"],
-            "selector": "acrobatics"
-          }
         }
       ]
     },
@@ -3529,18 +3504,6 @@
             "key": "ChoiceSet",
             "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
             "rollOption": "thurible-of-revelation"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "criticalFailure": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": ["action:decipher-writing"],
-            "selector": "religion"
           }
         }
       ]

@@ -321,6 +321,13 @@ export { AdjustStrikeElement, StrikeProperty } from './rule-element-adjust-strik
 export { NoteElement } from './rule-element-note';
 export { FastHealingElement, FastHealingType, TempHPElement } from './rule-element-healing';
 export { CreatureSizeElement, SizeSteps } from './rule-element-creature-size';
+export {
+  AdjustDegreeOfSuccessElement,
+  RollKept,
+  RollTwiceElement,
+  SubstitutedRoll,
+  SubstituteRollElement,
+} from './rule-element-rolls';
 export { DamageAlterationElement, DamageDiceCategory, DamageDiceElement, DamageProperty } from './rule-element-damage';
 export {
   DeitySpellsElement,

@@ -30,6 +30,13 @@
         "key": "Proficiency",
         "selector": "save:will",
         "rank": "master"
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["save:will"],
+        "adjustment": {
+          "success": "one-degree-better"
+        }
       }
     ],
     "externalIds": {
@@ -1012,6 +1019,13 @@
         "key": "Proficiency",
         "selector": "save:fortitude",
         "rank": "master"
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["save:fortitude"],
+        "adjustment": {
+          "success": "to-critical-success"
+        }
       }
     ],
     "externalIds": {
@@ -1103,6 +1117,14 @@
         "key": "Proficiency",
         "selector": "save:will",
         "rank": "expert"
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["save:will"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "predicate": ["item:trait:fear"]
       }
     ],
     "externalIds": {
@@ -4104,6 +4126,13 @@
         "key": "Proficiency",
         "selector": "save:reflex",
         "rank": "master"
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["save:reflex"],
+        "adjustment": {
+          "success": "one-degree-better"
+        }
       }
     ],
     "externalIds": {
@@ -4682,6 +4711,13 @@
         "key": "Proficiency",
         "selector": "save:fortitude",
         "rank": "master"
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["save:fortitude"],
+        "adjustment": {
+          "success": "one-degree-better"
+        }
       }
     ],
     "externalIds": {
@@ -5427,6 +5463,13 @@
         ],
         "outcome": ["failure"],
         "predicate": ["option:damaging-effect"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["save:reflex"],
+        "adjustment": {
+          "criticalFailure": "one-degree-better"
+        }
       }
     ],
     "externalIds": {
@@ -5483,6 +5526,13 @@
         ],
         "outcome": ["failure"],
         "predicate": ["option:damaging-effect"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["save:will"],
+        "adjustment": {
+          "criticalFailure": "one-degree-better"
+        }
       }
     ],
     "externalIds": {
@@ -5539,6 +5589,13 @@
         ],
         "outcome": ["failure"],
         "predicate": ["option:damaging-effect"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["save:reflex"],
+        "adjustment": {
+          "criticalFailure": "one-degree-better"
+        }
       }
     ],
     "externalIds": {
@@ -8133,6 +8190,13 @@
           }
         ],
         "outcome": ["success"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["save:reflex"],
+        "adjustment": {
+          "success": "one-degree-better"
+        }
       }
     ],
     "externalIds": {
@@ -8627,6 +8691,13 @@
         "key": "Proficiency",
         "selector": "save:will",
         "rank": "master"
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["save:will"],
+        "adjustment": {
+          "success": "one-degree-better"
+        }
       }
     ],
     "externalIds": {
@@ -8833,6 +8904,13 @@
         "key": "Proficiency",
         "selector": "save:will",
         "rank": "master"
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["save:will"],
+        "adjustment": {
+          "success": "one-degree-better"
+        }
       }
     ],
     "externalIds": {
@@ -9012,6 +9090,13 @@
         "key": "Proficiency",
         "selector": "save:will",
         "rank": "master"
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["save:will"],
+        "adjustment": {
+          "success": "one-degree-better"
+        }
       }
     ],
     "externalIds": {
@@ -9088,6 +9173,13 @@
         "key": "Proficiency",
         "selector": "save:fortitude",
         "rank": "expert"
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["save:fortitude"],
+        "adjustment": {
+          "success": "one-degree-better"
+        }
       }
     ],
     "externalIds": {
@@ -14066,6 +14158,13 @@
         "key": "Proficiency",
         "selector": "save:reflex",
         "rank": "master"
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["save:reflex"],
+        "adjustment": {
+          "success": "one-degree-better"
+        }
       }
     ],
     "externalIds": {
@@ -14981,6 +15080,13 @@
         "key": "Proficiency",
         "selector": "save:fortitude",
         "rank": "master"
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["save:fortitude"],
+        "adjustment": {
+          "success": "one-degree-better"
+        }
       }
     ],
     "externalIds": {
@@ -15559,6 +15665,13 @@
         "key": "Proficiency",
         "selector": "save:will",
         "rank": "master"
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["save:will"],
+        "adjustment": {
+          "success": "one-degree-better"
+        }
       }
     ],
     "externalIds": {
@@ -15786,6 +15899,13 @@
         "key": "Proficiency",
         "selector": "save:will",
         "rank": "master"
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["save:will"],
+        "adjustment": {
+          "success": "one-degree-better"
+        }
       }
     ],
     "externalIds": {

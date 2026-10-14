@@ -14,6 +14,7 @@ export const RulesMessage = {
   UnknownElement: 'rules.element.unknown',
   SuboptionsNeedToggle: 'rules.element.suboptionsNeedToggle',
   AdjustModeOrSuppress: 'rules.element.adjustModeOrSuppress',
+  AdjustDegreeNeedsChange: 'rules.element.adjustDegreeNeedsChange',
   SpellcastingSlugLength: 'rules.element.spellcastingSlugLength',
   LanguageGrantOrSlots: 'rules.element.languageGrantOrSlots',
   ActorTraitsAddOrRemove: 'rules.element.actorTraitsAddOrRemove',

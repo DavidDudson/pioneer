@@ -436,25 +436,6 @@
     {
       "type": "entry",
       "pack": "divine-mysteries",
-      "slug": "class-feature:major-creed",
-      "foundry": "Compendium.pf2e.classfeatures.Item.kpdb5TJ0F5uCTX0F",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "success": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "selector": "fortitude"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
       "slug": "class-feature:moderate-creed",
       "foundry": "Compendium.pf2e.classfeatures.Item.cs9SDe93GHTHlzTz",
       "gaps": [
@@ -2892,23 +2873,6 @@
             "selector": "skill-check",
             "type": "status",
             "value": 2
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
-      "slug": "effect:effect-guiding-words",
-      "foundry": "Compendium.pf2e.feat-effects.Item.9hIzh4UvjSTyYBby",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "RollTwice",
-          "raw": {
-            "keep": "higher",
-            "key": "RollTwice",
-            "selector": "attack-roll"
           }
         }
       ]

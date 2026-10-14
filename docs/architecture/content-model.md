@@ -642,6 +642,11 @@ FlatModifier` appends the import's rules of the keys named to the committed entr
   `med` `medium`, `lg` `large`, `grg` `gargantuan`) or, as a number, as steps from the current size; `resizeEquipment` and
   `reach` (`override` or `add`) stand. A size or reach read from a pick stays in the backlog. An `ActorTraits` needs no
   change; one whose predicate compares with the item level (`{item|level}`) stays in the backlog.
+- **Check shaping.** An `AdjustDegreeOfSuccess` (`adjustment` per degree or `all`, each `one-degree-better`,
+  `to-success` and so on; `type` becomes `checkType`), a `RollTwice` (`keep` `higher` or `lower`) and a `SubstituteRoll`
+  (`slug`, `value`, `label` as `display.label`) read their `selector` as `selectors`, as a modifier does. A
+  `removeAfterRoll: false` is Foundry's default and is dropped; `true` (an effect spent by its roll) stays in the
+  backlog, as does a `SubstituteRoll` whose skill is read from a `ChoiceSet` pick (Assurance).
 - **Dropped on purpose.** `TokenLight`, `TokenEffectIcon` and `TokenMark` only change a Foundry token (its light, the
   icon of an effect on it, a mark), and Pioneer has no token. The import drops them with the reason `token-only` and
   prints them apart from the untranslated rule elements; they are not in the backlog, so an entry whose only gap

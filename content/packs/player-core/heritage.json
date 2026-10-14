@@ -524,6 +524,19 @@
             "or": ["origin:trait:undead", "option:void"]
           }
         ]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["saving-throw"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "checkType": "save",
+        "predicate": [
+          {
+            "or": ["origin:trait:undead", "option:void"]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -926,7 +939,17 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["saving-throw"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "checkType": "save",
+        "predicate": ["option:emotion"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.heritages.Item.Eq42wZ5OTweJLnLU"
     },
@@ -1087,6 +1110,19 @@
         "type": "circumstance",
         "value": 2,
         "slug": "irongut-save-bonus",
+        "predicate": [
+          "item:trait:ingested",
+          {
+            "or": ["inflicts:sickened", "item:type:affliction"]
+          }
+        ]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["saving-throw"],
+        "adjustment": {
+          "success": "to-critical-success"
+        },
         "predicate": [
           "item:trait:ingested",
           {
@@ -2108,7 +2144,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill:athletics"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "predicate": ["action:climb"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.heritages.Item.evXJISqyhl3fHE9u"
     },
