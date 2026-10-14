@@ -1,11 +1,12 @@
 import type { Provider } from '@angular/core';
-import { BundleHash, bundlePath, contentBundles } from '@pioneer/rules/sdk';
+import { BundleHash, bundlePath, contentBundles, contentPackId } from '@pioneer/rules/sdk';
 import type {
   BundleBody,
   BundleFile,
   CanonicalJson,
   ContentBundles,
   ContentManifest,
+  ContentPackId,
   PackContentsLoader,
   PackId,
 } from '@pioneer/rules/sdk';
@@ -67,7 +68,11 @@ async function bundlesOf(packs: readonly PackContentsLoader[]): Promise<ContentB
 }
 
 /** What a test delivery was asked for, by URL path. */
-export type DeliveryRequest = 'manifest' | `${PackId}/${BundleFile}`;
+export type DeliveryRequest =
+  | 'manifest'
+  | 'homebrew-manifest'
+  | `${PackId}/${BundleFile}`
+  | `homebrew:${PackId}/${BundleFile}`;
 
 /**
  * Serves packs' bundles from memory, as the content routes would, and records each request. Set `offline` to make
@@ -77,10 +82,13 @@ export class TestContentDelivery implements ContentDelivery {
   public offline = false;
   public readonly requests: DeliveryRequest[] = [];
   #packs: readonly PackContentsLoader[];
+  readonly #homebrew: readonly PackContentsLoader[];
   #bundles: Promise<ContentBundles> | undefined;
 
-  public constructor(packs: readonly PackContentsLoader[]) {
+  /** Serves `packs` publicly, and `homebrew` to the signed-in user who asks for them. */
+  public constructor(packs: readonly PackContentsLoader[], homebrew: readonly PackContentsLoader[] = []) {
     this.#packs = packs;
+    this.#homebrew = homebrew;
   }
 
   /** Serves `packs` from now on, as a deploy that re-seeds them does: bundles no longer current fail. */
@@ -103,6 +111,24 @@ export class TestContentDelivery implements ContentDelivery {
     const body = bodies.get(bundlePath(pack, file));
     if (body === undefined) {
       throw new Error(`No bundle ${pack}/${file}`);
+    }
+    return body;
+  };
+
+  public readonly homebrewManifest = async (asked: readonly ContentPackId[]): Promise<ContentManifest> => {
+    this.requests.push('homebrew-manifest');
+    this.#checkOnline();
+    const { manifest } = await bundlesOf(this.#homebrew);
+    return { packs: manifest.packs.filter((pack) => asked.includes(contentPackId(pack.id))) };
+  };
+
+  public readonly homebrewBundle = async (pack: PackId, file: BundleFile): Promise<BundleBody> => {
+    this.requests.push(`homebrew:${pack}/${file}`);
+    this.#checkOnline();
+    const { bodies } = await bundlesOf(this.#homebrew);
+    const body = bodies.get(bundlePath(pack, file));
+    if (body === undefined) {
+      throw new Error(`No homebrew bundle ${pack}/${file}`);
     }
     return body;
   };

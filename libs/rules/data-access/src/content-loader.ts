@@ -1,6 +1,15 @@
 import { inject, Injectable } from '@angular/core';
 import { bundlePath, ContentKind, contentPackFromBundles, ContentRegistry } from '@pioneer/rules/sdk';
-import type { ContentManifest, ContentPack, FetchedKind, KindBundles, PackBundles, PackId } from '@pioneer/rules/sdk';
+import type {
+  BundleFile,
+  ContentManifest,
+  ContentPack,
+  ContentPackId,
+  FetchedKind,
+  KindBundles,
+  PackBundles,
+  PackId,
+} from '@pioneer/rules/sdk';
 import { IDLE_SCHEDULER } from '@pioneer/shared/web';
 
 import { ContentBundleCache } from './content-bundle-cache';
@@ -23,6 +32,15 @@ function likelyNext(kinds: readonly ContentKind[]): readonly ContentKind[] {
   return [...next].filter((kind) => !kinds.includes(kind));
 }
 
+/** Where a pack's bundles are fetched from: the public ones, or the signed-in user's homebrew. */
+type BundleFetch = (pack: PackId, file: BundleFile) => Promise<unknown>;
+
+/** A kind's two bundles of `pack`, fetched together. */
+async function fetchKind(pack: PackId, { mechanics, names }: KindBundles, fetch: BundleFetch): Promise<FetchedKind> {
+  const [mechanicsBody, namesBody] = await Promise.all([fetch(pack, mechanics), fetch(pack, names)]);
+  return { mechanics: mechanicsBody, names: namesBody };
+}
+
 /** A pack's bundles for `kinds`, of the kinds it has. */
 function kindsIn(pack: PackBundles, kinds: readonly ContentKind[]): readonly KindBundles[] {
   return pack.kinds.filter((bundles) => kinds.includes(bundles.kind));
@@ -38,24 +56,34 @@ export class ContentLoader {
   readonly #cache = inject(ContentBundleCache);
   readonly #whenIdle = inject(IDLE_SCHEDULER);
   readonly #packs = inject(CONTENT_PACK_CACHE);
+  readonly #official: BundleFetch = async (pack, file) => this.#cache.bundle(pack, file);
+  readonly #homebrew: BundleFetch = async (pack, file) => this.#cache.homebrewBundle(pack, file);
 
   /**
-   * A registry of every official pack with the entries of `kinds`, then the likely next kinds prefetched when idle.
-   * A load that fails reads the manifest again and tries once more: a re-seed since the session read it makes the
-   * bundles it names a 404.
+   * A registry of every official pack with the entries of `kinds`, then the homebrew `homebrew` packs the user may read
+   * (a character's or a campaign's, with what they extend), then the likely next kinds prefetched when idle. A load
+   * that fails reads the manifests again and tries once more: a re-seed since the session read them makes the bundles
+   * they name a 404.
    */
-  public async registry(kinds: readonly ContentKind[]): Promise<ContentRegistry> {
+  public async registry(
+    kinds: readonly ContentKind[],
+    homebrew: readonly ContentPackId[] = [],
+  ): Promise<ContentRegistry> {
     try {
-      return await this.#build(kinds);
+      return await this.#build(kinds, homebrew);
     } catch {
       this.#cache.forgetManifest();
-      return this.#build(kinds);
+      this.#cache.forgetHomebrew();
+      return this.#build(kinds, homebrew);
     }
   }
 
-  async #build(kinds: readonly ContentKind[]): Promise<ContentRegistry> {
-    const manifest = await this.#cache.manifest();
-    const packs = await Promise.all(manifest.packs.map(async (pack) => this.#pack(pack, kinds)));
+  async #build(kinds: readonly ContentKind[], homebrew: readonly ContentPackId[]): Promise<ContentRegistry> {
+    const [manifest, brewed] = await Promise.all([this.#cache.manifest(), this.#cache.homebrewManifest(homebrew)]);
+    const packs = await Promise.all([
+      ...manifest.packs.map(async (pack) => this.#pack(pack, kinds, this.#official)),
+      ...brewed.packs.map(async (pack) => this.#pack(pack, kinds, this.#homebrew)),
+    ]);
     const registry = new ContentRegistry();
     for (const pack of packs) {
       registry.register(pack);
@@ -64,11 +92,11 @@ export class ContentLoader {
     return registry;
   }
 
-  async #pack(pack: PackBundles, kinds: readonly ContentKind[]): Promise<ContentPack> {
+  async #pack(pack: PackBundles, kinds: readonly ContentKind[], fetch: BundleFetch): Promise<ContentPack> {
     const used = kindsIn(pack, kinds).flatMap(({ mechanics, names }) => [mechanics, names]);
     const [file, ...fetched] = await Promise.all([
-      this.#cache.bundle(pack.id, pack.file),
-      ...kindsIn(pack, kinds).map(async (bundles) => this.#kind(pack.id, bundles)),
+      fetch(pack.id, pack.file),
+      ...kindsIn(pack, kinds).map(async (bundles) => fetchKind(pack.id, bundles, fetch)),
     ]);
     const key = [pack.file, ...used].map((each) => bundlePath(pack.id, each)).join('\n');
     const built = this.#packs.get(key);
@@ -86,14 +114,6 @@ export class ContentLoader {
     }
   }
 
-  async #kind(pack: PackId, { mechanics, names }: KindBundles): Promise<FetchedKind> {
-    const [mechanicsBody, namesBody] = await Promise.all([
-      this.#cache.bundle(pack, mechanics),
-      this.#cache.bundle(pack, names),
-    ]);
-    return { mechanics: mechanicsBody, names: namesBody };
-  }
-
   /** Fetches `kinds` into the store when the browser is idle. A failure only means they are fetched when needed. */
   #prefetch(manifest: ContentManifest, kinds: readonly ContentKind[]): void {
     if (kinds.length === 0) {
@@ -107,7 +127,7 @@ export class ContentLoader {
 
   async #fetchKinds(manifest: ContentManifest, kinds: readonly ContentKind[]): Promise<void> {
     const fetches = manifest.packs.flatMap((pack) =>
-      kindsIn(pack, kinds).map(async (bundles) => this.#kind(pack.id, bundles)),
+      kindsIn(pack, kinds).map(async (bundles) => fetchKind(pack.id, bundles, this.#official)),
     );
     try {
       await Promise.all(fetches);

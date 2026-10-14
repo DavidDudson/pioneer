@@ -1,10 +1,13 @@
 import { inject, Injectable } from '@angular/core';
 import { bundlePath, ContentManifest } from '@pioneer/rules/sdk';
-import type { BundleFile, PackId } from '@pioneer/rules/sdk';
+import type { BundleFile, BundlePath, ContentPackId, PackId } from '@pioneer/rules/sdk';
 
 import { CONTENT_BUNDLE_STORE, MANIFEST_KEY } from './bundle-store';
 import type { StoredKey } from './bundle-store';
 import { CONTENT_DELIVERY } from './content-delivery';
+
+/** The manifest of no packs. */
+const NO_PACKS: ContentManifest = { packs: [] };
 
 /** Every key a manifest keeps in the store: itself and each bundle it names. */
 function currentKeys(manifest: ContentManifest): ReadonlySet<StoredKey> {
@@ -26,6 +29,9 @@ export class ContentBundleCache {
   readonly #delivery = inject(CONTENT_DELIVERY);
   readonly #store = inject(CONTENT_BUNDLE_STORE);
   #manifest: Promise<ContentManifest> | undefined;
+  /** Homebrew manifests and bundles of this session, kept in memory only: they are private to the signed-in user. */
+  readonly #homebrewManifests = new Map<string, Promise<ContentManifest>>();
+  readonly #homebrewBodies = new Map<BundlePath, Promise<unknown>>();
 
   /** The current manifest, read once a session. A failed read is not kept, so the next ask tries again. */
   public async manifest(): Promise<ContentManifest> {
@@ -47,6 +53,49 @@ export class ContentBundleCache {
    */
   public forgetManifest(): void {
     this.#manifest = undefined;
+  }
+
+  /**
+   * The bundles of the homebrew `packs` the user may read, with the packs they extend, read once a session for each
+   * set. Never kept in the store: homebrew is not public, so it is not left in the browser after the session. A failed
+   * read is not kept, so the next ask tries again.
+   */
+  public async homebrewManifest(packs: readonly ContentPackId[]): Promise<ContentManifest> {
+    if (packs.length === 0) {
+      return NO_PACKS;
+    }
+    const key = [...new Set(packs)].toSorted().join(',');
+    const manifest = this.#homebrewManifests.get(key) ?? this.#delivery.homebrewManifest(packs);
+    this.#homebrewManifests.set(key, manifest);
+    try {
+      return await manifest;
+    } catch (error) {
+      if (this.#homebrewManifests.get(key) === manifest) {
+        this.#homebrewManifests.delete(key);
+      }
+      throw error;
+    }
+  }
+
+  /** A homebrew bundle's body, fetched once a session. */
+  public async homebrewBundle(pack: PackId, file: BundleFile): Promise<unknown> {
+    const path = bundlePath(pack, file);
+    const body = this.#homebrewBodies.get(path) ?? this.#delivery.homebrewBundle(pack, file);
+    this.#homebrewBodies.set(path, body);
+    try {
+      return await body;
+    } catch (error) {
+      if (this.#homebrewBodies.get(path) === body) {
+        this.#homebrewBodies.delete(path);
+      }
+      throw error;
+    }
+  }
+
+  /** Drops every homebrew manifest and bundle of the session, so the next ask reads them again. */
+  public forgetHomebrew(): void {
+    this.#homebrewManifests.clear();
+    this.#homebrewBodies.clear();
   }
 
   /** Drops `files` of `pack` from the store, so the next ask fetches them again. */
