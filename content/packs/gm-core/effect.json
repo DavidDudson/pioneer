@@ -324,7 +324,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 8
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.eyXUwWx5omiQWGZw"
     },
@@ -1329,7 +1334,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FastHealing",
+        "value": 15
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.TYxcUvcFuuBxWXF2"
     },
@@ -2459,6 +2469,10 @@
         "selectors": ["ac", "saving-throw"],
         "type": "status",
         "value": 4
+      },
+      {
+        "key": "FastHealing",
+        "value": 15
       }
     ],
     "externalIds": {

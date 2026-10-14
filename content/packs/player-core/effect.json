@@ -4247,7 +4247,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FastHealing",
+        "value": 5
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.YaSxccYfE5ShFdFd"
     },
@@ -5731,7 +5736,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@level"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.Px4E3Hyx2pmvSWAA"
     },
@@ -12708,7 +12718,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "10 + (@item.level - 2) * 3"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.PANUWN5xXC20WBg2"
     },
@@ -14243,7 +14258,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FastHealing",
+        "value": "@item.level * 2"
+      },
+      {
+        "key": "TempHP",
+        "value": "@item.level * 2"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.C1GAlZ6Gmmw0QIJN"
     },
@@ -14713,7 +14737,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FastHealing",
+        "value": "@item.level * 2"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.NQZ88IoKeMBsfjp7"
     },
@@ -15060,7 +15089,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FastHealing",
+        "value": "@item.level * 2 - 1"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.tjC6JeZgLDPIMHjG"
     },
@@ -15773,6 +15807,20 @@
             "or": ["item:slug:moon-frenzy-claws", "item:slug:moon-frenzy-fangs"]
           }
         ]
+      },
+      {
+        "key": "TempHP",
+        "value": "ternary(gte(@item.level, 10), 20, ternary(gte(@item.level, 6), 10, 5))",
+        "predicate": [
+          {
+            "not": "parent:origin:item:tag:ancestral-spell:beastkin"
+          }
+        ]
+      },
+      {
+        "key": "TempHP",
+        "value": "ternary(gte(@item.level, 10), 20, ternary(gte(@item.level, 6), 15, 5))",
+        "predicate": ["parent:origin:item:tag:ancestral-spell:beastkin"]
       }
     ],
     "externalIds": {
@@ -17788,7 +17836,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FastHealing",
+        "value": "ternary(gte(@item.level, 9), 20, 15)",
+        "type": "regeneration",
+        "deactivatedBy": ["acid", "fire"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.dXq7z633ve4E0nlX"
     },
@@ -21115,6 +21170,10 @@
         "type": "status",
         "value": "ternary(gte(@item.level, 9), 3, 2)",
         "predicate": ["item:trait:mental"]
+      },
+      {
+        "key": "TempHP",
+        "value": "ternary(gte(@item.level, 9), 18, 12)"
       }
     ],
     "externalIds": {

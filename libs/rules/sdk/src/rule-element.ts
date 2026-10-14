@@ -7,6 +7,7 @@ import { ActorTraitsElement } from './rule-element-actor-traits';
 import { RuleElementKey } from './rule-element-base';
 import { DamageAlterationElement, DamageDiceElement } from './rule-element-damage';
 import { ImmunityElement, ResistanceElement, WeaknessElement } from './rule-element-defences';
+import { FastHealingElement, TempHPElement } from './rule-element-healing';
 import { ItemAlterationElement } from './rule-element-item-alteration';
 import { LanguageElement } from './rule-element-language';
 import { NoteElement } from './rule-element-note';
@@ -62,6 +63,8 @@ const Element = z.discriminatedUnion('key', [
   DamageDiceElement,
   DamageAlterationElement,
   NoteElement,
+  FastHealingElement,
+  TempHPElement,
 ]);
 
 /** Names the `key` when the value is an object whose `key` is a string Pioneer does not know. */

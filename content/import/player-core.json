@@ -6703,22 +6703,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:effect-resurrectionist",
-      "foundry": "Compendium.pf2e.feat-effects.Item.YaSxccYfE5ShFdFd",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FastHealing",
-          "raw": {
-            "key": "FastHealing",
-            "value": 5
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:effect-sanctify-armament",
       "foundry": "Compendium.pf2e.feat-effects.Item.ImkjllInxmrdDCOq",
       "gaps": [
@@ -7249,22 +7233,6 @@
             "selector": "saving-throw",
             "type": "circumstance",
             "value": "@item.flags.system.rulesSelections.bonus"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:effect-undying-ferocity",
-      "foundry": "Compendium.pf2e.feat-effects.Item.Px4E3Hyx2pmvSWAA",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "TempHP",
-          "raw": {
-            "key": "TempHP",
-            "value": "@actor.level"
           }
         }
       ]
@@ -12534,22 +12502,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:spell-effect-false-vitality",
-      "foundry": "Compendium.pf2e.spell-effects.Item.PANUWN5xXC20WBg2",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "TempHP",
-          "raw": {
-            "key": "TempHP",
-            "value": "10 + (@item.level - 2) * 3"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:spell-effect-fiery-body",
       "foundry": "Compendium.pf2e.spell-effects.Item.uIMaMzd6pcKmMNPJ",
       "gaps": [
@@ -13026,22 +12978,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "FastHealing",
-          "raw": {
-            "key": "FastHealing",
-            "value": "@item.level * 2"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "TempHP",
-          "raw": {
-            "key": "TempHP",
-            "value": "@item.level * 2"
-          }
-        },
-        {
-          "type": "rule",
           "key": "RollOption",
           "raw": {
             "key": "RollOption",
@@ -13112,22 +13048,6 @@
             "key": "RollTwice",
             "predicate": ["action:recall-knowledge"],
             "selector": "skill-check"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-life-boost",
-      "foundry": "Compendium.pf2e.spell-effects.Item.NQZ88IoKeMBsfjp7",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FastHealing",
-          "raw": {
-            "key": "FastHealing",
-            "value": "@item.level * 2"
           }
         }
       ]
@@ -13261,22 +13181,6 @@
             "key": "Resistance",
             "type": "spells",
             "value": "@item.flags.system.rulesSelections.magicsVesselRank"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-malignant-sustenance",
-      "foundry": "Compendium.pf2e.spell-effects.Item.tjC6JeZgLDPIMHjG",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FastHealing",
-          "raw": {
-            "key": "FastHealing",
-            "value": "@item.level * 2 - 1"
           }
         }
       ]
@@ -13635,28 +13539,6 @@
       "slug": "effect:spell-effect-moon-frenzy",
       "foundry": "Compendium.pf2e.spell-effects.Item.zRKw95WMezr6TgiT",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "TempHP",
-          "raw": {
-            "key": "TempHP",
-            "predicate": [
-              {
-                "not": "parent:origin:item:tag:ancestral-spell:beastkin"
-              }
-            ],
-            "value": "ternary(gte(@item.level, 10), 20, ternary(gte(@item.level, 6), 10, 5))"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "TempHP",
-          "raw": {
-            "key": "TempHP",
-            "predicate": ["parent:origin:item:tag:ancestral-spell:beastkin"],
-            "value": "ternary(gte(@item.level, 10), 20, ternary(gte(@item.level, 6), 15, 5))"
-          }
-        },
         {
           "type": "rule",
           "key": "Weakness",
@@ -14554,24 +14436,6 @@
           }
         }
       }
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-regenerate",
-      "foundry": "Compendium.pf2e.spell-effects.Item.dXq7z633ve4E0nlX",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FastHealing",
-          "raw": {
-            "deactivatedBy": ["acid", "fire"],
-            "key": "FastHealing",
-            "type": "regeneration",
-            "value": "ternary(gte(@item.level,9),20,15)"
-          }
-        }
-      ]
     },
     {
       "type": "entry",
@@ -15718,22 +15582,6 @@
             "mode": "add",
             "property": "traits",
             "value": "sanctified"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-zealous-conviction",
-      "foundry": "Compendium.pf2e.spell-effects.Item.nemThuhp3praALY6",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "TempHP",
-          "raw": {
-            "key": "TempHP",
-            "value": "ternary(gte(@item.level,9),18,12)"
           }
         }
       ]

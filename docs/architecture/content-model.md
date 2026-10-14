@@ -625,6 +625,11 @@ FlatModifier` appends the import's rules of the keys named to the committed entr
   pick (`{item|flags.system.rulesSelections.speed}`) and a value read from the actor's land Speed
   (`@actor.system.movement.speeds.land.value`, which is the Speed after modifiers, not the base `@stat.speed.land`)
   stay in the backlog.
+- **Healing.** `FastHealing` and `TempHP` carry over with their `value` (a number, or a formula of the item or the actor
+  level), a predicate, and for `FastHealing` its `type` (fast healing or regeneration) and `deactivatedBy` damage types.
+  A value read from the origin item (`@item.origin.level`), from a pick (`@item.flags.system.rulesSelections.rank`) or
+  from another actor's attribute stays in the backlog, as does Foundry's `TempHP` `expiration`, which no content in the
+  packs sets.
 - **Dropped on purpose.** `TokenLight`, `TokenEffectIcon` and `TokenMark` only change a Foundry token (its light, the
   icon of an effect on it, a mark), and Pioneer has no token. The import drops them with the reason `token-only` and
   prints them apart from the untranslated rule elements; they are not in the backlog, so an entry whose only gap

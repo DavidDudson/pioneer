@@ -22,6 +22,7 @@ import { DegreeOfSuccess } from '../degree-of-success';
 import { ModifierType } from '../modifier-type';
 import { Proficiency } from '../proficiency';
 import { DamageDiceCategory, DamageProperty } from '../rule-element-damage';
+import { FastHealingType } from '../rule-element-healing';
 import { NumericAlterationMode, NumericItemProperty, TraitAlterationMode } from '../rule-element-item-alteration';
 import { AdjustMode, ChangeMode } from '../rule-element-numbers';
 import { ArmorCategory, MartialKind, WeaponCategory } from '../rule-element-proficiency';
@@ -155,10 +156,8 @@ const change = element('Change', { selector: keyPathText, mode: anyOf(ChangeMode
 const dexterityCap = element('DexterityCap', { value: modifierValue });
 const penaltyStep = oneof(integer({ min: -SMALLINT_MAX, max: 0 }), validFormulaText);
 const multipleAttackPenalty = element('MultipleAttackPenalty', { selectors: targets, value: penaltyStep });
-
 const raisedRank = constantFrom(...Object.values(Proficiency).filter((rank) => rank !== Proficiency.Untrained));
 const proficiency = element('Proficiency', { selector: keyPathText, rank: raisedRank });
-
 const martialProficiency = element(
   'MartialProficiency',
   { slug: slugText, definition: predicateJson },
@@ -170,7 +169,6 @@ const martialProficiency = element(
     visible: boolean(),
   },
 );
-
 const BONUS_MAX = 99;
 const bonusNumber = integer({ min: -BONUS_MAX, max: BONUS_MAX });
 /** A proficiency bonus formula: a number, or a number plus `@level`. */
@@ -180,7 +178,6 @@ const bonusFormula: Arbitrary<string> = oneof(
 );
 const bonusTable = Object.fromEntries(Object.values(Proficiency).map((rank) => [rank, bonusFormula]));
 const proficiencyBonus = element('ProficiencyBonus', { table: record(bonusTable) });
-
 const defenceTypes = (types: Arbitrary<string>): Arbitrary<string[]> =>
   array(types, { minLength: 1, maxLength: LIST_MAX });
 const defenceValue = oneof(integer({ min: 1, max: SMALLINT_MAX }), validFormulaText);
@@ -189,7 +186,6 @@ const immunity = element('Immunity', { type: defenceTypes(slugText) });
 const adjustmentTargets = defenceTypes(anyOf(DamageAdjustmentTarget));
 const weakness = element('Weakness', { type: adjustmentTargets, value: defenceValue }, exceptions);
 const resistance = element('Resistance', { type: adjustmentTargets, value: defenceValue }, exceptions);
-
 const spellcastingEntry = element('SpellcastingEntry', {
   slug: slugText,
   tradition: anyOf(MagicTradition),
@@ -213,20 +209,16 @@ const spellSlots = element(
   },
   { pool: slugText },
 );
-
 const poolSpells = element('PoolSpells', {
   entry: slugText,
   pool: slugText,
   spells: uniqueArray(uuid(), { minLength: 1, maxLength: LIST_MAX }),
 });
-
 const deitySpells = element('DeitySpells', { entry: slugText });
-
 const actorTraits = oneof(
   element('ActorTraits', { add: uniqueArray(slugText, { minLength: 1, maxLength: LIST_MAX }) }),
   element('ActorTraits', { remove: uniqueArray(slugText, { minLength: 1, maxLength: LIST_MAX }) }),
 );
-
 const strike = element('Strike', { fist: constant(true) });
 const diceNumber = integer({ min: 0, max: LIST_MAX });
 const diceOptional = { slug: slugText, damageType, category: anyOf(DamageDiceCategory), critical: boolean() };
@@ -245,6 +237,12 @@ const damageAlteration = oneof(
 );
 const outcomes = uniqueArray(anyOf(DegreeOfSuccess), { minLength: 1, maxLength: LIST_MAX });
 const note = element('Note', { selectors: targets, text: richTextJson }, { title: contentText, outcome: outcomes });
+const fastHealing = element(
+  'FastHealing',
+  { value: modifierValue },
+  { type: anyOf(FastHealingType), deactivatedBy: uniqueArray(damageType, { minLength: 1, maxLength: LIST_MAX }) },
+);
+const tempHp = element('TempHP', { value: modifierValue });
 const signatureSpells = element('SignatureSpells', { entry: slugText });
 const focusSpells = element('FocusSpells', {
   entry: slugText,
@@ -297,4 +295,6 @@ export const ruleElementJson: Arbitrary<object> = oneof(
   damageDice,
   damageAlteration,
   note,
+  fastHealing,
+  tempHp,
 );
