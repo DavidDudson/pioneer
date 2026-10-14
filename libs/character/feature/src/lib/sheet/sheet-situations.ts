@@ -1,9 +1,9 @@
 import { rollSetups } from '@pioneer/character/domain';
 import type { Character } from '@pioneer/character/domain';
-import type { RuleId } from '@pioneer/rules/engine';
+import type { RuleId, StatisticValue } from '@pioneer/rules/engine';
 import { StatisticKind } from '@pioneer/rules/sdk';
 import type { ContentRegistry, Selector } from '@pioneer/rules/sdk';
-import type { NamedStatistic } from '@pioneer/rules/ui';
+import type { NamedStatistic, StatisticSituations } from '@pioneer/rules/ui';
 
 import { statisticInputsOf } from './sheet-inputs';
 import { sheetSlotContent } from './sheet-slot-content';
@@ -45,33 +45,52 @@ export interface SituationsRequest {
   readonly claims: SituationClaims;
 }
 
+/** A check derived again with its claimed situations counted, and the conditional lines it offers to claim. */
+export interface CheckSituations {
+  readonly statistic: StatisticValue;
+  readonly situations: StatisticSituations;
+}
+
+/**
+ * The checks among `selectors` derived again with the situations `claims` holds for each counted, and the conditional
+ * lines each offers to claim (`rollSetups`). A check with nothing to claim is left out.
+ */
+export function checkSituations(
+  registry: ContentRegistry,
+  character: Character,
+  { selectors, claims }: { readonly selectors: readonly Selector[]; readonly claims: SituationClaims },
+): ReadonlyMap<Selector, CheckSituations> {
+  const sources = { registry, slots: sheetSlotContent(registry), inputs: statisticInputsOf(registry, character) };
+  const wanted = new Map(
+    selectors.map((selector): [Selector, ReadonlySet<RuleId>] => [selector, claims.get(selector) ?? new Set()]),
+  );
+  const setups = rollSetups(character.document, sources, {
+    derived: sheetDerivation(registry, character),
+    claims: wanted,
+  });
+  const found = [...setups].flatMap(([selector, { statistic, conditional }]): [Selector, CheckSituations][] =>
+    conditional.length === 0
+      ? []
+      : [[selector, { statistic, situations: { offered: conditional, claimed: wanted.get(selector) ?? new Set() } }]],
+  );
+  return new Map(found);
+}
+
 /**
  * The checks among `statistics` with the situations claimed for each counted in their totals and breakdowns, and
- * the conditional lines each offers to claim (`rollSetups`). A statistic with nothing to claim comes back as it was.
+ * the conditional lines each offers to claim. A statistic with nothing to claim comes back as it was.
  */
 export function withSituations(
   registry: ContentRegistry,
   character: Character,
   { statistics, claims }: SituationsRequest,
 ): readonly NamedStatistic[] {
-  const checks = statistics.filter(({ kind, result }) => kind === StatisticKind.Check && result.ok);
-  const sources = { registry, slots: sheetSlotContent(registry), inputs: statisticInputsOf(registry, character) };
-  const wanted = new Map(
-    checks.map(({ result }): [Selector, ReadonlySet<RuleId>] => [
-      result.selector,
-      claims.get(result.selector) ?? new Set(),
-    ]),
-  );
-  const setups = rollSetups(character.document, sources, {
-    derived: sheetDerivation(registry, character),
-    claims: wanted,
-  });
+  const selectors = statistics
+    .filter(({ kind, result }) => kind === StatisticKind.Check && result.ok)
+    .map(({ result }) => result.selector);
+  const found = checkSituations(registry, character, { selectors, claims });
   return statistics.map((statistic) => {
-    const setup = setups.get(statistic.result.selector);
-    if (setup === undefined || setup.conditional.length === 0) {
-      return statistic;
-    }
-    const claimed = wanted.get(statistic.result.selector) ?? new Set<RuleId>();
-    return { ...statistic, result: setup.statistic, situations: { offered: setup.conditional, claimed } };
+    const check = found.get(statistic.result.selector);
+    return check === undefined ? statistic : { ...statistic, result: check.statistic, situations: check.situations };
   });
 }

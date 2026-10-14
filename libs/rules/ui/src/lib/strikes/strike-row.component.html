@@ -41,7 +41,11 @@
   @if (row().attacks; as attacks) {
     <fr-text>{{ attacks }}</fr-text>
   }
-  <pio-statistic-conditions [conditions]="row().attackConditions" />
+  <pio-statistic-conditions
+    [conditions]="row().attackConditions"
+    [toggles]="row().attackToggles"
+    (toggled)="claim($event)"
+  />
   <fr-text>{{ row().damage }}</fr-text>
   @for (line of row().thrown; track line) {
     <fr-text>{{ line }}</fr-text>

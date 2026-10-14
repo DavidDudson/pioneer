@@ -1,5 +1,5 @@
-import { deriveStrikes, EngineMessage } from '@pioneer/rules/engine';
-import type { StatisticValue, Strike, WeaponInputs } from '@pioneer/rules/engine';
+import { deriveStrikes, EngineMessage, LineStatusKind } from '@pioneer/rules/engine';
+import type { RuleId, StatisticValue, Strike, WeaponInputs } from '@pioneer/rules/engine';
 import { TextPosition } from '@pioneer/rules/formula';
 import {
   ContentId,
@@ -21,7 +21,7 @@ import {
 import { message } from '@pioneer/shared/kernel';
 
 import type { NamedStrike, StrikesShield } from '../strikes/strikes.component';
-import { GLOOM_WALKER, IN_DARKNESS, line, origin, statistic, term } from './breakdown-fixtures';
+import { GLOOM_WALKER, IN_DARKNESS, line, origin, ruleId, statistic, term } from './breakdown-fixtures';
 
 const PLAYER_CORE = PackId.parse('player-core');
 const STRENGTH = 4;
@@ -178,3 +178,34 @@ export const THROWN_STRIKES: readonly NamedStrike[] = [
 
 /** A steel shield held beside the weapons. */
 export const STEEL_SHIELD: StrikesShield = { name: 'Steel Shield', hardness: 5, hitPoints: 20, brokenThreshold: 10 };
+
+/** The rule of the attack line `claimableStrike` offers to claim: Gloom Walker, while you are in darkness. */
+export const DARKNESS_RULE: RuleId = ruleId(GLOOM_WALKER);
+
+const DARKNESS_LINE = line(GLOOM_WALKER, {
+  type: ModifierType.Circumstance,
+  value: DARKNESS_ATTACK_BONUS,
+  status: IN_DARKNESS,
+});
+
+/**
+ * A longsword whose attack offers Gloom Walker's situation for claiming, as the sheet derives it: with it claimed the
+ * line applies and the attack is +1.
+ */
+export function claimableStrike(claimed: boolean): readonly NamedStrike[] {
+  const applied = { ...DARKNESS_LINE, status: { kind: LineStatusKind.Applied } } as const;
+  return [
+    {
+      name: 'Longsword',
+      traits: [],
+      strike: {
+        ...strikeOf(0),
+        attack: statistic('strike:longsword', {
+          base: [term('@weapon.attr', STRENGTH), term('@weapon.prof', EXPERT_AT_FIRST)],
+          lines: [claimed ? applied : DARKNESS_LINE],
+        }),
+      },
+      situations: { offered: [DARKNESS_LINE], claimed: new Set(claimed ? [DARKNESS_RULE] : []) },
+    },
+  ];
+}

@@ -1,8 +1,12 @@
+import { applicationConfig } from '@analogjs/storybook-angular';
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 import { expect, within } from 'storybook/test';
 
+import { STATISTIC_ROLLER } from '../statistics/statistic-roller';
+import type { StatisticRoller } from '../statistics/statistic-roller';
 import { ENTRY_NAMES } from '../testing/breakdown-fixtures';
 import {
+  claimableStrike,
   FAILED_STRIKE,
   FIGHTER_STRIKES,
   NO_DAMAGE_STRIKE,
@@ -78,5 +82,32 @@ export const WithShield: StrikesStory = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     await expect(canvas.getByText('Steel Shield: Hardness 5, HP 20, Broken Threshold 10')).toBeVisible();
+  },
+};
+
+/** A roller that rolls and claims nothing, so the rows show their roll button and situation toggles. */
+const CLAIMING_ROLLER: StatisticRoller = { roll: () => undefined, claim: () => undefined };
+
+/** The longsword's attack offers Gloom Walker's situation as a toggle; the roll button sits beside the attack. */
+export const ClaimableSituation: StrikesStory = {
+  args: { strikes: claimableStrike(false) },
+  decorators: [applicationConfig({ providers: [{ provide: STATISTIC_ROLLER, useValue: CLAIMING_ROLLER }] })],
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const toggle = canvas.getByRole('button', { name: /when you are in darkness/u });
+    await expect(toggle).toHaveAttribute('aria-pressed', 'false');
+    await expect(canvas.getByText('Attack +9 / +4 / -1')).toBeVisible();
+  },
+};
+
+/** The situation claimed: the toggle is pressed, and the attack and its penalty steps count the line. */
+export const ClaimedSituation: StrikesStory = {
+  args: { strikes: claimableStrike(true) },
+  decorators: [applicationConfig({ providers: [{ provide: STATISTIC_ROLLER, useValue: CLAIMING_ROLLER }] })],
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const toggle = canvas.getByRole('button', { name: /when you are in darkness/u });
+    await expect(toggle).toHaveAttribute('aria-pressed', 'true');
+    await expect(canvas.getByText('Attack +10 / +5 / +0')).toBeVisible();
   },
 };
