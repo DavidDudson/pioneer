@@ -433,3 +433,4 @@ export {
   classPickerContent,
   type SubclassOption,
 } from './class-options';
+export { characterActions } from './available-actions';

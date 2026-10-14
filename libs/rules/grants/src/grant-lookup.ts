@@ -7,9 +7,11 @@ import type { ContentLookup, EntryFacts, GrantEntry } from './grant-entry';
  * The kinds grants read from the registry's envelope entries (`otherEntries`): those a character picks in a root slot,
  * the class features a class grants by level, feats, which a background or class grants by `GrantItem`, and the
  * items a character carries, which are roots while they are worn, held or invested, and conditions, roots while they
- * last (encumbered, while a character carries too much), and the property runes etched onto those items.
+ * last (encumbered, while a character carries too much), the property runes etched onto those items, and actions, which
+ * a feat, item or condition grants by `GrantItem`.
  */
 const ENVELOPE_KINDS: ReadonlySet<ContentKind> = new Set([
+  ContentKind.Action,
   ContentKind.AncestryFeature,
   ContentKind.Armor,
   ContentKind.Background,
