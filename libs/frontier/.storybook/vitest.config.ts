@@ -1,10 +1,10 @@
 import { defineConfig } from 'vitest/config';
 
-import { storybookThemeProjects } from './theme-projects';
+import { storybookProject } from './storybook-project';
 
-/** Frontier's stories as tests, one project per theme × colour mode. Run with `nx test-storybook frontier`. */
+/** Frontier's stories as tests. Run with `nx test-storybook frontier`. */
 export default defineConfig({
   test: {
-    projects: storybookThemeProjects(import.meta.dirname),
+    projects: [storybookProject(import.meta.dirname)],
   },
 });

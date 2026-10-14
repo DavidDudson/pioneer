@@ -365,8 +365,8 @@ serves Pioneer's Storybook, which composes them all (`apps/storybook`).
 
 `nx test-storybook frontier` (in `affected` and CI; `ci:storybook` runs every
 library's) runs every story as a
-test in headless Chromium through the Vitest addon, once per theme × colour
-mode (frontier/tavern × dark/light): its `play` function, then axe. Any axe
+test in headless Chromium through the Vitest addon, once, in the frontier theme and
+dark mode (`check:contrast` covers the other themes and modes): its `play` function, then axe. Any axe
 violation fails, colour contrast included. On Linux the devshell provides
 Chromium from nixpkgs (macOS has no Nix browsers wired up yet). The
 `playwright` version in `package.json` must equal nixpkgs'

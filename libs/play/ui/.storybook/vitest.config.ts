@@ -1,11 +1,11 @@
 import { defineConfig } from 'vitest/config';
 
 // oxlint-disable-next-line @nx/enforce-module-boundaries -- Vitest loads its config without tsconfig paths, so frontier's shared Storybook test setup is reached by path
-import { storybookThemeProjects } from '../../../frontier/.storybook/theme-projects';
+import { storybookProject } from '../../../frontier/.storybook/storybook-project';
 
-/** Play UI's stories as tests, one project per theme × colour mode. Run with `nx test-storybook play-ui`. */
+/** Play UI's stories as tests. Run with `nx test-storybook play-ui`. */
 export default defineConfig({
   test: {
-    projects: storybookThemeProjects(import.meta.dirname),
+    projects: [storybookProject(import.meta.dirname)],
   },
 });

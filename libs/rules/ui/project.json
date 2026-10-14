@@ -31,7 +31,7 @@
         {
           "env": "PLAYWRIGHT_DRIVER_VERSION"
         },
-        "{workspaceRoot}/libs/frontier/.storybook/theme-projects.ts"
+        "{workspaceRoot}/libs/frontier/.storybook/storybook-project.ts"
       ],
       "command": "vitest run --config libs/rules/ui/.storybook/vitest.config.ts"
     }

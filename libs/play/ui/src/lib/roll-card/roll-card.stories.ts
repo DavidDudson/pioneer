@@ -68,7 +68,8 @@ export const Success: RollCardStory = {
   args: { roll: SUCCESS, dc: Dc.parse(15), dcEditable: true },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    await expect(canvas.getByText('Success')).toBeVisible();
+    const [degree] = canvas.getAllByText('Success');
+    await expect(degree).toBeVisible();
   },
 };
 
