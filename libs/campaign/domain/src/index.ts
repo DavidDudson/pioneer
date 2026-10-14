@@ -16,14 +16,17 @@ export {
   CampaignMemberId,
   CampaignName,
   CampaignPackId,
+  CampaignVariantRuleId,
   CampaignRole,
   CharacterId,
   EnabledPackId,
+  EnabledVariantRuleId,
   InviteToken,
   InviteTokenHash,
   MemberName,
   PackPublisher,
   PackTitle,
+  VariantRuleName,
   PartyCharacterLevel,
   PartyCharacterName,
 } from './campaign-fields';
@@ -31,3 +34,9 @@ export { CampaignInvite, INVITE_LIFETIME, InviteStatus, InviteSummary } from './
 export { type CampaignPack, CampaignPacks, EnabledPack, PackCandidate, PackListing } from './campaign-packs';
 export { type CampaignCharacter, CampaignParty, OwnedCharacter, PartyCharacter } from './campaign-party';
 export { CampaignRoster, NamedMember } from './campaign-roster';
+export {
+  type CampaignVariantRule,
+  CampaignVariantRules,
+  EnableVariantRuleBody,
+  VariantRuleOption,
+} from './campaign-variant-rules';

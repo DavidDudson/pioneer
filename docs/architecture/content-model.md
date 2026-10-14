@@ -413,6 +413,9 @@ waits for Epic 2.4.
   exactly those packs. A GM enables a homebrew pack they may read, which enables the packs it extends too; official
   packs are always on (ADR-0058). A character outside campaigns enables its own in `character_packs`, the owner's
   private packs included; in a campaign it uses the campaign's and its own rows wait (ADR-0060).
+- **Enabled variant rules** are chosen the same way: a GM per campaign in `campaign_variant_rules`, a character outside
+  campaigns in `character_variant_rules`. A variant rule can be enabled only while a pack in force defines it, and is read
+  against the packs in force, so one whose pack is off waits and comes back with it (ADR-0061).
 
 Official content is JSON, not TypeScript: thousands of entries as TypeScript would slow typechecking for no benefit,
 and homebrew cannot use that path. A pack directory holds:

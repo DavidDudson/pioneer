@@ -42,7 +42,7 @@ import type { ContentSource } from '@pioneer/rules/sdk';
 import { message, NotFoundError, ValidationError, VersionConflictError } from '@pioneer/shared/kernel';
 import type { Clock, UserId } from '@pioneer/shared/kernel';
 
-import { contentOfCharacter } from './character-content';
+import { contentOfCharacter, variantRulesOfCharacter } from './character-content';
 import type { CharacterContentSource } from './character-content';
 import { mayAccessCharacter } from './character-policy';
 import type { CharacterRepository } from './character-repository';
@@ -158,7 +158,8 @@ export class PlayService {
     const registry = await this.#contentOf(character).registry();
     const slots = slotContent(registry);
     const inputs = characterStatisticInputs(registry, character.document, slots);
-    const sources = { registry, slots, inputs, variants: [] };
+    const variants = await variantRulesOfCharacter(this.#content, character);
+    const sources = { registry, slots, inputs, variants };
     const max = maxHitPoints(characterStatistics({ ...character.document, play }, sources));
     if (max === undefined) {
       throw new ValidationError([{ path: ['command'], message: message('character.validation.noMaxHitPoints') }]);

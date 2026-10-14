@@ -1,7 +1,8 @@
 import type { Character } from '@pioneer/character/domain';
-import type { ContentRegistry, ContentSource } from '@pioneer/rules/sdk';
+import type { ContentRegistry, ContentSource, VariantRuleEntry } from '@pioneer/rules/sdk';
 
 import type { EffectivePacks } from './effective-packs';
+import type { EffectiveVariants } from './effective-variants';
 
 /**
  * A content source that can also answer for one character. A plain `ContentSource` serves the official packs to
@@ -10,6 +11,8 @@ import type { EffectivePacks } from './effective-packs';
 export interface CharacterContentSource extends ContentSource {
   /** The content as `character` sees it: the official packs and the homebrew packs it uses. */
   readonly forCharacter?: (character: Character) => ContentSource;
+  /** The variant rules in force for `character`: enabled, and defined by a pack it uses. */
+  readonly variantRules?: (character: Character) => Promise<readonly VariantRuleEntry[]>;
 }
 
 /** The content `character` is worked out over. */
@@ -17,14 +20,27 @@ export function contentOfCharacter(content: CharacterContentSource, character: C
   return content.forCharacter?.(character) ?? content;
 }
 
-/** `content` for everyone, and for a character the homebrew packs `packs` says it uses as well. */
+/** The variant rules in force for `character`; none from a source that does not know them. */
+export async function variantRulesOfCharacter(
+  content: CharacterContentSource,
+  character: Character,
+): Promise<readonly VariantRuleEntry[]> {
+  return (await content.variantRules?.(character)) ?? [];
+}
+
+/**
+ * `content` for everyone, and for a character the homebrew packs `packs` says it uses as well, with the variant rules
+ * `variants` says are enabled for it.
+ */
 export class CharacterContent implements CharacterContentSource {
   readonly #content: ContentSource;
   readonly #packs: EffectivePacks;
+  readonly #variants: EffectiveVariants;
 
-  public constructor(content: ContentSource, packs: EffectivePacks) {
+  public constructor(content: ContentSource, packs: EffectivePacks, variants: EffectiveVariants) {
     this.#content = content;
     this.#packs = packs;
+    this.#variants = variants;
   }
 
   public async registry(): Promise<ContentRegistry> {
@@ -33,5 +49,17 @@ export class CharacterContent implements CharacterContentSource {
 
   public forCharacter(character: Character): ContentSource {
     return { registry: async () => this.#content.registry(await this.#packs.of(character)) };
+  }
+
+  /**
+   * The enabled variant rules the character's registry holds. One whose pack is no longer in force has no entry there,
+   * so it is dropped, and comes back with its pack (ADR-0061).
+   */
+  public async variantRules(character: Character): Promise<readonly VariantRuleEntry[]> {
+    const [registry, ids] = await Promise.all([this.forCharacter(character).registry(), this.#variants.of(character)]);
+    return ids.flatMap((id): VariantRuleEntry[] => {
+      const entry = registry.variantRule(id);
+      return entry === undefined ? [] : [entry];
+    });
   }
 }

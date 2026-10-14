@@ -3,6 +3,7 @@ import {
   CampaignPackService,
   CampaignPartyService,
   CampaignService,
+  CampaignVariantService,
 } from '@pioneer/campaign/application';
 import {
   campaignRoutes,
@@ -10,13 +11,16 @@ import {
   DrizzleCampaignPackRepository,
   DrizzleCampaignPartyRepository,
   DrizzleCampaignRepository,
+  DrizzleCampaignVariantRepository,
 } from '@pioneer/campaign/infrastructure';
 import { PackAccessPolicy } from '@pioneer/homebrew/application';
 import { DrizzlePackDependencyRepository, DrizzlePackDirectory } from '@pioneer/homebrew/infrastructure';
+import { ContentRepository, StoredContentSource } from '@pioneer/rules/infrastructure';
 import type { Clock } from '@pioneer/shared/kernel';
 import type { ContractRouter, RequestAuthenticator } from '@pioneer/shared/server';
 
 import { CampaignPackEnablementDirectory } from './campaign-pack-enablement-directory';
+import { CampaignVariantRuleCatalog } from './campaign-variant-rule-catalog';
 import type { Database } from './database';
 import { HomebrewPackCatalog } from './homebrew-pack-catalog';
 import { OwnedCharacterDirectory } from './owned-character-directory';
@@ -48,5 +52,14 @@ export function campaigns(db: Database, clock: Clock, authenticator: RequestAuth
     { campaigns: repository, packs: new DrizzleCampaignPackRepository(db), catalog },
     clock,
   );
-  return campaignRoutes({ campaigns: service, invites, party, packs }, authenticator);
+  const content = new StoredContentSource(new ContentRepository(db));
+  const variants = new CampaignVariantService(
+    {
+      campaigns: repository,
+      variants: new DrizzleCampaignVariantRepository(db),
+      catalog: new CampaignVariantRuleCatalog(db, content),
+    },
+    clock,
+  );
+  return campaignRoutes({ campaigns: service, invites, party, packs, variants }, authenticator);
 }

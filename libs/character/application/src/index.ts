@@ -21,3 +21,8 @@ export { InMemoryCharacterPackRepository } from './in-memory-character-pack-repo
 export { CharacterPackService, type CharacterPackPorts } from './character-pack-service';
 export { EffectivePacks } from './effective-packs';
 export { CharacterContent, type CharacterContentSource } from './character-content';
+export { CharacterVariantMessage } from './character-variant-message';
+export { CharacterVariantRepository } from './character-variant-repository';
+export { InMemoryCharacterVariantRepository } from './in-memory-character-variant-repository';
+export { CharacterVariantService, type CharacterVariantPorts } from './character-variant-service';
+export { EffectiveVariants } from './effective-variants';

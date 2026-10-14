@@ -9,18 +9,21 @@ import {
   CampaignName,
   CharacterId,
   EnabledPackId,
+  EnabledVariantRuleId,
   InviteToken,
 } from './campaign-fields';
 import { InviteSummary } from './campaign-invite';
 import { CampaignPacks } from './campaign-packs';
 import { CampaignParty } from './campaign-party';
 import { CampaignRoster } from './campaign-roster';
+import { CampaignVariantRules, EnableVariantRuleBody } from './campaign-variant-rules';
 
 const ById = z.object({ id: CampaignId });
 const ByInvite = z.object({ id: CampaignId, inviteId: CampaignInviteId });
 const ByMember = z.object({ id: CampaignId, memberId: CampaignMemberId });
 const ByCharacter = z.object({ id: CampaignId, characterId: CharacterId });
 const ByPack = z.object({ id: CampaignId, packId: EnabledPackId });
+const ByVariantRule = z.object({ id: CampaignId, variantId: EnabledVariantRuleId });
 
 /** An empty answer: the request did what it says. */
 const Done = z.strictObject({});
@@ -172,6 +175,36 @@ export const CampaignContract = {
     query: NoQuery,
     body: NoBody,
     response: CampaignPacks,
+  }),
+  /** The variant rules the campaign has enabled, and, for the GM, the ones they could enable. */
+  variantRules: new Endpoint({
+    method: HttpMethod.Get,
+    path: '/campaigns/:id/variant-rules',
+    params: ById,
+    query: NoQuery,
+    body: NoBody,
+    response: CampaignVariantRules,
+  }),
+  /**
+   * GM only: enables a variant rule of a pack the campaign uses. One no such pack defines is a 404. Enabling it twice is
+   * harmless.
+   */
+  enableVariantRule: new Endpoint({
+    method: HttpMethod.Post,
+    path: '/campaigns/:id/variant-rules',
+    params: ById,
+    query: NoQuery,
+    body: EnableVariantRuleBody,
+    response: CampaignVariantRules,
+  }),
+  /** GM only: stops the campaign using a variant rule. Disabling it twice is harmless. */
+  disableVariantRule: new Endpoint({
+    method: HttpMethod.Delete,
+    path: '/campaigns/:id/variant-rules/:variantId',
+    params: ByVariantRule,
+    query: NoQuery,
+    body: NoBody,
+    response: CampaignVariantRules,
   }),
   /** GM only: invites that still work, newest first. */
   invites: new Endpoint({

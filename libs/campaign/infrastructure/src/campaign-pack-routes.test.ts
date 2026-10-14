@@ -21,7 +21,7 @@ import { Elysia } from 'elysia';
 import type { AnyElysia } from 'elysia';
 
 import { campaignRoutes } from './campaign-routes';
-import { packService } from './testing/campaign-pack-fixtures';
+import { packService, variantService } from './testing/campaign-pack-fixtures';
 
 const amiri = UserId.parse(newId());
 const ezren = UserId.parse(newId());
@@ -63,6 +63,7 @@ function app(): AnyElysia {
     invites: new CampaignInviteService(campaigns, inviteRepository, clock),
     party,
     packs: packService(campaigns, clock, catalog),
+    variants: variantService(campaigns, clock),
   };
   return new Elysia().use(problemHandler).use(campaignRoutes(services, new FakeAuthenticator()));
 }

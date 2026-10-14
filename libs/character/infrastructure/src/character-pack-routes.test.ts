@@ -149,7 +149,11 @@ describe('character pack routes', () => {
   test('attaching to a campaign switches the effective set, and refuses changes', async () => {
     const { api, campaigns, path, characterId } = await setUp();
     await api.handle(request('POST', path, { as: amiri, body: { packId: spells } }));
-    campaigns.attach(characterId, { name: AttachedCampaignName.parse('Abomination Vaults'), packs: [foreign] });
+    campaigns.attach(characterId, {
+      name: AttachedCampaignName.parse('Abomination Vaults'),
+      packs: [foreign],
+      variants: [],
+    });
 
     const read = await json<PacksJson>(await api.handle(request('GET', path, { as: amiri })));
     expect(read.decidedBy).toBe('campaign');

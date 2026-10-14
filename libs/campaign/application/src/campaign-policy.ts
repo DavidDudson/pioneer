@@ -43,3 +43,8 @@ export function mayDetachCharacter(actor: UserId, campaign: Campaign, ownerId: U
 export function mayManagePacks(actor: UserId, campaign: Campaign): boolean {
   return campaign.roleOf(actor) === CampaignRole.Gm;
 }
+
+/** Who may enable and disable a campaign's variant rules: its GM. Every member may read the list. */
+export function mayManageVariantRules(actor: UserId, campaign: Campaign): boolean {
+  return campaign.roleOf(actor) === CampaignRole.Gm;
+}

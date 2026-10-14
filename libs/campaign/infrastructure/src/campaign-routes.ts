@@ -3,10 +3,13 @@ import type {
   CampaignPackService,
   CampaignPartyService,
   CampaignService,
+  CampaignVariantService,
 } from '@pioneer/campaign/application';
 import { CampaignContract } from '@pioneer/campaign/domain';
 import { ContractRouter } from '@pioneer/shared/server';
 import type { RequestAuthenticator } from '@pioneer/shared/server';
+
+import { campaignVariantRoutes } from './campaign-variant-routes';
 
 /** The application services the campaign routes call. */
 export interface CampaignServices {
@@ -14,6 +17,7 @@ export interface CampaignServices {
   readonly invites: CampaignInviteService;
   readonly party: CampaignPartyService;
   readonly packs: CampaignPackService;
+  readonly variants: CampaignVariantService;
 }
 
 /**
@@ -21,7 +25,7 @@ export interface CampaignServices {
  * signed-in user (401 otherwise); which campaigns that user may see is the services' policy.
  */
 export function campaignRoutes(
-  { campaigns: service, invites, party, packs }: CampaignServices,
+  { campaigns: service, invites, party, packs, variants }: CampaignServices,
   auth: RequestAuthenticator,
 ): ContractRouter['app'] {
   return new ContractRouter('campaign-routes')
@@ -60,5 +64,6 @@ export function campaignRoutes(
     .handleSignedIn(CampaignContract.createInvite, auth, async ({ actor, params }) => invites.create(actor, params.id))
     .handleSignedIn(CampaignContract.revokeInvite, auth, async ({ actor, params }) =>
       invites.revoke(actor, params.id, params.inviteId),
-    ).app;
+    )
+    .app.use(campaignVariantRoutes(variants, auth));
 }

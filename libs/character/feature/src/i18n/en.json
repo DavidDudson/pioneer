@@ -498,6 +498,9 @@
       }
     }
   },
+  "variantRules": {
+    "campaignDecides": "{campaign} decides which variant rules this character uses. Leave the campaign to choose your own."
+  },
   "packs": {
     "loadError": "Could not load the packs.",
     "empty": "No packs are on for this character.",

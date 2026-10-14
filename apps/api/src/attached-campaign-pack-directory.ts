@@ -1,8 +1,9 @@
-import { campaignCharacters, campaignPacks, campaigns } from '@pioneer/campaign/infrastructure';
+import { campaignCharacters, campaignPacks, campaigns, campaignVariantRules } from '@pioneer/campaign/infrastructure';
 import { AttachedCampaignPacks } from '@pioneer/character/application';
 import type { AttachedCampaign } from '@pioneer/character/application';
 import { AttachedCampaignName } from '@pioneer/character/domain';
 import type { CharacterId } from '@pioneer/character/domain';
+import { VariantRuleId } from '@pioneer/rules/sdk';
 import { eq } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 
@@ -32,6 +33,14 @@ export class CampaignPackDirectory extends AttachedCampaignPacks {
       .select({ packId: campaignPacks.packId })
       .from(campaignPacks)
       .where(eq(campaignPacks.campaignId, attached.id));
-    return { name: AttachedCampaignName.parse(attached.name), packs: rows.map((row) => row.packId) };
+    const variants = await this.#db
+      .select({ variantId: campaignVariantRules.variantId })
+      .from(campaignVariantRules)
+      .where(eq(campaignVariantRules.campaignId, attached.id));
+    return {
+      name: AttachedCampaignName.parse(attached.name),
+      packs: rows.map((row) => row.packId),
+      variants: variants.map((row) => VariantRuleId.parse(row.variantId)),
+    };
   }
 }

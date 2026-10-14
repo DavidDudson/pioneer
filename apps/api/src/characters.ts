@@ -1,6 +1,7 @@
 import {
   CharacterContent,
   CharacterPackService,
+  CharacterVariantService,
   CharacterService,
   FeatDisplayService,
   PioneerFileService,
@@ -9,10 +10,12 @@ import {
 } from '@pioneer/character/application';
 import {
   characterPackRoutes,
+  characterVariantRoutes,
   characterRoutes,
   featDisplayRoutes,
   DrizzleCharacterPackRepository,
   DrizzleCharacterRepository,
+  DrizzleCharacterVariantRepository,
   DrizzleFeatDisplayRepository,
   DrizzleSheetModeRepository,
   pioneerFileRoutes,
@@ -22,6 +25,7 @@ import {
 import { PackAccessPolicy } from '@pioneer/homebrew/application';
 import { DrizzlePackDependencyRepository, DrizzlePackDirectory } from '@pioneer/homebrew/infrastructure';
 import { ContentRepository, StoredContentSource } from '@pioneer/rules/infrastructure';
+import type { ContentSource } from '@pioneer/rules/sdk';
 import type { Clock } from '@pioneer/shared/kernel';
 import type { ContractRouter, RequestAuthenticator } from '@pioneer/shared/server';
 
@@ -31,6 +35,37 @@ import type { Database } from './database';
 import { HomebrewPackCatalog } from './homebrew-pack-catalog';
 import { PioneerEmbeddedHomebrew } from './pioneer-embedded-homebrew';
 
+/** What a character is worked out over beyond the build: the homebrew packs it uses and the variant rules enabled. */
+interface PackServices {
+  readonly packs: CharacterPackService;
+  readonly variants: CharacterVariantService;
+}
+
+/** What the pack services read a character's content and rows from. */
+interface CharacterParts {
+  readonly content: ContentSource;
+  readonly repository: DrizzleCharacterRepository;
+}
+
+/** The packs and variant rules a character uses, which a campaign it is attached to decides instead of its owner. */
+function packServices(db: Database, clock: Clock, { content, repository }: CharacterParts): PackServices {
+  const catalog = new HomebrewPackCatalog(
+    new DrizzlePackDirectory(db),
+    new DrizzlePackDependencyRepository(db),
+    new PackAccessPolicy(new CampaignPackEnablementDirectory(db)),
+  );
+  const campaigns = new CampaignPackDirectory(db);
+  const packs = new CharacterPackService(
+    { characters: repository, packs: new DrizzleCharacterPackRepository(db), catalog, campaigns },
+    clock,
+  );
+  const variants = new CharacterVariantService(
+    { characters: repository, variants: new DrizzleCharacterVariantRepository(db), content, packs, campaigns },
+    clock,
+  );
+  return { packs, variants };
+}
+
 /**
  * The character context's part of the composition root: content, services and routes. Content is read from the
  * content tables the seed fills, so a re-seed is served without a restart.
@@ -38,21 +73,8 @@ import { PioneerEmbeddedHomebrew } from './pioneer-embedded-homebrew';
 export function characters(db: Database, clock: Clock, authenticator: RequestAuthenticator): ContractRouter['app'] {
   const content = new StoredContentSource(new ContentRepository(db));
   const repository = new DrizzleCharacterRepository(db);
-  const catalog = new HomebrewPackCatalog(
-    new DrizzlePackDirectory(db),
-    new DrizzlePackDependencyRepository(db),
-    new PackAccessPolicy(new CampaignPackEnablementDirectory(db)),
-  );
-  const packs = new CharacterPackService(
-    {
-      characters: repository,
-      packs: new DrizzleCharacterPackRepository(db),
-      catalog,
-      campaigns: new CampaignPackDirectory(db),
-    },
-    clock,
-  );
-  const characterContent = new CharacterContent(content, packs);
+  const { packs, variants } = packServices(db, clock, { content, repository });
+  const characterContent = new CharacterContent(content, packs, variants);
   const service = new CharacterService(repository, characterContent, clock);
   const homebrew = new PioneerEmbeddedHomebrew(
     db,
@@ -68,5 +90,6 @@ export function characters(db: Database, clock: Clock, authenticator: RequestAut
     .use(sheetModeRoutes(sheetModes, authenticator))
     .use(featDisplayRoutes(featDisplay, authenticator))
     .use(characterPackRoutes(packs, authenticator))
+    .use(characterVariantRoutes(variants, authenticator))
     .use(playRoutes(play, authenticator));
 }

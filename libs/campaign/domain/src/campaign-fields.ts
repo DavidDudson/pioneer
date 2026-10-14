@@ -80,3 +80,18 @@ export type PackTitle = z.infer<typeof PackTitle>;
 /** A pack's publisher as the content tables show it; the campaign context only displays it. */
 export const PackPublisher = z.string().min(1).brand<'PackPublisher'>();
 export type PackPublisher = z.infer<typeof PackPublisher>;
+
+/** Row id of one variant rule enabled in a campaign; the audit log keys every row by an `id`. */
+export const CampaignVariantRuleId = Uuid.brand<'CampaignVariantRuleId'>();
+export type CampaignVariantRuleId = z.infer<typeof CampaignVariantRuleId>;
+
+/**
+ * A variant rule, as the rules context names it. Same brand as there, so ids pass between the contexts at the
+ * composition root unchanged; the campaign context only refers to variant rules.
+ */
+export const EnabledVariantRuleId = Uuid.brand<'VariantRuleId'>();
+export type EnabledVariantRuleId = z.infer<typeof EnabledVariantRuleId>;
+
+/** A variant rule's name as the content tables show it; the campaign context only displays it. */
+export const VariantRuleName = z.string().min(1).brand<'ContentText'>();
+export type VariantRuleName = z.infer<typeof VariantRuleName>;
