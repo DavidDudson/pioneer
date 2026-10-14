@@ -2,7 +2,8 @@ import { ChangeDetectionStrategy, Component, computed, inject, input } from '@an
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { EmptyState, List, ListItem, LocaleFormat, Skeleton, Text } from '@pioneer/frontier';
-import type { Strike, StrikeDamage, StatisticResult } from '@pioneer/rules/engine';
+import { NoteRoll } from '@pioneer/rules/engine';
+import type { ExtraDice, Strike, StrikeDamage, StatisticResult } from '@pioneer/rules/engine';
 import { StatisticKind } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
 import { filter, merge } from 'rxjs';
@@ -17,9 +18,10 @@ import type { ConditionToggle } from '../statistics/statistic-conditions/statist
 import { STATISTIC_ROLLER } from '../statistics/statistic-roller';
 import { StatisticsMessage } from '../statistics/statistics-messages';
 import type { StatisticSituations } from '../statistics/statistics.component';
+import type { ShownNote } from './strike-notes.component';
 import { StrikeRow } from './strike-row.component';
 import type { ShownAttack, ShownStrike } from './strike-row.component';
-import { StrikesMessage } from './strikes-messages';
+import { DAMAGE_CATEGORY_MESSAGES, NOTE_DEGREE_MESSAGES, StrikesMessage } from './strikes-messages';
 
 /** A Strike to list: what to call it, and what the engine derived for it. */
 export interface NamedStrike {
@@ -102,6 +104,9 @@ export class StrikesView {
         attack: this.#attack(strike.attack),
         attacks: this.#attacks(strike),
         damage: this.#damage(strike),
+        extras: this.#extras(strike),
+        attackNotes: this.#notes(strike, NoteRoll.Attack),
+        damageNotes: this.#notes(strike, NoteRoll.Damage),
         thrown: this.#thrown(strike),
         bonus: bonus?.ok === true ? bonus : undefined,
         attackConditions:
@@ -195,6 +200,41 @@ export class StrikesView {
         : this.#i18n.translate(StrikesMessage.Quantity, { count: this.#format.number(quantity) }),
     ];
     return lines.filter((line): line is string => line !== undefined);
+  }
+
+  /** "Plus 1d6 fire precision": one line per die a rule element adds to the damage. */
+  #extras({ damage }: Strike): readonly string[] {
+    return (damage?.extra ?? []).map((extra) => this.#extra(extra));
+  }
+
+  #say(key: string, params?: Readonly<Record<string, string | number>>): string {
+    return this.#i18n.translate(key, params);
+  }
+
+  #extra({ count, die, damageType, category, critical }: ExtraDice): string {
+    return this.#say(StrikesMessage.ExtraDice, {
+      dice: `${count}${die}`,
+      type: this.#say(DAMAGE_TYPE_MESSAGES[damageType]),
+      hasCategory: category === undefined ? 'no' : 'yes',
+      category: category === undefined ? '' : this.#say(DAMAGE_CATEGORY_MESSAGES[category]),
+      critical: critical ? 'yes' : 'no',
+    });
+  }
+
+  /** The notes on one of the Strike's rolls, each with the degrees of success it shows on. */
+  #notes({ notes }: Strike, roll: NoteRoll): readonly ShownNote[] {
+    return notes
+      .filter((note) => note.roll === roll)
+      .map(({ title, text, outcome }): ShownNote => ({
+        title,
+        text,
+        when:
+          outcome === undefined
+            ? undefined
+            : this.#say(StrikesMessage.NoteOutcome, {
+                degrees: outcome.map((degree) => this.#say(NOTE_DEGREE_MESSAGES[degree])).join(', '),
+              }),
+      }));
   }
 
   /** "1d8+4 slashing": the dice, then the flat bonus unless it is nothing or did not derive, then the type. */

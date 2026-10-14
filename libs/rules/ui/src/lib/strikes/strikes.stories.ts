@@ -7,6 +7,7 @@ import type { StatisticRoller } from '../statistics/statistic-roller';
 import { ENTRY_NAMES } from '../testing/breakdown-fixtures';
 import {
   claimableStrike,
+  ELEMENT_STRIKE,
   FAILED_STRIKE,
   FIGHTER_STRIKES,
   NO_DAMAGE_STRIKE,
@@ -109,5 +110,17 @@ export const ClaimedSituation: StrikesStory = {
     const toggle = canvas.getByRole('button', { name: /when you are in darkness/u });
     await expect(toggle).toHaveAttribute('aria-pressed', 'true');
     await expect(canvas.getByText('Attack +10 / +5 / +0')).toBeVisible();
+  },
+};
+
+/** A longsword whose rule elements add a precision die and a critical-only die, and put notes on its rolls. */
+export const RuleElements: StrikesStory = {
+  args: { strikes: ELEMENT_STRIKE },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('Plus 1d6 fire precision')).toBeVisible();
+    await expect(canvas.getByText('Plus 1d6 cold on a critical hit')).toBeVisible();
+    await expect(canvas.getByText('On a critical success, a success')).toBeVisible();
+    await expect(canvas.getByText('The flame lingers.')).toBeVisible();
   },
 };

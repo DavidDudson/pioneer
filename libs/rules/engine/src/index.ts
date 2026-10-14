@@ -23,6 +23,7 @@ export {
   type MultipleAttackPenalty,
   multipleAttackPenalty,
   type Strike,
+  type StrikeRulesInput,
   type StrikeDamage,
 } from './strikes';
 export {
@@ -59,3 +60,11 @@ export {
   type VitalsScope,
   vitalsInPlay,
 } from './vitals-in-play';
+export {
+  type ExtraDice,
+  NoteRoll,
+  type StrikeNote,
+  type StrikeRules,
+  type StrikeScope,
+  strikeRules,
+} from './strike-rules';

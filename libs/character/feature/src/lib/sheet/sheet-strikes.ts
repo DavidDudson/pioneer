@@ -1,4 +1,4 @@
-import { heldShields, itemContent } from '@pioneer/character/domain';
+import { characterStrikeRules, heldShields, itemContent } from '@pioneer/character/domain';
 import type { Character } from '@pioneer/character/domain';
 import { deriveStrikes } from '@pioneer/rules/engine';
 import type { WeaponInputs } from '@pioneer/rules/engine';
@@ -47,7 +47,11 @@ export function sheetStrikes(
   }
   const slots = sheetSlotContent(registry);
   const nameOf = (entry: ContentId): string | undefined => slots.lookup.entry(entry)?.name;
-  const strikes = deriveStrikes(weapons, sheetDerivation(registry, character));
+  const rules = characterStrikeRules(
+    { registry, slots, inputs: statisticInputsOf(registry, character) },
+    character.document,
+  );
+  const strikes = deriveStrikes(weapons, sheetDerivation(registry, character), rules);
   const traits = traitNames(registry);
   const selectors = strikes.flatMap(({ attack }) => (attack?.ok === true ? [attack.selector] : []));
   const found = checkSituations(registry, character, { selectors, claims });
