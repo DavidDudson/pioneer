@@ -11,6 +11,7 @@ import {
   prebuildServerStateTesting,
   provideServerStateTesting,
 } from '../testing/provide-server-state-testing';
+import { present } from '../testing/sheet-page-harness';
 import { sheetPlannedBoosts } from './sheet-attributes';
 import { sheetPlannedSkillSlots } from './sheet-skills';
 
@@ -37,8 +38,23 @@ describe('planned slots', () => {
     expect(slots.every((slot) => slot.options.length > 0)).toBe(true);
   });
 
+  it('offers each boost slot every attribute with its modifier now and once boosted', async () => {
+    const [first] = sheetPlannedBoosts(await registry(), fighterAt(4), (key) => key);
+
+    const { rows, options } = present(first);
+    expect(rows.map((row) => row.id)).toStrictEqual(options);
+    expect(rows.every((row) => row.boosted === row.modifier + 1)).toBe(true);
+  });
+
+  it('offers each skill slot the skills with the rank and modifier the character has', async () => {
+    const slots = sheetPlannedSkillSlots(await registry(), fighterAt(3));
+
+    const increase = present(slots.find((slot) => slot.key === 'skill-increase:5'));
+    expect(increase.rows.map((row) => row.id)).toStrictEqual(increase.options.map((option) => option.value));
+  });
+
   it('plans the boost slots above the level only, numbering the four boosts of a level', async () => {
-    const boosts = sheetPlannedBoosts(await registry(), fighterAt(4));
+    const boosts = sheetPlannedBoosts(await registry(), fighterAt(4), (key) => key);
 
     const atFive = boosts.filter((boost) => boost.key.startsWith('boost:5:free:'));
     expect(atFive.map((boost) => boost.label)).toStrictEqual(

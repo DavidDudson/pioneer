@@ -7,7 +7,7 @@ import { OriginTableSchema } from '../picker-cells/origin-table-schema';
 import { PROFICIENCY_NAMES } from '../proficiency-rank/proficiency-rank-messages';
 import { SLOT_RARITY_MESSAGES, SlotPickerMessage } from './slot-picker-messages';
 import { SlotPickerColumn } from './slot-picker-row';
-import type { LanguagePickerRow, SkillPickerRow, SlotPickerRow } from './slot-picker-row';
+import type { AttributePickerRow, LanguagePickerRow, SkillPickerRow, SlotPickerRow } from './slot-picker-row';
 
 /** A modifier with its sign, in the active language: +3, 0, -1. */
 const SIGNED = new Intl.NumberFormat(undefined, { signDisplay: 'exceptZero' });
@@ -69,6 +69,24 @@ export function skillPickerColumns(say: Say): readonly TableColumn<SkillPickerRo
     .build();
 }
 
+/** The columns of an attribute picker: the attribute, the modifier now and the modifier the boost would give. */
+export function attributePickerColumns(say: Say): readonly TableColumn<AttributePickerRow>[] {
+  return withName(new OriginTableSchema<AttributePickerRow>(), say)
+    .addFacts({
+      id: SlotPickerColumn.Modifier,
+      header: say(SlotPickerMessage.Modifier),
+      value: (row) => chips([SIGNED.format(row.modifier)]),
+      width: 'sm',
+    })
+    .addFacts({
+      id: SlotPickerColumn.Boosted,
+      header: say(SlotPickerMessage.Boosted),
+      value: (row) => chips([SIGNED.format(row.boosted)]),
+      width: 'sm',
+    })
+    .build();
+}
+
 /** The columns of a language picker: the language, its rarity, whether the character knows it, and its source. */
 export function languagePickerColumns(say: Say): readonly TableColumn<LanguagePickerRow>[] {
   return withName(new OriginTableSchema<LanguagePickerRow>(), say)
@@ -103,6 +121,14 @@ function skillOrder(left: SkillPickerRow, right: SkillPickerRow, sort: PickerSor
   return sort.column === SlotPickerColumn.Modifier ? (left.modifier ?? 0) - (right.modifier ?? 0) : 0;
 }
 
+/** How an attribute orders by a column: the modifier now, or the modifier once boosted, then name. */
+function attributeOrder(left: AttributePickerRow, right: AttributePickerRow, sort: PickerSort): number {
+  if (sort.column === SlotPickerColumn.Modifier) {
+    return left.modifier - right.modifier;
+  }
+  return sort.column === SlotPickerColumn.Boosted ? left.boosted - right.boosted : 0;
+}
+
 /** How a language orders by a column: how rare it is, then name. */
 function languageOrder(left: LanguagePickerRow, right: LanguagePickerRow, sort: PickerSort): number {
   return sort.column === SlotPickerColumn.Rarity
@@ -118,3 +144,6 @@ export const shownSkillRows: ShownRows<SkillPickerRow> = shownBy(skillOrder);
 
 /** The languages whose name holds `query`, by name or rarity when asked. */
 export const shownLanguageRows: ShownRows<LanguagePickerRow> = shownBy(languageOrder);
+
+/** The attributes whose name holds `query`, by name or modifier when asked. */
+export const shownAttributeRows: ShownRows<AttributePickerRow> = shownBy(attributeOrder);

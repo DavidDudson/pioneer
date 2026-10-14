@@ -1,7 +1,9 @@
 import { attributeModifiers, boostContent, boostSlots, BoostSource } from '@pioneer/character/domain';
 import type { BoostSlot, Character } from '@pioneer/character/domain';
+import { ATTRIBUTE_MODIFIER_MAX } from '@pioneer/rules/sdk';
 import type { Attribute, AttributeModifiers, ContentRegistry, SlotKey } from '@pioneer/rules/sdk';
-import type { OpenBoostLine } from '@pioneer/rules/ui';
+import { ATTRIBUTE_MESSAGES } from '@pioneer/rules/ui';
+import type { AttributePickerRow, OpenBoostLine } from '@pioneer/rules/ui';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
@@ -38,15 +40,45 @@ export interface SheetPlannedBoost {
   readonly key: SlotKey;
   readonly label: MessageDescriptor;
   readonly options: readonly Attribute[];
+  /** What the attribute table shows of each attribute on offer. */
+  readonly rows: readonly AttributePickerRow[];
+}
+
+/**
+ * The attribute table's row for each attribute a boost slot offers: the modifier without this slot's boost, and what
+ * the boost makes it. The slot's own pick is taken out of the modifier, so it never counts twice.
+ */
+function boostRows(
+  slot: BoostSlot,
+  modifiers: AttributeModifiers,
+  translate: (key: string) => string,
+): readonly AttributePickerRow[] {
+  return slot.options.map((attribute): AttributePickerRow => {
+    const current = modifiers.get(attribute) - (slot.pick === attribute ? 1 : 0);
+    return {
+      id: attribute,
+      name: translate(ATTRIBUTE_MESSAGES[attribute]),
+      modifier: current,
+      boosted: Math.min(current + 1, ATTRIBUTE_MODIFIER_MAX),
+      disabledReason: undefined,
+    };
+  });
 }
 
 /** The boost slots above the character's level (#492), lowest first, each with the attributes it offers. */
-export function sheetPlannedBoosts(registry: ContentRegistry, character: Character): readonly SheetPlannedBoost[] {
-  const planned = boostSlots(character.document, boostContent(registry)).filter((slot) => slot.level > character.level);
+export function sheetPlannedBoosts(
+  registry: ContentRegistry,
+  character: Character,
+  translate: (key: string) => string,
+): readonly SheetPlannedBoost[] {
+  const content = boostContent(registry);
+  const planned = boostSlots(character.document, content).filter((slot) => slot.level > character.level);
+  const modifiers = attributeModifiers(character.document, content);
   return planned.map((slot) => ({
     key: slot.key,
     label: plannedBoostLabel(slot, planned),
     options: slot.options,
+    rows: boostRows(slot, modifiers, translate),
   }));
 }
 

@@ -1,0 +1,54 @@
+@let current = pick();
+@let label = current.label.key | transloco: current.label.params;
+@switch (current.kind) {
+  @case (Kind.Skill) {
+    <fr-inline-field [label]="label" [edit]="current.field">
+      <pio-skill-picker
+        frInlineEditor
+        [ariaLabel]="label"
+        [placeholder]="Message.Search | transloco"
+        [rows]="current.rows()"
+        [value]="current.field.draft()"
+        (valueChange)="current.field.change($event)"
+        (committed)="current.field.flushSoon()"
+        (cancelled)="current.field.cancel()"
+      />
+    </fr-inline-field>
+  }
+  @case (Kind.Boost) {
+    <fr-inline-field [label]="label" [edit]="current.field">
+      <pio-attribute-picker
+        frInlineEditor
+        [ariaLabel]="label"
+        [placeholder]="Message.Search | transloco"
+        [rows]="current.rows()"
+        [value]="current.field.draft()"
+        (valueChange)="current.field.change($event)"
+        (committed)="current.field.flushSoon()"
+        (cancelled)="current.field.cancel()"
+      />
+    </fr-inline-field>
+  }
+  @case (Kind.Feat) {
+    @let reason = current.reason();
+    <fr-inline-field
+      [label]="label"
+      [edit]="current.field"
+      [notice]="reason === undefined ? undefined : (reason.key | transloco: reason.params)"
+    >
+      <pio-feat-picker
+        frInlineEditor
+        [ariaLabel]="label"
+        [placeholder]="Message.Search | transloco"
+        [rows]="current.rows()"
+        [value]="current.field.draft()"
+        (valueChange)="current.field.change($event)"
+        (committed)="current.field.flushSoon()"
+        (cancelled)="current.field.cancel()"
+      />
+    </fr-inline-field>
+  }
+  @default {
+    <ng-container />
+  }
+}

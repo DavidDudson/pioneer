@@ -1,7 +1,12 @@
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 import { expect, within } from 'storybook/test';
 
-import { BARD_TIMELINE, FIGHTER_TIMELINE, PLANNING_TIMELINE } from '../testing/timeline-fixtures';
+import {
+  BARD_TIMELINE,
+  FIGHTER_TIMELINE,
+  PLANNING_SKILLS_TIMELINE,
+  PLANNING_TIMELINE,
+} from '../testing/timeline-fixtures';
 import { LevelTimeline } from './level-timeline.component';
 
 type LevelTimelineStory = StoryObj<LevelTimeline>;
@@ -44,5 +49,14 @@ export const Planning: LevelTimelineStory = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     await expect(canvas.getByText('Planned for level 4')).toBeVisible();
+  },
+};
+
+/** A planned skill increase and a free boost, each picked from a table with the character's standing in it. */
+export const PlanningSkillsAndBoosts: LevelTimelineStory = {
+  args: { rows: PLANNING_SKILLS_TIMELINE },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('Level 5 skill increase')).toBeVisible();
   },
 };

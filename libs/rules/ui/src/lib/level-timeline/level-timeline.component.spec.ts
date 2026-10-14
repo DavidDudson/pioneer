@@ -3,7 +3,12 @@ import type { ComponentFixture } from '@angular/core/testing';
 import { describe, expect, it } from 'vitest';
 
 import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing';
-import { BARD_TIMELINE, FIGHTER_TIMELINE, PLANNING_TIMELINE } from '../testing/timeline-fixtures';
+import {
+  BARD_TIMELINE,
+  FIGHTER_TIMELINE,
+  PLANNING_SKILLS_TIMELINE,
+  PLANNING_TIMELINE,
+} from '../testing/timeline-fixtures';
 import type { LevelTimelineRow } from './level-timeline-row';
 import { LevelTimeline } from './level-timeline.component';
 
@@ -57,6 +62,13 @@ describe(LevelTimeline, () => {
     const shown = [...host.querySelectorAll('pio-level-timeline-level')];
     expect(shown.at(2)?.querySelectorAll('fr-inline-field')).toHaveLength(1);
     expect(shown.at(0)?.querySelectorAll('fr-inline-field')).toHaveLength(0);
+  });
+
+  it('offers a skill table and an attribute table under planned skill and boost slots', async () => {
+    const host = await render(PLANNING_SKILLS_TIMELINE);
+    const shown = [...host.querySelectorAll('pio-level-timeline-level')];
+    expect(shown.at(1)?.querySelectorAll('fr-inline-field')).toHaveLength(2);
+    expect(host.querySelector('fr-select')).toBeNull();
   });
 
   it('shows placeholders while loading', async () => {

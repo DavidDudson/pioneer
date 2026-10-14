@@ -14,7 +14,7 @@
               (committed)="pick.field.flushSoon()"
               (cancelled)="pick.field.cancel()"
             />
-          } @else {
+          } @else if (rows.kind === 'choices') {
             <pio-slot-picker
               frInlineEditor
               [rows]="rows.rows"

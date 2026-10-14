@@ -13,39 +13,8 @@
         <fr-list-item>
           <fr-stack gap="3xs">
             <pio-choice-row [line]="line" />
-            @if (selectOf(line.key); as pick) {
-              @let label = pick.label.key | transloco: pick.label.params;
-              <fr-inline-field [label]="label" [edit]="pick.field">
-                <fr-select
-                  frInlineEditor
-                  [ariaLabel]="label"
-                  [options]="pick.options()"
-                  [value]="pick.field.draft()"
-                  (valueChange)="pick.field.change($event)"
-                  (committed)="pick.field.flushSoon()"
-                  (cancelled)="pick.field.cancel()"
-                />
-              </fr-inline-field>
-            }
-            @if (featOf(line.key); as pick) {
-              @let label = pick.label.key | transloco: pick.label.params;
-              @let reason = pick.reason();
-              <fr-inline-field
-                [label]="label"
-                [edit]="pick.field"
-                [notice]="reason === undefined ? undefined : (reason.key | transloco: reason.params)"
-              >
-                <pio-feat-picker
-                  frInlineEditor
-                  [ariaLabel]="label"
-                  [placeholder]="Message.Search | transloco"
-                  [rows]="pick.rows()"
-                  [value]="pick.field.draft()"
-                  (valueChange)="pick.field.change($event)"
-                  (committed)="pick.field.flushSoon()"
-                  (cancelled)="pick.field.cancel()"
-                />
-              </fr-inline-field>
+            @if (pickOf(line.key); as pick) {
+              <pio-level-timeline-pick [pick]="pick" />
             }
           </fr-stack>
         </fr-list-item>

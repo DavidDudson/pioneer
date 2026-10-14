@@ -1,34 +1,33 @@
 import type { Character } from '@pioneer/character/domain';
-import type { SelectOption } from '@pioneer/frontier';
-import type { ContentRegistry, SlotKey } from '@pioneer/rules/sdk';
+import type { ContentRegistry } from '@pioneer/rules/sdk';
 import { ATTRIBUTE_MESSAGES } from '@pioneer/rules/ui';
-import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { sheetPlannedBoosts } from './sheet-attributes';
 import { sheetPlannedSkillSlots } from './sheet-skills';
-
-/** A skill or boost slot above the character's level, with what it offers once the character is there. */
-export interface SheetPlannedSlot {
-  readonly key: SlotKey;
-  readonly label: MessageDescriptor;
-  readonly options: readonly SelectOption<string>[];
-}
+import type { PickSlot } from './sheet-slot-picks';
 
 /**
  * The skill and boost slots above the character's level (#492), lowest first within each kind, as picks for the
- * timeline: a skill slot offers skills by name, a boost slot attributes by their translated name.
+ * timeline: a skill slot offers skills with the character's standing in each, a boost slot attributes with their
+ * modifier now and once boosted.
  */
 export function sheetPlannedSlots(
   registry: ContentRegistry,
   character: Character,
   translate: (key: string) => string,
-): readonly SheetPlannedSlot[] {
+): readonly PickSlot[] {
   return [
-    ...sheetPlannedSkillSlots(registry, character),
-    ...sheetPlannedBoosts(registry, character).map(({ key, label, options }) => ({
+    ...sheetPlannedSkillSlots(registry, character).map(({ key, label, options, rows }): PickSlot => ({
+      key,
+      label,
+      options,
+      rows: { kind: 'skills', rows },
+    })),
+    ...sheetPlannedBoosts(registry, character, translate).map(({ key, label, options, rows }): PickSlot => ({
       key,
       label,
       options: options.map((attribute) => ({ value: attribute, label: translate(ATTRIBUTE_MESSAGES[attribute]) })),
+      rows: { kind: 'attributes', rows },
     })),
   ];
 }
