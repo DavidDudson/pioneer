@@ -64,6 +64,15 @@ const BLOWGUN = {
   range: 20,
   damage: { dice: 1, damageType: 'piercing' },
 };
+const ALCHEMISTS_FIRE = {
+  slug: 'alchemists-fire',
+  category: 'simple',
+  traits: ['bomb', 'consumable', 'splash'],
+  range: 20,
+  splash: 1,
+  quantity: 3,
+  damage: { dice: 1, die: 'd8', damageType: 'fire', persistent: { formula: '1', damageType: 'fire' } },
+};
 const GLUE_BOMB = {
   slug: 'glue-bomb',
   category: 'simple',
@@ -116,6 +125,24 @@ describe('Strike damage', () => {
     ]);
     expect(strikes.map(({ damage }) => plain(damage?.dice))).toStrictEqual([2, 3, 1]);
     expect(strikes[2]?.damage?.die).toBeUndefined();
+  });
+
+  test('a bomb carries its persistent and splash damage, and the stack it throws from', () => {
+    const [bomb] = strikesOf([ALCHEMISTS_FIRE]);
+    expect(bomb?.damage).toMatchObject({
+      dice: 1,
+      die: 'd8',
+      damageType: 'fire',
+      splash: 1,
+      persistent: { formula: '1', damageType: 'fire' },
+    });
+    expect(plain(bomb?.weapon.quantity)).toBe(3);
+  });
+
+  test('a weapon without splash or persistent damage has neither', () => {
+    const [sword] = strikesOf([LONGSWORD]);
+    expect(sword?.damage?.splash).toBeUndefined();
+    expect(sword?.damage?.persistent).toBeUndefined();
   });
 
   test('a weapon with no dice and no die does no damage', () => {

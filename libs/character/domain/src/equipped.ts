@@ -7,6 +7,7 @@ import {
   AttributeModifier,
   ContentKind,
   HitPoints,
+  ItemCount,
   Level,
   Modifier,
   Origin,
@@ -16,6 +17,7 @@ import {
   Slug,
   slugName,
   SOURCE_SLUG_MAX,
+  Trait,
 } from '@pioneer/rules/sdk';
 import type { BaseWeapon, ContentId, Hardness, ItemState, OriginHop } from '@pioneer/rules/sdk';
 
@@ -72,6 +74,9 @@ export interface EquippedInputs {
 }
 
 const NO_POTENCY = 0;
+
+/** The trait of an item used up when thrown: its stack shrinks with each use. */
+const CONSUMABLE = Trait.parse('consumable');
 
 /**
  * The worn armour's bonus to AC and Dexterity cap, and while its runes work (it is invested, `activeState`) its
@@ -135,6 +140,8 @@ function weaponInputs(active: readonly ActiveItem[], favored: ReadonlySet<BaseWe
         potency: potency === undefined ? undefined : RuneGrade.parse(potency),
         striking: runes.striking,
         damage: entry.data.damage,
+        splash: entry.data.splash,
+        quantity: entry.traits.includes(CONSUMABLE) ? ItemCount.parse(each.item.quantity) : undefined,
         favored: entry.data.baseItem !== undefined && favored.has(entry.data.baseItem),
         origin: originOf(each),
       },

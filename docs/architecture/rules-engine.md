@@ -150,7 +150,10 @@ it adds), plus what the engine reads off the weapon itself. `deriveStrikes` (ste
   to damage rolls reaches it as it does any statistic, with the breakdown the attack roll has.
 - **Dice.** A weapon's `damage` (dice, die, type) before runes. A striking rune adds its grade to the dice of a weapon
   that rolls a die; flat damage (a blowgun's 1 piercing) has none to add to, and a weapon with no dice and no die
-  does no damage (a glue bomb). Persistent damage stays on the weapon's content and is not part of the Strike yet.
+  does no damage (a glue bomb). A bomb's persistent damage and splash (`damage.persistent`, `splash`) ride on the
+  Strike's damage, unchanged by the flat bonus or a striking rune. The Strike also carries the weapon's range
+  increment and, for a `consumable` weapon, the stack it throws from (`quantity`), so a stack of bombs is one Strike
+  and the sheet shows how many are left. Throwing and spending the stack belong to the play loop.
 - **Multiple attack penalty.** -5 on a second attack and -10 on a third, or -4 and -8 with an `agile` weapon. It is
   a pair of numbers on the Strike, not a statistic: a `MultipleAttackPenalty` rule element (already in the SDK)
   reaches it when the play loop lands, since the penalty applies per turn rather than per Strike.

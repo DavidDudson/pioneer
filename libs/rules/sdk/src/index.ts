@@ -50,7 +50,16 @@ export {
   RuneGrade,
   RuneType,
 } from './rune';
-export { AmmunitionType, BaseWeapon, DiceCount, DieSize, WeaponDamage, WeaponData, WeaponGroup } from './weapon';
+export {
+  AmmunitionType,
+  BaseWeapon,
+  DiceCount,
+  DieSize,
+  PersistentDamage,
+  WeaponDamage,
+  WeaponData,
+  WeaponGroup,
+} from './weapon';
 export { DamageKind, HeighteningType, SpellData } from './spell';
 export type { Heightening, SpellDamage, SpellVariant } from './spell';
 export { SpellDamageFormula } from './damage-formula';

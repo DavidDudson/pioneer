@@ -45,7 +45,8 @@ export const DiceCount = Pg.smallint().nonnegative().brand<'DiceCount'>();
 export type DiceCount = z.infer<typeof DiceCount>;
 
 /** "1d6 fire persistent": a formula, as damage writes it, and its type. */
-const PersistentDamage = z.strictObject({ formula: DamageFormula, damageType: DamageTypeSchema });
+export const PersistentDamage = z.strictObject({ formula: DamageFormula, damageType: DamageTypeSchema });
+export type PersistentDamage = z.infer<typeof PersistentDamage>;
 
 /**
  * "1d8 slashing"; "1 piercing" (a blowgun) with no `die`, and none at all with no `die` and 0 `dice` (a glue bomb).

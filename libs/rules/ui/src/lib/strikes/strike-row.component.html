@@ -38,6 +38,9 @@
   }
   <pio-statistic-conditions [conditions]="row().attackConditions" />
   <fr-text>{{ row().damage }}</fr-text>
+  @for (line of row().thrown; track line) {
+    <fr-text>{{ line }}</fr-text>
+  }
   <pio-statistic-conditions [conditions]="row().damageConditions" />
   <fr-text variant="caption" tone="muted">{{ row().penalty }}</fr-text>
 </fr-stack>
