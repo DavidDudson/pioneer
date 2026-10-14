@@ -18,6 +18,7 @@ import type { Arbitrary } from 'fast-check';
 import { Attribute } from '../attribute';
 import { ContentKind } from '../content-kind';
 import { DamageAdjustmentTarget, DamageType } from '../damage';
+import { DegreeOfSuccess } from '../degree-of-success';
 import { ModifierType } from '../modifier-type';
 import { Proficiency } from '../proficiency';
 import { DamageDiceCategory, DamageProperty } from '../rule-element-damage';
@@ -30,6 +31,7 @@ import { SPELL_RANK_MAX } from '../spell-rank';
 import { MagicTradition } from '../spellcasting-tradition';
 import { DieSize } from '../weapon';
 import { keyPathText, predicateJson, rollOptionText, validFormulaText } from './arbitraries';
+import { richTextJson } from './rich-text-arbitraries';
 
 const LIST_MAX = 3;
 const SMALLINT_MAX = 32_767;
@@ -241,8 +243,9 @@ const damageAlteration = oneof(
   alteration(DamageProperty.DiceNumber, anyOf(NumericAlterationMode), ruleValue),
   alteration(DamageProperty.DamageType, constant('override'), damageType),
 );
+const outcomes = uniqueArray(anyOf(DegreeOfSuccess), { minLength: 1, maxLength: LIST_MAX });
+const note = element('Note', { selectors: targets, text: richTextJson }, { title: contentText, outcome: outcomes });
 const signatureSpells = element('SignatureSpells', { entry: slugText });
-
 const focusSpells = element('FocusSpells', {
   entry: slugText,
   spells: uniqueArray(uuid(), { minLength: 1, maxLength: LIST_MAX }),
@@ -293,4 +296,5 @@ export const ruleElementJson: Arbitrary<object> = oneof(
   strike,
   damageDice,
   damageAlteration,
+  note,
 );

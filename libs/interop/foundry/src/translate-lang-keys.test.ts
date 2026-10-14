@@ -126,7 +126,7 @@ describe('translateRules: lang keys', () => {
   });
 
   test("keeps Foundry's raw JSON, keys and all, for an element that does not translate", () => {
-    const note = { key: 'Note', selector: 'perception', text: 'PF2E.SpecificRule.Note', title: 'PF2E.Nope' };
+    const note = { key: 'Note', selector: 'perception', text: 'PF2E.Nope' };
     const { envelopes } = translate([feat([note])], { lang });
 
     expect(envelopes.untranslatedRules).toEqual([{ entry, key: 'Note', raw: note }]);

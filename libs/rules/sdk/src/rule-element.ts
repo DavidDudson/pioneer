@@ -9,6 +9,7 @@ import { DamageAlterationElement, DamageDiceElement } from './rule-element-damag
 import { ImmunityElement, ResistanceElement, WeaknessElement } from './rule-element-defences';
 import { ItemAlterationElement } from './rule-element-item-alteration';
 import { LanguageElement } from './rule-element-language';
+import { NoteElement } from './rule-element-note';
 import {
   AdjustModifierElement,
   ChangeElement,
@@ -60,6 +61,7 @@ const Element = z.discriminatedUnion('key', [
   StrikeElement,
   DamageDiceElement,
   DamageAlterationElement,
+  NoteElement,
 ]);
 
 /** Names the `key` when the value is an object whose `key` is a string Pioneer does not know. */

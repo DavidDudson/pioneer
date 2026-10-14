@@ -270,6 +270,36 @@
       {
         "key": "GrantItem",
         "item": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+      },
+      {
+        "key": "Note",
+        "selectors": ["damage-received"],
+        "title": "Confused",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Each time you take damage from an attack or spell, you can attempt a "
+              },
+              {
+                "type": "check",
+                "statistic": "flat",
+                "dc": 11
+              },
+              {
+                "type": "text",
+                "text": " to recover from your confusion and end the condition."
+              }
+            ]
+          }
+        ],
+        "predicate": [
+          {
+            "or": ["item:type:spell", "origin:action:trait:attack"]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -1858,6 +1888,27 @@
       {
         "key": "GrantItem",
         "item": "64278392-4910-5a32-b819-56f6e54952dd"
+      },
+      {
+        "key": "Note",
+        "selectors": ["attack", "skill-check"],
+        "title": "Restrained",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You can't use any attack or manipulate actions except to attempt to Escape or Force Open your bonds."
+              }
+            ]
+          }
+        ],
+        "predicate": [
+          {
+            "nor": ["action:escape", "action:force-open"]
+          }
+        ]
       }
     ],
     "externalIds": {
