@@ -12,6 +12,7 @@ export const SlotPickerMessage = {
   Modifier: 'rules.slotPicker.column.modifier',
   Boosted: 'rules.slotPicker.column.boosted',
   Rarity: 'rules.slotPicker.column.rarity',
+  Script: 'rules.slotPicker.column.script',
   Known: 'rules.slotPicker.column.known',
   KnownYes: 'rules.slotPicker.knownYes',
   KnownNo: 'rules.slotPicker.knownNo',

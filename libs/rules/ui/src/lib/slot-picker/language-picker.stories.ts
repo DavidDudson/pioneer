@@ -10,7 +10,7 @@ type LanguagePickerStory = StoryObj<LanguagePicker>;
 
 const LANGUAGES: readonly LanguagePickerRow[] = [
   languageRow({ id: 'common', name: 'Common', known: true }),
-  languageRow({ id: 'draconic', name: 'Draconic', rarity: Rarity.Uncommon }),
+  languageRow({ id: 'draconic', name: 'Draconic', rarity: Rarity.Uncommon, script: 'Iokharic' }),
   languageRow({ id: 'aklo', name: 'Aklo', rarity: Rarity.Rare, disabledReason: 'Needs a teacher' }),
 ];
 

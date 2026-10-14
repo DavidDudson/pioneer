@@ -32,22 +32,23 @@ function sourcesOf(registry: ContentRegistry): ReadonlyMap<ContentId, readonly S
 }
 
 /**
- * The rows of the language picker: each language the next slot offers with its rarity, whether the character knows it
- * and where it comes from. A language the loaded packs don't define reads as common with no source.
+ * The rows of the language picker: each language the next slot offers with its rarity and script, whether the character
+ * knows it and where it comes from. A language the loaded packs don't define reads as common with no script or source.
  */
 export function languageRows(
   registry: ContentRegistry,
   offered: readonly OfferedLanguage[],
   { known }: LanguageRowReads,
 ): readonly LanguagePickerRow[] {
-  const rarities = new Map(languageContent(registry).languages.map((each) => [String(each.id), each.rarity]));
+  const defined = new Map(languageContent(registry).languages.map((each) => [String(each.id), each]));
   const sources = sourcesOf(registry);
   return offered.map(({ id, name }): LanguagePickerRow => {
     const content = ContentId.safeParse(id);
     return {
       id,
       name,
-      rarity: rarities.get(id) ?? Rarity.Common,
+      rarity: defined.get(id)?.rarity ?? Rarity.Common,
+      script: defined.get(id)?.script,
       known: known.has(id),
       sources: (content.success ? sources.get(content.data) : undefined) ?? [],
       disabledReason: undefined,

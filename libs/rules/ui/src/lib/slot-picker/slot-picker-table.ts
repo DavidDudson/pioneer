@@ -127,13 +127,19 @@ export function attributePickerColumns(say: Say): readonly TableColumn<Attribute
     .build();
 }
 
-/** The columns of a language picker: the language, its rarity, whether the character knows it, and its source. */
+/** The columns of a language picker: the language, its rarity and script, whether the character knows it, and its source. */
 export function languagePickerColumns(say: Say): readonly TableColumn<LanguagePickerRow>[] {
   return withName(new OriginTableSchema<LanguagePickerRow>(), say)
     .addFacts({
       id: SlotPickerColumn.Rarity,
       header: say(SlotPickerMessage.Rarity),
       value: (row) => chips([say(SLOT_RARITY_MESSAGES[row.rarity])]),
+      width: 'sm',
+    })
+    .addFacts({
+      id: SlotPickerColumn.Script,
+      header: say(SlotPickerMessage.Script),
+      value: (row) => chips(row.script === undefined ? [] : [row.script]),
       width: 'sm',
     })
     .addFacts({
@@ -174,11 +180,12 @@ function attributeOrder(left: AttributePickerRow, right: AttributePickerRow, sor
   return sort.column === SlotPickerColumn.Boosted ? left.boosted - right.boosted : 0;
 }
 
-/** How a language orders by a column: how rare it is, then name. */
+/** How a language orders by a column: how rare it is, or its script (those without one first), then name. */
 function languageOrder(left: LanguagePickerRow, right: LanguagePickerRow, sort: PickerSort): number {
-  return sort.column === SlotPickerColumn.Rarity
-    ? RARITY_ORDER.indexOf(left.rarity) - RARITY_ORDER.indexOf(right.rarity)
-    : 0;
+  if (sort.column === SlotPickerColumn.Rarity) {
+    return RARITY_ORDER.indexOf(left.rarity) - RARITY_ORDER.indexOf(right.rarity);
+  }
+  return sort.column === SlotPickerColumn.Script ? (left.script ?? '').localeCompare(right.script ?? '') : 0;
 }
 
 /** The options whose name holds `query`, by name or level when asked. */
@@ -187,7 +194,7 @@ export const shownSlotRows: ShownRows<SlotPickerRow> = shownBy(slotOrder);
 /** The skills whose name holds `query`, by name, rank or modifier when asked. */
 export const shownSkillRows: ShownRows<SkillPickerRow> = shownBy(skillOrder);
 
-/** The languages whose name holds `query`, by name or rarity when asked. */
+/** The languages whose name holds `query`, by name, rarity or script when asked. */
 export const shownLanguageRows: ShownRows<LanguagePickerRow> = shownBy(languageOrder);
 
 /** The attributes whose name holds `query`, by name or modifier when asked. */

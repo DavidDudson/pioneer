@@ -8,6 +8,7 @@ export const SlotPickerColumn = {
   Level: 'level',
   Boosted: 'boosted',
   Rarity: 'rarity',
+  Script: 'script',
 } as const;
 
 /** What an option's content entry says of itself, to choose by. */
@@ -63,6 +64,8 @@ export interface LanguagePickerRow {
   readonly id: string;
   readonly name: string;
   readonly rarity: Rarity;
+  /** The writing system it is written in; undefined where the rules give none. */
+  readonly script: string | undefined;
   /** The character knows it already. */
   readonly known: boolean;
   readonly sources: readonly SourceRef[];
