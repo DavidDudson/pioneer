@@ -395,3 +395,10 @@ export {
   PackPublisher,
   PackTitle,
 } from './character-packs';
+export {
+  type ClassOption,
+  type ClassPickerContent,
+  type ClassProficiency,
+  classPickerContent,
+  type SubclassOption,
+} from './class-options';
