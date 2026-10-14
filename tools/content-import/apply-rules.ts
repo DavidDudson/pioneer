@@ -66,15 +66,18 @@ export function withMergedRules(entries: readonly unknown[], merge: RulesMerge):
 }
 
 /**
- * The committed backlog less the `rule` gaps of `keys` that the import no longer reports for an entry in `merged`;
- * items left with no gaps and no reason to be left out go. Everything else stays.
+ * The entries (`<pack>/<slug>`) whose gaps of `keys` may be cleared: those with such a gap that the import holds, whether
+ * they gained a rule or the import now translates, holds or drops the element on purpose. And the keys.
  */
-/** The entries (`<pack>/<slug>`) that gained rules, and the keys they gained. */
 export interface AppliedRules {
   readonly merged: ReadonlySet<string>;
   readonly keys: ReadonlySet<string>;
 }
 
+/**
+ * The committed backlog less the `rule` gaps of `keys` that the import no longer reports for an entry in `merged`;
+ * items left with no gaps and no reason to be left out go. Everything else stays.
+ */
 export function clearAppliedGaps(
   committed: readonly BacklogItem[],
   fresh: readonly BacklogItem[],

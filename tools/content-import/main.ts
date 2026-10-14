@@ -172,8 +172,16 @@ function formatCounts(counts: readonly KeyCount[]): string[] {
 }
 
 function formatTranslation(translation: EnvelopeTranslation): string {
-  const { entries, failures, untranslatedRules, unknownTraits, unknownMarkup, untranslatedEnrichers, unresolvedText } =
-    translationReport(translation);
+  const {
+    entries,
+    failures,
+    untranslatedRules,
+    droppedRules,
+    unknownTraits,
+    unknownMarkup,
+    untranslatedEnrichers,
+    unresolvedText,
+  } = translationReport(translation);
   return [
     `Translated ${entries} envelopes; ${sumOf(failures)} failed:`,
     ...formatCounts(failures),
@@ -182,6 +190,8 @@ function formatTranslation(translation: EnvelopeTranslation): string {
       .map(({ path: file, reason, detail }) => `  ${reason} ${file}: ${detail}`),
     `Untranslated rule elements ${sumOf(untranslatedRules)}, by key:`,
     ...formatCounts(untranslatedRules),
+    `Rule elements dropped on purpose ${sumOf(droppedRules)}, by key and reason:`,
+    ...formatCounts(droppedRules),
     `Traits outside Pioneer's vocabulary ${unknownTraits.length} (${sumOf(unknownTraits)} uses):`,
     ...formatCounts(unknownTraits),
     'Description markup kept as text only, by entries using it:',

@@ -1,4 +1,4 @@
-import { ContentKind, RuleElementKey } from '@pioneer/rules/sdk';
+import { ContentKind, RuleElement, RuleElementKey } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
 import { kebab } from './foundry-flags';
@@ -135,4 +135,16 @@ export function withTagQuery(raw: unknown): unknown {
   const flag = 'flag' in raw && typeof raw.flag === 'string' ? { flag: kebab(raw.flag) } : {};
   const query = { kind: ContentKind.ClassFeature, filter: choices.data.filter };
   return { ...Object.fromEntries(kept), ...flag, choices: query };
+}
+
+/**
+ * Whether `element` is a `ChoiceSet` that only `withChoiceSet` made translatable, with no roll option for its pick and
+ * no element reading it: a pick that asks the player for nothing, so it stays in the backlog with the rules that would
+ * read it.
+ */
+export function isUnread(element: RuleElement, plain: unknown, reads: (flag: string) => boolean): boolean {
+  if (element.key !== RuleElementKey.ChoiceSet || element.rollOption !== undefined) {
+    return false;
+  }
+  return !RuleElement.safeParse(plain).success && !reads(String(element.flag));
 }

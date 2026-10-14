@@ -4665,41 +4665,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "consumable:candle",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.Ti4gWILk69LPxKuU",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "TokenLight",
-          "raw": {
-            "key": "TokenLight",
-            "predicate": ["lit-candle"],
-            "value": {
-              "animation": {
-                "intensity": 4,
-                "speed": 1,
-                "type": "torch"
-              },
-              "color": "#9b7337",
-              "coloration": 101,
-              "dim": 10,
-              "shadows": 0.2
-            }
-          }
-        },
-        {
-          "type": "rule",
-          "key": "TokenEffectIcon",
-          "raw": {
-            "key": "TokenEffectIcon",
-            "predicate": ["lit-candle"]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:aura-protective-wards",
       "foundry": "Compendium.pf2e.spell-effects.Item.5p3bKvWsJgo83FS1",
       "gaps": [
@@ -6675,22 +6640,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:effect-hunt-prey",
-      "foundry": "Compendium.pf2e.feat-effects.Item.MeXyXqWY9qN42bSQ",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "TokenMark",
-          "raw": {
-            "key": "TokenMark",
-            "slug": "hunted-prey"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:effect-inspired-stratagem",
       "foundry": "Compendium.pf2e.feat-effects.Item.K0Sv9AHgq245hSLC",
       "leftOut": {
@@ -6864,14 +6813,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "TokenMark",
-          "raw": {
-            "key": "TokenMark",
-            "slug": "monster-hunter"
-          }
-        },
-        {
-          "type": "rule",
           "key": "FlatModifier",
           "raw": {
             "key": "FlatModifier",
@@ -6881,38 +6822,6 @@
             "slug": "monster-hunter",
             "type": "circumstance",
             "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:effect-monster-warden",
-      "foundry": "Compendium.pf2e.feat-effects.Item.nlaxROgSSLVHZ1hx",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "TokenMark",
-          "raw": {
-            "key": "TokenMark",
-            "slug": "monster-warden"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:effect-mountain-strategy-critically-hit",
-      "foundry": "Compendium.pf2e.feat-effects.Item.O7OO1kWFEFv6vl3E",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "TokenMark",
-          "raw": {
-            "key": "TokenMark",
-            "slug": "mountain-strategy"
           }
         }
       ]
@@ -6972,14 +6881,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "TokenMark",
-          "raw": {
-            "key": "TokenMark",
-            "slug": "precise-debilitations"
-          }
-        },
-        {
-          "type": "rule",
           "key": "DamageDice",
           "raw": {
             "category": "precision",
@@ -7026,14 +6927,6 @@
             "flag": "predictable",
             "key": "ChoiceSet",
             "prompt": "PF2E.SpecificRule.Prompt.DegreeOfSuccess"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "TokenMark",
-          "raw": {
-            "key": "TokenMark",
-            "slug": "predictable"
           }
         },
         {
@@ -7761,14 +7654,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "TokenMark",
-          "raw": {
-            "key": "TokenMark",
-            "slug": "share-hunters-edge"
-          }
-        },
-        {
-          "type": "rule",
           "key": "MultipleAttackPenalty",
           "raw": {
             "key": "MultipleAttackPenalty",
@@ -7804,14 +7689,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "TokenMark",
-          "raw": {
-            "key": "TokenMark",
-            "slug": "share-hunters-edge"
-          }
-        },
-        {
-          "type": "rule",
           "key": "MultipleAttackPenalty",
           "raw": {
             "key": "MultipleAttackPenalty",
@@ -7842,49 +7719,9 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:effect-share-hunters-edge-outwit",
-      "foundry": "Compendium.pf2e.feat-effects.Item.ltIvO9ZQlmqGD89Y",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "TokenMark",
-          "raw": {
-            "key": "TokenMark",
-            "slug": "share-hunters-edge"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:effect-share-hunters-edge-outwit-masterful",
-      "foundry": "Compendium.pf2e.feat-effects.Item.iqvurepX0zyu9OlI",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "TokenMark",
-          "raw": {
-            "key": "TokenMark",
-            "slug": "share-hunters-edge"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:effect-share-hunters-edge-precision",
       "foundry": "Compendium.pf2e.feat-effects.Item.mNk0KxsZMFnDjUA0",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "TokenMark",
-          "raw": {
-            "key": "TokenMark",
-            "slug": "share-hunters-edge"
-          }
-        },
         {
           "type": "rule",
           "key": "DamageDice",
@@ -7932,14 +7769,6 @@
       "slug": "effect:effect-share-hunters-edge-precision-masterful",
       "foundry": "Compendium.pf2e.feat-effects.Item.Lt5iSfx8fxHSdYXz",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "TokenMark",
-          "raw": {
-            "key": "TokenMark",
-            "slug": "share-hunters-edge"
-          }
-        },
         {
           "type": "rule",
           "key": "DamageDice",
@@ -8329,22 +8158,6 @@
           "raw": {
             "key": "TempHP",
             "value": "3+@item.origin.abilities.cha.mod"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:effect-watch-your-back",
-      "foundry": "Compendium.pf2e.feat-effects.Item.ttIvoQUl1yG5K62o",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "TokenMark",
-          "raw": {
-            "key": "TokenMark",
-            "slug": "watch-your-back"
           }
         }
       ]
@@ -13594,33 +13407,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:spell-effect-everlight",
-      "foundry": "Compendium.pf2e.spell-effects.Item.hpbCDbDOoVyhOmck",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "TokenLight",
-          "raw": {
-            "key": "TokenLight",
-            "value": {
-              "alpha": 0.15,
-              "animation": {
-                "speed": 1,
-                "type": "starlight"
-              },
-              "attenuation": 0.4,
-              "bright": 20,
-              "color": "#ffdf3d",
-              "coloration": 101,
-              "dim": 40
-            }
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:spell-effect-false-vitality",
       "foundry": "Compendium.pf2e.spell-effects.Item.PANUWN5xXC20WBg2",
       "gaps": [
@@ -13813,22 +13599,6 @@
             "key": "BaseSpeed",
             "selector": "fly",
             "value": "max(20,@actor.system.movement.speeds.land.value)"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-forbidding-ward",
-      "foundry": "Compendium.pf2e.spell-effects.Item.ctMxYPGEpstvhW9C",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "TokenMark",
-          "raw": {
-            "key": "TokenMark",
-            "slug": "forbidding-ward"
           }
         }
       ]
@@ -14294,33 +14064,6 @@
           "raw": {
             "key": "FastHealing",
             "value": "@item.level * 2"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-light",
-      "foundry": "Compendium.pf2e.spell-effects.Item.cVVZXNbV0nElVOPZ",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "TokenLight",
-          "raw": {
-            "key": "TokenLight",
-            "value": {
-              "alpha": 0.05,
-              "animation": {
-                "intensity": 1,
-                "speed": 2,
-                "type": "pulse"
-              },
-              "bright": "ternary(gte(@item.level,4),60,20)",
-              "color": "#e7f3f1",
-              "coloration": 101,
-              "dim": "ternary(gte(@item.level,4),120,40)"
-            }
           }
         }
       ]
@@ -16037,22 +15780,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:spell-effect-savor-the-sting",
-      "foundry": "Compendium.pf2e.spell-effects.Item.TBohBF0ASta9rf9a",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "TokenMark",
-          "raw": {
-            "key": "TokenMark",
-            "slug": "savor-the-sting"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:spell-effect-scholarly-recollection",
       "foundry": "Compendium.pf2e.spell-effects.Item.oKxsDz4g7MMAfIob",
       "gaps": [
@@ -16450,32 +16177,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:spell-effect-touch-of-the-moon",
-      "foundry": "Compendium.pf2e.spell-effects.Item.3hDKcbhn0j6DsRgm",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "TokenLight",
-          "raw": {
-            "key": "TokenLight",
-            "value": {
-              "animation": {
-                "intensity": 1,
-                "speed": 1,
-                "type": "pulse"
-              },
-              "color": "#343434",
-              "coloration": 101,
-              "dim": 20,
-              "shadows": 0.2
-            }
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:spell-effect-travelers-transit",
       "foundry": "Compendium.pf2e.spell-effects.Item.Ig9p2rDXGYHpEuTx",
       "gaps": [
@@ -16539,14 +16240,6 @@
       "slug": "effect:spell-effect-true-target",
       "foundry": "Compendium.pf2e.spell-effects.Item.HuvucQ5nfpuVWNrw",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "TokenMark",
-          "raw": {
-            "key": "TokenMark",
-            "slug": "true-target"
-          }
-        },
         {
           "type": "rule",
           "key": "RollTwice",
@@ -17063,25 +16756,6 @@
       "foundry": "Compendium.pf2e.spell-effects.Item.6ArAZeZyYSNLI0X5",
       "gaps": [
         {
-          "type": "rule",
-          "key": "TokenLight",
-          "raw": {
-            "key": "TokenLight",
-            "value": {
-              "alpha": 0.3,
-              "animation": {
-                "intensity": 1,
-                "speed": 2,
-                "type": "pulse"
-              },
-              "bright": 30,
-              "color": "#dfbc0c",
-              "coloration": 101,
-              "dim": 60
-            }
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
         },
@@ -17323,79 +16997,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "equipment:lantern-bulls-eye",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.QrNvP9SgnK9DrerA",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "TokenEffectIcon",
-          "raw": {
-            "key": "TokenEffectIcon"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "TokenLight",
-          "raw": {
-            "key": "TokenLight",
-            "value": {
-              "alpha": 0.15,
-              "angle": 90,
-              "animation": {
-                "intensity": 4,
-                "speed": 1,
-                "type": "torch"
-              },
-              "bright": 60,
-              "color": "#975335",
-              "coloration": 101,
-              "dim": 120,
-              "shadows": 0.2
-            }
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "equipment:lantern-hooded",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.dIRZ0LL7G31fJNYz",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "TokenLight",
-          "raw": {
-            "key": "TokenLight",
-            "predicate": ["active-lantern"],
-            "value": {
-              "alpha": 0.15,
-              "animation": {
-                "intensity": 4,
-                "speed": 1,
-                "type": "torch"
-              },
-              "bright": 30,
-              "color": "#975335",
-              "coloration": 101,
-              "dim": 60,
-              "shadows": 0.2
-            }
-          }
-        },
-        {
-          "type": "rule",
-          "key": "TokenEffectIcon",
-          "raw": {
-            "key": "TokenEffectIcon",
-            "predicate": ["active-lantern"]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "equipment:lock-average",
       "foundry": "Compendium.pf2e.equipment-srd.Item.q2TYVAMaK6UfenbV",
       "gaps": [
@@ -17585,28 +17186,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "TokenLight",
-          "raw": {
-            "key": "TokenLight",
-            "predicate": ["lit-torch"],
-            "value": {
-              "alpha": 0.3,
-              "animation": {
-                "intensity": 1,
-                "speed": 2,
-                "type": "flame"
-              },
-              "attenuation": 0.4,
-              "bright": 20,
-              "color": "#ffae3d",
-              "coloration": 101,
-              "dim": 40,
-              "shadows": 0.2
-            }
-          }
-        },
-        {
-          "type": "rule",
           "key": "Strike",
           "raw": {
             "category": "simple",
@@ -17652,14 +17231,6 @@
             "predicate": ["lit-torch"],
             "selector": "{item|_id}-damage",
             "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "TokenEffectIcon",
-          "raw": {
-            "key": "TokenEffectIcon",
-            "predicate": ["lit-torch"]
           }
         }
       ]
@@ -22484,42 +22055,6 @@
                 "or": ["item:trait:halfling", "item:base:sling", "item:base:shortsword"]
               }
             ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:halo",
-      "foundry": "Compendium.pf2e.feats-srd.Item.PGVXjbAi1Fa4uTmD",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "TokenLight",
-          "raw": {
-            "key": "TokenLight",
-            "predicate": ["halo-active"],
-            "value": {
-              "alpha": 0.2,
-              "animation": {
-                "intensity": 1,
-                "speed": 2,
-                "type": "pulse"
-              },
-              "bright": "ternary(gte(ceil(@actor.level / 2),4),60,20)",
-              "color": "#e7f3f1",
-              "coloration": 101,
-              "dim": "ternary(gte(ceil(@actor.level / 2),4),120,40)"
-            }
-          }
-        },
-        {
-          "type": "rule",
-          "key": "TokenEffectIcon",
-          "raw": {
-            "key": "TokenEffectIcon",
-            "predicate": ["halo-active"]
           }
         }
       ]

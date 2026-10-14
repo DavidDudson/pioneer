@@ -71,6 +71,8 @@ export interface TranslationReport {
   readonly entries: number;
   readonly failures: readonly KeyCount[];
   readonly untranslatedRules: readonly KeyCount[];
+  /** By key and reason (`TokenLight token-only`): dropped on purpose, so not gaps. */
+  readonly droppedRules: readonly KeyCount[];
   readonly unknownTraits: readonly KeyCount[];
   /** By entries that use it. */
   readonly unknownMarkup: readonly KeyCount[];
@@ -90,6 +92,7 @@ export function translationReport({
   entries,
   failures,
   untranslatedRules,
+  droppedRules,
   unknownTraits,
   unknownMarkup,
   untranslatedEnrichers,
@@ -99,6 +102,7 @@ export function translationReport({
     entries: entries.length,
     failures: keyCounts(failures.map(({ reason }) => reason)),
     untranslatedRules: keyCounts(untranslatedRules.map(({ key }) => key)),
+    droppedRules: keyCounts(droppedRules.map(({ key, reason }) => `${key} ${reason}`)),
     unknownTraits: keyCounts(unknownTraits.map(({ trait }) => trait)),
     unknownMarkup: keyCounts(unknownMarkup.map(({ markup }) => markup)),
     untranslatedEnrichers: keyCounts(untranslatedEnrichers.map(({ enricher }) => enricher)),

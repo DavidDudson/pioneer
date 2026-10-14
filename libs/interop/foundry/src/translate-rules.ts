@@ -9,7 +9,7 @@ import { fromFoundryFormula } from './foundry-formula';
 import { isLangKey, isUnresolved, localize } from './foundry-lang';
 import type { LangValues, UnresolvedKey, UnresolvedText } from './foundry-lang';
 import type { FoundryLang } from './foundry-release';
-import { withChoiceSet, withTagQuery } from './translate-choice-sets';
+import { isUnread, withChoiceSet, withTagQuery } from './translate-choice-sets';
 import { withDefenceTypes } from './translate-defences';
 import { withFavoredWeaponRank } from './translate-favored-weapon';
 import { withFontChoice } from './translate-font-choice';
@@ -20,6 +20,8 @@ import { withSense } from './translate-senses';
 import type { FoundrySenses } from './translate-senses';
 import { withSkillRaise } from './translate-skill-raises';
 import { withStrikeDamage } from './translate-strike';
+import { withoutDropped } from './translate-token-rules';
+import type { DroppedRule } from './translate-token-rules';
 
 /**
  * An entry's Foundry rule elements, each run through `RuleElement`. One that fails is kept aside with its raw JSON
@@ -213,20 +215,10 @@ function withChoiceGrant(raw: unknown, references: EntryReferences, declared: Re
 export interface RuleTranslation {
   readonly rules: readonly RuleElement[];
   readonly untranslated: readonly UntranslatedRule[];
+  /** Elements dropped on purpose, as they only change a Foundry token. */
+  readonly dropped: readonly DroppedRule[];
   /** Lang keys in the elements, translated or not, that had no English text. */
   readonly unresolvedText: readonly UnresolvedText[];
-}
-
-/**
- * Whether `element` is a `ChoiceSet` that only `withChoiceSet` made translatable, with no roll option for its pick and
- * no element reading it: a pick that asks the player for nothing, so it stays in the backlog with the rules that would
- * read it.
- */
-function isUnread(element: RuleElement, plain: unknown, reads: (flag: string) => boolean): boolean {
-  if (element.key !== RuleElementKey.ChoiceSet || element.rollOption !== undefined) {
-    return false;
-  }
-  return !RuleElement.safeParse(plain).success && !reads(String(element.flag));
 }
 
 /** A raw rule element shaped two ways: as it was before `withChoiceSet`, and with it. */
@@ -285,11 +277,13 @@ function settle(
 export function translateRules(entry: ContentId, raws: readonly unknown[], context: RuleContext): RuleTranslation {
   const unresolved: UnresolvedKey[] = [];
   const references = context.references ?? NO_REFERENCES;
-  const shaped = raws.map((raw) => shapeRule(raw, context, unresolved));
+  const { kept, dropped } = withoutDropped(entry, raws);
+  const shaped = kept.map((raw) => shapeRule(raw, context, unresolved));
   const declared = declaredFlags(shaped);
   const parsed = shaped.map(({ chosen }) => RuleElement.safeParse(withChoiceGrant(chosen, references, declared)));
   return {
     ...settle(entry, shaped, parsed),
+    dropped,
     unresolvedText: unresolved.map(({ key, reason }) => ({ entry, key, reason })),
   };
 }

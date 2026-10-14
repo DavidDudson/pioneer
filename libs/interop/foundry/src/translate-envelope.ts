@@ -26,6 +26,7 @@ import type { SelectedEntry } from './select-entries';
 import { translateRules } from './translate-rules';
 import type { UntranslatedRule } from './translate-rules';
 import type { FoundrySenses } from './translate-senses';
+import type { DroppedRule } from './translate-token-rules';
 
 /**
  * The entry envelope of each selected Foundry document (content-model.md, "Foundry import"): address, names,
@@ -86,6 +87,8 @@ export interface EnvelopeFailure {
 export interface EnvelopeTranslation {
   readonly entries: readonly TranslatedEntry[];
   readonly untranslatedRules: readonly UntranslatedRule[];
+  /** Rule elements dropped on purpose (they only change a Foundry token), apart from the untranslated ones. */
+  readonly droppedRules: readonly DroppedRule[];
   readonly unknownTraits: readonly UnknownTrait[];
   readonly unknownMarkup: readonly UnknownMarkup[];
   readonly untranslatedEnrichers: readonly UntranslatedEnricher[];
@@ -100,6 +103,8 @@ type Draft = Omit<ImportedEnvelope, 'description'>;
 interface Translated {
   readonly envelope: Draft;
   readonly untranslatedRules: readonly UntranslatedRule[];
+  /** Rule elements dropped on purpose (they only change a Foundry token), apart from the untranslated ones. */
+  readonly droppedRules: readonly DroppedRule[];
   readonly unknownTraits: readonly UnknownTrait[];
   readonly unresolvedText: readonly UnresolvedText[];
 }
@@ -233,6 +238,7 @@ function translate({ source, slug }: Slugged, context: EnvelopeContext): Transla
       externalIds: { foundry: compendiumUuid(foundryPack, documentId) },
     },
     untranslatedRules: rules.untranslated,
+    droppedRules: rules.dropped,
     unknownTraits: traits.unknown,
     unresolvedText: rules.unresolvedText,
   };
@@ -278,6 +284,7 @@ export function translateEnvelopes(selected: readonly SelectedEntry[], context: 
       envelope: { ...envelope, description: descriptions.get(envelope.id) ?? [] },
     })),
     untranslatedRules: done.flatMap(({ untranslatedRules }) => untranslatedRules),
+    droppedRules: done.flatMap(({ droppedRules }) => droppedRules),
     unknownTraits: done.flatMap(({ unknownTraits }) => unknownTraits),
     unknownMarkup,
     untranslatedEnrichers,
