@@ -1,9 +1,11 @@
 <fr-grid [columns]="3">
   <fr-inline-field [label]="'character.sheet.class' | transloco" [edit]="classField()">
-    <fr-select
+    <pio-class-picker
       frInlineEditor
+      [rows]="rows.classes()"
+      [loading]="rows.loading()"
       [ariaLabel]="'character.sheet.class' | transloco"
-      [options]="classOptions()"
+      [placeholder]="'character.sheet.classPlaceholder' | transloco"
       [value]="classField().draft()"
       (valueChange)="classField().change($event)"
       (committed)="classField().flushSoon()"
@@ -12,10 +14,12 @@
   </fr-inline-field>
   @if (picks().subclassField(); as subclassField) {
     <fr-inline-field [label]="'character.sheet.subclass' | transloco" [edit]="subclassField">
-      <fr-select
+      <pio-subclass-picker
         frInlineEditor
+        [rows]="rows.subclasses()"
+        [loading]="rows.loading()"
         [ariaLabel]="'character.sheet.subclass' | transloco"
-        [options]="picks().subclassOptions()"
+        [placeholder]="'character.sheet.subclassPlaceholder' | transloco"
         [value]="subclassField.draft()"
         (valueChange)="subclassField.change($event)"
         (committed)="subclassField.flushSoon()"
@@ -25,10 +29,12 @@
   }
   @if (picks().keyAttributeField(); as keyAttributeField) {
     <fr-inline-field [label]="'character.sheet.keyAttribute' | transloco" [edit]="keyAttributeField">
-      <fr-select
+      <pio-key-attribute-picker
         frInlineEditor
+        [rows]="rows.keyAttributes()"
+        [loading]="rows.loading()"
         [ariaLabel]="'character.sheet.keyAttribute' | transloco"
-        [options]="picks().keyAttributeOptions()"
+        [placeholder]="'character.sheet.keyAttributePlaceholder' | transloco"
         [value]="keyAttributeField.draft()"
         (valueChange)="keyAttributeField.change($event)"
         (committed)="keyAttributeField.flushSoon()"
