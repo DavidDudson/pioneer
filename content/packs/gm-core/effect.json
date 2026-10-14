@@ -1572,7 +1572,22 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "claw",
+        "category": "unarmed",
+        "traits": ["agile", "finesse", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "slashing"
+        },
+        "display": {
+          "label": "Claw"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.lh2YM9yNJixOC8RI"
     },

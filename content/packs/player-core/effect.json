@@ -18668,6 +18668,21 @@
         ],
         "prompt": "Select a form.",
         "rollOption": "shifting-form"
+      },
+      {
+        "key": "Strike",
+        "slug": "claw",
+        "category": "unarmed",
+        "traits": ["agile", "finesse", "unarmed", "magical"],
+        "damage": {
+          "dice": 1,
+          "die": "d8",
+          "damageType": "slashing"
+        },
+        "predicate": ["shifting-form:claw"],
+        "display": {
+          "label": "Claw"
+        }
       }
     ],
     "externalIds": {

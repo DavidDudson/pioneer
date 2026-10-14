@@ -122,7 +122,7 @@ const numericAlteration = element('ItemAlteration', {
 });
 const traitAlteration = element('ItemAlteration', {
   items: predicateJson,
-  property: constant('traits'),
+  property: constantFrom('traits', 'materials', 'property-runes'),
   mode: anyOf(TraitAlterationMode),
   value: slugText,
 });

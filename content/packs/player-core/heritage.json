@@ -1390,7 +1390,23 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "razortooth-jaws",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["finesse"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "piercing"
+        },
+        "display": {
+          "label": "Jaws"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.heritages.Item.a6F2WjYU8D0suT8T"
     },

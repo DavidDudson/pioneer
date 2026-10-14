@@ -43,6 +43,9 @@ const examples: object[] = [
   { key: 'ItemAlteration', items: ['item:trait:shield'], property: 'hardness', mode: 'add', value: 2 },
   { key: 'ItemAlteration', items: ['item:group:sword'], property: 'traits', mode: 'add', value: 'deadly-d8' },
   { key: 'ItemAlteration', items: ['item:slug:fist'], property: 'damage-type', mode: 'override', value: 'slashing' },
+  { key: 'ItemAlteration', items: ['item:ranged'], property: 'range-increment', mode: 'multiply', value: 0.5 },
+  { key: 'ItemAlteration', items: ['item:type:weapon'], property: 'materials', mode: 'add', value: 'cold-iron' },
+  { key: 'ItemAlteration', items: ['item:type:weapon'], property: 'property-runes', mode: 'add', value: 'flaming' },
   {
     key: 'FlatModifier',
     selectors: ['ac'],

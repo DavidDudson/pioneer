@@ -21,7 +21,7 @@ import { withRollOption } from './translate-roll-options';
 import { withSense } from './translate-senses';
 import type { FoundrySenses } from './translate-senses';
 import { withSkillRaise } from './translate-skill-raises';
-import { withStrikeDamage } from './translate-strike';
+import { withStrike } from './translate-strike';
 import { withoutDropped } from './translate-token-rules';
 import type { DroppedRule } from './translate-token-rules';
 
@@ -237,7 +237,7 @@ function shapeRule(raw: unknown, context: RuleContext, unresolved: UnresolvedKey
   const scoped = withDiceFormula(withDefenceTypes(withItemScope(rolled)));
   const options = withNoteText(scoped, context);
   const granted = withGrantedId(withPioneerFormula(options), references);
-  const struck = withStrikeDamage(granted);
+  const struck = withStrike(granted);
   const modifier = withBaseSpeed(withModifierSelectors(struck));
   const queried = withLanguageSlots(withTagQuery(withGrantValue(modifier)));
   const font = withSkillRaise(withFavoredWeaponRank(withFontChoice(queried)));
