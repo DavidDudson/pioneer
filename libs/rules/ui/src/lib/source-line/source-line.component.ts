@@ -1,11 +1,13 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { Link, LocaleFormat, Text } from '@pioneer/frontier';
-import { BOOK_TITLES, SourceKind } from '@pioneer/rules/sdk';
-import type { PackId, SourceRef } from '@pioneer/rules/sdk';
+import { BOOK_TITLES, contentPackId, SourceKind } from '@pioneer/rules/sdk';
+import type { ContentPackId, PackId, SourceRef } from '@pioneer/rules/sdk';
 import type { UserId, ValueOf } from '@pioneer/shared/kernel';
 
 import { SourceLineMessage } from './source-line-messages';
+import { SOURCE_PACKS } from './source-packs';
+import type { SourcePack } from './source-packs';
 
 const SegmentKind = {
   /** Text shown as it is: a title, a host, a pack name. */
@@ -61,6 +63,8 @@ type HomebrewSource = Extract<SourceRef, { readonly kind: typeof SourceKind.Home
 interface HomebrewNames {
   readonly authors: ReadonlyMap<UserId, string>;
   readonly packs: ReadonlyMap<PackId, string>;
+  /** What the page knows of its packs, for a pack or author the maps leave out. */
+  readonly listed: ReadonlyMap<ContentPackId, SourcePack>;
 }
 
 function text(value: string): TextSegment {
@@ -101,8 +105,9 @@ function webSegments(source: WebSource): readonly Segment[] {
  * link and the author follows it.
  */
 function homebrewSegments(source: HomebrewSource, names: HomebrewNames): readonly Segment[] {
-  const pack = names.packs.get(source.pack) ?? source.pack;
-  const author = names.authors.get(source.author);
+  const listed = names.listed.get(contentPackId(source.pack));
+  const pack = names.packs.get(source.pack) ?? listed?.title ?? source.pack;
+  const author = names.authors.get(source.author) ?? listed?.publisher;
   if (source.url === undefined) {
     return [
       author === undefined
@@ -140,12 +145,17 @@ export class SourceLineView {
   public readonly packNames = input<ReadonlyMap<PackId, string>>(new Map());
 
   readonly #format = inject(LocaleFormat);
+  readonly #listed = inject(SOURCE_PACKS);
   protected readonly SegmentKind = SegmentKind;
   protected readonly Message = SourceLineMessage;
 
   /** The line as flat segments, separators included, so the template adds no whitespace of its own. */
   protected readonly segments = computed((): readonly Segment[] => {
-    const names: HomebrewNames = { authors: this.authorNames(), packs: this.packNames() };
+    const names: HomebrewNames = {
+      authors: this.authorNames(),
+      packs: this.packNames(),
+      listed: this.#listed(),
+    };
     const segments: Segment[] = [];
     for (const [index, source] of this.sources().entries()) {
       if (index > 0) {
