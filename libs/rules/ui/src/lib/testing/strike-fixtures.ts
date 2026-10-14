@@ -1,8 +1,9 @@
-import { deriveStrikes, EngineMessage, LineStatusKind } from '@pioneer/rules/engine';
-import type { RuleId, StatisticValue, Strike, WeaponInputs } from '@pioneer/rules/engine';
+import { deriveStrikes, EngineMessage, LineStatusKind, NoteRoll } from '@pioneer/rules/engine';
+import type { ExtraDice, RuleId, StatisticValue, Strike, StrikeDamage, WeaponInputs } from '@pioneer/rules/engine';
 import { TextPosition } from '@pioneer/rules/formula';
 import {
   ContentId,
+  ContentText,
   contentId,
   DamageAmount,
   DiceCount,
@@ -11,6 +12,7 @@ import {
   ModifierType,
   EntrySlug,
   PackId,
+  RichText,
   RuneGrade,
   Selector,
   Slug,
@@ -134,6 +136,7 @@ const LONGSWORD_DAMAGE_ROLL = {
   dice: DiceCount.parse(1),
   die: 'd8',
   damageType: 'slashing',
+  extra: [],
   persistent: undefined,
   splash: undefined,
 } as const;
@@ -208,4 +211,52 @@ export function claimableStrike(claimed: boolean): readonly NamedStrike[] {
       situations: { offered: [DARKNESS_LINE], claimed: new Set(claimed ? [DARKNESS_RULE] : []) },
     },
   ];
+}
+
+const FLAME_DICE: ExtraDice = {
+  count: DiceCount.parse(1),
+  die: 'd6',
+  damageType: 'fire',
+  category: 'precision',
+  critical: false,
+  origin: origin(GLOOM_WALKER),
+};
+
+/** A longsword with a precision die of fire damage, a critical-hit-only die of cold, and notes on each roll. */
+export const ELEMENT_STRIKE: readonly NamedStrike[] = [
+  {
+    name: 'Longsword',
+    traits: [],
+    strike: {
+      ...strikeOf(0),
+      damage: {
+        ...longswordDamage(),
+        extra: [FLAME_DICE, { ...FLAME_DICE, damageType: 'cold', category: undefined, critical: true }],
+      },
+      notes: [
+        {
+          roll: NoteRoll.Attack,
+          title: ContentText.parse('Gloom'),
+          text: RichText.parse([{ type: 'paragraph', content: [{ type: 'text', text: 'The target is dazzled.' }] }]),
+          outcome: ['criticalSuccess', 'success'],
+          origin: origin(GLOOM_WALKER),
+        },
+        {
+          roll: NoteRoll.Damage,
+          title: undefined,
+          text: RichText.parse([{ type: 'paragraph', content: [{ type: 'text', text: 'The flame lingers.' }] }]),
+          outcome: undefined,
+          origin: origin(GLOOM_WALKER),
+        },
+      ],
+    },
+  },
+];
+
+function longswordDamage(): StrikeDamage {
+  const { damage } = strikeOf(0);
+  if (damage === undefined) {
+    throw new Error('The longsword fixture has no damage');
+  }
+  return damage;
 }

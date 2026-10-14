@@ -1,3 +1,5 @@
+import { DamageDiceCategory, DegreeOfSuccess } from '@pioneer/rules/sdk';
+
 /** Message keys the Strikes list renders with, spelled out so the key check sees them. */
 export const StrikesMessage = {
   /** "1d8+4 slashing": a Strike's damage, its roll worded by the list and its type by name. */
@@ -22,4 +24,23 @@ export const StrikesMessage = {
   RangeIncrement: 'rules.strikes.rangeIncrement',
   /** "3 in stack": how many of a thrown item the stack still holds. */
   Quantity: 'rules.strikes.quantity',
+  /** "Plus 1d6 fire precision": dice a damage element adds to a Strike's damage. */
+  ExtraDice: 'rules.strikes.extraDice',
+  /** "On a critical success": the degrees of success a note shows on. */
+  NoteOutcome: 'rules.strikes.noteOutcome',
 } as const;
+
+/** The message of each way extra damage dice are dealt besides their type, spelled out so the key check sees them. */
+export const DAMAGE_CATEGORY_MESSAGES: Readonly<Record<DamageDiceCategory, string>> = {
+  [DamageDiceCategory.Precision]: 'rules.strikes.category.precision',
+  [DamageDiceCategory.Persistent]: 'rules.strikes.category.persistent',
+  [DamageDiceCategory.Splash]: 'rules.strikes.category.splash',
+};
+
+/** The message of each degree of success a note can show on. */
+export const NOTE_DEGREE_MESSAGES: Readonly<Record<DegreeOfSuccess, string>> = {
+  [DegreeOfSuccess.CriticalSuccess]: 'rules.strikes.degree.criticalSuccess',
+  [DegreeOfSuccess.Success]: 'rules.strikes.degree.success',
+  [DegreeOfSuccess.Failure]: 'rules.strikes.degree.failure',
+  [DegreeOfSuccess.CriticalFailure]: 'rules.strikes.degree.criticalFailure',
+};

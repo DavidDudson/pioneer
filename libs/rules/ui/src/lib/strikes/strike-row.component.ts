@@ -20,6 +20,8 @@ import { StatisticRoll } from '../statistics/statistic-roll/statistic-roll.compo
 import { STATISTIC_ROLLER } from '../statistics/statistic-roller';
 import { StatisticTotal } from '../statistics/statistic-total/statistic-total.component';
 import { StatisticsMessage } from '../statistics/statistics-messages';
+import { StrikeNotes } from './strike-notes.component';
+import type { ShownNote } from './strike-notes.component';
 import { StrikesMessage } from './strikes-messages';
 
 /** A Strike's attack roll as shown: its total and breakdown, or why it has none. */
@@ -53,6 +55,12 @@ export interface ShownStrike {
   readonly damageConditions: readonly string[];
   /** "1d8+4 slashing"; the none message for a weapon that rolls no damage. */
   readonly damage: string;
+  /** "Plus 1d6 fire precision": the dice rule elements add to the damage, each as a line. */
+  readonly extras: readonly string[];
+  /** The notes on the attack roll. */
+  readonly attackNotes: readonly ShownNote[];
+  /** The notes on the damage roll. */
+  readonly damageNotes: readonly ShownNote[];
   /** The flat damage statistic's breakdown, when it derived. */
   readonly bonus: StatisticValue | undefined;
   /** "Range increment 20 ft", "1d6 persistent fire", "1 fire splash", "3 in stack": what a thrown Strike adds. */
@@ -73,6 +81,7 @@ export interface ShownStrike {
     BreakdownView,
     ChipList,
     Disclosure,
+    StrikeNotes,
     Stack,
     StatisticConditions,
     StatisticRoll,

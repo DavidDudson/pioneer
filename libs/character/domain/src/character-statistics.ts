@@ -13,6 +13,7 @@ import type {
   StatisticInputs,
   StatisticResult,
   StatisticValue,
+  StrikeRulesInput,
   VitalsInPlay,
 } from '@pioneer/rules/engine';
 import type { ToggleSlot } from '@pioneer/rules/grants';
@@ -244,4 +245,21 @@ export function characterVitals(
     character: inputs,
     size: ancestry.definition.size,
   });
+}
+
+/**
+ * The rule elements in play and what they are read against, for the dice and notes a Strike takes from them
+ * (`deriveStrikes`); undefined without a proficiency bonus table, as nothing can be read.
+ */
+export function characterStrikeRules(
+  { registry, slots, inputs }: StatisticSources,
+  document: CharacterDocument,
+): StrikeRulesInput | undefined {
+  const content = statisticContent(registry);
+  return content === undefined
+    ? undefined
+    : {
+        inputs: equippedRules(document, itemContent(registry), slots),
+        scope: { statistics: content, character: inputs },
+      };
 }

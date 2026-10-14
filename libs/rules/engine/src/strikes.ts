@@ -1,8 +1,11 @@
-import { DiceCount, Modifier, Selector, Trait } from '@pioneer/rules/sdk';
-import type { DamageAmount, DamageType, DieSize, PersistentDamage } from '@pioneer/rules/sdk';
+import { DamageType, DiceCount, Modifier, ModifierTarget, Selector, Trait } from '@pioneer/rules/sdk';
+import type { DamageAmount, DieSize, PersistentDamage, Slug } from '@pioneer/rules/sdk';
 
+import type { ModifierInputs } from './rule-in-play';
 import type { WeaponInputs } from './source-inputs';
 import type { StatisticResult } from './statistic-result';
+import { strikeRules } from './strike-rules';
+import type { ExtraDice, StrikeNote, StrikeRules, StrikeScope } from './strike-rules';
 
 /** The family each weapon's attack roll is derived under: `strike:<weapon slug>`. */
 const ATTACK = 'strike';
@@ -20,6 +23,8 @@ export interface StrikeDamage {
   readonly die: DieSize | undefined;
   readonly damageType: DamageType;
   /** A bomb's persistent damage ("1d6 fire"), which neither the flat bonus nor a striking rune changes. */
+  /** Dice that `DamageDice` elements add on top of the weapon's, each with its type and category. */
+  readonly extra: readonly ExtraDice[];
   readonly persistent: PersistentDamage | undefined;
   /** A bomb's splash damage, of the damage's type, dealt to creatures near its target; no bonus adds to it. */
   readonly splash: DamageAmount | undefined;
@@ -40,6 +45,8 @@ export interface Strike {
   readonly attack: StatisticResult | undefined;
   /** Undefined for a weapon that does no damage (a glue bomb). */
   readonly damage: StrikeDamage | undefined;
+  /** The `Note` elements that reach the attack or damage roll. */
+  readonly notes: readonly StrikeNote[];
   readonly map: MultipleAttackPenalty;
 }
 
@@ -67,16 +74,58 @@ export function damageDice(weapon: WeaponInputs): DiceCount | undefined {
   return DiceCount.parse(damage.die === undefined ? damage.dice : damage.dice + striking);
 }
 
-function damageOf(weapon: WeaponInputs, results: ReadonlyMap<Selector, StatisticResult>): StrikeDamage | undefined {
+/** The rule elements in play and what they are read against, so a Strike takes the dice and notes they give. */
+export interface StrikeRulesInput {
+  readonly inputs: ModifierInputs;
+  readonly scope: StrikeScope;
+}
+
+/** The selectors and domains of a weapon's attack roll, as Foundry names them. */
+function attackTargets(slug: Slug): ReadonlySet<ModifierTarget> {
+  return new Set(
+    [`${ATTACK}:${slug}`, ATTACK, `${slug}-attack`, 'attack', 'attack-roll', 'strike-attack-roll'].map((target) =>
+      ModifierTarget.parse(target),
+    ),
+  );
+}
+
+/** The selectors and domains of a weapon's damage roll, as Foundry names them. */
+function damageTargets(slug: Slug): ReadonlySet<ModifierTarget> {
+  return new Set(
+    [`${DAMAGE}:${slug}`, DAMAGE, `${slug}-damage`, 'damage'].map((target) => ModifierTarget.parse(target)),
+  );
+}
+
+/** What the rule elements in play change about the weapon's Strike: its dice, extra dice and notes. */
+function rulesOf(weapon: WeaponInputs, rules: StrikeRulesInput | undefined): StrikeRules | undefined {
+  if (rules === undefined) {
+    return undefined;
+  }
+  const { damage } = weapon;
+  return strikeRules(rules.inputs, rules.scope, {
+    dice: damageDice(weapon) ?? DiceCount.parse(0),
+    die: damage?.die,
+    damageType: damage?.damageType ?? DamageType.Bludgeoning,
+    attack: attackTargets(weapon.slug),
+    damage: damageTargets(weapon.slug),
+  });
+}
+
+function damageOf(
+  weapon: WeaponInputs,
+  results: ReadonlyMap<Selector, StatisticResult>,
+  changes: StrikeRules | undefined,
+): StrikeDamage | undefined {
   const dice = damageDice(weapon);
   if (dice === undefined || weapon.damage === undefined) {
     return undefined;
   }
   const { die, damageType, persistent } = weapon.damage;
   return {
-    dice,
+    dice: changes?.dice ?? dice,
     die,
-    damageType,
+    damageType: changes?.damageType ?? damageType,
+    extra: changes?.extra ?? [],
     persistent,
     splash: weapon.splash,
     bonus: results.get(Selector.parse(`${DAMAGE}:${weapon.slug}`)),
@@ -85,16 +134,22 @@ function damageOf(weapon: WeaponInputs, results: ReadonlyMap<Selector, Statistic
 
 /**
  * Each weapon's Strike (rules-engine.md, step 7), in the weapons' order: the attack and flat damage statistics
- * `deriveStatistics` made for it, its dice and its multiple attack penalty.
+ * `deriveStatistics` made for it, its dice and its multiple attack penalty. With `rules`, the dice and notes that
+ * `DamageDice`, `DamageAlteration` and `Note` elements in play give (`strikeRules`).
  */
 export function deriveStrikes(
   weapons: readonly WeaponInputs[],
   results: ReadonlyMap<Selector, StatisticResult>,
+  rules?: StrikeRulesInput,
 ): readonly Strike[] {
-  return weapons.map((weapon): Strike => ({
-    weapon,
-    attack: results.get(Selector.parse(`${ATTACK}:${weapon.slug}`)),
-    damage: damageOf(weapon, results),
-    map: multipleAttackPenalty(weapon),
-  }));
+  return weapons.map((weapon): Strike => {
+    const changes = rulesOf(weapon, rules);
+    return {
+      weapon,
+      attack: results.get(Selector.parse(`${ATTACK}:${weapon.slug}`)),
+      damage: damageOf(weapon, results, changes),
+      notes: changes?.notes ?? [],
+      map: multipleAttackPenalty(weapon),
+    };
+  });
 }

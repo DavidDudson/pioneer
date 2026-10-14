@@ -46,10 +46,15 @@
     [toggles]="row().attackToggles"
     (toggled)="claim($event)"
   />
+  <pio-strike-notes [notes]="row().attackNotes" />
   <fr-text>{{ row().damage }}</fr-text>
+  @for (extra of row().extras; track extra) {
+    <fr-text>{{ extra }}</fr-text>
+  }
   @for (line of row().thrown; track line) {
     <fr-text>{{ line }}</fr-text>
   }
   <pio-statistic-conditions [conditions]="row().damageConditions" />
+  <pio-strike-notes [notes]="row().damageNotes" />
   <fr-text variant="caption" tone="muted">{{ row().penalty }}</fr-text>
 </fr-stack>

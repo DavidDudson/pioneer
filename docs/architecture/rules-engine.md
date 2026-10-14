@@ -697,6 +697,23 @@ gives it as an origin. `CreatureSize` applies in the order found: a named size s
 names one overrides it or adds to it. The result is read-only on the sheet: the play state still holds the temporary
 Hit Points a player enters, and no recovery is applied for them.
 
+### Strike dice and notes
+
+`deriveStrikes` takes the rule elements in play (`StrikeRulesInput`) and `strikeRules` reads the `DamageDice`,
+`DamageAlteration` and `Note` elements whose predicate holds and whose selectors reach a Strike's rolls: for damage
+`strike-damage:<slug>`, `strike-damage`, `<slug>-damage` and `damage`, for the attack `strike:<slug>`, `strike`,
+`<slug>-attack`, `attack`, `attack-roll` and `strike-attack-roll`. An element that depends on the situation (the target
+is undead) gives nothing here. Elements apply in the order found:
+
+- A `DamageDice` with a `dieSize` adds `ExtraDice` of its own (one die by default), typed `damageType` or as the weapon,
+  in its `category` and for a critical hit only when `critical`. Without a `dieSize` it adds `diceNumber` to the
+  weapon's dice, or overrides their type.
+- A `DamageAlteration` changes the weapon's dice number by its `mode` (never below 0) or overrides its type.
+- A weapon with no die rolls flat damage, which neither changes.
+- A `Note` comes back on each of the Strike's rolls it reaches, with its `outcome` and origin.
+
+The extra dice and notes are shown beside the Strike's damage; the dice are not yet rolled with it.
+
 ## Predicates and conditional modifiers
 
 Predicates use Foundry's JSON shape so imported content needs no rewriting: an array means _all_, plus `or`, `and`,

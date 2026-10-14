@@ -624,7 +624,20 @@
       "persistent": "{formula} persistent {type}",
       "splash": "{amount} {type} splash",
       "rangeIncrement": "Range increment {range} ft",
-      "quantity": "{count} in stack"
+      "quantity": "{count} in stack",
+      "extraDice": "Plus {dice} {type}{hasCategory, select, yes { {category}} other {}}{critical, select, yes { on a critical hit} other {}}",
+      "category": {
+        "precision": "precision",
+        "persistent": "persistent",
+        "splash": "splash"
+      },
+      "noteOutcome": "On {degrees}",
+      "degree": {
+        "criticalSuccess": "a critical success",
+        "success": "a success",
+        "failure": "a failure",
+        "criticalFailure": "a critical failure"
+      }
     },
     "attributes": {
       "str": "Strength",

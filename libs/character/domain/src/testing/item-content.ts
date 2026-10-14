@@ -16,6 +16,7 @@ import type { ItemContent } from '../inventory-content';
 import { runeContent } from '../item-runes';
 import type { RuneContent } from '../item-runes';
 import { CLUMSY, ENCUMBERED, ITEM_PACK } from './condition-fixture-ids';
+import { EMBER_BLADE, TROLL_CHARM } from './effect-items';
 import { HUNTERS_BLADE } from './hunters-blade';
 import { HUNTERS_CLOAK } from './hunters-cloak';
 import { RUNES, RuneFixture } from './rune-fixtures';
@@ -73,6 +74,8 @@ export const ItemFixture = {
   WingedBoots: 'winged-boots',
   /** A worn invested charm that gives fast healing 2, 4 temporary Hit Points and one size larger. */
   TrollCharm: 'troll-charm',
+  /** A held sword whose Strikes add 1d6 fire precision damage and a note on a critical success. */
+  EmberBlade: 'ember-blade',
 } as const;
 export type ItemFixture = (typeof ItemFixture)[keyof typeof ItemFixture];
 
@@ -222,16 +225,8 @@ const ITEMS: Readonly<Record<ItemFixture, ItemFixtureFields>> = {
     },
     traits: ['magical'],
   },
-  [ItemFixture.TrollCharm]: {
-    kind: ContentKind.Equipment,
-    data: { bulk: 'light', usage: { type: 'worn', slot: 'necklace' } },
-    traits: ['invested', 'magical'],
-    rules: [
-      { key: 'FastHealing', value: 2, deactivatedBy: ['fire'] },
-      { key: 'TempHP', value: 4 },
-      { key: 'CreatureSize', value: 1 },
-    ],
-  },
+  [ItemFixture.EmberBlade]: EMBER_BLADE,
+  [ItemFixture.TrollCharm]: TROLL_CHARM,
   [ItemFixture.RuneArmor]: {
     kind: ContentKind.Armor,
     data: { bulk: 1, category: 'light', group: 'leather', acBonus: 2, dexCap: 3 },

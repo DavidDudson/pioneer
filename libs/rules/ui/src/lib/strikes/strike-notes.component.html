@@ -1,0 +1,11 @@
+@for (note of notes(); track note) {
+  <fr-stack gap="3xs">
+    @if (note.title; as title) {
+      <fr-text weight="semibold">{{ title }}</fr-text>
+    }
+    @if (note.when; as when) {
+      <fr-text variant="caption" tone="muted">{{ when }}</fr-text>
+    }
+    <pio-rich-text [text]="note.text" />
+  </fr-stack>
+}

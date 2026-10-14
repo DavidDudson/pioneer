@@ -323,6 +323,7 @@ export {
 export {
   characterStatisticInputs,
   characterStatistics,
+  characterStrikeRules,
   characterVitals,
   MAX_HP_SELECTOR,
   maxHitPoints,
