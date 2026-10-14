@@ -271,6 +271,29 @@
       {
         "key": "GrantItem",
         "item": "d21fd9b4-22f0-5dd9-980e-fd02482e0bcf"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill",
+        "choices": [
+          {
+            "value": "acrobatics",
+            "label": "Acrobatics"
+          },
+          {
+            "value": "athletics",
+            "label": "Athletics"
+          }
+        ],
+        "prompt": "Select a skill."
+      },
+      {
+        "key": "Proficiency",
+        "selector": {
+          "choice": "skill",
+          "prefix": "skill"
+        },
+        "rank": "trained"
       }
     ],
     "externalIds": {
@@ -6621,6 +6644,16 @@
       {
         "key": "GrantItem",
         "item": "730b86b0-c740-5759-ba8b-82ae1fede883"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:athletics",
+        "rank": "expert"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:religion",
+        "rank": "expert"
       }
     ],
     "externalIds": {
@@ -6707,6 +6740,16 @@
         "key": "Proficiency",
         "selector": "spellcasting",
         "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:nature",
+        "rank": "expert"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:religion",
+        "rank": "expert"
       }
     ],
     "externalIds": {

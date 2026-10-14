@@ -107,16 +107,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.occultism.rank",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
           "key": "GrantItem",
           "raw": {
             "key": "GrantItem",
@@ -330,16 +320,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.nature.rank",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
           "key": "GrantItem",
           "raw": {
             "key": "GrantItem",
@@ -371,16 +351,6 @@
       "slug": "class-feature:choir-politic",
       "foundry": "Compendium.pf2e.classfeatures.Item.v2JQB6j3VIKWqPpQ",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.society.rank",
-            "value": 1
-          }
-        },
         {
           "type": "rule",
           "key": "ActiveEffectLike",
@@ -577,16 +547,6 @@
           "key": "ActiveEffectLike",
           "raw": {
             "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.nature.rank",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
             "mode": "override",
             "path": "system.proficiencies.aliases.witch",
             "priority": 39,
@@ -628,36 +588,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.Skill.Occultism",
-                "value": "occultism"
-              },
-              {
-                "label": "PF2E.Skill.Religion",
-                "value": "religion"
-              }
-            ],
-            "flag": "skill",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Skill"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.{item|flags.system.rulesSelections.skill}.rank",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
           "key": "GrantItem",
           "raw": {
             "flag": "palatineDetectiveDedication",
@@ -683,16 +613,6 @@
       "slug": "class-feature:paradox-of-opposites",
       "foundry": "Compendium.pf2e.classfeatures.Item.RdOzBNPKLTMUWrJs",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.religion.rank",
-            "value": 1
-          }
-        },
         {
           "type": "rule",
           "key": "ActiveEffectLike",
@@ -737,16 +657,6 @@
       "slug": "class-feature:the-unseen-broker",
       "foundry": "Compendium.pf2e.classfeatures.Item.ydI39ViUy22nBRn6",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.occultism.rank",
-            "value": 1
-          }
-        },
         {
           "type": "rule",
           "key": "ActiveEffectLike",
@@ -3480,25 +3390,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.Actor.Creature.Sense.Type.Darkvision",
-                "value": "darkvision"
-              },
-              {
-                "label": "PF2E.Actions.Swim.Modifier.SwimSpeed",
-                "value": "swim"
-              }
-            ],
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Benefit",
-            "rollOption": "adapt-self"
-          }
-        },
-        {
-          "type": "rule",
           "key": "BaseSpeed",
           "raw": {
             "key": "BaseSpeed",
@@ -4095,36 +3986,6 @@
       "slug": "feat:battle-harbinger-dedication",
       "foundry": "Compendium.pf2e.feats-srd.Item.K7YK5ESDoreohCe8",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.Skill.Acrobatics",
-                "value": "acrobatics"
-              },
-              {
-                "label": "PF2E.Skill.Athletics",
-                "value": "athletics"
-              }
-            ],
-            "flag": "skill",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Skill"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.{item|flags.system.rulesSelections.skill}.rank",
-            "value": 1
-          }
-        },
         {
           "type": "field",
           "reason": "unmapped-field",
@@ -5335,26 +5196,6 @@
       "foundry": "Compendium.pf2e.feats-srd.Item.U3W2T3kOWPdMt3Rv",
       "gaps": [
         {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.athletics.rank",
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.religion.rank",
-            "value": 2
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[feats-srd]"
         },
@@ -5370,26 +5211,6 @@
       "slug": "feat:rivethun-involutionist-dedication",
       "foundry": "Compendium.pf2e.feats-srd.Item.uiX2xS6vTBRBjxdA",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.nature.rank",
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.religion.rank",
-            "value": 2
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[journals]"

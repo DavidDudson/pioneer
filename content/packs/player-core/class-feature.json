@@ -279,6 +279,16 @@
             "not": "feat:order-explorer:animal-order"
           }
         ]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:athletics",
+        "rank": "trained",
+        "predicate": [
+          {
+            "not": "feat:order-explorer:animal-order"
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -3576,6 +3586,11 @@
         "key": "FocusSpells",
         "entry": "witch-focus",
         "spells": ["af8fc818-e0c5-5457-bee9-a2628e72691c"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:religion",
+        "rank": "trained"
       }
     ],
     "externalIds": {
@@ -5105,6 +5120,16 @@
         "key": "FocusSpells",
         "entry": "druid-focus",
         "spells": ["3a58c6de-a5f2-5276-9f44-4ccb246152c5"],
+        "predicate": [
+          {
+            "not": "feat:order-explorer:leaf-order"
+          }
+        ]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:diplomacy",
+        "rank": "trained",
         "predicate": [
           {
             "not": "feat:order-explorer:leaf-order"
@@ -6786,7 +6811,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:society",
+        "rank": "trained"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.RyOkmu0W9svavuAB"
     },
@@ -8203,6 +8234,11 @@
       {
         "key": "Proficiency",
         "selector": "defense:medium",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:intimidation",
         "rank": "trained"
       }
     ],
@@ -11465,7 +11501,18 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:diplomacy",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:deception",
+        "rank": "trained"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.ZvfxtUMtfIOLYHyg"
     },
@@ -11886,6 +11933,11 @@
         "key": "FocusSpells",
         "entry": "witch-focus",
         "spells": ["ed86a157-0e01-5ec4-8b0f-6952e32cc320"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:nature",
+        "rank": "trained"
       }
     ],
     "externalIds": {
@@ -12455,6 +12507,11 @@
         "key": "FocusSpells",
         "entry": "witch-focus",
         "spells": ["60ba1458-0dc1-5f02-95d6-7e01f8cae648"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:occultism",
+        "rank": "trained"
       }
     ],
     "externalIds": {
@@ -12685,6 +12742,11 @@
         "key": "FocusSpells",
         "entry": "witch-focus",
         "spells": ["5fa71f39-f51f-5c51-a21b-3cd561210f5f"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:occultism",
+        "rank": "trained"
       }
     ],
     "externalIds": {
@@ -12811,6 +12873,16 @@
         "key": "FocusSpells",
         "entry": "druid-focus",
         "spells": ["61f84b31-8da0-5b2f-89a8-9ae353d08524"],
+        "predicate": [
+          {
+            "not": "feat:order-explorer:storm-order"
+          }
+        ]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:acrobatics",
+        "rank": "trained",
         "predicate": [
           {
             "not": "feat:order-explorer:storm-order"
@@ -13078,6 +13150,11 @@
         "key": "FocusSpells",
         "entry": "witch-focus",
         "spells": ["739223bd-213c-5fde-8da3-7556c7f50b22"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:arcana",
+        "rank": "trained"
       }
     ],
     "externalIds": {
@@ -13222,6 +13299,11 @@
         "key": "FocusSpells",
         "entry": "witch-focus",
         "spells": ["edd9a7ea-dc86-539c-9c6d-c35ac38a45c4"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:occultism",
+        "rank": "trained"
       }
     ],
     "externalIds": {
@@ -13275,7 +13357,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:thievery",
+        "rank": "trained"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.wAh2riuFRzz0edPl"
     },
@@ -13624,6 +13712,16 @@
         "key": "FocusSpells",
         "entry": "druid-focus",
         "spells": ["a57b5d2f-8af8-51d0-8819-828f863e14f3"],
+        "predicate": [
+          {
+            "not": "feat:order-explorer:untamed-order"
+          }
+        ]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:intimidation",
+        "rank": "trained",
         "predicate": [
           {
             "not": "feat:order-explorer:untamed-order"
@@ -14534,6 +14632,11 @@
         "key": "FocusSpells",
         "entry": "witch-focus",
         "spells": ["d075969b-7fbe-5aa6-8992-b5b09681f388"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:nature",
+        "rank": "trained"
       }
     ],
     "externalIds": {

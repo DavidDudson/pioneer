@@ -451,108 +451,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.TraitAcid",
-                "value": "acid"
-              },
-              {
-                "label": "PF2E.TraitCold",
-                "value": "cold"
-              },
-              {
-                "label": "PF2E.TraitElectricity",
-                "value": "electricity"
-              },
-              {
-                "label": "PF2E.TraitFire",
-                "value": "fire"
-              },
-              {
-                "label": "PF2E.TraitPoison",
-                "value": "poison"
-              },
-              {
-                "label": "PF2E.TraitSonic",
-                "value": "sonic"
-              }
-            ],
-            "flag": "resistanceOne",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Resistance",
-            "rollOption": "resistance"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.TraitAcid",
-                "predicate": [
-                  {
-                    "not": "resistance:acid"
-                  }
-                ],
-                "value": "acid"
-              },
-              {
-                "label": "PF2E.TraitCold",
-                "predicate": [
-                  {
-                    "not": "resistance:cold"
-                  }
-                ],
-                "value": "cold"
-              },
-              {
-                "label": "PF2E.TraitElectricity",
-                "predicate": [
-                  {
-                    "not": "resistance:electricity"
-                  }
-                ],
-                "value": "electricity"
-              },
-              {
-                "label": "PF2E.TraitFire",
-                "predicate": [
-                  {
-                    "not": "resistance:fire"
-                  }
-                ],
-                "value": "fire"
-              },
-              {
-                "label": "PF2E.TraitPoison",
-                "predicate": [
-                  {
-                    "not": "resistance:poison"
-                  }
-                ],
-                "value": "poison"
-              },
-              {
-                "label": "PF2E.TraitSonic",
-                "predicate": [
-                  {
-                    "not": "resistance:sonic"
-                  }
-                ],
-                "value": "sonic"
-              }
-            ],
-            "flag": "resistanceTwo",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Resistance",
-            "rollOption": "resistance"
-          }
-        },
-        {
-          "type": "rule",
           "key": "Resistance",
           "raw": {
             "key": "Resistance",
@@ -812,83 +710,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "background:hermit",
-      "foundry": "Compendium.pf2e.backgrounds.Item.b3UC18ueX8m9Ov0W",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.Skill.Nature",
-                "value": "nature"
-              },
-              {
-                "label": "PF2E.Skill.Occultism",
-                "value": "occultism"
-              }
-            ],
-            "flag": "skill",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Skill"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.{item|flags.system.rulesSelections.skill}.rank",
-            "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "background:martial-disciple",
-      "foundry": "Compendium.pf2e.backgrounds.Item.lX5KDS2hU5LihZRs",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.Skill.Acrobatics",
-                "value": "acrobatics"
-              },
-              {
-                "label": "PF2E.Skill.Athletics",
-                "value": "athletics"
-              }
-            ],
-            "flag": "skill",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Skill",
-            "rollOption": "martial-disciple"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.{item|flags.system.rulesSelections.skill}.rank",
-            "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "background:nomad",
       "foundry": "Compendium.pf2e.backgrounds.Item.8UXahQfkP9GZ1TNW",
       "gaps": [
@@ -913,16 +734,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.{item|flags.system.rulesSelections.skill}.rank",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
           "key": "GrantItem",
           "raw": {
             "key": "GrantItem",
@@ -930,44 +741,6 @@
               "assurance": "{item|flags.system.rulesSelections.skill}"
             },
             "uuid": "Compendium.pf2e.feats-srd.Item.Assurance"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "background:teacher",
-      "foundry": "Compendium.pf2e.backgrounds.Item.WrKVeUQ6KeRCm9uH",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.Skill.Performance",
-                "value": "performance"
-              },
-              {
-                "label": "PF2E.Skill.Society",
-                "value": "society"
-              }
-            ],
-            "flag": "skill",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Skill"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.{item|flags.system.rulesSelections.skill}.rank",
-            "value": 1
           }
         }
       ]
@@ -1023,29 +796,6 @@
           "element": {
             "type": "ref",
             "id": "8d8afdc8-d8bb-52eb-8ebb-74bd066eb8eb"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "class-feature:animal-order",
-      "foundry": "Compendium.pf2e.classfeatures.Item.POBvoXifa9HaejAg",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.athletics.rank",
-            "predicate": [
-              {
-                "not": "feat:order-explorer:animal-order"
-              }
-            ],
-            "value": 1
           }
         }
       ]
@@ -1979,16 +1729,6 @@
           "key": "ActiveEffectLike",
           "raw": {
             "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.religion.rank",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
             "mode": "override",
             "path": "system.proficiencies.aliases.witch",
             "priority": 39,
@@ -2573,29 +2313,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "class-feature:leaf-order",
-      "foundry": "Compendium.pf2e.classfeatures.Item.u4nlOzPj2WHkIj9l",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.diplomacy.rank",
-            "predicate": [
-              {
-                "not": "feat:order-explorer:leaf-order"
-              }
-            ],
-            "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "class-feature:legendary-spellcaster",
       "foundry": "Compendium.pf2e.classfeatures.Item.Hfaa7TuLn3nE8lr3",
       "gaps": [
@@ -2839,16 +2556,6 @@
       "slug": "class-feature:mastermind",
       "foundry": "Compendium.pf2e.classfeatures.Item.RyOkmu0W9svavuAB",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.society.rank",
-            "value": 1
-          }
-        },
         {
           "type": "rule",
           "key": "ChoiceSet",
@@ -3373,16 +3080,6 @@
           "raw": {
             "key": "ActiveEffectLike",
             "mode": "upgrade",
-            "path": "system.skills.intimidation.rank",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
             "path": "system.proficiencies.defenses.medium.rank",
             "predicate": ["feature:light-armor-expertise"],
             "value": 2
@@ -3452,26 +3149,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.diplomacy.rank",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.deception.rank",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
           "key": "Note",
           "raw": {
             "key": "Note",
@@ -3518,16 +3195,6 @@
       "slug": "class-feature:silence-in-snow",
       "foundry": "Compendium.pf2e.classfeatures.Item.9c57R18pfgfqlBCD",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.nature.rank",
-            "value": 1
-          }
-        },
         {
           "type": "rule",
           "key": "ActiveEffectLike",
@@ -3715,16 +3382,6 @@
           "key": "ActiveEffectLike",
           "raw": {
             "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.occultism.rank",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
             "mode": "override",
             "path": "system.proficiencies.aliases.witch",
             "priority": 39,
@@ -3764,16 +3421,6 @@
           "key": "ActiveEffectLike",
           "raw": {
             "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.occultism.rank",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
             "mode": "override",
             "path": "system.proficiencies.aliases.witch",
             "priority": 39,
@@ -3795,29 +3442,6 @@
                 "title": "PF2E.SpecificRule.Witch.Patron.FamiliarAbility.StalkingNight.Title"
               }
             ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "class-feature:storm-order",
-      "foundry": "Compendium.pf2e.classfeatures.Item.acqqlYmti8D9QJi0",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.acrobatics.rank",
-            "predicate": [
-              {
-                "not": "feat:order-explorer:storm-order"
-              }
-            ],
-            "value": 1
           }
         }
       ]
@@ -3878,16 +3502,6 @@
           "key": "ActiveEffectLike",
           "raw": {
             "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.arcana.rank",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
             "mode": "override",
             "path": "system.proficiencies.aliases.witch",
             "priority": 39,
@@ -3919,16 +3533,6 @@
       "slug": "class-feature:the-resentment",
       "foundry": "Compendium.pf2e.classfeatures.Item.9OwWgOP8ZWxTAqbg",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.occultism.rank",
-            "value": 1
-          }
-        },
         {
           "type": "rule",
           "key": "ActiveEffectLike",
@@ -3974,16 +3578,6 @@
             "predicate": ["item:trait:finesse"],
             "selector": "melee-strike-damage",
             "type": "ability"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.thievery.rank",
-            "value": 1
           }
         }
       ]
@@ -4037,29 +3631,6 @@
               "environment": "all",
               "feature": "all"
             }
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "class-feature:untamed-order",
-      "foundry": "Compendium.pf2e.classfeatures.Item.v0EjtiwdeMj8ykI0",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.intimidation.rank",
-            "predicate": [
-              {
-                "not": "feat:order-explorer:untamed-order"
-              }
-            ],
-            "value": 1
           }
         }
       ]
@@ -4327,16 +3898,6 @@
           "key": "ActiveEffectLike",
           "raw": {
             "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.nature.rank",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
             "mode": "override",
             "path": "system.proficiencies.aliases.witch",
             "priority": 39,
@@ -4580,36 +4141,6 @@
       "foundry": "Compendium.pf2e.classes.Item.8zn3cD6GSmoo1LW4",
       "gaps": [
         {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.Skill.Acrobatics",
-                "value": "acrobatics"
-              },
-              {
-                "label": "PF2E.Skill.Athletics",
-                "value": "athletics"
-              }
-            ],
-            "flag": "fighterSkill",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Skill"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.{item|flags.system.rulesSelections.fighterSkill}.rank",
-            "value": 1
-          }
-        },
-        {
           "type": "field",
           "reason": "unresolved-reference",
           "field": "items",
@@ -4639,21 +4170,6 @@
       "slug": "class:ranger",
       "foundry": "Compendium.pf2e.classes.Item.Yix76sfxrIlltSTJ",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.nature.rank",
-            "predicate": [
-              {
-                "not": "feature:vindicator"
-              }
-            ],
-            "value": 1
-          }
-        },
         {
           "type": "field",
           "reason": "unresolved-reference",
@@ -6686,27 +6202,6 @@
           "type": "rule",
           "key": "ChoiceSet",
           "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "TYPES.Item.shield",
-                "value": "shield"
-              },
-              {
-                "label": "TYPES.Item.weapon",
-                "value": "weapon"
-              }
-            ],
-            "flag": "item",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.ShieldOrWeapon",
-            "rollOption": "emblazon-antimagic:item"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
             "choices": {
               "ownedItems": true,
               "types": ["shield"]
@@ -6766,27 +6261,6 @@
           "type": "rule",
           "key": "ChoiceSet",
           "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "TYPES.Item.shield",
-                "value": "shield"
-              },
-              {
-                "label": "TYPES.Item.weapon",
-                "value": "weapon"
-              }
-            ],
-            "flag": "item",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.ShieldOrWeapon",
-            "rollOption": "emblazon-armament:item"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
             "choices": {
               "ownedItems": true,
               "types": ["shield"]
@@ -6842,27 +6316,6 @@
       "slug": "effect:effect-emblazon-energy",
       "foundry": "Compendium.pf2e.feat-effects.Item.jUUjgpEEOeZeG7II",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "TYPES.Item.shield",
-                "value": "shield"
-              },
-              {
-                "label": "TYPES.Item.weapon",
-                "value": "weapon"
-              }
-            ],
-            "flag": "item",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.ShieldOrWeapon",
-            "rollOption": "emblazon-energy:item"
-          }
-        },
         {
           "type": "rule",
           "key": "ChoiceSet",
@@ -7043,36 +6496,6 @@
             "selector": "ac",
             "type": "status",
             "value": "@item.flags.system.rulesSelections.familiarOfBalancedLuck"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:effect-familiar-of-keen-senses",
-      "foundry": "Compendium.pf2e.feat-effects.Item.4wJM0OA9y2gsBAh7",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.Actor.Creature.Sense.Type.Scent",
-                "value": "scent"
-              },
-              {
-                "label": "PF2E.Actor.Creature.Sense.Type.Tremorsense",
-                "value": "tremorsense"
-              },
-              {
-                "label": "PF2E.Actor.Creature.Sense.Type.Wavesense",
-                "value": "wavesense"
-              }
-            ],
-            "key": "ChoiceSet",
-            "rollOption": "familiar-of-keen-senses"
           }
         }
       ]
@@ -7426,25 +6849,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.SpecificRule.BodyParts.Legs",
-                "value": "legs"
-              },
-              {
-                "label": "PF2E.SpecificRule.BodyParts.Wrists",
-                "value": "wrists"
-              }
-            ],
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.BodyParts.Prompt",
-            "rollOption": "manacles"
-          }
-        },
-        {
-          "type": "rule",
           "key": "ItemAlteration",
           "raw": {
             "itemType": "action",
@@ -7597,34 +7001,6 @@
             "slug": "overextending-feint-critical",
             "type": "circumstance",
             "value": -2
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:effect-parry",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.fRlvmul3LbLo2xvR",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.UI.RuleElements.ChoiceSet.NoLabel",
-                "value": "no"
-              },
-              {
-                "label": "PF2E.UI.RuleElements.ChoiceSet.YesLabel",
-                "value": "yes"
-              }
-            ],
-            "key": "ChoiceSet",
-            "predicate": ["weapon-parry"],
-            "prompt": "PF2E.SpecificRule.Parry.Prompt",
-            "rollOption": "parry-bonus-upgrade"
           }
         }
       ]
@@ -7857,19 +7233,6 @@
               }
             ],
             "selector": "saving-throw"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "predicate": [
-              {
-                "or": ["emblazon-armament:item:shield", "shield-religious-symbol"]
-              }
-            ],
-            "uuid": "Compendium.pf2e.equipment-effects.Item.Effect: Raise a Shield"
           }
         }
       ]
@@ -9033,53 +8396,6 @@
       "slug": "effect:spell-effect-aerial-form",
       "foundry": "Compendium.pf2e.spell-effects.Item.mvMWmP3m9Xawbwpx",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.BattleForm.AerialForm.ChoiceSet.Bat",
-                "value": "bat"
-              },
-              {
-                "label": "PF2E.BattleForm.AerialForm.ChoiceSet.Bird",
-                "value": "bird"
-              },
-              {
-                "label": "PF2E.BattleForm.AerialForm.ChoiceSet.Pterosaur",
-                "predicate": [
-                  {
-                    "or": [
-                      {
-                        "not": "self:effect:untamed-form"
-                      },
-                      "feat:ferocious-shape"
-                    ]
-                  }
-                ],
-                "value": "pterosaur"
-              },
-              {
-                "label": "PF2E.BattleForm.AerialForm.ChoiceSet.Wasp",
-                "predicate": [
-                  {
-                    "or": [
-                      {
-                        "not": "self:effect:untamed-form"
-                      },
-                      "feat:insect-shape"
-                    ]
-                  }
-                ],
-                "value": "wasp"
-              }
-            ],
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Form",
-            "rollOption": "aerial-form"
-          }
-        },
         {
           "type": "rule",
           "key": "BattleForm",
@@ -13409,42 +12725,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.TraitAir",
-                "value": "air"
-              },
-              {
-                "label": "PF2E.TraitEarth",
-                "value": "earth"
-              },
-              {
-                "label": "PF2E.TraitFire",
-                "value": "fire"
-              },
-              {
-                "label": "PF2E.TraitMetal",
-                "value": "metal"
-              },
-              {
-                "label": "PF2E.TraitWater",
-                "value": "water"
-              },
-              {
-                "label": "PF2E.TraitWood",
-                "value": "wood"
-              }
-            ],
-            "flag": "spellEffectElementalForm",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Element",
-            "rollOption": "elemental-form"
-          }
-        },
-        {
-          "type": "rule",
           "key": "BattleForm",
           "raw": {
             "brackets": [
@@ -15010,65 +14290,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.NPCAbility.ChangeShape.Form.Humanoid.Small",
-                "value": "small"
-              },
-              {
-                "label": "PF2E.NPCAbility.ChangeShape.Form.Humanoid.Medium",
-                "value": "medium"
-              },
-              {
-                "label": "PF2E.NPCAbility.ChangeShape.Form.Humanoid.Large",
-                "predicate": [
-                  {
-                    "gte": ["parent:origin:item:level", 5]
-                  }
-                ],
-                "value": "large"
-              }
-            ],
-            "flag": "humanoidForm",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Form",
-            "rollOption": "humanoid-form"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.Item.Ability.Category.None",
-                "value": "none"
-              },
-              {
-                "label": "PF2E.Actor.Creature.Sense.Type.LowLightVision",
-                "value": "low-light-vision"
-              },
-              {
-                "label": "PF2E.Actor.Creature.Sense.Type.Darkvision",
-                "value": "darkvision"
-              }
-            ],
-            "key": "ChoiceSet",
-            "predicate": [
-              {
-                "gte": ["parent:origin:item:level", 3]
-              }
-            ],
-            "prompt": "PF2E.SpecificRule.Prompt.Sense",
-            "rollOption": "vision-type"
-          }
-        },
-        {
-          "type": "rule",
           "key": "CreatureSize",
           "raw": {
             "key": "CreatureSize",
@@ -15137,26 +14358,6 @@
       "slug": "effect:spell-effect-ill-omen",
       "foundry": "Compendium.pf2e.spell-effects.Item.AmsVO5Q6078mEvNt",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.Check.Result.Degree.Check.failure",
-                "value": "failure"
-              },
-              {
-                "label": "PF2E.Check.Result.Degree.Check.criticalFailure",
-                "value": "critical-failure"
-              }
-            ],
-            "flag": "illOmen",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.DegreeOfSuccess",
-            "rollOption": "ill-omen"
-          }
-        },
         {
           "type": "rule",
           "key": "RollTwice",
@@ -15426,39 +14627,6 @@
       "slug": "effect:spell-effect-monstrosity-form",
       "foundry": "Compendium.pf2e.spell-effects.Item.oMtbVNQ5YFmmQUlU",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.BattleForm.MonstrosityForm.ChoiceSet.CaveWorm",
-                "value": "cave-worm"
-              },
-              {
-                "label": "PF2E.BattleForm.MonstrosityForm.ChoiceSet.Phoenix",
-                "predicate": [
-                  {
-                    "not": "self:effect:untamed-form"
-                  }
-                ],
-                "value": "phoenix"
-              },
-              {
-                "label": "PF2E.BattleForm.MonstrosityForm.ChoiceSet.Phoenix",
-                "predicate": ["self:effect:untamed-form", "feat:soaring-shape"],
-                "value": "phoenix"
-              },
-              {
-                "label": "PF2E.BattleForm.MonstrosityForm.ChoiceSet.SeaSerpent",
-                "value": "sea-serpent"
-              }
-            ],
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Form",
-            "rollOption": "monstrosity-form"
-          }
-        },
         {
           "type": "rule",
           "key": "BattleForm",
@@ -16031,26 +15199,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.BattleForm.NatureIncarnate.GreenMan",
-                "value": "green-man"
-              },
-              {
-                "label": "PF2E.BattleForm.NatureIncarnate.Kaiju",
-                "value": "kaiju"
-              }
-            ],
-            "flag": "natureIncarnate",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Form",
-            "rollOption": "nature-incarnate"
-          }
-        },
-        {
-          "type": "rule",
           "key": "BattleForm",
           "raw": {
             "key": "BattleForm",
@@ -16423,25 +15571,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.BattleForm.PlantForm.ChoiceSet.Arboreal",
-                "value": "arboreal"
-              },
-              {
-                "label": "PF2E.BattleForm.PlantForm.ChoiceSet.Flytrap",
-                "value": "flytrap"
-              }
-            ],
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Form",
-            "rollOption": "plant-form"
-          }
-        },
-        {
-          "type": "rule",
           "key": "BattleForm",
           "raw": {
             "brackets": [
@@ -16785,42 +15914,6 @@
       "slug": "effect:spell-effect-primal-summons",
       "foundry": "Compendium.pf2e.spell-effects.Item.PQuQtDixruZmmvT4",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.TraitAir",
-                "value": "air"
-              },
-              {
-                "label": "PF2E.TraitEarth",
-                "value": "earth"
-              },
-              {
-                "label": "PF2E.TraitFire",
-                "value": "fire"
-              },
-              {
-                "label": "PF2E.TraitMetal",
-                "value": "metal"
-              },
-              {
-                "label": "PF2E.TraitWater",
-                "value": "water"
-              },
-              {
-                "label": "PF2E.TraitWood",
-                "value": "wood"
-              }
-            ],
-            "flag": "spellEffectPrimalSummons",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Element",
-            "rollOption": "primal-summons"
-          }
-        },
         {
           "type": "rule",
           "key": "BaseSpeed",
@@ -17341,42 +16434,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.Actor.Speed.Label",
-                "value": "speed"
-              },
-              {
-                "label": "PF2E.Actor.Speed.Type.Climb",
-                "value": "climb"
-              },
-              {
-                "label": "PF2E.Actor.Speed.Type.Swim",
-                "value": "swim"
-              },
-              {
-                "label": "PF2E.Actor.Creature.Sense.Type.Darkvision",
-                "value": "darkvision"
-              },
-              {
-                "label": "PF2E.Weapon.Base.claw",
-                "value": "claw"
-              },
-              {
-                "label": "PF2E.Actor.Creature.Sense.Type.Scent",
-                "value": "scent"
-              }
-            ],
-            "flag": "shiftingForm",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Form",
-            "rollOption": "shifting-form"
-          }
-        },
-        {
-          "type": "rule",
           "key": "BaseSpeed",
           "raw": {
             "key": "BaseSpeed",
@@ -17643,65 +16700,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:spell-effect-sweet-dream",
-      "foundry": "Compendium.pf2e.spell-effects.Item.yEQXaB7XyaROVqyb",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.SpecificRule.SpellEffectSweetDream.Insight",
-                "value": "insight"
-              },
-              {
-                "label": "PF2E.SpecificRule.SpellEffectSweetDream.Glamor",
-                "value": "glamor"
-              },
-              {
-                "label": "PF2E.SpecificRule.SpellEffectSweetDream.Voyaging",
-                "value": "voyaging"
-              }
-            ],
-            "flag": "sweetDream",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.SpellEffectSweetDream.Prompt",
-            "rollOption": "sweet-dream"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-tangle-vine",
-      "foundry": "Compendium.pf2e.spell-effects.Item.TwtUIEyenrtAbeiX",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.Check.Result.Degree.Check.success",
-                "value": "success"
-              },
-              {
-                "label": "PF2E.Check.Result.Degree.Check.criticalSuccess",
-                "value": "critical-success"
-              }
-            ],
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.DegreeOfSuccess",
-            "rollOption": "tangle-vine"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:spell-effect-tempt-fate",
       "foundry": "Compendium.pf2e.spell-effects.Item.AJkRUIdYLnt4QOOg",
       "gaps": [
@@ -17947,43 +16945,6 @@
       "slug": "effect:spell-effect-untamed-shift",
       "foundry": "Compendium.pf2e.spell-effects.Item.rTVZ0zwiKeslRw6p",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.SpecificRule.UntamedShift.UntamedClaws",
-                "predicate": ["feat:untamed-form"],
-                "value": "untamed-claws"
-              },
-              {
-                "label": "PF2E.SpecificRule.UntamedShift.UntamedJaws",
-                "predicate": ["feat:insect-shape"],
-                "value": "untamed-jaws"
-              },
-              {
-                "label": "PF2E.SpecificRule.UntamedShift.ElementalMatter",
-                "predicate": ["feat:elemental-shape"],
-                "value": "elemental-matter"
-              },
-              {
-                "label": "PF2E.SpecificRule.UntamedShift.LongVines",
-                "predicate": ["feat:plant-shape"],
-                "value": "long-vines"
-              },
-              {
-                "label": "PF2E.SpecificRule.UntamedShift.Wings",
-                "predicate": ["feat:soaring-shape"],
-                "value": "wings"
-              }
-            ],
-            "flag": "spellEffectUntamedShift",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.UntamedShift.Prompt",
-            "rollOption": "untamed-shift"
-          }
-        },
         {
           "type": "rule",
           "key": "ChoiceSet",
@@ -19099,41 +18060,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:advanced-general-training",
-      "foundry": "Compendium.pf2e.feats-srd.Item.Ht6b8H9DpA9lWzAg",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": {
-              "filter": [
-                {
-                  "lte": ["item:level", 7]
-                },
-                "item:trait:general"
-              ],
-              "itemType": "feat"
-            },
-            "flag": "advancedGeneralTraining",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.AdvancedGeneralTraining.Prompt"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "{item|flags.system.rulesSelections.advancedGeneralTraining}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:advanced-hunters-trick",
       "foundry": "Compendium.pf2e.feats-srd.Item.f754txt1ZyhVWXHk",
       "gaps": [
@@ -19430,24 +18356,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:angelkin",
-      "foundry": "Compendium.pf2e.feats-srd.Item.ydgCsYsgqSkFWEDK",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.society.rank",
-            "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:animal-companion-ranger",
       "foundry": "Compendium.pf2e.feats-srd.Item.1JnERVwnPtX620f2",
       "gaps": [
@@ -19704,26 +18612,6 @@
           }
         },
         {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.performance.rank",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.occultism.rank",
-            "value": 1
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[journals]"
         }
@@ -19808,42 +18696,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:basic-arcana",
-      "foundry": "Compendium.pf2e.feats-srd.Item.DBsqWivnSaEo8jz5",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": {
-              "filter": [
-                "item:category:class",
-                "item:trait:wizard",
-                {
-                  "lte": ["item:level", 2]
-                }
-              ],
-              "itemType": "feat"
-            },
-            "flag": "basicArcana",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.LevelOneOrTwoClassFeat"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "{item|flags.system.rulesSelections.basicArcana}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:basic-bard-spellcasting",
       "foundry": "Compendium.pf2e.feats-srd.Item.NSyzjkDdQU2A75mX",
       "gaps": [
@@ -19862,42 +18714,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[journals]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:basic-dogma",
-      "foundry": "Compendium.pf2e.feats-srd.Item.7Pb1WL8abrPBTPrH",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": {
-              "filter": [
-                "item:category:class",
-                "item:trait:cleric",
-                {
-                  "lte": ["item:level", 2]
-                }
-              ],
-              "itemType": "feat"
-            },
-            "flag": "basicDogma",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.LevelOneOrTwoClassFeat"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "{item|flags.system.rulesSelections.basicDogma}"
-          }
         }
       ]
     },
@@ -19927,34 +18743,6 @@
             "mode": "add",
             "path": "flags.system.rangerDedicationCount",
             "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": {
-              "filter": [
-                "item:category:class",
-                "item:trait:ranger",
-                {
-                  "lte": ["item:level", 2]
-                }
-              ],
-              "itemType": "feat"
-            },
-            "flag": "basicHuntersTrick",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.LevelOneOrTwoClassFeat"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "{item|flags.system.rulesSelections.basicHuntersTrick}"
           }
         }
       ]
@@ -20006,142 +18794,6 @@
             "path": "flags.system.fighterDedicationCount",
             "value": 1
           }
-        },
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": {
-              "filter": [
-                "item:category:class",
-                "item:trait:fighter",
-                {
-                  "lte": ["item:level", 2]
-                }
-              ],
-              "itemType": "feat"
-            },
-            "flag": "basicManeuver",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.LevelOneOrTwoClassFeat"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "{item|flags.system.rulesSelections.basicManeuver}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:basic-muses-whispers",
-      "foundry": "Compendium.pf2e.feats-srd.Item.JM0umAUx30mAkuTz",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": {
-              "filter": [
-                "item:category:class",
-                "item:trait:bard",
-                {
-                  "lte": ["item:level", 2]
-                }
-              ],
-              "itemType": "feat"
-            },
-            "flag": "basicMusesWhispers",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.LevelOneOrTwoClassFeat"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "{item|flags.system.rulesSelections.basicMusesWhispers}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:basic-trickery",
-      "foundry": "Compendium.pf2e.feats-srd.Item.xMTC8UOerwGyCtaN",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": {
-              "filter": [
-                "item:category:class",
-                "item:trait:rogue",
-                {
-                  "lte": ["item:level", 2]
-                }
-              ],
-              "itemType": "feat"
-            },
-            "flag": "basicTrickery",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.LevelOneOrTwoClassFeat"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "{item|flags.system.rulesSelections.basicTrickery}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:basic-wilding",
-      "foundry": "Compendium.pf2e.feats-srd.Item.kUa8PBjKmBk04zmc",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": {
-              "filter": [
-                "item:category:class",
-                "item:trait:druid",
-                {
-                  "lte": ["item:level", 2]
-                }
-              ],
-              "itemType": "feat"
-            },
-            "flag": "basicWilding",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.LevelOneOrTwoClassFeat"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "{item|flags.system.rulesSelections.basicWilding}"
-          }
         }
       ]
     },
@@ -20172,34 +18824,6 @@
             "path": "system.attributes.familiarAbilities.value",
             "priority": 9,
             "value": 3
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": {
-              "filter": [
-                "item:category:class",
-                "item:trait:witch",
-                {
-                  "lte": ["item:level", 2]
-                }
-              ],
-              "itemType": "feat"
-            },
-            "flag": "basicWitchcraft",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.LevelOneOrTwoClassFeat"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "{item|flags.system.rulesSelections.basicWitchcraft}"
           }
         }
       ]
@@ -20264,16 +18888,6 @@
       "slug": "feat:beast-trainer",
       "foundry": "Compendium.pf2e.feats-srd.Item.wtTye8OrC9cuK7YP",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.nature.rank",
-            "value": 1
-          }
-        },
         {
           "type": "rule",
           "key": "ChoiceSet",
@@ -20450,34 +19064,6 @@
       "slug": "feat:bestial-manifestation",
       "foundry": "Compendium.pf2e.feats-srd.Item.eUyZBi8vV5QDxOXD",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.BattleForm.Attack.Claw",
-                "value": "claw"
-              },
-              {
-                "label": "PF2E.BattleForm.Attack.Hoof",
-                "value": "hoof"
-              },
-              {
-                "label": "PF2E.BattleForm.Attack.Jaws",
-                "value": "jaws"
-              },
-              {
-                "label": "PF2E.BattleForm.Attack.Tail",
-                "value": "tail"
-              }
-            ],
-            "flag": "bestialManifestation",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.UnarmedAttack",
-            "rollOption": "bestial-manifestation"
-          }
-        },
         {
           "type": "rule",
           "key": "Strike",
@@ -21261,26 +19847,6 @@
           "key": "ActiveEffectLike",
           "raw": {
             "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.deception.rank",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.occultism.rank",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
             "mode": "override",
             "path": "system.skills.changeling-lore",
             "value": {
@@ -21351,16 +19917,6 @@
       "slug": "feat:cleric-dedication",
       "foundry": "Compendium.pf2e.feats-srd.Item.smCDaPlpRDA47xjK",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.religion.rank",
-            "value": 1
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[journals]"
@@ -22437,16 +20993,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.nature.rank",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
           "key": "ChoiceSet",
           "raw": {
             "adjustName": false,
@@ -22599,26 +21145,6 @@
           "key": "ActiveEffectLike",
           "raw": {
             "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.crafting.rank",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.religion.rank",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
             "mode": "override",
             "path": "system.skills.dwarf-lore",
             "value": {
@@ -22659,16 +21185,6 @@
       "slug": "feat:earned-glory",
       "foundry": "Compendium.pf2e.feats-srd.Item.nfERPRCITBp970HO",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.performance.rank",
-            "value": 1
-          }
-        },
         {
           "type": "rule",
           "key": "Note",
@@ -22828,59 +21344,9 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:elf-atavism",
-      "foundry": "Compendium.pf2e.feats-srd.Item.7BVl9lFf0wuTjBgM",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": {
-              "filter": ["item:ancestry:elf"],
-              "itemType": "heritage"
-            },
-            "flag": "heritage",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Elf.Atavism.Prompt"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "allowDuplicate": false,
-            "key": "GrantItem",
-            "uuid": "{item|flags.system.rulesSelections.heritage}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:elven-lore",
       "foundry": "Compendium.pf2e.feats-srd.Item.zki5qdM5IQcAiscM",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.arcana.rank",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.nature.rank",
-            "value": 1
-          }
-        },
         {
           "type": "rule",
           "key": "ActiveEffectLike",
@@ -23593,36 +22059,6 @@
         },
         {
           "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.Skill.Acrobatics",
-                "value": "acrobatics"
-              },
-              {
-                "label": "PF2E.Skill.Athletics",
-                "value": "athletics"
-              }
-            ],
-            "flag": "skill",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Skill"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.{item|flags.system.rulesSelections.skill}.rank",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
           "key": "ActiveEffectLike",
           "raw": {
             "key": "ActiveEffectLike",
@@ -23993,36 +22429,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:general-training",
-      "foundry": "Compendium.pf2e.feats-srd.Item.D3SuA5MaKucO1flE",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": {
-              "filter": ["item:level:1", "item:trait:general"],
-              "itemType": "feat"
-            },
-            "flag": "feat",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.GeneralTraining.Prompt"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "{item|flags.system.rulesSelections.feat}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:gnome-obsession",
       "foundry": "Compendium.pf2e.feats-srd.Item.mxhGH4FVYXJwb0BC",
       "gaps": [
@@ -24068,26 +22474,6 @@
       "slug": "feat:goblin-lore",
       "foundry": "Compendium.pf2e.feats-srd.Item.sm6Y3fTcltxE8N0p",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.nature.rank",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.stealth.rank",
-            "value": 1
-          }
-        },
         {
           "type": "rule",
           "key": "ActiveEffectLike",
@@ -24391,26 +22777,6 @@
           "key": "ActiveEffectLike",
           "raw": {
             "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.acrobatics.rank",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.stealth.rank",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
             "mode": "override",
             "path": "system.skills.halfling-lore",
             "value": {
@@ -24691,24 +23057,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:hellspawn",
-      "foundry": "Compendium.pf2e.feats-srd.Item.EXVHePH8alsTZ5TB",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.deception.rank",
-            "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:heroic-recovery",
       "foundry": "Compendium.pf2e.feats-srd.Item.KR78kinMmAZQHeoa",
       "gaps": [
@@ -24786,78 +23134,6 @@
       "slug": "feat:hold-mark",
       "foundry": "Compendium.pf2e.feats-srd.Item.aQNsD2t0Tb4vToA4",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.SpecificRule.Orc.HoldMark.BurningSun",
-                "value": "burning-sun"
-              },
-              {
-                "label": "PF2E.SpecificRule.Orc.HoldMark.DeathsHead",
-                "value": "deaths-head"
-              },
-              {
-                "label": "PF2E.SpecificRule.Orc.HoldMark.DefiledCorpse",
-                "value": "defiled-corpse"
-              },
-              {
-                "label": "PF2E.SpecificRule.Orc.HoldMark.EmptyHand",
-                "value": "empty-hand"
-              }
-            ],
-            "flag": "holdMark",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Orc.HoldMark.Prompt",
-            "rollOption": "hold-mark"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.diplomacy.rank",
-            "predicate": ["hold-mark:burning-sun"],
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.survival.rank",
-            "predicate": ["hold-mark:deaths-head"],
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.religion.rank",
-            "predicate": ["hold-mark:defiled-corpse"],
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.intimidation.rank",
-            "predicate": ["hold-mark:empty-hand"],
-            "value": 1
-          }
-        },
         {
           "type": "markup",
           "markup": "table[class]"
@@ -25305,26 +23581,6 @@
       "slug": "feat:leshy-lore",
       "foundry": "Compendium.pf2e.feats-srd.Item.i5W5aGWEiyo1vt2d",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.nature.rank",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.stealth.rank",
-            "value": 1
-          }
-        },
         {
           "type": "rule",
           "key": "ActiveEffectLike",
@@ -25991,28 +24247,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": {
-              "filter": ["item:level:1", "item:category:class", "item:trait:bard"],
-              "itemType": "feat"
-            },
-            "flag": "feat",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Feat"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "{item|flags.system.rulesSelections.feat}"
-          }
-        },
-        {
-          "type": "rule",
           "key": "RollOption",
           "raw": {
             "key": "RollOption",
@@ -26046,36 +24280,6 @@
             "mode": "add",
             "path": "flags.system.multilingualTaken",
             "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:multitalented",
-      "foundry": "Compendium.pf2e.feats-srd.Item.C80vQCKQBGRaqcmq",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": {
-              "filter": ["item:level:2", "item:category:class", "item:trait:dedication", "item:trait:multiclass"],
-              "itemType": "feat"
-            },
-            "flag": "multitalented",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Multitalented.Prompt"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "{item|flags.system.rulesSelections.multitalented}"
           }
         }
       ]
@@ -26239,16 +24443,6 @@
         },
         {
           "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.{item|flags.system.rulesSelections.skillOne}.rank",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
           "key": "ChoiceSet",
           "raw": {
             "choices": {
@@ -26258,44 +24452,6 @@
             "flag": "skillTwo",
             "key": "ChoiceSet",
             "prompt": "PF2E.SpecificRule.Prompt.Skill"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.{item|flags.system.rulesSelections.skillTwo}.rank",
-            "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:nephilim-lore",
-      "foundry": "Compendium.pf2e.feats-srd.Item.sKDCoxMz2yKWLGRJ",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.religion.rank",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.{item|flags.system.rulesSelections.skill}.rank",
-            "value": 1
           }
         }
       ]
@@ -26413,26 +24569,6 @@
       "slug": "feat:orc-lore",
       "foundry": "Compendium.pf2e.feats-srd.Item.254C4rqrE8APDfCf",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.athletics.rank",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.survival.rank",
-            "value": 1
-          }
-        },
         {
           "type": "rule",
           "key": "ActiveEffectLike",
@@ -26660,16 +24796,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.athletics.rank",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
           "key": "ChoiceSet",
           "raw": {
             "adjustName": false,
@@ -26837,24 +24963,6 @@
           "reason": "unresolved-reference",
           "field": "selfEffect",
           "raw": "Compendium.pf2e.feat-effects.Item.Effect: Poison Weapon"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:prairie-rider",
-      "foundry": "Compendium.pf2e.feats-srd.Item.A9HQ2bMAge2aGgWx",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.nature.rank",
-            "value": 1
-          }
         }
       ]
     },
@@ -27117,16 +25225,6 @@
             "key": "RollOption",
             "option": "grants-hunt-prey",
             "priority": 99
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.survival.rank",
-            "value": 1
           }
         },
         {
@@ -27540,33 +25638,6 @@
             "mode": "upgrade",
             "path": "{item|flags.system.rulesSelections.rogueDedication}",
             "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": {
-              "filter": [
-                "item:trait:skill",
-                {
-                  "lte": ["item:level", "self:level"]
-                }
-              ],
-              "itemType": "feat"
-            },
-            "flag": "skillFeat",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.SkillFeat"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "{item|flags.system.rulesSelections.skillFeat}"
           }
         },
         {
@@ -28193,48 +26264,6 @@
         },
         {
           "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.{item|flags.system.rulesSelections.skillExpert}.rank",
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.{item|flags.system.rulesSelections.skillMaster}.rank",
-            "value": 3
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": {
-              "filter": ["item:trait:skill"],
-              "itemType": "feat"
-            },
-            "flag": "skillMastery",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.SkillFeat"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "{item|flags.system.rulesSelections.skillMastery}"
-          }
-        },
-        {
-          "type": "rule",
           "key": "ItemAlteration",
           "raw": {
             "itemId": "{item|_id}",
@@ -28282,16 +26311,6 @@
             "flag": "skill",
             "key": "ChoiceSet",
             "prompt": "PF2E.SpecificRule.Prompt.Skill"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.{item|flags.system.rulesSelections.skill}.rank",
-            "value": 1
           }
         }
       ]
@@ -28649,126 +26668,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.SpecificRule.SpecialtyCrafting.Alchemy",
-                "predicate": [
-                  {
-                    "not": "feat:specialty-crafting:alchemy"
-                  }
-                ],
-                "value": "alchemy"
-              },
-              {
-                "label": "PF2E.SpecificRule.SpecialtyCrafting.Artistry",
-                "predicate": [
-                  {
-                    "not": "feat:specialty-crafting:artistry"
-                  }
-                ],
-                "value": "artistry"
-              },
-              {
-                "label": "PF2E.SpecificRule.SpecialtyCrafting.Blacksmithing",
-                "predicate": [
-                  {
-                    "not": "feat:specialty-crafting:blacksmithing"
-                  }
-                ],
-                "value": "blacksmithing"
-              },
-              {
-                "label": "PF2E.SpecificRule.SpecialtyCrafting.Bookmaking",
-                "predicate": [
-                  {
-                    "not": "feat:specialty-crafting:bookmaking"
-                  }
-                ],
-                "value": "bookmaking"
-              },
-              {
-                "label": "PF2E.SpecificRule.SpecialtyCrafting.Glassmaking",
-                "predicate": [
-                  {
-                    "not": "feat:specialty-crafting:glassmaking"
-                  }
-                ],
-                "value": "glassmaking"
-              },
-              {
-                "label": "PF2E.SpecificRule.SpecialtyCrafting.Leatherworking",
-                "predicate": [
-                  {
-                    "not": "feat:specialty-crafting:leatherworking"
-                  }
-                ],
-                "value": "leatherworking"
-              },
-              {
-                "label": "PF2E.SpecificRule.SpecialtyCrafting.Pottery",
-                "predicate": [
-                  {
-                    "not": "feat:specialty-crafting:pottery"
-                  }
-                ],
-                "value": "pottery"
-              },
-              {
-                "label": "PF2E.SpecificRule.SpecialtyCrafting.Shipbuilding",
-                "predicate": [
-                  {
-                    "not": "feat:specialty-crafting:shipbuilding"
-                  }
-                ],
-                "value": "shipbuilding"
-              },
-              {
-                "label": "PF2E.SpecificRule.SpecialtyCrafting.Stonemasonry",
-                "predicate": [
-                  {
-                    "not": "feat:specialty-crafting:stonemasonry"
-                  }
-                ],
-                "value": "stonemasonry"
-              },
-              {
-                "label": "PF2E.SpecificRule.SpecialtyCrafting.Tailoring",
-                "predicate": [
-                  {
-                    "not": "feat:specialty-crafting:tailoring"
-                  }
-                ],
-                "value": "tailoring"
-              },
-              {
-                "label": "PF2E.SpecificRule.SpecialtyCrafting.Weaving",
-                "predicate": [
-                  {
-                    "not": "feat:specialty-crafting:weaving"
-                  }
-                ],
-                "value": "weaving"
-              },
-              {
-                "label": "PF2E.SpecificRule.SpecialtyCrafting.Woodworking",
-                "predicate": [
-                  {
-                    "not": "feat:specialty-crafting:woodworking"
-                  }
-                ],
-                "value": "woodworking"
-              }
-            ],
-            "flag": "specialtyCrafting",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.SpecialtyCrafting.Prompt",
-            "rollOption": "feat:specialty-crafting"
-          }
-        },
-        {
-          "type": "rule",
           "key": "FlatModifier",
           "raw": {
             "key": "FlatModifier",
@@ -28970,16 +26869,6 @@
               "specialtyCrafting": "stonemasonry"
             },
             "uuid": "Compendium.pf2e.feats-srd.Item.Specialty Crafting"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.crafting.rank",
-            "value": 1
           }
         }
       ]
@@ -29273,52 +27162,6 @@
             "selector": "survival",
             "type": "circumstance",
             "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:terrain-stalker",
-      "foundry": "Compendium.pf2e.feats-srd.Item.beyw5bdA5hkQbmaG",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.SpecificRule.TerrainStalker.Rubble",
-                "predicate": [
-                  {
-                    "not": "terrain-stalker:rubble"
-                  }
-                ],
-                "value": "rubble"
-              },
-              {
-                "label": "PF2E.SpecificRule.TerrainStalker.Snow",
-                "predicate": [
-                  {
-                    "not": "terrain-stalker:snow"
-                  }
-                ],
-                "value": "snow"
-              },
-              {
-                "label": "PF2E.SpecificRule.TerrainStalker.Underbrush",
-                "predicate": [
-                  {
-                    "not": "terrain-stalker:underbrush"
-                  }
-                ],
-                "value": "underbrush"
-              }
-            ],
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.TerrainExpertise.Prompt",
-            "rollOption": "terrain-stalker"
           }
         }
       ]
@@ -30131,47 +27974,9 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:vandal",
-      "foundry": "Compendium.pf2e.feats-srd.Item.7ZwXUlnqjj9zEYbO",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.thievery.rank",
-            "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:verdant-weapon",
       "foundry": "Compendium.pf2e.feats-srd.Item.qPFWEyihvbWsCcUv",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.UI.RuleElements.GrantItem.GrantNew",
-                "value": "granted"
-              },
-              {
-                "label": "PF2E.UI.RuleElements.GrantItem.ExistingItem",
-                "value": "existing"
-              }
-            ],
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Exemplar.Ikon.Physical.Prompt",
-            "rollOption": "verdant-weapon-origin"
-          }
-        },
         {
           "type": "rule",
           "key": "ChoiceSet",
@@ -30678,44 +28483,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.SpecificRule.Witch.WitchsArmaments.EldritchNails",
-                "predicate": [
-                  {
-                    "not": "witchs-armaments:nails"
-                  }
-                ],
-                "value": "nails"
-              },
-              {
-                "label": "PF2E.SpecificRule.Witch.WitchsArmaments.IronTeeth",
-                "predicate": [
-                  {
-                    "not": "witchs-armaments:teeth"
-                  }
-                ],
-                "value": "teeth"
-              },
-              {
-                "label": "PF2E.SpecificRule.Witch.WitchsArmaments.LivingHair",
-                "predicate": [
-                  {
-                    "not": "witchs-armaments:hair"
-                  }
-                ],
-                "value": "hair"
-              }
-            ],
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.UnarmedAttack",
-            "rollOption": "witchs-armaments"
-          }
-        },
-        {
-          "type": "rule",
           "key": "Strike",
           "raw": {
             "baseType": "nails",
@@ -30828,16 +28595,6 @@
       "foundry": "Compendium.pf2e.feats-srd.Item.oQ6EZRFXbHWCx08C",
       "gaps": [
         {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.arcana.rank",
-            "value": 1
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[journals]"
         }
@@ -30926,35 +28683,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "heritage:ancient-elf",
-      "foundry": "Compendium.pf2e.heritages.Item.Nd9hdX8rdYyRozw8",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": {
-              "filter": ["item:category:class", "item:trait:dedication", "item:trait:multiclass"],
-              "itemType": "feat"
-            },
-            "flag": "ancientElf",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.AncientElf.Prompt"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "{item|flags.system.rulesSelections.ancientElf}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "heritage:arctic-elf",
       "foundry": "Compendium.pf2e.heritages.Item.1dYDucCIaZpCJqBc",
       "gaps": [
@@ -30965,24 +28693,6 @@
             "key": "Resistance",
             "type": "cold",
             "value": "max(1,floor(@actor.level/2))"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "heritage:battle-ready-orc",
-      "foundry": "Compendium.pf2e.heritages.Item.nXQxlmjH24Eb8h2Q",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.intimidation.rank",
-            "value": 1
           }
         }
       ]
@@ -31535,36 +29245,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "heritage:versatile-human",
-      "foundry": "Compendium.pf2e.heritages.Item.hFBwsVcSnNCJoimo",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": {
-              "filter": ["item:level:1", "item:trait:general"],
-              "itemType": "feat"
-            },
-            "flag": "versatileHeritage",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.GeneralTraining.Prompt"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "{item|flags.system.rulesSelections.versatileHeritage}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "heritage:vine-leshy",
       "foundry": "Compendium.pf2e.heritages.Item.evXJISqyhl3fHE9u",
       "gaps": [
@@ -31578,24 +29258,6 @@
             "key": "AdjustDegreeOfSuccess",
             "predicate": ["action:climb"],
             "selector": "athletics"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "heritage:winter-orc",
-      "foundry": "Compendium.pf2e.heritages.Item.pZ1u2ScWrBXSaAqQ",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.survival.rank",
-            "value": 1
           }
         }
       ]

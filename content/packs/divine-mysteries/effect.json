@@ -1567,6 +1567,22 @@
         "key": "Sense",
         "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb",
         "predicate": ["adapt-self:darkvision"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "spell-effect-adapt-self",
+        "choices": [
+          {
+            "value": "darkvision",
+            "label": "Darkvision"
+          },
+          {
+            "value": "swim",
+            "label": "Swim Speed"
+          }
+        ],
+        "prompt": "Select a benefit.",
+        "rollOption": "adapt-self"
       }
     ],
     "externalIds": {

@@ -11599,7 +11599,102 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "resistance-one",
+        "choices": [
+          {
+            "value": "acid",
+            "label": "Acid"
+          },
+          {
+            "value": "cold",
+            "label": "Cold"
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "poison",
+            "label": "Poison"
+          },
+          {
+            "value": "sonic",
+            "label": "Sonic"
+          }
+        ],
+        "prompt": "Select a resistance.",
+        "rollOption": "resistance"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "resistance-two",
+        "choices": [
+          {
+            "value": "acid",
+            "label": "Acid",
+            "predicate": [
+              {
+                "not": "resistance:acid"
+              }
+            ]
+          },
+          {
+            "value": "cold",
+            "label": "Cold",
+            "predicate": [
+              {
+                "not": "resistance:cold"
+              }
+            ]
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity",
+            "predicate": [
+              {
+                "not": "resistance:electricity"
+              }
+            ]
+          },
+          {
+            "value": "fire",
+            "label": "Fire",
+            "predicate": [
+              {
+                "not": "resistance:fire"
+              }
+            ]
+          },
+          {
+            "value": "poison",
+            "label": "Poison",
+            "predicate": [
+              {
+                "not": "resistance:poison"
+              }
+            ]
+          },
+          {
+            "value": "sonic",
+            "label": "Sonic",
+            "predicate": [
+              {
+                "not": "resistance:sonic"
+              }
+            ]
+          }
+        ],
+        "prompt": "Select a resistance.",
+        "rollOption": "resistance"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.familiar-abilities.Item.FcQQLMAJMgOLjnSv"
     },

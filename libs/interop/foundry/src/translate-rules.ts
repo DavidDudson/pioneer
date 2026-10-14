@@ -9,8 +9,10 @@ import { fromFoundryFormula } from './foundry-formula';
 import { isLangKey, isUnresolved, localize } from './foundry-lang';
 import type { LangValues, UnresolvedKey, UnresolvedText } from './foundry-lang';
 import type { FoundryLang } from './foundry-release';
+import { withChoiceSet, withTagQuery } from './translate-choice-sets';
 import { withFavoredWeaponRank } from './translate-favored-weapon';
 import { withFontChoice } from './translate-font-choice';
+import { withLanguageSlots } from './translate-language-slots';
 import { withModifierSelectors, withNamespacedOptions } from './translate-modifiers';
 import { withRollOption } from './translate-roll-options';
 import { withSense } from './translate-senses';
@@ -184,33 +186,6 @@ export interface RuleContext {
   readonly senses?: FoundrySenses;
 }
 
-/** A subclass's `ChoiceSet`: Foundry queries class features by tag alone (`item:tag:cleric-doctrine`). */
-const FoundryTagChoices = z.strictObject({
-  filter: z.array(z.string().regex(/^item:tag:[a-z0-9-]+$/u)).min(1),
-});
-
-/** The fields a subclass query replaces (`flag`, `choices`) or drops (`adjustName`). */
-const TAG_QUERY_FIELDS_REPLACED: ReadonlySet<string> = new Set(['adjustName', 'choices', 'flag']);
-
-/**
- * A subclass's `ChoiceSet` (a doctrine, muse, order, school), which Foundry writes as a filter on class-feature tags
- * with no item type, as a query of class features. Its camel-case flag becomes a slug, and `adjustName` (renaming the
- * feature after the pick) is dropped as a display concern. Any other `ChoiceSet` is left as it is.
- */
-function withTagQuery(raw: unknown): unknown {
-  if (keyOf(raw) !== RuleElementKey.ChoiceSet || typeof raw !== 'object' || raw === null || !('choices' in raw)) {
-    return raw;
-  }
-  const choices = FoundryTagChoices.safeParse(raw.choices);
-  if (!choices.success) {
-    return raw;
-  }
-  const kept = Object.entries(raw).filter(([field]) => !TAG_QUERY_FIELDS_REPLACED.has(field));
-  const flag = 'flag' in raw && typeof raw.flag === 'string' ? { flag: kebab(raw.flag) } : {};
-  const query = { kind: ContentKind.ClassFeature, filter: choices.data.filter };
-  return { ...Object.fromEntries(kept), ...flag, choices: query };
-}
-
 /** Foundry's grant of a `ChoiceSet`'s pick on the same item: `{item|flags.system.rulesSelections.doctrine}`. */
 const SELECTION_UUID = /^\{item\|flags\.system\.rulesSelections\.(?<flag>[A-Za-z0-9]+)\}$/u;
 
@@ -234,28 +209,6 @@ function withChoiceGrant(raw: unknown, references: EntryReferences, declared: Re
   return { ...Object.fromEntries(rest), item: { choice } };
 }
 
-/** Foundry's extra language slots: an `ActiveEffectLike` adding a whole number to the most languages a character knows. */
-const FoundryLanguageSlots = z.strictObject({
-  key: z.literal('ActiveEffectLike'),
-  mode: z.literal('add'),
-  path: z.literal('system.build.languages.max'),
-  value: z.number().int().positive(),
-  predicate: z.unknown().optional(),
-});
-
-/**
- * Foundry's `ActiveEffectLike` adding language slots (Nomadic Halfling's two), as a `Language` element opening them.
- * A formula value (Multilingual's by Society rank) or any other field leaves it for the backlog.
- */
-function withLanguageSlots(raw: unknown): unknown {
-  const slots = FoundryLanguageSlots.safeParse(raw);
-  if (!slots.success) {
-    return raw;
-  }
-  const { value, predicate } = slots.data;
-  return { key: RuleElementKey.Language, slots: value, ...(predicate === undefined ? {} : { predicate }) };
-}
-
 export interface RuleTranslation {
   readonly rules: readonly RuleElement[];
   readonly untranslated: readonly UntranslatedRule[];
@@ -263,34 +216,79 @@ export interface RuleTranslation {
   readonly unresolvedText: readonly UnresolvedText[];
 }
 
-export function translateRules(entry: ContentId, raws: readonly unknown[], context: RuleContext): RuleTranslation {
-  const rules: RuleElement[] = [];
-  const untranslated: UntranslatedRule[] = [];
-  const unresolved: UnresolvedKey[] = [];
+/**
+ * Whether `element` is a `ChoiceSet` that only `withChoiceSet` made translatable, with no roll option for its pick and
+ * no element reading it: a pick that asks the player for nothing, so it stays in the backlog with the rules that would
+ * read it.
+ */
+function isUnread(element: RuleElement, plain: unknown, reads: (flag: string) => boolean): boolean {
+  if (element.key !== RuleElementKey.ChoiceSet || element.rollOption !== undefined) {
+    return false;
+  }
+  return !RuleElement.safeParse(plain).success && !reads(String(element.flag));
+}
+
+/** A raw rule element shaped two ways: as it was before `withChoiceSet`, and with it. */
+interface Shaped {
+  readonly raw: unknown;
+  readonly plain: unknown;
+  readonly chosen: unknown;
+}
+
+function shapeRule(raw: unknown, context: RuleContext, unresolved: UnresolvedKey[]): Shaped {
   const references = context.references ?? NO_REFERENCES;
-  const shapedRaws = raws.map((raw) => {
-    const text = withDisplayLabel(localized(raw, context, unresolved));
-    const options = withRollOption(withNamespacedOptions(text), context.values.item);
-    const granted = withGrantedId(withPioneerFormula(options), references);
-    const struck = withStrikeDamage(granted);
-    const modifier = withModifierSelectors(struck);
-    const queried = withLanguageSlots(withTagQuery(withGrantValue(modifier)));
-    const font = withSkillRaise(withFavoredWeaponRank(withFontChoice(queried)));
-    return withSense(font, { references, senses: context.senses });
-  });
-  const declared = new Set(
-    shapedRaws.flatMap((shaped) => {
-      const element = RuleElement.safeParse(shaped);
+  const text = withDisplayLabel(localized(raw, context, unresolved));
+  const options = withRollOption(withNamespacedOptions(text), context.values.item);
+  const granted = withGrantedId(withPioneerFormula(options), references);
+  const struck = withStrikeDamage(granted);
+  const modifier = withModifierSelectors(struck);
+  const queried = withLanguageSlots(withTagQuery(withGrantValue(modifier)));
+  const font = withSkillRaise(withFavoredWeaponRank(withFontChoice(queried)));
+  const senses = { references, senses: context.senses };
+  return { raw, plain: withSense(font, senses), chosen: withSense(withChoiceSet(font, context.values.item), senses) };
+}
+
+/** The flags of the `ChoiceSet`s among `shaped` that translate. */
+function declaredFlags(shaped: readonly Shaped[]): ReadonlySet<string> {
+  return new Set(
+    shaped.flatMap(({ chosen }) => {
+      const element = RuleElement.safeParse(chosen);
       return element.success && element.data.key === RuleElementKey.ChoiceSet ? [String(element.data.flag)] : [];
     }),
   );
-  for (const [index, raw] of raws.entries()) {
-    const element = RuleElement.safeParse(withChoiceGrant(shapedRaws[index], references, declared));
-    if (element.success) {
+}
+
+type Parsed = z.ZodSafeParseResult<RuleElement>;
+
+/** What `shaped` came to, its elements `parsed` the same way: the ones that translate, and those kept for the backlog. */
+function settle(
+  entry: ContentId,
+  shaped: readonly Shaped[],
+  parsed: readonly Parsed[],
+): Pick<RuleTranslation, 'rules' | 'untranslated'> {
+  const reads = (flag: string): boolean =>
+    parsed.some((element) => element.success && JSON.stringify(element.data).includes(`"choice":"${flag}"`));
+  const rules: RuleElement[] = [];
+  const untranslated: UntranslatedRule[] = [];
+  for (const [index, { raw, plain }] of shaped.entries()) {
+    const element = parsed[index];
+    if (element?.success === true && !isUnread(element.data, plain, reads)) {
       rules.push(element.data);
     } else {
       untranslated.push({ entry, key: keyOf(raw), raw });
     }
   }
-  return { rules, untranslated, unresolvedText: unresolved.map(({ key, reason }) => ({ entry, key, reason })) };
+  return { rules, untranslated };
+}
+
+export function translateRules(entry: ContentId, raws: readonly unknown[], context: RuleContext): RuleTranslation {
+  const unresolved: UnresolvedKey[] = [];
+  const references = context.references ?? NO_REFERENCES;
+  const shaped = raws.map((raw) => shapeRule(raw, context, unresolved));
+  const declared = declaredFlags(shaped);
+  const parsed = shaped.map(({ chosen }) => RuleElement.safeParse(withChoiceGrant(chosen, references, declared)));
+  return {
+    ...settle(entry, shaped, parsed),
+    unresolvedText: unresolved.map(({ key, reason }) => ({ entry, key, reason })),
+  };
 }

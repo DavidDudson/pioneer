@@ -110,7 +110,23 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "ancient-elf",
+        "choices": {
+          "kind": "feat",
+          "filter": ["item:category:class", "item:trait:dedication", "item:trait:multiclass"]
+        },
+        "prompt": "Select a multiclass dedication feat."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancient-elf"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.heritages.Item.Nd9hdX8rdYyRozw8"
     },
@@ -229,6 +245,11 @@
       {
         "key": "GrantItem",
         "item": "83871ce2-c4f9-5a77-af0a-7d7f0708b5f0"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:intimidation",
+        "rank": "trained"
       }
     ],
     "externalIds": {
@@ -1922,7 +1943,23 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "versatile-heritage",
+        "choices": {
+          "kind": "feat",
+          "filter": ["item:level:1", "item:trait:general"]
+        },
+        "prompt": "Select a 1st-level general feat."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "versatile-heritage"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.heritages.Item.hFBwsVcSnNCJoimo"
     },
@@ -2160,7 +2197,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:survival",
+        "rank": "trained"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.heritages.Item.pZ1u2ScWrBXSaAqQ"
     },

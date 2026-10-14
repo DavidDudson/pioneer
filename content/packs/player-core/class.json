@@ -3818,6 +3818,29 @@
             "gte": ["self:level", 20]
           }
         ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "fighter-skill",
+        "choices": [
+          {
+            "value": "acrobatics",
+            "label": "Acrobatics"
+          },
+          {
+            "value": "athletics",
+            "label": "Athletics"
+          }
+        ],
+        "prompt": "Select a skill."
+      },
+      {
+        "key": "Proficiency",
+        "selector": {
+          "choice": "fighter-skill",
+          "prefix": "skill"
+        },
+        "rank": "trained"
       }
     ],
     "externalIds": {
@@ -4835,6 +4858,16 @@
         "predicate": [
           {
             "gte": ["self:level", 20]
+          }
+        ]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:nature",
+        "rank": "trained",
+        "predicate": [
+          {
+            "not": "feature:vindicator"
           }
         ]
       }
