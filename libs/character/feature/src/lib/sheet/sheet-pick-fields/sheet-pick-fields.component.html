@@ -3,15 +3,28 @@
     @for (pick of fields(); track pick.key) {
       <fr-stack gap="2xs">
         <fr-inline-field [label]="pick.label.key | transloco: pick.label.params" [edit]="pick.field">
-          <fr-select
-            frInlineEditor
-            [ariaLabel]="pick.label.key | transloco: pick.label.params"
-            [options]="pick.options()"
-            [value]="pick.field.draft()"
-            (valueChange)="pick.field.change($event)"
-            (committed)="pick.field.flushSoon()"
-            (cancelled)="pick.field.cancel()"
-          />
+          @let rows = pick.rows();
+          @if (rows.kind === 'skills') {
+            <pio-skill-picker
+              frInlineEditor
+              [rows]="rows.rows"
+              [ariaLabel]="pick.label.key | transloco: pick.label.params"
+              [value]="pick.field.draft()"
+              (valueChange)="pick.field.change($event)"
+              (committed)="pick.field.flushSoon()"
+              (cancelled)="pick.field.cancel()"
+            />
+          } @else {
+            <pio-slot-picker
+              frInlineEditor
+              [rows]="rows.rows"
+              [ariaLabel]="pick.label.key | transloco: pick.label.params"
+              [value]="pick.field.draft()"
+              (valueChange)="pick.field.change($event)"
+              (committed)="pick.field.flushSoon()"
+              (cancelled)="pick.field.cancel()"
+            />
+          }
         </fr-inline-field>
         @for (note of pick.trained(); track note.id) {
           <fr-text variant="caption" tone="subtle">{{

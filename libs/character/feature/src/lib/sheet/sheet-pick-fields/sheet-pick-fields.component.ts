@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { Grid, InlineField, Select, Stack, Text } from '@pioneer/frontier';
+import { Grid, InlineField, Stack, Text } from '@pioneer/frontier';
+import { SkillPicker, SlotPicker } from '@pioneer/rules/ui';
 
 import type { SlotPickField } from '../sheet-slot-picks';
 
@@ -11,7 +12,7 @@ import type { SlotPickField } from '../sheet-slot-picks';
  */
 @Component({
   selector: 'pio-sheet-pick-fields',
-  imports: [Grid, InlineField, Select, Stack, Text, TranslocoPipe],
+  imports: [Grid, InlineField, SkillPicker, SlotPicker, Stack, Text, TranslocoPipe],
   templateUrl: './sheet-pick-fields.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

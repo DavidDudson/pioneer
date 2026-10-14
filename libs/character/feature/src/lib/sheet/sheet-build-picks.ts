@@ -259,8 +259,29 @@ export function sheetBuildPicks(sources: BuildPickSources): BuildPicks {
 /** The skill, choice and planned slot pickers, each reading its slots as they load. */
 function pickFields(sources: BuildPickSources): Pick<BuildPicks, 'skillFields' | 'choiceFields' | 'plannedFields'> {
   return {
-    skillFields: slotFieldsOf(sources, loaded(sources, sheetSkillSlots)),
-    choiceFields: slotFieldsOf(sources, loaded(sources, sheetChoiceSlots)),
+    skillFields: slotFieldsOf(
+      sources,
+      loaded(sources, (registry, character) =>
+        sheetSkillSlots(registry, character).map(({ key, label, options, trained, rows }) => ({
+          key,
+          label,
+          options,
+          trained,
+          rows: { kind: 'skills', rows },
+        })),
+      ),
+    ),
+    choiceFields: slotFieldsOf(
+      sources,
+      loaded(sources, (registry, character) =>
+        sheetChoiceSlots(registry, character).map(({ key, label, options, rows }) => ({
+          key,
+          label,
+          options,
+          rows: { kind: 'choices', rows },
+        })),
+      ),
+    ),
     plannedFields: slotFieldsOf(
       sources,
       loaded(sources, (registry, character) => sheetPlannedSlots(registry, character, sources.translate)),
