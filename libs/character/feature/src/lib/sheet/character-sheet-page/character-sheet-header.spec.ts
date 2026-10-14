@@ -11,17 +11,9 @@ import {
 import { ContentKind } from '@pioneer/rules/sdk';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
+import { pickAncestry } from '../../testing/origin-table-testing';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
-import {
-  HUMAN,
-  id,
-  MERISIEL,
-  NO_TAB,
-  openSheet,
-  patchedOf,
-  pickAncestry,
-  present,
-} from '../../testing/sheet-page-harness';
+import { HUMAN, id, MERISIEL, NO_TAB, openSheet, patchedOf, present } from '../../testing/sheet-page-harness';
 import { render, textOf } from '../../testing/sheet-tabs-testing';
 import { TEST_PACKS } from '../../testing/test-packs';
 

@@ -684,6 +684,29 @@
         "source": "Source"
       }
     },
+    "originPicker": {
+      "column": {
+        "name": "Name",
+        "hitPoints": "Hit points",
+        "size": "Size",
+        "speed": "Speed",
+        "boosts": "Attribute boosts",
+        "flaws": "Flaws",
+        "languages": "Languages",
+        "traits": "Traits",
+        "ancestry": "Ancestry",
+        "summary": "Summary",
+        "grants": "Grants",
+        "skill": "Trained skill",
+        "lore": "Lore",
+        "feat": "Granted feat",
+        "source": "Source",
+        "notes": "Notes"
+      },
+      "hitPointsValue": "{{value}} HP",
+      "speedValue": "{{value}} ft",
+      "versatile": "Versatile"
+    },
     "featPicker": {
       "column": {
         "name": "Name",

@@ -10,14 +10,15 @@ import { CharacterPackStore } from './character-pack-store';
 
 /**
  * The kinds every character page's registry holds: ancestries, heritages and backgrounds for the options and the
- * engine, the ancestry features they grant, backgrounds and classes for their boosts, classes and class features for
- * the builder, deities for their picker and the options they set, statistics for the sheet and traits for the names of
- * the character's own. One list, so the pages share one query and the registry loads once a session.
+ * engine, the ancestry features they grant, languages for the names an ancestry lists, backgrounds and classes for
+ * their boosts, classes and class features for the builder, deities for their picker and the options they set,
+ * statistics for the sheet and traits for the names of the character's own. One list, so the pages share one query and the registry loads once a session.
  */
 export const CHARACTER_CONTENT_KINDS: readonly ContentKind[] = [
   ContentKind.Ancestry,
   ContentKind.AncestryFeature,
   ContentKind.Heritage,
+  ContentKind.Language,
   ContentKind.Background,
   ContentKind.Class,
   ContentKind.ClassFeature,

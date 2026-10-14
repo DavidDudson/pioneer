@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { form, FormField, validateStandardSchema } from '@angular/forms/signals';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
@@ -16,14 +17,22 @@ import {
   Heading,
   Link,
   Page,
-  SelectField,
   Skeleton,
   Stack,
   Surface,
   Text,
   TextField,
 } from '@pioneer/frontier';
-import { VirtualItem, VirtualList } from '@pioneer/frontier/data';
+import { PickerField, VirtualItem, VirtualList } from '@pioneer/frontier/data';
+import type { PickerSort } from '@pioneer/frontier/data';
+import {
+  ancestryPickerColumns,
+  originRowDisabled,
+  originRowLabel,
+  originRowValue,
+  shownAncestryRows,
+} from '@pioneer/rules/ui';
+import { filter, merge } from 'rxjs';
 
 import { AncestryOptions } from '../../data/ancestry-options';
 import { CharacterStore } from '../../data/character-store';
@@ -54,7 +63,7 @@ const characterKey = (character: Character): string => character.id;
     Heading,
     Link,
     Page,
-    SelectField,
+    PickerField,
     Skeleton,
     Stack,
     Surface,
@@ -89,6 +98,21 @@ export class CharacterListPage {
 
   readonly #i18n = inject(TranslocoService);
   protected readonly describeCreateError = (): string => this.#i18n.translate('character.list.createFailed');
+
+  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
+  /** Changes when the language changes or the messages load, so the picker's headers are read again. */
+  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
+
+  protected readonly query = signal('');
+  protected readonly sorting = signal<PickerSort | undefined>(undefined);
+  protected readonly columns = computed(() => {
+    this.#messages();
+    return ancestryPickerColumns((key, params) => this.#i18n.translate(key, params));
+  });
+  protected readonly shown = computed(() => shownAncestryRows(this.ancestries.rows(), this.query(), this.sorting()));
+  protected readonly rowValue = originRowValue;
+  protected readonly rowLabel = originRowLabel;
+  protected readonly rowDisabled = originRowDisabled;
 
   protected readonly characterKey = characterKey;
 }

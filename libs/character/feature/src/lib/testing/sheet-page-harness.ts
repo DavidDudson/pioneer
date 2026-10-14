@@ -157,6 +157,9 @@ function sheetUrl(tab: SheetMode | typeof NO_TAB = SheetMode.Plan): string {
   return tab === NO_TAB ? `/characters/${id}` : `/characters/${id}/${tab}`;
 }
 
+/** The harness behind each sheet `openSheet` rendered, by its root. */
+const HARNESSES = new WeakMap<HTMLElement, RouterTestingHarness>();
+
 export interface OpenSheet {
   readonly harness: RouterTestingHarness;
   readonly root: HTMLElement;
@@ -207,7 +210,22 @@ export async function openSheet(character: object = MERISIEL, options: SheetOpti
     // The content registries build once the packs are known; a spec holding an element before then holds a placeholder.
     expect(TestBed.inject(QueryClient).isFetching({ queryKey: ['content'] })).toBe(0);
   });
-  return { harness, root };
+  return remembered({ harness, root });
+}
+
+/** `opened`, with its harness findable by its root. */
+function remembered(opened: OpenSheet): OpenSheet {
+  HARNESSES.set(opened.root, opened.harness);
+  return opened;
+}
+
+/** The harness that rendered `root`, for a spec that reaches a component the page rendered. */
+export function harnessOf(root: HTMLElement): RouterTestingHarness {
+  const harness = HARNESSES.get(root);
+  if (harness === undefined) {
+    throw new Error('Expected a root that openSheet rendered');
+  }
+  return harness;
 }
 
 /** Opens a sheet as `openSheet` does. */
@@ -216,26 +234,4 @@ export type SheetOpener = (character?: object, options?: SheetOptions) => Promis
 /** `openSheet` at `tab` unless told otherwise, for a spec whose sections are on one tab. */
 export function openerAt(tab: SheetMode): SheetOpener {
   return async (character = MERISIEL, options = {}) => openSheet(character, { tab, ...options });
-}
-
-/** Opens the ancestry field and picks the option whose label starts with `name`; returns the field. */
-export async function pickAncestry(root: HTMLElement, name: string): Promise<HTMLElement> {
-  const field = present(
-    [...root.querySelectorAll<HTMLElement>('fr-inline-field')].find(
-      (each) => each.querySelector('fr-text')?.textContent.trim() === 'Ancestry',
-    ),
-  );
-  present(field.querySelector<HTMLElement>('button')).click();
-  await TestBed.inject(ApplicationRef).whenStable();
-  present(field.querySelector<HTMLElement>('[frInlineEditor] button')).click();
-  await TestBed.inject(ApplicationRef).whenStable();
-  const option = await vi.waitFor(() =>
-    present(
-      [...document.querySelectorAll<HTMLElement>('[role="option"]')].find((each) =>
-        each.textContent.trim().startsWith(name),
-      ),
-    ),
-  );
-  option.click();
-  return field;
 }

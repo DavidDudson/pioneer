@@ -1,0 +1,22 @@
+/** Message keys the ancestry, heritage and background pickers render with, spelled out so the key check sees them. */
+export const OriginPickerMessage = {
+  Name: 'rules.originPicker.column.name',
+  HitPoints: 'rules.originPicker.column.hitPoints',
+  Size: 'rules.originPicker.column.size',
+  Speed: 'rules.originPicker.column.speed',
+  Boosts: 'rules.originPicker.column.boosts',
+  Flaws: 'rules.originPicker.column.flaws',
+  Languages: 'rules.originPicker.column.languages',
+  Traits: 'rules.originPicker.column.traits',
+  Ancestry: 'rules.originPicker.column.ancestry',
+  Summary: 'rules.originPicker.column.summary',
+  Grants: 'rules.originPicker.column.grants',
+  Skill: 'rules.originPicker.column.skill',
+  Lore: 'rules.originPicker.column.lore',
+  Feat: 'rules.originPicker.column.feat',
+  Source: 'rules.originPicker.column.source',
+  Notes: 'rules.originPicker.column.notes',
+  HitPointsValue: 'rules.originPicker.hitPointsValue',
+  SpeedValue: 'rules.originPicker.speedValue',
+  Versatile: 'rules.originPicker.versatile',
+} as const;

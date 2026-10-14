@@ -2,7 +2,8 @@ import { HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { provideRouter, Router, withComponentInputBinding } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
-import { frontierMessages, Select } from '@pioneer/frontier';
+import { frontierMessages } from '@pioneer/frontier';
+import { PickerField } from '@pioneer/frontier/data';
 import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { provideI18n } from '@pioneer/shared/web';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
@@ -52,8 +53,8 @@ describe('CharacterListPage', () => {
     name.dispatchEvent(new Event('input'));
     // The aria listbox renders in an overlay; set the control's model the way a pick would.
     (
-      harness.fixture.debugElement.query((element) => element.componentInstance instanceof Select)
-        .componentInstance as Select<string>
+      harness.fixture.debugElement.query((element) => element.componentInstance instanceof PickerField)
+        .componentInstance as PickerField<string, object>
     ).value.set(elf);
     harness.detectChanges();
     present(root.querySelector<HTMLButtonElement>('button[type="submit"]')).click();
