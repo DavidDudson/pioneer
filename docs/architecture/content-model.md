@@ -583,6 +583,12 @@ FlatModifier` appends the import's rules of the keys named to the committed entr
   read the same way. `removeAfterRoll`, `requiresEquipped`, `relabel`, `maxApplications`, a
   damage category and a selector built from the item (`{item|id}-damage`) have no Pioneer meaning yet and stay in the
   backlog.
+- **Roll options.** A `RollOption`'s `option` gets the same `option:` namespace when bare, its `domain` is read as a
+  selector (`performance` is `skill:performance`), its `label` is the toggle's `display.label`, and a suboption
+  labelled `{item|name}` takes its item's name. `alwaysActive`, `placement` and `phase` only steer Foundry's sheet
+  and are dropped. `mergeable` (suboptions pooled across items into one choice), `disabledIf`, a `toggleable` that is
+  not a flag (`totm`), `count`, `requiresEquipped` and an option read from an actor flag have no Pioneer meaning yet
+  and stay in the backlog.
 - **References across packs.** A compendium UUID naming a document an earlier import brought in resolves to that
   import's entry, found by the document's UUID in the entry's `externalIds.foundry`, never by name or slug: a Divine
   Mysteries deity's Player Core spells. A reference to a book not imported yet (Player Core 2, Impossible Magic)

@@ -2632,6 +2632,15 @@
         "type": "circumstance",
         "value": 2,
         "predicate": ["option:monster-hunter"]
+      },
+      {
+        "key": "RollOption",
+        "domain": "attack-roll",
+        "option": "option:monster-hunter",
+        "toggleable": true,
+        "display": {
+          "label": "Target is the subject of Monster Hunter"
+        }
       }
     ],
     "externalIds": {
@@ -2713,6 +2722,14 @@
         "predicate": ["option:monster-hunter"],
         "display": {
           "label": "Monster Warden"
+        }
+      },
+      {
+        "key": "RollOption",
+        "option": "option:monster-hunter",
+        "toggleable": true,
+        "display": {
+          "label": "Target is the subject of Monster Hunter"
         }
       }
     ],
@@ -4652,6 +4669,35 @@
         "display": {
           "label": "To Track Hunted Prey"
         }
+      },
+      {
+        "key": "RollOption",
+        "option": "option:precision-hunters-edge",
+        "toggleable": true,
+        "suboptions": [
+          {
+            "value": "first-hit",
+            "label": "First"
+          },
+          {
+            "value": "second-hit",
+            "label": "Second",
+            "predicate": ["parent:origin:item:tag:masterful-companion"]
+          },
+          {
+            "value": "third-hit",
+            "label": "Third",
+            "predicate": [
+              "parent:origin:item:tag:share-masterful-hunter",
+              {
+                "gte": ["self:level", 19]
+              }
+            ]
+          }
+        ],
+        "display": {
+          "label": "Precision — Hit against Hunted Prey"
+        }
       }
     ],
     "externalIds": {
@@ -4739,6 +4785,33 @@
         "predicate": ["action:track", "target:mark:share-hunters-edge"],
         "display": {
           "label": "To Track Hunted Prey"
+        }
+      },
+      {
+        "key": "RollOption",
+        "option": "option:precision-hunters-edge",
+        "toggleable": true,
+        "suboptions": [
+          {
+            "value": "first-hit",
+            "label": "First"
+          },
+          {
+            "value": "second-hit",
+            "label": "Second"
+          },
+          {
+            "value": "third-hit",
+            "label": "Third",
+            "predicate": [
+              {
+                "gte": ["self:level", 19]
+              }
+            ]
+          }
+        ],
+        "display": {
+          "label": "Precision — Hit against Hunted Prey"
         }
       }
     ],
@@ -8717,7 +8790,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:bit-of-luck",
+        "toggleable": true,
+        "value": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.C9IBDViaUxVq0Jzn"
     },
@@ -9434,6 +9514,14 @@
         "mode": "override",
         "value": "ternary(gte(@item.level, 7), 4, 3)",
         "predicate": ["option:competitive-edge"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:competitive-edge",
+        "toggleable": true,
+        "display": {
+          "label": "Competitive Edge — Increase status bonus"
+        }
       }
     ],
     "externalIds": {
@@ -12371,6 +12459,14 @@
             "or": ["self:type:character", "self:type:npc"]
           }
         ]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:fire-shield-against-water",
+        "toggleable": true,
+        "display": {
+          "label": "Defending against a water effect"
+        }
       }
     ],
     "externalIds": {
@@ -13051,7 +13147,17 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "damage",
+        "option": "option:gravity-weapon",
+        "toggleable": true,
+        "display": {
+          "label": "Gravity Weapon — First weapon Strike this round"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.tNjimcyUwn8afeH6"
     },
@@ -13490,6 +13596,14 @@
         "type": "status",
         "value": 2,
         "predicate": ["humanoid-form:large"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:pass-as-humanoid",
+        "toggleable": true,
+        "display": {
+          "label": "Human Form — Pass as Humanoid"
+        }
       }
     ],
     "externalIds": {
@@ -13906,6 +14020,14 @@
             "not": "option:stabilized"
           }
         ]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:stabilized",
+        "toggleable": true,
+        "display": {
+          "label": "Levitate — Stabilized this turn"
+        }
       }
     ],
     "externalIds": {
@@ -14894,7 +15016,18 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:shrouded",
+        "toggleable": true,
+        "value": true,
+        "predicate": ["monstrosity-form:phoenix"],
+        "display": {
+          "label": "Shroud of Flame"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.oMtbVNQ5YFmmQUlU"
     },
@@ -17138,6 +17271,11 @@
         "type": "status",
         "value": 2,
         "predicate": ["option:safe-passage"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:safe-passage",
+        "toggleable": true
       }
     ],
     "externalIds": {

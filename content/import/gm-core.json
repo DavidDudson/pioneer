@@ -172,17 +172,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "label": "PF2E.SpecificRule.LitItem",
-            "option": "lit-life-saver-mail",
-            "toggleable": true,
-            "value": true
-          }
-        },
-        {
-          "type": "rule",
           "key": "TokenLight",
           "raw": {
             "key": "TokenLight",
@@ -223,17 +212,6 @@
       "slug": "armor:life-saver-mail-greater",
       "foundry": "Compendium.pf2e.equipment-srd.Item.oRBcuFdQDRCn1pwo",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "label": "PF2E.SpecificRule.LitItem",
-            "option": "lit-life-saver-mail",
-            "toggleable": true,
-            "value": true
-          }
-        },
         {
           "type": "rule",
           "key": "TokenLight",
@@ -4895,16 +4873,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.hmmDa6LCS22dZT7P",
       "gaps": [
         {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "label": "PF2E.SpecificRule.Equipment.ClandestineCloak.RollOptionLabel",
-            "option": "clandestine-cloak",
-            "toggleable": true
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[actionspf2e]"
         },
@@ -4920,16 +4888,6 @@
       "slug": "equipment:clandestine-cloak-greater",
       "foundry": "Compendium.pf2e.equipment-srd.Item.6jRXUXzYKIpm2uNp",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "label": "PF2E.SpecificRule.Equipment.ClandestineCloak.RollOptionLabel",
-            "option": "clandestine-cloak",
-            "toggleable": true
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[actionspf2e]"
@@ -5300,34 +5258,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "alwaysActive": true,
-            "key": "RollOption",
-            "option": "entertainers-cincture-skill",
-            "suboptions": [
-              {
-                "label": "PF2E.Skill.Deception",
-                "value": "deception"
-              },
-              {
-                "label": "PF2E.Skill.Diplomacy",
-                "value": "diplomacy"
-              },
-              {
-                "label": "PF2E.Skill.Intimidation",
-                "value": "intimidation"
-              },
-              {
-                "label": "PF2E.Skill.Performance",
-                "value": "performance"
-              }
-            ],
-            "toggleable": true
-          }
-        },
-        {
-          "type": "rule",
           "key": "FlatModifier",
           "raw": {
             "key": "FlatModifier",
@@ -5344,34 +5274,6 @@
       "slug": "equipment:entertainers-cincture-greater",
       "foundry": "Compendium.pf2e.equipment-srd.Item.DrjFwJhp66GfH5Wi",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "alwaysActive": true,
-            "key": "RollOption",
-            "option": "entertainers-cincture-skill",
-            "suboptions": [
-              {
-                "label": "PF2E.Skill.Deception",
-                "value": "deception"
-              },
-              {
-                "label": "PF2E.Skill.Diplomacy",
-                "value": "diplomacy"
-              },
-              {
-                "label": "PF2E.Skill.Intimidation",
-                "value": "intimidation"
-              },
-              {
-                "label": "PF2E.Skill.Performance",
-                "value": "performance"
-              }
-            ],
-            "toggleable": true
-          }
-        },
         {
           "type": "rule",
           "key": "FlatModifier",
@@ -5728,17 +5630,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.rlDIbl6EQYXQpWVs",
       "gaps": [
         {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "domain": "performance",
-            "key": "RollOption",
-            "label": "PF2E.SpecificRule.PlayingItem",
-            "option": "playing",
-            "toggleable": true
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
         }
@@ -5751,17 +5642,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.bAfyWCvgsYDyw3ff",
       "gaps": [
         {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "domain": "performance",
-            "key": "RollOption",
-            "label": "PF2E.SpecificRule.PlayingItem",
-            "option": "playing",
-            "toggleable": true
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
         }
@@ -5773,17 +5653,6 @@
       "slug": "equipment:maestros-instrument-moderate",
       "foundry": "Compendium.pf2e.equipment-srd.Item.3mprh9aZ670HfNhT",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "domain": "performance",
-            "key": "RollOption",
-            "label": "PF2E.SpecificRule.PlayingItem",
-            "option": "playing",
-            "toggleable": true
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
@@ -5956,15 +5825,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "option": "obsidian-goggles-greater",
-            "toggleable": true
-          }
-        },
-        {
-          "type": "rule",
           "key": "Sense",
           "raw": {
             "key": "Sense",
@@ -5980,15 +5840,6 @@
       "slug": "equipment:obsidian-goggles-major",
       "foundry": "Compendium.pf2e.equipment-srd.Item.rXXNw6dwVn96giDi",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "option": "obsidian-goggles-major",
-            "toggleable": true
-          }
-        },
         {
           "type": "rule",
           "key": "Sense",
@@ -6164,26 +6015,6 @@
       "slug": "equipment:shadow-signet",
       "foundry": "Compendium.pf2e.equipment-srd.Item.1T1TJB929nC7wBtC",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "option": "shadow-signet",
-            "placement": "spellcasting",
-            "suboptions": [
-              {
-                "label": "PF2E.Check.DC.Specific.fortitude",
-                "value": "fortitude-dc"
-              },
-              {
-                "label": "PF2E.Check.DC.Specific.reflex",
-                "value": "reflex-dc"
-              }
-            ],
-            "toggleable": true
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -6631,17 +6462,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "label": "PF2E.SpecificRule.Equipment.WalkingCauldron.ToggleLabel",
-            "option": "walking-cauldron-walking",
-            "toggleable": true,
-            "value": true
-          }
-        },
-        {
-          "type": "rule",
           "key": "ItemAlteration",
           "raw": {
             "itemType": "equipment",
@@ -6660,16 +6480,6 @@
       "slug": "equipment:wand-of-widening-1st-rank-spell",
       "foundry": "Compendium.pf2e.equipment-srd.Item.Zw3BKaJYxxxzNZ0f",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "option": "wand-of-widening",
-            "placement": "spellcasting",
-            "toggleable": true
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -6737,16 +6547,6 @@
       "slug": "equipment:wand-of-widening-2nd-rank-spell",
       "foundry": "Compendium.pf2e.equipment-srd.Item.qmWlvoIlJRJ6pAeG",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "option": "wand-of-widening",
-            "placement": "spellcasting",
-            "toggleable": true
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -6820,16 +6620,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "option": "wand-of-widening",
-            "placement": "spellcasting",
-            "toggleable": true
-          }
-        },
-        {
-          "type": "rule",
           "key": "ItemAlteration",
           "raw": {
             "itemType": "spell",
@@ -6899,16 +6689,6 @@
       "slug": "equipment:wand-of-widening-4th-rank-spell",
       "foundry": "Compendium.pf2e.equipment-srd.Item.zYRzgETeR1Hs1ti1",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "option": "wand-of-widening",
-            "placement": "spellcasting",
-            "toggleable": true
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -6982,16 +6762,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "option": "wand-of-widening",
-            "placement": "spellcasting",
-            "toggleable": true
-          }
-        },
-        {
-          "type": "rule",
           "key": "ItemAlteration",
           "raw": {
             "itemType": "spell",
@@ -7061,16 +6831,6 @@
       "slug": "equipment:wand-of-widening-6th-rank-spell",
       "foundry": "Compendium.pf2e.equipment-srd.Item.JDQ4jqp6O8SurQGe",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "option": "wand-of-widening",
-            "placement": "spellcasting",
-            "toggleable": true
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -7144,16 +6904,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "option": "wand-of-widening",
-            "placement": "spellcasting",
-            "toggleable": true
-          }
-        },
-        {
-          "type": "rule",
           "key": "ItemAlteration",
           "raw": {
             "itemType": "spell",
@@ -7225,16 +6975,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "option": "wand-of-widening",
-            "placement": "spellcasting",
-            "toggleable": true
-          }
-        },
-        {
-          "type": "rule",
           "key": "ItemAlteration",
           "raw": {
             "itemType": "spell",
@@ -7304,16 +7044,6 @@
       "slug": "equipment:wand-of-widening-9th-rank-spell",
       "foundry": "Compendium.pf2e.equipment-srd.Item.t5978mZ6CqfUDCP6",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "option": "wand-of-widening",
-            "placement": "spellcasting",
-            "toggleable": true
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -7737,42 +7467,6 @@
             "predicate": ["item:slug:lions-head"],
             "property": "runes-striking",
             "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "shield:reflecting-shield",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.La9qYc5NHsg423Jb",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "label": "PF2E.SpecificRule.Equipment.SpellguardShield.RollOptionLabel",
-            "option": "reflecting-shield",
-            "toggleable": true
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "shield:spellguard-shield",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.OqDAx4HJ39ojVtvg",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "label": "PF2E.SpecificRule.Equipment.SpellguardShield.RollOptionLabel",
-            "option": "spellguard-shield",
-            "toggleable": true
           }
         }
       ]
@@ -8502,17 +8196,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "domain": "damage",
-            "key": "RollOption",
-            "label": "Target was last creature to damage you",
-            "option": "retribution-axe",
-            "toggleable": true
-          }
-        },
-        {
-          "type": "rule",
           "key": "FlatModifier",
           "raw": {
             "key": "FlatModifier",
@@ -8624,17 +8307,6 @@
             "mode": "add",
             "property": "materials",
             "value": "silver"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "label": "PF2E.SpecificRule.LitItem",
-            "option": "lit-serithtial",
-            "toggleable": true,
-            "value": true
           }
         },
         {

@@ -4655,6 +4655,14 @@
         "type": "item",
         "value": -1,
         "predicate": ["option:clandestine-cloak"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:clandestine-cloak",
+        "toggleable": true,
+        "display": {
+          "label": "Clandestine Cloak — Pull up the Hood"
+        }
       }
     ],
     "externalIds": {
@@ -4786,6 +4794,14 @@
         "type": "item",
         "value": -1,
         "predicate": ["option:clandestine-cloak"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:clandestine-cloak",
+        "toggleable": true,
+        "display": {
+          "label": "Clandestine Cloak — Pull up the Hood"
+        }
       }
     ],
     "externalIds": {
@@ -10963,7 +10979,31 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:entertainers-cincture-skill",
+        "toggleable": true,
+        "suboptions": [
+          {
+            "value": "deception",
+            "label": "Deception"
+          },
+          {
+            "value": "diplomacy",
+            "label": "Diplomacy"
+          },
+          {
+            "value": "intimidation",
+            "label": "Intimidation"
+          },
+          {
+            "value": "performance",
+            "label": "Performance"
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.IM9W5fovv44ZKDRQ"
     },
@@ -11147,7 +11187,31 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:entertainers-cincture-skill",
+        "toggleable": true,
+        "suboptions": [
+          {
+            "value": "deception",
+            "label": "Deception"
+          },
+          {
+            "value": "diplomacy",
+            "label": "Diplomacy"
+          },
+          {
+            "value": "intimidation",
+            "label": "Intimidation"
+          },
+          {
+            "value": "performance",
+            "label": "Performance"
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.DrjFwJhp66GfH5Wi"
     },
@@ -15492,6 +15556,15 @@
         "type": "item",
         "value": 3,
         "predicate": ["option:playing"]
+      },
+      {
+        "key": "RollOption",
+        "domain": "skill:performance",
+        "option": "option:playing",
+        "toggleable": true,
+        "display": {
+          "label": "Playing Maestro's Instrument (Greater)"
+        }
       }
     ],
     "externalIds": {
@@ -15650,6 +15723,15 @@
         "type": "item",
         "value": 1,
         "predicate": ["option:playing"]
+      },
+      {
+        "key": "RollOption",
+        "domain": "skill:performance",
+        "option": "option:playing",
+        "toggleable": true,
+        "display": {
+          "label": "Playing Maestro's Instrument (Lesser)"
+        }
       }
     ],
     "externalIds": {
@@ -15808,6 +15890,15 @@
         "type": "item",
         "value": 2,
         "predicate": ["option:playing"]
+      },
+      {
+        "key": "RollOption",
+        "domain": "skill:performance",
+        "option": "option:playing",
+        "toggleable": true,
+        "display": {
+          "label": "Playing Maestro's Instrument (Moderate)"
+        }
       }
     ],
     "externalIds": {
@@ -17279,6 +17370,11 @@
         "type": "item",
         "value": 2,
         "predicate": ["item:trait:visual"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:obsidian-goggles-greater",
+        "toggleable": true
       }
     ],
     "externalIds": {
@@ -17392,6 +17488,11 @@
         "type": "item",
         "value": 3,
         "predicate": ["item:trait:visual"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:obsidian-goggles-major",
+        "toggleable": true
       }
     ],
     "externalIds": {
@@ -20220,7 +20321,23 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:shadow-signet",
+        "toggleable": true,
+        "suboptions": [
+          {
+            "value": "fortitude-dc",
+            "label": "Fortitude DC"
+          },
+          {
+            "value": "reflex-dc",
+            "label": "Reflex DC"
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.1T1TJB929nC7wBtC"
     },
@@ -24388,7 +24505,17 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:walking-cauldron-walking",
+        "toggleable": true,
+        "value": true,
+        "display": {
+          "label": "Walking Cauldron — Animated"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.Zmz2M2u7mGOCbUf4"
     },
@@ -25816,7 +25943,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:wand-of-widening",
+        "toggleable": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.Zw3BKaJYxxxzNZ0f"
     },
@@ -25976,7 +26109,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:wand-of-widening",
+        "toggleable": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.qmWlvoIlJRJ6pAeG"
     },
@@ -26136,7 +26275,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:wand-of-widening",
+        "toggleable": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.TJaumkbZy11sIAgR"
     },
@@ -26296,7 +26441,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:wand-of-widening",
+        "toggleable": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.zYRzgETeR1Hs1ti1"
     },
@@ -26456,7 +26607,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:wand-of-widening",
+        "toggleable": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.TGxZ3acyWjjTvfU9"
     },
@@ -26616,7 +26773,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:wand-of-widening",
+        "toggleable": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.JDQ4jqp6O8SurQGe"
     },
@@ -26776,7 +26939,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:wand-of-widening",
+        "toggleable": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.kNfdGNIGzF0fW7aq"
     },
@@ -26936,7 +27105,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:wand-of-widening",
+        "toggleable": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.20nQTcGzpUv8jJ6R"
     },
@@ -27096,7 +27271,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:wand-of-widening",
+        "toggleable": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.t5978mZ6CqfUDCP6"
     },

@@ -53,23 +53,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "action:anchor",
-      "foundry": "Compendium.pf2e.actionspf2e.Item.xpsD4DsYHKXCB4ac",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "option": "anchor",
-            "toggleable": true
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "action:balance",
       "foundry": "Compendium.pf2e.actionspf2e.Item.M76ycLAqHoAgbcej",
       "gaps": [
@@ -92,23 +75,6 @@
             "key": "BaseSpeed",
             "selector": "burrow",
             "value": 5
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "action:call-on-ancient-blood",
-      "foundry": "Compendium.pf2e.actionspf2e.Item.8w6esW689NNbbq3i",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "option": "call-on-ancient-blood",
-            "toggleable": true
           }
         }
       ]
@@ -5231,16 +5197,6 @@
         },
         {
           "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "label": "PF2E.SpecificRule.LitCandle",
-            "option": "lit-candle",
-            "toggleable": true
-          }
-        },
-        {
-          "type": "rule",
           "key": "TokenEffectIcon",
           "raw": {
             "key": "TokenEffectIcon",
@@ -7465,43 +7421,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:effect-legendary-monster-hunter",
-      "foundry": "Compendium.pf2e.feat-effects.Item.LB0PTV5yqMlBmRFj",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "domain": "attack-roll",
-            "key": "RollOption",
-            "label": "Target is the subject of Monster Hunter",
-            "option": "monster-hunter",
-            "toggleable": true
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:effect-legendary-monster-warden",
-      "foundry": "Compendium.pf2e.feat-effects.Item.aUpcWqaLBlmpnJgW",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "label": "Target is the subject of Monster Hunter",
-            "option": "monster-hunter",
-            "toggleable": true
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:effect-manacles",
       "foundry": "Compendium.pf2e.equipment-effects.Item.OJg3cA6viR3sA3jB",
       "gaps": [
@@ -8646,37 +8565,6 @@
         },
         {
           "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "label": "PF2E.SpecificRule.Ranger.HuntersEdge.Precision.ToggleLabel",
-            "option": "precision-hunters-edge",
-            "suboptions": [
-              {
-                "label": "PF2E.SpecificRule.Numbers.Ordinals.First",
-                "value": "first-hit"
-              },
-              {
-                "label": "PF2E.SpecificRule.Numbers.Ordinals.Second",
-                "predicate": ["parent:origin:item:tag:masterful-companion"],
-                "value": "second-hit"
-              },
-              {
-                "label": "PF2E.SpecificRule.Numbers.Ordinals.Third",
-                "predicate": [
-                  "parent:origin:item:tag:share-masterful-hunter",
-                  {
-                    "gte": ["self:level", 19]
-                  }
-                ],
-                "value": "third-hit"
-              }
-            ],
-            "toggleable": true
-          }
-        },
-        {
-          "type": "rule",
           "key": "DamageDice",
           "raw": {
             "category": "precision",
@@ -8728,35 +8616,6 @@
           "raw": {
             "key": "TokenMark",
             "slug": "share-hunters-edge"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "label": "PF2E.SpecificRule.Ranger.HuntersEdge.Precision.ToggleLabel",
-            "option": "precision-hunters-edge",
-            "suboptions": [
-              {
-                "label": "PF2E.SpecificRule.Numbers.Ordinals.First",
-                "value": "first-hit"
-              },
-              {
-                "label": "PF2E.SpecificRule.Numbers.Ordinals.Second",
-                "value": "second-hit"
-              },
-              {
-                "label": "PF2E.SpecificRule.Numbers.Ordinals.Third",
-                "predicate": [
-                  {
-                    "gte": ["self:level", 19]
-                  }
-                ],
-                "value": "third-hit"
-              }
-            ],
-            "toggleable": true
           }
         },
         {
@@ -11368,16 +11227,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "option": "bit-of-luck",
-            "toggleable": true,
-            "value": true
-          }
-        },
-        {
-          "type": "rule",
           "key": "RollTwice",
           "raw": {
             "keep": "higher",
@@ -11685,24 +11534,6 @@
           "raw": {
             "key": "TempHP",
             "value": "2*@item.flags.system.rulesSelections.rank"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-competitive-edge",
-      "foundry": "Compendium.pf2e.spell-effects.Item.iJ7TVW5tDnZG9DG8",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "label": "PF2E.SpecificRule.Cleric.CompetitiveEdge.RollOptionLabel",
-            "option": "competitive-edge",
-            "toggleable": true
           }
         }
       ]
@@ -14772,16 +14603,6 @@
         },
         {
           "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "label": "PF2E.SpecificRule.FireShield.DefendingAgainstWaterLabel",
-            "option": "fire-shield-against-water",
-            "toggleable": true
-          }
-        },
-        {
-          "type": "rule",
           "key": "ActiveEffectLike",
           "raw": {
             "key": "ActiveEffectLike",
@@ -15031,17 +14852,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "domain": "damage",
-            "key": "RollOption",
-            "label": "PF2E.SpecificRule.Ranger.FocusSpells.GravityWeapon.RollOptionLabel",
-            "option": "gravity-weapon",
-            "toggleable": true
-          }
-        },
-        {
-          "type": "rule",
           "key": "FlatModifier",
           "raw": {
             "key": "FlatModifier",
@@ -15286,16 +15096,6 @@
             "resizeEquipment": true,
             "value": "{item|flags.system.rulesSelections.humanoidForm}"
           }
-        },
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "label": "PF2E.SpecificRule.HumanoidForm.RollOptionLabel",
-            "option": "pass-as-humanoid",
-            "toggleable": true
-          }
         }
       ]
     },
@@ -15424,24 +15224,6 @@
             "key": "RollTwice",
             "predicate": ["action:recall-knowledge"],
             "selector": "skill-check"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-levitate",
-      "foundry": "Compendium.pf2e.spell-effects.Item.JqrTrvwV7pYStMXz",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "label": "PF2E.SpecificRule.SpellEffectLevitate.RollOptionLabel",
-            "option": "stabilized",
-            "toggleable": true
           }
         }
       ]
@@ -15948,18 +15730,6 @@
             "radius": 20,
             "slug": "shroud-of-flame",
             "traits": ["fire", "primal"]
-          }
-        },
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "label": "PF2E.BattleForm.MonstrosityForm.ShroudOfFlame",
-            "option": "shrouded",
-            "predicate": ["monstrosity-form:phoenix"],
-            "toggleable": true,
-            "value": true
           }
         },
         {
@@ -17450,15 +17220,6 @@
       "slug": "effect:spell-effect-safe-passage",
       "foundry": "Compendium.pf2e.spell-effects.Item.5blVLpIH65hvFJpn",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "option": "safe-passage",
-            "toggleable": true
-          }
-        },
         {
           "type": "rule",
           "key": "Resistance",
@@ -18976,16 +18737,6 @@
             "key": "TokenEffectIcon",
             "predicate": ["active-lantern"]
           }
-        },
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "label": "PF2E.SpecificRule.LitItem",
-            "option": "active-lantern",
-            "toggleable": true
-          }
         }
       ]
     },
@@ -19106,44 +18857,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[traits]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "equipment:musical-instrument-virtuoso-handheld",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.3ld14dsn2RLu9owg",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "domain": "performance",
-            "key": "RollOption",
-            "label": "PF2E.SpecificRule.PlayingItem",
-            "option": "playing",
-            "toggleable": true
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "equipment:musical-instrument-virtuoso-heavy",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.yw1kPxsdCoDUzOaE",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "domain": "performance",
-            "key": "RollOption",
-            "label": "PF2E.SpecificRule.PlayingItem",
-            "option": "playing",
-            "toggleable": true
-          }
         }
       ]
     },
@@ -19286,16 +18999,6 @@
             "predicate": ["lit-torch"],
             "selector": "{item|_id}-damage",
             "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "label": "PF2E.SpecificRule.LitTorch",
-            "option": "lit-torch",
-            "toggleable": true
           }
         },
         {
@@ -19502,16 +19205,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "domain": "strike-damage",
-            "key": "RollOption",
-            "option": "advantageous-assault",
-            "toggleable": true
-          }
-        },
-        {
-          "type": "rule",
           "key": "FlatModifier",
           "raw": {
             "key": "FlatModifier",
@@ -19538,16 +19231,6 @@
       "slug": "feat:ageless-patience",
       "foundry": "Compendium.pf2e.feats-srd.Item.k8nWKHLYvAKMuwLd",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "domain": "check",
-            "key": "RollOption",
-            "option": "ageless-patience",
-            "toggleable": true
-          }
-        },
         {
           "type": "rule",
           "key": "AdjustDegreeOfSuccess",
@@ -19629,16 +19312,6 @@
       "slug": "feat:analyze-weakness",
       "foundry": "Compendium.pf2e.feats-srd.Item.3PHHiZjX16Dwyt65",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "domain": "damage",
-            "key": "RollOption",
-            "option": "analyze-weakness",
-            "toggleable": true
-          }
-        },
         {
           "type": "rule",
           "key": "DamageDice",
@@ -19858,15 +19531,6 @@
       "slug": "feat:assisting-shot",
       "foundry": "Compendium.pf2e.feats-srd.Item.UiQbjeqBUFjUtgUR",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "option": "assisting-shot",
-            "toggleable": true
-          }
-        },
         {
           "type": "rule",
           "key": "Note",
@@ -21099,15 +20763,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "option": "brutal-finish",
-            "toggleable": true
-          }
-        },
-        {
-          "type": "rule",
           "key": "DamageDice",
           "raw": {
             "diceNumber": "ternary(gte(@actor.level,18),2,1)",
@@ -21126,24 +20781,6 @@
             "selector": "melee-strike-attack-roll",
             "text": "PF2E.SpecificRule.Fighter.BrutalFinish.Note",
             "title": "PF2E.Check.Result.Degree.Check.failure"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:bullseye",
-      "foundry": "Compendium.pf2e.feats-srd.Item.0XGLdVbEIISOOuuO",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "domain": "attack-roll",
-            "key": "RollOption",
-            "option": "bullseye",
-            "toggleable": true
           }
         }
       ]
@@ -21663,15 +21300,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "option": "channeling-block",
-            "toggleable": true
-          }
-        },
-        {
-          "type": "rule",
           "key": "ItemAlteration",
           "raw": {
             "itemType": "spell",
@@ -22098,36 +21726,9 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:cut-from-the-air",
-      "foundry": "Compendium.pf2e.feats-srd.Item.6xBu4BewIkOIt9M0",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "domain": "ac",
-            "key": "RollOption",
-            "option": "cut-from-the-air",
-            "toggleable": true
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:dazing-blow",
       "foundry": "Compendium.pf2e.feats-srd.Item.2HoDwBAmPIAoKUVF",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "option": "dazing-blow",
-            "toggleable": true
-          }
-        },
         {
           "type": "rule",
           "key": "DamageDice",
@@ -22164,15 +21765,6 @@
       "slug": "feat:deadly-aim",
       "foundry": "Compendium.pf2e.feats-srd.Item.enPAJ1oSDutts7ic",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "option": "deadly-aim",
-            "toggleable": true
-          }
-        },
         {
           "type": "rule",
           "key": "FlatModifier",
@@ -22464,16 +22056,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "option": "divine-castigation",
-            "placement": "spellcasting",
-            "toggleable": true
-          }
-        },
-        {
-          "type": "rule",
           "key": "ItemAlteration",
           "raw": {
             "itemType": "spell",
@@ -22615,15 +22197,6 @@
       "slug": "feat:divine-rebuttal",
       "foundry": "Compendium.pf2e.feats-srd.Item.iLFK11lcw5hViTBS",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "option": "divine-rebuttal",
-            "toggleable": true
-          }
-        },
         {
           "type": "rule",
           "key": "AdjustStrike",
@@ -22802,42 +22375,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:double-shot",
-      "foundry": "Compendium.pf2e.feats-srd.Item.PwcmmJOLY8C9JHau",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "domain": "ranged-attack-roll",
-            "key": "RollOption",
-            "option": "double-shot",
-            "toggleable": true
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:double-slice",
-      "foundry": "Compendium.pf2e.feats-srd.Item.onde0SxLoxLBTnvm",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "label": "PF2E.SpecificRule.Fighter.DoubleSlice.SecondAttackLabel",
-            "option": "double-slice-second",
-            "toggleable": true
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:dragon-shape",
       "foundry": "Compendium.pf2e.feats-srd.Item.p0jZhb8PSswUsZaz",
       "gaps": [
@@ -22946,15 +22483,6 @@
       "slug": "feat:dual-handed-assault",
       "foundry": "Compendium.pf2e.feats-srd.Item.HHAGiBYVv8nyUEsd",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "option": "dual-handed-assault",
-            "toggleable": true
-          }
-        },
         {
           "type": "rule",
           "key": "DamageDice",
@@ -23477,16 +23005,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "option": "eternal-blessing-active",
-            "toggleable": true,
-            "value": true
-          }
-        },
-        {
-          "type": "rule",
           "key": "Aura",
           "raw": {
             "effects": [
@@ -23719,45 +23237,6 @@
               {
                 "label": "{item|name}",
                 "value": "explosive-arrival"
-              }
-            ],
-            "toggleable": true
-          }
-        },
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "alwaysActive": true,
-            "key": "RollOption",
-            "label": "PF2E.SpecificRule.Wizard.ExplosiveArrival.Label",
-            "option": "arrival-damage",
-            "placement": "spellcasting",
-            "predicate": ["spellshape:explosive-arrival"],
-            "suboptions": [
-              {
-                "label": "PF2E.TraitFire",
-                "value": "fire"
-              },
-              {
-                "label": "PF2E.TraitAcid",
-                "value": "acid"
-              },
-              {
-                "label": "PF2E.TraitCold",
-                "value": "cold"
-              },
-              {
-                "label": "PF2E.TraitElectricity",
-                "value": "electricity"
-              },
-              {
-                "label": "PF2E.TraitSonic",
-                "value": "sonic"
-              },
-              {
-                "label": "PF2E.TraitSpirit",
-                "value": "spirit"
               }
             ],
             "toggleable": true
@@ -24684,15 +24163,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "option": "grasping-reach",
-            "toggleable": true
-          }
-        },
-        {
-          "type": "rule",
           "key": "ItemAlteration",
           "raw": {
             "itemType": "weapon",
@@ -24981,16 +24451,6 @@
       "slug": "feat:halo",
       "foundry": "Compendium.pf2e.feats-srd.Item.PGVXjbAi1Fa4uTmD",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "option": "halo-active",
-            "toggleable": true,
-            "value": true
-          }
-        },
         {
           "type": "rule",
           "key": "TokenLight",
@@ -25432,16 +24892,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "domain": "ranged-strike-attack-roll",
-            "key": "RollOption",
-            "option": "hunters-aim",
-            "toggleable": true
-          }
-        },
-        {
-          "type": "rule",
           "key": "Note",
           "raw": {
             "key": "Note",
@@ -25550,16 +25000,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "domain": "attack-roll",
-            "key": "RollOption",
-            "option": "incredible-aim",
-            "toggleable": true
-          }
-        },
-        {
-          "type": "rule",
           "key": "Note",
           "raw": {
             "key": "Note",
@@ -25644,24 +25084,6 @@
             "predicate": ["item:slug:orc-ferocity"],
             "property": "frequency-per",
             "value": "PT1H"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:incredible-improvisation",
-      "foundry": "Compendium.pf2e.feats-srd.Item.lHcDb9oXUdFupRdi",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "domain": "skill-check",
-            "key": "RollOption",
-            "option": "incredible-improvisation",
-            "toggleable": true
           }
         }
       ]
@@ -25922,23 +25344,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:leshy-superstition",
-      "foundry": "Compendium.pf2e.feats-srd.Item.fYVFBnv9aVHv1UNg",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "option": "leshy-superstition",
-            "toggleable": true
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:ley-line-conduit",
       "foundry": "Compendium.pf2e.feats-srd.Item.BQkk7qSSRTFc5jNG",
       "gaps": [
@@ -26049,15 +25454,6 @@
       "slug": "feat:lunge",
       "foundry": "Compendium.pf2e.feats-srd.Item.rTkr1EqpAN6YtnAh",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "option": "lunge",
-            "toggleable": true
-          }
-        },
         {
           "type": "rule",
           "key": "ActiveEffectLike",
@@ -26955,23 +26351,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:nimble-dodge",
-      "foundry": "Compendium.pf2e.feats-srd.Item.dNH8OHEvx3vI9NBQ",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "option": "nimble-dodge",
-            "toggleable": true
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:nonlethal-spell",
       "foundry": "Compendium.pf2e.feats-srd.Item.6QOcQ8ooP1vjQACX",
       "gaps": [
@@ -27073,28 +26452,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:orc-superstition",
-      "foundry": "Compendium.pf2e.feats-srd.Item.EFhh3AenX7wtAmrs",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "option": "orc-superstition",
-            "predicate": [
-              {
-                "not": "feat:pervasive-superstition"
-              }
-            ],
-            "toggleable": true
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:orc-weapon-familiarity",
       "foundry": "Compendium.pf2e.feats-srd.Item.1tVC0mcxl8sTCg4U",
       "gaps": [
@@ -27176,16 +26533,6 @@
       "slug": "feat:overwhelming-blow",
       "foundry": "Compendium.pf2e.feats-srd.Item.eOwjwVAbl99ZTy5D",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "label": "PF2E.SpecificRule.OverwhelmingBlow.CriticalHit",
-            "option": "overwhelming-blow",
-            "toggleable": true
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -27283,22 +26630,6 @@
           "reason": "unresolved-reference",
           "field": "selfEffect",
           "raw": "Compendium.pf2e.feat-effects.Item.Stance: Paragon's Guard"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:pervasive-superstition",
-      "foundry": "Compendium.pf2e.feats-srd.Item.VphmK5JRR35SyEhV",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "option": "orc-superstition"
-          }
         }
       ]
     },
@@ -27562,24 +26893,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:premonition-of-avoidance",
-      "foundry": "Compendium.pf2e.feats-srd.Item.KYl1rWFOHe0e6VqJ",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "domain": "saving-throw",
-            "key": "RollOption",
-            "option": "premonition-of-avoidance",
-            "toggleable": true
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:primal-aegis",
       "foundry": "Compendium.pf2e.feats-srd.Item.AbjVJIBdNjbQbVnV",
       "gaps": [
@@ -27793,30 +27106,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:raise-symbol",
-      "foundry": "Compendium.pf2e.feats-srd.Item.koER7gKf6CnW5O0s",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "label": "PF2E.SpecificRule.Cleric.RaiseSymbol.RollOptionLabel",
-            "option": "shield-religious-symbol",
-            "predicate": [
-              "self:shield:equipped",
-              {
-                "not": "emblazon-armament:item:shield"
-              }
-            ],
-            "toggleable": true
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:ranger-dedication",
       "foundry": "Compendium.pf2e.feats-srd.Item.R00qiDE5pBctgtyU",
       "gaps": [
@@ -27917,23 +27206,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:rapid-response",
-      "foundry": "Compendium.pf2e.feats-srd.Item.OcBaEnGdDm6CuSnr",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "option": "rapid-response",
-            "toggleable": true
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:reach-spell",
       "foundry": "Compendium.pf2e.feats-srd.Item.BWomK7EVY0WXxWgh",
       "gaps": [
@@ -28002,24 +27274,6 @@
           "reason": "unresolved-reference",
           "field": "selfEffect",
           "raw": "Compendium.pf2e.feat-effects.Item.Effect: Reckless Abandon (Goblin)"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:recognize-spell",
-      "foundry": "Compendium.pf2e.feats-srd.Item.MjQyTcV8Jiv1Jtln",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "label": "PF2E.SpecificRule.SkillFeat.RecognizeSpell.RollOptionLabel",
-            "option": "recognize-spell",
-            "toggleable": true
-          }
         }
       ]
     },
@@ -28652,53 +27906,6 @@
               {
                 "label": "{item|name}",
                 "value": "secondary-detonation-array"
-              }
-            ],
-            "toggleable": true
-          }
-        },
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "alwaysActive": true,
-            "key": "RollOption",
-            "label": "PF2E.SpecificRule.Prompt.DamageType",
-            "option": "array-damage",
-            "placement": "spellcasting",
-            "predicate": ["spellshape:secondary-detonation-array"],
-            "suboptions": [
-              {
-                "label": "PF2E.TraitAcid",
-                "value": "acid"
-              },
-              {
-                "label": "PF2E.TraitCold",
-                "value": "cold"
-              },
-              {
-                "label": "PF2E.TraitElectricity",
-                "value": "electricity"
-              },
-              {
-                "label": "PF2E.TraitFire",
-                "value": "fire"
-              },
-              {
-                "label": "PF2E.TraitForce",
-                "value": "force"
-              },
-              {
-                "label": "PF2E.TraitMental",
-                "value": "mental"
-              },
-              {
-                "label": "PF2E.TraitPoison",
-                "value": "poison"
-              },
-              {
-                "label": "PF2E.TraitSonic",
-                "value": "sonic"
               }
             ],
             "toggleable": true
@@ -29848,15 +29055,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "option": "student-of-the-canon",
-            "toggleable": true
-          }
-        },
-        {
-          "type": "rule",
           "key": "AdjustDegreeOfSuccess",
           "raw": {
             "adjustment": {
@@ -30029,16 +29227,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "domain": "unarmed-attack-roll",
-            "key": "RollOption",
-            "option": "sympathetic-strike",
-            "toggleable": true
-          }
-        },
-        {
-          "type": "rule",
           "key": "Note",
           "raw": {
             "key": "Note",
@@ -30066,16 +29254,6 @@
             "selector": "melee-strike-damage",
             "type": "circumstance",
             "value": "@weapon.system.damage.dice"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "domain": "damage",
-            "key": "RollOption",
-            "option": "telluric-power",
-            "toggleable": true
           }
         }
       ]
@@ -30312,15 +29490,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "option": "toppling-dance",
-            "toggleable": true
-          }
-        },
-        {
-          "type": "rule",
           "key": "ItemAlteration",
           "raw": {
             "itemType": "weapon",
@@ -30357,17 +29526,6 @@
       "slug": "feat:trap-finder",
       "foundry": "Compendium.pf2e.feats-srd.Item.oA866uVEFu1OrAX0",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "domain": "perception",
-            "key": "RollOption",
-            "label": "PF2E.SpecificRule.TrapFinder.SearchLabel",
-            "option": "trap-finder",
-            "toggleable": true
-          }
-        },
         {
           "type": "rule",
           "key": "RollOption",
@@ -30485,15 +29643,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "option": "tumble-behind",
-            "toggleable": true
-          }
-        },
-        {
-          "type": "rule",
           "key": "EphemeralEffect",
           "raw": {
             "key": "EphemeralEffect",
@@ -30539,22 +29688,6 @@
             "label": "PF2E.BattleForm.Attack.Tusk",
             "range": null,
             "traits": ["unarmed", "finesse"]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:twin-parry",
-      "foundry": "Compendium.pf2e.feats-srd.Item.Y8LHfkzGyOhPlUou",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "option": "weapon-parry"
           }
         }
       ]
@@ -31161,16 +30294,6 @@
             "key": "DamageDice",
             "predicate": ["vicious-swing"],
             "selector": "melee-strike-damage"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "domain": "damage",
-            "key": "RollOption",
-            "option": "vicious-swing",
-            "toggleable": true
           }
         }
       ]
@@ -32048,24 +31171,6 @@
             "key": "Resistance",
             "type": "fire",
             "value": "max(1,floor(@actor.level/2))"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "heritage:gourd-leshy",
-      "foundry": "Compendium.pf2e.heritages.Item.wNnsjird4OQe0s6p",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "label": "PF2E.SpecificRule.ToggleProperty.GourdHead",
-            "option": "gourd-head",
-            "toggleable": true
           }
         }
       ]

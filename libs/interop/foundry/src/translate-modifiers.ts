@@ -26,7 +26,8 @@ function isOperands(operand: unknown): operand is [string, ...unknown[]] {
   return Array.isArray(operand) && typeof operand[0] === 'string';
 }
 
-function namespaced(option: string): string {
+/** A roll option in a namespace: as it is when it names one, else under `option`. */
+export function namespaced(option: string): string {
   return option.includes(SEPARATOR) ? option : `${BARE_OPTION_NAMESPACE}${SEPARATOR}${option}`;
 }
 
@@ -63,7 +64,7 @@ export function withNamespacedOptions(raw: unknown): unknown {
 }
 
 /** A Foundry selector in Pioneer's: a skill or a save by its statistic, any other (a domain, `ac`) as it is. */
-function selectorOf(selector: string): string {
+export function selectorOf(selector: string): string {
   if (SKILLS.has(selector)) {
     return `skill${SEPARATOR}${selector}`;
   }

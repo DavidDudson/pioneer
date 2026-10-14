@@ -756,6 +756,14 @@
         "type": "untyped",
         "value": 4,
         "predicate": ["action:steal", "option:gourd-head"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:gourd-head",
+        "toggleable": true,
+        "display": {
+          "label": "Gourd Head: Increase perception DC"
+        }
       }
     ],
     "externalIds": {

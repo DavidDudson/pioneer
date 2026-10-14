@@ -1321,6 +1321,14 @@
         "type": "circumstance",
         "value": 2,
         "predicate": ["self:shield:raised", "option:reflecting-shield", "item:type:spell"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:reflecting-shield",
+        "toggleable": true,
+        "display": {
+          "label": "Block spell that targets you"
+        }
       }
     ],
     "externalIds": {
@@ -1386,6 +1394,14 @@
         "type": "circumstance",
         "value": 2,
         "predicate": ["self:shield:raised", "option:spellguard-shield", "item:type:spell"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:spellguard-shield",
+        "toggleable": true,
+        "display": {
+          "label": "Block spell that targets you"
+        }
       }
     ],
     "externalIds": {

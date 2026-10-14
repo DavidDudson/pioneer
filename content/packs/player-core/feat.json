@@ -1805,6 +1805,12 @@
         "mode": "add",
         "value": 2,
         "predicate": ["item:hands-held:2"]
+      },
+      {
+        "key": "RollOption",
+        "domain": "strike-damage",
+        "option": "option:advantageous-assault",
+        "toggleable": true
       }
     ],
     "externalIds": {
@@ -1867,6 +1873,12 @@
         "type": "circumstance",
         "value": 2,
         "predicate": ["option:ageless-patience"]
+      },
+      {
+        "key": "RollOption",
+        "domain": "check",
+        "option": "option:ageless-patience",
+        "toggleable": true
       }
     ],
     "externalIds": {
@@ -2230,7 +2242,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "damage",
+        "option": "option:analyze-weakness",
+        "toggleable": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.3PHHiZjX16Dwyt65"
     },
@@ -3356,7 +3375,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:assisting-shot",
+        "toggleable": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.UiQbjeqBUFjUtgUR"
     },
@@ -6613,7 +6638,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:brutal-finish",
+        "toggleable": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.tGXJU6yx7bYuyLvd"
     },
@@ -6788,6 +6819,12 @@
         "type": "circumstance",
         "value": 1,
         "predicate": ["option:bullseye"]
+      },
+      {
+        "key": "RollOption",
+        "domain": "attack-roll",
+        "option": "option:bullseye",
+        "toggleable": true
       }
     ],
     "externalIds": {
@@ -8281,7 +8318,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:channeling-block",
+        "toggleable": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.75Y1Lk9JE3q1vDA2"
     },
@@ -11132,6 +11175,12 @@
             "not": "self:condition:off-guard"
           }
         ]
+      },
+      {
+        "key": "RollOption",
+        "domain": "ac",
+        "option": "option:cut-from-the-air",
+        "toggleable": true
       }
     ],
     "externalIds": {
@@ -11441,7 +11490,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:dazing-blow",
+        "toggleable": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.2HoDwBAmPIAoKUVF"
     },
@@ -11504,6 +11559,11 @@
         "type": "circumstance",
         "value": -2,
         "predicate": ["option:deadly-aim"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:deadly-aim",
+        "toggleable": true
       }
     ],
     "externalIds": {
@@ -13483,7 +13543,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:divine-castigation",
+        "toggleable": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.142QRyK2aPIrJu48"
     },
@@ -13804,7 +13870,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:divine-rebuttal",
+        "toggleable": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.iLFK11lcw5hViTBS"
     },
@@ -14721,6 +14793,12 @@
         "value": -2,
         "slug": "double-shot",
         "predicate": ["option:double-shot", "item:reload:0"]
+      },
+      {
+        "key": "RollOption",
+        "domain": "ranged-attack-roll",
+        "option": "option:double-shot",
+        "toggleable": true
       }
     ],
     "externalIds": {
@@ -14808,6 +14886,14 @@
             "not": "item:trait:agile"
           }
         ]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:double-slice-second",
+        "toggleable": true,
+        "display": {
+          "label": "Double Slice Second Attack"
+        }
       }
     ],
     "externalIds": {
@@ -15130,7 +15216,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:dual-handed-assault",
+        "toggleable": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.HHAGiBYVv8nyUEsd"
     },
@@ -17570,7 +17662,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:eternal-blessing-active",
+        "toggleable": true,
+        "value": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.kMLvQnx2vY7F3bjI"
     },
@@ -18555,7 +18654,43 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:arrival-damage",
+        "toggleable": true,
+        "suboptions": [
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "acid",
+            "label": "Acid"
+          },
+          {
+            "value": "cold",
+            "label": "Cold"
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity"
+          },
+          {
+            "value": "sonic",
+            "label": "Sonic"
+          },
+          {
+            "value": "spirit",
+            "label": "Spirit"
+          }
+        ],
+        "predicate": ["spellshape:explosive-arrival"],
+        "display": {
+          "label": "Explosive Arrival: Creature Trait"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.y9lH4EqTGTHvqbNr"
     },
@@ -21973,7 +22108,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:grasping-reach",
+        "toggleable": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.weYZzyMmlCIC2TZt"
     },
@@ -23183,7 +23324,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:halo-active",
+        "toggleable": true,
+        "value": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.PGVXjbAi1Fa4uTmD"
     },
@@ -24659,6 +24807,12 @@
         "type": "circumstance",
         "value": 2,
         "predicate": ["option:hunters-aim", "target:mark:hunted-prey"]
+      },
+      {
+        "key": "RollOption",
+        "domain": "ranged-strike-attack-roll",
+        "option": "option:hunters-aim",
+        "toggleable": true
       }
     ],
     "externalIds": {
@@ -25836,6 +25990,12 @@
         "type": "circumstance",
         "value": 2,
         "predicate": ["option:incredible-aim"]
+      },
+      {
+        "key": "RollOption",
+        "domain": "attack-roll",
+        "option": "option:incredible-aim",
+        "toggleable": true
       }
     ],
     "externalIds": {
@@ -26149,6 +26309,12 @@
         "type": "circumstance",
         "value": 4,
         "predicate": ["proficiency:untrained", "option:incredible-improvisation"]
+      },
+      {
+        "key": "RollOption",
+        "domain": "skill-check",
+        "option": "option:incredible-improvisation",
+        "toggleable": true
       }
     ],
     "externalIds": {
@@ -28940,6 +29106,11 @@
             "or": ["option:arcane", "option:divine", "option:primal", "option:occult"]
           }
         ]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:leshy-superstition",
+        "toggleable": true
       }
     ],
     "externalIds": {
@@ -29564,7 +29735,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:lunge",
+        "toggleable": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.rTkr1EqpAN6YtnAh"
     },
@@ -33070,6 +33247,11 @@
         "type": "circumstance",
         "value": 2,
         "predicate": ["option:nimble-dodge"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:nimble-dodge",
+        "toggleable": true
       }
     ],
     "externalIds": {
@@ -34108,6 +34290,16 @@
             "or": ["option:arcane", "option:divine", "option:primal", "option:occult", "option:magical"]
           }
         ]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:orc-superstition",
+        "toggleable": true,
+        "predicate": [
+          {
+            "not": "feat:pervasive-superstition"
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -34602,7 +34794,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:overwhelming-blow",
+        "toggleable": true,
+        "display": {
+          "label": "Critically hit with Overwhelming Blow"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.eOwjwVAbl99ZTy5D"
     },
@@ -35563,7 +35764,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:orc-superstition"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.VphmK5JRR35SyEhV"
     },
@@ -37196,6 +37402,12 @@
         "type": "circumstance",
         "value": 2,
         "predicate": ["origin:type:hazard", "option:premonition-of-avoidance"]
+      },
+      {
+        "key": "RollOption",
+        "domain": "saving-throw",
+        "option": "option:premonition-of-avoidance",
+        "toggleable": true
       }
     ],
     "externalIds": {
@@ -38853,7 +39065,22 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:shield-religious-symbol",
+        "toggleable": true,
+        "predicate": [
+          "self:shield:equipped",
+          {
+            "not": "emblazon-armament:item:shield"
+          }
+        ],
+        "display": {
+          "label": "Wielding shield as a religious symbol"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.koER7gKf6CnW5O0s"
     },
@@ -39258,6 +39485,11 @@
         "type": "circumstance",
         "value": 10,
         "predicate": ["option:rapid-response"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:rapid-response",
+        "toggleable": true
       }
     ],
     "externalIds": {
@@ -40533,6 +40765,14 @@
         "type": "circumstance",
         "value": 1,
         "predicate": ["option:recognize-spell"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:recognize-spell",
+        "toggleable": true,
+        "display": {
+          "label": "Critical success on Recognize Spell"
+        }
       }
     ],
     "externalIds": {
@@ -43590,7 +43830,51 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:array-damage",
+        "toggleable": true,
+        "suboptions": [
+          {
+            "value": "acid",
+            "label": "Acid"
+          },
+          {
+            "value": "cold",
+            "label": "Cold"
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "force",
+            "label": "Force"
+          },
+          {
+            "value": "mental",
+            "label": "Mental"
+          },
+          {
+            "value": "poison",
+            "label": "Poison"
+          },
+          {
+            "value": "sonic",
+            "label": "Sonic"
+          }
+        ],
+        "predicate": ["spellshape:secondary-detonation-array"],
+        "display": {
+          "label": "Select a damage type."
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.cFQKqLf6InMDzADv"
     },
@@ -48732,7 +49016,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:student-of-the-canon",
+        "toggleable": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.x7EMZNMavris2aHY"
     },
@@ -49940,7 +50230,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "unarmed-attack-roll",
+        "option": "option:sympathetic-strike",
+        "toggleable": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.VOgAiCqC5kpIpLaf"
     },
@@ -50297,7 +50594,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "damage",
+        "option": "option:telluric-power",
+        "toggleable": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.ADDOwO0QWOXAV85x"
     },
@@ -51075,7 +51379,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:toppling-dance",
+        "toggleable": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.l78KwojlT0AWvS4l"
     },
@@ -51265,6 +51575,15 @@
         "type": "circumstance",
         "value": "ternary(gte(@rank.skill.thievery, 3), 2, 1)",
         "predicate": ["option:trap-finder"]
+      },
+      {
+        "key": "RollOption",
+        "domain": "perception",
+        "option": "option:trap-finder",
+        "toggleable": true,
+        "display": {
+          "label": "Trap Finder (searching for traps)"
+        }
       }
     ],
     "externalIds": {
@@ -51885,7 +52204,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:tumble-behind",
+        "toggleable": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.YKqMuuC8j35NFh92"
     },
@@ -52182,6 +52507,10 @@
             ]
           }
         ]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:weapon-parry"
       }
     ],
     "externalIds": {
@@ -54504,7 +54833,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "damage",
+        "option": "option:vicious-swing",
+        "toggleable": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.2xk4jdwcCfmasYfT"
     },
