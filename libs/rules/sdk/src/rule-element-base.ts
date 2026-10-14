@@ -37,6 +37,7 @@ export const RuleElementKey = {
   Strike: 'Strike',
   DamageDice: 'DamageDice',
   DamageAlteration: 'DamageAlteration',
+  Note: 'Note',
 } as const;
 export type RuleElementKey = ValueOf<typeof RuleElementKey>;
 

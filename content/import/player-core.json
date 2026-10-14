@@ -1111,171 +1111,6 @@
             ],
             "toggleable": true
           }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["debilitation:speed-penalty", "target:condition:off-guard"],
-            "selector": "strike-damage",
-            "text": "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.SpeedPenalty.Note]</p>",
-            "title": "PF2E.SpecificRule.Rogue.Debilitation.Title"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["debilitation:enfeebled", "target:condition:off-guard"],
-            "selector": "strike-damage",
-            "text": "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Enfeebled.Note]</p>",
-            "title": "PF2E.SpecificRule.Rogue.Debilitation.Title"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["debilitation:bloody", "target:condition:off-guard"],
-            "selector": "strike-damage",
-            "text": "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Bloody.Note]</p>",
-            "title": "PF2E.SpecificRule.Rogue.Debilitation.Title"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["debilitation:clumsy", "target:condition:off-guard"],
-            "selector": "strike-damage",
-            "text": "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Clumsy.Note]</p>",
-            "title": "PF2E.SpecificRule.Rogue.Debilitation.Title"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["debilitation:critical", "target:condition:off-guard"],
-            "selector": "strike-damage",
-            "text": "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Critical.Note]</p>",
-            "title": "PF2E.SpecificRule.Rogue.Debilitation.Title"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["debilitation:off-guard", "target:condition:off-guard"],
-            "selector": "strike-damage",
-            "text": "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.OffGuard.Note]</p>",
-            "title": "PF2E.SpecificRule.Rogue.Debilitation.Title"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["debilitation:precision-damage", "target:condition:off-guard"],
-            "selector": "strike-damage",
-            "text": "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.PrecisionDamage.Note]</p>",
-            "title": "PF2E.SpecificRule.Rogue.Debilitation.Title"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["debilitation:prevent-flanking", "target:condition:off-guard"],
-            "selector": "strike-damage",
-            "text": "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.PreventFlanking.Note]</p>",
-            "title": "PF2E.SpecificRule.Rogue.Debilitation.Title"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["debilitation:prevent-reactions", "target:condition:off-guard"],
-            "selector": "strike-damage",
-            "text": "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.PreventReactions.Note]</p>",
-            "title": "PF2E.SpecificRule.Rogue.Debilitation.Title"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["debilitation:prevent-step", "target:condition:off-guard"],
-            "selector": "strike-damage",
-            "text": "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.PreventStep.Note]</p>",
-            "title": "PF2E.SpecificRule.Rogue.Debilitation.Title"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["debilitation:reduce-cover", "target:condition:off-guard"],
-            "selector": "strike-damage",
-            "text": "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.ReduceCover.Note]</p>",
-            "title": "PF2E.SpecificRule.Rogue.Debilitation.Title"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["debilitation:stupefied", "target:condition:off-guard"],
-            "selector": "strike-damage",
-            "text": "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Stupefied.Note]</p>",
-            "title": "PF2E.SpecificRule.Rogue.Debilitation.Title"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["debilitation:weakness", "target:condition:off-guard"],
-            "selector": "strike-damage",
-            "text": "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Weakness.Note]</p>",
-            "title": "PF2E.SpecificRule.Rogue.Debilitation.Title"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["debilitation:weakness-heartless", "target:condition:off-guard"],
-            "selector": ["strike-damage"],
-            "text": "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.WeaknessHeartless.Note]</p>",
-            "title": "PF2E.SpecificRule.Rogue.Debilitation.Title"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["debilitation:frightened", "target:condition:off-guard"],
-            "selector": ["strike-damage"],
-            "text": "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Frightened.Note]</p>",
-            "title": "PF2E.SpecificRule.Rogue.Debilitation.Title"
-          }
         }
       ]
     },
@@ -1465,156 +1300,6 @@
               }
             ],
             "toggleable": true
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["second-debilitation:speed-penalty", "target:condition:off-guard"],
-            "selector": "strike-damage",
-            "text": "PF2E.SpecificRule.Rogue.Debilitation.SpeedPenalty.Note"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["second-debilitation:enfeebled", "target:condition:off-guard"],
-            "selector": "strike-damage",
-            "text": "PF2E.SpecificRule.Rogue.Debilitation.Enfeebled.Note"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["second-debilitation:frightened", "target:condition:off-guard"],
-            "selector": "strike-damage",
-            "text": "PF2E.SpecificRule.Rogue.Debilitation.Frightened.Note"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["second-debilitation:bloody", "target:condition:off-guard"],
-            "selector": "strike-damage",
-            "text": "PF2E.SpecificRule.Rogue.Debilitation.Bloody.Note"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["second-debilitation:clumsy", "target:condition:off-guard"],
-            "selector": "strike-damage",
-            "text": "PF2E.SpecificRule.Rogue.Debilitation.Clumsy.Note"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["second-debilitation:critical", "target:condition:off-guard"],
-            "selector": "strike-damage",
-            "text": "PF2E.SpecificRule.Rogue.Debilitation.Critical.Note"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["second-debilitation:off-guard", "target:condition:off-guard"],
-            "selector": "strike-damage",
-            "text": "PF2E.SpecificRule.Rogue.Debilitation.OffGuard.Note"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["second-debilitation:precision-damage", "target:condition:off-guard"],
-            "selector": "strike-damage",
-            "text": "PF2E.SpecificRule.Rogue.Debilitation.PrecisionDamage.Note"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["second-debilitation:prevent-flanking", "target:condition:off-guard"],
-            "selector": "strike-damage",
-            "text": "PF2E.SpecificRule.Rogue.Debilitation.PreventFlanking.Note"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["second-debilitation:speed-penalty", "target:condition:off-guard"],
-            "selector": "strike-damage",
-            "text": "PF2E.SpecificRule.Rogue.Debilitation.PreventReactions.Note"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["second-debilitation:prevent-step", "target:condition:off-guard"],
-            "selector": "strike-damage",
-            "text": "PF2E.SpecificRule.Rogue.Debilitation.PreventStep.Note"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["second-debilitation:reduce-cover", "target:condition:off-guard"],
-            "selector": "strike-damage",
-            "text": "PF2E.SpecificRule.Rogue.Debilitation.ReduceCover.Note"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["second-debilitation:stupefied", "target:condition:off-guard"],
-            "selector": "strike-damage",
-            "text": "PF2E.SpecificRule.Rogue.Debilitation.Stupefied.Note"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["second-debilitation:weakness", "target:condition:off-guard"],
-            "selector": "strike-damage",
-            "text": "PF2E.SpecificRule.Rogue.Debilitation.Weakness.Note"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["second-debilitation:weakness-heartless", "target:condition:off-guard"],
-            "selector": "strike-damage",
-            "text": "PF2E.SpecificRule.Rogue.Debilitation.WeaknessHeartless.Note"
           }
         }
       ]
@@ -2140,18 +1825,6 @@
             "key": "AdjustDegreeOfSuccess",
             "selector": "reflex"
           }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["failure"],
-            "predicate": ["damaging-effect"],
-            "selector": "reflex",
-            "text": "PF2E.SpecificRule.SaveCriticalFailureToFailure.FailureHalfDamage.Reflex",
-            "title": "{item|name}"
-          }
         }
       ]
     },
@@ -2171,18 +1844,6 @@
             "key": "AdjustDegreeOfSuccess",
             "selector": "will"
           }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["failure"],
-            "predicate": ["damaging-effect"],
-            "selector": "will",
-            "text": "PF2E.SpecificRule.SaveCriticalFailureToFailure.FailureHalfDamage.Will",
-            "title": "{item|name}"
-          }
         }
       ]
     },
@@ -2201,18 +1862,6 @@
             },
             "key": "AdjustDegreeOfSuccess",
             "selector": "reflex"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["failure"],
-            "predicate": ["damaging-effect"],
-            "selector": "reflex",
-            "text": "PF2E.SpecificRule.SaveCriticalFailureToFailure.FailureHalfDamage.Reflex",
-            "title": "{item|name}"
           }
         }
       ]
@@ -2626,17 +2275,6 @@
       "slug": "class-feature:natural-reflexes",
       "foundry": "Compendium.pf2e.classfeatures.Item.7dMDxvzGKbqoEAdX",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["success"],
-            "selector": "reflex",
-            "text": "PF2E.SpecificRule.SaveSuccessToCriticalSuccess.Reflex",
-            "title": "{item|name}"
-          }
-        },
         {
           "type": "rule",
           "key": "AdjustDegreeOfSuccess",
@@ -3098,38 +2736,6 @@
           "raw": {
             "key": "GrantItem",
             "uuid": "{item|flags.system.rulesSelections.feat}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "class-feature:scoundrel",
-      "foundry": "Compendium.pf2e.classfeatures.Item.ZvfxtUMtfIOLYHyg",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["success"],
-            "predicate": ["action:feint"],
-            "selector": "skill-check",
-            "text": "When you successfully Feint, the target is off-guard against melee attacks you attempt against it until the end of your next turn.",
-            "title": "{item|name}"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["criticalSuccess"],
-            "predicate": ["action:feint"],
-            "selector": "skill-check",
-            "text": "On a critical success, the target is off-guard against all melee attacks until the end of your next turn, not just yours.",
-            "title": "{item|name}"
           }
         }
       ]
@@ -4266,21 +3872,6 @@
             "path": "system.attributes.flanking.canFlank",
             "value": false
           }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": [
-              {
-                "or": ["item:type:spell", "origin:action:trait:attack"]
-              }
-            ],
-            "selector": "damage-received",
-            "text": "PF2E.condition.confused.note",
-            "title": "{item|name}"
-          }
         }
       ]
     },
@@ -4510,21 +4101,6 @@
               }
             ]
           }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": [
-              {
-                "nor": ["action:escape", "action:force-open"]
-              }
-            ],
-            "selector": ["attack", "skill-check"],
-            "text": "PF2E.condition.restrained.note",
-            "title": "{item|name}"
-          }
         }
       ]
     },
@@ -4753,21 +4329,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": [
-              "item:trait:fire",
-              {
-                "not": "item:rune:property:underwater"
-              }
-            ],
-            "selector": "all",
-            "text": "PF2E.SpecificRule.AquaticCombat.FireNote"
-          }
-        },
-        {
-          "type": "rule",
           "key": "AdjustStrike",
           "raw": {
             "definition": [
@@ -4780,20 +4341,6 @@
             "mode": "multiply",
             "property": "range-increment",
             "value": 0.5
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": [
-              {
-                "not": "item:rune:property:underwater"
-              }
-            ],
-            "selector": "ranged-attack-roll",
-            "text": "PF2E.SpecificRule.AquaticCombat.RangedNote"
           }
         },
         {
@@ -6959,16 +6506,6 @@
         },
         {
           "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "selector": "attack",
-            "text": "PF2E.SpecificRule.RemainingAir.AttackOrSpells",
-            "title": "PF2E.SpecificRule.RemainingAir.Label"
-          }
-        },
-        {
-          "type": "rule",
           "key": "ItemAlteration",
           "raw": {
             "itemType": "spell",
@@ -7026,29 +6563,6 @@
                 "text": "PF2E.SpecificRule.RemainingAir.Speak"
               }
             ]
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["criticalFailure"],
-            "predicate": ["damaging-effect"],
-            "selector": "saving-throw",
-            "text": "PF2E.SpecificRule.RemainingAir.LoseOneRound",
-            "title": "PF2E.SpecificRule.RemainingAir.Label"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["criticalSuccess"],
-            "selector": "damage-received",
-            "text": "PF2E.SpecificRule.RemainingAir.LoseOneRound",
-            "title": "PF2E.SpecificRule.RemainingAir.Label"
           }
         },
         {
@@ -7176,17 +6690,6 @@
             "selector": "strike-attack-roll",
             "type": "status",
             "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["success", "criticalSuccess"],
-            "selector": "strike-attack-roll",
-            "text": "PF2E.SpecificRule.Cleric.RestorativeStrike.Note",
-            "title": "{item|name}"
           }
         },
         {
@@ -13136,26 +12639,6 @@
             "selector": "fly",
             "value": "ternary(gte(@item.level,9), 60, 40)"
           }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": [
-              {
-                "or": [
-                  "item:category:unarmed",
-                  {
-                    "not": "item:trait:reach"
-                  }
-                ]
-              }
-            ],
-            "selector": "damage-received",
-            "text": "PF2E.SpecificRule.SpellEffectFieryBody.Note",
-            "title": "{item|name}"
-          }
         }
       ]
     },
@@ -14899,17 +14382,6 @@
             },
             "predicate": ["plant-form:flytrap"]
           }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["plant-form:flytrap"],
-            "selector": "leaf-damage",
-            "text": "PF2E.BattleForm.Note.Grab",
-            "title": "{item|name}"
-          }
         }
       ]
     },
@@ -15092,17 +14564,6 @@
             "predicate": ["primal-summons:water"],
             "selector": "swim",
             "value": 60
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["primal-summons:water"],
-            "selector": "melee-strike-damage",
-            "text": "PF2E.BattleForm.Note.Shove",
-            "title": "{item|name}"
           }
         },
         {
@@ -15740,16 +15201,6 @@
             },
             "key": "AdjustDegreeOfSuccess",
             "selector": "saving-throw"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "selector": "saving-throw",
-            "text": "PF2E.SpecificRule.SpellEffectTemptFate.Note",
-            "title": "{item|name}"
           }
         }
       ]
@@ -17014,25 +16465,6 @@
             ],
             "selector": "perception"
           }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": [
-              "ageless-patience",
-              "check:total:natural:1",
-              {
-                "not": {
-                  "gte": ["check:total", "check:total:delta"]
-                }
-              }
-            ],
-            "selector": ["perception", "skill-check"],
-            "text": "PF2E.SpecificRule.Elf.AgelessPatience.Note",
-            "title": "{item|name}"
-          }
         }
       ]
     },
@@ -17151,26 +16583,6 @@
           "raw": {
             "key": "GrantItem",
             "uuid": "{item|flags.system.rulesSelections.ancestralParagon}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:ancestral-suspicion",
-      "foundry": "Compendium.pf2e.feats-srd.Item.scNrNhnGTgPIzoj7",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["success"],
-            "predicate": ["inflicts:controlled"],
-            "selector": "saving-throw",
-            "text": "When you roll a success on a saving throw against an effect that would make you controlled, you get a critical success instead.",
-            "title": "{item|name}"
           }
         }
       ]
@@ -17366,21 +16778,6 @@
             ],
             "selector": "athletics",
             "type": "skill"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": [
-              {
-                "or": ["action:climb", "action:swim"]
-              }
-            ],
-            "selector": "athletics",
-            "text": "Whenever you roll a success on an Athletics check to Climb or Swim, you get a critical success instead.",
-            "title": "{item|name}"
           }
         }
       ]
@@ -18094,18 +17491,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["success"],
-            "predicate": ["action:swim"],
-            "selector": "athletics",
-            "text": "When you roll a success on an Athletics check to swim, you get a critical success instead.",
-            "title": "{item|name}"
-          }
-        },
-        {
-          "type": "rule",
           "key": "AdjustDegreeOfSuccess",
           "raw": {
             "adjustment": {
@@ -18134,26 +17519,6 @@
             "selector": "strike-damage",
             "text": "{item|system.description.value}",
             "title": "{item|name}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:brutal-finish",
-      "foundry": "Compendium.pf2e.feats-srd.Item.tGXJU6yx7bYuyLvd",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["failure"],
-            "predicate": ["brutal-finish", "item:type:weapon"],
-            "selector": "melee-strike-attack-roll",
-            "text": "PF2E.SpecificRule.Fighter.BrutalFinish.Note",
-            "title": "PF2E.Check.Result.Degree.Check.failure"
           }
         }
       ]
@@ -18286,18 +17651,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["success"],
-            "predicate": ["mental", "inflicts:controlled"],
-            "selector": "saving-throw",
-            "text": "When you roll a success on an saving throw against a mental effect that would make you controlled, you get a critical success instead.",
-            "title": "{item|name}"
-          }
-        },
-        {
-          "type": "rule",
           "key": "AdjustDegreeOfSuccess",
           "raw": {
             "adjustment": {
@@ -18422,30 +17775,6 @@
               }
             ],
             "toggleable": true
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:castigating-weapon",
-      "foundry": "Compendium.pf2e.feats-srd.Item.tSmd0cxq9wokSCh4",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": [
-              "divine-castigation",
-              {
-                "or": ["item:slug:harm", "item:slug:heal"]
-              }
-            ],
-            "selector": "spell-damage",
-            "text": "PF2E.SpecificRule.Cleric.CastigatingWeapon.Note",
-            "title": "{item|name}"
           }
         }
       ]
@@ -18681,56 +18010,12 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:charming-liar",
-      "foundry": "Compendium.pf2e.feats-srd.Item.B6HbYsLBWb1RR6Fx",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["criticalSuccess"],
-            "predicate": ["action:lie"],
-            "selector": "skill-check",
-            "text": "PF2E.SpecificRule.Feat.CharmingLiar.Note",
-            "title": "{item|name}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:cleric-dedication",
       "foundry": "Compendium.pf2e.feats-srd.Item.smCDaPlpRDA47xjK",
       "gaps": [
         {
           "type": "enricher",
           "enricher": "@UUID[journals]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:communal-healing",
-      "foundry": "Compendium.pf2e.feats-srd.Item.yExxOkHN1PN37hUa",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": [
-              "item:slug:heal",
-              {
-                "lt": ["item:cast:actions", 3]
-              }
-            ],
-            "selector": "spell-healing",
-            "text": "PF2E.SpecificRule.Cleric.CommunalHealing.Note",
-            "title": "{item|name}"
-          }
         }
       ]
     },
@@ -18772,25 +18057,6 @@
                 "text": "PF2E.SpecificRule.Spellshape.ConcealSpell"
               }
             ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:continual-recovery",
-      "foundry": "Compendium.pf2e.feats-srd.Item.c85a69mB1urW2Se2",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["action:treat-wounds"],
-            "selector": "skill-check",
-            "text": "PF2E.SpecificRule.ContinualRecovery.Note",
-            "title": "{item|name}"
           }
         }
       ]
@@ -18962,25 +18228,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:cremate-undead",
-      "foundry": "Compendium.pf2e.feats-srd.Item.nLTTph2tgwcQghVq",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["item:slug:heal"],
-            "selector": "spell-damage",
-            "text": "PF2E.SpecificRule.Cleric.CremateUndead.Note",
-            "title": "{item|name}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:cultural-adaptability",
       "foundry": "Compendium.pf2e.feats-srd.Item.Z56DtGBd3AcZOCeG",
       "gaps": [
@@ -19060,18 +18307,6 @@
       "slug": "feat:dazing-blow",
       "foundry": "Compendium.pf2e.feats-srd.Item.2HoDwBAmPIAoKUVF",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["criticalSuccess", "success"],
-            "predicate": ["dazing-blow"],
-            "selector": "strike-attack-roll",
-            "text": "PF2E.SpecificRule.Fighter.DazingBlow.Note",
-            "title": "{item|name}"
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@Check[traits]"
@@ -19332,26 +18567,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:distracting-feint",
-      "foundry": "Compendium.pf2e.feats-srd.Item.hLYoIjH8gPEVXyWG",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["criticalSuccess", "success"],
-            "predicate": ["action:feint"],
-            "selector": "skill-check",
-            "text": "PF2E.SpecificRule.Rogue.DistractingFeint.Text",
-            "title": "{item|name}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:diverse-weapon-expert",
       "foundry": "Compendium.pf2e.feats-srd.Item.pu1U9ZWVVG1Lc94t",
       "gaps": [
@@ -19474,18 +18689,6 @@
             "predicate": ["divine-rebuttal", "self:trait:unholy"],
             "property": "traits",
             "value": "unholy"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["criticalSuccess", "success"],
-            "predicate": ["divine-rebuttal", "item:deity-favored"],
-            "selector": "strike-attack-roll",
-            "text": "PF2E.SpecificRule.Cleric.DivineRebuttal.Note",
-            "title": "{item|name}"
           }
         },
         {
@@ -19816,26 +19019,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:dubious-knowledge",
-      "foundry": "Compendium.pf2e.feats-srd.Item.1Bt7uCW2WI4sM84P",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["failure"],
-            "predicate": ["action:recall-knowledge"],
-            "selector": "skill-check",
-            "text": "PF2E.SpecificRule.DubiousKnowledge.Note",
-            "title": "{item|name}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:dwarven-lore",
       "foundry": "Compendium.pf2e.feats-srd.Item.9bnkx6VgcO5mOk5b",
       "gaps": [
@@ -19884,17 +19067,6 @@
       "slug": "feat:earned-glory",
       "foundry": "Compendium.pf2e.feats-srd.Item.nfERPRCITBp970HO",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["action:make-an-impression", "target:trait:elf"],
-            "selector": "performance",
-            "text": "PF2E.SpecificRule.HalfElf.EarnedGlory.Note",
-            "title": "{item|name}"
-          }
-        },
         {
           "type": "rule",
           "key": "AdjustDegreeOfSuccess",
@@ -20222,22 +19394,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["failure"],
-            "predicate": [
-              {
-                "or": ["proficiency:expert", "proficiency:master", "proficiency:legendary"]
-              }
-            ],
-            "selector": "lore-skill-check",
-            "text": "PF2E.SpecificRule.Feat.ExperiencedProfessional.Note",
-            "title": "{item|name}"
-          }
-        },
-        {
-          "type": "rule",
           "key": "AdjustDegreeOfSuccess",
           "raw": {
             "adjustment": {
@@ -20490,23 +19646,6 @@
       "slug": "feat:fast-recovery",
       "foundry": "Compendium.pf2e.feats-srd.Item.N8Xz5fuW6o7GW124",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["success", "criticalSuccess"],
-            "predicate": [
-              "ongoing",
-              {
-                "or": ["disease", "poison"]
-              }
-            ],
-            "selector": "fortitude",
-            "text": "PF2E.SpecificRule.Feat.FastRecovery.Note",
-            "title": "{item|name}"
-          }
-        },
         {
           "type": "rule",
           "key": "ActiveEffectLike",
@@ -20898,17 +20037,6 @@
             "predicate": ["action:subsist"],
             "selector": "survival"
           }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["action:subsist"],
-            "selector": "survival",
-            "text": "PF2E.SpecificRule.Feat.Forager.Note",
-            "title": "{item|name}"
-          }
         }
       ]
     },
@@ -20972,18 +20100,6 @@
       "slug": "feat:forlorn",
       "foundry": "Compendium.pf2e.feats-srd.Item.AogIo1gHLdz7DyHx",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["success"],
-            "predicate": ["item:trait:emotion"],
-            "selector": "saving-throw",
-            "text": "PF2E.SpecificRule.Emotion.Note",
-            "title": "{item|name}"
-          }
-        },
         {
           "type": "rule",
           "key": "AdjustDegreeOfSuccess",
@@ -21834,25 +20950,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:impeccable-crafting",
-      "foundry": "Compendium.pf2e.feats-srd.Item.PiUe3tpv7UVtnfvS",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["action:craft", "speciality"],
-            "selector": "crafting",
-            "text": "Whenever you roll a success at a Crafting check to make an item of the type you chose with Specialty Crafting, you get a critical success instead.",
-            "title": "{item|name}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:impressive-performance",
       "foundry": "Compendium.pf2e.feats-srd.Item.xqAdXRd2gSQcqp5E",
       "gaps": [
@@ -21900,25 +20997,6 @@
               }
             ],
             "toggleable": true
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:incredible-aim",
-      "foundry": "Compendium.pf2e.feats-srd.Item.DGO6kyjw2bQG7dbY",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["incredible-aim"],
-            "selector": "attack",
-            "text": "You ignore the target's @UUID[Compendium.pf2e.conditionitems.Item.Concealed] condition.",
-            "title": "{item|name}"
           }
         }
       ]
@@ -22109,18 +21187,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["success"],
-            "predicate": ["emotion"],
-            "selector": "saving-throw",
-            "text": "When you roll a success on a save against an emotion effect, you get a critical success instead.",
-            "title": "{item|name}"
-          }
-        },
-        {
-          "type": "rule",
           "key": "AdjustDegreeOfSuccess",
           "raw": {
             "adjustment": {
@@ -22130,25 +21196,6 @@
             "predicate": ["emotion"],
             "selector": "saving-throw",
             "type": "save"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:legendary-codebreaker",
-      "foundry": "Compendium.pf2e.feats-srd.Item.Zf4yiLDdxHPovEQI",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["action:decipher-writing"],
-            "selector": "society",
-            "text": "PF2E.SpecificRule.Feat.LegendaryCodebreaker.Note",
-            "title": "{item|name}"
           }
         }
       ]
@@ -22376,18 +21423,6 @@
             "key": "AdjustDegreeOfSuccess",
             "predicate": ["action:learn-a-spell"],
             "selector": "skill-check"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["criticalFailure", "failure"],
-            "predicate": ["action:learn-a-spell"],
-            "selector": "skill-check",
-            "text": "PF2E.SpecificRule.MagicalShorthand.Note",
-            "title": "{item|name}"
           }
         }
       ]
@@ -22809,17 +21844,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["criticalSuccess"],
-            "selector": ["damage-received"],
-            "text": "PF2E.SpecificRule.Dwarf.MountainStrategy.Note",
-            "title": "{item|name}"
-          }
-        },
-        {
-          "type": "rule",
           "key": "FlatModifier",
           "raw": {
             "key": "FlatModifier",
@@ -22941,17 +21965,6 @@
         },
         {
           "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["action:escape"],
-            "selector": "attack",
-            "text": "When you roll a critical failure on a check to Escape, you get a failure instead, and when you roll a success, you get a critical success instead.",
-            "title": "{item|name}"
-          }
-        },
-        {
-          "type": "rule",
           "key": "AdjustDegreeOfSuccess",
           "raw": {
             "adjustment": {
@@ -22965,17 +21978,6 @@
         },
         {
           "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["action:escape"],
-            "selector": "athletics",
-            "text": "When you roll a critical failure on a check to Escape, you get a failure instead, and when you roll a success, you get a critical success instead.",
-            "title": "{item|name}"
-          }
-        },
-        {
-          "type": "rule",
           "key": "AdjustDegreeOfSuccess",
           "raw": {
             "adjustment": {
@@ -22985,17 +21987,6 @@
             "key": "AdjustDegreeOfSuccess",
             "predicate": ["action:escape"],
             "selector": "acrobatics"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["action:escape"],
-            "selector": "acrobatics",
-            "text": "When you roll a critical failure on a check to Escape, you get a failure instead, and when you roll a success, you get a critical success instead.",
-            "title": "{item|name}"
           }
         }
       ]
@@ -23275,26 +22266,6 @@
           "raw": {
             "key": "GrantItem",
             "uuid": "{item|flags.system.rulesSelections.order}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:overextending-feint",
-      "foundry": "Compendium.pf2e.feats-srd.Item.9CaaU5szcf3mtJXD",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["criticalSuccess", "success"],
-            "predicate": ["action:feint"],
-            "selector": "skill-check",
-            "text": "PF2E.SpecificRule.Rogue.OverextendingFeint.Note",
-            "title": "{item|name}"
           }
         }
       ]
@@ -23637,18 +22608,6 @@
             "property": "materials",
             "value": "silver"
           }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["criticalSuccess"],
-            "predicate": ["item:tag:verdant-weapon"],
-            "selector": "strike-damage",
-            "text": "PF2E.SpecificRule.Druid.PristineWeapon.Note",
-            "title": "{item|name}"
-          }
         }
       ]
     },
@@ -23666,18 +22625,6 @@
             "predicate": ["skill:athletics:rank:4"],
             "selector": "climb",
             "value": "@actor.system.movement.speeds.land.value"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["success", "criticalSuccess"],
-            "predicate": ["action:climb"],
-            "selector": "athletics",
-            "text": "PF2E.SpecificRule.Feat.QuickClimb.Note",
-            "title": "{item|name}"
           }
         }
       ]
@@ -23720,18 +22667,6 @@
             "predicate": ["skill:athletics:rank:4"],
             "selector": "swim",
             "value": "@actor.system.movement.speeds.land.value"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["success", "criticalSuccess"],
-            "predicate": ["action:swim"],
-            "selector": "athletics",
-            "text": "PF2E.SpecificRule.Feat.QuickSwim.Note",
-            "title": "{item|name}"
           }
         }
       ]
@@ -24043,25 +22978,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:replenishment-of-war",
-      "foundry": "Compendium.pf2e.feats-srd.Item.aMef2VM4mSxl0pmy",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["item:deity-favored"],
-            "selector": "strike-damage",
-            "text": "PF2E.SpecificRule.Cleric.ReplenishmentOfWar.Note",
-            "title": "{item|name}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:resounding-bravery",
       "foundry": "Compendium.pf2e.feats-srd.Item.dTO1ShJovbzrKUY4",
       "gaps": [
@@ -24161,17 +23077,6 @@
             ],
             "selector": "acrobatics",
             "type": "save"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["action:balance"],
-            "selector": "acrobatics",
-            "text": "PF2E.SpecificRule.Dwarf.RockRunner.Note",
-            "title": "{item|name}"
           }
         }
       ]
@@ -24281,25 +23186,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:sap-life",
-      "foundry": "Compendium.pf2e.feats-srd.Item.TiNlehXIDEnIl95M",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["item:slug:harm", "self:mode:living"],
-            "selector": "spell-damage",
-            "text": "PF2E.SpecificRule.Cleric.SapLife.Note",
-            "title": "{item|name}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:sapping-symbol",
       "foundry": "Compendium.pf2e.feats-srd.Item.UPTQ9oIpz0bTJf3M",
       "gaps": [
@@ -24355,54 +23241,6 @@
       "slug": "feat:scare-to-death",
       "foundry": "Compendium.pf2e.feats-srd.Item.mZttsiWl1ql5NvrH",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["criticalSuccess"],
-            "predicate": ["action:scare-to-death"],
-            "selector": ["intimidation"],
-            "text": "PF2E.SpecificRule.SkillFeat.ScareToDeath.CriticalSuccess",
-            "title": "PF2E.Check.Result.Degree.Check.criticalSuccess"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["success"],
-            "predicate": ["action:scare-to-death"],
-            "selector": ["intimidation"],
-            "text": "PF2E.SpecificRule.SkillFeat.ScareToDeath.Success",
-            "title": "PF2E.Check.Result.Degree.Check.success"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["failure"],
-            "predicate": ["action:scare-to-death"],
-            "selector": ["intimidation"],
-            "text": "PF2E.SpecificRule.SkillFeat.ScareToDeath.Failure",
-            "title": "PF2E.Check.Result.Degree.Check.failure"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["criticalFailure"],
-            "predicate": ["action:scare-to-death"],
-            "selector": ["intimidation"],
-            "text": "PF2E.SpecificRule.SkillFeat.ScareToDeath.CriticalFailure",
-            "title": "PF2E.Check.Result.Degree.Check.criticalFailure"
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@Check[against]"
@@ -24692,25 +23530,6 @@
                 "text": "PF2E.SpecificRule.Ranger.SharedPrey.HuntPreyAddendum"
               }
             ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:shared-replenishment",
-      "foundry": "Compendium.pf2e.feats-srd.Item.mTkbgFOHJUBl0Qwg",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["item:deity-favored"],
-            "selector": "strike-damage",
-            "text": "PF2E.SpecificRule.Cleric.SharedReplenishment.Note",
-            "title": "{item|name}"
           }
         }
       ]
@@ -25262,30 +24081,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:spell-devourer",
-      "foundry": "Compendium.pf2e.feats-srd.Item.pedHIDAVLFzzjGO1",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["criticalSuccess", "success"],
-            "predicate": [
-              {
-                "or": ["arcane", "divine", "primal", "occult", "magical"]
-              }
-            ],
-            "selector": "saving-throw",
-            "text": "Whenever you succeed at a saving throw against a spell or magical effect, you gain temporary Hit Points equal to double the spell's rank, or equal to the level if the magical effect isn't a spell. These temporary Hit Points last until the end of your next turn.",
-            "title": "{item|name}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:spellbook-prodigy",
       "foundry": "Compendium.pf2e.feats-srd.Item.FCzfh8QHMo7QJpAM",
       "gaps": [
@@ -25363,17 +24158,6 @@
       "slug": "feat:steady-balance",
       "foundry": "Compendium.pf2e.feats-srd.Item.CnqMJR8e9jqJR7MM",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["action:balance"],
-            "selector": "acrobatics",
-            "text": "PF2E.SpecificRule.SteadyBalance.Note",
-            "title": "{item|name}"
-          }
-        },
         {
           "type": "rule",
           "key": "AdjustDegreeOfSuccess",
@@ -25622,28 +24406,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["action:balance"],
-            "selector": "acrobatics",
-            "text": "PF2E.SpecificRule.Halfling.SureFeet.BalanceNote",
-            "title": "{item|name}"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["action:climb"],
-            "selector": "athletics",
-            "text": "PF2E.SpecificRule.Halfling.SureFeet.ClimbNote",
-            "title": "{item|name}"
-          }
-        },
-        {
-          "type": "rule",
           "key": "AdjustDegreeOfSuccess",
           "raw": {
             "adjustment": {
@@ -25677,26 +24439,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[against]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:sympathetic-strike",
-      "foundry": "Compendium.pf2e.feats-srd.Item.VOgAiCqC5kpIpLaf",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["success", "criticalSuccess"],
-            "predicate": ["item:tag:witchs-armaments", "sympathetic-strike"],
-            "selector": "unarmed-attack-roll",
-            "text": "PF2E.SpecificRule.Witch.SympatheticStrike.Note",
-            "title": "{item|name}"
-          }
         }
       ]
     },
@@ -25777,30 +24519,6 @@
             "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
             "option": "target:condition:off-guard",
             "toggleable": "totm"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["criticalSuccess"],
-            "predicate": ["action:trip", "target:condition:off-guard"],
-            "selector": "skill-check",
-            "text": "PF2E.SpecificRule.Rogue.TheHarderTheyFall.CriticalSuccess",
-            "title": "{item|name}"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["success"],
-            "predicate": ["action:trip", "target:condition:off-guard"],
-            "selector": "skill-check",
-            "text": "PF2E.SpecificRule.Rogue.TheHarderTheyFall.Success",
-            "title": "{item|name}"
           }
         }
       ]
@@ -25993,25 +24711,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:triumphant-inspiration",
-      "foundry": "Compendium.pf2e.feats-srd.Item.RHLfM9NlIlHTH85w",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["criticalSuccess"],
-            "selector": "melee-strike-attack-roll",
-            "text": "PF2E.SpecificRule.Bard.TriumphantInspiration.Note",
-            "title": "{item|name}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:tumble-behind-rogue",
       "foundry": "Compendium.pf2e.feats-srd.Item.YKqMuuC8j35NFh92",
       "gaps": [
@@ -26130,18 +24829,6 @@
       "slug": "feat:undaunted",
       "foundry": "Compendium.pf2e.feats-srd.Item.1RygexXEjCKuR3Ps",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["success"],
-            "predicate": ["item:trait:emotion"],
-            "selector": "saving-throw",
-            "text": "PF2E.SpecificRule.Emotion.Note",
-            "title": "{item|name}"
-          }
-        },
         {
           "type": "rule",
           "key": "AdjustDegreeOfSuccess",
@@ -26274,17 +24961,6 @@
       "slug": "feat:unmistakable-lore",
       "foundry": "Compendium.pf2e.feats-srd.Item.XvX1EyxWbbBF32NV",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["action:recall-knowledge"],
-            "selector": "lore-skill-check",
-            "text": "When you Recall Knowledge using any Lore subcategory in which you're trained, if you roll a critical failure, you get a failure instead. If you're a master in a Lore subcategory, on a critical success, you gain even more information or context than usual.",
-            "title": "{item|name}"
-          }
-        },
         {
           "type": "rule",
           "key": "AdjustDegreeOfSuccess",
@@ -26459,17 +25135,6 @@
             "predicate": ["sleep"],
             "selector": "saving-throw",
             "type": "save"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": ["sleep"],
-            "selector": "saving-throw",
-            "text": "PF2E.SpecificRule.Elf.UnwaveringMien.Note",
-            "title": "{item|name}"
           }
         }
       ]
@@ -26754,29 +25419,6 @@
                 "text": "PF2E.SpecificRule.Cleric.VoidSiphon.Note"
               }
             ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:ward-medic",
-      "foundry": "Compendium.pf2e.feats-srd.Item.8c61nOIr5AM3KxZi",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": [
-              {
-                "or": ["action:treat-wounds", "action:treat-disease"]
-              }
-            ],
-            "selector": "skill-check",
-            "text": "PF2E.SpecificRule.WardMedic.Note",
-            "title": "{item|name}"
           }
         }
       ]
@@ -27265,22 +25907,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["criticalSuccess", "success"],
-            "predicate": [
-              {
-                "or": ["origin:trait:undead", "void"]
-              }
-            ],
-            "selector": "saving-throw",
-            "text": "PF2E.SpecificRule.Dwarf.DeathWardenDwarf.Note",
-            "title": "{item|name}"
-          }
-        },
-        {
-          "type": "rule",
           "key": "AdjustDegreeOfSuccess",
           "raw": {
             "adjustment": {
@@ -27627,26 +26253,6 @@
             "mode": "upgrade",
             "path": "system.skills.{item|flags.system.rulesSelections.skill}.rank",
             "value": "ternary(gte(@actor.level,5),2,1)"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "heritage:strong-blooded-dwarf",
-      "foundry": "Compendium.pf2e.heritages.Item.UV2sABrTC5teOXTE",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["success", "criticalSuccess"],
-            "predicate": ["poison"],
-            "selector": "saving-throw",
-            "text": "PF2E.SpecificRule.Dwarf.StrongBloodedDwarf.Note",
-            "title": "{item|name}"
           }
         }
       ]

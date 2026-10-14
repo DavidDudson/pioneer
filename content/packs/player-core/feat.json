@@ -1910,6 +1910,31 @@
         "domain": "check",
         "option": "option:ageless-patience",
         "toggleable": true
+      },
+      {
+        "key": "Note",
+        "selectors": ["perception", "skill-check"],
+        "title": "Ageless Patience",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You don't treat a natural 1 as worse than usual on this check; you get a critical failure only if your result is 10 lower than the DC."
+              }
+            ]
+          }
+        ],
+        "predicate": [
+          "option:ageless-patience",
+          "check:total:natural:1",
+          {
+            "not": {
+              "gte": ["check:total", "check:total:delta"]
+            }
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -2464,6 +2489,24 @@
         "type": "circumstance",
         "value": 2,
         "predicate": ["action:sense-motive", "option:ancestral-suspicion"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["saving-throw"],
+        "title": "Ancestral Suspicion",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "When you roll a success on a saving throw against an effect that would make you controlled, you get a critical success instead."
+              }
+            ]
+          }
+        ],
+        "outcome": ["success"],
+        "predicate": ["inflicts:controlled"]
       }
     ],
     "externalIds": {
@@ -3635,7 +3678,29 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["skill:athletics"],
+        "title": "Athletic Might",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Whenever you roll a success on an Athletics check to Climb or Swim, you get a critical success instead."
+              }
+            ]
+          }
+        ],
+        "predicate": [
+          {
+            "or": ["action:climb", "action:swim"]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.Wwr8VilSybQgVtin"
     },
@@ -6785,7 +6850,26 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["skill:athletics"],
+        "title": "Brine May",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "When you roll a success on an Athletics check to swim, you get a critical success instead."
+              }
+            ]
+          }
+        ],
+        "outcome": ["success"],
+        "predicate": ["action:swim"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.jEJ6AWCctirMT7p0"
     },
@@ -6916,6 +7000,24 @@
         "selectors": ["melee-strike-damage"],
         "diceNumber": "ternary(gte(@level, 18), 2, 1)",
         "predicate": ["item:type:weapon", "option:brutal-finish"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["melee-strike-attack-roll"],
+        "title": "Failure",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You deal (ternary(gte(@actor.level,18),2,1))@item.system.damage.die[@item.system.damage.damageType] damage."
+              }
+            ]
+          }
+        ],
+        "outcome": ["failure"],
+        "predicate": ["option:brutal-finish", "item:type:weapon"]
       }
     ],
     "externalIds": {
@@ -7410,6 +7512,24 @@
         "type": "circumstance",
         "value": 1,
         "predicate": ["option:mental"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["saving-throw"],
+        "title": "Called",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "When you roll a success on an saving throw against a mental effect that would make you controlled, you get a critical success instead."
+              }
+            ]
+          }
+        ],
+        "outcome": ["success"],
+        "predicate": ["option:mental", "inflicts:controlled"]
       }
     ],
     "externalIds": {
@@ -7816,7 +7936,30 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["spell-damage"],
+        "title": "Castigating Weapon",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "After you deal spirit damage due to Divine Castigation, your weapon or unarmed Strikes gain your holy or unholy trait and deal additional spirit damage until the end of your turn. Effect: Castigating Weapon"
+              }
+            ]
+          }
+        ],
+        "predicate": [
+          "option:divine-castigation",
+          {
+            "or": ["item:slug:harm", "item:slug:heal"]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.tSmd0cxq9wokSCh4"
     },
@@ -8669,7 +8812,26 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["skill-check"],
+        "title": "Charming Liar",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "When you get a critical success using the Lie action, the target's attitude toward you improves by one step, as though you'd succeeded at using Diplomacy to Make an Impression."
+              }
+            ]
+          }
+        ],
+        "outcome": ["criticalSuccess"],
+        "predicate": ["action:lie"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.B6HbYsLBWb1RR6Fx"
     },
@@ -9922,7 +10084,48 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["spell-healing"],
+        "title": "Communal Healing",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "When you cast the "
+              },
+              {
+                "type": "text",
+                "text": "heal",
+                "marks": ["emphasis"]
+              },
+              {
+                "type": "text",
+                "text": " spell to heal a single creature, choose another willing living creature within range of your "
+              },
+              {
+                "type": "text",
+                "text": "heal",
+                "marks": ["emphasis"]
+              },
+              {
+                "type": "text",
+                "text": " to regain @item.rank[vitality,healing] Hit Points."
+              }
+            ]
+          }
+        ],
+        "predicate": [
+          "item:slug:heal",
+          {
+            "lt": ["item:cast:actions", 3]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.yExxOkHN1PN37hUa"
     },
@@ -10188,7 +10391,25 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["skill-check"],
+        "title": "Continual Recovery",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "When you Treat Wounds, your patient becomes immune for only 10 minutes instead of 1 hour. This applies only to your Treat Wounds activities, not any other the patient receives."
+              }
+            ]
+          }
+        ],
+        "predicate": ["action:treat-wounds"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.c85a69mB1urW2Se2"
     },
@@ -11032,7 +11253,34 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["spell-damage"],
+        "title": "Cremate Undead",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "When you use a "
+              },
+              {
+                "type": "text",
+                "text": "heal",
+                "marks": ["emphasis"]
+              },
+              {
+                "type": "text",
+                "text": " spell to damage undead, each undead that takes damage also takes (@item.rank)[persistent,fire]."
+              }
+            ]
+          }
+        ],
+        "predicate": ["item:slug:heal"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.nLTTph2tgwcQghVq"
     },
@@ -11799,6 +12047,94 @@
         "override": {
           "damageType": "bludgeoning"
         },
+        "predicate": ["option:dazing-blow"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["strike-attack-roll"],
+        "title": "Dazing Blow",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "If the Strike hits, the creature must attempt a "
+              },
+              {
+                "type": "check",
+                "statistic": "save:fortitude",
+                "dc": {
+                  "against": "class-dc"
+                }
+              },
+              {
+                "type": "text",
+                "text": " save against your class DC; this is an incapacitation effect."
+              }
+            ]
+          },
+          {
+            "type": "rule"
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Critical Success",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " The creature is unaffected."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Success",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " The creature is Stunned 1."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Failure",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " The creature is Stunned 2."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Critical Failure",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " The creature is Stunned 3."
+              }
+            ]
+          }
+        ],
+        "outcome": ["criticalSuccess", "success"],
         "predicate": ["option:dazing-blow"]
       }
     ],
@@ -13535,7 +13871,26 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["skill-check"],
+        "title": "Distracting Feint",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "While a creature is off-guard by your Feint, it also takes a -2 circumstance penalty to Perception checks and Reflex saves. Effect: Distracting Feint"
+              }
+            ]
+          }
+        ],
+        "outcome": ["criticalSuccess", "success"],
+        "predicate": ["action:feint"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.hLYoIjH8gPEVXyWG"
     },
@@ -14222,6 +14577,24 @@
         "key": "RollOption",
         "option": "option:divine-rebuttal",
         "toggleable": true
+      },
+      {
+        "key": "Note",
+        "selectors": ["strike-attack-roll"],
+        "title": "Divine Rebuttal",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "If your Strike hits, all your allies gain a +2 circumstance bonus to the triggering saving throw (or a +3 circumstance bonus on a critical hit). Effect: Divine Rebuttal"
+              }
+            ]
+          }
+        ],
+        "outcome": ["criticalSuccess", "success"],
+        "predicate": ["option:divine-rebuttal", "item:deity-favored"]
       }
     ],
     "externalIds": {
@@ -15622,7 +15995,26 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["skill-check"],
+        "title": "Dubious Knowledge",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "When you fail (but don't critically fail) a Recall Knowledge check using any skill, you learn the correct answer and an erroneous answer, but you don't have any way to differentiate which is which."
+              }
+            ]
+          }
+        ],
+        "outcome": ["failure"],
+        "predicate": ["action:recall-knowledge"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.1Bt7uCW2WI4sM84P"
     },
@@ -16240,6 +16632,23 @@
         "key": "Proficiency",
         "selector": "skill:performance",
         "rank": "trained"
+      },
+      {
+        "key": "Note",
+        "selectors": ["skill:performance"],
+        "title": "Earned Glory",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "If you roll a critical failure when you Make an Impression on an elf, you get a failure instead."
+              }
+            ]
+          }
+        ],
+        "predicate": ["action:make-an-impression", "target:trait:elf"]
       }
     ],
     "externalIds": {
@@ -18402,7 +18811,30 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["lore-skill-check"],
+        "title": "Experienced Professional",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "If you're an expert in Lore, you gain twice as much income from a failed check to Earn Income, unless it was originally a critical failure."
+              }
+            ]
+          }
+        ],
+        "outcome": ["failure"],
+        "predicate": [
+          {
+            "or": ["proficiency:expert", "proficiency:master", "proficiency:legendary"]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.sMm0UfYxEPpq2Yzd"
     },
@@ -19639,7 +20071,31 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["save:fortitude"],
+        "title": "Fast Recovery",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "If you roll a success on a Fortitude save against an ongoing poison or disease, reduce its stage by 2, or by 1 if its virulent. If you roll a critical success, reduce its stage by 3, or by 2 if its virulent."
+              }
+            ]
+          }
+        ],
+        "outcome": ["success", "criticalSuccess"],
+        "predicate": [
+          "option:ongoing",
+          {
+            "or": ["option:disease", "option:poison"]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.N8Xz5fuW6o7GW124"
     },
@@ -21384,7 +21840,25 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["skill:survival"],
+        "title": "Forager",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "While using Survival to Subsist, if you roll any result worse than a success, you get a success. You can also provide for multiple creatures."
+              }
+            ]
+          }
+        ],
+        "predicate": ["action:subsist"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.8qebBeOJsyRIchcu"
     },
@@ -21535,6 +22009,24 @@
         "display": {
           "label": "Against emotion effects"
         }
+      },
+      {
+        "key": "Note",
+        "selectors": ["saving-throw"],
+        "title": "Forlorn",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "If you roll a success on a saving throw against an emotion effect, you get a critical success instead."
+              }
+            ]
+          }
+        ],
+        "outcome": ["success"],
+        "predicate": ["item:trait:emotion"]
       }
     ],
     "externalIds": {
@@ -25543,7 +26035,25 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["skill:crafting"],
+        "title": "Impeccable Crafting",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Whenever you roll a success at a Crafting check to make an item of the type you chose with Specialty Crafting, you get a critical success instead."
+              }
+            ]
+          }
+        ],
+        "predicate": ["action:craft", "option:speciality"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.PiUe3tpv7UVtnfvS"
     },
@@ -26522,6 +27032,23 @@
         "domain": "attack-roll",
         "option": "option:incredible-aim",
         "toggleable": true
+      },
+      {
+        "key": "Note",
+        "selectors": ["attack"],
+        "title": "Incredible Aim",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You ignore the target's Concealed condition."
+              }
+            ]
+          }
+        ],
+        "predicate": ["option:incredible-aim"]
       }
     ],
     "externalIds": {
@@ -28482,6 +29009,24 @@
         "type": "circumstance",
         "value": 1,
         "predicate": ["option:emotion"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["saving-throw"],
+        "title": "Lawbringer",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "When you roll a success on a save against an emotion effect, you get a critical success instead."
+              }
+            ]
+          }
+        ],
+        "outcome": ["success"],
+        "predicate": ["option:emotion"]
       }
     ],
     "externalIds": {
@@ -28568,7 +29113,25 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["skill:society"],
+        "title": "Legendary Codebreaker",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "If you Decipher Writing at the normal rate, and you roll a success, you get a critical success; if you critically succeed while spending the normal amount of time, you gain a nearly word-for-word understanding of the document."
+              }
+            ]
+          }
+        ],
+        "predicate": ["action:decipher-writing"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.Zf4yiLDdxHPovEQI"
     },
@@ -30665,7 +31228,26 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["skill-check"],
+        "title": "Magical Shorthand",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "If you fail, you can try again after a week or after you gain a level, whichever is first."
+              }
+            ]
+          }
+        ],
+        "outcome": ["criticalFailure", "failure"],
+        "predicate": ["action:learn-a-spell"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.v7Bt6hjmzYnLFLeG"
     },
@@ -32807,7 +33389,25 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["damage-received"],
+        "title": "Mountain Strategy",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "If any creature critically succeeds at an attack against you and deals damage to you, you gain your bonus to damage against that creature for 1 minute regardless of whether it has one of the listed traits. Effect: Mountain Strategy (Critically Hit)"
+              }
+            ]
+          }
+        ],
+        "outcome": ["criticalSuccess"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.UFn85K7uDsZj5Hep"
     },
@@ -33338,6 +33938,57 @@
         "display": {
           "label": "Musetouched (to Escape)"
         }
+      },
+      {
+        "key": "Note",
+        "selectors": ["attack"],
+        "title": "Musetouched",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "When you roll a critical failure on a check to Escape, you get a failure instead, and when you roll a success, you get a critical success instead."
+              }
+            ]
+          }
+        ],
+        "predicate": ["action:escape"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["skill:athletics"],
+        "title": "Musetouched",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "When you roll a critical failure on a check to Escape, you get a failure instead, and when you roll a success, you get a critical success instead."
+              }
+            ]
+          }
+        ],
+        "predicate": ["action:escape"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["skill:acrobatics"],
+        "title": "Musetouched",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "When you roll a critical failure on a check to Escape, you get a failure instead, and when you roll a success, you get a critical success instead."
+              }
+            ]
+          }
+        ],
+        "predicate": ["action:escape"]
       }
     ],
     "externalIds": {
@@ -35334,7 +35985,26 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["skill-check"],
+        "title": "Overextending Feint",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "On a successful Feint, you can have the target take a -2 circumstance penalty to attack rolls against you instead of any other effects that would occur when you Feint. Effect: Overextending Feint"
+              }
+            ]
+          }
+        ],
+        "outcome": ["criticalSuccess", "success"],
+        "predicate": ["action:feint"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.9CaaU5szcf3mtJXD"
     },
@@ -38608,7 +39278,39 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["strike-damage"],
+        "title": "Pristine Weapon",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "If the target has a weakness to cold iron or silver, it also takes "
+              },
+              {
+                "type": "damage",
+                "instances": [
+                  {
+                    "formula": "1d6",
+                    "damageType": "bleed"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " damage."
+              }
+            ]
+          }
+        ],
+        "outcome": ["criticalSuccess"],
+        "predicate": ["item:tag:verdant-weapon"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.nWxNV9pFeBHV671W"
     },
@@ -38703,7 +39405,26 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["skill:athletics"],
+        "title": "Quick Climb",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You move 5 more feet on a success and 10 more feet on a critical success, up to your Speed."
+              }
+            ]
+          }
+        ],
+        "outcome": ["success", "criticalSuccess"],
+        "predicate": ["action:climb"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.P04Hw8E6WAWARKHP"
     },
@@ -39335,7 +40056,26 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["skill:athletics"],
+        "title": "Quick Swim",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You Swim 5 feet farther on a success and 10 feet farther on a critical success, to a maximum of your Speed."
+              }
+            ]
+          }
+        ],
+        "outcome": ["success", "criticalSuccess"],
+        "predicate": ["action:swim"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.bFoh3267kNLk68cU"
     },
@@ -41925,7 +42665,25 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["strike-damage"],
+        "title": "Replenishment of War",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "When you damage a creature with a Strike using your deity's favored weapon, you gain a number of temporary Hit Points equal to half your level, or equal to your level if the Strike was a critical hit. Effect: Replenishment of War"
+              }
+            ]
+          }
+        ],
+        "predicate": ["item:deity-favored"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.aMef2VM4mSxl0pmy"
     },
@@ -42977,7 +43735,25 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["skill:acrobatics"],
+        "title": "Rock Runner",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "When you use the Acrobatics skill to Balance on narrow surfaces or uneven ground made of stone or earth, you aren't off-guard, and when you roll a success at one of these Acrobatics checks, you get a critical success instead."
+              }
+            ]
+          }
+        ],
+        "predicate": ["action:balance"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.NIUSBGMmdqhkYtmo"
     },
@@ -43477,7 +44253,34 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["spell-damage"],
+        "title": "Sap Life",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "When you cast a "
+              },
+              {
+                "type": "text",
+                "text": "harm",
+                "marks": ["emphasis"]
+              },
+              {
+                "type": "text",
+                "text": " spell and damage at least one living creature, you regain (@item.rank)[healing] Hit Points."
+              }
+            ]
+          }
+        ],
+        "predicate": ["item:slug:harm", "self:mode:living"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.TiNlehXIDEnIl95M"
     },
@@ -43826,7 +44629,91 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["skill:intimidation"],
+        "title": "Critical Success",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The target must attempt a "
+              },
+              {
+                "type": "check",
+                "statistic": "save:fortitude",
+                "dc": {
+                  "against": "skill:intimidation"
+                }
+              },
+              {
+                "type": "text",
+                "text": " save against your Intimidation DC. On a critical failure, it dies. On any other result, it becomes Frightened 2 and is Fleeing for 1 round. The critical failure effect has the death trait."
+              }
+            ]
+          }
+        ],
+        "outcome": ["criticalSuccess"],
+        "predicate": ["action:scare-to-death"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["skill:intimidation"],
+        "title": "Success",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The target becomes Frightened 2."
+              }
+            ]
+          }
+        ],
+        "outcome": ["success"],
+        "predicate": ["action:scare-to-death"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["skill:intimidation"],
+        "title": "Failure",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The target becomes Frightened 1."
+              }
+            ]
+          }
+        ],
+        "outcome": ["failure"],
+        "predicate": ["action:scare-to-death"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["skill:intimidation"],
+        "title": "Critical Failure",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The target is unaffected."
+              }
+            ]
+          }
+        ],
+        "outcome": ["criticalFailure"],
+        "predicate": ["action:scare-to-death"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.mZttsiWl1ql5NvrH"
     },
@@ -45383,7 +46270,25 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["strike-damage"],
+        "title": "Shared Replenishment",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You can grant the temporary Hit Points from Replenishment of War to an ally within 10 feet instead of gaining them yourself."
+              }
+            ]
+          }
+        ],
+        "predicate": ["item:deity-favored"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.mTkbgFOHJUBl0Qwg"
     },
@@ -48307,7 +49212,30 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["saving-throw"],
+        "title": "Spell Devourer",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Whenever you succeed at a saving throw against a spell or magical effect, you gain temporary Hit Points equal to double the spell's rank, or equal to the level if the magical effect isn't a spell. These temporary Hit Points last until the end of your next turn."
+              }
+            ]
+          }
+        ],
+        "outcome": ["criticalSuccess", "success"],
+        "predicate": [
+          {
+            "or": ["option:arcane", "option:divine", "option:primal", "option:occult", "option:magical"]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.pedHIDAVLFzzjGO1"
     },
@@ -48928,7 +49856,25 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["skill:acrobatics"],
+        "title": "Steady Balance",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "If you roll a success using the Balance action, you get a critical success instead."
+              }
+            ]
+          }
+        ],
+        "predicate": ["action:balance"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.CnqMJR8e9jqJR7MM"
     },
@@ -50379,7 +51325,42 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["skill:acrobatics"],
+        "title": "Sure Feet",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "If you roll a success on an Acrobatics check to Balance, you get a critical success instead. You're not off-guard when you attempt to Balance."
+              }
+            ]
+          }
+        ],
+        "predicate": ["action:balance"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["skill:athletics"],
+        "title": "Sure Feet",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "If you roll a success on an Athletics check to Climb, you get a critical success instead. You're not off-guard when you attempt to Climb."
+              }
+            ]
+          }
+        ],
+        "predicate": ["action:climb"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.ehvHedIwPcxq9cRt"
     },
@@ -51076,6 +52057,24 @@
         "domain": "unarmed-attack-roll",
         "option": "option:sympathetic-strike",
         "toggleable": true
+      },
+      {
+        "key": "Note",
+        "selectors": ["unarmed-attack-roll"],
+        "title": "Sympathetic Strike",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Until the beginning of your next turn, the target takes a –1 circumstance penalty to its saves against your hexes, or a –2 penalty if the triggering Strike was a critical hit. Effect: Sympathetic Strike"
+              }
+            ]
+          }
+        ],
+        "outcome": ["success", "criticalSuccess"],
+        "predicate": ["item:tag:witchs-armaments", "option:sympathetic-strike"]
       }
     ],
     "externalIds": {
@@ -51875,7 +52874,57 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["skill-check"],
+        "title": "The Harder They Fall",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "On a critical success, your target takes 1d6[bludgeoning],(((@actor.flags.system.sneakAttackDamage.number)d(@actor.flags.system.sneakAttackDamage.faces))[precision])[bludgeoning] damage."
+              }
+            ]
+          }
+        ],
+        "outcome": ["criticalSuccess"],
+        "predicate": ["action:trip", "target:condition:off-guard"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["skill-check"],
+        "title": "The Harder They Fall",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "On a success, your target takes "
+              },
+              {
+                "type": "damage",
+                "instances": [
+                  {
+                    "formula": "1d6",
+                    "damageType": "bludgeoning"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " damage."
+              }
+            ]
+          }
+        ],
+        "outcome": ["success"],
+        "predicate": ["action:trip", "target:condition:off-guard"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.k4QU2edqSoB23foo"
     },
@@ -52889,7 +53938,25 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["melee-strike-attack-roll"],
+        "title": "Triumphant Inspiration",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "With a triumphant shout, you inspire your allies. You cast a composition cantrip you know that normally takes a single action to cast."
+              }
+            ]
+          }
+        ],
+        "outcome": ["criticalSuccess"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.RHLfM9NlIlHTH85w"
     },
@@ -54240,6 +55307,24 @@
         "type": "circumstance",
         "value": 1,
         "predicate": ["option:emotion"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["saving-throw"],
+        "title": "Undaunted",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "If you roll a success on a saving throw against an emotion effect, you get a critical success instead."
+              }
+            ]
+          }
+        ],
+        "outcome": ["success"],
+        "predicate": ["item:trait:emotion"]
       }
     ],
     "externalIds": {
@@ -54729,7 +55814,25 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["lore-skill-check"],
+        "title": "Unmistakable Lore",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "When you Recall Knowledge using any Lore subcategory in which you're trained, if you roll a critical failure, you get a failure instead. If you're a master in a Lore subcategory, on a critical success, you gain even more information or context than usual."
+              }
+            ]
+          }
+        ],
+        "predicate": ["action:recall-knowledge"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.XvX1EyxWbbBF32NV"
     },
@@ -55022,7 +56125,25 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["saving-throw"],
+        "title": "Unwavering Mien",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Treat your saving throws against effects that would cause you to fall asleep as one degree of success better."
+              }
+            ]
+          }
+        ],
+        "predicate": ["option:sleep"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.uW0VSyy75YrsvtWz"
     },
@@ -56306,7 +57427,29 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["skill-check"],
+        "title": "Ward Medic",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "When you use Treat Disease or Treat Wounds, you can treat up to two targets. If you're a master in Medicine, you can treat up to four targets, and if you're legendary, you can treat up to eight targets."
+              }
+            ]
+          }
+        ],
+        "predicate": [
+          {
+            "or": ["action:treat-wounds", "action:treat-disease"]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.8c61nOIr5AM3KxZi"
     },

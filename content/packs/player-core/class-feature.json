@@ -1789,6 +1789,554 @@
         "key": "GrantItem",
         "item": "3d587d4e-c30a-5783-a742-e1adebbf8a36",
         "allowDuplicate": false
+      },
+      {
+        "key": "Note",
+        "selectors": ["strike-damage"],
+        "title": "Debilitation <span class=\"action-glyph\">f</span>",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Trigger",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " Your Strike hits an off-guard creature and deals damage."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The target takes a -10-foot status penalty to its Speeds. Effect: Debilitating Strike"
+              }
+            ]
+          }
+        ],
+        "predicate": ["debilitation:speed-penalty", "target:condition:off-guard"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["strike-damage"],
+        "title": "Debilitation <span class=\"action-glyph\">f</span>",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Trigger",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " Your Strike hits an off-guard creature and deals damage."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The target becomes Enfeebled 1."
+              }
+            ]
+          }
+        ],
+        "predicate": ["debilitation:enfeebled", "target:condition:off-guard"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["strike-damage"],
+        "title": "Debilitation <span class=\"action-glyph\">f</span>",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Trigger",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " Your Strike hits an off-guard creature and deals damage."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The target takes "
+              },
+              {
+                "type": "damage",
+                "instances": [
+                  {
+                    "formula": "3d6",
+                    "damageType": "bleed"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " damage."
+              }
+            ]
+          }
+        ],
+        "predicate": ["debilitation:bloody", "target:condition:off-guard"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["strike-damage"],
+        "title": "Debilitation <span class=\"action-glyph\">f</span>",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Trigger",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " Your Strike hits an off-guard creature and deals damage."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The target becomes Clumsy 1."
+              }
+            ]
+          }
+        ],
+        "predicate": ["debilitation:clumsy", "target:condition:off-guard"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["strike-damage"],
+        "title": "Debilitation <span class=\"action-glyph\">f</span>",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Trigger",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " Your Strike hits an off-guard creature and deals damage."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The target attempts a "
+              },
+              {
+                "type": "check",
+                "statistic": "save:fortitude",
+                "dc": {
+                  "against": "class-dc"
+                }
+              },
+              {
+                "type": "text",
+                "text": " save against your class DC with the following effects."
+              }
+            ]
+          },
+          {
+            "type": "rule"
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Critical Success",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " The target is unaffected."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Success",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " The target is Slowed 1 until the end of your next turn."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Failure",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " The target is Slowed 2 until the end of your next turn."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Critical Failure",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " The target is Paralyzed until the end of your next turn."
+              }
+            ]
+          }
+        ],
+        "predicate": ["debilitation:critical", "target:condition:off-guard"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["strike-damage"],
+        "title": "Debilitation <span class=\"action-glyph\">f</span>",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Trigger",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " Your Strike hits an off-guard creature and deals damage."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The target becomes Off-Guard."
+              }
+            ]
+          }
+        ],
+        "predicate": ["debilitation:off-guard", "target:condition:off-guard"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["strike-damage"],
+        "title": "Debilitation <span class=\"action-glyph\">f</span>",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Trigger",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " Your Strike hits an off-guard creature and deals damage."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The target takes an additional 2d6 precision damage from your attacks. Effect: Precise Debilitations"
+              }
+            ]
+          }
+        ],
+        "predicate": ["debilitation:precision-damage", "target:condition:off-guard"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["strike-damage"],
+        "title": "Debilitation <span class=\"action-glyph\">f</span>",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Trigger",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " Your Strike hits an off-guard creature and deals damage."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The target can't flank or contribute to allies' flanking. Effect: Debilitation (No Flanking)"
+              }
+            ]
+          }
+        ],
+        "predicate": ["debilitation:prevent-flanking", "target:condition:off-guard"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["strike-damage"],
+        "title": "Debilitation <span class=\"action-glyph\">f</span>",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Trigger",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " Your Strike hits an off-guard creature and deals damage."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The target can't use reactions."
+              }
+            ]
+          }
+        ],
+        "predicate": ["debilitation:prevent-reactions", "target:condition:off-guard"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["strike-damage"],
+        "title": "Debilitation <span class=\"action-glyph\">f</span>",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Trigger",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " Your Strike hits an off-guard creature and deals damage."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The target can't Step"
+              }
+            ]
+          }
+        ],
+        "predicate": ["debilitation:prevent-step", "target:condition:off-guard"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["strike-damage"],
+        "title": "Debilitation <span class=\"action-glyph\">f</span>",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Trigger",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " Your Strike hits an off-guard creature and deals damage."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The target doesn't gain a circumstance bonus to AC from Raising a Shield, lesser cover, or standard cover; it gains a +2 circumstance bonus to AC only from greater cover or Taking Cover."
+              }
+            ]
+          }
+        ],
+        "predicate": ["debilitation:reduce-cover", "target:condition:off-guard"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["strike-damage"],
+        "title": "Debilitation <span class=\"action-glyph\">f</span>",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Trigger",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " Your Strike hits an off-guard creature and deals damage."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The target is Stupefied 1"
+              }
+            ]
+          }
+        ],
+        "predicate": ["debilitation:stupefied", "target:condition:off-guard"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["strike-damage"],
+        "title": "Debilitation <span class=\"action-glyph\">f</span>",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Trigger",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " Your Strike hits an off-guard creature and deals damage."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The target gains weakness 5 to your choice of bludgeoning, piercing, or slashing damage. Effect: Vicious Debilitations"
+              }
+            ]
+          }
+        ],
+        "predicate": ["debilitation:weakness", "target:condition:off-guard"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["strike-damage"],
+        "title": "Debilitation <span class=\"action-glyph\">f</span>",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Trigger",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " Your Strike hits an off-guard creature and deals damage."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The target gains weakness 5 to bleed and poison damage. Effect: Heartless Debilitations"
+              }
+            ]
+          }
+        ],
+        "predicate": ["debilitation:weakness-heartless", "target:condition:off-guard"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["strike-damage"],
+        "title": "Debilitation <span class=\"action-glyph\">f</span>",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Trigger",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " Your Strike hits an off-guard creature and deals damage."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The target becomes Frightened 1."
+              }
+            ]
+          }
+        ],
+        "predicate": ["debilitation:frightened", "target:condition:off-guard"]
       }
     ],
     "externalIds": {
@@ -2557,7 +3105,331 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["strike-damage"],
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The target takes a -10-foot status penalty to its Speeds. Effect: Debilitating Strike"
+              }
+            ]
+          }
+        ],
+        "predicate": ["second-debilitation:speed-penalty", "target:condition:off-guard"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["strike-damage"],
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The target becomes Enfeebled 1."
+              }
+            ]
+          }
+        ],
+        "predicate": ["second-debilitation:enfeebled", "target:condition:off-guard"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["strike-damage"],
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The target becomes Frightened 1."
+              }
+            ]
+          }
+        ],
+        "predicate": ["second-debilitation:frightened", "target:condition:off-guard"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["strike-damage"],
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The target takes "
+              },
+              {
+                "type": "damage",
+                "instances": [
+                  {
+                    "formula": "3d6",
+                    "damageType": "bleed"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " damage."
+              }
+            ]
+          }
+        ],
+        "predicate": ["second-debilitation:bloody", "target:condition:off-guard"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["strike-damage"],
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The target becomes Clumsy 1."
+              }
+            ]
+          }
+        ],
+        "predicate": ["second-debilitation:clumsy", "target:condition:off-guard"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["strike-damage"],
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The target attempts a "
+              },
+              {
+                "type": "check",
+                "statistic": "save:fortitude",
+                "dc": {
+                  "against": "class-dc"
+                }
+              },
+              {
+                "type": "text",
+                "text": " save against your class DC with the following effects."
+              }
+            ]
+          },
+          {
+            "type": "rule"
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Critical Success",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " The target is unaffected."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Success",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " The target is Slowed 1 until the end of your next turn."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Failure",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " The target is Slowed 2 until the end of your next turn."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Critical Failure",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " The target is Paralyzed until the end of your next turn."
+              }
+            ]
+          }
+        ],
+        "predicate": ["second-debilitation:critical", "target:condition:off-guard"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["strike-damage"],
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The target becomes Off-Guard."
+              }
+            ]
+          }
+        ],
+        "predicate": ["second-debilitation:off-guard", "target:condition:off-guard"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["strike-damage"],
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The target takes an additional 2d6 precision damage from your attacks. Effect: Precise Debilitations"
+              }
+            ]
+          }
+        ],
+        "predicate": ["second-debilitation:precision-damage", "target:condition:off-guard"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["strike-damage"],
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The target can't flank or contribute to allies' flanking. Effect: Debilitation (No Flanking)"
+              }
+            ]
+          }
+        ],
+        "predicate": ["second-debilitation:prevent-flanking", "target:condition:off-guard"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["strike-damage"],
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The target can't use reactions."
+              }
+            ]
+          }
+        ],
+        "predicate": ["second-debilitation:speed-penalty", "target:condition:off-guard"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["strike-damage"],
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The target can't Step"
+              }
+            ]
+          }
+        ],
+        "predicate": ["second-debilitation:prevent-step", "target:condition:off-guard"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["strike-damage"],
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The target doesn't gain a circumstance bonus to AC from Raising a Shield, lesser cover, or standard cover; it gains a +2 circumstance bonus to AC only from greater cover or Taking Cover."
+              }
+            ]
+          }
+        ],
+        "predicate": ["second-debilitation:reduce-cover", "target:condition:off-guard"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["strike-damage"],
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The target is Stupefied 1"
+              }
+            ]
+          }
+        ],
+        "predicate": ["second-debilitation:stupefied", "target:condition:off-guard"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["strike-damage"],
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The target gains weakness 5 to your choice of bludgeoning, piercing, or slashing damage. Effect: Vicious Debilitations"
+              }
+            ]
+          }
+        ],
+        "predicate": ["second-debilitation:weakness", "target:condition:off-guard"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["strike-damage"],
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The target gains weakness 5 to bleed and poison damage. Effect: Heartless Debilitations"
+              }
+            ]
+          }
+        ],
+        "predicate": ["second-debilitation:weakness-heartless", "target:condition:off-guard"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.W1FkMHYVDg3yTU5r"
     },
@@ -4515,6 +5387,24 @@
         "key": "Proficiency",
         "selector": "save:reflex",
         "rank": "legendary"
+      },
+      {
+        "key": "Note",
+        "selectors": ["save:reflex"],
+        "title": "Greater Natural Reflexes",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "When you roll a failure on a Reflex save against a damaging effect, you take half damage."
+              }
+            ]
+          }
+        ],
+        "outcome": ["failure"],
+        "predicate": ["option:damaging-effect"]
       }
     ],
     "externalIds": {
@@ -4553,6 +5443,24 @@
         "key": "Proficiency",
         "selector": "save:will",
         "rank": "legendary"
+      },
+      {
+        "key": "Note",
+        "selectors": ["save:will"],
+        "title": "Greater Performer's Heart",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "When you roll a failure on a Will save against a damaging effect, you take half damage."
+              }
+            ]
+          }
+        ],
+        "outcome": ["failure"],
+        "predicate": ["option:damaging-effect"]
       }
     ],
     "externalIds": {
@@ -4591,6 +5499,24 @@
         "key": "Proficiency",
         "selector": "save:reflex",
         "rank": "legendary"
+      },
+      {
+        "key": "Note",
+        "selectors": ["save:reflex"],
+        "title": "Greater Rogue Reflexes",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "When you roll a failure on a Reflex save against a damaging effect, you take half damage."
+              }
+            ]
+          }
+        ],
+        "outcome": ["failure"],
+        "predicate": ["option:damaging-effect"]
       }
     ],
     "externalIds": {
@@ -7162,6 +8088,23 @@
         "key": "Proficiency",
         "selector": "save:reflex",
         "rank": "master"
+      },
+      {
+        "key": "Note",
+        "selectors": ["save:reflex"],
+        "title": "Natural Reflexes",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "When you roll a success on a Reflex save, you get a critical success instead."
+              }
+            ]
+          }
+        ],
+        "outcome": ["success"]
       }
     ],
     "externalIds": {
@@ -11540,6 +12483,42 @@
         "key": "Proficiency",
         "selector": "skill:deception",
         "rank": "trained"
+      },
+      {
+        "key": "Note",
+        "selectors": ["skill-check"],
+        "title": "Scoundrel",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "When you successfully Feint, the target is off-guard against melee attacks you attempt against it until the end of your next turn."
+              }
+            ]
+          }
+        ],
+        "outcome": ["success"],
+        "predicate": ["action:feint"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["skill-check"],
+        "title": "Scoundrel",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "On a critical success, the target is off-guard against all melee attacks until the end of your next turn, not just yours."
+              }
+            ]
+          }
+        ],
+        "outcome": ["criticalSuccess"],
+        "predicate": ["action:feint"]
       }
     ],
     "externalIds": {

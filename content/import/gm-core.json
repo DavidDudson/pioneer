@@ -4052,54 +4052,6 @@
     {
       "type": "entry",
       "pack": "gm-core",
-      "slug": "equipment:armbands-of-athleticism",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.wI4Tj8bNwpZHequC",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["success", "criticalSuccess"],
-            "predicate": [
-              {
-                "or": ["action:climb", "action:swim"]
-              }
-            ],
-            "selector": "athletics",
-            "text": "PF2E.SpecificRule.Equipment.ArmbandsOfAthleticism.Note",
-            "title": "{item|name}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:armbands-of-athleticism-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.FNccUmKsyXKmfe5c",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["success", "criticalSuccess"],
-            "predicate": [
-              {
-                "or": ["action:climb", "action:swim"]
-              }
-            ],
-            "selector": "athletics",
-            "text": "PF2E.SpecificRule.Equipment.ArmbandsOfAthleticism.GreaterNote",
-            "title": "{item|name}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
       "slug": "equipment:bands-of-force",
       "foundry": "Compendium.pf2e.equipment-srd.Item.02q8s6sSicMkhs1l",
       "gaps": [
@@ -4586,46 +4538,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:coyote-cloak",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.mvMeloQxSiEGIlhL",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["criticalSuccess"],
-            "predicate": ["action:subsist"],
-            "selector": "survival",
-            "text": "PF2E.SpecificRule.Equipment.CoyoteCloak.Note",
-            "title": "{item|name}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:coyote-cloak-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.sls3pfkhgCbW723f",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["criticalSuccess"],
-            "predicate": ["action:subsist"],
-            "selector": "survival",
-            "text": "PF2E.SpecificRule.Equipment.CoyoteCloak.GreaterNote",
-            "title": "{item|name}"
-          }
         }
       ]
     },
@@ -5581,23 +5493,6 @@
             "predicate": ["shadow-signet", "item:trait:attack", "item:defense:ac"],
             "property": "defense-passive",
             "value": "{item|flags.system.rulesSelections.shadowSignet}"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "predicate": [
-              "shadow-signet",
-              "item:trait:attack",
-              {
-                "or": ["item:defense:fortitude-dc", "item:defense:reflex-dc"]
-              }
-            ],
-            "selector": "spell-attack-roll",
-            "text": "PF2E.SpecificRule.ShadowSignet.Note",
-            "title": "{item|name}"
           }
         }
       ]

@@ -447,6 +447,47 @@
             "not": "item:trait:impulse"
           }
         ]
+      },
+      {
+        "key": "Note",
+        "selectors": ["all"],
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You can't cast fire spells or use actions with the fire trait underwater."
+              }
+            ]
+          }
+        ],
+        "predicate": [
+          "item:trait:fire",
+          {
+            "not": "item:rune:property:underwater"
+          }
+        ]
+      },
+      {
+        "key": "Note",
+        "selectors": ["ranged-attack-roll"],
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Ranged attacks made by an underwater creature or against an underwater target have their range increments halved."
+              }
+            ]
+          }
+        ],
+        "predicate": [
+          {
+            "not": "item:rune:property:underwater"
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -3940,7 +3981,59 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["attack"],
+        "title": "Remaining Air",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "If you attack or Cast any spells, you reduce your remaining air by 2 instead of 1 at the end of your turn."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "Note",
+        "selectors": ["saving-throw"],
+        "title": "Remaining Air",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You lose 1 round worth of air."
+              }
+            ]
+          }
+        ],
+        "outcome": ["criticalFailure"],
+        "predicate": ["option:damaging-effect"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["damage-received"],
+        "title": "Remaining Air",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You lose 1 round worth of air."
+              }
+            ]
+          }
+        ],
+        "outcome": ["criticalSuccess"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.other-effects.Item.2u26bmArDPuoCljc"
     },
@@ -12718,6 +12811,45 @@
         "diceNumber": 1,
         "damageType": "fire",
         "predicate": ["option:fire"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["damage-received"],
+        "title": "Spell Effect: Fiery Body",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The attacker takes "
+              },
+              {
+                "type": "damage",
+                "instances": [
+                  {
+                    "formula": "(ternary(gte(@item.level,9),4,3))d6",
+                    "damageType": "fire"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " damage."
+              }
+            ]
+          }
+        ],
+        "predicate": [
+          {
+            "or": [
+              "item:category:unarmed",
+              {
+                "not": "item:trait:reach"
+              }
+            ]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -17031,6 +17163,23 @@
         ],
         "prompt": "Select a form.",
         "rollOption": "plant-form"
+      },
+      {
+        "key": "Note",
+        "selectors": ["leaf-damage"],
+        "title": "Spell Effect: Plant Form",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You can spend an action immediately after a hit to Grab the target."
+              }
+            ]
+          }
+        ],
+        "predicate": ["plant-form:flytrap"]
       }
     ],
     "externalIds": {
@@ -17325,6 +17474,23 @@
         "dieSize": "d6",
         "damageType": "electricity",
         "predicate": ["primal-summons:metal"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["melee-strike-damage"],
+        "title": "Spell Effect: Primal Summons",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You can spend an action immediately after a hit to push the target 5 feet with the effects of a successful Shove."
+              }
+            ]
+          }
+        ],
+        "predicate": ["primal-summons:water"]
       }
     ],
     "externalIds": {
@@ -19593,7 +19759,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["saving-throw"],
+        "title": "Spell Effect: Tempt Fate",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "If the saving throw's result is a success, it becomes a critical success. If it's a failure, it becomes a critical failure, and the critical failure can't be reduced by abilities that usually reduce critical failure."
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.AJkRUIdYLnt4QOOg"
     },
