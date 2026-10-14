@@ -12,8 +12,6 @@ export { BOOST_FIXTURES, boostFixtureId } from './boost-content';
 export {
   ITEM_FIXTURE_FILES,
   ITEM_FIXTURES,
-  clumsyFixtureId,
-  encumberedFixtureId,
   ItemFixture,
   itemFixtureContent,
   itemFixtureId,
@@ -21,6 +19,7 @@ export {
   runeFixtureContent,
   runeFixtureId,
 } from './item-content';
+export { clumsyFixtureId, encumberedFixtureId } from './condition-fixture-ids';
 export { RuneFixture } from './rune-fixtures';
 export { KIT_FIXTURE_FILES, KIT_FIXTURES, KitFixture, kitFixtureContent, kitFixtureId } from './kit-fixtures';
 export {

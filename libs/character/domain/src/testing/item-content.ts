@@ -15,17 +15,10 @@ import { itemContent } from '../inventory-content';
 import type { ItemContent } from '../inventory-content';
 import { runeContent } from '../item-runes';
 import type { RuneContent } from '../item-runes';
+import { CLUMSY, ENCUMBERED, ITEM_PACK } from './condition-fixture-ids';
+import { HUNTERS_BLADE } from './hunters-blade';
 import { HUNTERS_CLOAK } from './hunters-cloak';
 import { RUNES, RuneFixture } from './rune-fixtures';
-
-const ITEM_PACK = 'item-fixtures';
-
-/**
- * The encumbered condition and the clumsy it grants, as Player Core has them: Clumsy 1's status penalty reaches AC and
- * the other Dexterity-based statistics, so the sheet shows it.
- */
-const ENCUMBERED = 'encumbered';
-const CLUMSY = 'clumsy';
 
 /** Player Core numbers (Foundry pf2e) for the items the inventory tests carry. */
 const BACKPACK_CAPACITY = 4;
@@ -56,6 +49,8 @@ export const ItemFixture = {
   /** A worn cloak with the invested trait that gives +1 item to Perception. */
   Cloak: 'cloak',
   HuntersCloak: 'hunters-cloak',
+  /** A held sword whose Strikes gain +2 against undead. */
+  HuntersBlade: 'hunters-blade',
   /** Specific magic armour with the invested trait: its bonus to AC needs no investing, its rules do. */
   RuneArmor: 'rune-armor',
   /** Ammunition, light per 10. */
@@ -181,6 +176,7 @@ const ITEMS: Readonly<Record<ItemFixture, ItemFixtureFields>> = {
     rules: [{ key: 'FlatModifier', selectors: ['perception'], type: 'item', value: 1 }],
   },
   [ItemFixture.HuntersCloak]: HUNTERS_CLOAK,
+  [ItemFixture.HuntersBlade]: HUNTERS_BLADE,
   [ItemFixture.LongSword]: {
     kind: ContentKind.Weapon,
     data: {
@@ -261,16 +257,6 @@ export const ITEM_FIXTURES: ContentPack = itemPack();
 /** The id of the fixture item `name`. */
 export function itemFixtureId(name: ItemFixture): ContentId {
   return ContentId.parse(contentId(PackId.parse(ITEM_PACK), EntrySlug.parse(`${ITEMS[name].kind}:${name}`)));
-}
-
-/** The id of the fixture encumbered condition. */
-export function encumberedFixtureId(): ContentId {
-  return ContentId.parse(contentId(PackId.parse(ITEM_PACK), EntrySlug.parse(`condition:${ENCUMBERED}`)));
-}
-
-/** The id of the fixture clumsy condition, which encumbered grants. */
-export function clumsyFixtureId(): ContentId {
-  return ContentId.parse(contentId(PackId.parse(ITEM_PACK), EntrySlug.parse(`condition:${CLUMSY}`)));
 }
 
 /** A registry holding `ITEM_FIXTURES`. */
