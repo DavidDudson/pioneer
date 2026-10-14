@@ -97,112 +97,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "allowDuplicate": false,
-            "key": "GrantItem",
-            "nestUnderGranter": false,
-            "uuid": "Compendium.pf2e.classfeatures.Item.Initial Creed"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "allowDuplicate": false,
-            "key": "GrantItem",
-            "nestUnderGranter": false,
-            "predicate": [
-              {
-                "gte": ["self:level", 5]
-              }
-            ],
-            "reevaluateOnUpdate": true,
-            "uuid": "Compendium.pf2e.classfeatures.Item.Lesser Creed"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "allowDuplicate": false,
-            "key": "GrantItem",
-            "nestUnderGranter": false,
-            "predicate": [
-              {
-                "gte": ["self:level", 9]
-              }
-            ],
-            "reevaluateOnUpdate": true,
-            "uuid": "Compendium.pf2e.classfeatures.Item.Moderate Creed"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "allowDuplicate": false,
-            "key": "GrantItem",
-            "nestUnderGranter": false,
-            "predicate": [
-              {
-                "gte": ["self:level", 11]
-              }
-            ],
-            "reevaluateOnUpdate": true,
-            "uuid": "Compendium.pf2e.classfeatures.Item.Greater Creed"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "allowDuplicate": false,
-            "key": "GrantItem",
-            "nestUnderGranter": false,
-            "predicate": [
-              {
-                "gte": ["self:level", 13]
-              }
-            ],
-            "reevaluateOnUpdate": true,
-            "uuid": "Compendium.pf2e.classfeatures.Item.Major Creed"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "allowDuplicate": false,
-            "key": "GrantItem",
-            "nestUnderGranter": false,
-            "predicate": [
-              {
-                "gte": ["self:level", 15]
-              }
-            ],
-            "reevaluateOnUpdate": true,
-            "uuid": "Compendium.pf2e.classfeatures.Item.True Creed"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "allowDuplicate": false,
-            "key": "GrantItem",
-            "nestUnderGranter": false,
-            "predicate": [
-              {
-                "gte": ["self:level", 19]
-              }
-            ],
-            "reevaluateOnUpdate": true,
-            "uuid": "Compendium.pf2e.classfeatures.Item.Final Creed"
-          }
-        },
-        {
-          "type": "rule",
           "key": "ItemAlteration",
           "raw": {
             "itemType": "feat",
@@ -3503,14 +3397,6 @@
       "slug": "effect:stance-divine-presence",
       "foundry": "Compendium.pf2e.feat-effects.Item.rOKA405aECklgq42",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "Aura",
-          "raw": {
-            "key": "Aura",
-            "radius": "5*@item.badge.value"
-          }
-        },
         {
           "type": "rule",
           "key": "EphemeralEffect",

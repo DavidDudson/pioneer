@@ -1,13 +1,24 @@
-import { boolean, integer, oneof, record, uniqueArray } from 'fast-check';
+import { array, boolean, integer, oneof, record, uniqueArray, uuid } from 'fast-check';
 import type { Arbitrary } from 'fast-check';
 
 import { DamageType } from '../damage';
 import { DegreeChange } from '../degree-of-success';
+import { AuraAffects, AuraEvent } from '../rule-element-aura';
 import { SIZE_STEPS_MAX } from '../rule-element-creature-size';
 import { FastHealingType } from '../rule-element-healing';
 import { AdjustedCheck, RollKept } from '../rule-element-rolls';
 import { Size } from '../size';
-import { anyOf, element, LIST_MAX, modifierValue, slugText, SMALLINT_MAX, targets } from './rule-element-arbitrary-kit';
+import { validFormulaText } from './arbitraries';
+import {
+  anyOf,
+  element,
+  LIST_MAX,
+  modifierValue,
+  slugText,
+  SMALLINT_MAX,
+  targets,
+  withOptional,
+} from './rule-element-arbitrary-kit';
 
 const feet = integer({ min: 0, max: SMALLINT_MAX });
 const damageType = anyOf(DamageType);
@@ -48,3 +59,18 @@ export const substituteRoll = element('SubstituteRoll', {
   slug: slugText,
   value: integer({ min: 1, max: ROLL_MAX }),
 });
+
+const auraEffect = withOptional(record({ effect: uuid() }), {
+  affects: anyOf(AuraAffects),
+  includesSelf: boolean(),
+  events: uniqueArray(anyOf(AuraEvent), { minLength: 1, maxLength: LIST_MAX }),
+});
+export const aura = element(
+  'Aura',
+  { radius: oneof(feet, validFormulaText) },
+  {
+    slug: slugText,
+    traits: uniqueArray(slugText, { maxLength: LIST_MAX }),
+    effects: array(auraEffect, { maxLength: LIST_MAX }),
+  },
+);

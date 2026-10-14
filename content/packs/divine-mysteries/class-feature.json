@@ -1908,7 +1908,73 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "28370746-ad31-5d05-ab17-4ffa5f2f1b0b",
+        "allowDuplicate": false
+      },
+      {
+        "key": "GrantItem",
+        "item": "0648a7f5-b55f-5746-aaf9-2bd35ddeb847",
+        "allowDuplicate": false,
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "105a5f56-4c0f-56ee-9f22-b0a5761c97ab",
+        "allowDuplicate": false,
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "0f3de710-40f9-5678-9ebb-38d2d053986d",
+        "allowDuplicate": false,
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "b8b088f4-5281-598b-9b34-6386d48158cb",
+        "allowDuplicate": false,
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "c13e0a32-fa40-59c2-93f6-b76392643e6c",
+        "allowDuplicate": false,
+        "predicate": [
+          {
+            "gte": ["self:level", 15]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "22fe14b3-4ff7-5c13-8a1b-28ecd465b76e",
+        "allowDuplicate": false,
+        "predicate": [
+          {
+            "gte": ["self:level", 19]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.49CkgA3kj7Im6gZ5"
     },

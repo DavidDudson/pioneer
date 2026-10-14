@@ -591,6 +591,13 @@
       {
         "key": "GrantItem",
         "item": "8d47d4b9-3de6-5aca-9993-35356f13d1f6"
+      },
+      {
+        "key": "GrantItem",
+        "item": "57542da4-3edc-5464-9143-2236defe9f0e",
+        "choices": {
+          "terrain": "underground"
+        }
       }
     ],
     "externalIds": {

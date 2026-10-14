@@ -33,6 +33,11 @@ export const GrantItemElement = z.strictObject({
    * condition arrives at 1, Foundry's default; a grant of anything else ignores it.
    */
   value: ConditionValue.optional(),
+  /**
+   * The answers the granted entry's own `ChoiceSet`s start with, by their flag, as Foundry's `preselectChoices` (the
+   * Assurance a background grants arrives with Athletics picked).
+   */
+  choices: z.record(RuleSlug, ChoiceValue).optional(),
   ...ruleElementBase,
 });
 export type GrantItemElement = z.infer<typeof GrantItemElement>;

@@ -1,4 +1,15 @@
-import { array, boolean, constant, constantFrom, integer, oneof, record, uniqueArray, uuid } from 'fast-check';
+import {
+  array,
+  boolean,
+  constant,
+  constantFrom,
+  dictionary,
+  integer,
+  oneof,
+  record,
+  uniqueArray,
+  uuid,
+} from 'fast-check';
 import type { Arbitrary } from 'fast-check';
 
 import { Attribute } from '../attribute';
@@ -32,6 +43,7 @@ import {
 } from './rule-element-arbitrary-kit';
 import {
   adjustDegreeOfSuccess,
+  aura,
   creatureSize,
   fastHealing,
   rollTwice,
@@ -56,7 +68,7 @@ const flatModifierOptional = { slug: slugText, damageType };
 const grantItem = element(
   'GrantItem',
   { item: oneof(uuid(), choiceRef) },
-  { flag: slugText, allowDuplicate: boolean() },
+  { flag: slugText, allowDuplicate: boolean(), choices: dictionary(slugText, choiceValue) },
 );
 const choiceSet = element(
   'ChoiceSet',
@@ -250,4 +262,5 @@ export const ruleElementJson: Arbitrary<object> = oneof(
   adjustDegreeOfSuccess,
   rollTwice,
   substituteRoll,
+  aura,
 );

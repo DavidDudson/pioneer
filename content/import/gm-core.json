@@ -1623,83 +1623,6 @@
     {
       "type": "entry",
       "pack": "gm-core",
-      "slug": "effect:aura-righteous-call",
-      "foundry": "Compendium.pf2e.campaign-effects.Item.3BZisQv0wVLGEvzp",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Aura",
-          "raw": {
-            "effects": [
-              {
-                "affects": "allies",
-                "includesSelf": false,
-                "uuid": "Compendium.pf2e.campaign-effects.Item.Effect: Righteous Call"
-              }
-            ],
-            "key": "Aura",
-            "radius": 30,
-            "traits": ["holy"]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "effect:aura-searing-blade-greater",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.4XO5mkjnh5riwZPM",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Aura",
-          "raw": {
-            "effects": [
-              {
-                "affects": "allies",
-                "events": ["enter"],
-                "uuid": "Compendium.pf2e.equipment-effects.Item.Effect: Searing Blade (Greater)"
-              }
-            ],
-            "key": "Aura",
-            "radius": 10,
-            "slug": "flame-tongue-aura",
-            "traits": []
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "effect:aura-shining-symbol",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.NNxguHneoM3NvW1S",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Aura",
-          "raw": {
-            "effects": [
-              {
-                "affects": "all",
-                "uuid": "Compendium.pf2e.equipment-effects.Item.Effect: Shining Symbol"
-              },
-              {
-                "affects": "enemies",
-                "uuid": "Compendium.pf2e.equipment-effects.Item.Effect: Shining Symbol Weakness"
-              }
-            ],
-            "key": "Aura",
-            "radius": 20,
-            "slug": "shining-symbol",
-            "traits": ["light"]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
       "slug": "effect:effect-aeon-stone-resonance-amplifying",
       "foundry": "Compendium.pf2e.equipment-effects.Item.kdcVvwVVsttZgX1Y",
       "gaps": [
@@ -6276,30 +6199,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[traits]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "shield:forge-warden",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.NoTUhKkiTY5BQU5T",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Aura",
-          "raw": {
-            "effects": [
-              {
-                "affects": "allies",
-                "uuid": "Compendium.pf2e.equipment-effects.Item.Effect: Forge Warden"
-              }
-            ],
-            "key": "Aura",
-            "predicate": ["self:shield:raised"],
-            "radius": 5,
-            "slug": "forge-warden"
-          }
         }
       ]
     },

@@ -542,44 +542,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "background:farmhand",
-      "foundry": "Compendium.pf2e.backgrounds.Item.SOmJyAtPOokesZoe",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "preselectChoices": {
-              "assurance": "athletics"
-            },
-            "uuid": "Compendium.pf2e.feats-srd.Item.Assurance"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "background:nomad",
-      "foundry": "Compendium.pf2e.backgrounds.Item.8UXahQfkP9GZ1TNW",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "preselectChoices": {
-              "assurance": "survival"
-            },
-            "uuid": "Compendium.pf2e.feats-srd.Item.Assurance"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "background:scholar",
       "foundry": "Compendium.pf2e.backgrounds.Item.v0WPfxN6G8XFfFZT",
       "gaps": [
@@ -3589,29 +3551,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:aura-protective-wards",
-      "foundry": "Compendium.pf2e.spell-effects.Item.5p3bKvWsJgo83FS1",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Aura",
-          "raw": {
-            "effects": [
-              {
-                "affects": "allies",
-                "uuid": "Compendium.pf2e.spell-effects.Item.Spell Effect: Protective Wards"
-              }
-            ],
-            "key": "Aura",
-            "radius": "5 * @item.badge.value",
-            "slug": "protective-ward"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:aura-protectors-sphere",
       "foundry": "Compendium.pf2e.spell-effects.Item.3bcUiWwc5KLc4X0T",
       "gaps": [
@@ -3629,31 +3568,6 @@
             "radius": 15,
             "slug": "protectors-sphere",
             "value": ["cleric"]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:aura-spiral-of-horrors",
-      "foundry": "Compendium.pf2e.spell-effects.Item.HF1r1psnITHD52B9",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Aura",
-          "raw": {
-            "effects": [
-              {
-                "affects": "enemies",
-                "events": ["enter"],
-                "uuid": "Compendium.pf2e.spell-effects.Item.Spell Effect: Spiral of Horrors"
-              }
-            ],
-            "key": "Aura",
-            "radius": 30,
-            "slug": "dread-aura",
-            "traits": ["emotion", "fear", "mental"]
           }
         }
       ]
@@ -12699,18 +12613,6 @@
         },
         {
           "type": "rule",
-          "key": "Aura",
-          "raw": {
-            "effects": [],
-            "key": "Aura",
-            "predicate": ["shrouded"],
-            "radius": 20,
-            "slug": "shroud-of-flame",
-            "traits": ["fire", "primal"]
-          }
-        },
-        {
-          "type": "rule",
           "key": "GrantItem",
           "raw": {
             "key": "GrantItem",
@@ -13064,17 +12966,6 @@
               "traits": ["beast"]
             },
             "predicate": ["nature-incarnate:kaiju"]
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Aura",
-          "raw": {
-            "key": "Aura",
-            "predicate": ["nature-incarnate:green-man"],
-            "radius": 60,
-            "slug": "green-caress",
-            "traits": ["primal"]
           }
         }
       ]
@@ -17815,32 +17706,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:eternal-blessing",
-      "foundry": "Compendium.pf2e.feats-srd.Item.kMLvQnx2vY7F3bjI",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Aura",
-          "raw": {
-            "effects": [
-              {
-                "affects": "allies",
-                "events": ["enter"],
-                "uuid": "Compendium.pf2e.spell-effects.Item.Spell Effect: Bless"
-              }
-            ],
-            "key": "Aura",
-            "predicate": ["eternal-blessing-active"],
-            "radius": 15,
-            "slug": "eternal-blessing",
-            "traits": ["mental"]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:eternal-composition",
       "foundry": "Compendium.pf2e.feats-srd.Item.yFoBVSOCnC2R2r8s",
       "gaps": [
@@ -18624,25 +18489,6 @@
         {
           "type": "enricher",
           "enricher": "@Damage[options]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:gnome-obsession",
-      "foundry": "Compendium.pf2e.feats-srd.Item.mxhGH4FVYXJwb0BC",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "preselectChoices": {
-              "assurance": "lore"
-            },
-            "uuid": "Compendium.pf2e.feats-srd.Item.Assurance"
-          }
         }
       ]
     },
@@ -20751,30 +20597,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:primal-aegis",
-      "foundry": "Compendium.pf2e.feats-srd.Item.AbjVJIBdNjbQbVnV",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Aura",
-          "raw": {
-            "effects": [
-              {
-                "affects": "allies",
-                "events": ["enter"],
-                "uuid": "Compendium.pf2e.feat-effects.Item.Effect: Primal Aegis"
-              }
-            ],
-            "key": "Aura",
-            "radius": 30,
-            "slug": "primal-aegis"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:pristine-weapon",
       "foundry": "Compendium.pf2e.feats-srd.Item.nWxNV9pFeBHV671W",
       "gaps": [
@@ -22247,30 +22069,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:stonemasons-eye",
-      "foundry": "Compendium.pf2e.feats-srd.Item.HOUHs5rahwIsQoBf",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "predicate": [
-              {
-                "gte": ["skill:crafting:rank", 1]
-              }
-            ],
-            "preselectChoices": {
-              "specialtyCrafting": "stonemasonry"
-            },
-            "uuid": "Compendium.pf2e.feats-srd.Item.Specialty Crafting"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:stonewalker",
       "foundry": "Compendium.pf2e.feats-srd.Item.KTLdk65OOAVixqtY",
       "gaps": [
@@ -23584,25 +23382,6 @@
             "predicate": ["item:damage:type:fire"],
             "property": "pd-recovery-dc",
             "value": 10
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "heritage:deep-orc",
-      "foundry": "Compendium.pf2e.heritages.Item.wn4EbYk1QN3tyFhh",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "preselectChoices": {
-              "terrain": "underground"
-            },
-            "uuid": "Compendium.pf2e.feats-srd.Item.Terrain Expertise"
           }
         }
       ]

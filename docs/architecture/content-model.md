@@ -647,6 +647,12 @@ FlatModifier` appends the import's rules of the keys named to the committed entr
   (`slug`, `value`, `label` as `display.label`) read their `selector` as `selectors`, as a modifier does. A
   `removeAfterRoll: false` is Foundry's default and is dropped; `true` (an effect spent by its roll) stays in the
   backlog, as does a `SubstituteRoll` whose skill is read from a `ChoiceSet` pick (Assurance).
+- **Grants and auras.** A `GrantItem` takes Foundry's `preselectChoices` as `choices`, by the flag of the granted entry's
+  `ChoiceSet` in Pioneer's spelling, and drops `nestUnderGranter` and `reevaluateOnUpdate`, as a Pioneer grant is derived
+  and follows its predicate. An `Aura` takes its `radius` (feet or a formula; `@item.badge.value` is `@item.value`), its
+  `traits` and its `slug`, and each effect's `uuid` as the entry `effect` it resolves to, with `affects`, `includesSelf`
+  and `events`. An effect that does not resolve, a predicate that reads the effect's origin (`{item|origin.signature}`)
+  or its level, and Foundry's `level` and `value` on an aura stay in the backlog.
 - **Dropped on purpose.** `TokenLight`, `TokenEffectIcon` and `TokenMark` only change a Foundry token (its light, the
   icon of an effect on it, a mark), and Pioneer has no token. The import drops them with the reason `token-only` and
   prints them apart from the untranslated rule elements; they are not in the backlog, so an entry whose only gap

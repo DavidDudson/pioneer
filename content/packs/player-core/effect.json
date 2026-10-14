@@ -38,7 +38,19 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Aura",
+        "slug": "protective-ward",
+        "radius": "5 * @item.value",
+        "effects": [
+          {
+            "effect": "1d76f3e6-af03-50d7-91e5-0cd9c60b3ecf",
+            "affects": "allies"
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.5p3bKvWsJgo83FS1"
     },
@@ -152,7 +164,21 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Aura",
+        "slug": "dread-aura",
+        "radius": 30,
+        "traits": ["emotion", "fear", "mental"],
+        "effects": [
+          {
+            "effect": "004e03d5-31a4-5d3d-bbca-65967af504ba",
+            "affects": "enemies",
+            "events": ["enter"]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.HF1r1psnITHD52B9"
     },
@@ -15800,6 +15826,14 @@
         "damageType": "fire",
         "category": "persistent",
         "predicate": ["monstrosity-form:phoenix"]
+      },
+      {
+        "key": "Aura",
+        "slug": "shroud-of-flame",
+        "radius": 20,
+        "traits": ["fire", "primal"],
+        "effects": [],
+        "predicate": ["option:shrouded"]
       }
     ],
     "externalIds": {
@@ -16505,6 +16539,13 @@
         ],
         "prompt": "Select a form.",
         "rollOption": "nature-incarnate"
+      },
+      {
+        "key": "Aura",
+        "slug": "green-caress",
+        "radius": 60,
+        "traits": ["primal"],
+        "predicate": ["nature-incarnate:green-man"]
       }
     ],
     "externalIds": {

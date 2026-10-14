@@ -18645,6 +18645,20 @@
         "option": "option:eternal-blessing-active",
         "toggleable": true,
         "value": true
+      },
+      {
+        "key": "Aura",
+        "slug": "eternal-blessing",
+        "radius": 15,
+        "traits": ["mental"],
+        "effects": [
+          {
+            "effect": "12c6ecd7-dfe3-58fb-bc95-482d7cebd3d7",
+            "affects": "allies",
+            "events": ["enter"]
+          }
+        ],
+        "predicate": ["option:eternal-blessing-active"]
       }
     ],
     "externalIds": {
@@ -22775,6 +22789,13 @@
       {
         "key": "GrantItem",
         "item": "50ac17a9-a644-58e8-8ee0-ce4c6cfbf17b"
+      },
+      {
+        "key": "GrantItem",
+        "item": "161d1c8a-4304-59c5-bd4b-e0f21e3afa13",
+        "choices": {
+          "assurance": "lore"
+        }
       }
     ],
     "externalIds": {
@@ -39327,7 +39348,20 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Aura",
+        "slug": "primal-aegis",
+        "radius": 30,
+        "effects": [
+          {
+            "effect": "a2b6d473-92ed-5144-89a6-0abe4db8c8c9",
+            "affects": "allies",
+            "events": ["enter"]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.AbjVJIBdNjbQbVnV"
     },
@@ -50693,6 +50727,18 @@
         "key": "Proficiency",
         "selector": "skill:crafting",
         "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "cf2fb4e9-9adb-5092-9f78-5dd9b3192301",
+        "choices": {
+          "specialty-crafting": "stonemasonry"
+        },
+        "predicate": [
+          {
+            "gte": ["skill:crafting:rank", 1]
+          }
+        ]
       }
     ],
     "externalIds": {

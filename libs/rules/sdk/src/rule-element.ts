@@ -5,6 +5,7 @@ import * as z from 'zod';
 import { RulesMessage } from './messages';
 import { ActorTraitsElement } from './rule-element-actor-traits';
 import { AdjustStrikeElement } from './rule-element-adjust-strike';
+import { AuraElement } from './rule-element-aura';
 import { RuleElementKey } from './rule-element-base';
 import { CreatureSizeElement } from './rule-element-creature-size';
 import { DamageAlterationElement, DamageDiceElement } from './rule-element-damage';
@@ -73,6 +74,7 @@ const Element = z.discriminatedUnion('key', [
   AdjustDegreeOfSuccessElement,
   RollTwiceElement,
   SubstituteRollElement,
+  AuraElement,
 ]);
 
 /** Names the `key` when the value is an object whose `key` is a string Pioneer does not know. */

@@ -3365,6 +3365,10 @@
         "display": {
           "label": "Divine Presence — Make target Off-Guard"
         }
+      },
+      {
+        "key": "Aura",
+        "radius": "5 * @item.value"
       }
     ],
     "externalIds": {

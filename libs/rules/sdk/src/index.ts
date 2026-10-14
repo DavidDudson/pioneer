@@ -321,6 +321,7 @@ export { AdjustStrikeElement, StrikeProperty } from './rule-element-adjust-strik
 export { NoteElement } from './rule-element-note';
 export { FastHealingElement, FastHealingType, TempHPElement } from './rule-element-healing';
 export { CreatureSizeElement, SizeSteps } from './rule-element-creature-size';
+export { AuraAffects, AuraElement, AuraEvent } from './rule-element-aura';
 export {
   AdjustDegreeOfSuccessElement,
   RollKept,
