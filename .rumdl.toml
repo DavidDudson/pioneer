@@ -6,5 +6,4 @@ exclude = ["node_modules", "dist", ".nx", "CHANGELOG.md"]
 [MD013]
 line-length = 120
 code-blocks = false
-reflow = true
 tables = false
