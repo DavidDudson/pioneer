@@ -12,4 +12,9 @@ export const EngineMessage = {
   WeaponPotency: 'engine.modifier.weaponPotency',
   ChangeOutOfRange: 'engine.change.outOfRange',
   DefenceOutOfRange: 'engine.defence.outOfRange',
+  ActionRequirementsNotMet: 'engine.action.requirementsNotMet',
+  ActionRequirementsUnknown: 'engine.action.requirementsUnknown',
+  ActionRequirementsText: 'engine.action.requirementsText',
+  ActionUntrained: 'engine.action.untrained',
+  ActionFrequencySpent: 'engine.action.frequencySpent',
 } as const;

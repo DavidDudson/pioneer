@@ -69,3 +69,12 @@ export {
   strikeRules,
 } from './strike-rules';
 export { type AlterableItem, type AlteredItem, alterItem, type ItemNumbers } from './item-alterations';
+export {
+  type ActionCandidate,
+  type ActionOrigin,
+  ActionOriginKind,
+  ActionStatus,
+  type AvailableAction,
+  availableActions,
+  type AvailableActionsInput,
+} from './available-actions';

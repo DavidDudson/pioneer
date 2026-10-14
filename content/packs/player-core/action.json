@@ -279,7 +279,8 @@
         }
       ],
       "modes": ["encounter"],
-      "skills": ["skill:medicine"]
+      "skills": ["skill:medicine"],
+      "universal": true
     }
   },
   {
@@ -429,7 +430,8 @@
           ]
         }
       ],
-      "modes": ["encounter"]
+      "modes": ["encounter"],
+      "universal": true
     }
   },
   {
@@ -696,7 +698,8 @@
           ]
         }
       ],
-      "modes": ["encounter"]
+      "modes": ["encounter"],
+      "universal": true
     }
   },
   {
@@ -731,7 +734,8 @@
     "data": {
       "cost": "one",
       "selfEffect": "3f170815-168f-5fac-9c22-4b372795e181",
-      "modes": ["encounter"]
+      "modes": ["encounter"],
+      "universal": true
     }
   },
   {
@@ -783,7 +787,8 @@
     "data": {
       "category": "defensive",
       "modes": ["exploration"],
-      "skills": ["skill:stealth"]
+      "skills": ["skill:stealth"],
+      "universal": true
     }
   },
   {
@@ -1018,7 +1023,8 @@
         }
       ],
       "modes": ["encounter"],
-      "skills": ["skill:acrobatics"]
+      "skills": ["skill:acrobatics"],
+      "universal": true
     }
   },
   {
@@ -1093,7 +1099,8 @@
     "data": {
       "modes": ["exploration"],
       "skills": ["skill:arcana"],
-      "minimumProficiency": "trained"
+      "minimumProficiency": "trained",
+      "universal": true
     }
   },
   {
@@ -1155,7 +1162,8 @@
           ]
         }
       ],
-      "modes": ["encounter"]
+      "modes": ["encounter"],
+      "universal": true
     }
   },
   {
@@ -1407,7 +1415,8 @@
       "foundry": "Compendium.pf2e.actionspf2e.Item.aBQ8ajvEBByv45yz"
     },
     "data": {
-      "category": "interaction"
+      "category": "interaction",
+      "universal": true
     }
   },
   {
@@ -1637,7 +1646,8 @@
         }
       ],
       "modes": ["encounter"],
-      "skills": ["skill:athletics"]
+      "skills": ["skill:athletics"],
+      "universal": true
     }
   },
   {
@@ -1890,7 +1900,8 @@
     "data": {
       "category": "interaction",
       "modes": ["exploration"],
-      "skills": ["skill:intimidation"]
+      "skills": ["skill:intimidation"],
+      "universal": true
     }
   },
   {
@@ -2054,7 +2065,8 @@
       "cost": "one",
       "category": "interaction",
       "modes": ["encounter"],
-      "skills": ["skill:nature"]
+      "skills": ["skill:nature"],
+      "universal": true
     }
   },
   {
@@ -2139,7 +2151,8 @@
       "cost": "one",
       "category": "interaction",
       "modes": ["encounter"],
-      "skills": ["skill:stealth"]
+      "skills": ["skill:stealth"],
+      "universal": true
     }
   },
   {
@@ -2246,7 +2259,8 @@
     "data": {
       "category": "defensive",
       "modes": ["exploration"],
-      "skills": ["skill:survival"]
+      "skills": ["skill:survival"],
+      "universal": true
     }
   },
   {
@@ -2458,7 +2472,8 @@
     "data": {
       "category": "interaction",
       "modes": ["downtime"],
-      "skills": ["skill:crafting"]
+      "skills": ["skill:crafting"],
+      "universal": true
     }
   },
   {
@@ -2529,7 +2544,8 @@
           ]
         }
       ],
-      "modes": ["encounter"]
+      "modes": ["encounter"],
+      "universal": true
     }
   },
   {
@@ -2656,7 +2672,8 @@
       "cost": "one",
       "category": "interaction",
       "modes": ["encounter"],
-      "skills": ["skill:deception"]
+      "skills": ["skill:deception"],
+      "universal": true
     }
   },
   {
@@ -2781,7 +2798,8 @@
         }
       ],
       "modes": ["downtime"],
-      "skills": ["skill:society"]
+      "skills": ["skill:society"],
+      "universal": true
     }
   },
   {
@@ -3242,7 +3260,8 @@
       "category": "interaction",
       "modes": ["exploration"],
       "skills": ["skill:arcana", "skill:occultism", "skill:religion", "skill:society"],
-      "minimumProficiency": "trained"
+      "minimumProficiency": "trained",
+      "universal": true
     }
   },
   {
@@ -3285,7 +3304,8 @@
     },
     "data": {
       "category": "defensive",
-      "modes": ["exploration"]
+      "modes": ["exploration"],
+      "universal": true
     }
   },
   {
@@ -3365,7 +3385,8 @@
           ]
         }
       ],
-      "modes": ["encounter"]
+      "modes": ["encounter"],
+      "universal": true
     }
   },
   {
@@ -3459,7 +3480,8 @@
       "cost": "one",
       "category": "offensive",
       "modes": ["encounter"],
-      "skills": ["skill:intimidation"]
+      "skills": ["skill:intimidation"],
+      "universal": true
     }
   },
   {
@@ -3501,7 +3523,8 @@
     },
     "data": {
       "category": "interaction",
-      "modes": ["exploration"]
+      "modes": ["exploration"],
+      "universal": true
     }
   },
   {
@@ -3600,7 +3623,8 @@
       "category": "interaction",
       "modes": ["encounter"],
       "skills": ["skill:thievery"],
-      "minimumProficiency": "trained"
+      "minimumProficiency": "trained",
+      "universal": true
     }
   },
   {
@@ -3735,7 +3759,8 @@
         }
       ],
       "modes": ["encounter"],
-      "skills": ["skill:athletics"]
+      "skills": ["skill:athletics"],
+      "universal": true
     }
   },
   {
@@ -3770,7 +3795,8 @@
     "data": {
       "cost": "one",
       "category": "interaction",
-      "modes": ["encounter"]
+      "modes": ["encounter"],
+      "universal": true
     }
   },
   {
@@ -4006,7 +4032,8 @@
     "data": {
       "cost": "one",
       "category": "defensive",
-      "modes": ["encounter"]
+      "modes": ["encounter"],
+      "universal": true
     }
   },
   {
@@ -5277,7 +5304,8 @@
     },
     "data": {
       "category": "interaction",
-      "modes": ["downtime"]
+      "modes": ["downtime"],
+      "universal": true
     }
   },
   {
@@ -5448,7 +5476,8 @@
       "cost": "one",
       "category": "interaction",
       "modes": ["encounter"],
-      "skills": ["skill:athletics", "skill:acrobatics"]
+      "skills": ["skill:athletics", "skill:acrobatics"],
+      "universal": true
     }
   },
   {
@@ -5973,7 +6002,8 @@
         }
       ],
       "modes": ["encounter"],
-      "skills": ["skill:deception"]
+      "skills": ["skill:deception"],
+      "universal": true
     }
   },
   {
@@ -6069,7 +6099,8 @@
           ]
         }
       ],
-      "modes": ["encounter"]
+      "modes": ["encounter"],
+      "universal": true
     }
   },
   {
@@ -6163,7 +6194,8 @@
     },
     "data": {
       "category": "interaction",
-      "modes": ["exploration"]
+      "modes": ["exploration"],
+      "universal": true
     }
   },
   {
@@ -6357,7 +6389,8 @@
       "cost": "one",
       "category": "interaction",
       "modes": ["encounter"],
-      "skills": ["skill:athletics"]
+      "skills": ["skill:athletics"],
+      "universal": true
     }
   },
   {
@@ -6647,7 +6680,8 @@
     "data": {
       "category": "interaction",
       "modes": ["exploration"],
-      "skills": ["skill:diplomacy"]
+      "skills": ["skill:diplomacy"],
+      "universal": true
     }
   },
   {
@@ -6788,7 +6822,8 @@
           ]
         }
       ],
-      "modes": ["encounter"]
+      "modes": ["encounter"],
+      "universal": true
     }
   },
   {
@@ -6944,7 +6979,8 @@
         }
       ],
       "modes": ["encounter"],
-      "skills": ["skill:athletics"]
+      "skills": ["skill:athletics"],
+      "universal": true
     }
   },
   {
@@ -7139,7 +7175,8 @@
       "cost": "one",
       "category": "interaction",
       "modes": ["encounter"],
-      "skills": ["skill:stealth"]
+      "skills": ["skill:stealth"],
+      "universal": true
     }
   },
   {
@@ -7259,7 +7296,8 @@
       "cost": "two",
       "category": "interaction",
       "modes": ["encounter"],
-      "skills": ["skill:athletics"]
+      "skills": ["skill:athletics"],
+      "universal": true
     }
   },
   {
@@ -7390,7 +7428,8 @@
     },
     "data": {
       "category": "interaction",
-      "modes": ["exploration"]
+      "modes": ["exploration"],
+      "universal": true
     }
   },
   {
@@ -7515,7 +7554,8 @@
       ],
       "modes": ["exploration"],
       "skills": ["skill:crafting"],
-      "minimumProficiency": "trained"
+      "minimumProficiency": "trained",
+      "universal": true
     }
   },
   {
@@ -7610,7 +7650,8 @@
       "category": "interaction",
       "modes": ["exploration"],
       "skills": ["skill:arcana", "skill:nature", "skill:occultism", "skill:religion"],
-      "minimumProficiency": "trained"
+      "minimumProficiency": "trained",
+      "universal": true
     }
   },
   {
@@ -7733,7 +7774,8 @@
     "data": {
       "category": "interaction",
       "modes": ["exploration"],
-      "skills": ["skill:deception"]
+      "skills": ["skill:deception"],
+      "universal": true
     }
   },
   {
@@ -7923,7 +7965,8 @@
     "data": {
       "cost": "one",
       "category": "interaction",
-      "modes": ["encounter"]
+      "modes": ["encounter"],
+      "universal": true
     }
   },
   {
@@ -7957,7 +8000,8 @@
     },
     "data": {
       "category": "interaction",
-      "modes": ["exploration"]
+      "modes": ["exploration"],
+      "universal": true
     }
   },
   {
@@ -8214,7 +8258,8 @@
     "data": {
       "cost": "one",
       "category": "interaction",
-      "modes": ["encounter"]
+      "modes": ["encounter"],
+      "universal": true
     }
   },
   {
@@ -8717,7 +8762,8 @@
       ],
       "modes": ["exploration"],
       "skills": ["skill:arcana", "skill:nature", "skill:occultism", "skill:religion"],
-      "minimumProficiency": "trained"
+      "minimumProficiency": "trained",
+      "universal": true
     }
   },
   {
@@ -8808,7 +8854,8 @@
     },
     "data": {
       "category": "interaction",
-      "skills": ["skill:deception"]
+      "skills": ["skill:deception"],
+      "universal": true
     }
   },
   {
@@ -8947,7 +8994,8 @@
       "cost": "two",
       "category": "interaction",
       "modes": ["encounter"],
-      "skills": ["skill:athletics"]
+      "skills": ["skill:athletics"],
+      "universal": true
     }
   },
   {
@@ -8981,7 +9029,8 @@
     },
     "data": {
       "category": "interaction",
-      "modes": ["downtime"]
+      "modes": ["downtime"],
+      "universal": true
     }
   },
   {
@@ -9228,7 +9277,8 @@
     "data": {
       "category": "interaction",
       "modes": ["exploration"],
-      "skills": ["skill:diplomacy"]
+      "skills": ["skill:diplomacy"],
+      "universal": true
     }
   },
   {
@@ -9426,7 +9476,8 @@
         }
       ],
       "modes": ["encounter"],
-      "skills": ["skill:acrobatics"]
+      "skills": ["skill:acrobatics"],
+      "universal": true
     }
   },
   {
@@ -9737,7 +9788,8 @@
           ]
         }
       ],
-      "modes": ["encounter"]
+      "modes": ["encounter"],
+      "universal": true
     }
   },
   {
@@ -9813,7 +9865,8 @@
       "cost": "one",
       "category": "interaction",
       "modes": ["encounter"],
-      "skills": ["skill:thievery"]
+      "skills": ["skill:thievery"],
+      "universal": true
     }
   },
   {
@@ -10441,7 +10494,8 @@
       "cost": "one",
       "category": "interaction",
       "modes": ["encounter"],
-      "skills": ["skill:performance"]
+      "skills": ["skill:performance"],
+      "universal": true
     }
   },
   {
@@ -10602,7 +10656,8 @@
       ],
       "modes": ["encounter"],
       "skills": ["skill:thievery"],
-      "minimumProficiency": "trained"
+      "minimumProficiency": "trained",
+      "universal": true
     }
   },
   {
@@ -10760,7 +10815,8 @@
           ]
         }
       ],
-      "modes": ["encounter"]
+      "modes": ["encounter"],
+      "universal": true
     }
   },
   {
@@ -10997,7 +11053,8 @@
         }
       ],
       "selfEffect": "6d28ce6a-b876-5711-b183-9f1528122d4b",
-      "modes": ["encounter"]
+      "modes": ["encounter"],
+      "universal": true
     }
   },
   {
@@ -11104,7 +11161,8 @@
     "data": {
       "cost": "two",
       "category": "interaction",
-      "modes": ["encounter"]
+      "modes": ["encounter"],
+      "universal": true
     }
   },
   {
@@ -11214,7 +11272,8 @@
     "data": {
       "cost": "one",
       "category": "interaction",
-      "modes": ["encounter"]
+      "modes": ["encounter"],
+      "universal": true
     }
   },
   {
@@ -11276,7 +11335,8 @@
           ]
         }
       ],
-      "modes": ["exploration"]
+      "modes": ["exploration"],
+      "universal": true
     }
   },
   {
@@ -11328,7 +11388,8 @@
     "data": {
       "cost": "free",
       "category": "interaction",
-      "modes": ["encounter"]
+      "modes": ["encounter"],
+      "universal": true
     }
   },
   {
@@ -11446,7 +11507,8 @@
         }
       ],
       "modes": ["exploration"],
-      "skills": ["skill:crafting"]
+      "skills": ["skill:crafting"],
+      "universal": true
     }
   },
   {
@@ -11496,7 +11558,8 @@
     },
     "data": {
       "category": "interaction",
-      "modes": ["exploration"]
+      "modes": ["exploration"],
+      "universal": true
     }
   },
   {
@@ -11614,7 +11677,8 @@
         }
       ],
       "modes": ["encounter"],
-      "skills": ["skill:athletics"]
+      "skills": ["skill:athletics"],
+      "universal": true
     }
   },
   {
@@ -11718,7 +11782,8 @@
       "cost": "one",
       "category": "interaction",
       "modes": ["encounter"],
-      "skills": ["skill:diplomacy"]
+      "skills": ["skill:diplomacy"],
+      "universal": true
     }
   },
   {
@@ -12011,7 +12076,8 @@
     },
     "data": {
       "category": "interaction",
-      "modes": ["downtime"]
+      "modes": ["downtime"],
+      "universal": true
     }
   },
   {
@@ -12094,7 +12160,8 @@
     },
     "data": {
       "category": "interaction",
-      "modes": ["exploration"]
+      "modes": ["exploration"],
+      "universal": true
     }
   },
   {
@@ -12144,7 +12211,8 @@
     },
     "data": {
       "category": "interaction",
-      "modes": ["exploration"]
+      "modes": ["exploration"],
+      "universal": true
     }
   },
   {
@@ -12269,7 +12337,8 @@
     "data": {
       "cost": "one",
       "category": "interaction",
-      "modes": ["encounter"]
+      "modes": ["encounter"],
+      "universal": true
     }
   },
   {
@@ -12448,7 +12517,8 @@
     "data": {
       "category": "interaction",
       "modes": ["exploration"],
-      "skills": ["skill:survival"]
+      "skills": ["skill:survival"],
+      "universal": true
     }
   },
   {
@@ -12551,7 +12621,8 @@
     "data": {
       "cost": "one",
       "category": "interaction",
-      "modes": ["encounter"]
+      "modes": ["encounter"],
+      "universal": true
     }
   },
   {
@@ -12797,7 +12868,8 @@
         }
       ],
       "modes": ["encounter"],
-      "skills": ["skill:athletics"]
+      "skills": ["skill:athletics"],
+      "universal": true
     }
   },
   {
@@ -13057,7 +13129,8 @@
       "cost": "one",
       "category": "defensive",
       "modes": ["encounter"],
-      "skills": ["skill:stealth"]
+      "skills": ["skill:stealth"],
+      "universal": true
     }
   },
   {
@@ -13326,7 +13399,8 @@
     "data": {
       "category": "interaction",
       "modes": ["exploration"],
-      "skills": ["skill:acrobatics"]
+      "skills": ["skill:acrobatics"],
+      "universal": true
     }
   },
   {
@@ -13369,7 +13443,8 @@
     "data": {
       "cost": "one",
       "category": "interaction",
-      "modes": ["encounter"]
+      "modes": ["encounter"],
+      "universal": true
     }
   },
   {
@@ -13463,7 +13538,8 @@
       "cost": "one",
       "category": "interaction",
       "modes": ["encounter"],
-      "skills": ["skill:thievery"]
+      "skills": ["skill:thievery"],
+      "universal": true
     }
   },
   {
@@ -13543,7 +13619,8 @@
           ]
         }
       ],
-      "modes": ["encounter"]
+      "modes": ["encounter"],
+      "universal": true
     }
   },
   {
@@ -13678,7 +13755,8 @@
     "data": {
       "cost": "one",
       "category": "interaction",
-      "modes": ["encounter"]
+      "modes": ["encounter"],
+      "universal": true
     }
   },
   {
@@ -13744,7 +13822,8 @@
     "data": {
       "cost": "one",
       "category": "offensive",
-      "modes": ["encounter"]
+      "modes": ["encounter"],
+      "universal": true
     }
   },
   {
@@ -13969,7 +14048,8 @@
     "data": {
       "category": "interaction",
       "modes": ["downtime"],
-      "skills": ["skill:society", "skill:survival"]
+      "skills": ["skill:society", "skill:survival"],
+      "universal": true
     }
   },
   {
@@ -14022,7 +14102,8 @@
     "data": {
       "cost": "one",
       "category": "interaction",
-      "modes": ["encounter"]
+      "modes": ["encounter"],
+      "universal": true
     }
   },
   {
@@ -14072,7 +14153,8 @@
     },
     "data": {
       "category": "interaction",
-      "modes": ["exploration"]
+      "modes": ["exploration"],
+      "universal": true
     }
   },
   {
@@ -14251,7 +14333,8 @@
       "cost": "one",
       "category": "interaction",
       "modes": ["encounter"],
-      "skills": ["skill:athletics"]
+      "skills": ["skill:athletics"],
+      "universal": true
     }
   },
   {
@@ -14355,7 +14438,8 @@
         }
       ],
       "selfEffect": "c0248e28-d9b3-5268-b561-75129e943a39",
-      "modes": ["encounter"]
+      "modes": ["encounter"],
+      "universal": true
     }
   },
   {
@@ -14664,7 +14748,8 @@
     "data": {
       "category": "interaction",
       "modes": ["exploration"],
-      "skills": ["skill:survival"]
+      "skills": ["skill:survival"],
+      "universal": true
     }
   },
   {
@@ -14799,7 +14884,8 @@
       ],
       "modes": ["downtime"],
       "skills": ["skill:medicine"],
-      "minimumProficiency": "trained"
+      "minimumProficiency": "trained",
+      "universal": true
     }
   },
   {
@@ -14935,7 +15021,8 @@
       ],
       "modes": ["encounter"],
       "skills": ["skill:medicine"],
-      "minimumProficiency": "trained"
+      "minimumProficiency": "trained",
+      "universal": true
     }
   },
   {
@@ -15142,7 +15229,8 @@
       ],
       "modes": ["exploration"],
       "skills": ["skill:medicine"],
-      "minimumProficiency": "trained"
+      "minimumProficiency": "trained",
+      "universal": true
     }
   },
   {
@@ -15281,7 +15369,8 @@
         }
       ],
       "modes": ["encounter"],
-      "skills": ["skill:athletics"]
+      "skills": ["skill:athletics"],
+      "universal": true
     }
   },
   {
@@ -15443,7 +15532,8 @@
       "cost": "one",
       "category": "interaction",
       "modes": ["encounter"],
-      "skills": ["skill:acrobatics"]
+      "skills": ["skill:acrobatics"],
+      "universal": true
     }
   },
   {

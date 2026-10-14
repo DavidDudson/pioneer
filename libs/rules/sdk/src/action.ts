@@ -156,6 +156,8 @@ export const ActionData = z
     requirements: Predicate.optional(),
     /** The sheet modes it is used in; an action that lists none is an Encounter one. */
     modes: z.array(ActionModeSchema).max(MODES_MAX).check(uniqueItems).readonly().optional(),
+    /** Every character has it, granted or not: the basic and skill actions. */
+    universal: z.literal(true).optional(),
     /** With `skills`, the rank it takes in one of them to use it: a trained-only skill action. */
     minimumProficiency: ProficiencySchema.optional(),
     /** The wording shown; `triggerEvent` is what the engine matches. */

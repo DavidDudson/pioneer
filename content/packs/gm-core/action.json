@@ -341,7 +341,8 @@
           ]
         }
       ],
-      "modes": ["encounter"]
+      "modes": ["encounter"],
+      "universal": true
     }
   },
   {
@@ -626,7 +627,8 @@
           ]
         }
       ],
-      "modes": ["downtime"]
+      "modes": ["downtime"],
+      "universal": true
     }
   },
   {
@@ -1074,7 +1076,8 @@
       "foundry": "Compendium.pf2e.actionspf2e.Item.JLPY5hl4qiJ1zLi1"
     },
     "data": {
-      "category": "interaction"
+      "category": "interaction",
+      "universal": true
     }
   },
   {
@@ -1173,7 +1176,8 @@
           ]
         }
       ],
-      "modes": ["encounter"]
+      "modes": ["encounter"],
+      "universal": true
     }
   },
   {
@@ -1390,7 +1394,8 @@
     },
     "data": {
       "category": "interaction",
-      "modes": ["downtime"]
+      "modes": ["downtime"],
+      "universal": true
     }
   },
   {
@@ -1486,7 +1491,8 @@
     },
     "data": {
       "category": "interaction",
-      "modes": ["downtime"]
+      "modes": ["downtime"],
+      "universal": true
     }
   },
   {
@@ -1579,7 +1585,8 @@
     },
     "data": {
       "category": "interaction",
-      "modes": ["downtime"]
+      "modes": ["downtime"],
+      "universal": true
     }
   },
   {
@@ -2069,7 +2076,8 @@
       "foundry": "Compendium.pf2e.actionspf2e.Item.6Oe9dg3Lu10slyeC"
     },
     "data": {
-      "category": "interaction"
+      "category": "interaction",
+      "universal": true
     }
   },
   {
@@ -2111,7 +2119,8 @@
       "foundry": "Compendium.pf2e.actionspf2e.Item.lvqPQDdWT2DDO0k2"
     },
     "data": {
-      "category": "interaction"
+      "category": "interaction",
+      "universal": true
     }
   },
   {
@@ -2761,7 +2770,8 @@
     },
     "data": {
       "category": "interaction",
-      "modes": ["exploration"]
+      "modes": ["exploration"],
+      "universal": true
     }
   },
   {
@@ -3125,7 +3135,8 @@
     },
     "data": {
       "category": "interaction",
-      "modes": ["downtime"]
+      "modes": ["downtime"],
+      "universal": true
     }
   },
   {
@@ -3190,7 +3201,8 @@
     },
     "data": {
       "category": "interaction",
-      "modes": ["downtime"]
+      "modes": ["downtime"],
+      "universal": true
     }
   },
   {
@@ -3338,7 +3350,8 @@
           ]
         }
       ],
-      "modes": ["encounter"]
+      "modes": ["encounter"],
+      "universal": true
     }
   },
   {
@@ -3398,7 +3411,8 @@
           ]
         }
       ],
-      "modes": ["encounter"]
+      "modes": ["encounter"],
+      "universal": true
     }
   },
   {
@@ -3635,7 +3649,8 @@
       "foundry": "Compendium.pf2e.actionspf2e.Item.Z8aa6afUterlfh5i"
     },
     "data": {
-      "category": "interaction"
+      "category": "interaction",
+      "universal": true
     }
   },
   {
