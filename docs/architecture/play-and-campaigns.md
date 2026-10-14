@@ -202,7 +202,8 @@ one of its type and direction already beats is left out, since it could never ch
 lists them all in full. Conditional `Change`s and set overrides appear only in the breakdown. `pio-statistics` does
 this for any statistic it is given, so a skills list gets it too.
 A Strike row words the same lines beneath its attack steps (the attack's) and beneath its damage (the flat damage
-bonus's). Spell rows (Spell lists, below) and action rows do not word conditions yet; they take the same `conditionalLines` helper when they do.
+bonus's). Spell rows (Spell lists, below) and action rows do not word conditions yet; they take the same
+`conditionalLines` helper when they do.
 
 The breakdown is given the statistic's kind, so it formats its numbers as the summary does: a check's base, pinned
 and computed totals and override values carry a sign ("Base +6", "override +6 → +9"); a DC's or value's do not.
