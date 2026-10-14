@@ -12,8 +12,11 @@ import { NO_ORIGIN_NAMES } from '../origin-chain/origin-names';
 import type { OriginNames } from '../origin-chain/origin-names';
 import type { Chip } from '../picker-cells/chip-list/chip-list.component';
 import { DAMAGE_TYPE_MESSAGES } from '../rich-text/rich-text-messages';
-import { conditionalLines } from '../statistics/conditional-lines';
+import { conditionalLineText, conditionalLines } from '../statistics/conditional-lines';
+import type { ConditionToggle } from '../statistics/statistic-conditions/statistic-conditions.component';
+import { STATISTIC_ROLLER } from '../statistics/statistic-roller';
 import { StatisticsMessage } from '../statistics/statistics-messages';
+import type { StatisticSituations } from '../statistics/statistics.component';
 import { StrikeRow } from './strike-row.component';
 import type { ShownAttack, ShownStrike } from './strike-row.component';
 import { StrikesMessage } from './strikes-messages';
@@ -26,6 +29,8 @@ export interface NamedStrike {
   /** Its traits by name. */
   readonly traits: readonly string[];
   readonly strike: Strike;
+  /** The situations a roll of its attack can claim, when the page lets the player claim them. */
+  readonly situations?: StatisticSituations | undefined;
 }
 
 /** A shield held beside the Strikes: its name and the numbers that matter when it blocks. */
@@ -71,6 +76,7 @@ export class StrikesView {
   protected readonly Statistics = StatisticsMessage;
   protected readonly loadingRows = [...Array.from({ length: LOADING_ROWS }).keys()];
 
+  readonly #roller = inject(STATISTIC_ROLLER, { optional: true });
   readonly #i18n = inject(TranslocoService);
   readonly #format = inject(LocaleFormat);
   /** Ticks when the locale changes or a message scope finishes loading. */
@@ -85,8 +91,10 @@ export class StrikesView {
       format: this.#format,
       names: { entries: this.entryNames(), items: this.originNames().items },
     };
-    return this.strikes()?.map(({ name, nameKey, traits, strike }): ShownStrike => {
+    const claims = this.#roller?.claim !== undefined;
+    return this.strikes()?.map(({ name, nameKey, traits, strike, situations }): ShownStrike => {
       const bonus = strike.damage?.bonus;
+      const offered = claims ? (situations?.offered ?? []) : [];
       return {
         key: strike.weapon.slug,
         name: nameKey === undefined ? name : this.#i18n.translate(nameKey),
@@ -96,7 +104,15 @@ export class StrikesView {
         damage: this.#damage(strike),
         thrown: this.#thrown(strike),
         bonus: bonus?.ok === true ? bonus : undefined,
-        attackConditions: strike.attack?.ok === true ? conditionalLines(strike.attack, words) : [],
+        attackConditions:
+          strike.attack?.ok === true
+            ? conditionalLines(strike.attack, words, new Set(offered.map(({ modifier }) => modifier.id)))
+            : [],
+        attackToggles: offered.map((line): ConditionToggle => ({
+          id: line.modifier.id,
+          text: conditionalLineText(line, words),
+          on: situations?.claimed.has(line.modifier.id) === true,
+        })),
         damageConditions: bonus?.ok === true ? conditionalLines(bonus, words) : [],
         penalty: this.#i18n.translate(StrikesMessage.MultipleAttackPenalty, {
           second: this.#format.number(strike.map.second, SIGNED),

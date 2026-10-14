@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { Badge, Disclosure, Stack, Text } from '@pioneer/frontier';
+import { RuleId } from '@pioneer/rules/engine';
 import type { StatisticValue } from '@pioneer/rules/engine';
 import { StatisticKind } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
@@ -11,7 +12,12 @@ import type { OriginNames } from '../origin-chain/origin-names';
 import type { Chip } from '../picker-cells/chip-list/chip-list.component';
 import { ChipList } from '../picker-cells/chip-list/chip-list.component';
 import { StatisticConditions } from '../statistics/statistic-conditions/statistic-conditions.component';
+import type {
+  ConditionChange,
+  ConditionToggle,
+} from '../statistics/statistic-conditions/statistic-conditions.component';
 import { StatisticRoll } from '../statistics/statistic-roll/statistic-roll.component';
+import { STATISTIC_ROLLER } from '../statistics/statistic-roller';
 import { StatisticTotal } from '../statistics/statistic-total/statistic-total.component';
 import { StatisticsMessage } from '../statistics/statistics-messages';
 import { StrikesMessage } from './strikes-messages';
@@ -41,6 +47,8 @@ export interface ShownStrike {
   readonly attacks: string | undefined;
   /** "+2 circumstance when your shield is raised (Steel Shield)": the attack's lines that apply only in some situations. */
   readonly attackConditions: readonly string[];
+  /** The attack's lines whose situation can be claimed for its next roll, as toggles. */
+  readonly attackToggles: readonly ConditionToggle[];
   /** The same for the flat damage bonus. */
   readonly damageConditions: readonly string[];
   /** "1d8+4 slashing"; the none message for a weapon that rolls no damage. */
@@ -80,6 +88,8 @@ export class StrikeRow {
   public readonly entryNames = input<ReadonlyMap<ContentId, string>>(new Map());
   public readonly originNames = input<OriginNames>(NO_ORIGIN_NAMES);
 
+  readonly #roller = inject(STATISTIC_ROLLER, { optional: true });
+
   protected readonly Message = StrikesMessage;
   protected readonly Statistics = StatisticsMessage;
   protected readonly attackKind = StatisticKind.Check;
@@ -90,6 +100,14 @@ export class StrikeRow {
     const { attack } = this.row();
     return attack.ok ? attack : undefined;
   });
+
+  /** Claims the situation of an attack line for the Strike's next roll, or lets it go. */
+  protected claim({ id, on }: ConditionChange): void {
+    const attack = this.derived();
+    if (attack !== undefined) {
+      this.#roller?.claim?.(attack.statistic.selector, RuleId.parse(id), on);
+    }
+  }
 
   /** Why it has no attack, when it has none. */
   protected readonly failure = computed((): string | undefined => {

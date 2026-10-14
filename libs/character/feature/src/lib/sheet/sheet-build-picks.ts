@@ -163,7 +163,7 @@ function engineReads(sources: BuildPickSources): EngineReads {
         claims: sources.claims(),
       }),
     ),
-    strikes: loaded(engine, sheetStrikes),
+    strikes: loaded(engine, (registry, character) => sheetStrikes(registry, character, sources.claims())),
     shields: computed(() => shields() ?? []),
     spellcasting: loaded(engine, sheetSpellcasting),
     entryNames: computed(() => {

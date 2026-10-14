@@ -49,7 +49,9 @@ UI behaviour:
   A check with nothing to toggle still rolls in one click. The roll card lists what it was rolled with.
   The same conditional lines sit beside each statistic as toggles: claiming one counts it in that statistic's total and
   breakdown at once, a roll uses the claims made for its statistic and lets them go, and a button beside the roll
-  opens the setup panel with the claims already chosen. `RollOption` toggles stay on the character.
+  opens the setup panel with the claims already chosen. A Strike's attack row offers its conditional attack lines the
+  same way, and the attack total and the multiple attack penalty steps follow what is claimed. `RollOption` toggles
+  stay on the character.
 
 Turn tracking (actions spent, reaction used, start/end of turn effects such as frightened decreasing) is local to the
 sheet. Campaign play runs in Foundry VTT, which tracks turns itself (ADR-0018).

@@ -714,7 +714,8 @@ sheet, where the situation is unknown, so predicates use **three-valued (Kleene)
     total always equals the base plus the applied lines, whatever the toggles.
   - `rollSetups` does the same for many statistics at once, each with its own chosen rules, from the sheet's own
     derivation, so a statistic with nothing claimed costs no derivation. The sheet claims situations per statistic and
-    derives only the claimed ones again.
+    derives only the claimed ones again. A Strike's attack is one of those statistics (`strike:<slug>`), so its claims
+    reach `rollSetups` the same way.
 
 ### Evaluation
 

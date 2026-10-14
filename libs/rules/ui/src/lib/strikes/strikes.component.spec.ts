@@ -1,13 +1,17 @@
 import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
+import type { RuleId } from '@pioneer/rules/engine';
+import { Selector } from '@pioneer/rules/sdk';
 import { describe, expect, it } from 'vitest';
 
 import { STATISTIC_ROLLER } from '../statistics/statistic-roller';
-import type { RollableStatistic } from '../statistics/statistic-roller';
+import type { RollableStatistic, StatisticRoller } from '../statistics/statistic-roller';
 import { ENTRY_NAMES } from '../testing/breakdown-fixtures';
 import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing';
 import {
+  claimableStrike,
   CONDITIONAL_STRIKE,
+  DARKNESS_RULE,
   FAILED_STRIKE,
   FIGHTER_STRIKES,
   NO_DAMAGE_STRIKE,
@@ -197,5 +201,83 @@ describe(StrikesView, () => {
     TestBed.resetTestingModule();
     const plain = await render(FIGHTER_STRIKES);
     expect(hostOf(plain).querySelectorAll('button[aria-label^="Roll "]')).toHaveLength(0);
+  });
+});
+
+interface Claim {
+  readonly selector: Selector;
+  readonly rule: RuleId;
+  readonly on: boolean;
+}
+
+async function renderClaiming(
+  strikes: readonly NamedStrike[],
+  claims: Claim[] | undefined,
+): Promise<ComponentFixture<StrikesView>> {
+  const roller: StatisticRoller = {
+    roll: () => undefined,
+    claim: (selector, rule, on) => {
+      claims?.push({ selector, rule, on });
+    },
+  };
+  const rolling = claims === undefined ? [] : [{ provide: STATISTIC_ROLLER, useValue: roller }];
+  TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting(), ...rolling] });
+  const fixture = TestBed.createComponent(StrikesView);
+  fixture.componentRef.setInput('strikes', strikes);
+  fixture.componentRef.setInput('entryNames', ENTRY_NAMES);
+  await fixture.whenStable();
+  return fixture;
+}
+
+function toggleOf(fixture: ComponentFixture<StrikesView>): HTMLButtonElement {
+  const toggle = hostOf(fixture).querySelector<HTMLButtonElement>('pio-statistic-conditions button');
+  if (toggle === null) {
+    throw new Error('Expected a situation toggle');
+  }
+  return toggle;
+}
+
+describe('StrikesView situations', () => {
+  it('offers an attack line as a toggle that claims its situation for that Strike', async () => {
+    const claims: Claim[] = [];
+    const fixture = await renderClaiming(claimableStrike(false), claims);
+
+    const toggle = toggleOf(fixture);
+    expect(textOf(toggle)).toBe('+1 circumstance when you are in darkness (Gloom Walker)');
+    expect(toggle.getAttribute('aria-pressed')).toBe('false');
+    toggle.click();
+
+    expect(claims).toStrictEqual([{ selector: Selector.parse('strike:longsword'), rule: DARKNESS_RULE, on: true }]);
+  });
+
+  it('counts a claimed situation in the attack and in each step of the multiple attack penalty', async () => {
+    const fixture = await renderClaiming(claimableStrike(true), []);
+
+    expect(toggleOf(fixture).getAttribute('aria-pressed')).toBe('true');
+    expect(summariesOf(fixture)).toStrictEqual(['Longsword +10']);
+    expect(textOf(hostOf(fixture))).toContain('Attack +10 / +5 / +0');
+  });
+
+  it('leaves the attack as it was while the situation is not claimed', async () => {
+    const fixture = await renderClaiming(claimableStrike(false), []);
+
+    expect(summariesOf(fixture)).toStrictEqual(['Longsword +9']);
+    expect(textOf(hostOf(fixture))).toContain('Attack +9 / +4 / -1');
+  });
+
+  it('lets go of a claimed situation when its toggle is flipped back', async () => {
+    const claims: Claim[] = [];
+    const fixture = await renderClaiming(claimableStrike(true), claims);
+
+    toggleOf(fixture).click();
+
+    expect(claims.map(({ on }) => on)).toStrictEqual([false]);
+  });
+
+  it('words the line as plain text where nothing can claim it', async () => {
+    const fixture = await renderClaiming(claimableStrike(false), undefined);
+
+    expect(hostOf(fixture).querySelector('pio-statistic-conditions button')).toBeNull();
+    expect(textOf(hostOf(fixture))).toContain('+1 circumstance when you are in darkness (Gloom Walker)');
   });
 });
