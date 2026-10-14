@@ -4,7 +4,6 @@ import * as z from 'zod';
 
 import { RulesMessage } from './messages';
 import { ActorTraitsElement } from './rule-element-actor-traits';
-import { AdjustStrikeElement } from './rule-element-adjust-strike';
 import { AuraElement } from './rule-element-aura';
 import { RuleElementKey } from './rule-element-base';
 import { CreatureSizeElement } from './rule-element-creature-size';
@@ -32,7 +31,7 @@ import {
   SpellcastingEntryElement,
   SpellSlotsElement,
 } from './rule-element-spellcasting';
-import { StrikeElement } from './rule-element-strike';
+import { AdjustStrikeElement, StrikeElement } from './rule-element-strike';
 import { ChoiceSetElement, GrantItemElement, RollOptionElement } from './rule-element-structure';
 
 const KNOWN_KEYS: ReadonlySet<unknown> = new Set(Object.values(RuleElementKey));

@@ -316,8 +316,7 @@ export { DefenceValue, ImmunityElement, ResistanceElement, WeaknessElement } fro
 export { SenseElement } from './rule-element-sense';
 export { LanguageAccess, LanguageCount, LanguageElement } from './rule-element-language';
 export { ActorTraitsElement } from './rule-element-actor-traits';
-export { StrikeElement } from './rule-element-strike';
-export { AdjustStrikeElement, StrikeProperty } from './rule-element-adjust-strike';
+export { AdjustStrikeElement, StrikeElement, StrikeProperty } from './rule-element-strike';
 export { NoteElement } from './rule-element-note';
 export { FastHealingElement, FastHealingType, TempHPElement } from './rule-element-healing';
 export { CreatureSizeElement, SizeSteps } from './rule-element-creature-size';

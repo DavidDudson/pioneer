@@ -158,12 +158,15 @@ describe('CharacterSheetPage', () => {
 
   it('offers a picker on each planned slot of the level timeline', async () => {
     const { root } = await openSheet();
-    const labels = [...root.querySelectorAll('pio-level-timeline fr-inline-field')].map((field) =>
-      present(field.querySelector('fr-text')).textContent.trim(),
-    );
-    expect(labels).toContain('Elf feat, level 5');
-    expect(labels.filter((label) => label.startsWith('Level 5 boost'))).toHaveLength(4);
-    expect(labels).toContain('Level 20 boost 1');
+    // The feat slots render once the feats' content has loaded, which can trail the sheet's first paint.
+    await vi.waitFor(() => {
+      const labels = [...root.querySelectorAll('pio-level-timeline fr-inline-field')].map((field) =>
+        present(field.querySelector('fr-text')).textContent.trim(),
+      );
+      expect(labels).toContain('Elf feat, level 5');
+      expect(labels.filter((label) => label.startsWith('Level 5 boost'))).toHaveLength(4);
+      expect(labels).toContain('Level 20 boost 1');
+    });
   });
 
   it('lists the attributes with their modifier now and with the boost for a boost planned from the timeline', async () => {

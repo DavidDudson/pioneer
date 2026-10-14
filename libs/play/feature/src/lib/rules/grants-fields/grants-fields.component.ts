@@ -100,6 +100,7 @@ export class GrantsFields {
               id: value,
               name: label,
               sources: [],
+              facts: undefined,
               disabledReason: undefined,
             })),
           }))

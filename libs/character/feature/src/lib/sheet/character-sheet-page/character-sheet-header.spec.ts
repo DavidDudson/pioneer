@@ -76,10 +76,10 @@ describe('CharacterSheetPage header', () => {
 
   it('shows the ranks the class gives, and the armour that sets AC', async () => {
     const { root } = await openSheet(WARPRIEST_MERISIEL, { slots: WARPRIEST_SLOTS, packs: HEADER_PACKS });
-    const vitals = present(root.querySelector('pio-vitals'));
+    const vitalsNow = (): HTMLElement => present(root.querySelector<HTMLElement>('pio-vitals'));
 
     await vi.waitFor(() => {
-      expect([...vitals.querySelectorAll('pio-proficiency-rank')].map((rank) => textOf(rank))).toStrictEqual([
+      expect([...vitalsNow().querySelectorAll('pio-proficiency-rank')].map((rank) => textOf(rank))).toStrictEqual([
         'TTrained',
         'TTrained',
         'TTrained',
@@ -88,6 +88,7 @@ describe('CharacterSheetPage header', () => {
       ]);
     });
     // The item fixtures name their entries after their slugs.
+    const vitals = vitalsNow();
     expect(vitals.textContent).toContain('Leather-armor');
     expect(vitals.textContent).not.toContain('Unarmored');
   });

@@ -132,14 +132,21 @@ interface Shaped {
   readonly chosen: unknown;
 }
 
+/** `raw` with its grant fields read, the content id a grant names, and the aura effects. */
+function withGrants(raw: unknown, references: EntryReferences): unknown {
+  const fields = withGrantFields(raw);
+  const granted = withGrantedId(fields, references);
+  return withAura(granted, references);
+}
+
 function shapeRule(raw: unknown, context: RuleContext, unresolved: UnresolvedKey[]): Shaped {
   const references = context.references ?? NO_REFERENCES;
   const text = withDisplayLabel(localized(raw, context, unresolved));
   const rolled = withRollOption(withNamespacedOptions(text), context.values.item);
   const scoped = withDiceFormula(withDefenceTypes(withItemScope(rolled)));
   const options = withNoteText(scoped, context);
-  const granted = withGrantedId(withGrantFields(withPioneerFormula(options)), references);
-  const struck = withStrikeScope(withStrikeDamage(withoutStrikeExtras(withAura(granted, references))));
+  const granted = withGrants(withPioneerFormula(options), references);
+  const struck = withStrikeScope(withStrikeDamage(withoutStrikeExtras(granted)));
   const modifier = withBaseSpeed(withModifierSelectors(withCreatureSize(struck)));
   const queried = withLanguageSlots(withTagQuery(withGrantValue(modifier)));
   const font = withSkillRaise(withFavoredWeaponRank(withFontChoice(queried)));

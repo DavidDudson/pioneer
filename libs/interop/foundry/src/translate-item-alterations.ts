@@ -26,7 +26,7 @@ function optionsOf(statement: unknown): readonly string[] {
 }
 
 /** Whether a statement reads item roll options and nothing else. */
-export function readsOnlyItem(statement: unknown): boolean {
+function readsOnlyItem(statement: unknown): boolean {
   const options = optionsOf(statement);
   return options.length > 0 && options.every((option) => option.startsWith(ITEM_NAMESPACE));
 }
