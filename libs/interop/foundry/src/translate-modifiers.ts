@@ -152,3 +152,36 @@ export function withBaseSpeed(raw: unknown): unknown {
     mode: 'upgrade',
   };
 }
+
+const CREATURE_SIZE_KEY = 'CreatureSize';
+
+/** Foundry's size codes in Pioneer's names (`size.ts`); `tiny` and `huge` are spelled the same. */
+const SIZES: ReadonlyMap<string, string> = new Map([
+  ['tiny', 'tiny'],
+  ['sm', 'small'],
+  ['med', 'medium'],
+  ['lg', 'large'],
+  ['huge', 'huge'],
+  ['grg', 'gargantuan'],
+]);
+
+/** A size field of Foundry's: a code in Pioneer's name, a number of steps as it is, any other (a pick) as it is. */
+function sizeOf(size: unknown): unknown {
+  return typeof size === 'string' ? (SIZES.get(size) ?? size) : size;
+}
+
+/**
+ * A `CreatureSize` with its `value` and `maximumSize` in Pioneer's size names; any other element as it is. A size read
+ * from a pick (`{item|flags.system.rulesSelections.enlarge.size}`) stays as written, so the element fails and is kept
+ * for the backlog.
+ */
+export function withCreatureSize(raw: unknown): unknown {
+  if (typeof raw !== 'object' || raw === null || !('key' in raw) || raw.key !== CREATURE_SIZE_KEY) {
+    return raw;
+  }
+  const sized = Object.entries(raw).map(([field, value]) => [
+    field,
+    field === 'value' || field === 'maximumSize' ? sizeOf(value) : value,
+  ]);
+  return Object.fromEntries(sized);
+}

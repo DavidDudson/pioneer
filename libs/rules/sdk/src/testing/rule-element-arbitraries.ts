@@ -1,18 +1,4 @@
-import {
-  array,
-  boolean,
-  constant,
-  constantFrom,
-  double,
-  integer,
-  oneof,
-  option,
-  record,
-  stringMatching,
-  tuple,
-  uniqueArray,
-  uuid,
-} from 'fast-check';
+import { array, boolean, constant, constantFrom, integer, oneof, record, uniqueArray, uuid } from 'fast-check';
 import type { Arbitrary } from 'fast-check';
 
 import { Attribute } from '../attribute';
@@ -22,7 +8,6 @@ import { DegreeOfSuccess } from '../degree-of-success';
 import { ModifierType } from '../modifier-type';
 import { Proficiency } from '../proficiency';
 import { DamageDiceCategory, DamageProperty } from '../rule-element-damage';
-import { FastHealingType } from '../rule-element-healing';
 import { NumericAlterationMode, NumericItemProperty, TraitAlterationMode } from '../rule-element-item-alteration';
 import { AdjustMode, ChangeMode } from '../rule-element-numbers';
 import { ArmorCategory, MartialKind, WeaponCategory } from '../rule-element-proficiency';
@@ -33,57 +18,20 @@ import { MagicTradition } from '../spellcasting-tradition';
 import { DieSize } from '../weapon';
 import { keyPathText, predicateJson, rollOptionText, validFormulaText } from './arbitraries';
 import { richTextJson } from './rich-text-arbitraries';
+import {
+  anyOf,
+  contentText,
+  element,
+  LIST_MAX,
+  modifierValue,
+  slugText,
+  ruleNumber,
+  SMALLINT_MAX,
+  targets,
+  withOptional,
+} from './rule-element-arbitrary-kit';
+import { creatureSize, fastHealing, tempHp } from './rule-element-vitals-arbitraries';
 
-const LIST_MAX = 3;
-const SMALLINT_MAX = 32_767;
-
-/** Kebab-case words: slugs, rule slugs, traits. */
-const word: Arbitrary<string> = stringMatching(/^[a-z\d]{1,6}$/u);
-const SLUG_WORDS_MAX = 3;
-const slugText: Arbitrary<string> = array(word, { minLength: 1, maxLength: SLUG_WORDS_MAX }).map((words) =>
-  words.join('-'),
-);
-const contentText: Arbitrary<string> = stringMatching(/^[A-Za-z][A-Za-z ]{0,19}$/u);
-const modifierNumber: Arbitrary<number> = integer({ min: -SMALLINT_MAX, max: SMALLINT_MAX });
-const ruleNumber: Arbitrary<number> = double({ noNaN: true, noDefaultInfinity: true });
-const targets: Arbitrary<string[]> = array(keyPathText, { minLength: 1, maxLength: LIST_MAX });
-
-type OptionalEntry = readonly [string, unknown];
-
-/** Builds a record whose optional keys are left out (not set to undefined) when absent. */
-function withOptional<TRequired extends object>(
-  required: Arbitrary<TRequired>,
-  optional: Readonly<Record<string, Arbitrary<unknown>>>,
-): Arbitrary<object> {
-  const optionals = Object.entries(optional).map(([key, value]) =>
-    option(value, { nil: undefined }).map((picked): OptionalEntry => [key, picked]),
-  );
-  return tuple(required, ...optionals).map(([fields, ...entries]): object => {
-    const present = entries.filter(([, picked]) => picked !== undefined);
-    return Object.fromEntries([...Object.entries(fields), ...present]);
-  });
-}
-
-const base = {
-  predicate: predicateJson,
-  priority: modifierNumber,
-  display: withOptional(constant({}), { label: contentText, hidden: boolean() }),
-};
-
-function element(
-  key: string,
-  required: Readonly<Record<string, Arbitrary<unknown>>>,
-  optional = {},
-): Arbitrary<object> {
-  return withOptional(record({ key: constant(key), ...required }), { ...base, ...optional });
-}
-
-/** Any value of a const object (`ModifierType`, `DamageType`). */
-function anyOf<TValue>(values: Readonly<Record<string, TValue>>): Arbitrary<TValue> {
-  return constantFrom(...Object.values(values));
-}
-
-const modifierValue = oneof(modifierNumber, validFormulaText);
 const ruleValue = oneof(ruleNumber, validFormulaText);
 const nonAttributeTypes = Object.values(ModifierType).filter((type) => type !== ModifierType.Attribute);
 const damageType = anyOf(DamageType);
@@ -237,12 +185,6 @@ const damageAlteration = oneof(
 );
 const outcomes = uniqueArray(anyOf(DegreeOfSuccess), { minLength: 1, maxLength: LIST_MAX });
 const note = element('Note', { selectors: targets, text: richTextJson }, { title: contentText, outcome: outcomes });
-const fastHealing = element(
-  'FastHealing',
-  { value: modifierValue },
-  { type: anyOf(FastHealingType), deactivatedBy: uniqueArray(damageType, { minLength: 1, maxLength: LIST_MAX }) },
-);
-const tempHp = element('TempHP', { value: modifierValue });
 const signatureSpells = element('SignatureSpells', { entry: slugText });
 const focusSpells = element('FocusSpells', {
   entry: slugText,
@@ -297,4 +239,5 @@ export const ruleElementJson: Arbitrary<object> = oneof(
   note,
   fastHealing,
   tempHp,
+  creatureSize,
 );

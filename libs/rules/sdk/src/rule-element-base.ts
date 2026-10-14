@@ -40,6 +40,7 @@ export const RuleElementKey = {
   Note: 'Note',
   FastHealing: 'FastHealing',
   TempHP: 'TempHP',
+  CreatureSize: 'CreatureSize',
 } as const;
 export type RuleElementKey = ValueOf<typeof RuleElementKey>;
 

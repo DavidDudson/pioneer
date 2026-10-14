@@ -4703,7 +4703,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "CreatureSize",
+        "value": "tiny",
+        "resizeEquipment": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.o0baLY5VdjLhdsS7"
     },
@@ -4771,6 +4777,11 @@
         "selectors": ["skill:stealth"],
         "type": "item",
         "value": 2
+      },
+      {
+        "key": "CreatureSize",
+        "value": "tiny",
+        "resizeEquipment": true
       }
     ],
     "externalIds": {
