@@ -54,6 +54,7 @@ interface PendingCheck {
 /** A check being set up, with what rolling it offers and how those choices change it. */
 export interface CheckSetup extends RollSetup {
   readonly name: string;
+  readonly selector: Selector;
   readonly chosen: ReadonlySet<RuleId>;
 }
 
@@ -65,8 +66,9 @@ function checkText(total: number): DiceExpressionText {
 
 /**
  * Rolls checks for the sheet (#339, #340): a statistic's total from the engine's breakdown, added to one d20 and rolled
- * with the browser's random source. A check with nothing to toggle rolls at once; one with conditional modifiers or
- * `RollOption` toggles waits in `setup` for the player to choose, and the total follows what they pick. Keeps the last
+ * with the browser's random source. A check rolls at once with the situations claimed for it on the sheet (#537) and the
+ * `RollOption` toggles as they stand; `setUp` instead holds it in `setup` for the player to review, and the total
+ * follows what they pick. Keeps the last
  * roll, with the toggles it was made with, for the card in the header. Provided per sheet, and standing in for the
  * `STATISTIC_ROLLER` the statistics rows look for. Fortune and misfortune come with #341.
  */
@@ -112,24 +114,38 @@ export class SheetRolls implements StatisticRoller {
       return undefined;
     }
     const offered = sheetRollSetup(registry, character, pending);
-    return offered === undefined ? undefined : { ...offered, name: pending.name, chosen: pending.chosen };
+    return offered === undefined
+      ? undefined
+      : { ...offered, name: pending.name, selector: pending.selector, chosen: pending.chosen };
   });
 
-  /** Rolls the check at once if nothing about it can be toggled; else sets it up for the player to choose. */
+  /**
+   * Rolls the check at once with the situations claimed for it on the sheet and the `RollOption` toggles as they
+   * stand, then lets the claims go: they last for one roll.
+   */
   public roll({ name, statistic }: RollableStatistic): void {
-    const registry = this.#state.engine();
-    const character = this.#state.character();
     const { selector } = statistic;
-    const offered =
-      registry === undefined || character === undefined
-        ? undefined
-        : sheetRollSetup(registry, character, { selector, chosen: new Set() });
+    const chosen = this.#state.claims().get(selector) ?? new Set<RuleId>();
+    const offered = this.#offered(selector, chosen);
     this.saveError.set(undefined);
-    if (offered === undefined || (offered.conditional.length === 0 && offered.toggles.length === 0)) {
+    this.#state.release(selector);
+    if (offered === undefined) {
       this.#finish(name, statistic, []);
       return;
     }
-    this.#pending.set({ name, selector, chosen: new Set() });
+    this.#finish(name, offered.statistic, this.#reasons({ ...offered, name, selector, chosen }));
+  }
+
+  /** Sets the check up for the player to review: the situations claimed so far are chosen, and more can be. */
+  public setUp({ name, statistic }: RollableStatistic): void {
+    const { selector } = statistic;
+    this.saveError.set(undefined);
+    this.#pending.set({ name, selector, chosen: new Set(this.#state.claims().get(selector)) });
+  }
+
+  /** Claims the situation of a conditional line for the next roll of `selector`, or lets it go. */
+  public claim(selector: Selector, rule: RuleId, on: boolean): void {
+    this.#state.claim(selector, rule, on);
   }
 
   /** Counts a situation for the check being set up, or stops counting it. */
@@ -166,12 +182,22 @@ export class SheetRolls implements StatisticRoller {
       return;
     }
     this.#pending.set(undefined);
+    this.#state.release(setup.selector);
     this.#finish(setup.name, setup.statistic, this.#reasons(setup));
   }
 
   /** Drops the check being set up without rolling it. */
   public cancel(): void {
     this.#pending.set(undefined);
+  }
+
+  /** What rolling `selector` offers with `chosen` claimed; undefined while the content loads or it has no value. */
+  #offered(selector: Selector, chosen: ReadonlySet<RuleId>): RollSetup | undefined {
+    const registry = this.#state.engine();
+    const character = this.#state.character();
+    return registry === undefined || character === undefined
+      ? undefined
+      : sheetRollSetup(registry, character, { selector, chosen });
   }
 
   /** The toggles `setup` is rolled with, worded: the situations claimed, then the `RollOption` toggles that are on. */

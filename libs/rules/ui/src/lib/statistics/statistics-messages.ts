@@ -14,4 +14,6 @@ export const StatisticsMessage = {
   Conditional: 'rules.statistics.conditional',
   /** The label of the button that rolls a check: "Roll Perception". */
   Roll: 'rules.statistics.roll',
+  /** The label of the button that opens a roll to review its situations first: "Roll Perception with options". */
+  RollWithOptions: 'rules.statistics.rollWithOptions',
 } as const;

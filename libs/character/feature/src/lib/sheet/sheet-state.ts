@@ -1,10 +1,11 @@
-import { computed, inject, Injectable } from '@angular/core';
+import { computed, inject, Injectable, signal } from '@angular/core';
 import type { Signal } from '@angular/core';
 import { TranslocoService } from '@jsverse/transloco';
 import { itemContent, maxHitPoints, resourceMaxima, withPlay } from '@pioneer/character/domain';
 import type { Character, ResourceMaxima } from '@pioneer/character/domain';
+import type { RuleId } from '@pioneer/rules/engine';
 import { FocusPoints, SpellPreparation } from '@pioneer/rules/sdk';
-import type { ContentRegistry, HitPoints } from '@pioneer/rules/sdk';
+import type { ContentRegistry, HitPoints, Selector } from '@pioneer/rules/sdk';
 import type { EntryPreviews, Investment, Vital } from '@pioneer/rules/ui';
 
 import { CharacterStore } from '../data/character-store';
@@ -20,6 +21,8 @@ import type { IdentityParams } from './sheet-identity';
 import { samePlayed } from './sheet-played';
 import type { PlayedInputs } from './sheet-played';
 import { SPELL_CONTENT_KINDS } from './sheet-prepared-spells';
+import { claimSituation, NO_CLAIMS } from './sheet-situations';
+import type { SituationClaims } from './sheet-situations';
 import { sheetDerivation } from './sheet-statistics';
 import { sheetVitals } from './sheet-vitals';
 
@@ -79,6 +82,11 @@ export class SheetState {
    */
   public readonly conditionPreviews: EntryPreviews = sheetConditionPreviews(this.#engineRegistry, this.character);
 
+  readonly #claims = signal<SituationClaims>(NO_CLAIMS);
+
+  /** The situations claimed for the next roll of each statistic (#537); a roll uses its own and lets them go. */
+  public readonly claims: Signal<SituationClaims> = this.#claims.asReadonly();
+
   /** The root slot, subclass and key attribute pickers, the build summary, and what the engine derives. */
   public readonly picks: BuildPicks = sheetBuildPicks({
     registry: this.registry.data,
@@ -88,6 +96,7 @@ export class SheetState {
     select: async (slot, selection) => this.store.selectSlot(slot, selection),
     clear: async (slot) => this.store.clearSlot(slot),
     translate: (key, params) => this.#i18n.translate(key, params),
+    claims: this.claims,
   });
 
   /** The invested items and what each turns on, from the statistics; undefined while they load. */
@@ -153,4 +162,18 @@ export class SheetState {
     const lines = this.picks.buildLines();
     return character === undefined || lines === undefined ? undefined : sheetIdentity(character, lines);
   });
+
+  /** Claims the situation of a conditional line for the next roll of `selector`, or lets it go. */
+  public claim(selector: Selector, rule: RuleId, on: boolean): void {
+    this.#claims.update((claims) => claimSituation(claims, { selector, rule, on }));
+  }
+
+  /** Lets go of the situations claimed for `selector`, as its roll uses them up. */
+  public release(selector: Selector): void {
+    this.#claims.update((claims) => {
+      const next = new Map(claims);
+      next.delete(selector);
+      return next;
+    });
+  }
 }

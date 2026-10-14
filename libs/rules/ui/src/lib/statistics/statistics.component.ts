@@ -2,7 +2,8 @@ import { ChangeDetectionStrategy, Component, computed, inject, input } from '@an
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { Badge, Disclosure, EmptyState, List, ListItem, LocaleFormat, Skeleton, Stack, Text } from '@pioneer/frontier';
-import type { StatisticResult, StatisticValue } from '@pioneer/rules/engine';
+import { RuleId } from '@pioneer/rules/engine';
+import type { BreakdownLine, StatisticResult, StatisticValue } from '@pioneer/rules/engine';
 import type { ContentId, Selector, StatisticKind } from '@pioneer/rules/sdk';
 import { filter, merge } from 'rxjs';
 
@@ -10,11 +11,19 @@ import { BreakdownView } from '../breakdown/breakdown.component';
 import { numberStyle } from '../breakdown/number-style';
 import { NO_ORIGIN_NAMES } from '../origin-chain/origin-names';
 import type { OriginNames } from '../origin-chain/origin-names';
-import { conditionalLines } from './conditional-lines';
+import { conditionalLineText, conditionalLines } from './conditional-lines';
 import { StatisticConditions } from './statistic-conditions/statistic-conditions.component';
+import type { ConditionChange, ConditionToggle } from './statistic-conditions/statistic-conditions.component';
 import { StatisticRoll } from './statistic-roll/statistic-roll.component';
+import { STATISTIC_ROLLER } from './statistic-roller';
 import { StatisticTotal } from './statistic-total/statistic-total.component';
 import { StatisticsMessage } from './statistics-messages';
+
+/** The conditional lines of a statistic whose situation can be claimed, as the sheet shows them, and the rules claimed. */
+export interface StatisticSituations {
+  readonly offered: readonly BreakdownLine[];
+  readonly claimed: ReadonlySet<RuleId>;
+}
 
 /** A statistic to list: its display name, what kind it is, and what the engine derived for it. */
 export interface NamedStatistic {
@@ -25,6 +34,8 @@ export interface NamedStatistic {
   readonly result: StatisticResult;
   /** A line to show beside it, already worded: the skill two sources train (#673). */
   readonly note?: string | undefined;
+  /** The situations a roll of it can claim, when the page lets the player claim them. */
+  readonly situations?: StatisticSituations | undefined;
 }
 
 /** A statistic as shown: its total, its conditional lines and breakdown, or why it has none. */
@@ -38,6 +49,8 @@ type ShownStatistic =
       readonly computed: string | undefined;
       /** "+2 circumstance when your shield is raised (Steel Shield)": each line that applies only in some situations and could change the total. */
       readonly conditions: readonly string[];
+      /** Each line whose situation can be claimed, as a toggle. */
+      readonly toggles: readonly ConditionToggle[];
       readonly kind: StatisticKind;
       readonly statistic: StatisticValue;
     }
@@ -95,16 +108,21 @@ export class StatisticsView {
   protected readonly Message = StatisticsMessage;
   protected readonly loadingRows = [...Array.from({ length: LOADING_ROWS }).keys()];
 
+  readonly #roller = inject(STATISTIC_ROLLER, { optional: true });
   readonly #i18n = inject(TranslocoService);
   readonly #format = inject(LocaleFormat);
   /** Ticks when the locale changes or a message scope (`rules`, `predicate`, `engine`) finishes loading. */
   readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
   readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
 
+  protected claim(selector: Selector, { id, on }: ConditionChange): void {
+    this.#roller?.claim?.(selector, RuleId.parse(id), on);
+  }
+
   protected readonly shown = computed((): readonly ShownStatistic[] | undefined => {
     this.#messages();
     this.#format.locale();
-    return this.statistics()?.map(({ name: contentName, nameKey, kind, result, note }): ShownStatistic => {
+    return this.statistics()?.map(({ name: contentName, nameKey, kind, result, note, situations }): ShownStatistic => {
       const name = nameKey === undefined ? contentName : this.#i18n.translate(nameKey);
       if (!result.ok) {
         return {
@@ -120,11 +138,18 @@ export class StatisticsView {
         result.pinnedBy === undefined
           ? undefined
           : this.#i18n.translate(StatisticsMessage.Computed, { computed: this.#format.number(result.computed, style) });
-      const conditions = conditionalLines(result, {
+      const words = {
         i18n: this.#i18n,
         format: this.#format,
         names: { entries: this.entryNames(), items: this.originNames().items },
-      });
+      };
+      const offered = this.#roller?.claim === undefined ? [] : (situations?.offered ?? []);
+      const conditions = conditionalLines(result, words, new Set(offered.map(({ modifier }) => modifier.id)));
+      const toggles = offered.map((line): ConditionToggle => ({
+        id: line.modifier.id,
+        text: conditionalLineText(line, words),
+        on: situations?.claimed.has(line.modifier.id) === true,
+      }));
       return {
         ok: true,
         key: result.selector,
@@ -132,6 +157,7 @@ export class StatisticsView {
         total,
         computed: unpinned,
         conditions: note === undefined ? conditions : [...conditions, note],
+        toggles,
         kind,
         statistic: result,
       };

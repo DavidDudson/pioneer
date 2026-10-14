@@ -1,14 +1,20 @@
+import { applicationConfig } from '@analogjs/storybook-angular';
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 import { StatisticKind } from '@pioneer/rules/sdk';
 import { expect, within } from 'storybook/test';
 
 import { CONDITIONAL_STATISTICS, CYCLE, ENTRY_NAMES, FIGHTER_STATISTICS } from '../testing/breakdown-fixtures';
-import { BEATEN_STATISTICS } from '../testing/conditional-fixtures';
+import { BEATEN_STATISTICS, CLAIMABLE_STATISTICS } from '../testing/conditional-fixtures';
 import { PINNED_STATISTICS } from '../testing/override-fixtures';
+import { STATISTIC_ROLLER } from './statistic-roller';
+import type { StatisticRoller } from './statistic-roller';
 import { StatisticsMessage } from './statistics-messages';
 import { StatisticsView } from './statistics.component';
 
 type StatisticsStory = StoryObj<StatisticsView>;
+
+/** A roller that rolls and claims nothing, so the rows show their roll and situation toggles. */
+const CLAIMING_ROLLER: StatisticRoller = { roll: () => undefined, claim: () => undefined };
 
 const meta: Meta<StatisticsView> = {
   title: 'Rules/Statistics',
@@ -97,4 +103,14 @@ export const Strikes: StatisticsStory = {
 /** No Strikes: the caller names what the empty list lacks. */
 export const EmptyStrikes: StatisticsStory = {
   args: { statistics: [], noneKey: StatisticsMessage.NoStrikes },
+};
+
+/** Athletics with Sure Footing's situation as a toggle the player flips to count it in the total. */
+export const Claimable: StatisticsStory = {
+  args: { statistics: CLAIMABLE_STATISTICS },
+  decorators: [applicationConfig({ providers: [{ provide: STATISTIC_ROLLER, useValue: CLAIMING_ROLLER }] })],
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByRole('button', { name: '+2 circumstance when you Climb (Sure Footing)' })).toBeVisible();
+  },
 };

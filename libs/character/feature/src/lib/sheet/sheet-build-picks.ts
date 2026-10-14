@@ -31,6 +31,8 @@ import { sheetChoices, sheetChoiceSlots } from './sheet-choices';
 import { sheetDefences } from './sheet-defences';
 import { sheetEntryNames } from './sheet-entry-names';
 import { sheetPlannedSlots } from './sheet-planned-slots';
+import { withSituations } from './sheet-situations';
+import type { SituationClaims } from './sheet-situations';
 import { markTrainedAgain, sheetTrainedAgain } from './sheet-skill-repeats';
 import { sheetSkills, sheetSkillSlots } from './sheet-skills';
 import { slotField, slotFieldsOf } from './sheet-slot-picks';
@@ -51,6 +53,8 @@ export interface BuildPickSources {
   readonly select: (slot: SlotKey, selection: ChoiceValue) => Promise<void>;
   readonly clear: (slot: SlotKey) => Promise<void>;
   readonly translate: (key: string, params?: object) => string;
+  /** The situations claimed for the next roll of each statistic; the statistics are derived with them counted. */
+  readonly claims: Signal<SituationClaims>;
 }
 
 /**
@@ -147,8 +151,18 @@ function engineReads(sources: BuildPickSources): EngineReads {
   const engine = { ...sources, registry: sources.engineRegistry };
   const shields = loaded(engine, sheetShields);
   return {
-    statistics: loaded(engine, sheetStatistics),
-    skills: loaded(engine, (registry, character) => sheetSkills(registry, character, sources.translate)),
+    statistics: loaded(engine, (registry, character) =>
+      withSituations(registry, character, {
+        statistics: sheetStatistics(registry, character),
+        claims: sources.claims(),
+      }),
+    ),
+    skills: loaded(engine, (registry, character) =>
+      withSituations(registry, character, {
+        statistics: sheetSkills(registry, character, sources.translate),
+        claims: sources.claims(),
+      }),
+    ),
     strikes: loaded(engine, sheetStrikes),
     shields: computed(() => shields() ?? []),
     spellcasting: loaded(engine, sheetSpellcasting),

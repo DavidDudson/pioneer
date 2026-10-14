@@ -1,11 +1,24 @@
 @if (roller && kind() === Check) {
-  <fr-button
-    iconOnly
-    [variant]="ghost"
-    [size]="small"
-    [ariaLabel]="Message.Roll | transloco: { name: name() }"
-    (pressed)="roll()"
-  >
-    <fr-icon [icon]="Dices" />
-  </fr-button>
+  <fr-stack direction="horizontal" gap="3xs">
+    <fr-button
+      iconOnly
+      [variant]="ghost"
+      [size]="small"
+      [ariaLabel]="Message.Roll | transloco: { name: name() }"
+      (pressed)="roll()"
+    >
+      <fr-icon [icon]="Dices" />
+    </fr-button>
+    @if (roller.setUp) {
+      <fr-button
+        iconOnly
+        [variant]="ghost"
+        [size]="small"
+        [ariaLabel]="Message.RollWithOptions | transloco: { name: name() }"
+        (pressed)="setUp()"
+      >
+        <fr-icon [icon]="Options" />
+      </fr-button>
+    }
+  </fr-stack>
 }
