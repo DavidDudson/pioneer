@@ -630,12 +630,14 @@ FlatModifier` appends the import's rules of the keys named to the committed entr
   A value read from the origin item (`@item.origin.level`), from a pick (`@item.flags.system.rulesSelections.rank`) or
   from another actor's attribute stays in the backlog, as does Foundry's `TempHP` `expiration`, which no content in the
   packs sets.
-- **Strikes.** A `Strike` of its own takes its `baseType` as its `slug` when it has none (Foundry names it so), drops
-  `baseType`, reads `range: { increment }` as the number and `range: null` as none. An attack with neither `slug` nor
-  `baseType`, damage dice read from a formula, and `otherTags` stay in the backlog. An `AdjustStrike` becomes an
-  `ItemAlteration` of the weapons its `definition` reaches, for `traits`, `materials`, `property-runes` (add or remove
-  a slug) and `range-increment` (add or multiply); one with no `definition`, with `selectors`, or with a value or
-  definition read from a pick stays in the backlog.
+- **Strikes.** A `Strike` of an attack of its own drops `baseType`, `otherTags` and `img`, reads `range: null` as no
+  range and `{ increment }` as the range increment, and is named by its `slug`, else its base type, else its label.
+  Its damage is read as before; a dice count that is a formula, and one with no name to be had (a torch), stay in the
+  backlog. An `AdjustStrike`'s `definition` (the weapons it reaches, by their roll options: `item:ranged`,
+  `item:slug:longsword`) becomes `strikes`; `traits`, `materials`, `property-runes` and `range-increment` are
+  translated. One aimed at a roll domain (`selectors`), and any whose `definition` or `value` is read from a pick or the
+  item (`item:id:{item|_id}`, `{item|flags...}`), stay in the backlog. Pioneer's engine reads `Strike` elements;
+  `AdjustStrike` lands typed and is applied to Strikes by a later story, as `ItemAlteration` is.
 - **Size and traits.** A `CreatureSize` takes its `value` and `maximumSize` as Pioneer names a size (`sm` is `small`,
   `med` `medium`, `lg` `large`, `grg` `gargantuan`) or, as a number, as steps from the current size; `resizeEquipment` and
   `reach` (`override` or `add`) stand. A size or reach read from a pick stays in the backlog. An `ActorTraits` needs no

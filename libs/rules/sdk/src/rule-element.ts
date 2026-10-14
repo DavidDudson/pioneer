@@ -4,6 +4,7 @@ import * as z from 'zod';
 
 import { RulesMessage } from './messages';
 import { ActorTraitsElement } from './rule-element-actor-traits';
+import { AdjustStrikeElement } from './rule-element-adjust-strike';
 import { RuleElementKey } from './rule-element-base';
 import { CreatureSizeElement } from './rule-element-creature-size';
 import { DamageAlterationElement, DamageDiceElement } from './rule-element-damage';
@@ -61,6 +62,7 @@ const Element = z.discriminatedUnion('key', [
   LanguageElement,
   ActorTraitsElement,
   StrikeElement,
+  AdjustStrikeElement,
   DamageDiceElement,
   DamageAlterationElement,
   NoteElement,

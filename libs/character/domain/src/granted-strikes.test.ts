@@ -3,7 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { resolveGrants } from '@pioneer/rules/grants';
 import type { GrantResolution } from '@pioneer/rules/grants';
 import { entry, idOf, inputsOf, picked } from '@pioneer/rules/grants/testing';
-import { BaseWeapon, Trait, WeaponDamage } from '@pioneer/rules/sdk';
+import { BaseWeapon, Feet, Trait, WeaponDamage } from '@pioneer/rules/sdk';
 
 import { grantedStrikes } from './granted-strikes';
 
@@ -56,6 +56,20 @@ describe('grantedStrikes', () => {
 
     expect(strikes.map(({ slug }) => String(slug))).toEqual(['fist', 'jaws']);
     expect(strikes[1]).toMatchObject({ category: 'unarmed', label: 'Jaws' });
+  });
+
+  test('an imported claw from a feat gives its attack with its brawling group, and one behind an unset option none', () => {
+    const claws = { ...JAWS, slug: 'claw', group: 'brawling', display: { label: 'Claw' } };
+    const ranged = { ...JAWS, slug: 'seed-spit', range: 30 };
+    const gated = { ...claws, predicate: ['option:animal-feature:claw'] };
+
+    const strikes = grantedStrikes(
+      resolved({ 'hag-claws': claws, seedpod: ranged, 'animal-feature': gated }),
+      NO_FAVOURED,
+    );
+
+    expect(strikes.map(({ slug }) => String(slug))).toEqual(['claw', 'seed-spit']);
+    expect(strikes[1]?.range).toBe(Feet.parse(30));
   });
 
   test('the first attack of a slug wins', () => {

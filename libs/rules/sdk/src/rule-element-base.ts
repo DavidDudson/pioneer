@@ -35,6 +35,7 @@ export const RuleElementKey = {
   Language: 'Language',
   ActorTraits: 'ActorTraits',
   Strike: 'Strike',
+  AdjustStrike: 'AdjustStrike',
   DamageDice: 'DamageDice',
   DamageAlteration: 'DamageAlteration',
   Note: 'Note',

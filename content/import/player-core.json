@@ -7858,46 +7858,6 @@
         },
         {
           "type": "rule",
-          "key": "Strike",
-          "raw": {
-            "baseType": "claw",
-            "category": "unarmed",
-            "damage": {
-              "base": {
-                "damageType": "slashing",
-                "dice": 1,
-                "die": "d6"
-              }
-            },
-            "key": "Strike",
-            "label": "PF2E.Weapon.Base.claw",
-            "predicate": ["animal-feature:claw"],
-            "range": null,
-            "traits": ["agile", "finesse", "magical", "unarmed"]
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Strike",
-          "raw": {
-            "baseType": "jaws",
-            "category": "unarmed",
-            "damage": {
-              "base": {
-                "damageType": "piercing",
-                "dice": 1,
-                "die": "d8"
-              }
-            },
-            "key": "Strike",
-            "label": "PF2E.Weapon.Base.jaws",
-            "predicate": ["animal-feature:jaws"],
-            "range": null,
-            "traits": ["magical", "unarmed"]
-          }
-        },
-        {
-          "type": "rule",
           "key": "BaseSpeed",
           "raw": {
             "key": "BaseSpeed",
@@ -12922,25 +12882,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:spell-effect-infuse-vitality",
-      "foundry": "Compendium.pf2e.spell-effects.Item.X7RD0JRxhJV9u2LC",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustStrike",
-          "raw": {
-            "key": "AdjustStrike",
-            "mode": "add",
-            "predicate": ["parent:origin:trait:holy"],
-            "property": "traits",
-            "value": "holy"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:spell-effect-know-the-enemy",
       "foundry": "Compendium.pf2e.spell-effects.Item.ZmoLNdkOWwZgSrti",
       "gaps": [
@@ -15201,48 +15142,6 @@
         },
         {
           "type": "rule",
-          "key": "Strike",
-          "raw": {
-            "baseType": "claw",
-            "category": "unarmed",
-            "damage": {
-              "base": {
-                "damageType": "slashing",
-                "dice": 1,
-                "die": "d6"
-              }
-            },
-            "key": "Strike",
-            "label": "PF2E.Weapon.Base.claw",
-            "predicate": ["untamed-shift:untamed-claws"],
-            "range": null,
-            "slug": "claw",
-            "traits": ["agile", "finesse", "unarmed", "magical"]
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Strike",
-          "raw": {
-            "baseType": "jaws",
-            "category": "unarmed",
-            "damage": {
-              "base": {
-                "damageType": "piercing",
-                "dice": 1,
-                "die": "d8"
-              }
-            },
-            "key": "Strike",
-            "label": "PF2E.Weapon.Base.jaws",
-            "predicate": ["untamed-shift:untamed-jaws"],
-            "range": null,
-            "slug": "jaws",
-            "traits": ["unarmed", "magical"]
-          }
-        },
-        {
-          "type": "rule",
           "key": "Resistance",
           "raw": {
             "key": "Resistance",
@@ -16854,84 +16753,6 @@
       "slug": "feat:bestial-manifestation",
       "foundry": "Compendium.pf2e.feats-srd.Item.eUyZBi8vV5QDxOXD",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "Strike",
-          "raw": {
-            "baseType": "claw",
-            "category": "unarmed",
-            "damage": {
-              "base": {
-                "damageType": "slashing",
-                "dice": 1,
-                "die": "d4"
-              }
-            },
-            "group": "brawling",
-            "key": "Strike",
-            "label": "PF2E.BattleForm.Attack.Claw",
-            "predicate": ["bestial-manifestation:claw"],
-            "traits": ["agile", "finesse", "unarmed", "versatile-p"]
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Strike",
-          "raw": {
-            "category": "unarmed",
-            "damage": {
-              "base": {
-                "damageType": "bludgeoning",
-                "dice": 1,
-                "die": "d6"
-              }
-            },
-            "group": "brawling",
-            "key": "Strike",
-            "label": "PF2E.BattleForm.Attack.Hoof",
-            "predicate": ["bestial-manifestation:hoof"],
-            "traits": ["finesse", "unarmed"]
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Strike",
-          "raw": {
-            "baseType": "jaws",
-            "category": "unarmed",
-            "damage": {
-              "base": {
-                "damageType": "piercing",
-                "dice": 1,
-                "die": "d6"
-              }
-            },
-            "group": "brawling",
-            "key": "Strike",
-            "label": "PF2E.BattleForm.Attack.Jaws",
-            "predicate": ["bestial-manifestation:jaws"],
-            "traits": ["finesse", "unarmed"]
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Strike",
-          "raw": {
-            "category": "unarmed",
-            "damage": {
-              "base": {
-                "damageType": "bludgeoning",
-                "dice": 1,
-                "die": "d4"
-              }
-            },
-            "group": "brawling",
-            "key": "Strike",
-            "label": "PF2E.BattleForm.Attack.Tail",
-            "predicate": ["bestial-manifestation:tail"],
-            "traits": ["agile", "finesse", "unarmed"]
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -19943,34 +19764,6 @@
                 "text": "PF2E.SpecificRule.Halfling.GuidingLuck"
               }
             ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:hag-claws",
-      "foundry": "Compendium.pf2e.feats-srd.Item.Qb25uu1gT5CDMSWb",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Strike",
-          "raw": {
-            "baseType": "claw",
-            "category": "unarmed",
-            "damage": {
-              "base": {
-                "damageType": "slashing",
-                "dice": 1,
-                "die": "d4"
-              }
-            },
-            "group": "brawling",
-            "key": "Strike",
-            "label": "PF2E.Weapon.Base.claw",
-            "range": null,
-            "traits": ["agile", "finesse", "unarmed"]
           }
         }
       ]
@@ -23238,34 +23031,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:slag-may",
-      "foundry": "Compendium.pf2e.feats-srd.Item.xTe8lNBp76jsrhYh",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Strike",
-          "raw": {
-            "baseType": "claw",
-            "category": "unarmed",
-            "damage": {
-              "base": {
-                "damageType": "slashing",
-                "dice": 1,
-                "die": "d6"
-              }
-            },
-            "group": "brawling",
-            "key": "Strike",
-            "label": "PF2E.Weapon.Base.claw",
-            "slug": "slag-may-claw",
-            "traits": ["grapple"]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:slip-sideways",
       "foundry": "Compendium.pf2e.feats-srd.Item.rCajlx2KjGxzabAJ",
       "gaps": [
@@ -24183,33 +23948,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:tusks-orc",
-      "foundry": "Compendium.pf2e.feats-srd.Item.M5195FvfCN3X7gi9",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Strike",
-          "raw": {
-            "category": "unarmed",
-            "damage": {
-              "base": {
-                "damageType": "piercing",
-                "dice": 1,
-                "die": "d6"
-              }
-            },
-            "group": "brawling",
-            "key": "Strike",
-            "label": "PF2E.BattleForm.Attack.Tusk",
-            "range": null,
-            "traits": ["unarmed", "finesse"]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:twist-the-knife",
       "foundry": "Compendium.pf2e.feats-srd.Item.5Jc2ySGLVi053qpz",
       "gaps": [
@@ -25080,68 +24818,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "Strike",
-          "raw": {
-            "baseType": "nails",
-            "category": "unarmed",
-            "damage": {
-              "base": {
-                "damageType": "slashing",
-                "dice": 1,
-                "die": "d6"
-              }
-            },
-            "group": "brawling",
-            "key": "Strike",
-            "label": "PF2E.SpecificRule.Witch.WitchsArmaments.EldritchNails",
-            "predicate": ["witchs-armaments:nails"],
-            "range": null,
-            "traits": ["agile", "unarmed"]
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Strike",
-          "raw": {
-            "baseType": "jaws",
-            "category": "unarmed",
-            "damage": {
-              "base": {
-                "damageType": "piercing",
-                "dice": 1,
-                "die": "d8"
-              }
-            },
-            "group": "brawling",
-            "key": "Strike",
-            "label": "PF2E.SpecificRule.Witch.WitchsArmaments.IronTeeth",
-            "predicate": ["witchs-armaments:teeth"],
-            "range": null,
-            "traits": ["unarmed"]
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Strike",
-          "raw": {
-            "category": "unarmed",
-            "damage": {
-              "base": {
-                "damageType": "bludgeoning",
-                "dice": 1,
-                "die": "d4"
-              }
-            },
-            "group": "brawling",
-            "key": "Strike",
-            "label": "PF2E.SpecificRule.Witch.WitchsArmaments.LivingHair",
-            "predicate": ["witchs-armaments:hair"],
-            "range": null,
-            "traits": ["agile", "disarm", "finesse", "trip", "unarmed"]
-          }
-        },
-        {
-          "type": "rule",
           "key": "ItemAlteration",
           "raw": {
             "itemType": "weapon",
@@ -25273,33 +24949,6 @@
             "mode": "add",
             "path": "system.details.ancestry.countsAs",
             "value": "aiuvarin"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "heritage:cactus-leshy",
-      "foundry": "Compendium.pf2e.heritages.Item.2cii5ZkBsJ4DYdd2",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Strike",
-          "raw": {
-            "category": "unarmed",
-            "damage": {
-              "base": {
-                "damageType": "piercing",
-                "dice": 1,
-                "die": "d6"
-              }
-            },
-            "group": "brawling",
-            "key": "Strike",
-            "label": "PF2E.BattleForm.Attack.Spine",
-            "range": null,
-            "traits": ["finesse", "unarmed"]
           }
         }
       ]

@@ -3105,24 +3105,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "Strike",
-          "raw": {
-            "category": "unarmed",
-            "damage": {
-              "base": {
-                "damageType": "spirit",
-                "dice": 1,
-                "die": "d8"
-              }
-            },
-            "group": "brawling",
-            "key": "Strike",
-            "label": "PF2E.SpecificRule.RivethunInvoker.InvokeOffense.Label",
-            "traits": ["agile", "finesse", "magical"]
-          }
-        },
-        {
-          "type": "rule",
           "key": "ItemAlteration",
           "raw": {
             "itemType": "weapon",
