@@ -1,11 +1,12 @@
 import { describe, expect, test } from 'bun:test';
 
-import { CarryState, itemContent, runeContent } from '@pioneer/character/domain';
+import { CarryState, itemContent } from '@pioneer/character/domain';
 import type { Inventory } from '@pioneer/character/domain';
 import { entryLookup, ImportKind, readPathbuilderExport, registryLookup } from '@pioneer/interop/pathbuilder';
 import { mordredExport } from '@pioneer/interop/pathbuilder/testing';
-import { ContentKind } from '@pioneer/rules/sdk';
+import { ContentKind, ContentText, PROPERTY_RUNES_MAX } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
+import { newId, Uuid } from '@pioneer/shared/kernel';
 
 import { importedInventory } from './pathbuilder-inventory';
 
@@ -41,6 +42,17 @@ const GEAR = new ContentPackBuilder()
   .withItem(ContentKind.Equipment, 'torch', { bulk: 'light' })
   .build();
 
+/** Caliburn's property runes: seven, two more than an item holds. */
+const CALIBURN_RUNES = [
+  'Ghost Touch',
+  'Bane',
+  'Wounding',
+  'Fearsome (Greater)',
+  'Shockwave',
+  'Disrupting (Greater)',
+  'Keen',
+];
+
 async function mordredInventory(): Promise<Inventory> {
   const read = readPathbuilderExport(mordredExport);
   if (!read.ok) {
@@ -48,7 +60,9 @@ async function mordredInventory(): Promise<Inventory> {
   }
   const registry = await fixedContent(GEAR).registry();
   const lookup = registryLookup(registry);
-  const runes = entryLookup({ [ImportKind.Item]: [...runeContent(registry).values()] });
+  const runes = entryLookup({
+    [ImportKind.Item]: CALIBURN_RUNES.map((name) => ({ id: Uuid.parse(newId()), name: ContentText.parse(name) })),
+  });
   return importedInventory(read.value, { items: lookup, runes, entries: itemContent(registry) });
 }
 
@@ -70,6 +84,11 @@ describe('importedInventory (Mordred)', () => {
     const named = items.filter((item) => item.name !== undefined).map((item) => item.name);
     expect(named).toStrictEqual(['Caliburn', 'Clarent']);
     expect(items.find((item) => item.name === 'Clarent')?.runes).toMatchObject({ potency: 2, striking: 2 });
+  });
+
+  test('etches no more property runes than an item holds', async () => {
+    const { items } = await mordredInventory();
+    expect(items.find((item) => item.name === 'Caliburn')?.runes?.property).toHaveLength(PROPERTY_RUNES_MAX);
   });
 
   test('invests only what content says is invested, and carries the coins', async () => {

@@ -19,7 +19,7 @@ export const ReinforcingGrade = Pg.smallint().min(1).max(REINFORCING_GRADE_MAX).
 export type ReinforcingGrade = z.infer<typeof ReinforcingGrade>;
 
 /** A potency rune's grade, and one more for orichalcum: the most property runes an item can hold. */
-const PROPERTY_RUNES_MAX = RUNE_GRADE_MAX + 1;
+export const PROPERTY_RUNES_MAX = RUNE_GRADE_MAX + 1;
 
 /**
  * A specific item's property runes, as `rune` entries, as printed. A potency rune's grade limits the runes etched
