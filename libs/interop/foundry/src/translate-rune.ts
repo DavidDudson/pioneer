@@ -132,9 +132,16 @@ const GRADE_WORDS: ReadonlySet<string> = new Set([
 /** A rune key's words: `greaterEnergyResistant` is `greater`, `energy`, `resistant`. */
 const WORD = /[A-Z]?[a-z0-9]+/gu;
 
+/** Property runes the remaster renamed, by the slug their legacy Foundry key spells (Speed is now Quickstrike). */
+const RENAMED_RUNES: ReadonlyMap<string, string> = new Map([['speed', 'quickstrike']]);
+
 /** Foundry's key for a property rune on an item (`greaterFlaming`) as its rune item's slug (`flaming-greater`). */
 export function runeSlug(key: string): string {
   const words = (key.match(WORD) ?? []).map((word) => word.toLowerCase());
+  const renamed = RENAMED_RUNES.get(words.join('-'));
+  if (renamed !== undefined) {
+    return renamed;
+  }
   const [first, ...rest] = words;
   return first !== undefined && GRADE_WORDS.has(first) && rest.length > 0
     ? [...rest, first].join('-')
