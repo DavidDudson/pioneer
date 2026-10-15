@@ -1,6 +1,14 @@
 export { campaignRoutes } from './campaign-routes';
-export { campaignCharacters, campaignInvites, campaignMembers, campaignPacks, campaigns } from './campaign.table';
+export {
+  campaignCharacters,
+  campaignInvites,
+  campaignMembers,
+  campaignPacks,
+  campaigns,
+  campaignVariantRules,
+} from './campaign.table';
 export { DrizzleCampaignInviteRepository } from './drizzle-campaign-invite-repository';
 export { DrizzleCampaignPackRepository } from './drizzle-campaign-pack-repository';
 export { DrizzleCampaignPartyRepository } from './drizzle-campaign-party-repository';
 export { DrizzleCampaignRepository } from './drizzle-campaign-repository';
+export { DrizzleCampaignVariantRepository } from './drizzle-campaign-variant-repository';

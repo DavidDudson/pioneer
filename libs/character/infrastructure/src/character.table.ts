@@ -4,6 +4,7 @@ import type {
   CharacterName,
   CharacterPackId,
   CharacterSchemaVersion,
+  CharacterVariantRuleId,
   FeatDisplayId,
   FeatDisplaySection,
   PlayState,
@@ -12,7 +13,7 @@ import type {
   SheetModeId,
   StoredCharacterDocument,
 } from '@pioneer/character/domain';
-import type { ContentPackId } from '@pioneer/rules/sdk';
+import type { ContentPackId, VariantRuleId } from '@pioneer/rules/sdk';
 import type { UserId, Version } from '@pioneer/shared/kernel';
 import {
   boolean,
@@ -166,5 +167,34 @@ export const characterPacks = pgTable(
     index('character_packs_pack_idx').on(table.packId),
     // Serves clearing `enabled_by` when the user is deleted.
     index('character_packs_enabled_by_idx').on(table.enabledBy),
+  ],
+);
+
+/**
+ * The variant rules a character has enabled, one row each, used while it is in no campaign (a character in a campaign
+ * uses the campaign's variant rules and ignores these; ADR-0061). The audit log keys rows by `id`, so an enablement has
+ * its own id. `variant_id` is a variant-rule content entry's id; it has no foreign key, since a pack going away must not
+ * delete the choice: a variant rule whose pack is not in force is left out when the set is read, and comes back with
+ * its pack. The foreign key on `enabled_by` (to users, on delete set null) is in the migration, as identity's tables
+ * are outside this context's boundary; deleting the character deletes its rows too.
+ */
+export const characterVariantRules = pgTable(
+  'character_variant_rules',
+  {
+    id: uuid().$type<CharacterVariantRuleId>().primaryKey(),
+    characterId: uuid()
+      .$type<CharacterId>()
+      .notNull()
+      .references(() => characters.id, { onDelete: 'cascade' }),
+    variantId: uuid().$type<VariantRuleId>().notNull(),
+    // Null once the user who enabled it is deleted.
+    enabledBy: uuid().$type<UserId>(),
+    enabledAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
+  },
+  (table) => [
+    // A character enables a variant rule once; also serves the character's list and the cascade when it is deleted.
+    uniqueIndex('character_variant_rules_character_variant_idx').on(table.characterId, table.variantId),
+    // Serves clearing `enabled_by` when the user is deleted.
+    index('character_variant_rules_enabled_by_idx').on(table.enabledBy),
   ],
 );

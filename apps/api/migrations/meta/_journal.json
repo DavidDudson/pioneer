@@ -148,6 +148,13 @@
       "when": 1791932532740,
       "tag": "0020_character_packs",
       "breakpoints": true
+    },
+    {
+      "idx": 21,
+      "version": "7",
+      "when": 1791982370690,
+      "tag": "0021_variant_rules",
+      "breakpoints": true
     }
   ]
 }

@@ -417,6 +417,13 @@ export {
   PackTitle,
 } from './character-packs';
 export {
+  type CharacterVariantRule,
+  CharacterVariantRuleId,
+  CharacterVariantRules,
+  EnableVariantRuleBody,
+  VariantRuleOption,
+} from './character-variant-rules';
+export {
   type ClassOption,
   type ClassPickerContent,
   type ClassProficiency,

@@ -20,3 +20,8 @@ export { MemberMessage } from './member-message';
 export { PackCatalog, type CatalogPack } from './pack-catalog';
 export { PackMessage } from './pack-message';
 export { PartyMessage } from './party-message';
+export { CampaignVariantRepository } from './campaign-variant-repository';
+export { CampaignVariantService, type CampaignVariantPorts } from './campaign-variant-service';
+export { InMemoryCampaignVariantRepository } from './in-memory-campaign-variant-repository';
+export { InMemoryVariantRuleCatalog } from './in-memory-variant-rule-catalog';
+export { VariantRuleCatalog } from './variant-rule-catalog';

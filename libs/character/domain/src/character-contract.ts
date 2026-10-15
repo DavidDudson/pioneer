@@ -1,4 +1,4 @@
-import { AncestryId, ContentPackId } from '@pioneer/rules/sdk';
+import { AncestryId, ContentPackId, VariantRuleId } from '@pioneer/rules/sdk';
 import { Endpoint, HttpMethod, listQuery, NoBody, NoParams, NoQuery } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
@@ -10,6 +10,7 @@ import { CharacterLanguages } from './character-languages';
 import { CharacterPacks, EnablePackBody } from './character-packs';
 import { PatchCharacterBody } from './character-patch';
 import { CharacterSlot } from './character-slot';
+import { CharacterVariantRules, EnableVariantRuleBody } from './character-variant-rules';
 import { ClearedPick } from './dependent-picks';
 import { FeatDisplayChoice, SetFeatDisplayBody } from './feat-display';
 import { CharacterPlay, PatchPlayBody } from './play-state';
@@ -17,6 +18,7 @@ import { SetSheetModeBody, SheetModeChoice } from './sheet-mode';
 
 const ById = z.object({ id: CharacterId });
 const ByPack = z.object({ id: CharacterId, packId: ContentPackId });
+const ByVariantRule = z.object({ id: CharacterId, variantId: VariantRuleId });
 
 /** The only orders the character list supports; each is backed by an index. */
 export const CharacterSort = { CreatedAt: 'created-at', Name: 'name' } as const;
@@ -169,5 +171,38 @@ export const CharacterContract = {
     query: NoQuery,
     body: NoBody,
     response: CharacterPacks,
+  }),
+  /** The variant rules in force for this character, and who decides them: its owner, or the campaign it is attached to. */
+  variantRules: new Endpoint({
+    method: HttpMethod.Get,
+    path: '/characters/:id/variant-rules',
+    params: ById,
+    query: NoQuery,
+    body: NoBody,
+    response: CharacterVariantRules,
+  }),
+  /**
+   * Owner only: enables a variant rule of a pack in force. A character in a campaign uses the campaign's variant rules,
+   * so that is a 409. A variant rule that is not in a pack in force is a 404. Enabling it twice is harmless.
+   */
+  enableVariantRule: new Endpoint({
+    method: HttpMethod.Post,
+    path: '/characters/:id/variant-rules',
+    params: ById,
+    query: NoQuery,
+    body: EnableVariantRuleBody,
+    response: CharacterVariantRules,
+  }),
+  /**
+   * Owner only: stops the character using a variant rule. A campaign's variant rules are not the character's to
+   * change: that is a 409. Disabling it twice is harmless.
+   */
+  disableVariantRule: new Endpoint({
+    method: HttpMethod.Delete,
+    path: '/characters/:id/variant-rules/:variantId',
+    params: ByVariantRule,
+    query: NoQuery,
+    body: NoBody,
+    response: CharacterVariantRules,
   }),
 } as const;

@@ -5,9 +5,11 @@ import type {
   CampaignMemberId,
   CampaignName,
   CampaignPackId,
+  CampaignVariantRuleId,
   CampaignRole,
   CharacterId,
   EnabledPackId,
+  EnabledVariantRuleId,
   InviteTokenHash,
 } from '@pioneer/campaign/domain';
 import type { UserId, Version } from '@pioneer/shared/kernel';
@@ -147,5 +149,34 @@ export const campaignPacks = pgTable(
     index('campaign_packs_pack_idx').on(table.packId),
     // Serves clearing `enabled_by` when the user is deleted.
     index('campaign_packs_enabled_by_idx').on(table.enabledBy),
+  ],
+);
+
+/**
+ * The variant rules a campaign has enabled, one row each; the characters in it use these and ignore their own
+ * (ADR-0061). The audit log keys rows by `id`, so an enablement has its own id. `variant_id` is a variant-rule content
+ * entry's id; it has no foreign key, since a pack the campaign stops using must not delete the choice: a variant rule
+ * whose pack is not in use is left out when the set is read, and comes back with its pack. The foreign key on
+ * `enabled_by` (to users, on delete set null) is in the migration, as identity's tables are outside this context's
+ * boundary.
+ */
+export const campaignVariantRules = pgTable(
+  'campaign_variant_rules',
+  {
+    id: uuid().$type<CampaignVariantRuleId>().primaryKey(),
+    campaignId: uuid()
+      .$type<CampaignId>()
+      .notNull()
+      .references(() => campaigns.id, { onDelete: 'cascade' }),
+    variantId: uuid().$type<EnabledVariantRuleId>().notNull(),
+    // Null once the user who enabled it is deleted: the campaign keeps the variant rule.
+    enabledBy: uuid().$type<UserId>(),
+    enabledAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
+  },
+  (table) => [
+    // A variant rule is enabled in a campaign once; also serves a campaign's list and the cascade when it is deleted.
+    uniqueIndex('campaign_variant_rules_campaign_variant_idx').on(table.campaignId, table.variantId),
+    // Serves clearing `enabled_by` when the user is deleted.
+    index('campaign_variant_rules_enabled_by_idx').on(table.enabledBy),
   ],
 );

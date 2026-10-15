@@ -188,7 +188,7 @@ describe('CharacterPackService', () => {
 
     test('decides the packs of a character attached to it, whatever the character enabled', async () => {
       await service.enable(amiri, kyra.id, { packId: spells });
-      campaigns.attach(kyra.id, { name: campaignName, packs: [feats, spells] });
+      campaigns.attach(kyra.id, { name: campaignName, packs: [feats, spells], variants: [] });
       const packs = await service.packs(amiri, kyra.id);
       expect(packs.decidedBy).toBe(PackAuthority.Campaign);
       expect(packs.campaign).toBe(campaignName);
@@ -200,7 +200,7 @@ describe('CharacterPackService', () => {
 
     test('attaching switches the effective set and detaching switches it back', async () => {
       await service.enable(amiri, kyra.id, { packId: spells });
-      campaigns.attach(kyra.id, { name: campaignName, packs: [table, foreign] });
+      campaigns.attach(kyra.id, { name: campaignName, packs: [table, foreign], variants: [] });
       expect(enabledTitles(await service.packs(amiri, kyra.id))).toStrictEqual([
         'Player Core',
         'Foreign',
@@ -213,7 +213,7 @@ describe('CharacterPackService', () => {
     });
 
     test('refuses a change while it decides: a 409 naming it', async () => {
-      campaigns.attach(kyra.id, { name: campaignName, packs: [] });
+      campaigns.attach(kyra.id, { name: campaignName, packs: [], variants: [] });
       const refusal = await rejection(service.enable(amiri, kyra.id, { packId: spells }));
       expect(refusal).toBeInstanceOf(ConflictError);
       expect(refusal).toMatchObject({

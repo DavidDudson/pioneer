@@ -31,7 +31,7 @@ export interface CharacterPack {
 /** Who decides which packs a character uses: the character's owner, or the campaign it is attached to. */
 export const PackAuthority = { Character: 'character', Campaign: 'campaign' } as const;
 export type PackAuthority = ValueOf<typeof PackAuthority>;
-const PackAuthoritySchema = z.enum(PackAuthority);
+export const PackAuthoritySchema = z.enum(PackAuthority);
 
 /** A pack as the character's pack list names it. */
 const PackListing = z.object({
