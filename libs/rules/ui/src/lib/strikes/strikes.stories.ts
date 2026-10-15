@@ -6,6 +6,7 @@ import { STATISTIC_ROLLER } from '../statistics/statistic-roller';
 import type { StatisticRoller } from '../statistics/statistic-roller';
 import { ENTRY_NAMES } from '../testing/breakdown-fixtures';
 import {
+  ALTERED_STRIKE,
   claimableStrike,
   ELEMENT_STRIKE,
   FAILED_STRIKE,
@@ -110,6 +111,17 @@ export const ClaimedSituation: StrikesStory = {
     const toggle = canvas.getByRole('button', { name: /when you are in darkness/u });
     await expect(toggle).toHaveAttribute('aria-pressed', 'true');
     await expect(canvas.getByText('Attack +10 / +5 / +0')).toBeVisible();
+  },
+};
+
+/** A longsword that item alterations made of cold iron, with the flaming rune, beside a shield they made sturdier. */
+export const ItemAlterations: StrikesStory = {
+  args: { strikes: ALTERED_STRIKE, shields: [{ ...STEEL_SHIELD, hardness: 8, hitPoints: 40, brokenThreshold: 20 }] },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('Made of cold iron')).toBeVisible();
+    await expect(canvas.getByText('Property runes: flaming')).toBeVisible();
+    await expect(canvas.getByText('Steel Shield: Hardness 8, HP 40, Broken Threshold 20')).toBeVisible();
   },
 };
 

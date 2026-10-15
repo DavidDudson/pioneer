@@ -721,6 +721,28 @@ is undead) gives nothing here. Elements apply in the order found:
 
 The extra dice and notes are shown beside the Strike's damage; the dice are not yet rolled with it.
 
+### Item alterations
+
+`alterItem` in `libs/rules/engine` changes an item's content with the `ItemAlteration` elements whose predicate holds and
+whose `items` predicate holds for the item's own roll options (`item:type:shield`, `item:trait:agile`,
+`item:slug:steel-shield`, `item:equipped`). `alteredItem` in `libs/character/domain` builds those options and the item's
+numbers from its content. An element that depends on the situation gives nothing here. Elements apply in the order
+found:
+
+- A numeric property (`ac-bonus`, `check-penalty`, `dex-cap`, `hardness`, `hp-max`, `range-increment`,
+  `speed-penalty`, `strength`) changes by its `mode`, never below 0. An item with no value for the property (armour
+  with no Dexterity cap, a melee weapon's range increment) takes one from `upgrade`, `downgrade` and `override` only.
+- `traits`, `materials` and `property-runes` add or remove one value; `damage-type` overrides the weapon's.
+- A value that is a formula reads no references, as the item is read before the character's numbers are known. One that
+  needs them has no value and changes nothing.
+
+Only equipped items are altered, and only when armour, a weapon or a shield is equipped, as reading the rules in play
+resolves the character's grants. The sheet reads the result where it already shows the item: armour's bonus, Dexterity
+cap, check penalty and Strength through the AC and skill breakdowns, a shield's Hardness, Hit Points and Broken
+Threshold beside the Strikes, and a weapon's traits, range increment and damage type on its Strike. A weapon's
+materials and the property runes an element adds are listed on its Strike. A property rune etched on the item works
+through its own rules, not through this list. `speed-penalty` is altered but nothing reads armour's speed penalty yet.
+
 ## Predicates and conditional modifiers
 
 Predicates use Foundry's JSON shape so imported content needs no rewriting: an array means _all_, plus `or`, `and`,

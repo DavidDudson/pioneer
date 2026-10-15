@@ -36,7 +36,7 @@ export {
 } from './defences';
 export { statisticContent, variantRulesInPlay } from './statistic-content';
 export { EngineMessage } from './messages';
-export { type ModifierInputs, NO_SITUATION, RuleId, ruleIdOf, RuleInPlay } from './rule-in-play';
+export { type ModifierInputs, NO_MODIFIERS, NO_SITUATION, RuleId, ruleIdOf, RuleInPlay } from './rule-in-play';
 export { ranksInPlay } from './ranks-in-play';
 export { type SpellAtRank, type SpellCast, spellAtRank } from './spell-at-rank';
 export { type AncestryVision, type SenseInPlay, sensesInPlay } from './senses-in-play';
@@ -68,3 +68,4 @@ export {
   type StrikeScope,
   strikeRules,
 } from './strike-rules';
+export { type AlterableItem, type AlteredItem, alterItem, type ItemNumbers } from './item-alterations';

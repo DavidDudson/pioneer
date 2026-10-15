@@ -24,3 +24,14 @@ export const RollOption = z
   .refine((value) => isRollOption(value), issueParams(message(RulesMessage.RollOptionFormat)))
   .brand<'RollOption'>();
 export type RollOption = z.infer<typeof RollOption>;
+
+/**
+ * A roll option written without its namespace, as a predicate over one namespace reads it: `trait:fighter` under
+ * `item`, or `equipped` for `item:equipped`. Unlike a `RollOption` it needs no `:`.
+ */
+export const RollOptionTail = z
+  .string()
+  .max(ROLL_OPTION_LENGTH_MAX)
+  .refine((value) => WORDS.test(value), issueParams(message(RulesMessage.RollOptionFormat)))
+  .brand<'RollOptionTail'>();
+export type RollOptionTail = z.infer<typeof RollOptionTail>;

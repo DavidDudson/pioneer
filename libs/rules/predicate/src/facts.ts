@@ -1,5 +1,5 @@
 import { NamespaceKind } from '@pioneer/rules/sdk';
-import type { RollOption, RollOptionNamespace } from '@pioneer/rules/sdk';
+import type { RollOption, RollOptionNamespace, RollOptionTail } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
 import { kindOf } from './namespaces';
@@ -77,7 +77,10 @@ export class PredicateFacts {
    * `item:trait:fighter`); whatever these facts had there is hidden. Nothing is copied, so testing many candidates
    * (each content entry a `ChoiceSet` query offers) against one character costs only the candidates themselves.
    */
-  public withNamespace(namespace: RollOptionNamespace, options: readonly RollOption[]): PredicateFacts {
+  public withNamespace(
+    namespace: RollOptionNamespace,
+    options: readonly (RollOption | RollOptionTail)[],
+  ): PredicateFacts {
     const layered = new PredicateFacts([], this.#namespaces);
     layered.#layer = { base: this, prefix: `${namespace}${SEPARATOR}`, options };
     return layered;

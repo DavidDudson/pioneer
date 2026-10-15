@@ -16,7 +16,7 @@ import type { ItemContent } from '../inventory-content';
 import { runeContent } from '../item-runes';
 import type { RuneContent } from '../item-runes';
 import { CLUMSY, ENCUMBERED, ITEM_PACK } from './condition-fixture-ids';
-import { EMBER_BLADE, TROLL_CHARM } from './effect-items';
+import { BULWARK_CHARM, EMBER_BLADE, TROLL_CHARM } from './effect-items';
 import { HUNTERS_BLADE } from './hunters-blade';
 import { HUNTERS_CLOAK } from './hunters-cloak';
 import { MOVEMENT_CHARM } from './movement-charm';
@@ -77,6 +77,8 @@ export const ItemFixture = {
   /** A held sword whose Strikes add 1d6 fire precision damage and a note on a critical success. */
   EmberBlade: 'ember-blade',
   MovementCharm: 'movement-charm',
+  /** A worn invested charm whose alterations add to a shield's Hardness and give weapons cold iron, agile and flaming. */
+  BulwarkCharm: 'bulwark-charm',
 } as const;
 export type ItemFixture = (typeof ItemFixture)[keyof typeof ItemFixture];
 
@@ -227,6 +229,7 @@ const ITEMS: Readonly<Record<ItemFixture, ItemFixtureFields>> = {
     traits: ['magical'],
   },
   [ItemFixture.EmberBlade]: EMBER_BLADE,
+  [ItemFixture.BulwarkCharm]: BULWARK_CHARM,
   [ItemFixture.TrollCharm]: TROLL_CHARM,
   [ItemFixture.MovementCharm]: MOVEMENT_CHARM,
   [ItemFixture.RuneArmor]: {

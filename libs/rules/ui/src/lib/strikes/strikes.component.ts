@@ -3,9 +3,9 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { EmptyState, List, ListItem, LocaleFormat, Skeleton, Text } from '@pioneer/frontier';
 import { NoteRoll } from '@pioneer/rules/engine';
-import type { ExtraDice, Strike, StrikeDamage, StatisticResult } from '@pioneer/rules/engine';
+import type { ExtraDice, Strike, StrikeDamage, StatisticResult, WeaponInputs } from '@pioneer/rules/engine';
 import { StatisticKind } from '@pioneer/rules/sdk';
-import type { ContentId } from '@pioneer/rules/sdk';
+import type { ContentId, Slug } from '@pioneer/rules/sdk';
 import { filter, merge } from 'rxjs';
 
 import { SIGNED, numberStyle } from '../breakdown/number-style';
@@ -22,6 +22,11 @@ import type { ShownNote } from './strike-notes.component';
 import { StrikeRow } from './strike-row.component';
 import type { ShownAttack, ShownStrike } from './strike-row.component';
 import { DAMAGE_CATEGORY_MESSAGES, NOTE_DEGREE_MESSAGES, StrikesMessage } from './strikes-messages';
+
+/** Slugs as words: `cold-iron` as "cold iron", joined by commas. */
+function wordsOf(slugs: readonly Slug[]): string {
+  return slugs.map((slug) => slug.replaceAll('-', ' ')).join(', ');
+}
 
 /** A Strike to list: what to call it, and what the engine derived for it. */
 export interface NamedStrike {
@@ -186,10 +191,23 @@ export class StrikesView {
     return this.#i18n.translate(StrikesMessage.Splash, { amount: this.#format.number(damage.splash), type });
   }
 
+  /** "Made of cold iron" and "Property runes: flaming": what item alterations give the weapon; none when they give nothing. */
+  #made({ materials = [], propertyRunes = [] }: WeaponInputs): readonly (string | undefined)[] {
+    return [
+      materials.length === 0
+        ? undefined
+        : this.#i18n.translate(StrikesMessage.Materials, { materials: wordsOf(materials) }),
+      propertyRunes.length === 0
+        ? undefined
+        : this.#i18n.translate(StrikesMessage.PropertyRunes, { runes: wordsOf(propertyRunes) }),
+    ];
+  }
+
   /** What a bomb or thrown consumable adds to its Strike: range increment, persistent and splash damage, stack size. */
   #thrown({ weapon, damage }: Strike): readonly string[] {
     const { range, quantity } = weapon;
     const lines = [
+      ...this.#made(weapon),
       range === undefined
         ? undefined
         : this.#i18n.translate(StrikesMessage.RangeIncrement, { range: this.#format.number(range) }),

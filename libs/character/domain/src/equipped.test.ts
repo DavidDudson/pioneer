@@ -13,8 +13,9 @@ import {
 } from '@pioneer/rules/sdk';
 import { installRulesFakes } from '@pioneer/rules/sdk/testing';
 
+import { activeItems } from './active-items';
 import type { CharacterDocument } from './character-document';
-import { activeItems, equippedInputs, equippedRules } from './equipped';
+import { equippedInputs, equippedRules } from './equipped';
 import { addItem, carryItem, EMPTY_INVENTORY, investItem, InventoryItemId, ItemQuantity } from './inventory';
 import type { Inventory } from './inventory';
 import { CarryState, Hands, ONE_HAND } from './item-carry';
@@ -121,7 +122,7 @@ describe('equippedInputs', () => {
   test("a weapon whose base the deity favours is marked favoured; another isn't", () => {
     const held = carrying([ItemFixture.Longsword, ONE_HANDED]);
     const longsword = new Set([BaseWeapon.parse('longsword')]);
-    expect(equippedInputs(held, content, longsword).weapons[0]?.favored).toBe(true);
+    expect(equippedInputs(held, content, { favored: longsword }).weapons[0]?.favored).toBe(true);
     expect(equippedInputs(held, content).weapons[0]?.favored).toBe(false);
   });
 

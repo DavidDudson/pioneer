@@ -71,7 +71,11 @@ export function characterStatisticInputs(
 ): StatisticInputs {
   const grants = characterGrants(document, slots);
   const favored = favoredWeapons(grants);
-  const equipped = equippedInputs(document.inventory, itemContent(registry), favored);
+  const items = itemContent(registry);
+  const equipped = equippedInputs(document.inventory, items, {
+    favored,
+    rules: () => equippedRules(document, items, slots),
+  });
   const held = new Set(equipped.weapons.map(({ slug }) => slug));
   const granted = grantedStrikes(grants, favored).filter(({ slug }) => !held.has(slug));
   return {

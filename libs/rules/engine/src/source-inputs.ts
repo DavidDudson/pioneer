@@ -33,6 +33,10 @@ export interface WeaponInputs {
   readonly category: WeaponCategory;
   /** Its traits; `finesse` lets it attack with Dexterity. */
   readonly traits: readonly Trait[];
+  /** The precious materials it is made of, as its content names them and `ItemAlteration` elements add them. */
+  readonly materials?: readonly Slug[] | undefined;
+  /** The property runes (`flaming`) that `ItemAlteration` elements add to it; those etched on it work through its rules. */
+  readonly propertyRunes?: readonly Slug[] | undefined;
   /** The range increment of a ranged weapon, which attacks with Dexterity. A melee weapon, thrown ones included, has none. */
   readonly range?: Feet | undefined;
   /**

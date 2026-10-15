@@ -22,6 +22,10 @@ export const StrikesMessage = {
   Splash: 'rules.strikes.splash',
   /** "Range increment 20 ft": how far a ranged or thrown Strike reaches before each penalty. */
   RangeIncrement: 'rules.strikes.rangeIncrement',
+  /** "Made of cold iron": the precious materials an item alteration gives a weapon. */
+  Materials: 'rules.strikes.materials',
+  /** "Property runes: flaming": the runes an item alteration gives a weapon. */
+  PropertyRunes: 'rules.strikes.propertyRunes',
   /** "3 in stack": how many of a thrown item the stack still holds. */
   Quantity: 'rules.strikes.quantity',
   /** "Plus 1d6 fire precision": dice a damage element adds to a Strike's damage. */
