@@ -15,7 +15,7 @@ import {
 import type { Carry, Inventory, InventoryItem, ItemContent, ItemEntry, ItemRunes } from '@pioneer/character/domain';
 import { ImportKind } from '@pioneer/interop/pathbuilder';
 import type { ContentLookup, ImportedItem, ImportedRunes, PathbuilderImport } from '@pioneer/interop/pathbuilder';
-import { ContentKind, Coin, ContentId, RuneGrade, RunedItem } from '@pioneer/rules/sdk';
+import { ContentKind, Coin, ContentId, PROPERTY_RUNES_MAX, RuneGrade, RunedItem } from '@pioneer/rules/sdk';
 import { newId } from '@pioneer/shared/kernel';
 
 /** What an import's gear is matched against: items and property runes by name, and what each item is. */
@@ -49,7 +49,7 @@ function etched(
     striking: kind === RunedItem.Weapon ? grade(runes.striking) : undefined,
     resilient: kind === RunedItem.Weapon ? undefined : grade(runes.resilient),
     reinforcing: undefined,
-    property: [...new Set(property)],
+    property: [...new Set(property)].slice(0, PROPERTY_RUNES_MAX),
   };
 }
 

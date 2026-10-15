@@ -55,6 +55,7 @@ export {
   FUNDAMENTAL_RUNE_ITEMS,
   FundamentalRune,
   PropertyRuneEnergies,
+  PROPERTY_RUNES_MAX,
   PropertyRunes,
   ReinforcingGrade,
   RuneData,
