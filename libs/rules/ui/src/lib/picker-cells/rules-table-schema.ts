@@ -1,3 +1,4 @@
+import type { LinkTarget } from '@pioneer/frontier';
 import { TableSchema } from '@pioneer/frontier/data';
 import type { ColumnOptions, RowData } from '@pioneer/frontier/data';
 import type { RichText, SourceRef } from '@pioneer/rules/sdk';
@@ -7,6 +8,7 @@ import { ActionCostCell } from './action-cost-cell/action-cost-cell.component';
 import { ChipList } from './chip-list/chip-list.component';
 import type { Chip } from './chip-list/chip-list.component';
 import { CountMeter } from './count-meter/count-meter.component';
+import { EntryNameCell } from './entry-name-cell/entry-name-cell.component';
 import { LevelCell } from './level-cell/level-cell.component';
 import { ActionKind } from './picker-cell-messages';
 import { SummaryCell } from './summary-cell/summary-cell.component';
@@ -24,6 +26,13 @@ export interface CountColumn<TRow> extends ColumnOptions {
   readonly label: string;
   readonly value: (row: TRow) => number;
   readonly max: (row: TRow) => number;
+}
+
+/** A column of entry names, each linking to `to`. */
+export interface EntryNameColumn<TRow> extends ColumnOptions {
+  readonly id: string;
+  readonly value: (row: TRow) => string;
+  readonly to: (row: TRow) => LinkTarget;
 }
 
 /** Cheapest first: a free action, a reaction, then one to three actions, a cost that varies, none at all. */
@@ -57,6 +66,16 @@ export class RulesTableSchema<TRow extends RowData> extends TableSchema<TRow> {
       sortValue: (row) => ACTION_ORDER.indexOf(options.value(row)),
       component: ActionCostCell,
       inputs: (row) => ({ cost: options.value(row) }),
+    });
+  }
+
+  /** An entry's name as a link to its page, sorted by the name. */
+  public addEntryName(options: EntryNameColumn<TRow>): this {
+    return this.addComponent({
+      ...options,
+      sortValue: options.value,
+      component: EntryNameCell,
+      inputs: (row) => ({ name: options.value(row), to: options.to(row) }),
     });
   }
 

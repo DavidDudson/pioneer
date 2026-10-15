@@ -1,3 +1,4 @@
+import type { LinkTarget } from '@pioneer/frontier';
 import type { SourceRef } from '@pioneer/rules/sdk';
 import type { Chip } from '@pioneer/rules/ui';
 
@@ -5,6 +6,8 @@ import type { Chip } from '@pioneer/rules/ui';
 export interface BrowseRow {
   readonly id: string;
   readonly name: string;
+  /** Where the entry opens. */
+  readonly to: LinkTarget;
   readonly kind: string;
   readonly level: string;
   readonly traits: readonly Chip[];

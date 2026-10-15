@@ -12,9 +12,22 @@ export const contentRoutes: Routes = [
       // Facet labels and their values.
       provideMessageScope('rules', { [Locale.English]: async () => rulesMessages.rules }),
     ],
-    loadComponent: loadWithMessages(async () => {
-      const { ContentBrowserPage } = await import('./browser/content-browser-page.component');
-      return ContentBrowserPage;
-    }),
+    children: [
+      {
+        path: '',
+        loadComponent: loadWithMessages(async () => {
+          const { ContentBrowserPage } = await import('./browser/content-browser-page.component');
+          return ContentBrowserPage;
+        }),
+      },
+      {
+        // An entry's URL is its kind and the name part of its slug: /content/feat/power-attack.
+        path: ':kind/:slug',
+        loadComponent: loadWithMessages(async () => {
+          const { EntryPage } = await import('./entry/entry-page.component');
+          return EntryPage;
+        }),
+      },
+    ],
   },
 ];

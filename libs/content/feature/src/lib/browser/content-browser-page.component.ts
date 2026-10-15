@@ -26,6 +26,7 @@ import { FacetFilterView, RARITY_TONES, RulesTableSchema } from '@pioneer/rules/
 import type { Chip } from '@pioneer/rules/ui';
 import { filter, merge } from 'rxjs';
 
+import { entryTarget } from '../entry/entry-lookup';
 import {
   ALL_FACETS,
   BROWSE_KINDS,
@@ -153,7 +154,12 @@ export class ContentBrowserPage {
     this.#messages();
     const say = (key: string): string => this.#i18n.translate(key);
     return new RulesTableSchema<BrowseRow>()
-      .addText({ id: BrowseColumn.Name, header: say(BrowseMessage.Name), value: (row) => row.name })
+      .addEntryName({
+        id: BrowseColumn.Name,
+        header: say(BrowseMessage.Name),
+        value: (row) => row.name,
+        to: (row) => row.to,
+      })
       .addText({ id: BrowseColumn.Kind, header: say(BrowseMessage.Kind), value: (row) => row.kind })
       .addText({ id: BrowseColumn.Level, header: say(BrowseMessage.Level), value: (row) => row.level, sortable: false })
       .addTraits({ id: BrowseColumn.Traits, header: say(BrowseMessage.Traits), value: (row) => row.traits })
@@ -181,6 +187,7 @@ export class ContentBrowserPage {
     return {
       id: entry.id,
       name: entry.name,
+      to: entryTarget(entry),
       kind: isBrowseKind(entry.kind) ? this.#i18n.translate(KIND_MESSAGES[entry.kind]) : '',
       level: this.#levelText(entry),
       traits,

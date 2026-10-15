@@ -1,3 +1,4 @@
+// oxlint-disable max-lines -- one fluent builder with a method per kind; splitting it would scatter the test API
 import type * as z from 'zod';
 
 import type { AncestryDefinition } from '../ancestry';
@@ -54,6 +55,8 @@ interface FeatFields {
   readonly traits?: readonly string[];
   readonly data?: object;
   readonly rules?: readonly object[];
+  /** Rich text as JSON; none when absent. */
+  readonly description?: readonly object[];
 }
 
 /** A test ancestry: its definition, with `rules` as JSON (the ancestry features it grants). */
@@ -154,8 +157,16 @@ export class ContentPackBuilder {
    * A 1st-level skill feat, unless `fields` say otherwise: its level, traits, and `data` beyond its category (its
    * prerequisites and their predicate).
    */
-  public withFeat(name: string, { level = 1, traits = [], data = {}, rules = [] }: FeatFields = {}): this {
-    this.#entries.push({ kind: ContentKind.Feat, name, data: { category: 'skill', ...data }, level, traits, rules });
+  public withFeat(name: string, { level = 1, traits = [], data = {}, rules = [], ...text }: FeatFields = {}): this {
+    this.#entries.push({
+      kind: ContentKind.Feat,
+      name,
+      data: { category: 'skill', ...data },
+      level,
+      traits,
+      rules,
+      ...text,
+    });
     return this;
   }
 
