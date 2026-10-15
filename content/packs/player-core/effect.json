@@ -1551,7 +1551,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": "@stat.speed.land"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.HfXGhXc9D120gvl5"
     },
@@ -6702,6 +6709,20 @@
         ],
         "prompt": "Select a feature.",
         "rollOption": "animal-feature"
+      },
+      {
+        "key": "Change",
+        "selector": "speed:swim",
+        "mode": "upgrade",
+        "value": "@stat.speed.land",
+        "predicate": ["animal-feature:fish-tail"]
+      },
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": "@stat.speed.land",
+        "predicate": ["animal-feature:wings"]
       }
     ],
     "externalIds": {
@@ -13352,7 +13373,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": "max(20, @stat.speed.land)"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.MuRBCiZn5IKeaoxi"
     },
@@ -13703,7 +13731,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:climb",
+        "mode": "upgrade",
+        "value": "@stat.speed.land"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.qn7uO5Ih01yLJot7"
     },
@@ -18916,6 +18951,20 @@
         "display": {
           "label": "Claw"
         }
+      },
+      {
+        "key": "Change",
+        "selector": "speed:climb",
+        "mode": "upgrade",
+        "value": "floor(@stat.speed.land / 2)",
+        "predicate": ["shifting-form:climb"]
+      },
+      {
+        "key": "Change",
+        "selector": "speed:swim",
+        "mode": "upgrade",
+        "value": "floor(@stat.speed.land / 2)",
+        "predicate": ["shifting-form:swim"]
       }
     ],
     "externalIds": {
@@ -19423,7 +19472,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": "@stat.speed.land"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.8GUkKvCeI0xljCOk"
     },

@@ -44,3 +44,25 @@ describe('BaseSpeed from Foundry', () => {
     expect(untranslated).toHaveLength(1);
   });
 });
+
+describe('BaseSpeed that reads the land speed', () => {
+  test('a fly speed equal to the land speed reads the land statistic', () => {
+    const { rules, untranslated } = translated({
+      key: 'BaseSpeed',
+      predicate: ['animal-feature:wings'],
+      selector: 'fly',
+      value: '@actor.system.movement.speeds.land.value',
+    });
+
+    expect(untranslated).toEqual([]);
+    expect(rules as readonly unknown[]).toEqual([
+      {
+        key: RuleElementKey.Change,
+        selector: 'speed:fly',
+        mode: 'upgrade',
+        predicate: ['animal-feature:wings'],
+        value: '@stat.speed.land',
+      },
+    ]);
+  });
+});

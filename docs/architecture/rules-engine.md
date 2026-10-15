@@ -309,6 +309,7 @@ The catalogue also holds the Foundry spellings the importer translates (`FOUNDRY
 | `@actor.abilities.<attribute>.mod`, `@actor.system.abilities.<attribute>.mod` | `@attr.<attribute>`        |
 | `@actor.system.attributes.ancestryhp`, `@actor.ancestry.system.hp`            | `@ancestry.hp`             |
 | `@actor.ancestry.system.speed`                                                | `@ancestry.speed`          |
+| `@actor.system.movement.speeds.land.value`                                    | `@stat.speed.land`         |
 | `@actor.system.attributes.classhp`, `@actor.class.system.hp`                  | `@class.hp`                |
 | `@actor.skills.<skill>.rank`, `@actor.system.skills.<skill>.rank`             | `@rank.skill.<skill>`      |
 | `@actor.saves.<save>.rank`, `@actor.system.saves.<save>.rank`                 | `@rank.save.<save>`        |

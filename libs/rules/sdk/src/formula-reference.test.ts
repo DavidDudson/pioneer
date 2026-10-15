@@ -98,6 +98,7 @@ describe('Foundry reference translation', () => {
     ['actor.system.attributes.ancestryhp', 'ancestry.hp'],
     ['actor.ancestry.system.hp', 'ancestry.hp'],
     ['actor.ancestry.system.speed', 'ancestry.speed'],
+    ['actor.system.movement.speeds.land.value', 'stat.speed.land'],
     ['actor.system.attributes.classhp', 'class.hp'],
     ['actor.class.system.hp', 'class.hp'],
     ['item.level', 'item.level'],
