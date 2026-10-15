@@ -26,6 +26,8 @@ export const FOUNDRY_BOOK_TITLES: ReadonlyMap<string, BookId> = new Map([
   ['Pathfinder Lost Omens The Mwangi Expanse', BookId.parse('mwangi-expanse')],
   ['Pathfinder Secrets of Magic', BookId.parse('secrets-of-magic')],
   ['Pathfinder Rage of Elements', BookId.parse('rage-of-elements')],
+  ['Pathfinder Lost Omens Impossible Lands', BookId.parse('impossible-lands')],
+  ['Pathfinder Lost Omens Character Guide', BookId.parse('character-guide')],
   ['Pathfinder Dark Archive (Remastered)', BookId.parse('dark-archive-remastered')],
   ['Pathfinder Lost Omens Tian Xia Character Guide', BookId.parse('tian-xia-character-guide')],
 ]);
@@ -39,6 +41,8 @@ export const OGL_BOOKS: ReadonlySet<BookId> = new Set([
   BookId.parse('mwangi-expanse'),
   BookId.parse('secrets-of-magic'),
   BookId.parse('rage-of-elements'),
+  BookId.parse('character-guide'),
+  BookId.parse('impossible-lands'),
 ]);
 
 /** Why a document in an item pack is not imported, in the order selection checks. */

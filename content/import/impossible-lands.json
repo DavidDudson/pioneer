@@ -3,5 +3,3078 @@
     "tag": "pf2e-8.6.0",
     "sha256": "d9c4c1f6bbf9bd907ec0acbaea9b8d4e8b0d049758a8616829f07c1b4ee81342"
   },
-  "backlog": []
+  "backlog": [
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "action:envenom",
+      "foundry": "Compendium.pf2e.actionspf2e.Item.s4V7JWSMF9JPJAeX",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[traits]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "action:mana-wastes-mutant-caustic-pustules",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.YQmf1Otd4xoxsSGU",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.ManaWastesMutant.CausticPustules.Name"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[dc]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "action:mana-wastes-mutant-chameleon-skin",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.mmotrGIfshEHi8Rr",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.ManaWastesMutant.ChameleonSkin.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "action:mana-wastes-mutant-eldritch-attraction",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.SFDNK6AauPO6io5B",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.ManaWastesMutant.EldritchAttraction.Name"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[dc]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "action:mana-wastes-mutant-energy-blast",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.Hy7bO4TSNoQNMzA6",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.ManaWastesMutant.EnergyBlast.Name"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Damage[type:energy]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[dc]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "action:mana-wastes-mutant-energy-resistance",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.kew9yPbf83smsCyL",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.ManaWastesMutant.EnergyResistance.Name"
+          }
+        },
+        {
+          "type": "markup",
+          "markup": "table[class]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "action:mana-wastes-mutant-grasping-tentacle",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.3vcDqURRKk0mtdav",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.ManaWastesMutant.GraspingTentacle.Name"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[bestiary-ability-glossary-srd] Pathfinder Monster Core"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "action:mana-wastes-mutant-hulking-form",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.trYchslD8fLokkT9",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.ManaWastesMutant.HulkingForm.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "action:mana-wastes-mutant-hungry-maw",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.Bqiumr3LEo05d8x1",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.ManaWastesMutant.HungryMaw.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "action:mana-wastes-mutant-increased-speed",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.wJDfLmOJ2eJTmSwQ",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.ManaWastesMutant.IncreasedSpeed.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "action:mana-wastes-mutant-magic-hunger",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.fOpw4k05kayaL13a",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.ManaWastesMutant.MagicHunger.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "action:mana-wastes-mutant-mirror-thing",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.FdUuCIkQxVoTGM78",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.ManaWastesMutant.MirrorThing.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "action:mana-wastes-mutant-revolting-appearance",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.lD9Onw05RxdcmM2e",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.ManaWastesMutant.RevoltingAppearance.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "action:mana-wastes-mutant-sprouted-limb",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.lv1T0kAmG2JS7PWs",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.ManaWastesMutant.SproutedLimb.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "action:mana-wastes-mutant-too-many-eyes",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.Yv0mQAeVuQ2Id9vk",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.ManaWastesMutant.TooManyEyes.Name"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "key": "GrantItem",
+            "uuid": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.All-Around Vision"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[bestiary-ability-glossary-srd] Pathfinder Monster Core"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "action:mana-wastes-mutant-vengeful-bite",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.mqai5e7YAuK2tbB9",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.ManaWastesMutant.VengefulBite.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "action:spring-the-trap",
+      "foundry": "Compendium.pf2e.actionspf2e.Item.DFRLID6lIRw7CzOT",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Note",
+          "raw": {
+            "key": "Note",
+            "selector": "initiative",
+            "text": "{item|system.description.value}",
+            "title": "<span class=\"action-glyph\">F</span> {item|name}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "ancestry:ghoran",
+      "foundry": "Compendium.pf2e.ancestries.Item.tSurOqRcfumadTfr",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "ancestry:kashrishi",
+      "foundry": "Compendium.pf2e.ancestries.Item.dw2K1AJR9mQ25nDP",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "ancestry:nagaji",
+      "foundry": "Compendium.pf2e.ancestries.Item.J7T7bDLaQGoY1sMF",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "ancestry:vanara",
+      "foundry": "Compendium.pf2e.ancestries.Item.cLtOGIkuSSa4UDHY",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "ancestry:vishkanya",
+      "foundry": "Compendium.pf2e.ancestries.Item.u1VJEXsVlmh3Fyx0",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "class-feature:way-of-the-triggerbrand",
+      "foundry": "Compendium.pf2e.classfeatures.Item.YryaWAGcHeaRnXzS",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "flags.system.gunslinger.slingersReload",
+            "value": "Compendium.pf2e.actionspf2e.Item.Touch and Go"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "flags.system.gunslinger.initialDeed",
+            "value": "Compendium.pf2e.actionspf2e.Item.Spring the Trap"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "consumable:condensed-mana",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.XfQSkbjxVHF82ael",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[rollable-tables]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "effect:effect-crystal-luminescence",
+      "foundry": "Compendium.pf2e.feat-effects.Item.1bzFIIEw2K1CAUe9",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.crystalLuminescence.brightRadius",
+            "value": 10
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.crystalLuminescence.dimRadius",
+            "value": 10
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "effect:effect-equitable-defense",
+      "foundry": "Compendium.pf2e.feat-effects.Item.w0k59TPWUZ9Me4yF",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["target:mark:equitable-defense"],
+            "removeAfterRoll": "if-enabled",
+            "selector": ["strike-attack-roll"],
+            "type": "circumstance",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "effect:effect-goo-grenade",
+      "foundry": "Compendium.pf2e.equipment-effects.Item.5JYchreCttBg7RcD",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:goo-grenade-lesser",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Goo Grenade (Lesser)"
+              },
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:goo-grenade-moderate",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Goo Grenade (Moderate)"
+              },
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:goo-grenade-greater",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Goo Grenade (Greater)"
+              },
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:goo-grenade-major",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Goo Grenade (Major)"
+              }
+            ],
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
+            "rollOption": "goo-grenade"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "effect:effect-heavens-thunder",
+      "foundry": "Compendium.pf2e.feat-effects.Item.L9g3EMCT3imX650b",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "damageType": "electricity",
+            "key": "FlatModifier",
+            "predicate": [
+              {
+                "or": ["unarmed", "monk"]
+              }
+            ],
+            "selector": "strike-damage",
+            "slug": "heavens-thunder-electricity",
+            "value": "@weapon.system.damage.dice"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "damageType": "sonic",
+            "key": "FlatModifier",
+            "predicate": [
+              {
+                "or": ["unarmed", "monk"]
+              }
+            ],
+            "selector": "strike-damage",
+            "slug": "heavens-thunder-sonic",
+            "value": "@weapon.system.damage.dice"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "effect:effect-perfect-resistance",
+      "foundry": "Compendium.pf2e.feat-effects.Item.DyX4E7KDkzRnDxzc",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "key": "Resistance",
+            "type": "{actor|flags.system.houseOfPerfection.element}",
+            "value": "@actor.level"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "effect:effect-stone-flesh-weakened",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.m9hevf7O7XMUgG83",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "key": "Resistance",
+            "mode": "remove",
+            "type": "physical",
+            "value": 0
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "effect:spell-effect-untwisting-iron-augmentation",
+      "foundry": "Compendium.pf2e.spell-effects.Item.4ktNx3cVz5GkcGJa",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["item:category:unarmed"],
+            "selector": "strike-damage",
+            "type": "status",
+            "value": "@weapon.system.damage.dice"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "effect:stance-masquerade-of-seasons-stance",
+      "foundry": "Compendium.pf2e.feat-effects.Item.6IsZQpwRJQWIzdGx",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": [
+              {
+                "label": "PF2E.TraitWater",
+                "value": "water"
+              },
+              {
+                "label": "PF2E.TraitFire",
+                "value": "fire"
+              },
+              {
+                "label": "PF2E.TraitVoid",
+                "value": "void"
+              },
+              {
+                "label": "PF2E.TraitCold",
+                "value": "cold"
+              }
+            ],
+            "flag": "masqueradeOfSeasons",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Trait"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "key": "Resistance",
+            "type": "{item|flags.system.rulesSelections.masqueradeOfSeasons}",
+            "value": "max(5,floor(@actor.level/2))"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "effect:stance-sky-and-heaven-stance",
+      "foundry": "Compendium.pf2e.feat-effects.Item.CQfkyJkRHw4IHWhv",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Strike",
+          "raw": {
+            "category": "unarmed",
+            "damage": {
+              "base": {
+                "damageType": "slashing",
+                "dice": 1,
+                "die": "d10"
+              }
+            },
+            "group": "brawling",
+            "key": "Strike",
+            "label": "PF2E.SpecificRule.Stance.Attack.SkywardSlash",
+            "range": null,
+            "replaceAll": true,
+            "traits": ["versatile-p", "unarmed", "nonlethal"]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "equipment:carrion-cask",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.8MclH3pggVkHGYnJ",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "equipment:cube-of-force",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TAHcYiBzvg8F1AwY",
+      "gaps": [
+        {
+          "type": "markup",
+          "markup": "table[class]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "equipment:cube-of-nex",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.1kLz3leyfccLcAMK",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "description.frequency",
+          "raw": ": once per minute"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[spells-srd] Pathfinder Core Rulebook"
+        },
+        {
+          "type": "markup",
+          "markup": "table[class]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "equipment:lesser-cube-of-nex",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ckJkldBWN8n1Hq2a",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[spells-srd] Pathfinder Core Rulebook"
+        },
+        {
+          "type": "markup",
+          "markup": "table[class]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "equipment:palanquin-of-night",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.uiTJWd8IJevpkjbq",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[pathfinder-bestiary]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:ancient-memories",
+      "foundry": "Compendium.pf2e.feats-srd.Item.ptEOt3lqjxUnAW62",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "option": "ancient-memories",
+            "phase": "beforeDerived",
+            "suboptions": {
+              "config": "skills",
+              "predicate": ["skill:{choice|value}:rank:0"]
+            },
+            "toggleable": true
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.skills.{item|flags.system.rulesSelections.ancientMemories}.rank",
+            "phase": "beforeDerived",
+            "priority": 60,
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:asura-magic",
+      "foundry": "Compendium.pf2e.feats-srd.Item.gOv0OGTzKUhMoI8d",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:blood-vendetta", "item:slug:death-knell"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:blood-vendetta", "item:slug:death-knell"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell:nephilim"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[spells-srd] Pathfinder Core Rulebook"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:bend-space",
+      "foundry": "Compendium.pf2e.feats-srd.Item.715iDDXFPguSO9Or",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:teleport", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:teleport", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:kashrishi"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:breath-of-calamity",
+      "foundry": "Compendium.pf2e.feats-srd.Item.rq0lnwZ51AtJ0aux",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:chain-lightning", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:chain-lightning", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:nagaji"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:cleansing-light",
+      "foundry": "Compendium.pf2e.feats-srd.Item.gXAAJCnjfCDK7YV2",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[spells-srd] Pathfinder Core Rulebook"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:cold-minded",
+      "foundry": "Compendium.pf2e.feats-srd.Item.w1UrOqEYVuJDgRZZ",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "AdjustDegreeOfSuccess",
+          "raw": {
+            "adjustment": {
+              "success": "one-degree-better"
+            },
+            "key": "AdjustDegreeOfSuccess",
+            "predicate": ["emotion"],
+            "selector": "saving-throw",
+            "type": "saves"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:counterclockwork-focus",
+      "foundry": "Compendium.pf2e.feats-srd.Item.BBPrlPncXg86I42D",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "AdjustStrike",
+          "raw": {
+            "definition": ["item:group:firearm"],
+            "key": "AdjustStrike",
+            "mode": "add",
+            "predicate": [
+              "counterclockwork-focus",
+              {
+                "not": "counterclockwork-focus:none"
+              }
+            ],
+            "property": "materials",
+            "value": "{item|flags.system.rulesSelections.counterclockworkFocus}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:crystal-luminescence",
+      "foundry": "Compendium.pf2e.feats-srd.Item.TLuFqQwvnlJNeEsv",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.crystalLuminescence.brightRadius",
+            "value": 20
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.crystalLuminescence.dimRadius",
+            "value": 40
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": [
+              {
+                "label": "PF2E.Color.Blue",
+                "value": "#0000FF"
+              },
+              {
+                "label": "PF2E.Color.Cyan",
+                "value": "#43D6D6"
+              },
+              {
+                "label": "PF2E.Color.Green",
+                "value": "#00FF00"
+              },
+              {
+                "label": "PF2E.Color.Indigo",
+                "value": "#4B0082"
+              },
+              {
+                "label": "PF2E.Color.Magenta",
+                "value": "#FF00FF"
+              },
+              {
+                "label": "PF2E.Color.Orange",
+                "value": "#FFA400"
+              },
+              {
+                "label": "PF2E.Color.Red",
+                "value": "#FF0000"
+              },
+              {
+                "label": "PF2E.Color.Violet",
+                "value": "#9400D3"
+              },
+              {
+                "label": "PF2E.Color.White",
+                "value": "#AAAAAA"
+              },
+              {
+                "label": "PF2E.Color.Yellow",
+                "value": "#FAFA00"
+              }
+            ],
+            "flag": "color",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Color"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:defy-fey",
+      "foundry": "Compendium.pf2e.feats-srd.Item.QUnN2wUfvOD6Tz69",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["failure"],
+            "predicate": ["origin:trait:fey", "item:type:spell"],
+            "selector": "saving-throw",
+            "text": "{item|system.description.value}",
+            "title": "{item|name}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:dominion-aura",
+      "foundry": "Compendium.pf2e.feats-srd.Item.HX12ulixkeYeWZUU",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:eldritch-calm",
+      "foundry": "Compendium.pf2e.feats-srd.Item.5q8a36QyYAslgnsk",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "SubstituteRoll",
+          "raw": {
+            "key": "SubstituteRoll",
+            "selector": "saving-throw",
+            "value": 20
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:embodied-dreadnought-subjectivity",
+      "foundry": "Compendium.pf2e.feats-srd.Item.4RUTJC42ZaENYh9T",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "inventory.bulk.maxAddend",
+            "value": 3
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:emotional-partitions",
+      "foundry": "Compendium.pf2e.feats-srd.Item.ojykhaQkT8IU7ouc",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "AdjustDegreeOfSuccess",
+          "raw": {
+            "adjustment": {
+              "success": "one-degree-better"
+            },
+            "key": "AdjustDegreeOfSuccess",
+            "predicate": ["emotion"],
+            "selector": "saving-throw",
+            "type": "saves"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:empathic-calm",
+      "foundry": "Compendium.pf2e.feats-srd.Item.llWKddRiyUHouaZx",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:calm", "item:slug:sanctuary"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:calm", "item:slug:sanctuary"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell:kashrishi"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:endless-memories",
+      "foundry": "Compendium.pf2e.feats-srd.Item.aSgLhr8mM53DWbFc",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "option": "endless-memories",
+            "phase": "beforeDerived",
+            "suboptions": {
+              "config": "skills",
+              "predicate": ["skill:{choice|value}:rank:1"]
+            },
+            "toggleable": true
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.skills.{item|flags.system.rulesSelections.endlessMemories}.rank",
+            "phase": "beforeDerived",
+            "priority": 60,
+            "value": 2
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:equitable-defense",
+      "foundry": "Compendium.pf2e.feats-srd.Item.60o2Pf4IunqP6J0Z",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "key": "Resistance",
+            "predicate": ["equitable-defense"],
+            "type": "critical-hits",
+            "value": "floor(@actor.level/2)"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:fey-ascension",
+      "foundry": "Compendium.pf2e.feats-srd.Item.IzNyByUBNH94MDOr",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.spellcasting.rank",
+            "predicate": [
+              {
+                "or": ["fey-influence:anteater", "fey-influence:gremlin"]
+              }
+            ],
+            "priority": 51,
+            "value": 2
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.skills.medicine.rank",
+            "predicate": ["fey-influence:unicorn"],
+            "priority": 51,
+            "value": 1
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": [
+                  {
+                    "and": [
+                      {
+                        "or": [
+                          {
+                            "and": ["item:slug:slow", "fey-influence:anteater"]
+                          },
+                          {
+                            "and": [
+                              {
+                                "or": ["item:slug:charm", "item:slug:sleep"]
+                              },
+                              "fey-influence:faun"
+                            ]
+                          },
+                          {
+                            "and": ["item:slug:mad-monkeys", "fey-influence:gremlin"]
+                          }
+                        ]
+                      },
+                      "spellcasting:innate"
+                    ]
+                  },
+                  {
+                    "and": ["item:slug:triple-time", "fey-influence:faun"]
+                  }
+                ]
+              }
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:fey-influence",
+      "foundry": "Compendium.pf2e.feats-srd.Item.dIIqejy4JAVuF0I8",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": [
+              {
+                "label": "PF2E.SpecificRule.Feat.FeyInfluence.Anteater",
+                "value": {
+                  "creature": "anteater",
+                  "spell": "grim-tendrils"
+                }
+              },
+              {
+                "label": "PF2E.SpecificRule.Feat.FeyInfluence.CatSith",
+                "value": {
+                  "creature": "cat-sith",
+                  "spell": "pest-form"
+                }
+              },
+              {
+                "label": "PF2E.SpecificRule.Feat.FeyInfluence.CursedBluebird",
+                "value": {
+                  "creature": "cursed-bluebird",
+                  "spell": "ill-omen"
+                }
+              },
+              {
+                "label": "PF2E.SpecificRule.Feat.FeyInfluence.Dryad",
+                "value": {
+                  "creature": "dryad",
+                  "spell": "summon-plant-or-fungus"
+                }
+              },
+              {
+                "label": "PF2E.SpecificRule.Feat.FeyInfluence.Faun",
+                "value": {
+                  "creature": "faun",
+                  "spell": "fleet-step"
+                }
+              },
+              {
+                "label": "PF2E.SpecificRule.Feat.FeyInfluence.Gremlin",
+                "value": {
+                  "creature": "gremlin",
+                  "spell": "bane"
+                }
+              },
+              {
+                "label": "PF2E.SpecificRule.Feat.FeyInfluence.Monarch",
+                "value": {
+                  "creature": "monarch",
+                  "spell": "spider-sting"
+                }
+              },
+              {
+                "label": "PF2E.SpecificRule.Feat.FeyInfluence.Unicorn",
+                "value": {
+                  "creature": "unicorn",
+                  "spell": "heal"
+                }
+              }
+            ],
+            "flag": "feyInfluence",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Feature",
+            "rollOption": "fey-influence"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "RollOption",
+          "raw": {
+            "key": "RollOption",
+            "option": "fey-influence:{item|flags.system.rulesSelections.feyInfluence.creature}"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:{item|flags.system.rulesSelections.feyInfluence.spell}", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:fey-transcendence",
+      "foundry": "Compendium.pf2e.feats-srd.Item.EEnL4zyCDo4HD6Rn",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Weakness",
+          "raw": {
+            "key": "Weakness",
+            "type": "cold-iron",
+            "value": "max(1,floor(@actor.level/2))"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:fighting-horn",
+      "foundry": "Compendium.pf2e.feats-srd.Item.g0hHetVM9UmmIDKU",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "weapon",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:horn"],
+            "property": "traits",
+            "value": "{item|flags.system.rulesSelections.traitOne}"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "weapon",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:horn"],
+            "property": "traits",
+            "value": "{item|flags.system.rulesSelections.traitTwo}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:flexible-form",
+      "foundry": "Compendium.pf2e.feats-srd.Item.u7FPgOjbSOmCTSD9",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "AdjustDegreeOfSuccess",
+          "raw": {
+            "adjustment": {
+              "success": "one-degree-better"
+            },
+            "key": "AdjustDegreeOfSuccess",
+            "predicate": ["action:squeeze"],
+            "selector": "acrobatics",
+            "type": "skills"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:flower-magic",
+      "foundry": "Compendium.pf2e.feats-srd.Item.oGPX29AOsyHj18mK",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:oaken-resilience", "item:slug:one-with-plants"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:oaken-resilience", "item:slug:one-with-plants"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell:ghoran"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:ghoran-weapon-expertise",
+      "foundry": "Compendium.pf2e.feats-srd.Item.JmVuumcmqSrAmxdm",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.weapon-base-glaive.rank",
+            "value": "@actor.system.proficiencies.attacks.unarmed.rank"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.weapon-base-greatclub.rank",
+            "value": "@actor.system.proficiencies.attacks.unarmed.rank"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.weapon-base-hatchet.rank",
+            "value": "@actor.system.proficiencies.attacks.unarmed.rank"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.weapon-base-scythe.rank",
+            "value": "@actor.system.proficiencies.attacks.unarmed.rank"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.weapon-base-sickle.rank",
+            "value": "@actor.system.proficiencies.attacks.unarmed.rank"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.weapon-base-martial-ghoran-weapons.rank",
+            "value": "@actor.system.proficiencies.attacks.unarmed.rank"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.weapon-base-advanced-ghoran-weapons.rank",
+            "value": "@actor.system.proficiencies.attacks.unarmed.rank"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:ghoran-weapon-familiarity",
+      "foundry": "Compendium.pf2e.feats-srd.Item.oeVRwtBlQjsSVtXV",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.weapon-base-glaive.rank",
+            "value": 1
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.weapon-base-greatclub.rank",
+            "value": 1
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.weapon-base-hatchet.rank",
+            "value": 1
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.weapon-base-scythe.rank",
+            "value": 1
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.weapon-base-sickle.rank",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:ghoran-weapon-practice",
+      "foundry": "Compendium.pf2e.feats-srd.Item.8NnYg8RUY4DQ8Wkf",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "CriticalSpecialization",
+          "raw": {
+            "key": "CriticalSpecialization",
+            "predicate": [
+              {
+                "or": [
+                  "item:trait:ghoran",
+                  "item:base:glaive",
+                  "item:base:greatclub",
+                  "item:base:hatchet",
+                  "item:base:scythe",
+                  "item:base:sickle"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:ghorans-wrath",
+      "foundry": "Compendium.pf2e.feats-srd.Item.4TndDyCjnF7pc1GC",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:natures-reprisal", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:natures-reprisal", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:ghoran"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:glamour",
+      "foundry": "Compendium.pf2e.feats-srd.Item.ewwhgHZbxHcpMdLn",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:fey-glamour"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:greenwatcher",
+      "foundry": "Compendium.pf2e.feats-srd.Item.dnm6c3nzGDHt3A76",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[spells-srd] Pathfinder Core Rulebook"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:jalmeri-heavenseeker-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.Ze9vb0wlRmWWqnXC",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:jalmeri-rakshasa-magic",
+      "foundry": "Compendium.pf2e.feats-srd.Item.fYkAlUeIryOw7Ht8",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:dispel-magic", "item:slug:reapers-lantern"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:dispel-magic", "item:slug:reapers-lantern"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell:nephilim"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:legendary-size",
+      "foundry": "Compendium.pf2e.feats-srd.Item.IlzUi1viWgeRolU8",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:enlarge", "item:slug:shrink"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:enlarge", "item:slug:shrink"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell:vanara"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:lesser-enhance-venom",
+      "foundry": "Compendium.pf2e.feats-srd.Item.jxUPlkB2kFuZKXef",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[traits]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:mental-sustenance",
+      "foundry": "Compendium.pf2e.feats-srd.Item.bLSd0y06QRjDYYMw",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.remainingAir.rounds",
+            "value": "5"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:molten-wit",
+      "foundry": "Compendium.pf2e.feats-srd.Item.OqGNcUTqaZTp2YND",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "predicate": ["molten-wit:deception"],
+                "value": "Compendium.pf2e.feats-srd.Item.Charming Liar"
+              },
+              {
+                "predicate": ["molten-wit:diplomacy"],
+                "value": "Compendium.pf2e.feats-srd.Item.Group Impression"
+              }
+            ],
+            "flag": "feat",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.SkillFeat"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "key": "GrantItem",
+            "uuid": "{item|flags.system.rulesSelections.feat}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:monkey-spirits",
+      "foundry": "Compendium.pf2e.feats-srd.Item.7NsqI50oBIJ4bFwb",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:mad-monkeys", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:mad-monkeys", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:vanara"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:perfect-ki-exemplar",
+      "foundry": "Compendium.pf2e.feats-srd.Item.ST6AhCbEDSMxXf20",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:perfect-ki-expert",
+      "foundry": "Compendium.pf2e.feats-srd.Item.xCuPob9TuSBKz6Gn",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:perfect-ki-grandmaster",
+      "foundry": "Compendium.pf2e.feats-srd.Item.9v3wpgvEEiZHO0SJ",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:perfect-resistance",
+      "foundry": "Compendium.pf2e.feats-srd.Item.QN55ToyJIjxgPmhs",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "key": "Resistance",
+            "type": "{actor|flags.system.houseOfPerfection.element}",
+            "value": "floor(@actor.level/2)"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:perfect-weaponry",
+      "foundry": "Compendium.pf2e.feats-srd.Item.RAaUb9MPSDv1CGmF",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:pit-of-snakes",
+      "foundry": "Compendium.pf2e.feats-srd.Item.ODy9tq7NPlD5fxzZ",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:prismatic-scales",
+      "foundry": "Compendium.pf2e.feats-srd.Item.SFnKHPrd65RORTgN",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:prismatic-armor", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:prismatic-armor", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:nagaji"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:puncturing-horn",
+      "foundry": "Compendium.pf2e.feats-srd.Item.an8sq0RaJ8PW81EW",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "DamageDice",
+          "raw": {
+            "key": "DamageDice",
+            "override": {
+              "dieSize": "d8"
+            },
+            "predicate": ["self:heritage:xyloshi"],
+            "selector": "horn-damage"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:reimagine",
+      "foundry": "Compendium.pf2e.feats-srd.Item.b5j3boj1iEcXSB9f",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:dreaming-potential", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:dreaming-potential", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:kashrishi"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:shieldmarshal-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.3SGS0chf3SKosG5H",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.skills.society.rank",
+            "phase": "beforeDerived",
+            "predicate": ["skill:society:rank:1"],
+            "value": 2
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.skills.society.rank",
+            "phase": "beforeDerived",
+            "value": 1
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][skill]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:tough-skin",
+      "foundry": "Compendium.pf2e.feats-srd.Item.TcUpt0KaDnoYheX8",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "key": "GrantItem",
+            "uuid": "Compendium.pf2e.equipment-srd.Item.Tough Skin"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:trees-ward",
+      "foundry": "Compendium.pf2e.feats-srd.Item.KeE8Ky38dCX8XaTg",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:protector-tree", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:protector-tree", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:ghoran"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:unfettering-prankster",
+      "foundry": "Compendium.pf2e.feats-srd.Item.IyFz7kVF8wzPdrfJ",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:unfettered-pack", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:unfettered-pack", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:vanara"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:vanara-battle-clarity",
+      "foundry": "Compendium.pf2e.feats-srd.Item.NN9sKez7Z9R8q1i9",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.flanking.offGuardable",
+            "predicate": [
+              {
+                "nor": ["self:condition:stunned", "self:condition:unconscious", "self:condition:paralyzed"]
+              }
+            ],
+            "value": "@actor.level"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:vanara-weapon-expertise",
+      "foundry": "Compendium.pf2e.feats-srd.Item.YDfcwp0NVbmpgxej",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.weapon-base-bo-staff.rank",
+            "value": "@actor.system.proficiencies.attacks.unarmed.rank"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.weapon-base-chakram.rank",
+            "value": "@actor.system.proficiencies.attacks.unarmed.rank"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.weapon-base-katar.rank",
+            "value": "@actor.system.proficiencies.attacks.unarmed.rank"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.weapon-base-panabas.rank",
+            "value": "@actor.system.proficiencies.attacks.unarmed.rank"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.weapon-base-urumi.rank",
+            "value": "@actor.system.proficiencies.attacks.unarmed.rank"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.weapon-base-martial-vanara-weapons.rank",
+            "value": "@actor.system.proficiencies.attacks.unarmed.rank"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.weapon-base-advanced-vanara-weapons.rank",
+            "value": "@actor.system.proficiencies.attacks.unarmed.rank"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:vanara-weapon-familiarity",
+      "foundry": "Compendium.pf2e.feats-srd.Item.oQzyeSUlKx6eHcZp",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.weapon-base-bo-staff.rank",
+            "value": 1
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.weapon-base-chakram.rank",
+            "value": 1
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.weapon-base-panabas.rank",
+            "value": 1
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.weapon-base-katar.rank",
+            "value": 1
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.weapon-base-urumi.rank",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:vanara-weapon-trickery",
+      "foundry": "Compendium.pf2e.feats-srd.Item.v0ovKn4ZKmtXfXnu",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "CriticalSpecialization",
+          "raw": {
+            "key": "CriticalSpecialization",
+            "predicate": [
+              {
+                "or": [
+                  "item:trait:vanara",
+                  "item:base:bo-staff",
+                  "item:base:chakram",
+                  "item:base:katar",
+                  "item:base:panabas",
+                  "item:base:urumi"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:venom-spit",
+      "foundry": "Compendium.pf2e.feats-srd.Item.6kC0OuuWHyaqR3UQ",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalSuccess"],
+            "selector": "{item|_id}-damage",
+            "text": "PF2E.SpecificRule.Nagaji.VenomSpit.CriticalNote",
+            "title": "{item|name}"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalSuccess"],
+            "predicate": ["self:heritage:hooded-nagaji"],
+            "selector": "{item|_id}-damage",
+            "text": "PF2E.SpecificRule.Nagaji.VenomSpit.HoodedNote",
+            "title": "{item|name}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:violent-vines",
+      "foundry": "Compendium.pf2e.feats-srd.Item.vWUPSvEBHr5AAPUU",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:murderous-vine", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:murderous-vine", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:ghoran"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:vishkanya-weapon-arts",
+      "foundry": "Compendium.pf2e.feats-srd.Item.OCANjuCQ1wcCRBsn",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "CriticalSpecialization",
+          "raw": {
+            "key": "CriticalSpecialization",
+            "predicate": [
+              {
+                "or": [
+                  "item:trait:vishkanya",
+                  "item:base:blowgun",
+                  "item:base:fighting-fan",
+                  "item:base:kris",
+                  "item:base:kukri",
+                  "item:base:shuriken"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:vishkanya-weapon-expertise",
+      "foundry": "Compendium.pf2e.feats-srd.Item.aEhUX2c1xj57CMw5",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.weapon-base-blowgun.rank",
+            "value": "@actor.system.proficiencies.attacks.unarmed.rank"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.weapon-base-fighting-fan.rank",
+            "value": "@actor.system.proficiencies.attacks.unarmed.rank"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.weapon-base-kris.rank",
+            "value": "@actor.system.proficiencies.attacks.unarmed.rank"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.weapon-base-kukri.rank",
+            "value": "@actor.system.proficiencies.attacks.unarmed.rank"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.weapon-base-shuriken.rank",
+            "value": "@actor.system.proficiencies.attacks.unarmed.rank"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.weapon-base-martial-vishkanya-weapons.rank",
+            "value": "@actor.system.proficiencies.attacks.unarmed.rank"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.weapon-base-advanced-vishkanya-weapons.rank",
+            "value": "@actor.system.proficiencies.attacks.unarmed.rank"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "feat:vishkanya-weapon-familiarity",
+      "foundry": "Compendium.pf2e.feats-srd.Item.sMZBH6ROL44EDpXB",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.weapon-base-blowgun.rank",
+            "value": 1
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.weapon-base-fighting-fan.rank",
+            "value": 1
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.weapon-base-kris.rank",
+            "value": 1
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.weapon-base-kukri.rank",
+            "value": 1
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.weapon-base-shuriken.rank",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "heritage:ancient-ash",
+      "foundry": "Compendium.pf2e.heritages.Item.CMf0qluB0LXWReew",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": {
+              "config": "skills"
+            },
+            "flag": "skill",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Skill"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.skills.{item|flags.system.rulesSelections.skill}.rank",
+            "value": "ternary(gte(@actor.level,5),2,1)"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "heritage:cataphract-fleshwarp",
+      "foundry": "Compendium.pf2e.heritages.Item.PQuJEYI0UFl8W7fH",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "ancestry",
+          "raw": "Compendium.pf2e.ancestries.Item.FXlXmNBFiiz9oasi"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "heritage:discarded-fleshwarp",
+      "foundry": "Compendium.pf2e.heritages.Item.OtqOC3ElpF444qMe",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "AdjustDegreeOfSuccess",
+          "raw": {
+            "adjustment": {
+              "success": "to-critical-success"
+            },
+            "key": "AdjustDegreeOfSuccess",
+            "outcome": ["success"],
+            "predicate": ["item:trait:transmutation"],
+            "selector": "saving-throw"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "ancestry",
+          "raw": "Compendium.pf2e.ancestries.Item.FXlXmNBFiiz9oasi"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "heritage:hooded-nagaji",
+      "foundry": "Compendium.pf2e.heritages.Item.tf3edMCyS15GhFPx",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalSuccess"],
+            "predicate": [
+              {
+                "not": "feat:venom-spit"
+              }
+            ],
+            "selector": "{item|_id}-damage",
+            "text": "PF2E.SpecificRule.Nagaji.VenomSpit.CriticalNote",
+            "title": "{item|name}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "heritage:old-blood-vishkanya",
+      "foundry": "Compendium.pf2e.heritages.Item.PbXqlzRdQbKLQx1R",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "value": "Compendium.pf2e.feats-srd.Item.Streetwise"
+              },
+              {
+                "value": "Compendium.pf2e.feats-srd.Item.Courtly Graces"
+              }
+            ],
+            "flag": "feat",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.SkillFeat"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "key": "GrantItem",
+            "uuid": "{item|flags.system.rulesSelections.feat}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "heritage:surgewise-fleshwarp",
+      "foundry": "Compendium.pf2e.heritages.Item.hzW7VoRDYsKJB8ku",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "ancestry",
+          "raw": "Compendium.pf2e.ancestries.Item.FXlXmNBFiiz9oasi"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "heritage:titan-nagaji",
+      "foundry": "Compendium.pf2e.heritages.Item.LlUEmCDOLSZaGOyI",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "key": "GrantItem",
+            "uuid": "Compendium.pf2e.equipment-srd.Item.Titan Nagaji Scales"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "heritage:wajaghand-vanara",
+      "foundry": "Compendium.pf2e.heritages.Item.nUCRd8tmz3C6LM0T",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "AdjustDegreeOfSuccess",
+          "raw": {
+            "adjustment": {
+              "success": "one-degree-better"
+            },
+            "key": "AdjustDegreeOfSuccess",
+            "predicate": ["emotion"],
+            "selector": "saving-throw",
+            "type": "saves"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "spell:steal-the-sky",
+      "foundry": "Compendium.pf2e.spells-srd.Item.zoY0fQYTF1NzezTg",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "target.value",
+          "raw": "the creature you hit"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "spell:unbreaking-wave-containment",
+      "foundry": "Compendium.pf2e.spells-srd.Item.axYqY70kYu2lN20R",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "heightening",
+          "raw": {
+            "damage": {}
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "weapon:goo-grenade-greater",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.SAtG9jrqey2y8EGb",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["success", "criticalSuccess"],
+            "selector": "{item|_id}-damage",
+            "text": "PF2E.BombNotes.GooGrenade.success"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][show-dc]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][dc]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "weapon:goo-grenade-lesser",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.t2A5PzInAqmErLzK",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["success", "criticalSuccess"],
+            "selector": "{item|_id}-damage",
+            "text": "PF2E.BombNotes.GooGrenade.success"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][show-dc]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][dc]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "weapon:goo-grenade-major",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.W0RWd2E0jkF2ZXhf",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["success", "criticalSuccess"],
+            "selector": "{item|_id}-damage",
+            "text": "PF2E.BombNotes.GooGrenade.success"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][show-dc]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][dc]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "weapon:goo-grenade-moderate",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.wi97vRj8IXx3wLmZ",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["success", "criticalSuccess"],
+            "selector": "{item|_id}-damage",
+            "text": "PF2E.BombNotes.GooGrenade.success"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][show-dc]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][dc]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "impossible-lands",
+      "slug": "weapon:triggerbrand",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.RytXxlJJ7dib8seN",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "meleeUsage",
+          "raw": {
+            "damage": {
+              "die": "d6",
+              "type": "piercing"
+            },
+            "group": "sword",
+            "traits": ["critical-fusion", "finesse", "versatile-s"]
+          }
+        }
+      ]
+    },
+    {
+      "type": "vocabulary",
+      "kind": "damage-type",
+      "slug": "untyped",
+      "reason": "unmapped-value",
+      "detail": "untyped"
+    }
+  ]
 }

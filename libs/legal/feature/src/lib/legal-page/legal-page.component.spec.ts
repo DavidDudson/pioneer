@@ -85,6 +85,8 @@ describe('LegalPage', () => {
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
+      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
+      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e',
     ]);
   });
@@ -106,6 +108,8 @@ describe('LegalPage', () => {
       'Rage of Elements',
       'Lost Omens Tian Xia Character Guide',
       'Dark Archive (Remastered)',
+      'Lost Omens Character Guide',
+      'Lost Omens Impossible Lands',
     ]);
     const licenses = books.map((book) => /Paizo · (?<license>.+)$/u.exec(book.textContent.trim())?.groups?.['license']);
     expect(licenses).toStrictEqual([
@@ -113,6 +117,8 @@ describe('LegalPage', () => {
       ...Array.from({ length: 3 }, () => 'Open Game License 1.0a'),
       'ORC License',
       'ORC License',
+      'Open Game License 1.0a',
+      'Open Game License 1.0a',
     ]);
   });
 
@@ -133,6 +139,8 @@ describe('LegalPage', () => {
       expect.stringMatching(/^Rage of Elements\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^Lost Omens Tian Xia Character Guide\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^Dark Archive \(Remastered\)\s*Foundry release pf2e-8\.6\.0$/u),
+      expect.stringMatching(/^Lost Omens Character Guide\s*Foundry release pf2e-8\.6\.0$/u),
+      expect.stringMatching(/^Lost Omens Impossible Lands\s*Foundry release pf2e-8\.6\.0$/u),
     ]);
     expect(foundry.textContent).toContain('then corrected and enriched by Pioneer contributors');
   });

@@ -1,0 +1,213 @@
+[
+  {
+    "id": "ea6c113f-2219-545c-891a-a07df3f18434",
+    "pack": "character-guide",
+    "kind": "armor",
+    "slug": "armor:glorious-plate",
+    "name": "Glorious Plate",
+    "level": 14,
+    "rarity": "rare",
+    "traits": ["bulwark", "good", "light", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This elegant full plate is embossed with heraldic imagery and never tarnishes or loses its shine. "
+          },
+          {
+            "type": "text",
+            "text": "Glorious plate",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "text",
+            "text": "+2 resilient full plate",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In battle, "
+          },
+          {
+            "type": "text",
+            "text": "glorious plate",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " sheds bright light in a 10-foot radius, which enemies see as a blinding halo that obscures creatures other than the wearer. When an enemy looks at the wearer, it must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 33
+          },
+          {
+            "type": "text",
+            "text": " saving throw. The enemy is then temporarily immune for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The enemy is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " For 1 minute, the wearer's allies within the glorious plate's 10-foot radius of light are "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " to the enemy. Allies are concealed only while they remain within the light; if allies enter the light later, they are concealed as well."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, except the wearer's allies are "
+          },
+          {
+            "type": "ref",
+            "id": "d851e3ca-be0d-55a7-a4d1-d7ed8b7ecafa"
+          },
+          {
+            "type": "text",
+            "text": " to the enemy instead of concealed."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " command, Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The armor casts "
+          },
+          {
+            "type": "ref",
+            "id": "599db52f-69e4-5aa2-9cb6-f3c8a5339144"
+          },
+          {
+            "type": "text",
+            "text": " on you."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:in-combat",
+        "toggleable": true,
+        "display": {
+          "label": "In Combat"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.tLNsmY90aN668PMG"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4500
+        }
+      },
+      "bulk": 4,
+      "category": "heavy",
+      "group": "plate",
+      "baseItem": "full-plate",
+      "acBonus": 6,
+      "dexCap": 0,
+      "checkPenalty": 3,
+      "speedPenalty": 10,
+      "strength": 4,
+      "runes": {
+        "potency": 2,
+        "resilient": 1,
+        "property": []
+      }
+    }
+  }
+]

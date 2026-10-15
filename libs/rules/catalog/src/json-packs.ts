@@ -7,7 +7,10 @@ interface JsonModule {
   readonly default: unknown;
 }
 
-async function pack(manifest: Promise<JsonModule>, kinds: readonly Promise<JsonModule>[]): Promise<PackContents> {
+export async function pack(
+  manifest: Promise<JsonModule>,
+  kinds: readonly Promise<JsonModule>[],
+): Promise<PackContents> {
   const [packFile, ...entryFiles] = await Promise.all([manifest, ...kinds]);
   return packContentsFromFiles(
     packFile.default,
@@ -40,6 +43,8 @@ export async function coreRulesPack(): Promise<PackContents> {
     import('@pioneer/content/packs/core-rules/imported/tian-xia-character-guide/trait.json'),
     import('@pioneer/content/packs/core-rules/imported/dark-archive-remastered/statistic.json'),
     import('@pioneer/content/packs/core-rules/imported/dark-archive-remastered/trait.json'),
+    import('@pioneer/content/packs/core-rules/imported/impossible-lands/language.json'),
+    import('@pioneer/content/packs/core-rules/imported/impossible-lands/trait.json'),
     import('@pioneer/content/packs/core-rules/imported/mwangi-expanse/language.json'),
     import('@pioneer/content/packs/core-rules/imported/mwangi-expanse/trait.json'),
     import('@pioneer/content/packs/core-rules/imported/rage-of-elements/statistic.json'),

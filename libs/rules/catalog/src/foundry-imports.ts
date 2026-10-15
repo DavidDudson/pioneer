@@ -34,6 +34,16 @@ export const FOUNDRY_IMPORTS: readonly FoundryImport[] = [
     book: BookId.parse('dark-archive-remastered'),
     release: 'pf2e-8.6.0',
   },
+  {
+    pack: PackId.parse('character-guide'),
+    book: BookId.parse('character-guide'),
+    release: 'pf2e-8.6.0',
+  },
+  {
+    pack: PackId.parse('impossible-lands'),
+    book: BookId.parse('impossible-lands'),
+    release: 'pf2e-8.6.0',
+  },
 ];
 
 /** The release's page on GitHub. */

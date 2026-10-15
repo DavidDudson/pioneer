@@ -37,10 +37,12 @@ describe('book registry', () => {
   test('books.json validates and has the remaster core books', () => {
     expect(bookRegistry.books.map((book) => book.id).toSorted()).toStrictEqual(
       [
+        'character-guide',
         'dark-archive-remastered',
         'divine-mysteries',
         'gm-core',
         'howl-of-the-wild',
+        'impossible-lands',
         'monster-core',
         'mwangi-expanse',
         'player-core',

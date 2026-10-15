@@ -1,0 +1,933 @@
+[
+  {
+    "id": "ef617a94-cbaa-5288-ac99-7d7258f6d4e9",
+    "pack": "character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-avenge-in-glory",
+    "name": "Effect: Avenge in Glory",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "14b4f7ee-ef07-5773-b629-3847d50088e4"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points equal to your level. As long as you have these temporary Hit Points, you gain a +1 circumstance bonus to attack and damage rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@level"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack", "strike-damage"],
+        "type": "circumstance",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.JQUoBlZKT5N5zO5k"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "b0344b45-62b7-552b-91f2-a9a46148dace",
+    "pack": "character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-boasters-challenge",
+    "name": "Effect: Boaster's Challenge",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "4a584b6a-fefb-5da5-bed7-ea06ab5092d9"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a status bonus to damage rolls with your weapon or unarmed Strikes against the challenged foe."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "skill",
+        "choices": [
+          {
+            "value": "deception",
+            "label": "Deception"
+          },
+          {
+            "value": "diplomacy",
+            "label": "Diplomacy"
+          },
+          {
+            "value": "intimidation",
+            "label": "Intimidation"
+          }
+        ],
+        "prompt": "Select a skill."
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.0BNGjyW5WigX1FIs"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "6d32ebcc-5e4b-5740-b94e-f5704bb09bb0",
+    "pack": "character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-boasters-challenge-critical-success",
+    "name": "Effect: Boaster's Challenge (Critical Success)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "4a584b6a-fefb-5da5-bed7-ea06ab5092d9"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a status bonus to damage rolls with your weapon or unarmed Strikes against the challenged foe."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "skill",
+        "choices": [
+          {
+            "value": "deception",
+            "label": "Deception"
+          },
+          {
+            "value": "diplomacy",
+            "label": "Diplomacy"
+          },
+          {
+            "value": "intimidation",
+            "label": "Intimidation"
+          }
+        ],
+        "prompt": "Select a skill."
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.xdlAursiOE9A9rK7"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 3,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "2cf3d91e-e259-58a2-83cf-6e83b656c51e",
+    "pack": "character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-brightness-seeker",
+    "name": "Effect: Brightness Seeker",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "92c4fbf9-b945-5be0-8f8d-e9a46de912e3"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to the triggering check, or a +2 status bonus if the result of the augury was woe and you proceeded anyway."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.xPg5wzzKNxJy18rU"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 30,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "778bda6b-7f92-5240-8dc2-260c893b33b3",
+    "pack": "character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-formation-training",
+    "name": "Effect: Formation Training",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "79d744b9-1a44-5f96-8f67-6ce9639fcf57"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to AC and saving throws. This bonus increases to +2 on Reflex saves against area effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "saving-throw"],
+        "type": "circumstance",
+        "value": 1
+      },
+      {
+        "key": "RollOption",
+        "domain": "damage",
+        "option": "option:area-effect",
+        "toggleable": true,
+        "display": {
+          "label": "Saving Against an Area Effect"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:reflex"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["option:area-effect"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.LVPodfYEWKtK3fUW"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "c91a9942-c252-5358-99e1-6bf59d81a76f",
+    "pack": "character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-heroes-call",
+    "name": "Effect: Heroes' Call",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c6c8a7d9-1daf-5673-a728-6dc6eecc2677"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points equal to twice your level."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@level * 2"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.BHnunYPROBG5lxv4"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "cf3df316-4229-5b79-96ee-e2e3c3591877",
+    "pack": "character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-hungry-goblin",
+    "name": "Effect: Hungry Goblin",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "ebbf88c6-516f-5265-a0c6-2544b00d9600"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points equal to half your level."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "ceil(@level / 2)"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.4xtHFRGI05SNe9rA"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "cbfcd383-a62a-5ed2-b763-7c0124f62c8d",
+    "pack": "character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-inventive-offensive",
+    "name": "Effect: Inventive Offensive",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1175f93d-1cd8-5118-aaf9-67aee5c5ad07"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you use this ability, add one of the following weapon traits to a melee weapon you wield: deadly d6, disarm, nonlethal, shove, trip, versatile B, versatile P, or versatile S. You cannot add a trait that the weapon already has. The weapon retains this trait until you a successfully hit and deal damage with the weapon. The weapon retains this trait only while you wield it, and you can have only one weapon modified in this way at any time."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you have legendary proficiency in Crafting, you can apply two weapon traits from the list when using this feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "inventive-offensive-first-trait",
+        "choices": [
+          {
+            "value": "deadly-d6",
+            "label": "Deadly d6"
+          },
+          {
+            "value": "disarm",
+            "label": "Disarm"
+          },
+          {
+            "value": "nonlethal",
+            "label": "Nonlethal"
+          },
+          {
+            "value": "shove",
+            "label": "Shove"
+          },
+          {
+            "value": "trip",
+            "label": "Trip"
+          },
+          {
+            "value": "versatile-b",
+            "label": "Versatile B"
+          },
+          {
+            "value": "versatile-p",
+            "label": "Versatile P"
+          },
+          {
+            "value": "versatile-s",
+            "label": "Versatile S"
+          }
+        ],
+        "rollOption": "inventive-offensive"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.SITsBOnOG1EJsEpl"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "363ea1af-c0dc-5bae-a665-db1124353348",
+    "pack": "character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-lastwall-soup",
+    "name": "Effect: Lastwall Soup",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "5debd1c0-5566-5e10-a1c2-372fe2da8247"
+          },
+          {
+            "type": "text",
+            "text": ", Lastwall Soup (Improved), Lastwall Soup (Greater)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains an item bonus to Stealth checks and DCs against undead. If "
+          },
+          {
+            "type": "text",
+            "text": "greater",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you also gain 10 temporary hit points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "item",
+        "value": 2,
+        "slug": "lastwall-soup-bonus",
+        "predicate": [
+          {
+            "or": ["target:mode:undead", "origin:mode:undead"]
+          }
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["skill:stealth"],
+        "slug": "lastwall-soup-bonus",
+        "mode": "upgrade",
+        "value": 3,
+        "predicate": ["lastwall-soup:lastwall-soup-improved"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["skill:stealth"],
+        "slug": "lastwall-soup-bonus",
+        "mode": "upgrade",
+        "value": 4,
+        "predicate": ["lastwall-soup:lastwall-soup-greater"]
+      },
+      {
+        "key": "TempHP",
+        "value": 10,
+        "predicate": ["lastwall-soup:lastwall-soup-greater"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.6A8jsLR7upLGuRiv"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "e760ec68-2096-5741-90f3-421121832c83",
+    "pack": "character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-life-giving-magic",
+    "name": "Effect: Life-Giving Magic",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "cb4cf8f0-8b6c-578e-814f-b9e22a8fec35"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a number of temporary Hit Points equal to half your level (minimum 1) that last until the end of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "max(1, floor(@level / 2))"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.YKJhjkerCW0Jl6HP"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "78782ab8-d445-5d69-b6b9-2c060e41afd9",
+    "pack": "character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-saoc-astrology",
+    "name": "Effect: Saoc Astrology",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "ef531f5d-0faa-5c63-8061-f24f78fb5bd7"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a circumstance bonus or penalty to skill checks."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.6ACbQIpmmemxmoBJ"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      },
+      "badge": {
+        "type": "formula",
+        "formula": "1d8"
+      }
+    }
+  },
+  {
+    "id": "1c13fbee-0fd0-5860-abe7-7310b5b4933b",
+    "pack": "character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-seedpod",
+    "name": "Effect: Seedpod",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "6bcf6a09-4185-555d-b63a-fd41dbf19077"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –10-foot circumstance penalty to your Speed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["speed"],
+        "type": "circumstance",
+        "value": -10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.wQDHpOKY3GZqvS2v"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "e971a289-fca1-5255-b26f-52e67ffdd3ec",
+    "pack": "character-guide",
+    "kind": "effect",
+    "slug": "effect:stance-everstand-stance",
+    "name": "Stance: Everstand Stance",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "5cc2a6f4-cd98-50bd-9fca-a36423eb0433"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You wield the shield with both hands. When wielding a shield this way, increase the weapon damage die of the shield's boss or spikes by one step, and increase the shield's Hardness by 2 when using the Shield Block reaction."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:shield", "item:hands-held:2"],
+        "property": "hardness",
+        "mode": "add",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.GGebXpRPyONZB3eS"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  },
+  {
+    "id": "c90f1c76-ee77-5b6c-ba6f-5d9eeaddef85",
+    "pack": "character-guide",
+    "kind": "effect",
+    "slug": "effect:stance-impassable-wall-stance",
+    "name": "Stance: Impassable Wall Stance",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "9d7d72f7-cb3e-5f63-991e-e73635dbdd13"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you critically hit with a Reactive Strike triggered by a move action, you disrupt that move action."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.zzC2qZwEKf4Ja3xD"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  }
+]

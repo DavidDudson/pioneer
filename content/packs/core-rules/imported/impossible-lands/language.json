@@ -1,0 +1,38 @@
+[
+  {
+    "id": "b6c16be0-3c69-5aee-ae1d-da3c7f51aa5e",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:vanara",
+    "name": "Vanara",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "4d2fb3a5-7ca6-59af-964a-73eb26a48236",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:vishkanyan",
+    "name": "Vishkanya",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  }
+]

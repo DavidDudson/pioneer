@@ -1,0 +1,243 @@
+[
+  {
+    "id": "e5281127-6c68-5028-a087-eba595ced41f",
+    "pack": "character-guide",
+    "kind": "action",
+    "slug": "action:absorb-into-the-aegis",
+    "name": "Absorb into the Aegis",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An enemy casts a spell that targets you or an ally within 15 feet of you"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You interpose your shield's ward against the spell. Attempt a counteract check, using your Religion modifier as your counteract modifier. On a success, the spell is counteracted and your shield takes damage equal to four times the spell rank as it absorbs and disperses the magical energy. On a failure, the shield takes damage equal to twice the spell's rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.S9PZFOVe7zhORkUc"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "An enemy casts a spell that targets you or an ally within 15 feet of you"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "92c4fbf9-b945-5be0-8f8d-e9a46de912e3",
+    "pack": "character-guide",
+    "kind": "action",
+    "slug": "action:call-upon-the-brightness",
+    "name": "Call Upon the Brightness",
+    "rarity": "common",
+    "traits": ["concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You attempt an attack roll, skill check, or saving throw while performing the course of action from your "
+          },
+          {
+            "type": "ref",
+            "id": "dfab75a2-997b-5597-b7d7-3b9ad9e935dc"
+          },
+          {
+            "type": "text",
+            "text": ", but you haven't rolled yet"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to the triggering check, or a +2 status bonus if the result of the augury was \"woe\" and you proceeded anyway."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "2cf3d91e-e259-58a2-83cf-6e83b656c51e"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.mk6rzaAzsBBRGJnh"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You attempt an attack roll, skill check, or saving throw while performing the course of action from your Augury, but you haven't rolled yet"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "61ecd9da-430c-53b8-8218-53ff9a360bb4",
+    "pack": "character-guide",
+    "kind": "action",
+    "slug": "action:energy-emanation",
+    "name": "Energy Emanation",
+    "rarity": "common",
+    "traits": ["primal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Energy bursts forth from your body. You deal ceil(@actor.level/2)d6[@actor.flags.system.elementalHeartDwarf.damageType] damage to all adjacent creatures ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": {
+              "against": "class-or-spell-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save using your class DC or spell DC, whichever is higher). At 3rd level, and every 2 levels thereafter, this damage increases by 1d6 damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.7qjfYsLNTr17Aftf"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "78e1ff78-49e6-5dbe-b2a4-abf3e13c0dba",
+    "pack": "character-guide",
+    "kind": "action",
+    "slug": "action:mask-freeze",
+    "name": "Mask Freeze",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When in mask form, your familiar can hide its obvious supernatural qualities to pass as a simple, unassuming mask. It doesn't need to Impersonate to fool a passing glance, and it gains a +4 circumstance bonus to its Deception DC against an active observer Seeking or otherwise studying it."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.C16JgmeJJG249WXz"
+    },
+    "data": {
+      "category": "familiar"
+    }
+  }
+]

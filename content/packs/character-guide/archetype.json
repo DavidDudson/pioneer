@@ -1,0 +1,402 @@
+[
+  {
+    "id": "9fffcb72-e729-52f0-b132-fb104001380e",
+    "pack": "character-guide",
+    "kind": "archetype",
+    "slug": "archetype:firebrand-braggart",
+    "name": "Firebrand Braggart",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Many Firebrands travel the Inner Sea region drawing attention to themselves, making great shows of their exploits, and proclaiming their great deeds."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.F7W15pGOeSeNJD0C"
+    },
+    "data": {
+      "dedication": "f67c18d2-3de2-5836-b273-93df26df8a9f"
+    }
+  },
+  {
+    "id": "2f7660f4-16f7-5852-8a59-eaaa4f7adc69",
+    "pack": "character-guide",
+    "kind": "archetype",
+    "slug": "archetype:halcyon-speaker",
+    "name": "Halcyon Speaker",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "One of Old-Mage Jatembe's central lessons was that magic was magic, no matter what the source. Though the Magaambya seeks to hold true to Jatembe's teachings by aiming to understand magic of all kinds, the mages of the Magaambya have found the most success with magic rooted in the material world. Halcyon speakers are powerful conversants who epitomize the Magaambyan practice of blending arcane and primal magic, seeing both traditions as flowing from the same wellspring."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.pDmUITVao0FDMnVf"
+    },
+    "data": {
+      "dedication": "9372fe6d-d254-5115-9f18-d9872031a33a"
+    }
+  },
+  {
+    "id": "24e0c86a-ef76-50c0-92b0-52fe0f9aaf78",
+    "pack": "character-guide",
+    "kind": "archetype",
+    "slug": "archetype:knight-reclaimant",
+    "name": "Knight Reclaimant",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Knights reclaimant spend much of their time amid the horrors of the Gravelands, rescuing civilians that remain and striking back against the Whispering Tyrant's agents. Accomplishing these goals requires the adoption of subtle tactics, with a focus on stealth and survival."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.OcioDiLTdgzvT8VX"
+    },
+    "data": {
+      "dedication": "405dff37-2caf-5c68-b024-ce2a941672ae"
+    }
+  },
+  {
+    "id": "ff1830b2-e84d-59ec-94f2-922d83076133",
+    "pack": "character-guide",
+    "kind": "archetype",
+    "slug": "archetype:knight-vigilant",
+    "name": "Knight Vigilant",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Taking their lead from heroic stories of the Shining Crusade, the knights vigilant stand as a courageous example of morality and honor."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.57rElfZ9sWKFQ8Ep"
+    },
+    "data": {
+      "dedication": "59e4158d-d252-50fc-8d39-e4dc425cc194"
+    }
+  },
+  {
+    "id": "cd4f145c-8a1f-5824-934f-acc915f668c3",
+    "pack": "character-guide",
+    "kind": "archetype",
+    "slug": "archetype:magaambyan-attendant",
+    "name": "Magaambyan Attendant",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Magaambyans attendants have become full members of the Magaambya and begun to learn the secrets of the university. Not all Magaambyan attendants necessarily have this archetype, and this archetype doesn't represent the abilities of all attendants; rather, the archetype represents many of those who have affiliated with a branch and are pursuing conversant rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.eLc6TSgWykjtSeuF"
+    },
+    "data": {
+      "dedication": "3c3ab415-09f4-5ff2-9ca7-ec54cdd859bd"
+    }
+  },
+  {
+    "id": "20f6409b-7442-51c7-8a8c-f535a12dbd2d",
+    "pack": "character-guide",
+    "kind": "archetype",
+    "slug": "archetype:scrollmaster",
+    "name": "Scrollmaster",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Members who align themselves with the Scrolls branch of the Pathfinder Society are fervent seekers of lore, experts in esoterica, and masters of the wealth of knowledge at the Society's disposal. In addition to maintaining and researching the Society's massive collection of tomes and artifacts, these scholars are also eager to adventure in order to add to the Pathfinder's archives. They take tremendous pride in their ability to thoroughly observe, research, and catalog creatures and events. Members of the Scrolls value knowledge and preparation above strength and cunning, and they work to hone their intellectual skills. As a Scrollmaster, you are an elite member of this arm of the Society."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.0ZXiLwvBG20MzkO6"
+    },
+    "data": {
+      "dedication": "78ffe09a-ff78-52b5-875d-7c530609dc08"
+    }
+  },
+  {
+    "id": "2a174477-b57c-5d57-bfbd-d2702c86bbc6",
+    "pack": "character-guide",
+    "kind": "archetype",
+    "slug": "archetype:spellmaster",
+    "name": "Spellmaster",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Those who train under the Master of Spells concern themselves with all matters related to magic. Though not all members of the School of Spells are spellcasters, those who would become Spellmasters of the highest rank and influence have at least some spellcasting capabilities."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.O7fKfFxCx3e1YasX"
+    },
+    "data": {
+      "dedication": "091ce2bf-6a92-5463-80b2-8c21038cfa6e"
+    }
+  },
+  {
+    "id": "6cc87da1-d8a0-5b42-997e-ddfe09b5163f",
+    "pack": "character-guide",
+    "kind": "archetype",
+    "slug": "archetype:swordmaster",
+    "name": "Swordmaster",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Though the ultimate goal of the Pathfinder society is to learn, knowledge cannot be spread if those who discover it fail to come back alive. The Master of Swords teaches recruits to survive, to defend other Pathfinders, and to defeat the Society's enemies. The swordmaster embodies these skills, focusing on practicality and ignoring ideals or methods that interfere with their ability to overcome any challenge."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.Y4DiXz5I8krCh1fC"
+    },
+    "data": {
+      "dedication": "8eeda914-2d56-5b1e-9cfd-c6a7260f64b3"
+    }
+  }
+]

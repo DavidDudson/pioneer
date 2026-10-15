@@ -1,0 +1,120 @@
+[
+  {
+    "id": "3f11cbda-4bd2-52d6-8224-685af3acaa17",
+    "pack": "impossible-lands",
+    "kind": "archetype",
+    "slug": "archetype:jalmeri-heavenseeker",
+    "name": "Jalmeri Heavenseeker",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Certain martial artists dedicate themselves to fighting in Jalmeray's Challenge of Sky and Heaven. These individuals devote themselves to the esoteric mysteries of the sky."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can select the dedication feat for the Jalmeri Heavenseeker archetype even if you haven't yet gained three feats from the Student of Perfection archetype."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.NaG4fy33coUdSFtH"
+    },
+    "data": {
+      "dedication": "38409e88-fe2f-5f1b-95d1-ac7f8ad57a34"
+    }
+  },
+  {
+    "id": "827dc736-b79c-50d4-a4cb-8623a54d0ba1",
+    "pack": "impossible-lands",
+    "kind": "archetype",
+    "slug": "archetype:shieldmarshal",
+    "name": "Shieldmarshal",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Gunplay isn't enough to uphold Alkenstar's laws; when firearms are readily available to criminals and the corrupt, relying solely on firepower isn't always the best approach to law enforcement. To stay ahead in their never-ending war against crime and espionage, Alkenstar's elite shieldmarshals instead refine their skills of marksmanship and situational awareness into a potent blend of operational acumen and special tactics. Shieldmarshals study forensics, engineering, law, and etiquette to navigate the city's volatile conditions and politics; advanced lessons include specialized training to deal with criminals using technology as well as tactical analysis for maneuvering in congested urban environments."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've undergone specialized training to help you keep the peace in Alkenstar's sprawling streets. Urban operations are dreadfully complex endeavors; closed doors and high walls conceal suspects and belligerents, while every alley and corridor could be a fatal funnel. As a shieldmarshal, you overcome these complexities by reducing and adapting to uncertain elements. You methodically observe your surroundings, make swift decisions, and actualize best practices to pacify hostiles, rescue hostages, and otherwise meet overall mission objectives."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.ssd83GMzktmP3ZEC"
+    },
+    "data": {
+      "dedication": "2b51723f-71f6-5e9a-bc2e-20c386383579"
+    }
+  }
+]

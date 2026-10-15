@@ -29,6 +29,8 @@ const rageOfElements = PackId.parse('rage-of-elements');
 const secretsOfMagic = PackId.parse('secrets-of-magic');
 const tianXiaCharacterGuide = PackId.parse('tian-xia-character-guide');
 const darkArchiveRemastered = PackId.parse('dark-archive-remastered');
+const characterGuide = PackId.parse('character-guide');
+const impossibleLands = PackId.parse('impossible-lands');
 const gmCore = PackId.parse('gm-core');
 const humanId = AncestryId.parse(contentId(playerCore, EntrySlug.parse('ancestry:human')));
 const zombieId = CreatureId.parse(contentId(monsterCore, EntrySlug.parse('creature:zombie-shambler')));
@@ -38,11 +40,13 @@ describe('content catalog', () => {
     const registry = new ContentRegistry();
     await Promise.all(contentCatalog.map(async (loader) => registry.load(loader)));
     expect(registry.packs.map((pack) => pack.id).toSorted()).toStrictEqual([
+      characterGuide,
       coreRules,
       darkArchiveRemastered,
       divineMysteries,
       gmCore,
       howlOfTheWild,
+      impossibleLands,
       monsterCore,
       mwangiExpanse,
       playerCore,
