@@ -16,14 +16,13 @@ export const KIND_KEYS: Readonly<Record<ImportKind, string>> = {
   [ImportKind.Language]: 'character.import.kind.language',
 };
 
-/** Label key per field the character can't hold yet: the kinds' labels, plus lores. */
+/** Label key per field the character can't hold yet: the kinds' labels. */
 export const UNCARRIED_KEYS: Readonly<Record<UncarriedField, string>> = {
   [UncarriedField.Deity]: KIND_KEYS[ImportKind.Deity],
   [UncarriedField.ClassFeature]: KIND_KEYS[ImportKind.ClassFeature],
   [UncarriedField.Spell]: KIND_KEYS[ImportKind.Spell],
   [UncarriedField.Ritual]: KIND_KEYS[ImportKind.Ritual],
   [UncarriedField.Language]: KIND_KEYS[ImportKind.Language],
-  [UncarriedField.Lore]: 'character.import.kind.lore',
 };
 
 export const STATUS_KEYS: Readonly<Record<MatchStatus, string>> = {

@@ -94,12 +94,17 @@ export class PathbuilderImportService {
     });
     const dual = dualClassVariant(value, content);
     const slots = slotContent(content, dual === undefined ? [] : [dual]);
-    const { character, unplaced, notOffered, dualClass } = importedCharacter(value, { lookup, slots }, create);
+    const { character, unplaced, skillGaps, notOffered, dualClass } = importedCharacter(
+      value,
+      { lookup, slots },
+      create,
+    );
     const saved = await this.#characters.insert(character, { actor, command: CharacterCommand.ImportPathbuilder });
     await this.#enable(actor, saved, dualClass ? dual : undefined);
     const report = characterImportReport(value, lookup, {
       notOffered,
       unplacedBoosts: unplaced,
+      skillGaps,
       modifierDifferences: modifierDifferences(value.attributes, attributeModifiers(character.document, slots.boosts)),
     });
     return { character: saved, report };

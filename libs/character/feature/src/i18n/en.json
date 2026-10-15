@@ -464,8 +464,7 @@
       "spell": "Spells",
       "ritual": "Rituals",
       "item": "Items",
-      "language": "Languages",
-      "lore": "Lores"
+      "language": "Languages"
     },
     "status": {
       "matched": "Matched",
@@ -481,6 +480,8 @@
       "differencesSummary": "{count, plural, one {# attribute differs} other {# attributes differ}} from Pathbuilder",
       "difference": "Pathbuilder {imported}, Pioneer {derived}",
       "unplacedSummary": "{count, plural, one {# boost} other {# boosts}} found no slot",
+      "skillGapsSummary": "{count, plural, one {# skill} other {# skills}} fell short of Pathbuilder",
+      "skillGap": "Pathbuilder {wanted}, Pioneer {reached}",
       "notCarried": "Characters can't hold these yet, so they weren't kept: {fields}.",
       "groupSummary": "{kind} · {count, number} not carried over",
       "allMatched": "Every name matched content you have loaded."

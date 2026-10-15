@@ -119,7 +119,8 @@ describe('PathbuilderImportService.importPathbuilder', () => {
       { name: changeling, occurrences: Occurrences.parse(1), reason: UnmatchedReason.Unmatched },
     ]);
     expect(Object.keys(character.document.build.choices)).not.toContain(HERITAGE_SLOT);
-    expect(report.notCarried).toContain(UncarriedField.Lore);
+    expect(report.notCarried).toContain(UncarriedField.ClassFeature);
+    expect(report.skillGaps.map((gap) => gap.name)).toContain(PathbuilderName.parse('Hag'));
     expect(report.notCarried).not.toContain(UncarriedField.Deity);
   });
 

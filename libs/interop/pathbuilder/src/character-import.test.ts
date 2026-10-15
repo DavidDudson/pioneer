@@ -11,7 +11,7 @@ import { ImportKind, PathbuilderName } from './import-kind';
 import { readPathbuilderExport } from './read-pathbuilder-export';
 import type { PathbuilderImport } from './read-pathbuilder-export';
 
-const NOTHING_REFUSED: ImportOutcome = { notOffered: [], unplacedBoosts: [], modifierDifferences: [] };
+const NOTHING_REFUSED: ImportOutcome = { notOffered: [], unplacedBoosts: [], skillGaps: [], modifierDifferences: [] };
 const golomaId = Uuid.parse('6f1f7a52-6a43-4d1e-8f6e-6d1cbb1e7a11');
 const vigilantGolomaId = Uuid.parse('0d5c1e0b-3f7a-4b2e-9c1d-2a8e4f6b7c10');
 
@@ -61,11 +61,5 @@ describe('characterImportReport', () => {
     expect(reasons(refused, ImportKind.Heritage)).toStrictEqual(new Set([UnmatchedReason.NotOffered]));
     const filled = characterImportReport(value, heritages, NOTHING_REFUSED);
     expect(filled.unmatched.map((group) => group.kind)).not.toContain(ImportKind.Heritage);
-  });
-
-  test('lists lores only when the export has some', () => {
-    expect(characterImportReport({ ...value, lores: [] }, lookup, NOTHING_REFUSED).notCarried).not.toContain(
-      UncarriedField.Lore,
-    );
   });
 });

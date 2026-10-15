@@ -16,7 +16,13 @@ import { describe, expect, it, vi } from 'vitest';
 import en from '../../../i18n/en.json';
 import { ImportResult } from './import-result.component';
 
-const EMPTY: CharacterImportReport = { unmatched: [], notCarried: [], unplacedBoosts: [], modifierDifferences: [] };
+const EMPTY: CharacterImportReport = {
+  unmatched: [],
+  notCarried: [],
+  unplacedBoosts: [],
+  skillGaps: [],
+  modifierDifferences: [],
+};
 
 async function render(report: CharacterImportReport): Promise<ComponentFixture<ImportResult>> {
   TestBed.configureTestingModule({ providers: [provideI18n({ en: async () => frontierMessages })] });
@@ -46,12 +52,13 @@ describe(ImportResult, () => {
           ],
         },
       ],
-      notCarried: [UncarriedField.ClassFeature, UncarriedField.Lore],
+      notCarried: [UncarriedField.ClassFeature, UncarriedField.Spell],
       unplacedBoosts: [],
+      skillGaps: [],
       modifierDifferences: [],
     });
 
-    expect(text(fixture)).toContain("weren't kept: Class features and Lores");
+    expect(text(fixture)).toContain("weren't kept: Class features and Spells");
     expect(text(fixture)).toContain('Feats · 1 not carried over');
     expect(text(fixture)).toContain('Shield Block');
     expect(text(fixture)).toContain('×3');
