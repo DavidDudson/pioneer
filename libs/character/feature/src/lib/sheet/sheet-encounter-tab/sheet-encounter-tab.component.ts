@@ -10,6 +10,7 @@ import { SheetPickFields } from '../sheet-pick-fields/sheet-pick-fields.componen
 import { SHEET_SECTIONS, SHEET_TAB_SECTIONS } from '../sheet-sections';
 import { SheetSpells } from '../sheet-spells/sheet-spells.component';
 import { SheetState } from '../sheet-state';
+import { SheetStaves } from '../sheet-staves/sheet-staves.component';
 import { rememberTab } from '../sheet-tab';
 
 /**
@@ -30,6 +31,7 @@ import { rememberTab } from '../sheet-tab';
     SectionLink,
     SheetPickFields,
     SheetSpells,
+    SheetStaves,
     SpellcastingView,
     Stack,
     StatisticsView,

@@ -11,6 +11,14 @@ export function staffSpellId(slug: string): ContentId {
 }
 
 /** A magic staff: Ignition, Breathe Fire at 1st rank, Floating Flame and Fireball at 3rd. */
+/** The spells the fire staff holds, as the packs would give them: Ignition is arcane only, the rest arcane and primal. */
+export const FIRE_STAFF_SPELLS = {
+  ignition: { rank: 1, traditions: ['arcane'], traits: ['cantrip'] },
+  'breathe-fire': { rank: 1, traditions: ['arcane', 'primal'] },
+  'floating-flame': { rank: 3, traditions: ['arcane', 'primal'] },
+  fireball: { rank: 3, traditions: ['arcane', 'primal'] },
+} as const;
+
 export const FIRE_STAFF: MagicItemFields & { readonly kind: ContentKind } = {
   kind: ContentKind.Weapon,
   level: FIRE_STAFF_LEVEL,

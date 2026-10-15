@@ -988,6 +988,14 @@
       "remove": "Remove {name}",
       "unknownSpell": "Unknown spell"
     },
+    "staffSpells": {
+      "charges": "{left} of {max} charges",
+      "notPrepared": "Not prepared today",
+      "cantrip": "Cantrip, no charges",
+      "cost": "{charges, plural, one {# charge} other {# charges}}",
+      "notOnList": "Not on any of your spell lists",
+      "rankTooHigh": "You cast no spell of {rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank yet"
+    },
     "focusSpells": {
       "heading": "Focus spells",
       "pool": "Focus pool: {points, plural, one {# Focus Point} other {# Focus Points}}",

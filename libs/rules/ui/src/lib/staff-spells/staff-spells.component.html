@@ -1,0 +1,37 @@
+@for (staff of staves(); track staff.key) {
+  <fr-stack gap="sm">
+    <fr-stack direction="horizontal" gap="xs" align="center" wrap>
+      <fr-heading [level]="3">{{ staff.name }}</fr-heading>
+      @if (staff.charges; as charges) {
+        <fr-badge>{{ Message.Charges | transloco: { left: charges.left, max: charges.max } }}</fr-badge>
+      } @else {
+        <fr-badge>{{ Message.NotPrepared | transloco }}</fr-badge>
+      }
+    </fr-stack>
+    <fr-list gap="2xs">
+      @for (spell of staff.spells; track spell.key) {
+        <fr-list-item>
+          <fr-stack gap="3xs">
+            <fr-stack direction="horizontal" gap="xs" align="center" wrap>
+              <pio-entry-hover [entry]="spell.id">
+                <fr-text tabindex="0" [tone]="spell.blocked ? 'subtle' : 'default'">{{ spell.name }}</fr-text>
+              </pio-entry-hover>
+              <fr-badge>
+                @if (spell.rank === cantrip) {
+                  {{ Message.Cantrip | transloco }}
+                } @else {
+                  {{ Message.Cost | transloco: { charges: spell.charges } }}
+                }
+              </fr-badge>
+            </fr-stack>
+            @if (spell.blocked; as blocked) {
+              <fr-text variant="caption" tone="subtle">
+                {{ blocks[blocked] | transloco: { rank: spell.rank } }}
+              </fr-text>
+            }
+          </fr-stack>
+        </fr-list-item>
+      }
+    </fr-list>
+  </fr-stack>
+}
