@@ -226,16 +226,16 @@ pf2e's `ammo` items are consumables with the `ammunition` category, and its `bac
 `container` ([ADR-0023](../adr/0023-equipment-kinds-diverge-from-foundry-items.md)). Whether an item is equipped,
 invested or identified is play state, not content.
 
-| Kind         | `data`                                                                                    |
-| ------------ | ----------------------------------------------------------------------------------------- |
-| `weapon`     | `category`; `damage`; `usage`; `group?`; `baseItem?`; bomb and ranged fields; `runes?`    |
-| `armor`      | `category`; `acBonus`; `group?`; `baseItem?`; `dexCap?`; penalties; `strength?`; `runes?` |
-| `shield`     | `acBonus`; `hardness` and `hitPoints`, required; `baseItem?`; `speedPenalty?`; `runes?`   |
-| `equipment`  | `usage?`; `container?`; `apex?`                                                           |
-| `consumable` | `category`; `uses?`; `damage?`; `spell?`; `ammunition?`; `usage?`                         |
-| `rune`       | `type`, `fundamental` (with `rune` and `grade`) or `property`; `etchedOnto`               |
-| `treasure`   | `category?`: `art-object`, `coin`, `gem` or `material`                                    |
-| `kit`        | `price?`; `items`; no physical fields                                                     |
+| Kind         | `data`                                                                                           |
+| ------------ | ------------------------------------------------------------------------------------------------ |
+| `weapon`     | `category`; `damage`; `usage`; `group?`; `baseItem?`; bomb and ranged fields; `runes?`; `staff?` |
+| `armor`      | `category`; `acBonus`; `group?`; `baseItem?`; `dexCap?`; penalties; `strength?`; `runes?`        |
+| `shield`     | `acBonus`; `hardness` and `hitPoints`, required; `baseItem?`; `speedPenalty?`; `runes?`          |
+| `equipment`  | `usage?`; `container?`; `apex?`; `staff?`                                                        |
+| `consumable` | `category`; `uses?`; `damage?`; `spell?`; `ammunition?`; `usage?`                                |
+| `rune`       | `type`, `fundamental` (with `rune` and `grade`) or `property`; `etchedOnto`                      |
+| `treasure`   | `category?`: `art-object`, `coin`, `gem` or `material`                                           |
+| `kit`        | `price?`; `items`; no physical fields                                                            |
 
 - **Physical fields.** `price?` is `coins` (`pp`, `gp`, `sp`, `cp`, at least one) for `per` items when sold in a
   batch; an item with no price has none. `bulk` is `negligible`, `light` or a whole number, for `bulkPer` items
@@ -279,6 +279,11 @@ invested or identified is play state, not content.
   however it is carried (a backpack's first 2), and its `heldBulk` when held or stowed differs from its `bulk` worn
   (a backpack is negligible worn, light carried).
   `apex` is the attribute an apex item raises.
+- **Staves.** A staff is a weapon or an item with the `staff` trait and typed `staff` spells: a list of ranks, each
+  `cantrip` or a spell rank 1 to 10, with the spells (`ContentId`s) the staff lists under it, each rank once. The
+  charge cost of a spell is its rank, and a cantrip costs none; it is read from the rank, not stored
+  (`staffCharges`). Magic staves are weapons in Foundry; a coda instrument is equipment. A staff with no `staff` is
+  a staff whose list is not typed yet, listed by the coverage report.
 - **Kits.** `items` are `ContentId`s with a `quantity`, and a container in a kit lists its `contents` the same
   way. A kit has no level or Bulk; a class kit carries its class's trait.
 
@@ -968,6 +973,13 @@ tradition of spell cast in the ritual` its `pick`. Its secondary checks are sepa
   its event and a predicate for them are set by hand. A trigger with any other wording, or anything richer than
   words and links, is left for
   hand edit and listed by the coverage report.
+- **Staff enrichment.** A staff prints its spells in a list ("**Cantrip** Ignition", "**3rd** Floating Flame,
+  Fireball"). `bun run content:staves` sets `staff` on every staff in the committed packs that has none yet, so a
+  hand correction is never overwritten, when every item of its one list opens with a rank and every name in it
+  resolves to exactly one spell in the packs. Names are read longest-first and run together as often as comma
+  separated, so a list that splits into spell names in more than one way is left alone, like a staff that names a
+  spell no pack holds yet (most of the Treasure Vault staves, until the books that hold their spells are imported), a
+  parenthesised note ("Elemental Absorption (water only)") or no list at all. The coverage report lists them.
 - **Prerequisite enrichment.** Foundry's prerequisites are text only. `bun run content:prerequisites` sets
   `prerequisitePredicate` on every feat in the committed packs whose prerequisites all parse and that has none yet, so
   a hand correction is never overwritten. Each `;`-separated clause must hold, and is one of:

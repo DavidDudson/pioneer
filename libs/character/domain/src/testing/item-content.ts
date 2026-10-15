@@ -17,10 +17,12 @@ import { runeContent } from '../item-runes';
 import type { RuneContent } from '../item-runes';
 import { CLUMSY, ENCUMBERED, ITEM_PACK } from './condition-fixture-ids';
 import { BULWARK_CHARM, EMBER_BLADE, TROLL_CHARM } from './effect-items';
+import { FIRE_STAFF } from './fire-staff';
 import { HUNTERS_BLADE } from './hunters-blade';
 import { HUNTERS_CLOAK } from './hunters-cloak';
 import { MOVEMENT_CHARM } from './movement-charm';
 import { RUNES, RuneFixture } from './rune-fixtures';
+import { ALCHEMISTS_FIRE, HOLY_WATER } from './thrown-items';
 
 /** Player Core numbers (Foundry pf2e) for the items the inventory tests carry. */
 const BACKPACK_CAPACITY = 4;
@@ -79,6 +81,8 @@ export const ItemFixture = {
   MovementCharm: 'movement-charm',
   /** A worn invested charm whose alterations add to a shield's Hardness and give weapons cold iron, agile and flaming. */
   BulwarkCharm: 'bulwark-charm',
+  /** A magic staff: Ignition, Breathe Fire at 1st rank, Floating Flame and Fireball at 3rd. */
+  FireStaff: 'fire-staff',
 } as const;
 export type ItemFixture = (typeof ItemFixture)[keyof typeof ItemFixture];
 
@@ -88,6 +92,7 @@ interface ItemFixtureFields extends MagicItemFields {
 }
 
 const ITEMS: Readonly<Record<ItemFixture, ItemFixtureFields>> = {
+  [ItemFixture.FireStaff]: FIRE_STAFF,
   [ItemFixture.Backpack]: {
     kind: ContentKind.Equipment,
     data: {
@@ -116,31 +121,8 @@ const ITEMS: Readonly<Record<ItemFixture, ItemFixtureFields>> = {
     traits: ['extradimensional', 'magical'],
   },
   [ItemFixture.Anvil]: { kind: ContentKind.Equipment, data: { bulk: 2 } },
-  [ItemFixture.AlchemistsFire]: {
-    kind: ContentKind.Weapon,
-    data: {
-      bulk: 'light',
-      category: 'simple',
-      group: 'bomb',
-      damage: { dice: 1, die: 'd8', damageType: 'fire', persistent: { formula: '1', damageType: 'fire' } },
-      splash: 1,
-      range: 20,
-      usage: { type: 'held', hands: 'one' },
-    },
-    traits: ['alchemical', 'bomb', 'consumable', 'fire', 'splash'],
-  },
-  [ItemFixture.HolyWater]: {
-    kind: ContentKind.Weapon,
-    data: {
-      bulk: 'light',
-      category: 'simple',
-      damage: { dice: 1, die: 'd6', damageType: 'spirit' },
-      splash: 1,
-      range: 20,
-      usage: { type: 'held', hands: 'one' },
-    },
-    traits: ['consumable', 'divine', 'holy', 'splash', 'thrown'],
-  },
+  [ItemFixture.AlchemistsFire]: ALCHEMISTS_FIRE,
+  [ItemFixture.HolyWater]: HOLY_WATER,
   [ItemFixture.Longsword]: {
     kind: ContentKind.Weapon,
     data: {

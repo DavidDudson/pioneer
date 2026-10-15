@@ -19,6 +19,7 @@ export {
   runeFixtureContent,
   runeFixtureId,
 } from './item-content';
+export { staffSpellId } from './fire-staff';
 export { clumsyFixtureId, encumberedFixtureId } from './condition-fixture-ids';
 export { RuneFixture } from './rune-fixtures';
 export { KIT_FIXTURE_FILES, KIT_FIXTURES, KitFixture, kitFixtureContent, kitFixtureId } from './kit-fixtures';
