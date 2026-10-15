@@ -104,7 +104,12 @@ describe.skipIf(adminUrl === undefined)('seeded descriptions (postgres)', () => 
     const pack = languagePack('texts-backfill', [SPOKEN, SUNG]);
     await seed(pack);
     const [spoken] = await storedTexts(pack);
-    await database.db.delete(contentEntryTexts).where(inArray(contentEntryTexts.entryId, [pack.entries[1]?.id]));
+    await database.db.delete(contentEntryTexts).where(
+      inArray(
+        contentEntryTexts.entryId,
+        pack.entries.slice(1).map(({ id }) => id),
+      ),
+    );
     const backfill = await Bun.file(BACKFILL).text();
 
     await database.db.$client.unsafe(backfill);
