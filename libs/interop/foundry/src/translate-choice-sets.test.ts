@@ -141,6 +141,21 @@ describe('ChoiceSet from Foundry', () => {
     });
   });
 
+  test('a query on class feature tags alone, filed as feats by Foundry, is a query of class features', () => {
+    const { rules, untranslated } = translated({
+      choices: { filter: ['item:tag:summoner-eidolon'], itemType: 'feat' },
+      flag: 'eidolon',
+      rollOption: 'eidolon',
+      key: RuleElementKey.ChoiceSet,
+    });
+
+    expect(untranslated).toEqual([]);
+    expect((rules[0] as { choices: unknown }).choices).toEqual({
+      kind: ContentKind.ClassFeature,
+      filter: ['item:tag:summoner-eidolon'],
+    });
+  });
+
   test("a query's read of its granter's level is a read of the character's level", () => {
     const { rules, untranslated } = translated({
       choices: { filter: [{ lte: ['item:level', 'parent:granter:level'] }, 'item:trait:impulse'], itemType: 'feat' },

@@ -108,6 +108,11 @@ function tagOptions(entry: ContentEntry): RollOption[] {
   return tags.map((tag) => RollOption.parse(`tag:${tag}`));
 }
 
+/** A feat's category, `category:class`, which a feat slot's query filters on (`item:category:class`); none for another kind. */
+function categoryOptions(entry: ContentEntry): RollOption[] {
+  return entry.kind === ContentKind.Feat ? [RollOption.parse(`category:${entry.data.category}`)] : [];
+}
+
 /**
  * `level:<n>` for an entry with a level, which a feat slot's query reads as `item:level` (`{ "lte": ["item:level",
  * "self:level"] }`), as Foundry pf2e sets it; none for an entry without one.
@@ -159,7 +164,13 @@ function envelopeEntry(entry: ContentEntry): GrantEntry | undefined {
     name: entry.name,
     rules: entry.rules,
     sources: [source, ...sources],
-    rollOptions: [...traitOptions(entry.traits), ...tagOptions(entry), ...levelOptions(entry), ...domainOptions(entry)],
+    rollOptions: [
+      ...traitOptions(entry.traits),
+      ...tagOptions(entry),
+      ...categoryOptions(entry),
+      ...levelOptions(entry),
+      ...domainOptions(entry),
+    ],
     facts: factsOf(entry),
     ...belongsTo(entry),
     ...valued(entry),

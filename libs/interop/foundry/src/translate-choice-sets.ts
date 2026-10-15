@@ -95,6 +95,9 @@ function titleCase(slug: string): string {
 /** The skills Foundry's `skills` config lists, as choices. */
 const SKILL_CHOICES: readonly unknown[] = [...SKILLS].map((skill) => ({ value: skill, label: titleCase(skill) }));
 
+/** A roll option of a class feature tag, which a subclass query filters on. */
+const TAG_STATEMENT = /^item:tag:[a-z0-9-]+$/u;
+
 /** A query by `itemType` as a query of that kind; a query that reads anything else is as it is. */
 function queryOf(choices: object): unknown {
   const fields = Object.keys(choices);
@@ -107,7 +110,10 @@ function queryOf(choices: object): unknown {
     return choices;
   }
   const filter = choices.filter.map((statement: unknown) => withItemLevel(namespacedStatement(statement)));
-  return { kind, filter };
+  // Foundry files class features under the `feat` item type: a query on class feature tags alone is of those.
+  const byTagAlone =
+    filter.length > 0 && filter.every((statement) => typeof statement === 'string' && TAG_STATEMENT.test(statement));
+  return { kind: kind === ContentKind.Feat && byTagAlone ? ContentKind.ClassFeature : kind, filter };
 }
 
 function choicesOf(choices: unknown): unknown {
