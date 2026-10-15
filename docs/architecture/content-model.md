@@ -425,7 +425,8 @@ and homebrew cannot use that path. A pack directory holds:
 - `<kind>.json`: an array of `ContentEntry` envelopes of that kind, in a stable order.
 
 The hand-authored packs (`core-rules`, and the `monster-core` entries transcribed before the importer exists) live
-there too, beside the Foundry imports `player-core`, `gm-core`, `divine-mysteries` and `treasure-vault`. `libs/rules/catalog` loads them
+there too, beside the Foundry imports `player-core`, `gm-core`, `divine-mysteries` and `treasure-vault`.
+`libs/rules/catalog` loads them
 lazily and checks every entry against its schema and the book registry, so a malformed or wrongly sourced entry fails
 `bun run affected`. Ids are stored on characters, so changing an entry's slug, its kind included, is a data
 migration; a catalog test pins every id that exists. The slug names its kind (ADR-0034), so only two entries of one
@@ -770,7 +771,8 @@ FlatModifier` appends the import's rules of the keys named to the committed entr
     `system.proficiencies.defenses.<category>.rank` (`unarmored`, `light`, `medium`, `heavy`) and
     `system.proficiencies.spellcasting.rank` is a `Proficiency` on `attack:<category>`, `defense:<category>` or
     `spellcasting`; a base weapon (`weapon-base-club`), a pick, a formula rank and a `self:level` predicate stay in
-    the backlog. An `ActiveEffectLike` adding to or upgrading a number Pioneer derives is a `Change` on that statistic, predicate
+    the backlog. An `ActiveEffectLike` adding to or upgrading a number Pioneer derives is a `Change` on that
+    statistic, predicate
     kept and Foundry's `phase` dropped: `system.attributes.reach.base` is `reach` (Bendy Arm Mutagen) and
     `system.attributes.dying.max` is `dying-max` (Mortalis Coin). A boolean (`system.attributes.flanking.flankable`)
     or a formula value stays in the backlog, as does a path with no statistic yet (`system.attributes.hp.recoveryAddend`,
@@ -963,7 +965,8 @@ tradition of spell cast in the ritual` its `pick`. Its secondary checks are sepa
   action, feat action and class feature action in the committed packs whose whole trigger matches a known wording
   ("Your turn begins.", "You cast a focus spell.") and that has none yet, so a hand correction is never
   overwritten. An action whose requirements are only `requirementsText` is skipped, since the engine can't read them;
-  its event and a predicate for them are set by hand. A trigger with any other wording, or anything richer than words and links, is left for a
+  its event and a predicate for them are set by hand. A trigger with any other wording, or anything richer than
+  words and links, is left for
   hand edit and listed by the coverage report.
 - **Prerequisite enrichment.** Foundry's prerequisites are text only. `bun run content:prerequisites` sets
   `prerequisitePredicate` on every feat in the committed packs whose prerequisites all parse and that has none yet, so
