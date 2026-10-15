@@ -1,4 +1,11 @@
-import { BACKGROUND_SLOT, CLASS_SLOT, HERITAGE_SLOT, rootSlotOptions } from '@pioneer/character/domain';
+import {
+  BACKGROUND_SLOT,
+  CLASS_SLOT,
+  hasSecondClass,
+  HERITAGE_SLOT,
+  rootSlotOptions,
+  SECOND_CLASS_SLOT,
+} from '@pioneer/character/domain';
 import type { Character, CharacterDocument, SlotContent } from '@pioneer/character/domain';
 import {
   ImportKind,
@@ -16,8 +23,8 @@ import type {
   PathbuilderReadFailure,
   UnplacedBoost,
 } from '@pioneer/interop/pathbuilder';
-import { AncestryId, ChoiceValue } from '@pioneer/rules/sdk';
-import type { SlotKey } from '@pioneer/rules/sdk';
+import { AncestryId, ChoiceValue, VariantStructure } from '@pioneer/rules/sdk';
+import type { ContentRegistry, SlotKey, VariantRuleEntry } from '@pioneer/rules/sdk';
 import { fieldIssues, message, ValidationError } from '@pioneer/shared/kernel';
 import type { FieldIssue } from '@pioneer/shared/kernel';
 
@@ -26,11 +33,28 @@ const PROBLEM_MESSAGES = {
   [PathbuilderProblem.ExportFailed]: 'character.import.problem.exportFailed',
 } as const satisfies Record<PathbuilderProblem, string>;
 
-/** The background and first class an export names, in their slots, when each matches loaded content. */
-function rootChoices(value: PathbuilderImport, lookup: ContentLookup): BoostChoices {
+/**
+ * The Dual Class variant rule an export with a second class needs, from the loaded packs; undefined for an export
+ * without one, or content that doesn't define the variant.
+ */
+export function dualClassVariant(value: PathbuilderImport, registry: ContentRegistry): VariantRuleEntry | undefined {
+  return value.identity.classes.length < 2
+    ? undefined
+    : registry
+        .variantRules()
+        .find((entry) => entry.definition.structure?.includes(VariantStructure.SecondClass) === true);
+}
+
+/**
+ * The background and class an export names, in their slots, when each matches loaded content: its second class too
+ * when the character has a slot for one.
+ */
+function rootChoices(value: PathbuilderImport, { lookup, slots }: ImportContent): BoostChoices {
+  const [first, second] = value.identity.classes;
   const picks: [SlotKey, ImportKind, PathbuilderName | undefined][] = [
     [BACKGROUND_SLOT, ImportKind.Background, value.identity.background],
-    [CLASS_SLOT, ImportKind.Class, value.identity.classes[0]],
+    [CLASS_SLOT, ImportKind.Class, first],
+    [SECOND_CLASS_SLOT, ImportKind.Class, hasSecondClass(slots.rootSlots) ? second : undefined],
   ];
   return Object.fromEntries(
     picks.flatMap(([slot, kind, name]) => {
@@ -73,32 +97,45 @@ function heritageChoice(
     : { choices: {}, notOffered: [{ kind: ImportKind.Heritage, name }] };
 }
 
+/**
+ * The second class an export names that matched loaded content but has no slot to go in, because the character does
+ * not use Dual Class: named as not offered.
+ */
+function secondClassNotOffered(value: PathbuilderImport, { lookup, slots }: ImportContent): readonly ImportedName[] {
+  const [, name] = value.identity.classes;
+  const matched = name !== undefined && lookup.resolve(ImportKind.Class, name) !== undefined;
+  return matched && !hasSecondClass(slots.rootSlots) ? [{ kind: ImportKind.Class, name }] : [];
+}
+
 /** A character an export makes, the export's boosts no slot took, and the matched names their slot refused. */
 export interface ImportedCharacter {
+  /** Whether the second class is picked, so the character needs the Dual Class variant rule. */
+  readonly dualClass: boolean;
   readonly character: Character;
   readonly unplaced: readonly UnplacedBoost[];
   readonly notOffered: readonly ImportedName[];
 }
 
 /**
- * The character `create` makes from an export: its background and class picked, then the heritage its ancestry
- * offers, then each boost in the slots they open, and the voluntary flaws (#550).
+ * The character `create` makes from an export: its background and class (and second class) picked, then the heritage
+ * its ancestry offers, then each boost in the slots they open, and the voluntary flaws (#550).
  */
 export function importedCharacter(
   value: PathbuilderImport,
   content: ImportContent,
   create: (choices: BoostChoices) => Character,
 ): ImportedCharacter {
-  const roots = rootChoices(value, content.lookup);
+  const roots = rootChoices(value, content);
   const heritage = heritageChoice(value, content, create(roots).document);
   const picked = { ...roots, ...heritage.choices };
   const { document } = create(picked);
   const placement = placeBoosts(document, content.slots.boosts, value.boosts);
   const flaws = placeFlaws(document, content.slots.boosts, value.flaws);
   return {
+    dualClass: SECOND_CLASS_SLOT in roots,
     character: create({ ...picked, ...placement.choices, ...flaws }),
     unplaced: placement.unplaced,
-    notOffered: heritage.notOffered,
+    notOffered: [...heritage.notOffered, ...secondClassNotOffered(value, content)],
   };
 }
 

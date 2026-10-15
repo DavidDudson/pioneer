@@ -4,6 +4,7 @@ import {
   CharacterVariantService,
   CharacterService,
   FeatDisplayService,
+  PathbuilderImportService,
   PioneerFileService,
   PlayService,
   SheetModeService,
@@ -18,6 +19,7 @@ import {
   DrizzleCharacterVariantRepository,
   DrizzleFeatDisplayRepository,
   DrizzleSheetModeRepository,
+  pathbuilderImportRoutes,
   pioneerFileRoutes,
   playRoutes,
   sheetModeRoutes,
@@ -76,6 +78,10 @@ export function characters(db: Database, clock: Clock, authenticator: RequestAut
   const { packs, variants } = packServices(db, clock, { content, repository });
   const characterContent = new CharacterContent(content, packs, variants);
   const service = new CharacterService(repository, characterContent, clock);
+  const importer = new PathbuilderImportService(
+    { characters: repository, content, variants: new DrizzleCharacterVariantRepository(db) },
+    clock,
+  );
   const homebrew = new PioneerEmbeddedHomebrew(
     db,
     clock,
@@ -86,6 +92,7 @@ export function characters(db: Database, clock: Clock, authenticator: RequestAut
   const featDisplay = new FeatDisplayService(repository, new DrizzleFeatDisplayRepository(db), clock);
   const play = new PlayService(repository, characterContent, clock);
   return characterRoutes(service, authenticator)
+    .use(pathbuilderImportRoutes(importer, authenticator))
     .use(pioneerFileRoutes(pioneerFiles, authenticator))
     .use(sheetModeRoutes(sheetModes, authenticator))
     .use(featDisplayRoutes(featDisplay, authenticator))

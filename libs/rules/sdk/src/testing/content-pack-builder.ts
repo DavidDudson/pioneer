@@ -13,6 +13,7 @@ import { SourceKind } from '../source-ref';
 import type { SourceRef } from '../source-ref';
 import type { StatisticDefinition } from '../statistic';
 import { StatisticKind } from '../statistic';
+import type { VariantRuleDefinition } from '../variant-rule';
 import type {
   ClassFeatureFields,
   ClassFields,
@@ -74,6 +75,7 @@ export class ContentPackBuilder {
   readonly #namespaces: Record<string, NamespaceKind> = {};
   #proficiencyBonus: ProficiencyBonusTable | undefined;
   readonly #entries: EnvelopeFields[] = [];
+  readonly #variantRules: Omit<z.input<typeof VariantRuleDefinition>, 'sources'>[] = [];
 
   public withId(id: string): this {
     this.#id = id;
@@ -256,6 +258,12 @@ export class ContentPackBuilder {
     return this;
   }
 
+  /** A variant rule named `name` that needs `structure`. */
+  public withVariantRule(name: string, structure?: z.input<typeof VariantRuleDefinition>['structure']): this {
+    this.#variantRules.push({ slug: `variant-rule:${name}`, name, rules: [], structure });
+    return this;
+  }
+
   public withNamespace(namespace: string, kind: NamespaceKind): this {
     this.#namespaces[namespace] = kind;
     return this;
@@ -269,6 +277,7 @@ export class ContentPackBuilder {
       creatures: this.#creatures.map((creature) => ({ sources, ...creature })),
       statistics: this.#statistics.map((statistic) => ({ sources, ...statistic })),
       rollOptionNamespaces: this.#namespaces,
+      variantRules: this.#variantRules.map((variant) => ({ sources, ...variant })),
       ...(this.#proficiencyBonus === undefined ? {} : { proficiencyBonus: this.#proficiencyBonus }),
       otherEntries: this.#entries.map(
         ({ kind, name, data, rules = [], level, traits = [], rarity = 'common', description = [] }) => ({
