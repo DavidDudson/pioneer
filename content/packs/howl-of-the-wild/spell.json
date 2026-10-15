@@ -1,0 +1,4213 @@
+[
+  {
+    "id": "81ba1d12-bf5b-5f02-8d55-49194615101b",
+    "pack": "howl-of-the-wild",
+    "kind": "spell",
+    "slug": "spell:albatross-curse",
+    "name": "Albatross Curse",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate", "misfortune"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You create a spectral albatross, a guiding bird for sailors, to hover around the target. You and allies within 30 feet of the target gain a +1 circumstance bonus to attacks against the target. The target creature can spend an action to Strike the albatross, which automatically succeeds and kills it. The target must then attempt a Will save against your spell DC."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "bb34df6b-0537-52c7-b80a-a09a3555d328"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The guilt of slaughtering a bird of good fortune weighs on the target's mind. The target is Stupefied 1 for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The albatross hangs around a cord from the target's neck (or closest equivalent) for 1 minute, cursing them for their transgression. During this time, the target must roll twice and take the worse result on their next Will save, after which the albatross disappears."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "5acd7e1d-9a36-5533-b637-07eb0fa9c28c"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but the duration is 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "cdb43c9b-e2ef-5bb5-88cb-9dafbf85a8fd"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.93SjFTGJUTTmAt6j"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["occult", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "ca76fd73-ab6c-5f34-841f-1a5fa1e2b5df",
+    "pack": "howl-of-the-wild",
+    "kind": "spell",
+    "slug": "spell:antlion-trap",
+    "name": "Antlion Trap",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["concentrate", "earth", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transmute the ground into a conical pit trap of loose sand that becomes difficult terrain for the duration. A creature or unsecured object that enters the sand or starts its turn in the sand is moved toward the center, depending on the result of its Reflex save. This is forced movement. If there isn't enough space near the center of the pit, affected creatures and objects move as far as they can without being blocked, up to the amount set by their saving throw outcomes."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature moves 5 feet toward the center."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature moves 10 feet toward the center."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, and the creature becomes Immobilized in the pit. It can attempt to Escape against your spell DC."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+2)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Increase the area of the spell and the amount a creature moves on a failure by 5 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.5JGSo1tgDEehqbWm"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 120
+      },
+      "area": {
+        "shape": "burst",
+        "size": 15
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:reflex",
+          "basic": false
+        }
+      },
+      "traditions": ["primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "712ea6b7-ef2a-5241-bd7b-63e75bbf27a3",
+    "pack": "howl-of-the-wild",
+    "kind": "spell",
+    "slug": "spell:blood-in-the-water",
+    "name": "Blood in the Water",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "hex", "manipulate", "spirit", "witch"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is taking persistent bleed damage or your last action dealt slashing damage to the target."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Predators are drawn to the scent of blood, and blood can disperse shockingly far in the water. You summon the spirits of aquatic predators to appear as a spectral swarm around the target. When you Cast or Sustain this Spell, the target takes 2d6 spirit damage (basic Reflex save). If the target takes any damage from the spell, it treats all water as difficult terrain for 1 round as the predators try to drag them down. The spectral predators don't take up space, grant flanking, or have any other attributes a creature would. If you deal slashing damage to the target while the spell is active, you automatically Sustain this Spell. If you cast blood in the water while a previous casting of this hex is still in effect, the previous effect ends."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+2)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage dealt increases by 2d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.CXpOlv2ZZq2jVbRX"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:reflex",
+          "basic": true
+        }
+      },
+      "requirements": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The target is taking persistent bleed damage or your last action dealt slashing damage to the target."
+            }
+          ]
+        }
+      ],
+      "traditions": [],
+      "damage": [
+        {
+          "key": "nckxviq3ukwgdwor",
+          "formula": "2d6",
+          "damageType": "spirit",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 2,
+        "damage": [
+          {
+            "key": "nckxviq3ukwgdwor",
+            "formula": "2d6"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "41ce19ff-f240-52a5-9c5a-6f3368e7ef5a",
+    "pack": "howl-of-the-wild",
+    "kind": "spell",
+    "slug": "spell:camel-spit",
+    "name": "Camel Spit",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["acid", "attack", "concentrate", "manipulate", "morph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You alter your stomach, esophagus, and tongue to be able to spit partially digested food with force. You can spit at a foe once you finish Casting the Spell and can repeat the attack once on each of your subsequent turns by taking a single action, which has the acid, attack, and concentrate traits. After your third spit attack, the spell ends. When you attack with camel spit, make a ranged spell attack roll against a creature within 15 feet, dealing 1d6 acid damage and causing the target to be Dazzled for 1 round if you hit. On a critical hit, you deal double damage and the target takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "@item.level",
+                "damageType": "acid",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by 1d6, and the persistent damage on a critical hit is increased by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.Hycyiw9xVzoIY4Dy"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "traditions": ["arcane", "primal"],
+      "damage": [
+        {
+          "key": "ztsfuzsyaioknten",
+          "formula": "1d6",
+          "damageType": "acid",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "ztsfuzsyaioknten",
+            "formula": "1d6"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "bd9c5757-1239-5526-8d7c-08b4dd150770",
+    "pack": "howl-of-the-wild",
+    "kind": "spell",
+    "slug": "spell:canopy-crawler",
+    "name": "Canopy Crawler",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "manipulate", "morph", "ranger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The target grows a prehensile tail, or gains prehensile qualities in their existing tail, to help them climb with ease. For the duration of the spell, they gain a climb Speed equal to their highest Speed. The target can Climb with a hand occupied (or two hands occupied if they have the Combat Climber feat)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "cff13282-5fcb-5e13-8af6-2e34727523c3"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (5th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The spell's duration increases to 1 hour, and you can target both yourself and your animal companion with a single casting."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.3JQPqtE7fkscP3f6"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute"
+      },
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
+    "id": "6782683b-90b6-5cf5-a626-79fac78419a1",
+    "pack": "howl-of-the-wild",
+    "kind": "spell",
+    "slug": "spell:claws-of-the-otter",
+    "name": "Claws of the Otter",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["cold", "concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Webbing grows between your fingers and your nails extend into vicious claws. For the spell's duration, you gain a +1 status bonus to Athletics checks to Swim and you gain a claws unarmed attack. They're an agile, finesse, unarmed attack that deals 1d4 slashing damage and an additional 1d6 cold damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "a326c55a-6c07-5884-b566-cee6b19e61fe"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+3)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The additional cold damage increases by 1d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.yNTfght6fu9WYKmx"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour"
+      },
+      "traditions": ["divine", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "1f44d0ad-3797-5071-b64b-f01d1f0557f1",
+    "pack": "howl-of-the-wild",
+    "kind": "spell",
+    "slug": "spell:confusing-cry",
+    "name": "Confusing Cry",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["auditory", "concentrate", "emotion", "incapacitation", "manipulate", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You give an unsettling, warbling cry that causes nearby creatures to lash out without control. Each creature in the area that can hear must attempt a Will save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected and immune to this spell for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is Stunned 1."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is Confused for 1 minute. It can attempt a new save at the end of each of its turns to end the confusion."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, and the creature immediately attacks itself. This Strike doesn't give the creature a flat check to recover from the confusion."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.I7oklLZy4aTHIdc3"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "area": {
+        "shape": "emanation",
+        "size": 20
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["divine", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "9682d922-73ce-51a1-a5bc-716745ac313c",
+    "pack": "howl-of-the-wild",
+    "kind": "spell",
+    "slug": "spell:croak-voice",
+    "name": "Croak Voice",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["concentrate", "curse", "manipulate", "morph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You cause the target creature's vocal chords to swell like those of a frog. The target must attempt a Fortitude save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target's voice becomes hoarse, and speaking becomes painful. Whenever it uses an action that has the auditory trait or attempts to Cast a Spell that doesn't have the subtle trait, it must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 5
+          },
+          {
+            "type": "text",
+            "text": " or the action is lost. Once per round, the target can spend an Interact action to massage its throat, attempting a Fortitude save against your spell DC. On a success, the spell ends."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but using an action with the auditory trait also deals 2d10 mental damage to the target as the sound of its distorted voice grates on its ears."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but the damage for using an action with the auditory trait is doubled, and the target can't use an Interact action to attempt a Fortitude save to end the effect early."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage for using an action with the auditory trait increases by 1d10."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.zVfTMpkXJDRESkl5"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:fortitude",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "primal"],
+      "damage": [
+        {
+          "key": "ejfn85qim5czi3au",
+          "formula": "2d10",
+          "damageType": "mental",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "ejfn85qim5czi3au",
+            "formula": "1d10"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "1a9c50f3-df81-5ad9-8e8e-95ed9d900a8b",
+    "pack": "howl-of-the-wild",
+    "kind": "spell",
+    "slug": "spell:distracting-decoy",
+    "name": "Distracting Decoy",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "ranger", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You conjure a colorful, fast-moving shape, such as a small bird or other animal that draws your target's eye. They must attempt a Will save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is Off-Guard until the start of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but the creature also takes a –2 circumstance penalty to attacks while it's off-guard."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "856ea87e-b6e1-5ae6-8424-29d3e3977566"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.z8bHh8KVttslQIU9"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "one"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 10
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
+    "id": "ba94b124-33fc-5718-8535-64b2656a070a",
+    "pack": "howl-of-the-wild",
+    "kind": "spell",
+    "slug": "spell:foraging-friends",
+    "name": "Foraging Friends",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Giving a cheerful whistle, you call forth a handful of small animals, such as birds or mice, to collect food for you and your allies. The animals return 1 hour later with enough foraged goods to feed four Medium creatures for 1 day, then return to their normal behavior. If you're in a particularly strange environment, as determined by your GM, you might need a minimum proficiency with primal spell DCs, equivalent to the minimum proficiency required to Subsist in strange environments."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (3rd)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The animals bring back enough food for eight Medium creatures for 1 day."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (5th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The animals bring back enough food for 30 Medium creatures for 1 day."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.qdfV4y8B6mbg4Fnm"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute"
+      },
+      "traditions": ["primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "13a1a775-da71-50a1-9e30-e5f8d010d8ce",
+    "pack": "howl-of-the-wild",
+    "kind": "spell",
+    "slug": "spell:frog-tongue",
+    "name": "Frog Tongue",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your tongue extends unnaturally, flicking out toward a creature within range and dealing 2d8 bludgeoning damage (basic Reflex save). On a failure, the creature is also stuck to the end of the tongue. It is Off-Guard and can't move beyond the reach of your tongue. A creature can sever the tongue with a Strike that deals at least 10 slashing damage or attempt to Escape against your spell DC. The AC of the tongue is equal to your spell DC. Severing the tongue in this way deals no damage to you but ends the spell. While a creature is stuck to the end of your tongue, actions you take with the auditory trait take a –2 circumstance penalty. If you move so that the affected creature is outside of the tongue's reach, the spell ends."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by 2d8."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.cnRltZAjU9aCklqz"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:reflex",
+          "basic": true
+        }
+      },
+      "traditions": ["primal"],
+      "damage": [
+        {
+          "key": "j7ydkn5znvglahiy",
+          "formula": "2d8",
+          "damageType": "bludgeoning",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "j7ydkn5znvglahiy",
+            "formula": "2d8"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "23f34f4a-9d0c-5ec7-a0a9-c6547af5009d",
+    "pack": "howl-of-the-wild",
+    "kind": "spell",
+    "slug": "spell:gluttonous-growth",
+    "name": "Gluttonous Growth",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "manipulate", "plant", "ranger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Plants in the area grow rapidly, taking on carnivorous characteristics as they seek to consume prey. All affected squares are difficult terrain, both on the ground and for flying creatures. Each creature that begins its turn in the area must attempt a Reflex save unless it's already Grabbed or Restrained."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you Sustain this spell, each creature grabbed or restrained by the plants takes 4d6 piercing damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is grabbed until the beginning of its next turn or it Escapes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is grabbed until the spell ends or it Escapes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is restrained until the spell ends or it Escapes."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage dealt by the plants when you Sustain the spell increases by 2d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.91ZbBll8M7IXQ4yw"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 120
+      },
+      "area": {
+        "shape": "burst",
+        "size": 20
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:reflex",
+          "basic": false
+        }
+      },
+      "requirements": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "squares contain plants"
+            }
+          ]
+        }
+      ],
+      "traditions": [],
+      "damage": [
+        {
+          "key": "pwae34vzldflgixr",
+          "formula": "4d6",
+          "damageType": "piercing",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 2,
+        "damage": [
+          {
+            "key": "pwae34vzldflgixr",
+            "formula": "2d6"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "2c68ae19-65ac-5aca-9ddd-082561d22353",
+    "pack": "howl-of-the-wild",
+    "kind": "spell",
+    "slug": "spell:hidebound",
+    "name": "Hidebound",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature within range is hit with a Strike that deals physical damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The target's skin erupts in thick hide or dense scales. It gains resistance 5 to physical damage, except adamantine, until the beginning of its next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "74286249-a60d-5e9e-a351-17e3ef675edd"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+2)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The resistance increases by 3."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.3TuGuGZqyOBmWp7N"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "actions",
+        "cost": "reaction"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 60
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round"
+      },
+      "requirements": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A creature within range is hit with a Strike that deals physical damage."
+            }
+          ]
+        }
+      ],
+      "traditions": ["arcane", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "9a81d89f-9cc4-57c7-966c-49c629901cb1",
+    "pack": "howl-of-the-wild",
+    "kind": "spell",
+    "slug": "spell:hippocampus-retreat",
+    "name": "Hippocampus Retreat",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["attack", "concentrate", "manipulate", "morph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're mostly or totally submerged in water."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You temporarily shape your lower limbs into the tail of a hippocampus in order to swim away from a nearby foe after dealing a parting blow. Attempt a melee spell attack roll against the target's AC, dealing 2d6 bludgeoning damage on a hit (or double damage on a critical hit). Then, Swim up to 30 feet; if you already have a swim Speed, you can Swim up to your Speed with a +10-foot circumstance bonus. You gain a +2 circumstance bonus to your AC against reactions triggered by this movement. At the end of the movement, your lower limbs return to normal."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "9e430f5d-128a-5713-9569-497f922fae51"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by 1d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.wSK0wtn8iHShYT9y"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 10
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "requirements": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You're mostly or totally submerged in water."
+            }
+          ]
+        }
+      ],
+      "traditions": ["arcane", "primal"],
+      "damage": [
+        {
+          "key": "iiecbku11zotaxtn",
+          "formula": "2d6",
+          "damageType": "bludgeoning",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "iiecbku11zotaxtn",
+            "formula": "1d6"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "df60ac7d-7e21-544e-b50f-97cc982ce42d",
+    "pack": "howl-of-the-wild",
+    "kind": "spell",
+    "slug": "spell:imitate-fauna",
+    "name": "Imitate Fauna",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "illusion", "manipulate", "ranger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You use your knowledge of nature to pass the target off as a common animal of the same size, representing a species chosen when the spell is cast. This covers the target's visual appearance, scent, and voice. The target can communicate with other members of the species as though they shared a language but can't speak other languages while the spell persists."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Casting "
+          },
+          {
+            "type": "text",
+            "text": "imitate fauna",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " counts as setting up a disguise for the purpose of the Impersonate action. It allows the target to ignore any circumstance penalties they might take for being disguised as dissimilar creatures, and it gives the target a +4 status bonus to Deception checks to prevent other animals from seeing through their disguise. You can Dismiss this spell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "9757aebd-f493-56fc-a2fe-8ff906044f0d"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (5th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can target up to six willing animals."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.HkjeegDsA5Wq0hR2"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature",
+            "qualifiers": ["willing"],
+            "traits": ["animal"]
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour"
+      },
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
+    "id": "e8c183b7-48ca-5f2f-9409-3ade4e64e038",
+    "pack": "howl-of-the-wild",
+    "kind": "spell",
+    "slug": "spell:keen-smell",
+    "name": "Keen Smell",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "manipulate", "morph", "ranger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your nose becomes more sensitive to the scents of the wild, the better for you to track your quarry. For the spell's duration, you gain scent as an imprecise sense with a range of 30 feet. Your hunted prey can't be undetected by you as long as it's within your scent range."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "385e25d2-f28b-571c-bea9-a76e823766b2"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (3rd)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your scent range increases to 60 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.SXmEI4kVWVSagK4H"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
+    "id": "c97378d9-6646-5838-b9a9-5af4c189f827",
+    "pack": "howl-of-the-wild",
+    "kind": "spell",
+    "slug": "spell:luring-wail",
+    "name": "Luring Wail",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["auditory", "concentrate", "incapacitation", "manipulate", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You emit a plaintive cry to lure your enemies closer. Each creature in the emanation that can hear you must attempt a Will save. If you speak a creature's name as part of the casting of the spell, that creature takes a –2 circumstance penalty to its saving throw. Each creature that enters the area on its turn must attempt a save. If you attack or take a hostile action, the Fascinated condition ends only for the creature that's attacked."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is Slowed 1 for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature becomes fascinated and compelled to move toward the sound of your cry on its turn. As long as it is in the emanation and can hear, it must spend at least one of its actions on each of its turns to move closer to you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but the creature must spend all its actions moving toward the sound. Additionally, the creature is Off-Guard."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.Lr737SofpsFtLpEo"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "area": {
+        "shape": "emanation",
+        "size": 60
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["occult", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "b82280a4-4586-50fc-be8b-f0b932dda203",
+    "pack": "howl-of-the-wild",
+    "kind": "spell",
+    "slug": "spell:murmuration",
+    "name": "Murmuration",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["cantrip", "concentrate", "hex", "sonic", "witch"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The target feels the brush of feathers against its skin and hears screeches in its ears, warning it to keep away from a creature you designate that's within 30 feet of you when you Cast this Spell (which can include yourself). Once per round, if the target moves closer to the designated creature, it must attempt a Will save or take (@item.rank)d4[piercing] or (@item.rank)d4[sonic] damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes half damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes full damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes (@item.rank)d4[sonic],(@item.rank)d4[piercing] damage, and if it attempts an attack roll or hostile skill check this round, it takes a –2 status penalty to the roll."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "99d7bf1a-a352-5d8b-9375-fda60e1b54fa"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by 1d4, or by 2d4 on a critical failure (1d4 of which is sonic and 1d4 of which is piercing)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.4EmLum6EdvXxbxCj"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "one"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
+    "id": "8f56c198-00e6-5a16-8bfb-90c2b4b20db6",
+    "pack": "howl-of-the-wild",
+    "kind": "spell",
+    "slug": "spell:mycological-malady",
+    "name": "Mycological Malady",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "disease", "focus", "hex", "manipulate", "witch"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You infect your target with fungal spores to hasten the cycle of decay. The target must attempt a Fortitude saving throw. Undead that aren't incorporeal, such as skeletons and zombies, don't have their normal immunity to this disease, as the spores can still colonize their remaining flesh and bone. This might also apply to other non-living creatures made of organic material at the GM's discretion."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target sprouts mushrooms and is Enfeebled 2 for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is afflicted with voidcap spores at stage 1."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is afflicted with voidcap spores at stage 2."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Voidcap Spores (disease)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " This disease ends when the spell ends;"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " enfeebled 2 (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " enfeebled 2 and Slowed 1 (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " enfeebled 2, slowed 1, and Stupefied 2 (1 round)"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.V4jrHiaMh4XuANOP"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:fortitude",
+          "basic": false
+        }
+      },
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
+    "id": "40acd85d-ab1a-5c91-aeda-50b51ac157ca",
+    "pack": "howl-of-the-wild",
+    "kind": "spell",
+    "slug": "spell:pack-breaker",
+    "name": "Pack Breaker",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "manipulate", "mental", "ranger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can deceive creatures by changing their perception of their allies' behavior. Each affected creature suspects their allies have changed allegiance, depending on the outcome of their Will save. Regardless of the effects of the saving throw, the creature is then temporarily immune to pack breaker for 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature becomes Unfriendly to all creatures to which it wasn't already hostile, even those that were previously allies. It treats no one as an ally for 1 minute. Each of its former allies within its reach must attempt a save against pack breaker."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but the creature is also Confused for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but the creature is confused for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.cGGEi67G1RStR9cD"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
+    "id": "30360228-3f44-59f6-92a4-918023d65911",
+    "pack": "howl-of-the-wild",
+    "kind": "spell",
+    "slug": "spell:primal-chorus",
+    "name": "Primal Chorus",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["auditory", "concentrate", "manipulate", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You let loose a primal howl that incites animals and beasts to join in the chorus. Doing so gives you a general idea of how many creatures with the animal or beast trait are within the range of the spell, but significant creatures can attempt a Will save against your spell DC to resist responding to your call. You gain a +1 status bonus to your next Initiative roll in an encounter with an enemy creature that replies to your call. For purposes of using Coerce during exploration mode, you can communicate with a creature that responds to your call for the duration of the spell. You can only make simple commands, such as approach or hide, and only understand simple ideas, such as compliance with the order or the presence of natural hazards."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+2)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The status bonus increases by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.TPN3Z6VGau6Od9rG"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "duration": {
+        "type": "until",
+        "until": "daily-preparations"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "f02ebe42-a077-520e-b3c0-0cf5ae05316d",
+    "pack": "howl-of-the-wild",
+    "kind": "spell",
+    "slug": "spell:pulverizing-wake",
+    "name": "Pulverizing Wake",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["attack", "concentrate", "focus", "manipulate", "ranger", "sonic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Imitating raptorial creatures, you attack with such speed it drives a sonic shockwave. Make a melee Strike against a creature in your reach; if you hit, you deal an additional 3d8 sonic damage. Regardless of the result of your Strike, that creature becomes the point of origin of a 15-foot cone, aimed directly away from you. All creatures in that cone take 6d8 sonic damage (basic Fortitude save)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage of the cone increases by 1d8."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.EiE1A8TCeJGVzzV2"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "area": {
+        "shape": "cone",
+        "size": 15
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:fortitude",
+          "basic": true
+        }
+      },
+      "traditions": [],
+      "damage": [
+        {
+          "key": "zjn9o8o0gxmwhkck",
+          "formula": "6d8",
+          "damageType": "sonic",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "zjn9o8o0gxmwhkck",
+            "formula": "1d8"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "78ba7ddf-68b6-590d-86f2-c0837ec57f0d",
+    "pack": "howl-of-the-wild",
+    "kind": "spell",
+    "slug": "spell:sacred-beasts",
+    "name": "Sacred Beasts",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You worship a deity."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You call out to the creatures of the wild favored by your deity. You quickly summon your deity's sacred animal (or a small swarm of them if the animal is usually Tiny). For example, you would call forth a lion if you worship Iomedae or a swarm of spiders if you worship Norgorber. If your deity doesn't have a known sacred animal, work with the GM to find a thematic one. The animal or swarm assaults all creatures in the area, dealing 2d6 damage. The damage is either bludgeoning, piercing, or slashing based on the animal that was conjured, as determined by the GM. After their attacks, the animals return to your deity's plane."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by 2d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.rVRyA7UQog633nTe"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "area": {
+        "shape": "burst",
+        "size": 5
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:reflex",
+          "basic": true
+        }
+      },
+      "requirements": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You worship a deity."
+            }
+          ]
+        }
+      ],
+      "traditions": ["divine", "primal"],
+      "damage": [],
+      "variants": [
+        {
+          "name": "Sacred Beasts (Bludgeoning)",
+          "damage": [
+            {
+              "key": "ki6wlhf13lvcrfpm",
+              "formula": "2d6",
+              "damageType": "bludgeoning",
+              "kinds": ["damage"]
+            }
+          ],
+          "heightening": {
+            "type": "interval",
+            "interval": 1,
+            "damage": [
+              {
+                "key": "ki6wlhf13lvcrfpm",
+                "formula": "2d6"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Sacred Beasts (Piercing)",
+          "damage": [
+            {
+              "key": "9mhtsjy5ohsol8ru",
+              "formula": "2d6",
+              "damageType": "piercing",
+              "kinds": ["damage"]
+            }
+          ],
+          "heightening": {
+            "type": "interval",
+            "interval": 1,
+            "damage": [
+              {
+                "key": "9mhtsjy5ohsol8ru",
+                "formula": "2d6"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Sacred Beasts (Slashing)",
+          "damage": [
+            {
+              "key": "t0uzdequwssxspym",
+              "formula": "2d6",
+              "damageType": "slashing",
+              "kinds": ["damage"]
+            }
+          ],
+          "heightening": {
+            "type": "interval",
+            "interval": 1,
+            "damage": [
+              {
+                "key": "t0uzdequwssxspym",
+                "formula": "2d6"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "62eccc11-67bb-54b4-9d94-8a77ef1f693c",
+    "pack": "howl-of-the-wild",
+    "kind": "spell",
+    "slug": "spell:scroungers-glee",
+    "name": "Scrounger's Glee",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["auditory", "cantrip", "concentrate", "fear", "hex", "mental", "witch"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "With a cruel laugh and a flash of your canines, you make a target understand that death is coming to claim it and that its demise will serve to strengthen another. The target becomes Frightened 1 if it fails a Will save (or Frightened 2 on a critical failure). This condition can't be reduced below 1 while the spell is active and the target can hear you. You can Dismiss the spell as a reaction when an ally critically succeeds at a Strike against the target, restoring "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(ceil(@item.level/2))d4"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points to that ally."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+2)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The number of Hit Points restored when you Dismiss the spell increases by 1d4."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.VNv96dJPi0WXKSFN"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "one"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
+    "id": "52b5077e-d250-5e46-84af-e2e65e42ba2c",
+    "pack": "howl-of-the-wild",
+    "kind": "spell",
+    "slug": "spell:sheltering-wings",
+    "name": "Sheltering Wings",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["focus", "hex", "manipulate", "witch"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An ally moves through a square within 15 feet of you or uses an action that has the move trait."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Like migratory birds, you know everyone flies farther together. You cause immense wings to sprout from your familiar. Your familiar Flies up to 30 feet, though it must move toward the triggering ally. If your familiar ends this movement adjacent to the triggering ally, it lands on their back; until the beginning of your next turn, the familiar automatically is carried by the ally, and its wings provide them cover. When the spell ends, the familiar hops off your ally into an adjacent square."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.gxK5XW4WAXOgY1mN"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "reaction"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 15
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "ally"
+          }
+        ]
+      },
+      "requirements": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "An ally moves through a square within 15 feet of you or uses an action that has the move trait."
+            }
+          ]
+        }
+      ],
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
+    "id": "04e0eede-f029-5f9e-8213-f8c7206ad47a",
+    "pack": "howl-of-the-wild",
+    "kind": "spell",
+    "slug": "spell:slime-spit",
+    "name": "Slime Spit",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "manipulate", "poison", "ranger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You spit toxic goo that coats your target's face and eyes, dealing 2d6 poison damage. It must attempt a Reflex save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes no damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes half damage and is Dazzled for 1 round, though it can Interact to wipe its eyes and remove the condition."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes full damage and is dazzled until the end of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes double damage, is Blinded for 1 round, and is dazzled until it uses an Interact action to wipe its eyes."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by 2d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.hWtB81P2KGzGHKAJ"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:reflex",
+          "basic": false
+        }
+      },
+      "traditions": [],
+      "damage": [
+        {
+          "key": "ysohtkihicre7yvr",
+          "formula": "2d6",
+          "damageType": "poison",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "ysohtkihicre7yvr",
+            "formula": "2d6"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "d7ec85ac-ef3e-51e9-8180-0ba0df6a899a",
+    "pack": "howl-of-the-wild",
+    "kind": "spell",
+    "slug": "spell:snake-fangs",
+    "name": "Snake Fangs",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate", "morph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your jaw unhinges as your teeth extend into wicked fangs. For the spell's duration, you gain a fangs unarmed attack. They're a finesse, grapple, unarmed attack that deals 1d8 piercing damage and an extra 2d10 poison damage. If you have a creature at least one size smaller than you Grabbed with your fangs, you can use the Swallow Whole ability that deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "bludgeoning"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and has a Rupture value of 17. A swallowed creature is transported to an extraplanar space that resembles the inside of a snake's stomach, so when it gets free, it appears in a space adjacent to you. If you're killed or the spell ends, the swallowed creature is immediately freed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "aceb4b99-294d-5fd0-98a3-60a5dfa2cfde"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+3)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The extra poison damage of your fangs unarmed attack increases by 1d10, the damage dealt by the Swallow Whole ability increases by 6d6, and the Rupture value increases by 9."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.wLWMswY7aBHEFTRb"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "traditions": ["primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "30998407-94ec-551d-aa57-18967069a763",
+    "pack": "howl-of-the-wild",
+    "kind": "spell",
+    "slug": "spell:songbirds-call",
+    "name": "Songbird's Call",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["aura", "bard", "composition", "concentrate", "focus"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your voice calls a storm of songbirds that whirl around you and peck at your enemies. All creatures within the area of whirling birds become Concealed, and all creatures outside the area become concealed to creatures within it. A creature other than you that enters or ends its turn in the area takes 1d6 piercing damage as the birds peck at it."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+2)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by 1d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.CzMCiFbgLj1irnP4"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "area": {
+        "shape": "emanation",
+        "size": 15
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:reflex",
+          "basic": true
+        }
+      },
+      "traditions": [],
+      "damage": [
+        {
+          "key": "zawfv7acltdyyyrz",
+          "formula": "1d6",
+          "damageType": "piercing",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 2,
+        "damage": [
+          {
+            "key": "zawfv7acltdyyyrz",
+            "formula": "1d6"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "9a68396e-039f-5db1-9d1b-1ebf9fded840",
+    "pack": "howl-of-the-wild",
+    "kind": "spell",
+    "slug": "spell:spirit-of-the-beast",
+    "name": "Spirit of the Beast",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "morph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You bring out the spirit of another animal that lives within your companion. Its body morphs slightly to take on an aspect of the animal you choose to have it emulate—for example, it might grow a pair of horns if the spirit is a bull or a tail if the spirit is a monkey. When you Cast this Spell, select from one of the following aspects."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "fa15275f-90ed-5e0a-9834-89c964dd7520"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Aspect of Might:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Your companion gains a +1 status bonus to Athletics checks, Intimidation checks to Demoralize, and Fortitude saves."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Aspect of Swiftness:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Your companion gains a +1 status bonus to Acrobatics checks, Stealth checks to Hide or Sneak, and Reflex saves."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Aspect of Insight:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Your companion gains a +1 status bonus to Perception checks to Seek, Survival checks to Sense Direction or Track, and Will saves."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (5th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The status bonuses increase to +2."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (8th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The status bonuses increase to +3."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.wgAsL86ji5hulh7x"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "actions",
+        "cost": "one"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "animal-companion"
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
+    "id": "fff40827-5581-5c28-ae3a-4759e4c1498b",
+    "pack": "howl-of-the-wild",
+    "kind": "spell",
+    "slug": "spell:sting-of-the-sea",
+    "name": "Sting of the Sea",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["cantrip", "concentrate", "hex", "witch"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A long tentacle like that belonging to an octopus, anemone, or man-of-war, dripping with briny water, appears from a glowing blue portal to wrap around the target's face, blocking its vision. For the duration of the spell, the target must attempt a Fortitude save at the beginning of its turn. The portal follows the target around, and the tentacle can't be targeted or harmed."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes a –2 penalty to Perception checks involving vision until the end of its turn. "
+          },
+          {
+            "type": "ref",
+            "id": "752d2336-2d64-5057-aed6-098e5d4770fb"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is Dazzled until the end of its turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is Blinded until the end of its turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.jyYBuGRfpkZz2kxs"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "one"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:fortitude",
+          "basic": false
+        }
+      },
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
+    "id": "37978eae-62d1-5286-acae-ad78182ebdaa",
+    "pack": "howl-of-the-wild",
+    "kind": "spell",
+    "slug": "spell:summon-stampede",
+    "name": "Summon Stampede",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["concentrate", "incarnate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You summon an unstoppable stampede of panicking beasts. Whether you conjure wild beasts or tamed cattle, the stampede is a force of nature that leaves behind nothing in its wake. The stampede occupies the space of a Gargantuan creature and has a Speed of 60 feet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Arrive",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": "(emotion, fear, mental) "
+          },
+          {
+            "type": "text",
+            "text": "Foreboding Tremors",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " The sheer energy of a stampede can cause even apex predators to panic. Each creature within a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": " must attempt a Will save with the following effects."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is Frightened 1."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is Frightened 2."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is Frightened 3 and Fleeing for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Depart",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": "Flatten the Earth",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " The stampede Strides up to double its Speed, trampling each Large or smaller creature, hazard, and structure whose space it enters, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "8d8",
+                "damageType": "bludgeoning"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage (basic Reflex save). The stampede ignores and attempts to counteract all difficult terrain it enters caused by debris, overgrowth, rubble, or thick ground cover."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.XWqxMJpCT95A0dZs"
+    },
+    "data": {
+      "rank": 7,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 120
+      },
+      "duration": {
+        "type": "until",
+        "until": "next-turn-end"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "efb61fb4-aa6b-564b-b72f-dd2482cd4d8d",
+    "pack": "howl-of-the-wild",
+    "kind": "spell",
+    "slug": "spell:summon-warden-of-the-wild",
+    "name": "Summon Warden of the Wild",
+    "level": 8,
+    "rarity": "rare",
+    "traits": ["concentrate", "incarnate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You briefly call forth the spirit of one of the Wardens of the Wild, the legendary guardians of nature. The warden occupies the space of a Gargantuan creature. When you Cast this Spell, you summon a warden depending on the biome in which the spell is cast (for instance, summoning the Warden of Caverns and Burrows if summoned in a cave, canyon, or other underground environment). In an unnatural environment, the warden summoned depends on the region's most recent or similar natural biome, as decided by the GM."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Warden of Caverns and Burrows:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Speed 60 feet, burrow 100 feet; "
+                },
+                {
+                  "type": "text",
+                  "text": "Arrive",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (earth) "
+                },
+                {
+                  "type": "text",
+                  "text": "Obsidian Cage",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": " Obsidian stalagmites burst from the earth as the warden surfaces, impaling enemies and trapping them in stalagmites. Enemies on the ground within "
+                },
+                {
+                  "type": "template",
+                  "shape": "emanation",
+                  "size": 40
+                },
+                {
+                  "type": "text",
+                  "text": " take "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "6d6",
+                      "damageType": "piercing"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage ("
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:reflex",
+                  "basic": true
+                },
+                {
+                  "type": "text",
+                  "text": " save). Creatures that fail their save become Immobilized until they Escape (the DC is your spell DC); "
+                },
+                {
+                  "type": "text",
+                  "text": "Depart",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (earth) "
+                },
+                {
+                  "type": "text",
+                  "text": "Blessing of the Depths",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": " The squares occupied by the warden remain disheveled and broken, becoming difficult terrain. The warden affects you and all your allies within "
+                },
+                {
+                  "type": "template",
+                  "shape": "emanation",
+                  "size": 60
+                },
+                {
+                  "type": "text",
+                  "text": " with a Mountain Resilience and Unfettered Pack. The duration for both spells is reduced to 3 rounds, but the duration of "
+                },
+                {
+                  "type": "text",
+                  "text": "mountain resilience",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": " isn't reduced when an affected target is hit by a bludgeoning, piercing, or slashing attack."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Warden of Forests and Meadows:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Speed 120 feet; "
+                },
+                {
+                  "type": "text",
+                  "text": "Arrive",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (illusion, mental) "
+                },
+                {
+                  "type": "text",
+                  "text": "Idyllic Panorama",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": " The warden's presence unpredictably warps the appearances and perceived distances of creatures and obstacles around it. Each time an enemy within 40 feet of the warden attempts a Strike or Stride action, it takes "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "4d6",
+                      "damageType": "mental"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage ("
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:will",
+                  "basic": true
+                },
+                {
+                  "type": "text",
+                  "text": " save). On a critical failure, the creature Strikes a random target within reach or Strides in a random direction. On a critical success, the creature becomes temporarily immune for 1 round; "
+                },
+                {
+                  "type": "text",
+                  "text": "Depart",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "text",
+                  "text": "Fox's Insightful Trickery",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": " The warden affects you and all your allies within 60 feet with Blur and Truesight. The duration for both spells is reduced to 3 rounds."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Warden of Oceans and Rivers:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Speed 60 feet, swim 120 feet; "
+                },
+                {
+                  "type": "text",
+                  "text": "Arrive",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "text",
+                  "text": "I Am the Tide",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": " If the warden is summoned in a body of water, it creates a churning whirlpool that deals "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "10d6",
+                      "damageType": "bludgeoning"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage to all creatures within "
+                },
+                {
+                  "type": "template",
+                  "shape": "emanation",
+                  "size": 30
+                },
+                {
+                  "type": "text",
+                  "text": " (basic Reflex save). A creature that fails this save is pulled 15 feet closer to the warden (30 feet on a critical failure). If the warden is summoned outside of a body of water, it creates a wave of water that deals "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "8d6",
+                      "damageType": "bludgeoning"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage to all creatures within 30 feet (basic Reflex save). A creature that fails this save is pushed 10 feet away from the warden; "
+                },
+                {
+                  "type": "text",
+                  "text": "Depart",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "text",
+                  "text": "Acclimation to the Deep",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": " The warden affects you and your allies within 60 feet with Feet to Fins and Water Breathing. The duration for both spells is reduced to 3 rounds, but a creature affected by "
+                },
+                {
+                  "type": "text",
+                  "text": "feet to fins",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": " retains its normal land Speed."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Warden of Peaks and Skies:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Speed 60 feet, fly 240 feet; "
+                },
+                {
+                  "type": "text",
+                  "text": "Arrive",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "text",
+                  "text": "Precipice Plummet",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": " The warden appears, flying downward from the sky and sends a shockwave where she lands. Creatures within "
+                },
+                {
+                  "type": "template",
+                  "shape": "emanation",
+                  "size": 20
+                },
+                {
+                  "type": "text",
+                  "text": " take "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "10d6",
+                      "damageType": "sonic"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage ("
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:fortitude",
+                  "basic": true
+                },
+                {
+                  "type": "text",
+                  "text": " save). Creatures that critically fail their saves are Sickened 1; "
+                },
+                {
+                  "type": "text",
+                  "text": "Depart",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (auditory) "
+                },
+                {
+                  "type": "text",
+                  "text": "Song of the Skies",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": " The warden affects you and all your allies within 60 feet with Fly and Unfettered Movement. The duration for both spells is reduced to 3 rounds."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.l2YoqVPoFE7jpTLe"
+    },
+    "data": {
+      "rank": 8,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 100
+      },
+      "duration": {
+        "type": "until",
+        "until": "next-turn-end"
+      },
+      "traditions": ["primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "a56eabdb-68ab-5be3-b2b7-f38788d95399",
+    "pack": "howl-of-the-wild",
+    "kind": "spell",
+    "slug": "spell:threatening-mimicry",
+    "name": "Threatening Mimicry",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "emotion", "fear", "focus", "illusion", "manipulate", "mental", "ranger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You appear larger and stronger to nearby creatures, appearing to possess threatening features like antlers, claws, or poison to their senses. Each non-allied creature in the area must attempt a Will save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is Frightened 1. This condition doesn't decrease at the end of its turn if it damaged you during that turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but Frightened 2."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but Frightened 3."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.s0i3S4fg2XDQX4a7"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "area": {
+        "shape": "emanation",
+        "size": 10
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
+    "id": "437e8682-1b10-52b7-9d68-64e507167548",
+    "pack": "howl-of-the-wild",
+    "kind": "spell",
+    "slug": "spell:warning-stripes",
+    "name": "Warning Stripes",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "morph", "poison", "ranger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your skin becomes painted with vivid stripes or bright aposematic swirls, warning other creatures of its toxic qualities. Any creature that touches you or hits you with an unarmed melee attack takes 2d8 poison damage. If you have an animal companion, you can cast this spell on them instead, with a range of 30 feet."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+2)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The poison damage increases by 1d8."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.D4kArD91fFiREvC6"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "traditions": [],
+      "damage": [
+        {
+          "key": "po0jwffybosaymks",
+          "formula": "2d8",
+          "damageType": "poison",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 2,
+        "damage": [
+          {
+            "key": "po0jwffybosaymks",
+            "formula": "1d8"
+          }
+        ]
+      }
+    }
+  }
+]

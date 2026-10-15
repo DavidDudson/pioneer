@@ -1,0 +1,4291 @@
+[
+  {
+    "id": "63c9caf5-d035-5903-afbd-b0234c08dc5f",
+    "pack": "howl-of-the-wild",
+    "kind": "weapon",
+    "slug": "weapon:alicorn-trigger",
+    "name": "Alicorn Trigger",
+    "level": 15,
+    "rarity": "rare",
+    "traits": ["concussive", "fatal-aim-d12", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater striking jezail",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " features a preserved alicorn horn mounted underneath the barrel. Such a horn is usually willingly granted by the creature at the end of its natural lifespan, but some wicked gunsmiths acquire the horn through violence."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Glimmer Beam",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "alicorn trigger",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " unleashes a beam of radiant light in a "
+          },
+          {
+            "type": "template",
+            "shape": "line",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": ". Creatures in the area of effect take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 33
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes half damage and is Dazzled 1."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes full damage and is Blinded for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes double damage and is blinded for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include a horn from an alicorn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Pu16joZ15pPJS4Bn"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6500
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "glimmer-beam",
+          "name": "Glimmer Beam",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "firearm",
+      "baseItem": "jezail",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "piercing"
+      },
+      "range": 90,
+      "reload": 1,
+      "ammunition": {
+        "type": "rounds-jezail",
+        "capacity": 1
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "1d54b00e-d992-53fb-b65b-f79c26009d28",
+    "pack": "howl-of-the-wild",
+    "kind": "weapon",
+    "slug": "weapon:amphisbaena-handwraps",
+    "name": "Amphisbaena Handwraps",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your hands fit through the venomous mouths of this pair of handwraps made from amphisbaena skin. Your unarmed strikes gain the versatile P trait. "
+          },
+          {
+            "type": "text",
+            "text": "Amphisbaena handwraps",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can have weapon runes etched onto them, similar to Handwraps of Mighty Blows."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Twin Venom Strike",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Make two unarmed Strikes. Both Strikes count toward your multiple attack penalty, but the penalty doesn't increase until after both attacks. Each Strike deals an additional 1d6 poison damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include the skin and heads of an amphisbaena."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon", "item:category:unarmed"],
+        "property": "traits",
+        "mode": "add",
+        "value": "versatile-p"
+      },
+      {
+        "key": "RollOption",
+        "option": "option:twin-venom-strike",
+        "toggleable": true,
+        "display": {
+          "label": "Amphisbaena Handwraps — Twin Venom Strike"
+        }
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "poison",
+        "predicate": ["item:category:unarmed", "option:twin-venom-strike"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.yY0OkkshPrsoRkAh"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 150
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "twin-venom-strike",
+          "name": "Twin Venom Strike",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "category": "unarmed",
+      "group": "brawling",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "worn",
+        "slot": "gloves"
+      }
+    }
+  },
+  {
+    "id": "a6f92ad7-d6ae-5e4f-80a9-0f8fb499b19c",
+    "pack": "howl-of-the-wild",
+    "kind": "weapon",
+    "slug": "weapon:ankhrav-duster",
+    "name": "Ankhrav Duster",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["agile", "free-hand", "magical", "monk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Acid drips from the ankhrav mandibles protruding from this "
+          },
+          {
+            "type": "text",
+            "text": "+1 Knuckle Duster",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". Strikes with this weapon deal an additional 1 acid damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Caustic Jabs",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Until the end of your next turn, your Strikes with the "
+          },
+          {
+            "type": "text",
+            "text": "ankhrav duster",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " deal an additional 1d6 persistent acid damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "72cb86f0-04e3-535e-b04b-a6831a14ff8a"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include the mandibles of an ankhrav."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.nymtBfivudt7t75q"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 90
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "caustic-jabs",
+          "name": "Caustic Jabs",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "category": "simple",
+      "group": "brawling",
+      "baseItem": "knuckle-duster",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "4d0477e6-997e-55e3-b954-9db2f93d278e",
+    "pack": "howl-of-the-wild",
+    "kind": "weapon",
+    "slug": "weapon:black-scorpion-stingmace",
+    "name": "Black Scorpion Stingmace",
+    "level": 15,
+    "rarity": "uncommon",
+    "traits": ["magical", "poison", "shove"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The massive stinger of a black scorpion adds significant weight to this "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater striking Fearsome mace",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". On a critical hit, the target is exposed to black scorpion venom."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Black Scorpion Venom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (poison)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Saving Throw",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 36
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Maximum Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 6 rounds"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d12",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and Clumsy 2 (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d12",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, clumsy 2, and Slowed 1 (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d12",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, Clumsy 4, and Slowed 2 (1 round)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include the intact stinger of a black scorpion."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.jkwhiuaoSsJAgkgi"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6250
+        }
+      },
+      "bulk": 2,
+      "category": "simple",
+      "group": "club",
+      "baseItem": "mace",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 2,
+        "property": ["d86545b9-266e-54d0-9347-f4b9fb077448"]
+      }
+    }
+  },
+  {
+    "id": "7bdf7eb5-014f-58ea-878e-6365b5768f09",
+    "pack": "howl-of-the-wild",
+    "kind": "weapon",
+    "slug": "weapon:bloodgorger-scythe",
+    "name": "Bloodgorger Scythe",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["deadly-d10", "magical", "trip"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking scythe",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is made from the cruel, blackened branches of the carnivorous scythe tree, which hungrily drink up spilled blood."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Root in Blood",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your last action was a successful Strike with this weapon and your target isn't currently taking any persistent bleed damage"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You break off a piece of the "
+          },
+          {
+            "type": "text",
+            "text": "bloodgorger scythe",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " inside your enemy to feed on their blood and sprout into a new tree. The target takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1",
+                "damageType": "bleed"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage at the end of their turn. Each failure to stop the bleeding increases this bleed damage by 1 as a small scythe tree grows from the wound, to a maximum of 3 persistent bleed damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Sapling Slash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A target has a piece of the "
+          },
+          {
+            "type": "text",
+            "text": "bloodgorger scythe",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " broken off inside them and has failed to recover from the persistent bleed damage for 3 consecutive turns"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The sprouted scythe tree grows large enough to be commanded. It makes a melee Strike against the target or a creature adjacent to the target, with a +18 to hit and dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d10",
+                "damageType": "slashing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include branches and roots from a scythe tree."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.yCD9PupW7P0frwMM"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 340
+        }
+      },
+      "bulk": 2,
+      "category": "simple",
+      "group": "polearm",
+      "baseItem": "scythe",
+      "damage": {
+        "dice": 1,
+        "die": "d10",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "4818ea27-e541-5f5d-91f0-f5b0e0f70595",
+    "pack": "howl-of-the-wild",
+    "kind": "weapon",
+    "slug": "weapon:catoblepas-maul",
+    "name": "Catoblepas Maul",
+    "level": 13,
+    "rarity": "uncommon",
+    "traits": ["magical", "poison", "shove"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The putrid stench emanating from the catoblepas antlers adorning this "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater striking Greater Crushing maul",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " interferes with your sense of smell. While wielding this weapon, you gain a +2 item bonus to saves against olfactory effects."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Vile Stench",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate, olfactory)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your last action was a successful Strike with the "
+          },
+          {
+            "type": "text",
+            "text": "catoblepas maul",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 30
+          },
+          {
+            "type": "text",
+            "text": " save or become Sickened 1 (plus Slowed 1 for as long as it's sickened on a critical failure). A creature that succeeds at its save becomes temporarily immune to Vile Stench for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include antlers from a catoblepas."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["item:trait:olfactory"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.DlvJ0PgEGTGfEgUi"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2800
+        }
+      },
+      "bulk": 2,
+      "category": "martial",
+      "group": "hammer",
+      "baseItem": "maul",
+      "damage": {
+        "dice": 1,
+        "die": "d12",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "2f9b5376-e833-5e92-b56d-0263582bf101",
+    "pack": "howl-of-the-wild",
+    "kind": "weapon",
+    "slug": "weapon:chimera-flail",
+    "name": "Chimera Flail",
+    "level": 9,
+    "rarity": "uncommon",
+    "traits": ["disarm", "magical", "sweep", "trip"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The three spiked heads of this "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking war flail",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " are fashioned to resemble the heads of a chimera. Preserved fragments of bone from the creature are fused with the metal of each head, replacing the typical weight at the end of the chain. Each head has been shrunk and preserved for use. You can have only one head slotted at a time and can use only the ability of the currently slotted head, while the other two hang off the pommel. Switching between heads requires an Interact action."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Dragon",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " This head does piercing damage instead of the normal bludgeoning damage, plus 1 damage type based on the magical tradition of the chimera's dragon head. ("
+          },
+          {
+            "type": "text",
+            "text": "Arcane",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " force; "
+          },
+          {
+            "type": "text",
+            "text": "Divine",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " spirit; "
+          },
+          {
+            "type": "text",
+            "text": "Occult",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " mental; "
+          },
+          {
+            "type": "text",
+            "text": "Primal",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " acid, cold, electricity, fire, sonic, or poison, chosen at item creation)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Bursting Breath",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " your last action was a successful Strike"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You tap into the residual energy of the dragon head and release it as a small breath explosion. This does "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage of the dragon's additional damage type in a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " centered around one corner of the space the target occupies. After using this, the dragon head attachment loses its additional damage type. You can spend 10 minutes to rest and recharge the head."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Lion",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " This head does piercing damage instead of the normal bludgeoning damage, plus 1 additional precision damage if the target is Off-Guard."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Pouncing Whirl",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " you have not made an attack this turn"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You tap into the predator speed of a lion. You Stride up to half your Speed and make a Strike against a target. If that creature is within reach of an ally, regardless if they would normally provide flanking or not, that creature is considered off-guard to your Strike. Your additional precision damage against an off-guard creature increases to 1d4. After using this, the lion head loses its additional precision damage. You can spend 10 minutes to rest and recharge the head."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Goat",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If your last action was to Stride at least half your Speed, this does an additional 1d4 force damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Charging Horns",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You swing the hammer around with the full force of a charging ram. Make a Strike against up to three enemies within your reach. The first two Strikes are at your current attack bonus, and the third is with the normal attack penalty. On a successful hit, the target takes an additional 1d6 force damage and is pushed back 5 feet, or 10 feet on a critical hit. After using this, the goat head loses its additional force damage. You can spend 10 minutes to rest and recharge the head."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include all three heads from a chimera."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "chimera-flail:head",
+        "toggleable": true,
+        "suboptions": [
+          {
+            "value": "dragon",
+            "label": "Dragon"
+          },
+          {
+            "value": "lion",
+            "label": "Lion"
+          },
+          {
+            "value": "goat",
+            "label": "Goat"
+          }
+        ],
+        "priority": 0
+      },
+      {
+        "key": "RollOption",
+        "domain": "damage",
+        "option": "chimera-flail:bursting-breath-used",
+        "toggleable": true,
+        "predicate": ["chimera-flail:head:dragon"],
+        "display": {
+          "label": "Chimera Flail — Bursting Breath Used"
+        }
+      },
+      {
+        "key": "RollOption",
+        "domain": "damage",
+        "option": "chimera-flail:pouncing-whirl",
+        "toggleable": true,
+        "predicate": ["chimera-flail:head:lion"],
+        "display": {
+          "label": "Chimera Flail — Pouncing Whirl"
+        }
+      },
+      {
+        "key": "RollOption",
+        "domain": "damage",
+        "option": "chimera-flail:pouncing-whirl-used",
+        "toggleable": true,
+        "predicate": ["chimera-flail:head:lion"],
+        "display": {
+          "label": "Chimera Flail — Pouncing Whirl Used"
+        }
+      },
+      {
+        "key": "RollOption",
+        "domain": "damage",
+        "option": "chimera-flail:stride-half",
+        "toggleable": true,
+        "predicate": ["chimera-flail:head:goat"],
+        "display": {
+          "label": "Chimera Flail — Stride at least half your Speed"
+        }
+      },
+      {
+        "key": "RollOption",
+        "domain": "damage",
+        "option": "chimera-flail:charging-horns",
+        "toggleable": true,
+        "predicate": ["chimera-flail:head:goat"],
+        "display": {
+          "label": "Chimera Flail — Charging Horns"
+        }
+      },
+      {
+        "key": "RollOption",
+        "domain": "damage",
+        "option": "chimera-flail:charging-horns-used",
+        "toggleable": true,
+        "predicate": ["chimera-flail:head:goat"],
+        "display": {
+          "label": "Chimera Flail — Charging Horns Used"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.OaZG6jQcDQ5uCRqZ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 700
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "bursting-breath",
+          "name": "Bursting Breath",
+          "frequency": {
+            "max": 1,
+            "per": "ten-minutes"
+          }
+        },
+        {
+          "slug": "pouncing-whirl",
+          "name": "Pouncing Whirl",
+          "frequency": {
+            "max": 1,
+            "per": "ten-minutes"
+          }
+        },
+        {
+          "slug": "charging-horns",
+          "name": "Charging Horns",
+          "frequency": {
+            "max": 1,
+            "per": "ten-minutes"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "flail",
+      "baseItem": "war-flail",
+      "damage": {
+        "dice": 1,
+        "die": "d10",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "54b5dde2-3fa2-5f09-afb3-eaff56c6f796",
+    "pack": "howl-of-the-wild",
+    "kind": "weapon",
+    "slug": "weapon:constricting-meteor",
+    "name": "Constricting Meteor",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["backswing", "disarm", "magical", "reach", "trip"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The weights of this "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking meteor hammer",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " are shaped like snake heads, and anaconda scales adorn the chain."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Coiling Chain",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your last action was a successful melee Strike or Trip with the "
+          },
+          {
+            "type": "text",
+            "text": "constricting meteor",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The chain of the meteor hammer wraps around the target and squeezes. Attempt an Athletics check to Grapple the creature with a +1 item bonus. In addition to being Grabbed on a success, the target takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d10+7",
+                "damageType": "bludgeoning"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include the scales of a giant anaconda."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "skill-check",
+        "option": "option:coiling-chain",
+        "toggleable": true,
+        "display": {
+          "label": "Constricting Meteor — Coiling Chain"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["action:grapple", "option:coiling-chain"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.oYsyrS2hNqnAR4uy"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 450
+        }
+      },
+      "bulk": 2,
+      "category": "martial",
+      "group": "flail",
+      "baseItem": "meteor-hammer",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "127e9bf6-0759-5cb2-a87d-f7849668e7b5",
+    "pack": "howl-of-the-wild",
+    "kind": "weapon",
+    "slug": "weapon:fulmination-fang",
+    "name": "Fulmination Fang",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["combination", "concussive", "kickback", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The stock and barrel of this "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking gun sword",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " are lined with scales from a storm snake. Their insulating properties grant their wielder some protection against electricity."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Lightning Rod",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take electricity damage"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain resistance 5 to the triggering damage, and the "
+          },
+          {
+            "type": "text",
+            "text": "fulmination fang",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " crackles with the absorbed energy. You can Interact to change between the gun sword's current usage (melee to ranged, or ranged to melee). The next melee Strike you make with the "
+          },
+          {
+            "type": "text",
+            "text": "fulmination fang",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " within the next minute deals an additional 1d6 electricity damage. After a minute, the absorbed energy dissipates."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "02047983-f8e1-5593-b0b0-2d0cea1d8cf7"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include the scales of a storm snake."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:lightning-rod-resistance",
+        "toggleable": true,
+        "display": {
+          "label": "Fulmination Fang — Lightning Rod Resistance"
+        }
+      },
+      {
+        "key": "Resistance",
+        "type": ["electricity"],
+        "value": 5,
+        "predicate": ["option:lightning-rod-resistance"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ja4phrX3anThH7hx"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 115
+        }
+      },
+      "bulk": 2,
+      "category": "martial",
+      "group": "firearm",
+      "baseItem": "gun-sword",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "piercing"
+      },
+      "range": 50,
+      "reload": 1,
+      "ammunition": {
+        "type": "rounds-gun-sword",
+        "capacity": 1
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "b5681c39-1867-5dae-847a-69823b127508",
+    "pack": "howl-of-the-wild",
+    "kind": "weapon",
+    "slug": "weapon:giant-squid-lash",
+    "name": "Giant Squid Lash",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["disarm", "finesse", "magical", "nonlethal", "reach", "trip"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Three dried tentacles from a giant squid studded with pufferfish spines have been twisted together to form this robust "
+          },
+          {
+            "type": "text",
+            "text": "+1 Wounding whip",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". With a clever flick of the wrist, they can be unfurled into a deadly arc of poisonous barbs."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Poison Barrage",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You lash out with the whip's three tentacles in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": ". Each creature inside the cone must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 27,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save or take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. On a critical failure, the creature also takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "poison",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include three tentacles from a giant squid."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.5IXLQVFWf2PEUHOJ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 750
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "poison-barrage",
+          "name": "Poison Barrage",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "flail",
+      "baseItem": "whip",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "property": ["2ed55af4-0d60-53f9-ad8e-ce9db657b9c0"]
+      }
+    }
+  },
+  {
+    "id": "a1c8dde7-b9b0-5c09-b305-b9e45bdcc5d3",
+    "pack": "howl-of-the-wild",
+    "kind": "weapon",
+    "slug": "weapon:howler-pistol",
+    "name": "Howler Pistol",
+    "level": 10,
+    "rarity": "rare",
+    "traits": ["magical", "scatter-5"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Designed by a gunsmith as a personal challenge, a "
+          },
+          {
+            "type": "text",
+            "text": "howler pistol",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " strikes a miniature version of the "
+          },
+          {
+            "type": "text",
+            "text": "sonic horn",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " siege weapon's resonating orb with its hammer to generate beams of sonic energy. A "
+          },
+          {
+            "type": "text",
+            "text": "howler pistol",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking dragon mouth pistol",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " that deals sonic damage instead of piercing damage and doesn't have the concussive trait."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Resonant Shatter",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "howler pistol",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is loaded"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You over-torque the "
+          },
+          {
+            "type": "text",
+            "text": "howler pistol",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "'s hammer to strike the resonating orb harder than normal. The gun fires a concentrated burst of sonic energy that shatters a nearby stone or rock surface, creating a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " at a point of impact within the gun's first range increment. Creatures in the area take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "5d6",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 27,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include the powdered horn from a soniphak, processed into a resonating orb."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.4cOXKB8NcL6JzGeI"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1100
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "resonant-shatter",
+          "name": "Resonant Shatter",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "firearm",
+      "baseItem": "dragon-mouth-pistol",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "sonic"
+      },
+      "range": 30,
+      "reload": 1,
+      "ammunition": {
+        "type": "rounds-dragon-mouth-pistol",
+        "capacity": 1
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "a88e5f53-cad6-50cb-b0d0-acc180629e10",
+    "pack": "howl-of-the-wild",
+    "kind": "weapon",
+    "slug": "weapon:hydrocannon",
+    "name": "Hydrocannon",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["magical", "modular"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking hand cannon",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is crafted by wrapping the water-producing organ cluster of a grodair around its barrel, eliminating the need for ammunition, though the living tissue must be maintained with 1 sp of specialized nutrient feed each day. If not, its misfire check is "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 10
+          },
+          {
+            "type": "text",
+            "text": ". If you fail this misfire check, the organ bursts, dealing an amount of bludgeoning damage equal to double the number of weapon damage dice to you and rendering the "
+          },
+          {
+            "type": "text",
+            "text": "hydrocannon",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " broken."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Tinker Shot",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulation)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per minute"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fiddle with the pressure regulator on the "
+          },
+          {
+            "type": "text",
+            "text": "hydrocannon",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " and then make a ranged Strike with the gun. A successful attack has an additional effect depending on which modular configuration the "
+          },
+          {
+            "type": "text",
+            "text": "hydrocannon",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is currently in."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Bludgeoning",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The target is pushed 5 feet away from you; this forced movement is increased to 10 feet on a critical hit."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Piercing",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The target takes a –10-foot circumstance penalty to its Speeds for 1 round."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Slashing",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The target takes "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "1d6",
+                      "damageType": "bleed"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include the extradimensional organ cluster extracted from a grodair. Harvesting the organs of a grodair in this way differs greatly from the normal method; it takes an hour and a successful "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:arcana",
+            "dc": 22
+          },
+          {
+            "type": "text",
+            "text": " check. On a critical failure, the organ cluster bursts and deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "bludgeoning"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to the harvester."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.iaZOReFQgGsKok3Q"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 150
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "tinker-shot",
+          "name": "Tinker Shot",
+          "frequency": {
+            "max": 1,
+            "per": "minute"
+          }
+        }
+      ],
+      "category": "simple",
+      "group": "firearm",
+      "baseItem": "hand-cannon",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "range": 30,
+      "reload": 1,
+      "ammunition": {
+        "builtIn": true,
+        "capacity": 1
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "af746fb8-4ff0-58f6-92db-4340ed9695b2",
+    "pack": "howl-of-the-wild",
+    "kind": "weapon",
+    "slug": "weapon:leydroth-spellbreaker",
+    "name": "Leydroth Spellbreaker",
+    "level": 17,
+    "rarity": "rare",
+    "traits": ["concussive", "magical", "scatter-10"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The larynx of a leydroth, a dangerous creature whose roar can unravel magic, is integrated into the firing mechanism of this "
+          },
+          {
+            "type": "text",
+            "text": "+3 greater striking blunderbuss",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Dispelling Blast",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "leydroth spellbreaker",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " emits a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " of dispelling energy. Attempt a single counteract check at +25 against each spell or magical effect in the area, plus one item or effect on each creature in the area, with the effects of Dispel Magic."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include the larynx of a leydroth."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.lkENLG26X4ah6Eun"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15000
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "dispelling-blast",
+          "name": "Dispelling Blast",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "firearm",
+      "baseItem": "blunderbuss",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "piercing"
+      },
+      "range": 40,
+      "reload": 1,
+      "ammunition": {
+        "type": "rounds-blunderbuss",
+        "capacity": 1
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 3,
+        "striking": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "a151871a-37c3-5dbd-b54f-be5d978dd940",
+    "pack": "howl-of-the-wild",
+    "kind": "weapon",
+    "slug": "weapon:nightmares-lament",
+    "name": "Nightmare's Lament",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["combination", "concussive", "fatal-d8", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ritually constructed from the bones of a nightmare, a "
+          },
+          {
+            "type": "text",
+            "text": "nightmare's lament",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking rapier pistol",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". Thin wisps of dark smoke continually surround the red-flecked blade."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Fuming Cloak",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " For 1 minute, the "
+          },
+          {
+            "type": "text",
+            "text": "nightmare's lament",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " continually vents thick, black smoke that creates concealment in a 15-foot aura around the gun's wielder. The wielder of the "
+          },
+          {
+            "type": "text",
+            "text": "nightmare's lament",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can see through this smoke. A creature that begins its turn in the area becomes Sickened 2 ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 23
+          },
+          {
+            "type": "text",
+            "text": " negates) and is then temporarily immune to the sickness from the smoke for 1 minute. The wielder of the "
+          },
+          {
+            "type": "text",
+            "text": "nightmare's lament",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", any creature currently holding its breath (or that does not need to breathe), and any creature immune to poison are immune to the aura's sickened effect but not the concealment."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "5a7da85e-d7a1-5180-892c-0d11cae4c13e"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include the rib bones and inner fire of a nightmare."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ASjNBiQfQfWppPJc"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 230
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "fuming-cloak",
+          "name": "Fuming Cloak",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "firearm",
+      "baseItem": "rapier-pistol",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "range": 30,
+      "reload": 1,
+      "ammunition": {
+        "type": "rounds-rapier-pistol",
+        "capacity": 1
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "bc77ae72-02eb-52c6-b3b5-d9cada16cc64",
+    "pack": "howl-of-the-wild",
+    "kind": "weapon",
+    "slug": "weapon:shuln-fang-katar",
+    "name": "Shuln Fang Katar",
+    "level": 12,
+    "rarity": "rare",
+    "traits": ["agile", "deadly-d6", "magical", "monk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater striking katar",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " masterfully crafted from the adamantine-laced fang of a shuln can puncture even the toughest of armors."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Piercing Critical",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per round"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your last action was to score a critical hit with the "
+          },
+          {
+            "type": "text",
+            "text": "shuln fang katar",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " against a creature that is wearing armor"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You deal the same amount of damage as the critical hit to the creature's armor, bypassing any Hardness lower than 10, like adamantine."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include a fang from a shuln."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.MBd6Fr0jk4XpUc4l"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2100
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "piercing-critical",
+          "name": "Piercing Critical",
+          "frequency": {
+            "max": 1,
+            "per": "round"
+          }
+        }
+      ],
+      "category": "simple",
+      "group": "knife",
+      "baseItem": "katar",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "d8210b4c-33a0-5f2b-8f5c-c3c3564971c8",
+    "pack": "howl-of-the-wild",
+    "kind": "weapon",
+    "slug": "weapon:splithead-bow",
+    "name": "Splithead Bow",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["deadly-d10", "magical", "volley-30"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking Hauling longbow",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is lined with the flesh of a fallen hydra and ornate carvings on the grip that depict the hydra's number of heads it had before it was slain. When you wield the bow in combat, you regain 2 Hit Points at the start of each of your turns."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Two-Headed Arrow",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You imbue your arrow with the properties of a hydra, splitting it in two and sending each at a different foe. Make two ranged Strikes, each against a separate target. Both targets must be in your line of sight, and within 50 feet of you. Both Strikes count toward your multiple attack penalty, but the penalty doesn't increase until after you've made both attacks. Additionally, after using this ability, you do not regain Hit Points from wielding the bow on your next turn."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Five-Headed Arrow",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You make a powerful Strike propelled by the ferocity of a hydra at a target within your first range increment. If your Strike is successful, the arrow deals damage as normal and then passes through the target, splitting into four pieces. Choose four other targets within 30 feet of the original target and make a single ranged Strike with your multiple attack penalty, comparing the result to each secondary target's AC. After using this ability, you do not regain Hit Points from wielding the bow until after your next daily preparations."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include the flesh from a severed head of a hydra."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:splithead-bow-healing",
+        "toggleable": true,
+        "value": true,
+        "display": {
+          "label": "Splithead Bow — Healing"
+        }
+      },
+      {
+        "key": "FastHealing",
+        "value": 2,
+        "predicate": ["option:encounter", "option:splithead-bow-healing"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.oHVCB96LOYobSQ0I"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 360
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "five-headed-arrow",
+          "name": "Five-Headed Arrow",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "bow",
+      "baseItem": "longbow",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "piercing"
+      },
+      "range": 100,
+      "reload": 0,
+      "ammunition": {
+        "type": "arrows"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "c5a81993-9363-5c47-a56c-add4d1e5d1fa",
+    "pack": "howl-of-the-wild",
+    "kind": "weapon",
+    "slug": "weapon:storm-herald",
+    "name": "Storm Herald",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["agile", "backstabber", "deadly-d6", "electricity", "finesse", "magical", "monk", "sonic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This iridescent, black "
+          },
+          {
+            "type": "text",
+            "text": "+2 striking Shock Thundering fighting fan",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is crafted from the crackling feathers of thunderbirds to resemble one of the beast's mighty wings. Channeling the avian's tempestuous nature, you are surrounded by a stormy shell of wind and electricity while wielding a "
+          },
+          {
+            "type": "text",
+            "text": "storm herald",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", granting you resistance 5 to electricity and sonic damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Call the Storm",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, magical, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You channel the full might of a storm with you as its epicenter. All creatures within "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d10",
+                "damageType": "electricity"
+              },
+              {
+                "formula": "3d10",
+                "damageType": "sonic"
+              }
+            ],
+            "label": "3d10 electricity damage and 3d10 sonic damage"
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 30,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include feathers from a thunderbird."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["electricity", "sonic"],
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.WdxabLnY4c5epMql"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "call-the-storm",
+          "name": "Call the Storm",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "knife",
+      "baseItem": "fighting-fan",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 1,
+        "property": ["bafaacb5-8430-53b6-b6d9-2dd04e7c6d00", "20d890d1-7dff-59ce-98c5-9c009eb6a398"]
+      }
+    }
+  },
+  {
+    "id": "0708ec80-1779-5916-ad8a-a83d2c89c020",
+    "pack": "howl-of-the-wild",
+    "kind": "weapon",
+    "slug": "weapon:tidal-crossbow",
+    "name": "Tidal Crossbow",
+    "level": 13,
+    "rarity": "rare",
+    "traits": ["magical", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The beak and talons of a tidehawk form the triggering mechanism of this "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater striking crossbow",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". Its grip is constantly damp, though this doesn't affect your ability to keep ahold of the weapon. When used in aquatic combat, a "
+          },
+          {
+            "type": "text",
+            "text": "tidal crossbow",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " doesn't have its range increments halved. A "
+          },
+          {
+            "type": "text",
+            "text": "tidal crossbow",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " deals 1d4 additional bludgeoning damage on a successful Strike. On a critical hit, the bow's additional damage is instead 1d4 bludgeoning splash damage, and the target must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 31
+          },
+          {
+            "type": "text",
+            "text": " save or be pushed back 5 feet. The bow critical specialization effect applies to creatures with the water trait even if it wouldn't normally."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Typhoon Swell",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate, water)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "tidal crossbow",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " produces a torrent of water in a "
+          },
+          {
+            "type": "template",
+            "shape": "line",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": ", dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "8d6",
+                "damageType": "bludgeoning"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 30,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save). Creatures that fail the save are also knocked Prone."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include the beak, talons, and several watery feathers of a tidehawk."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.oKq9ClcnLQZi1EPF"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2800
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "typhoon-swell",
+          "name": "Typhoon Swell",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "simple",
+      "group": "crossbow",
+      "baseItem": "crossbow",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "piercing"
+      },
+      "range": 120,
+      "reload": 1,
+      "ammunition": {
+        "type": "bolts",
+        "capacity": 1
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "31f23996-e46c-5030-a531-fe1eb5bd99f3",
+    "pack": "howl-of-the-wild",
+    "kind": "weapon",
+    "slug": "weapon:trollhound-pick",
+    "name": "Trollhound Pick",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["fatal-d12", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking greatpick",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " bears a head studded with the tusks of a trollhound."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Ravenous Strike",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (magical, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Strike with the "
+          },
+          {
+            "type": "text",
+            "text": "trollhound pick",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", transferring a portion of a trollhound's legendary appetite to the target. A living enemy who takes damage from the attack must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 19
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature suffers hunger pangs, becoming Off-Guard for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature experiences gnawing hunger, becoming off-guard for 1 round and Enfeebled 1 for 1 minute. If the creature consumes any amount of food or drink (including imbibing a potion), the enfeebled condition ends."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but the creature is Enfeebled 2 and each instance of consuming food or drink reduces the penalty by 1."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include the teeth and tongue from a trollhound."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.r9vNDYH7CswAjoo0"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 140
+        }
+      },
+      "bulk": 2,
+      "category": "martial",
+      "group": "pick",
+      "baseItem": "greatpick",
+      "damage": {
+        "dice": 1,
+        "die": "d10",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "1dbc786d-af3e-5175-8ada-97067f113e87",
+    "pack": "howl-of-the-wild",
+    "kind": "weapon",
+    "slug": "weapon:whip-tongue-sling",
+    "name": "Whip-Tongue Sling",
+    "level": 11,
+    "rarity": "uncommon",
+    "traits": ["propulsive"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This is a "
+          },
+          {
+            "type": "text",
+            "text": "+2 striking sling",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " made from the neck, jaw, and tongue of a mobogo to resemble its mouth. The tongue curls around each bullet, which is thrown with the snap of your wrist. Each throw causes a small croak to echo from the sling."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Bolstering Croak",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (auditory, concentrate, emotion, manipulate, mental)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day;"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You raise your sling and work the handle to mimic a mobogo's croaking song. Allies within "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 25
+          },
+          {
+            "type": "text",
+            "text": " gain a +1 status bonus to saves against fear effects for 1 round. You can Sustain this for up to 4 rounds. During this time, you can't use the sling to Strike or activate its Tongue Twister ability. After using Bolstering Croak, you can recharge it once per day by feeding the sling a number of gallons of water equal to double the number of rounds for which the Bolstering Croak was active. For example, if you activated but didn't sustain Bolstering Croak, you would require 2 gallons of water to recharge it. If you activated Bolstering Cloak and then Sustained for 1 round, you would require 4 gallons of water."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "1387d792-2d33-57bd-a7a2-ad3a7f9691cf"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Tongue Twister",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The sling isn't loaded"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fully unfurl the sling's tongue to grab hold of a creature within 20 feet, and attempt to move them. Attempt an "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:athletics"
+          },
+          {
+            "type": "text",
+            "text": " check against the creature's Fortitude DC. On a success, you can move the creature up to 15 feet into any space within 20 feet of you. If you target a willing ally with this ability, you automatically succeed at the Athletics check."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include the throat, tongue, and skin from a mobogo."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.XiL6CSyO43vjXxEf"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1250
+        }
+      },
+      "bulk": "light",
+      "category": "simple",
+      "group": "sling",
+      "baseItem": "sling",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "bludgeoning"
+      },
+      "range": 50,
+      "reload": 1,
+      "ammunition": {
+        "type": "sling-bullets",
+        "capacity": 1
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 1,
+        "property": []
+      }
+    }
+  }
+]

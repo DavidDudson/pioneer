@@ -1,0 +1,146 @@
+[
+  {
+    "id": "7cd4c9cb-53a2-5f62-8cf3-d904bce62260",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:aklo",
+    "name": "Aklo",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "98fdcae8-829d-50a5-8fd6-60a8ba63eac5",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:alghollthu",
+    "name": "Alghollthu",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "e89dcdff-08de-505a-9d47-985145f9da26",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:arboreal",
+    "name": "Arboreal",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "ed9baecd-a6e0-5384-842b-ad28399785e8",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:azlanti",
+    "name": "Azlanti",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "8c7a7b2f-1b72-5a6a-9b1e-72f5fb801c5a",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:cyclops",
+    "name": "Cyclops",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "c199caf1-3728-5535-95aa-02230f9a51fc",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:surki",
+    "name": "Surki",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "abb69e36-b49e-54e5-8cba-a6bb63c45c8d",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:thalassic",
+    "name": "Thalassic",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "399a1894-d8e0-53ca-ae6e-4e94aa5692ad",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:tien",
+    "name": "Tien",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  }
+]

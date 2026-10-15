@@ -21,6 +21,7 @@ export const FOUNDRY_BOOK_TITLES: ReadonlyMap<string, BookId> = new Map([
   // Two entries carry the title with a leading space, and 42 the pre-remaster title while flagged remaster.
   [' Pathfinder Treasure Vault (Remastered)', BookId.parse('treasure-vault')],
   ['Pathfinder Treasure Vault', BookId.parse('treasure-vault')],
+  ['Pathfinder Howl of the Wild', BookId.parse('howl-of-the-wild')],
 ]);
 
 /** Why a document in an item pack is not imported, in the order selection checks. */

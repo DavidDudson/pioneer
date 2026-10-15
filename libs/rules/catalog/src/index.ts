@@ -6,6 +6,7 @@ import {
   coreRulesPack,
   divineMysteriesPack,
   gmCorePack,
+  howlOfTheWildPack,
   monsterCorePack,
   playerCorePack,
   treasureVaultPack,
@@ -58,6 +59,7 @@ export const officialPacks: readonly PackContentsLoader[] = [
   checkedLoader('monster-core', monsterCorePack),
   checkedLoader('divine-mysteries', divineMysteriesPack),
   checkedLoader('treasure-vault', treasureVaultPack),
+  checkedLoader('howl-of-the-wild', howlOfTheWildPack),
   checkedLoader('gm-core', gmCorePack),
 ];
 

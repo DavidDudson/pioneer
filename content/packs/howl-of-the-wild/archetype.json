@@ -1,0 +1,953 @@
+[
+  {
+    "id": "583b4401-3802-573d-af11-4c2e8c437fb7",
+    "pack": "howl-of-the-wild",
+    "kind": "archetype",
+    "slug": "archetype:clawdancer",
+    "name": "Clawdancer",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Nature provides many creatures weapons for hunting and defense, but few are as common and simple as the claw. Whether for climbing, catching, or rending, claws are an indispensable tool for any limbed denizen of the wild. Humanoid species with these weapons often take pride in such a gift, developing clawed combat into an art."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Catfolk of southern Tian Xia are particularly adept at fighting with their claws. They call their style the Knives of Valash and prioritize rapid strikes mixed with sharp grapples to pin a foe in place. The style's practitioners, sometimes called Knives themselves, patrol the wilds honing their skills against the many dangers there. Once an acolyte rises sufficiently in rank, they're sent out across Golarion to explore and \"sharpen their claws.\" Those who perfect their art over the years often return to Tian Xia to teach the next generation of the style."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.RkKrtZMb8Ifrrs2l"
+    },
+    "data": {
+      "dedication": "34bcae19-ce4c-5903-a9c1-84799ccf2723"
+    }
+  },
+  {
+    "id": "10791e36-9a7b-54dc-878b-a7e3019fcb52",
+    "pack": "howl-of-the-wild",
+    "kind": "archetype",
+    "slug": "archetype:ostilli-host",
+    "name": "Ostilli Host",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ostillis are amorphous organisms that combine characteristics of both plants and animals. Typically found in subterranean environments, they can share a symbiotic arrangement with surkis. When a magic-gathering node on a surki's body is damaged or absent, an ostilli is placed on it like a bandage, and after several weeks, the creature fully fuses with its host and becomes a makeshift node, accumulating the magical nourishment that the surki needs to survive. With training, surkis—and increasingly, members of other species—can direct these tiny symbiotes to a variety of magical feats."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.CLx4mTCUxUlPT7Zh"
+    },
+    "data": {
+      "dedication": "b2fddd87-63a1-597c-833c-90ae91c83c22"
+    }
+  },
+  {
+    "id": "e1117f6c-3e9a-5489-9158-7fce4c57ec5f",
+    "pack": "howl-of-the-wild",
+    "kind": "archetype",
+    "slug": "archetype:swarmkeeper",
+    "name": "Swarmkeeper",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Many civilizations throughout history have benefited from a symbiotic relationship with insects. A community might raise insects for certain byproducts, such as a bee's honey or a spider's silk, or tame larger versions of common species as mounts. Some even take this harmony to the extreme and willingly host a swarm of insects inside their bodies. Because of their unusual arrangement, swarmkeepers tend to live solitary lives, or at least as solitary as you can be as a host of thousands. When dealing with those who might be squeamish of their abilities, some swarmkeepers wear straw skeps, backpack-like boxes often employed by beekeepers as a kind of social camouflage. Such items might even be used to house additional insects if their swarm grows too big to fit inside their body."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Swarmkeepers can add new capabilities to their swarms. For some, this means incorporating many different species of insects into their swarm, making even mortal enemies in nature work together. Others selectively cultivate one kind of insect precious to them into various morphs that give the swarm new capabilities."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.If0rK2DhKh2CrYKR"
+    },
+    "data": {
+      "dedication": "cc7a3c1f-e925-5315-a12d-2f6e2a956f45"
+    }
+  },
+  {
+    "id": "d6ec8efe-0f5e-598f-ae69-0099206b0c5c",
+    "pack": "howl-of-the-wild",
+    "kind": "archetype",
+    "slug": "archetype:thlipit-contestant",
+    "name": "Thlipit Contestant",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "According to folklore, the thlipit martial art began with a wager. A group of bored tripkees looking for a little sport devised a game of using their tongues to gather fruit out of nearby trees. As the competition wore on and the bets escalated, the contestants began snatching falling fruit in midair and even using their tongues to push away the competition. While the names of the original competitors vary between tellings, all agree that the contest ended with a particularly magnificent tongue flick, landing an overripe mango squarely upon a losing bettor's head."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "No matter the origin, variants of the game and the martial art it spawned have become mainstays in tripkee society. In contrast to other fighting styles, thlipit doesn't stand on ceremony or rigid discipline. Practitioners refer to themselves as contestants and play off the forms and moves as mere exercises or games. Despite this veneer of frivolity, thlipit can be just as dangerous in the mouth of an adept as any other weapon."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Thlipit combines fluid movements reminiscent of whip fighting with the leverage of a wrestler's stance. It favors quick smacks, brief grabs, and short throws. Friend, foe, and the contestant themselves always remain in motion. Moves are often exaggerated to play up stylish elements for spectators or lure brash opponents into attacking early."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "No formal schools exist to teach thlipit. Many tripkees are familiar with the style from childhood games, even if they haven't developed the physicality to be considered a true contestant. Self-directed instruction remains common, though aspiring contestants will seek out veterans and ask to be taken on as apprentices. Even though this sort of self-directed instruction happens frequently, a veteran contestant will still occasionally take on a student or two to pass along particular forms or styles."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Though thlipit originated with tripkees, tripkee migration to Vidrian and other population centers has exposed other peoples to the sport. Most notably, thlipit has become popular with the recent generation of iruxi youth, who have adapted it for use with a tail rather than a tongue. Though not every move is possible with a tail, they have added their own innovations to the style."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "4th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Lunge; "
+          },
+          {
+            "type": "text",
+            "text": "6th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Slam Down; "
+          },
+          {
+            "type": "text",
+            "text": "12th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Crashing Slam"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.hK0lWWhPqiplWuRl"
+    },
+    "data": {
+      "dedication": "169df704-9685-5d23-b726-26a5dcc3f1cf"
+    }
+  },
+  {
+    "id": "d2e1d65a-1ed7-50d9-8953-a6b44776c1cd",
+    "pack": "howl-of-the-wild",
+    "kind": "archetype",
+    "slug": "archetype:werecreature",
+    "name": "Werecreature",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Rare"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're a werecreature, a humanoid doomed by an ancient primal curse to transform into an animal or an animalhumanoid hybrid under the light of the full moon. You might be a \"true werecreature,\" born to werecreature parents; you might have found yourself afflicted with the primal curse after surviving the bite of another werecreature; or you might have been transformed into a werecreature by powerful magic, perhaps even willingly."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Although humanoids with the ability to transform into animals aren't universally feared, they're looked on with terror in many places because of a confusion with werecreatures or other threats. With the curse both spreading infectiously and robbing the afflicted control of their actions, those suspected of being werecreatures can rarely live in peace."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While many werecreatures have little control over their own transformations, formal training or an exceptionally strong will has enabled you to exert a degree of mastery over the beast that rages within you, allowing you not only to assume your bestial shape at will but also retain your own mind while doing so. In many cases, this results in being able to prevent spreading the curse as well. This mastery is more common in societies that embrace or accept werecreatures, such as Ulfen countries in northern Avistan and communities of beastkin, wherever they can be found."
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Roleplaying a Werecreature"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "As a werecreature, your personality is likely to be heavily influenced by your relationship with the curse that made you what you are. If you were afflicted against your will, you might find yourself locked in an interminable struggle against your condition, even as you're continually tempted by the power it offers; or you might revel in the transformation, embracing your newly empowered bestial side as the purest reflection of your true self. If you were born a true werecreature, perhaps you don't see your condition as a curse at all, but a noble calling; alternately, maybe your upbringing in a community of evil-minded werecreatures has led you to despise your own kin and, by extension, yourself. Consider also how your nature as a werecreature affects your relationships with fellow humanoids: do you see it as your charge to protect them, even as you suspect they might hate and fear you if they knew your true nature, or do you consider yourself a proverbial wolf among sheep?"
+              },
+              {
+                "type": "line-break"
+              },
+              {
+                "type": "text",
+                "text": "As your character advances and gains more werecreature feats, you can also explore how the lines between your humanoid side and your bestial side might begin to blur, or choose the alternate route and emphasize the divergence between your dual natures. There is great roleplaying potential in a character whose humanoid and bestial sides contrast so dramatically that they might as well be different characters altogether!"
+              }
+            ]
+          ]
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Type"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Speed"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Attack"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Damage"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Traits"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Special"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "Werebat"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "10 feet, fly 15 feet"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fangs"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1d8 piercing"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "—"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "When Flying due to the fly speed granted by this form, you must begin and end your movement on a solid surface or immediately fall."
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Werebear"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "25 feet"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Jaws"
+              },
+              {
+                "type": "line-break"
+              },
+              {
+                "type": "text",
+                "text": "Claw"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1d8 piercing"
+              },
+              {
+                "type": "line-break"
+              },
+              {
+                "type": "text",
+                "text": "1d6 slashing"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "—"
+              },
+              {
+                "type": "line-break"
+              },
+              {
+                "type": "text",
+                "text": "Agile"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "—"
+              },
+              {
+                "type": "line-break"
+              },
+              {
+                "type": "text",
+                "text": "—"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Wereboar"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "30 feet"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Tusk"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1d8 slashing"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sweep"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "—"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Werecrocodile"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "25 feet,"
+              },
+              {
+                "type": "line-break"
+              },
+              {
+                "type": "text",
+                "text": "swim 15 feet"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Jaws"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1d8 piercing"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Grapple"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "You can hold your breath for 2 hours in animal or hybrid shape."
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Weremoose"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "25 feet"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Antler"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1d8 piercing"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Shove"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "—"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Wererat"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "25 feet"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Jaws"
+              },
+              {
+                "type": "line-break"
+              },
+              {
+                "type": "text",
+                "text": "Claw"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1d6 piercing"
+              },
+              {
+                "type": "line-break"
+              },
+              {
+                "type": "text",
+                "text": "1d4 slashing"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Finesse"
+              },
+              {
+                "type": "line-break"
+              },
+              {
+                "type": "text",
+                "text": "Agile, finesse"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Your animal shape is Small in size."
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Wereshark"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "15 feet, swim 25 feet"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Jaws"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1d8 piercing"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Grapple"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Your hybrid shape gains the amphibious trait. In your animal shape, you lose your land Speed and your Swim speed increases to 35 feet, and you gain the aquatic trait."
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Weretiger"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "25 feet"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Jaws"
+              },
+              {
+                "type": "line-break"
+              },
+              {
+                "type": "text",
+                "text": "Claw"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1d8 piercing"
+              },
+              {
+                "type": "line-break"
+              },
+              {
+                "type": "text",
+                "text": "1d6 slashing"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "—"
+              },
+              {
+                "type": "line-break"
+              },
+              {
+                "type": "text",
+                "text": "Agile"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "—"
+              },
+              {
+                "type": "line-break"
+              },
+              {
+                "type": "text",
+                "text": "—"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Werewolf"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "30 feet"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Jaws"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1d8 piercing"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Trip"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "—"
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.Zct5tHOoQGwwx7Ia"
+    },
+    "data": {
+      "dedication": "c4c23e5f-0c1d-5f51-a549-bcadeca27b87"
+    }
+  },
+  {
+    "id": "6a16a250-561c-56e8-9282-1e05d5b38073",
+    "pack": "howl-of-the-wild",
+    "kind": "archetype",
+    "slug": "archetype:wild-mimic",
+    "name": "Wild Mimic",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Wild beasts of all kinds can be found outside of the cities and villages of Golarion, and many possess remarkable abilities that help them survive, even thrive. From the capacity to fight through deadly wounds to the production of painful electric jolts, the multitude of the world's beasts presents a staggering array of diversity in form. Through rigorous training of your body, the meticulous study of treatises on wildlife, or by spending a large portion of your life among them, you have learned to adopt the martial techniques of many beasts. Some of these are a matter of simple mimicry, while others are impressive displays of primal magic."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The style of wild mimicry is believed to have been created long ago in the Realm of the Mammoth Lords. Hunters took on the aspects of local prehistoric beasts to better stalk and kill them for survival. In this constant struggle against nature, quick adaptation is key. In more recent decades, whether through convergent development or by adherents showcasing their techniques as they travel, wild mimicry has been found all across Golarion, from the Valashmai Jungle in Tian Xia to the coasts of Droon in southern Garund to anywhere large numbers of beasts can be encountered."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "4th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Animal Empathy, Crane Stance, Gorilla Stance, Tiger Stance, Wolf Stance; "
+          },
+          {
+            "type": "text",
+            "text": "8th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Crane Flutter, Gorilla Pound, Tiger Slash, Wolf Drag"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.l4isOHQIdkrWLch0"
+    },
+    "data": {
+      "dedication": "de945fbc-b25f-54f0-9c5d-cfb409f9a4dd"
+    }
+  },
+  {
+    "id": "485d95a4-2c0a-5c3d-85aa-62389db253b3",
+    "pack": "howl-of-the-wild",
+    "kind": "archetype",
+    "slug": "archetype:winged-warrior",
+    "name": "Winged Warrior",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Nature provided wings to certain creatures to help them soar above predators or reach food hanging from tall trees or the side of a cliff. When those graced with wings no longer have to depend on flight for survival, their appendages can be turned to a different use: combat. In addition to granting strategic elevation over foes, wings provide a variety of combat advantages."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Winged warriors are found independently among several ancestries. While awakened animals seem able to use these techniques as if by instinct, tengu of the Inner Sea region are the most commonly seen practitioners of this fighting style. Naval and pirate crews in the Shackles particularly value a tengu's skill at boarding actions. Warriors able to take flight, even temporarily, can often name their price when joining a crew on the Fever Sea. Despite the ranged armaments available on most ships, many sailors are hard-pressed to defend against skilled aerial assailants."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Even those who develop wings later in life, like certain surkis and those with grafted wings, can learn the fighting style of a winged warrior. Although it's a long path, many of the techniques involved are reinvented, rediscovered, and even updated by individual warriors."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.uewu2vWQluT8Jyf1"
+    },
+    "data": {
+      "dedication": "9aac0a24-aaad-5581-83ec-ca9f347fedbd"
+    }
+  }
+]

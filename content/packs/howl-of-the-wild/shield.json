@@ -1,0 +1,282 @@
+[
+  {
+    "id": "41ff8636-99b8-5bcd-a503-d87755e941e1",
+    "pack": "howl-of-the-wild",
+    "kind": "shield",
+    "slug": "shield:arctic-worm-chitin-shield",
+    "name": "Arctic Worm Chitin Shield",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This tower shield is crafted from interlocking sections of an arctic cave worm's chitin that are rimed with constant frost. It has Hardness 13, HP 104, and BT 52."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Misty Chill",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (cold, concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Raise the Shield and an icy mist begins to flow off it. Until the beginning of your next turn, you gain resistance 5 to cold and any creature that ends its turn adjacent to you takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d6",
+                "damageType": "cold"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 29,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "9abffb71-ac00-5e40-97ec-145bc27aa913"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include chitin from an arctic cave worm."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.PuEe7jnw2dTL3POp"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1800
+        }
+      },
+      "bulk": 4,
+      "hardness": 13,
+      "hitPoints": 104,
+      "baseItem": "tower-shield",
+      "acBonus": 2,
+      "speedPenalty": 5
+    }
+  },
+  {
+    "id": "0d2d29ec-0e8d-5112-abb0-d2857e10cbd0",
+    "pack": "howl-of-the-wild",
+    "kind": "shield",
+    "slug": "shield:hippopotamus-klar",
+    "name": "Hippopotamus Klar",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["integrated-1d6-s-versatile-p", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking klar",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is fashioned from the skull of a hippopotamus, with one of its canines acting as the blade. While wielding a "
+          },
+          {
+            "type": "text",
+            "text": "hippopotamus klar",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you gain a +1 item bonus to Intimidation checks."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Engulfing Jaws",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The hippo jaws of the shield open impossibly wide. Make a melee Strike with the klar blade targeting two creatures adjacent to each other. Roll the attack and damage once and apply it to each creature separately. This counts as two attacks for your multiple attack penalty."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include the entire skull of a hippopotamus."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:intimidation"],
+        "type": "item",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.nmDa7ghkhoh2Nlsg"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": 1,
+      "hardness": 3,
+      "hitPoints": 10,
+      "activations": [
+        {
+          "slug": "engulfing-jaws",
+          "name": "Engulfing Jaws",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "baseItem": "klar",
+      "acBonus": 1
+    }
+  }
+]

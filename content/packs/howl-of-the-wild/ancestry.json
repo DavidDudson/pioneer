@@ -1,0 +1,1255 @@
+[
+  {
+    "id": "f4e50cd5-ecae-5a83-ae11-611598830340",
+    "pack": "howl-of-the-wild",
+    "kind": "ancestry",
+    "slug": "ancestry:athamaru",
+    "name": "Athamaru",
+    "rarity": "uncommon",
+    "traits": ["amphibious", "athamaru", "humanoid"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Athamarus are fish-like humanoids who form tight-knit undersea communities. In small settlements, they engage in the subsistence farming of seaweed, train eels to serve as mounts, and create elaborate works of coral art. Their interactions with other aquatic ancestries are strained, as athamarus have suffered mistreatment at their hands. However, they remain curious about potential connections and what new opportunities may offer."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Athamaru",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:swim",
+        "mode": "upgrade",
+        "value": 25
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-1",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:athamaru",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Athamaru feat"
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-1"
+        }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-5",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:athamaru",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Athamaru feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-5"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-9",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:athamaru",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Athamaru feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-9"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-13",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:athamaru",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Athamaru feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-13"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-17",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:athamaru",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Athamaru feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-17"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestries.Item.Cg1AMgp3zrGmimWd"
+    },
+    "data": {
+      "hitPoints": 8,
+      "size": "medium",
+      "speed": 20,
+      "boosts": [["str"], ["wis"], ["str", "dex", "con", "int", "wis", "cha"]],
+      "flaws": ["int"],
+      "languages": ["444a2133-3e11-55b6-b57a-1f11ebe8e12b", "abb69e36-b49e-54e5-8cba-a6bb63c45c8d"],
+      "additionalLanguages": {
+        "count": 0,
+        "options": [
+          "98fdcae8-829d-50a5-8fd6-60a8ba63eac5",
+          "ed9baecd-a6e0-5384-842b-ad28399785e8",
+          "30b3a33b-b3f0-5ba1-9e46-aed5301bb2ce",
+          "399a1894-d8e0-53ca-ae6e-4e94aa5692ad"
+        ]
+      },
+      "vision": "16b42c38-9373-58ec-a7ac-2221bb17a71c",
+      "reach": 5
+    }
+  },
+  {
+    "id": "e1c432ec-9c41-59d0-afa7-58a97c038b6b",
+    "pack": "howl-of-the-wild",
+    "kind": "ancestry",
+    "slug": "ancestry:awakened-animal",
+    "name": "Awakened Animal",
+    "rarity": "rare",
+    "traits": ["awakened-animal", "beast"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You once enjoyed the simple and boundless pleasures of nature with an innocent, uncluttered mind. You lived from moment to moment, never questioning what comes next or pondering the ramifications of what happened before. You were at one with the wild. Then came the event that changed everything. You drank from a glowing lake, someone pulled a magical prank, a druid sought to elevate your mind. You were pulled out of the present moment of the wild and into a land of thought."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Awakened Animal",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:land",
+        "mode": "upgrade",
+        "value": 20,
+        "predicate": [
+          {
+            "not": "heritage:swimming-animal"
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "99e07dd6-2d0d-544a-a894-bf1a19d08508"
+      },
+      {
+        "key": "GrantItem",
+        "item": "61295a1c-505d-566b-964a-62bac64443c1"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-1",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:awakened-animal",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Awakened Animal feat"
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-1"
+        }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-5",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:awakened-animal",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Awakened Animal feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-5"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-9",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:awakened-animal",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Awakened Animal feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-9"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-13",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:awakened-animal",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Awakened Animal feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-13"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-17",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:awakened-animal",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Awakened Animal feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-17"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestries.Item.GFOgV3MzWkYwJoJW"
+    },
+    "data": {
+      "hitPoints": 6,
+      "size": "medium",
+      "speed": 5,
+      "boosts": [["con"], ["wis"], ["str", "dex", "con", "int", "wis", "cha"]],
+      "flaws": ["int"],
+      "languages": ["444a2133-3e11-55b6-b57a-1f11ebe8e12b"],
+      "additionalLanguages": {
+        "count": 0,
+        "options": []
+      },
+      "reach": 5
+    }
+  },
+  {
+    "id": "d576b88f-31c1-537f-9d5f-0fa70677ba6c",
+    "pack": "howl-of-the-wild",
+    "kind": "ancestry",
+    "slug": "ancestry:centaur",
+    "name": "Centaur",
+    "rarity": "uncommon",
+    "traits": ["beast", "centaur", "humanoid"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Centaurs are proud nomads who range far and wide across their ancestral territories, protecting their lands from exploitation and intrusion. They are survivalists who forge tight bonds with family and community and stand firm in the face of danger. Many are skilled hunters, trackers, and warriors who do battle with bow, steel, and hooves. Brave and stubborn, they're willing to challenge even the fiercest foes and largest forces to protect their homes, kin, and the land within their domain."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Centaur",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "dc6dc9d9-3e73-54d8-b525-7df75b6738df"
+      },
+      {
+        "key": "GrantItem",
+        "item": "92fd7557-8c8c-5e46-af93-1a0ba2591283"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-1",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:centaur",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Centaur feat"
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-1"
+        }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-5",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:centaur",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Centaur feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-5"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-9",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:centaur",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Centaur feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-9"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-13",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:centaur",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Centaur feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-13"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-17",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:centaur",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Centaur feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-17"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestries.Item.pJkQlFTvpQ5GjZ5e"
+    },
+    "data": {
+      "hitPoints": 8,
+      "size": "large",
+      "speed": 30,
+      "boosts": [["str"], ["wis"], ["str", "dex", "con", "int", "wis", "cha"]],
+      "flaws": ["cha"],
+      "languages": ["444a2133-3e11-55b6-b57a-1f11ebe8e12b", "30b3a33b-b3f0-5ba1-9e46-aed5301bb2ce"],
+      "additionalLanguages": {
+        "count": 0,
+        "options": [
+          "e89dcdff-08de-505a-9d47-985145f9da26",
+          "8c7a7b2f-1b72-5a6a-9b1e-72f5fb801c5a",
+          "c49a86a0-8e49-56c1-86f9-eaa50a3297e3",
+          "3128d8af-f464-563e-ac8d-ac86a7e9408b",
+          "d2200e11-b3e5-5878-be67-4f4492c1f76d",
+          "6901cc04-49bb-5344-bcaa-a4a99712d566",
+          "315eced7-9fa5-595b-bdab-002877559cff"
+        ]
+      },
+      "vision": "67979b6a-4b24-5be5-b7ea-94783c497bcb",
+      "reach": 5
+    }
+  },
+  {
+    "id": "d6c0793f-0036-5d39-ab46-6c9be3286704",
+    "pack": "howl-of-the-wild",
+    "kind": "ancestry",
+    "slug": "ancestry:merfolk",
+    "name": "Merfolk",
+    "rarity": "uncommon",
+    "traits": ["amphibious", "humanoid", "merfolk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Merfolk live in every ocean of Golarion, infinite in their variety and awe-inspiring in their majesty. They consider themselves, not without some merit, the rulers of the sea. Among the tropical reefs of the Fever Sea, merfolk build temples and palaces of brightly colored corals. Beneath the ice floes of the Shining Sea, merfolk hunt seals and whales for food in small, standoffish clans. In the Embaral Ocean, merfolk populate the great trading city of Alohmab, built into the shell of a titanic snail that crawls across the ocean floor."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Merfolk",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:swim",
+        "mode": "upgrade",
+        "value": 25
+      },
+      {
+        "key": "GrantItem",
+        "item": "54a4a144-cf14-548e-8547-a6e026d09fd1"
+      },
+      {
+        "key": "GrantItem",
+        "item": "e617ac4b-ccca-5010-b30f-56810c095138"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-1",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:merfolk",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Merfolk feat"
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-1"
+        }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-5",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:merfolk",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Merfolk feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-5"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-9",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:merfolk",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Merfolk feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-9"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-13",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:merfolk",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Merfolk feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-13"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-17",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:merfolk",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Merfolk feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-17"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestries.Item.FUqZRllwn6kmFA8K"
+    },
+    "data": {
+      "hitPoints": 8,
+      "size": "medium",
+      "speed": 5,
+      "boosts": [["dex"], ["cha"], ["str", "dex", "con", "int", "wis", "cha"]],
+      "flaws": ["con"],
+      "languages": ["444a2133-3e11-55b6-b57a-1f11ebe8e12b", "abb69e36-b49e-54e5-8cba-a6bb63c45c8d"],
+      "additionalLanguages": {
+        "count": 0,
+        "options": [
+          "7cd4c9cb-53a2-5f62-8cf3-d904bce62260",
+          "ed9baecd-a6e0-5384-842b-ad28399785e8",
+          "17635451-e596-5045-8af5-47f581cd1a40",
+          "3128d8af-f464-563e-ac8d-ac86a7e9408b",
+          "30b3a33b-b3f0-5ba1-9e46-aed5301bb2ce"
+        ]
+      },
+      "vision": "16b42c38-9373-58ec-a7ac-2221bb17a71c",
+      "reach": 5
+    }
+  },
+  {
+    "id": "dfafae2d-9a82-5a2e-9562-01edf1b3dcfc",
+    "pack": "howl-of-the-wild",
+    "kind": "ancestry",
+    "slug": "ancestry:minotaur",
+    "name": "Minotaur",
+    "rarity": "uncommon",
+    "traits": ["beast", "humanoid", "minotaur"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Minotaurs stalk complex passageways, whether natural or artificial, and are masters of stone architecture. Inquisitive and steadfast, these bovine humanoids spend their lives perfecting the pursuit that calls to them, which can sometimes lead them far from the enclaves where they were raised. Minotaurs are originally from the Iblydos archipelago but have spread far and wide across Golarion, forming close-knit communities often near mountains or beneath the surface of the earth. Though sometimes mistaken for simple brutes, minotaurs have scholars and warriors alike. Those who can look past their appearance will find an affinity for building and navigation, as well as creative problem-solving."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Minotaur",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "58b293fa-e68b-59bf-8caf-85bddf3f9f86"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-1",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:minotaur",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Minotaur feat"
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-1"
+        }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-5",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:minotaur",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Minotaur feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-5"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-9",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:minotaur",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Minotaur feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-9"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-13",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:minotaur",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Minotaur feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-13"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-17",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:minotaur",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Minotaur feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-17"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestries.Item.3wQ49DoWFYQgVsq6"
+    },
+    "data": {
+      "hitPoints": 10,
+      "size": "large",
+      "speed": 25,
+      "boosts": [["str"], ["con"], ["str", "dex", "con", "int", "wis", "cha"]],
+      "flaws": ["cha"],
+      "languages": ["444a2133-3e11-55b6-b57a-1f11ebe8e12b", "315eced7-9fa5-595b-bdab-002877559cff"],
+      "additionalLanguages": {
+        "count": 0,
+        "options": [
+          "8c7a7b2f-1b72-5a6a-9b1e-72f5fb801c5a",
+          "c49a86a0-8e49-56c1-86f9-eaa50a3297e3",
+          "30b3a33b-b3f0-5ba1-9e46-aed5301bb2ce",
+          "ff9d8655-df77-52bc-852f-ee4669509e08",
+          "da0478dc-3e4f-5abb-9b5f-79be74bf143e"
+        ]
+      },
+      "vision": "67979b6a-4b24-5be5-b7ea-94783c497bcb",
+      "reach": 5
+    }
+  },
+  {
+    "id": "f4b43ae7-ac92-5376-9f7d-07968b4e8fa4",
+    "pack": "howl-of-the-wild",
+    "kind": "ancestry",
+    "slug": "ancestry:surki",
+    "name": "Surki",
+    "rarity": "rare",
+    "traits": ["humanoid", "surki"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Surkis are an insectile species who subsist on the latent magic in the world around them. As a subterranean species native to the Darklands, surkis have rarely been seen on the surface, and always with long pauses between historical sightings. This is due to surkis' life cycle—long dormancies followed by so-called \"generation digs,\" as they migrate great distances in response to happenings underground. The healing of the Worldwound initiated one of the largest such digs in their history, bringing surkis up into the caverns and passages of the Sarkoris Scar and emerging onto the surface for the first time in many years. Since their emergence, several small surki settlements have been established in secluded corners of Sarkoris, voraciously cataloging the wildlife, magics, and various other inhabitants of the area as they explore the alien environment of the surface."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Surki",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "1702c1ea-ec7e-57f1-9195-1dc75186df8e"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-1",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:surki",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Surki feat"
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-1"
+        }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-5",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:surki",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Surki feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-5"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-9",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:surki",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Surki feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-9"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-13",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:surki",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Surki feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-13"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-17",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:surki",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Surki feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-17"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestries.Item.ALOmLePjbc37ca3Y"
+    },
+    "data": {
+      "hitPoints": 8,
+      "size": "medium",
+      "speed": 25,
+      "boosts": [["con"], ["str", "dex", "con", "int", "wis", "cha"]],
+      "flaws": [],
+      "languages": ["444a2133-3e11-55b6-b57a-1f11ebe8e12b", "c199caf1-3728-5535-95aa-02230f9a51fc"],
+      "additionalLanguages": {
+        "count": 0,
+        "options": [
+          "3128d8af-f464-563e-ac8d-ac86a7e9408b",
+          "30b3a33b-b3f0-5ba1-9e46-aed5301bb2ce",
+          "da0478dc-3e4f-5abb-9b5f-79be74bf143e"
+        ]
+      },
+      "vision": "67979b6a-4b24-5be5-b7ea-94783c497bcb",
+      "reach": 5
+    }
+  }
+]

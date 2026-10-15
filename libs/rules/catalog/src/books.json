@@ -46,5 +46,13 @@
     "remaster": true,
     "released": "2025-06-04",
     "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=191"
+  },
+  {
+    "id": "howl-of-the-wild",
+    "publisher": "paizo",
+    "license": "ORC",
+    "remaster": true,
+    "released": "2024-05-29",
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=226"
   }
 ]

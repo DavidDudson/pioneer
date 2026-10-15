@@ -1,0 +1,1730 @@
+[
+  {
+    "id": "7a1cb65e-9337-50b5-86f8-e3018368a6c4",
+    "pack": "howl-of-the-wild",
+    "kind": "heritage",
+    "slug": "heritage:abyssal-merfolk",
+    "name": "Abyssal Merfolk",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You live far, far below the surface of the ocean. Your fish tail might resemble a viperfish or anglerfish, and you might have luminous eyes or translucent skin. Abyssal merfolk have an uncanny reputation, but they can exist in even the most lightless realms. You gain darkvision and are immune to the crushing pressure of the oceanic depths."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.6egx1zhQx2s6BEa1"
+    },
+    "data": {
+      "ancestry": "d6c0793f-0036-5d39-ab46-6c9be3286704"
+    }
+  },
+  {
+    "id": "39605967-f39a-5dfc-9446-af06aea605c0",
+    "pack": "howl-of-the-wild",
+    "kind": "heritage",
+    "slug": "heritage:breaker-surki",
+    "name": "Breaker Surki",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your claws are especially hard and can break through earth and predators alike. You gain a claw unarmed attack that deals 1d4 slashing damage. Your claws are in the brawling group and have the agile, finesse, unarmed, and versatile B traits."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Evolution",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Your wrist nodes project magic into a durable digging wedge. You can spend an Interact action to increase your claw unarmed attack's damage to 1d6; grant it the magical, razing, and versatile force traits; and remove the agile trait. You can spend another action to deactivate the wedge and return your claw to its normal statistics."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Evolution",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Your ankle nodes can emit grounding claw spikes of magic to hold you in place. If any effect would force you to move 10 feet or more, you can choose to move only half the distance. The extra traction from your claw spikes allows you to Climb with one hand occupied (or with both hands occupied if you have the Combat Climber feat). You gain the "
+                },
+                {
+                  "type": "ref",
+                  "id": "17cec43f-4572-5029-a6b1-23a29f099a60"
+                },
+                {
+                  "type": "text",
+                  "text": " reaction."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:digging-wedge-active",
+        "toggleable": true,
+        "predicate": ["evolution:digging-wedge"],
+        "display": {
+          "label": "Activate Digging Wedge"
+        }
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon", "item:slug:claw"],
+        "property": "traits",
+        "mode": "add",
+        "value": "magical",
+        "predicate": ["option:digging-wedge-active"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon", "item:slug:claw"],
+        "property": "traits",
+        "mode": "add",
+        "value": "razing",
+        "predicate": ["option:digging-wedge-active"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon", "item:slug:claw"],
+        "property": "traits",
+        "mode": "add",
+        "value": "versatile-force",
+        "predicate": ["option:digging-wedge-active"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon", "item:slug:claw"],
+        "property": "traits",
+        "mode": "remove",
+        "value": "agile",
+        "predicate": ["option:digging-wedge-active"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "17cec43f-4572-5029-a6b1-23a29f099a60",
+        "allowDuplicate": false,
+        "predicate": ["evolution:claw-spikes"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.BDBzVaZx3GfZXs5b"
+    },
+    "data": {
+      "ancestry": "f4b43ae7-ac92-5376-9f7d-07968b4e8fa4"
+    }
+  },
+  {
+    "id": "6c87b7ce-2147-5f60-9ccf-d7788e494dda",
+    "pack": "howl-of-the-wild",
+    "kind": "heritage",
+    "slug": "heritage:budding-speaker-centaur",
+    "name": "Budding Speaker Centaur",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You were born with a spark of magic that could set you on the path to becoming a Greenspeaker or Faithspeaker. Select divine or primal. If you selected divine, you're a Faithspeaker. If you selected primal, you're a Greenspeaker. This choice can't be changed. You gain one cantrip from the chosen spell list. You can cast this spell as an innate spell at will. A cantrip is heightened to a spell rank equal to half your level rounded up."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "budding-speaker-centaur",
+        "choices": [
+          {
+            "value": "faithspeaker",
+            "label": "Divine"
+          },
+          {
+            "value": "greenspeaker",
+            "label": "Primal"
+          }
+        ],
+        "rollOption": "centaur-speaker"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.1FmcZqnmDm8H0DRB"
+    },
+    "data": {
+      "ancestry": "d576b88f-31c1-537f-9d5f-0fa70677ba6c"
+    }
+  },
+  {
+    "id": "3ff45334-3122-5735-9375-787280593749",
+    "pack": "howl-of-the-wild",
+    "kind": "heritage",
+    "slug": "heritage:carcharodon-merfolk",
+    "name": "Carcharodon Merfolk",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As a fearsome shark merfolk, your lower body is similar to that of one of the apex predators of the ocean. Like a shark, you can smell blood from quite a distance. You gain scent as an imprecise sense with a range of 30 feet. However, you can smell spilled blood at a range of 120 feet in the air and 500 feet in the water."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.DNynADD4xhwTAiE5"
+    },
+    "data": {
+      "ancestry": "d6c0793f-0036-5d39-ab46-6c9be3286704"
+    }
+  },
+  {
+    "id": "3be14be7-6264-533b-af03-218536000753",
+    "pack": "howl-of-the-wild",
+    "kind": "heritage",
+    "slug": "heritage:climbing-animal",
+    "name": "Climbing Animal",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are an animal whose limbs are adapted to grab, climb, and brachiate. You might be dexterous and ready to use tools like a chimpanzee or otter, or you may simply be a quick climber like a bear, raccoon, or sloth."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have a land Speed of 20 feet, a climb Speed of 20 feet, and one animal attack of your choice (typically claw, fist, or jaws)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:land",
+        "mode": "upgrade",
+        "value": 20
+      },
+      {
+        "key": "Change",
+        "selector": "speed:climb",
+        "mode": "upgrade",
+        "value": 20
+      },
+      {
+        "key": "GrantItem",
+        "item": "10146343-cf32-516e-bfe5-531cd4e09f1b"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.13vilUcBjqMV2gxP"
+    },
+    "data": {
+      "ancestry": "e1c432ec-9c41-59d0-afa7-58a97c038b6b"
+    }
+  },
+  {
+    "id": "f72fee18-cf6c-5e7f-9d49-c8fc2c4f8999",
+    "pack": "howl-of-the-wild",
+    "kind": "heritage",
+    "slug": "heritage:coral-athamaru",
+    "name": "Coral Athamaru",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Coral covers patches of your body, which provides a natural layer of defense. Coral athamarus often choose Coral Symbiotes and other related ancestry feats. The coral plates are medium armor in the plate armor group that grant a +4 item bonus to AC, a Dex cap of +1, a check penalty of –2, a Speed penalty of –5 feet, a Strength value of +3, and have the aquadynamic and comfort traits. You can never wear other armor or remove the coral. You can etch armor runes onto the coral."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.4BczMv4EnLcgrEJE"
+    },
+    "data": {
+      "ancestry": "f4e50cd5-ecae-5a83-ae11-611598830340"
+    }
+  },
+  {
+    "id": "6a886787-7c23-595c-b881-dc7b763e4c76",
+    "pack": "howl-of-the-wild",
+    "kind": "heritage",
+    "slug": "heritage:elytron-surki",
+    "name": "Elytron Surki",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The top layer of your carapace is especially mobile, and you can unfurl it to catch the air gracefully as you fall. You take no damage from falling, regardless of the distance you fall."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Evolution",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Your shoulder nodes have evolved into a pair of spines that you can energize to project a pair of glowing wings. You can cast Fly as an innate spell once per day, targeting yourself; while your wings are energized, you shed bright light in a 20-foot radius and dim light for the next 20 feet."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Evolution",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Your shoulder nodes have evolved into a fan of thin membranes that resonate when magic is coursed through them. You gain the "
+                },
+                {
+                  "type": "ref",
+                  "id": "bb9b6b5d-6218-5519-a140-b2dc44d6197b"
+                },
+                {
+                  "type": "text",
+                  "text": " action."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "bb9b6b5d-6218-5519-a140-b2dc44d6197b",
+        "allowDuplicate": false,
+        "predicate": ["evolution:resonating-membranes"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.0Anj61DzUimJ1uMS"
+    },
+    "data": {
+      "ancestry": "f4b43ae7-ac92-5376-9f7d-07968b4e8fa4"
+    }
+  },
+  {
+    "id": "8ae7277a-c79e-522e-8764-f464f5e32fd0",
+    "pack": "howl-of-the-wild",
+    "kind": "heritage",
+    "slug": "heritage:fleetwind-centaur",
+    "name": "Fleetwind Centaur",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're sleek of frame and capable of reaching incredible speeds on hooves alone. Your Speed increases by 5 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "untyped",
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.z16zRyLCeTXan0Ae"
+    },
+    "data": {
+      "ancestry": "d576b88f-31c1-537f-9d5f-0fa70677ba6c"
+    }
+  },
+  {
+    "id": "54462a9f-1cc2-5ba8-a6e8-0448a63f4004",
+    "pack": "howl-of-the-wild",
+    "kind": "heritage",
+    "slug": "heritage:flying-animal",
+    "name": "Flying Animal",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are an animal that can take flight for long or sustained bursts, such as an eagle, bat, bee, or flying squirrel."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The awakening process has disrupted your ability to fly as freely as you once did. What used to be an automatic process is now one that you must apply some thought to until it becomes automatic once again. You can still slow your descent, so you take no damage from falling, regardless of the distance you fall. Most flying awakened animals choose the Take Flight ancestry feat at 1st level to regain a limited ability to fly. You have a land Speed of 20 feet and one animal attack of your choice (typically beak, claw, jaws, talon, or wing)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:land",
+        "mode": "upgrade",
+        "value": 20
+      },
+      {
+        "key": "GrantItem",
+        "item": "10146343-cf32-516e-bfe5-531cd4e09f1b"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.QZv2taQQAdeR8Vmg"
+    },
+    "data": {
+      "ancestry": "e1c432ec-9c41-59d0-afa7-58a97c038b6b"
+    }
+  },
+  {
+    "id": "91d45e22-5f1e-5054-88a1-3fd259144077",
+    "pack": "howl-of-the-wild",
+    "kind": "heritage",
+    "slug": "heritage:ghost-bull-minotaur",
+    "name": "Ghost Bull Minotaur",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your fur is as pale as death, possibly from some connection you or your family has to the afterlife, which lets you supernaturally find your way. You can cast Know the Way as an occult innate spell at will. A cantrip is heightened to a spell rank equal to half your level rounded up. In addition, you gain a +1 circumstance bonus against spells or effects that cause the Confused condition."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["inflicts:confused"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.bHgGh3vtXL7fkhIy"
+    },
+    "data": {
+      "ancestry": "dfafae2d-9a82-5a2e-9562-01edf1b3dcfc"
+    }
+  },
+  {
+    "id": "c9c0a5d1-b17e-5d19-b47a-6e99025521a4",
+    "pack": "howl-of-the-wild",
+    "kind": "heritage",
+    "slug": "heritage:glacier-cavern-minotaur",
+    "name": "Glacier Cavern Minotaur",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your fur grows thick and warm, well suited to the frozen mountains in which you reside. You gain cold resistance equal to half your level (minimum of 1). Environmental cold effects are one step less extreme for you."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["cold"],
+        "value": "max(1, floor(@level / 2))"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.jP9ORt0jgY5VHyD3"
+    },
+    "data": {
+      "ancestry": "dfafae2d-9a82-5a2e-9562-01edf1b3dcfc"
+    }
+  },
+  {
+    "id": "81de2cdd-bc45-5606-8e84-980d6c834113",
+    "pack": "howl-of-the-wild",
+    "kind": "heritage",
+    "slug": "heritage:hardshell-surki",
+    "name": "Hardshell Surki",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your carapace is much denser than that of other surkis, offering you a suit of your very own armor. Your carapace is medium armor in the plate armor group that grants a +4 item bonus to AC, a Dex cap of +1, a check penalty of –2, a Speed penalty of –5 feet, a Strength value of +3, and has the comfort trait. You can never wear other armor or remove your carapace. You can etch armor runes onto your carapace."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Evolution",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The magical circulatory system that runs between your nodes has become a reinforcing network that strengthens your carapace with magical energy. If you're struck by a critical hit that deals physical damage, you can use your reaction to attempt a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "flat",
+                  "dc": 17
+                },
+                {
+                  "type": "text",
+                  "text": ". If successful, the attack becomes a normal hit."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Evolution",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Your abdominal nodes can project a field around you that guards you against the type of magic you're most familiar with. You gain the "
+                },
+                {
+                  "type": "ref",
+                  "id": "c38e56e8-d99b-56de-a98e-ee03b7d26ac2"
+                },
+                {
+                  "type": "text",
+                  "text": " action."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "c38e56e8-d99b-56de-a98e-ee03b7d26ac2",
+        "allowDuplicate": false,
+        "predicate": ["evolution:dampening-field"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.qKn9k3TQt0gsOLn7"
+    },
+    "data": {
+      "ancestry": "f4b43ae7-ac92-5376-9f7d-07968b4e8fa4"
+    }
+  },
+  {
+    "id": "39ea47c2-8cf0-52f6-8cb4-539e7170beaa",
+    "pack": "howl-of-the-wild",
+    "kind": "heritage",
+    "slug": "heritage:hopeful-athamaru",
+    "name": "Hopeful Athamaru",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have begun to prepare yourself to become an athamaru matriarch, and are likely stepping outside of your community to better prepare yourself as a leader. As part of the physical change, you are substantially taller than you once were. Instead of Medium, your size is Large. In addition, you instill your allies with a feeling of hopefulness. You have a 10-foot aura that grants any ally in it a +1 circumstance bonus to saving throws against fear; this is an emotion and mental effect."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "CreatureSize",
+        "value": "large"
+      },
+      {
+        "key": "Aura",
+        "radius": 10,
+        "traits": ["emotion", "mental"],
+        "effects": [
+          {
+            "effect": "e6e85915-781c-528c-82f6-64b59ab44924",
+            "affects": "allies"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.yEQSw61sNRvgPy4T"
+    },
+    "data": {
+      "ancestry": "f4e50cd5-ecae-5a83-ae11-611598830340"
+    }
+  },
+  {
+    "id": "f35f80ae-c4fc-580b-a713-59baf1b5764a",
+    "pack": "howl-of-the-wild",
+    "kind": "heritage",
+    "slug": "heritage:ironhoof-centaur",
+    "name": "Ironhoof Centaur",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your hooves are incredibly strong and serve as formidable weapons. You gain a hoof unarmed attack that deals 1d6 bludgeoning damage. Your hooves are in the brawling group and have the finesse and unarmed traits."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "hoof",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["finesse", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "bludgeoning"
+        },
+        "display": {
+          "label": "Hoof"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.XQp3uReCgoXS8hCJ"
+    },
+    "data": {
+      "ancestry": "d576b88f-31c1-537f-9d5f-0fa70677ba6c"
+    }
+  },
+  {
+    "id": "2a04b73e-705e-5e61-bd3a-04e5f7231724",
+    "pack": "howl-of-the-wild",
+    "kind": "heritage",
+    "slug": "heritage:kaleidoscopic-athamaru",
+    "name": "Kaleidoscopic Athamaru",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your scales are a spectrum of color that shimmers in the light. In areas of bright light or dim light, you gain a +1 circumstance bonus to Performance checks. You also gain the "
+          },
+          {
+            "type": "ref",
+            "id": "91401537-4788-5459-b71c-7ce3e3f93b15"
+          },
+          {
+            "type": "text",
+            "text": " reaction."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "91401537-4788-5459-b71c-7ce3e3f93b15"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:performance"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["light:bright", "light:dim"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.1w4npGmPzgdZw3Na"
+    },
+    "data": {
+      "ancestry": "f4e50cd5-ecae-5a83-ae11-611598830340"
+    }
+  },
+  {
+    "id": "f21aa0f3-c116-5482-a652-3c4c1246e2a3",
+    "pack": "howl-of-the-wild",
+    "kind": "heritage",
+    "slug": "heritage:lantern-surki",
+    "name": "Lantern Surki",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The nodes in your abdomen are particularly luminous. You can use an Interact action to shed light from your abdomen in a 20-foot radius (and dim light for the next 20 feet). This is a magical light effect with a counteract rank equal to half your level rounded up. You can change the color of the light or extinguish it with another Interact action."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Evolution",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Your abdominal nodes have evolved into a pair of secondary limbs that project a magical focusing lens. You gain the "
+                },
+                {
+                  "type": "ref",
+                  "id": "d824cd36-08d2-5b85-ae7c-9f17d5ae02bb"
+                },
+                {
+                  "type": "text",
+                  "text": " action."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Evolution",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Secondary light emitters grow from your shoulder nodes that flash in time with your lantern. You gain the "
+                },
+                {
+                  "type": "ref",
+                  "id": "e662a314-e0b5-5a45-ad60-89269708094b"
+                },
+                {
+                  "type": "text",
+                  "text": " action."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "d824cd36-08d2-5b85-ae7c-9f17d5ae02bb",
+        "allowDuplicate": false,
+        "predicate": ["evolution:lantern-beam"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "e662a314-e0b5-5a45-ad60-89269708094b",
+        "allowDuplicate": false,
+        "predicate": ["evolution:lantern-strobe"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.Wyw1tkO0e199Wm8o"
+    },
+    "data": {
+      "ancestry": "f4b43ae7-ac92-5376-9f7d-07968b4e8fa4"
+    }
+  },
+  {
+    "id": "b1e74bc4-1ab0-585a-95a5-c23085a5a858",
+    "pack": "howl-of-the-wild",
+    "kind": "heritage",
+    "slug": "heritage:littlehorn-minotaur",
+    "name": "Littlehorn Minotaur",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Though no less powerful, your frame (and your horns) are smaller than those of most other minotaurs. Instead of Large, your size is Medium. Your horns unarmed attack deals 1d6 piercing damage instead of 1d8, but it has the agile trait."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon", "item:slug:horns"],
+        "property": "traits",
+        "mode": "add",
+        "value": "agile"
+      },
+      {
+        "key": "CreatureSize",
+        "value": "medium"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.23MEmXuyw75jiGKq"
+    },
+    "data": {
+      "ancestry": "dfafae2d-9a82-5a2e-9562-01edf1b3dcfc"
+    }
+  },
+  {
+    "id": "0aa4a99f-8092-59d8-b187-0807e9c6c680",
+    "pack": "howl-of-the-wild",
+    "kind": "heritage",
+    "slug": "heritage:mottle-coat-centaur",
+    "name": "Mottle-Coat Centaur",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your coat is mottled or striped, granting you natural camouflage in your home environment. Select a terrain from the following: arctic, desert, forest, mountain, plains, or swamp. In your selected terrain, you gain a +1 circumstance bonus to Stealth checks to Hide or Sneak and to Deception checks to Feint."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "terrain",
+        "choices": [
+          {
+            "value": "arctic",
+            "label": "Arctic"
+          },
+          {
+            "value": "desert",
+            "label": "Desert"
+          },
+          {
+            "value": "forest",
+            "label": "Forest"
+          },
+          {
+            "value": "mountain",
+            "label": "Mountain"
+          },
+          {
+            "value": "plain",
+            "label": "Plains"
+          },
+          {
+            "value": "swamp",
+            "label": "Swamp"
+          }
+        ],
+        "prompt": "Select a terrain."
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.3aKeX3q9hRdxgP1J"
+    },
+    "data": {
+      "ancestry": "d576b88f-31c1-537f-9d5f-0fa70677ba6c"
+    }
+  },
+  {
+    "id": "73e56392-d69c-5703-b5ff-8cd3475ccbf1",
+    "pack": "howl-of-the-wild",
+    "kind": "heritage",
+    "slug": "heritage:pelagic-merfolk",
+    "name": "Pelagic Merfolk",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're a merfolk of the open seas. Your tail is patterned after the silvery tuna and herring that school by the million in your hunting grounds. Water obeys your will, and with a quick word, you can draw a sheathe of it around you. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "77327f2d-3fd3-585f-83ee-96418b04e301"
+          },
+          {
+            "type": "text",
+            "text": " action."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "77327f2d-3fd3-585f-83ee-96418b04e301"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.OOkgTzDU4mBvV98Z"
+    },
+    "data": {
+      "ancestry": "d6c0793f-0036-5d39-ab46-6c9be3286704"
+    }
+  },
+  {
+    "id": "18741301-4959-5be7-b4a8-d878ff9ed95a",
+    "pack": "howl-of-the-wild",
+    "kind": "heritage",
+    "slug": "heritage:ponygait-centaur",
+    "name": "Ponygait Centaur",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are smaller than most other centaurs, though no less fleet of foot. Instead of Large, your size is Medium. You gain a +1 circumstance bonus to Reflex saving throws."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "CreatureSize",
+        "value": "medium"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:reflex"],
+        "type": "circumstance",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.2GmWdSNbH4yx9pzY"
+    },
+    "data": {
+      "ancestry": "d576b88f-31c1-537f-9d5f-0fa70677ba6c"
+    }
+  },
+  {
+    "id": "222b8397-935f-54c9-8029-bb201cb570ef",
+    "pack": "howl-of-the-wild",
+    "kind": "heritage",
+    "slug": "heritage:quilled-athamaru",
+    "name": "Quilled Athamaru",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sharp quills on your head can pierce your foes deeply. Most athamarus use such quills for defense, but a well-timed headbash can be devastatingly effective. You gain a quills melee unarmed attack that deals 1d6 piercing damage. Your quills are in the brawling group and have the agile, finesse, and unarmed traits."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "quill",
+        "category": "unarmed",
+        "traits": ["unarmed", "agile", "finesse"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "piercing"
+        },
+        "display": {
+          "label": "Quill"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.CkrTRdLfDDDUOCqP"
+    },
+    "data": {
+      "ancestry": "f4e50cd5-ecae-5a83-ae11-611598830340"
+    }
+  },
+  {
+    "id": "92ca71d1-08e3-5ced-b6ad-5c2d36ec1ebf",
+    "pack": "howl-of-the-wild",
+    "kind": "heritage",
+    "slug": "heritage:reef-merfolk",
+    "name": "Reef Merfolk",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You were raised amid colorful corals and schools of tropical fish. Compared to most merfolk, your body is vividly hued with stripes, spots, and patterns like a clownfish or angelfish. You're used to the occasionally toxic denizens of your home and are bothered little by stings or petty poisons. You gain poison resistance equal to half your level (minimum 1), and each of your successful saving throws against a poison affliction reduces its stage by 2, or by 1 for a virulent poison. Each critical success against an ongoing poison reduces its stage by 3, or by 2 for a virulent poison."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["poison"],
+        "value": "max(1, floor(@level / 2))"
+      },
+      {
+        "key": "Note",
+        "selectors": ["saving-throw"],
+        "title": "Reef Merfolk",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You reduce the stage of the poison by 2."
+              }
+            ]
+          }
+        ],
+        "outcome": ["success"],
+        "predicate": [
+          "item:trait:poison",
+          {
+            "not": "item:trait:virulent"
+          }
+        ]
+      },
+      {
+        "key": "Note",
+        "selectors": ["saving-throw"],
+        "title": "Reef Merfolk",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You reduce the stage of the poison by 3."
+              }
+            ]
+          }
+        ],
+        "outcome": ["criticalSuccess"],
+        "predicate": [
+          "item:trait:poison",
+          {
+            "not": "item:trait:virulent"
+          }
+        ]
+      },
+      {
+        "key": "Note",
+        "selectors": ["saving-throw"],
+        "title": "Reef Merfolk",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You reduce the stage of the virulent poison by 1."
+              }
+            ]
+          }
+        ],
+        "outcome": ["success"],
+        "predicate": ["item:trait:poison", "item:trait:virulent"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["saving-throw"],
+        "title": "Reef Merfolk",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You reduce the stage of the virulent poison by 2."
+              }
+            ]
+          }
+        ],
+        "outcome": ["criticalSuccess"],
+        "predicate": ["item:trait:poison", "item:trait:virulent"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.Q5NrFWKDMCoVn9qR"
+    },
+    "data": {
+      "ancestry": "d6c0793f-0036-5d39-ab46-6c9be3286704"
+    }
+  },
+  {
+    "id": "a2e69b3a-8a86-5ad9-b681-8591402b23ac",
+    "pack": "howl-of-the-wild",
+    "kind": "heritage",
+    "slug": "heritage:roaming-minotaur",
+    "name": "Roaming Minotaur",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your hooves are broad and powerful, perfect for clearing away rubble as you step. You become trained in Survival (or another skill if you were already trained in Survival) and gain the Terrain Expertise skill feat. You ignore difficult terrain caused by natural uneven ground while in the terrain chosen for your Terrain Expertise feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:survival",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "57542da4-3edc-5464-9143-2236defe9f0e"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.HAo0S8ysFipf6S2B"
+    },
+    "data": {
+      "ancestry": "dfafae2d-9a82-5a2e-9562-01edf1b3dcfc"
+    }
+  },
+  {
+    "id": "a591a238-357b-5229-ae1a-e45750eb3f13",
+    "pack": "howl-of-the-wild",
+    "kind": "heritage",
+    "slug": "heritage:running-animal",
+    "name": "Running Animal",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are an animal meant for running at great speeds across land. Typically, you run on all fours like a dog, cheetah, or an iguana, but you could also use two legs like a kangaroo, emu, or penguin."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have a land Speed of 30 feet and one animal attack of your choice (typically claw, jaws, or tail)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:land",
+        "mode": "upgrade",
+        "value": 30
+      },
+      {
+        "key": "GrantItem",
+        "item": "10146343-cf32-516e-bfe5-531cd4e09f1b"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.bsXA1l5mxNnmBh5M"
+    },
+    "data": {
+      "ancestry": "e1c432ec-9c41-59d0-afa7-58a97c038b6b"
+    }
+  },
+  {
+    "id": "94acfa04-5bdb-503d-aa4b-dc858d8224da",
+    "pack": "howl-of-the-wild",
+    "kind": "heritage",
+    "slug": "heritage:sailfish-merfolk",
+    "name": "Sailfish Merfolk",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The lower half of your body resembles a powerful sailfish, complete with a large dorsal fin. Using this fin, you can move through the water faster and leap farther. Your swim Speed increases to 30 feet. When you attempt a High Jump or Long Jump, you gain a +1 circumstance bonus to the Athletics check, and you can Swim instead of Striding before attempting the jump."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:swim",
+        "mode": "upgrade",
+        "value": 30
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["action:high-jump", "action:long-jump"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.4BiGekRGfBRC7DoI"
+    },
+    "data": {
+      "ancestry": "d6c0793f-0036-5d39-ab46-6c9be3286704"
+    }
+  },
+  {
+    "id": "a236bc8e-1437-5ae5-a74d-df797d31063b",
+    "pack": "howl-of-the-wild",
+    "kind": "heritage",
+    "slug": "heritage:slabsoul-minotaur",
+    "name": "Slabsoul Minotaur",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your deep connection with stone and walls allows you to conjure massive slabs of granite that collapse on your foes. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "c63e1a93-6bf3-5c35-8216-7527f25efcf0"
+          },
+          {
+            "type": "text",
+            "text": " activity."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "c63e1a93-6bf3-5c35-8216-7527f25efcf0"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.mPVEc7hFZQhv0gqJ"
+    },
+    "data": {
+      "ancestry": "dfafae2d-9a82-5a2e-9562-01edf1b3dcfc"
+    }
+  },
+  {
+    "id": "bdf875ea-4021-53a2-82fd-23e90d189949",
+    "pack": "howl-of-the-wild",
+    "kind": "heritage",
+    "slug": "heritage:stalker-minotaur",
+    "name": "Stalker Minotaur",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Despite your heavy frame, you walk on shaggy hooves that muffle your footfalls, allowing you to surprise your prey. You become trained in Stealth (or another skill if you were already trained in Stealth) and gain the Terrain Stalker skill feat, except you must choose rubble and you can Sneak no more than 10 feet instead of 5 feet without attempting a Stealth check."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:stealth",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "64a7812f-3d66-543f-92ba-09b830326f80"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.tYrb9KOv1etjE5wK"
+    },
+    "data": {
+      "ancestry": "dfafae2d-9a82-5a2e-9562-01edf1b3dcfc"
+    }
+  },
+  {
+    "id": "bba7a85c-0d07-5c0e-8355-8f2f29c1fbaa",
+    "pack": "howl-of-the-wild",
+    "kind": "heritage",
+    "slug": "heritage:stoutheart-centaur",
+    "name": "Stoutheart Centaur",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're a hardy centaur, firm of stance and strong of heart. You gain 10 Hit Points from your ancestry instead of 8 and gain a +1 circumstance bonus to Acrobatics checks to Balance and to your Reflex DC to avoid being tripped."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:acrobatics"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["action:balance"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["reflex-dc"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["action:trip"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.raDHBXYpc2MvWWgh"
+    },
+    "data": {
+      "ancestry": "d576b88f-31c1-537f-9d5f-0fa70677ba6c"
+    }
+  },
+  {
+    "id": "edcabb9b-30ab-53c9-a731-495279e5decc",
+    "pack": "howl-of-the-wild",
+    "kind": "heritage",
+    "slug": "heritage:swimming-animal",
+    "name": "Swimming Animal",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are an aquatic animal who is most comfortable in the water. You may spend much of your time in the water like an alligator, seal, whale, or dolphin, or you may require the water to breathe like a fish or some crustaceans."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have one animal attack of your choice (typically claw, jaws, or tail; see the sidebar). Choose if you are aquatic or water-dwelling."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Aquatic:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You gain the aquatic trait and you have a swim Speed of 30 feet. The aquatic trait means you breathe water but not air, and your bludgeoning and slashing unarmed Strikes don't take the usual –2 penalty for being underwater."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Water-dwelling:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You can hold your breath underwater for 10 minutes before needing air. You have a swim Speed of 20 feet, and if you can move on land, you have base Speed of 20 feet."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "swimming-animal",
+        "choices": [
+          {
+            "value": "aquatic",
+            "label": "Aquatic"
+          },
+          {
+            "value": "water-dwelling",
+            "label": "Water-dwelling"
+          }
+        ],
+        "prompt": "Choose if you are an aquatic or water-dwelling animal",
+        "rollOption": "swimming-animal"
+      },
+      {
+        "key": "Change",
+        "selector": "speed:swim",
+        "mode": "upgrade",
+        "value": 30,
+        "predicate": ["swimming-animal:aquatic"]
+      },
+      {
+        "key": "Change",
+        "selector": "speed:swim",
+        "mode": "upgrade",
+        "value": 20,
+        "predicate": ["swimming-animal:water-dwelling"]
+      },
+      {
+        "key": "Change",
+        "selector": "speed:land",
+        "mode": "upgrade",
+        "value": 20,
+        "predicate": ["swimming-animal:water-dwelling"]
+      },
+      {
+        "key": "ActorTraits",
+        "add": ["aquatic"],
+        "predicate": ["swimming-animal:aquatic"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "10146343-cf32-516e-bfe5-531cd4e09f1b"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.nlhVoQDfLKYM3j1l"
+    },
+    "data": {
+      "ancestry": "e1c432ec-9c41-59d0-afa7-58a97c038b6b"
+    }
+  }
+]

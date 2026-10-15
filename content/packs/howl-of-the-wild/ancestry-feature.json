@@ -1,0 +1,798 @@
+[
+  {
+    "id": "10146343-cf32-516e-bfe5-531cd4e09f1b",
+    "pack": "howl-of-the-wild",
+    "kind": "ancestry-feature",
+    "slug": "ancestry-feature:animal-attack",
+    "name": "Animal Attack",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your heritage gives you a special unarmed attack instead of the fist unarmed attack humanoids typically gain. This attack is in the brawling weapon group. Work with your GM to determine which one you have, using the type of animal you are and suggestions in your heritage for guidance. For example, you might choose a beak, talon, or wing for an eagle, a fist or tail for a monkey, or a tongue or jaws for a toad."
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Unarmed Attack"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Damage"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Traits"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "Antler",
+                "marks": ["strong"]
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1d6 P"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Finesse, unarmed"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Beak",
+                "marks": ["strong"]
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1d6 P"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Finesse, unarmed"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Claw",
+                "marks": ["strong"]
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1d4 S"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Agile, finesse, unarmed"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Fangs",
+                "marks": ["strong"]
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1d6 P"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Finesse, unarmed"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Fist",
+                "marks": ["strong"]
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1d4 B"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Agile, finesse, nonlethal, unarmed"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Horn",
+                "marks": ["strong"]
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1d6 P"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Finesse, unarmed"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Jaws",
+                "marks": ["strong"]
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1d6 P"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Finesse, unarmed"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Tail",
+                "marks": ["strong"]
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1d6 B"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Finesse, trip, unarmed"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Talon",
+                "marks": ["strong"]
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1d4 P"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Agile, finesse, unarmed"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Tongue",
+                "marks": ["strong"]
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1d6 B"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Finesse, unarmed"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Wing",
+                "marks": ["strong"]
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1d4 B"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Agile, finesse, unarmed"
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "animal-attack",
+        "choices": [
+          {
+            "value": "antler",
+            "label": "Antler"
+          },
+          {
+            "value": "beak",
+            "label": "Beak"
+          },
+          {
+            "value": "claw",
+            "label": "Claw"
+          },
+          {
+            "value": "fangs",
+            "label": "Fangs"
+          },
+          {
+            "value": "fist",
+            "label": "Fist"
+          },
+          {
+            "value": "horn",
+            "label": "Horn"
+          },
+          {
+            "value": "jaws",
+            "label": "Jaws"
+          },
+          {
+            "value": "tail",
+            "label": "Tail"
+          },
+          {
+            "value": "talon",
+            "label": "Talon"
+          },
+          {
+            "value": "tongue",
+            "label": "Tongue"
+          },
+          {
+            "value": "wing",
+            "label": "Wing"
+          }
+        ],
+        "prompt": "Select an unarmed attack.",
+        "rollOption": "animal-attack"
+      },
+      {
+        "key": "Strike",
+        "slug": "antler",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["finesse", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "piercing"
+        },
+        "predicate": ["animal-attack:antler"],
+        "display": {
+          "label": "Antler"
+        }
+      },
+      {
+        "key": "Strike",
+        "slug": "beak",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["finesse", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "piercing"
+        },
+        "predicate": ["animal-attack:beak"],
+        "display": {
+          "label": "Beak"
+        }
+      },
+      {
+        "key": "Strike",
+        "slug": "claw",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["agile", "finesse", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d4",
+          "damageType": "slashing"
+        },
+        "predicate": ["animal-attack:claw"],
+        "display": {
+          "label": "Claw"
+        }
+      },
+      {
+        "key": "Strike",
+        "slug": "fangs",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["finesse", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "piercing"
+        },
+        "predicate": ["animal-attack:fangs"],
+        "display": {
+          "label": "Fangs"
+        }
+      },
+      {
+        "key": "Strike",
+        "fist": true,
+        "predicate": ["animal-attack:fist"]
+      },
+      {
+        "key": "Strike",
+        "slug": "horn",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["finesse", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "piercing"
+        },
+        "predicate": ["animal-attack:horn"],
+        "display": {
+          "label": "Horn"
+        }
+      },
+      {
+        "key": "Strike",
+        "slug": "jaws",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["finesse", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "piercing"
+        },
+        "predicate": ["animal-attack:jaws"],
+        "display": {
+          "label": "Jaws"
+        }
+      },
+      {
+        "key": "Strike",
+        "slug": "tail",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["finesse", "trip", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "bludgeoning"
+        },
+        "predicate": ["animal-attack:tail"],
+        "display": {
+          "label": "Tail"
+        }
+      },
+      {
+        "key": "Strike",
+        "slug": "talon",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["agile", "finesse", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d4",
+          "damageType": "piercing"
+        },
+        "predicate": ["animal-attack:talon"],
+        "display": {
+          "label": "Talon"
+        }
+      },
+      {
+        "key": "Strike",
+        "slug": "tongue",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["finesse", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "bludgeoning"
+        },
+        "predicate": ["animal-attack:tongue"],
+        "display": {
+          "label": "Tongue"
+        }
+      },
+      {
+        "key": "Strike",
+        "slug": "wing",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["agile", "finesse", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d4",
+          "damageType": "bludgeoning"
+        },
+        "predicate": ["animal-attack:wing"],
+        "display": {
+          "label": "Wing"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.oj532l4YXqzedBBn"
+    },
+    "data": {}
+  },
+  {
+    "id": "54a4a144-cf14-548e-8547-a6e026d09fd1",
+    "pack": "howl-of-the-wild",
+    "kind": "ancestry-feature",
+    "slug": "ancestry-feature:aquatic-grace",
+    "name": "Aquatic Grace",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you roll a success on a saving throw against a water effect, you get a critical success instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["saving-throw"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "predicate": ["option:water"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.d5TYEND07kwWRBIq"
+    },
+    "data": {}
+  },
+  {
+    "id": "99e07dd6-2d0d-544a-a894-bf1a19d08508",
+    "pack": "howl-of-the-wild",
+    "kind": "ancestry-feature",
+    "slug": "ancestry-feature:awakened-form",
+    "name": "Awakened Form",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Awakening altered your form, enabling you to speak verbally and stand on two legs. You can wear, hold, wield, and use items. Which limbs you use to manipulate items and how many are determined by you and your GM, but for the rules you function like a humanoid with two hands."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.ItQDbIiqpb50Zbtm"
+    },
+    "data": {}
+  },
+  {
+    "id": "61295a1c-505d-566b-964a-62bac64443c1",
+    "pack": "howl-of-the-wild",
+    "kind": "ancestry-feature",
+    "slug": "ancestry-feature:awakened-mind",
+    "name": "Awakened Mind",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Awakening altered your mind. You are no longer an animal, but you can still ask questions of, receive answers from, and use the Diplomacy skill with animals of your kind. By remembering your instincts, you can allow yourself to be affected by spells and other effects as though you were an animal."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.0qHN69NF7JBWKO8v"
+    },
+    "data": {}
+  },
+  {
+    "id": "58b293fa-e68b-59bf-8caf-85bddf3f9f86",
+    "pack": "howl-of-the-wild",
+    "kind": "ancestry-feature",
+    "slug": "ancestry-feature:horns-minotaur",
+    "name": "Horns (Minotaur)",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["minotaur"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your sharp horns are as deadly as spears. You have a horns unarmed attack that deals 1d8 piercing damage. Your horns are in the brawling group and have the unarmed trait."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "horns",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d8",
+          "damageType": "piercing"
+        },
+        "display": {
+          "label": "Horns"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.hUpYTsbLcBg4UcVp"
+    },
+    "data": {}
+  },
+  {
+    "id": "e617ac4b-ccca-5010-b30f-56810c095138",
+    "pack": "howl-of-the-wild",
+    "kind": "ancestry-feature",
+    "slug": "ancestry-feature:hydration-merfolk",
+    "name": "Hydration (Merfolk)",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your body requires you to return to aquatic environments at least once in a 24-hour period. After the first 24 hours outside of water, you take a –1 status penalty to Fortitude saves. After 48 hours, you struggle to breathe air and begin to suffocate until returned to water."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect: Dehydrated"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.DWNRIgt3f92fSTBM"
+    },
+    "data": {}
+  },
+  {
+    "id": "1702c1ea-ec7e-57f1-9195-1dc75186df8e",
+    "pack": "howl-of-the-wild",
+    "kind": "ancestry-feature",
+    "slug": "ancestry-feature:magiphage",
+    "name": "Magiphage",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The various nodes throughout your body draw in latent magic from the world around you. You don't need to eat or drink unless you're in an especially magic-poor environment (such as the Mana Wastes). Choose what tradition of magic you most consumed as a larva; this type of magic has become so ingrained in your body that it changes the tradition of all surki spells and magical actions to that tradition."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.oQ5478uONrGAWRgF"
+    },
+    "data": {}
+  },
+  {
+    "id": "dc6dc9d9-3e73-54d8-b525-7df75b6738df",
+    "pack": "howl-of-the-wild",
+    "kind": "ancestry-feature",
+    "slug": "ancestry-feature:mount",
+    "name": "Mount",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["centaur"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your equine body is well suited for carrying trusted allies. A PC can ride you if they are one size category smaller than you (Medium size, for most centaurs), rather than needing to be two size categories smaller."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.VX267tc1uwocRu39"
+    },
+    "data": {}
+  },
+  {
+    "id": "92fd7557-8c8c-5e46-af93-1a0ba2591283",
+    "pack": "howl-of-the-wild",
+    "kind": "ancestry-feature",
+    "slug": "ancestry-feature:robust",
+    "name": "Robust",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["centaur"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You increase your maximum and encumbered Bulk limits by 2."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.S5XriNcxiVvqZEu0"
+    },
+    "data": {}
+  }
+]
