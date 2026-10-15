@@ -4,8 +4,8 @@ import { ContentId, FocusPoints, HitPoints, Slug, SpellRank } from '@pioneer/rul
 import { assert, constantFrom, integer, property, record } from 'fast-check';
 
 import { abilityUseKey, Boundary, slotCountKey } from './counted-resources';
-import { InventoryItemId } from './inventory';
 import type { CountedMaxima } from './counted-resources';
+import { InventoryItemId } from './inventory';
 import { FRESH_PLAY } from './play-state';
 import type { PlayState } from './play-state';
 import { Resource, ResourceCount, resourceMaxima } from './resources';

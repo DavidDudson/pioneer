@@ -19,6 +19,8 @@ import type { ContentRegistry, HitPoints } from '@pioneer/rules/sdk';
 import { countedViews, sheetCounted } from './sheet-counted';
 import type { CountedViews } from './sheet-counted';
 import { statisticInputsOf } from './sheet-inputs';
+import { sheetStaffLimits, staffOptions } from './sheet-staff';
+import type { StaffOption } from './sheet-staff';
 
 /** One change a restoring action would make, as a message key and its parameters. */
 export interface RestLine {
@@ -44,8 +46,25 @@ function slotLine(slot: SlotCountKey, amount: ResourceCount, views: CountedViews
   return { key, params: { amount, source: view?.source, pool: view?.pool, rank: view?.rank } };
 }
 
+/** The words for a staff prepared, or the slot expended for it. */
+function staffLine(
+  change: Extract<
+    RestChange,
+    { readonly kind: typeof RestChangeKind.StaffCharges | typeof RestChangeKind.SlotExpended }
+  >,
+  views: CountedViews,
+  staves: readonly StaffOption[],
+): RestLine {
+  if (change.kind === RestChangeKind.StaffCharges) {
+    const name = staves.find(({ id }) => id === change.item)?.name;
+    return { key: 'character.sheet.rest.staffCharges', params: { name, charges: change.charges } };
+  }
+  const view = views.slots.find(({ key }) => key === change.key);
+  return { key: 'character.sheet.rest.slotExpended', params: { source: view?.source, rank: view?.rank } };
+}
+
 /** The words of one change; slots and uses are named as the sheet names them. */
-function lineOf(change: RestChange, views: CountedViews): RestLine {
+function lineOf(change: RestChange, views: CountedViews, staves: readonly StaffOption[]): RestLine {
   switch (change.kind) {
     case RestChangeKind.HitPoints: {
       return { key: 'character.sheet.rest.hitPoints', params: { gained: change.gained } };
@@ -68,6 +87,10 @@ function lineOf(change: RestChange, views: CountedViews): RestLine {
     }
     case RestChangeKind.Slots: {
       return slotLine(change.key, change.amount, views);
+    }
+    case RestChangeKind.StaffCharges:
+    case RestChangeKind.SlotExpended: {
+      return staffLine(change, views, staves);
     }
     case RestChangeKind.Uses: {
       const use = views.uses.find(({ key }) => key === change.key);
@@ -95,8 +118,10 @@ export function restLines(
   const { hitPoints, resources } = maxima;
   const healing = restHealing(statisticInputsOf(registry, character));
   const counted = sheetCounted(registry, character);
-  const limits = { hitPoints, healing, recovery: RECOVERY_CONDITIONS, resources, counted };
+  const staff = sheetStaffLimits(registry, character);
+  const limits = { hitPoints, healing, recovery: RECOVERY_CONDITIONS, resources, counted, staff };
   const { changes } = applyRestCommand(play, command, limits);
   const views = countedViews(registry, character, play.resources);
-  return changes.map((change) => lineOf(change, views));
+  const staves = staffOptions(registry, character, staff);
+  return changes.map((change) => lineOf(change, views, staves));
 }

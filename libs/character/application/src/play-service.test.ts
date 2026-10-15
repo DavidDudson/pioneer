@@ -207,9 +207,13 @@ describe('PlayService', () => {
       field: PlayCommandField.DailyPreparations,
       slot: { entry: Slug.parse('wizard'), rank: SpellRank.parse(1) },
     };
-    for (const command of [staff, slot]) {
-      const refused = rejection(play.patch(amiri, kyra.id, { expectedRevision: FIRST_VERSION, command }));
-      expect(await refused).toBeInstanceOf(ValidationError);
+    const refusals = await Promise.all(
+      [staff, slot].map(async (command) =>
+        rejection(play.patch(amiri, kyra.id, { expectedRevision: FIRST_VERSION, command })),
+      ),
+    );
+    for (const refused of refusals) {
+      expect(refused).toBeInstanceOf(ValidationError);
     }
   });
 

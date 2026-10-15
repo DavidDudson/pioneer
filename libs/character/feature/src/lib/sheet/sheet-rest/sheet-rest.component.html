@@ -12,6 +12,24 @@
               </fr-button>
             }
           </fr-stack>
+          @if (choosingStaff()) {
+            <fr-stack direction="horizontal" align="center" gap="sm" wrap>
+              <fr-select
+                [ariaLabel]="'character.sheet.rest.staffPick' | transloco"
+                [options]="staffChoices()"
+                [value]="staffPicked()"
+                (valueChange)="pickStaff($event)"
+              />
+              @if (slotChoices().length > 0) {
+                <fr-select
+                  [ariaLabel]="'character.sheet.rest.slotPick' | transloco"
+                  [options]="slotChoices()"
+                  [value]="slotPicked()"
+                  (valueChange)="pickSlot($event)"
+                />
+              }
+            </fr-stack>
+          }
           @if (preview(); as shown) {
             <fr-stack gap="xs">
               <fr-text weight="semibold">{{ shown.action.previewKey | transloco }}</fr-text>

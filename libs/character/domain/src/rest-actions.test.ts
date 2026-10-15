@@ -7,6 +7,7 @@ import type { ActiveCondition } from './conditions';
 import { abilityUseKey, Boundary, slotCountKey } from './counted-resources';
 import type { CountedMaxima } from './counted-resources';
 import { Doomed, Dying, Wounded } from './death-track';
+import { InventoryItemId } from './inventory';
 import { applyPlayCommand, FRESH_PLAY, PlayCommandField } from './play-state';
 import type { PlayLimits, PlayState } from './play-state';
 import { Resource, resourceMaxima, ResourceCount } from './resources';
@@ -14,7 +15,6 @@ import { preparedDaily, refocused, rested, sessionStarted } from './rest-actions
 import { RestChangeKind } from './rest-types';
 import { NO_STAFF, StaffProblem, staffProblem } from './staff-limits';
 import type { StaffLimits } from './staff-limits';
-import { InventoryItemId } from './inventory';
 
 function count(value: number): ResourceCount {
   return ResourceCount.parse(value);

@@ -222,10 +222,11 @@ const STAFF_MESSAGES = {
   [StaffProblem.SlotNotExpendable]: 'character.validation.staffSlotNotExpendable',
 } as const satisfies Record<StaffProblem, string>;
 
+/** Daily preparations, the only edit that prepares a staff. */
+type DailyPreparations = Extract<PlayCommand, { readonly field: typeof PlayCommandField.DailyPreparations }>;
+
 /** Whether `command` is daily preparations, the only edit that prepares a staff. */
-function isDailyPreparations(
-  command: PlayCommand,
-): command is Extract<PlayCommand, { readonly field: typeof PlayCommandField.DailyPreparations }> {
+function isDailyPreparations(command: PlayCommand): command is DailyPreparations {
   return command.field === PlayCommandField.DailyPreparations;
 }
 
