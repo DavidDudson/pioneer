@@ -13,6 +13,7 @@ import {
   placeBoosts,
   placeFeats,
   placeFlaws,
+  placeSkills,
   readPathbuilderExport,
 } from '@pioneer/interop/pathbuilder';
 import type {
@@ -22,6 +23,7 @@ import type {
   PathbuilderImport,
   PathbuilderName,
   PathbuilderReadFailure,
+  SkillGap,
   UnplacedBoost,
 } from '@pioneer/interop/pathbuilder';
 import { AncestryId, ChoiceValue, VariantStructure } from '@pioneer/rules/sdk';
@@ -114,13 +116,14 @@ export interface ImportedCharacter {
   readonly dualClass: boolean;
   readonly character: Character;
   readonly unplaced: readonly UnplacedBoost[];
+  readonly skillGaps: readonly SkillGap[];
   readonly notOffered: readonly ImportedName[];
 }
 
 /**
  * The character `create` makes from an export: its background and class (and second class) picked, then the heritage
  * its ancestry offers, then each boost in the slots they open, the voluntary flaws (#550) and the feats in the slots
- * those open (#308); a matched feat no slot of its level offers is named as not offered.
+ * those open and the skills and Lores in the skill slots (#308); a matched feat no slot of its level offers is named as not offered.
  */
 export function importedCharacter(
   value: PathbuilderImport,
@@ -135,10 +138,13 @@ export function importedCharacter(
   const flaws = placeFlaws(document, content.slots.boosts, value.flaws);
   const built = { ...picked, ...placement.choices, ...flaws };
   const feats = placeFeats(create(built).document, { slots: content.slots, lookup: content.lookup }, value.feats);
+  const withFeats = { ...built, ...feats.choices };
+  const skills = placeSkills(create(withFeats).document, content.slots, value);
   return {
     dualClass: SECOND_CLASS_SLOT in roots,
-    character: create({ ...built, ...feats.choices }),
+    character: create({ ...withFeats, ...skills.choices }),
     unplaced: placement.unplaced,
+    skillGaps: skills.gaps,
     notOffered: [
       ...heritage.notOffered,
       ...secondClassNotOffered(value, content),

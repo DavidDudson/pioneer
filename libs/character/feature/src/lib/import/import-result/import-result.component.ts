@@ -19,6 +19,7 @@ import { filter, merge } from 'rxjs';
 
 import { ImportBoostReport } from '../import-boost-report/import-boost-report.component';
 import { KIND_KEYS, REASON_KEYS, REASON_TONES, UNCARRIED_KEYS } from '../import-labels';
+import { ImportSkillReport } from '../import-skill-report/import-skill-report.component';
 
 /** One name that was not carried over, as the list shows it. */
 interface NameView {
@@ -38,7 +39,20 @@ interface GroupView {
 /** What a Pathbuilder import left behind, shown on the new character until the viewer dismisses it. */
 @Component({
   selector: 'pio-import-result',
-  imports: [Badge, Button, Disclosure, Heading, ImportBoostReport, List, ListItem, Stack, Surface, Text, TranslocoPipe],
+  imports: [
+    Badge,
+    Button,
+    Disclosure,
+    Heading,
+    ImportBoostReport,
+    ImportSkillReport,
+    List,
+    ListItem,
+    Stack,
+    Surface,
+    Text,
+    TranslocoPipe,
+  ],
   templateUrl: './import-result.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

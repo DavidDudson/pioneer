@@ -11,6 +11,7 @@
       [modifierDifferences]="report().modifierDifferences"
       [unplacedBoosts]="report().unplacedBoosts"
     />
+    <pio-import-skill-report [skillGaps]="report().skillGaps" />
     @if (notCarried() !== '') {
       <fr-text>{{ 'character.import.result.notCarried' | transloco: { fields: notCarried() } }}</fr-text>
     }

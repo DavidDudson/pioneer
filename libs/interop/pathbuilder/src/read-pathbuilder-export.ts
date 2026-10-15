@@ -56,6 +56,8 @@ export interface PathbuilderImport {
   /** Every reference to a content entry, in export order, repeats kept. */
   readonly names: readonly ImportedName[];
   readonly lores: readonly ImportedLore[];
+  /** The ranks Pathbuilder gives its skills, by the lower-case names it uses ("athletics"), untrained ones too. */
+  readonly skills: Readonly<Record<string, Proficiency>>;
   /** Equipment, then weapons, then armour, in export order. */
   readonly items: readonly ImportedItem[];
   /** Every feat row in export order, awarded and heritage feats too. */
@@ -161,6 +163,15 @@ function lores(build: PathbuilderBuild): ImportedLore[] {
   });
 }
 
+function skillRanks(build: PathbuilderBuild): Record<string, Proficiency> {
+  return Object.fromEntries(
+    Object.entries(build.proficiencies).flatMap(([name, number]) => {
+      const rank = RANK_BY_NUMBER[number];
+      return rank === undefined ? [] : [[name, rank]];
+    }),
+  );
+}
+
 function identity(build: PathbuilderBuild, ancestry: PathbuilderName): PathbuilderIdentity {
   return {
     ancestry,
@@ -198,6 +209,7 @@ function toImport(build: PathbuilderBuild): PathbuilderReadResult {
     identity: classes,
     names: contentNames(build),
     lores: lores(build),
+    skills: skillRanks(build),
     items: importedItems(build),
     feats: importedFeats(build),
     coins: importedCoins(build),

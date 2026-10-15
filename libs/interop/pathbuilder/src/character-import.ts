@@ -10,6 +10,7 @@ import type { ImportedName } from './import-kind';
 import { buildImportReport, MatchStatus, Occurrences } from './import-report';
 import type { ReportRow } from './import-report';
 import type { PathbuilderImport } from './read-pathbuilder-export';
+import { SkillGap } from './skill-placement';
 
 /** Why a name was not carried over. */
 export const UnmatchedReason = {
@@ -22,7 +23,7 @@ export type UnmatchedReason = ValueOf<typeof UnmatchedReason>;
 
 /**
  * Parts of an export the character model can't hold yet: every import kind but the ancestry, heritage, background, item and
- * class, plus lores. They light up as the builder stories (#308-#311) give the character somewhere to keep them.
+ * class. They light up as the builder stories (#308-#311) give the character somewhere to keep them.
  */
 export const UncarriedField = {
   Deity: ImportKind.Deity,
@@ -30,7 +31,6 @@ export const UncarriedField = {
   Spell: ImportKind.Spell,
   Ritual: ImportKind.Ritual,
   Language: ImportKind.Language,
-  Lore: 'lore',
 } as const;
 export type UncarriedField = ValueOf<typeof UncarriedField>;
 
@@ -46,12 +46,13 @@ export type UnmatchedGroup = z.infer<typeof UnmatchedGroup>;
 
 /**
  * What an import left behind: names that matched no content or none their slot offers, by kind, the fields it had
- * nowhere to put, the boosts no slot took, and the attributes whose modifier from the placed boosts isn't Pathbuilder's.
+ * nowhere to put, the boosts no slot took, the skill ranks no slot reached, and the attributes whose modifier from the placed boosts isn't Pathbuilder's.
  */
 export const CharacterImportReport = z.object({
   unmatched: z.array(UnmatchedGroup).readonly(),
   notCarried: z.array(z.enum(UncarriedField)).readonly(),
   unplacedBoosts: z.array(UnplacedBoost).readonly(),
+  skillGaps: z.array(SkillGap).readonly(),
   modifierDifferences: z.array(ModifierDifference).readonly(),
 });
 export type CharacterImportReport = z.infer<typeof CharacterImportReport>;
@@ -80,10 +81,7 @@ function unmatchedGroups(
 }
 
 function notCarried(value: PathbuilderImport): UncarriedField[] {
-  const present = new Set<ImportKind | UncarriedField>(value.names.map((name) => name.kind));
-  if (value.lores.length > 0) {
-    present.add(UncarriedField.Lore);
-  }
+  const present = new Set<ImportKind>(value.names.map((name) => name.kind));
   return Object.values(UncarriedField).filter((field) => present.has(field));
 }
 
@@ -94,6 +92,7 @@ function notCarried(value: PathbuilderImport): UncarriedField[] {
 export interface ImportOutcome {
   readonly notOffered: readonly ImportedName[];
   readonly unplacedBoosts: readonly UnplacedBoost[];
+  readonly skillGaps: readonly SkillGap[];
   readonly modifierDifferences: readonly ModifierDifference[];
 }
 
