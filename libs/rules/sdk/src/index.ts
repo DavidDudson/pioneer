@@ -105,6 +105,15 @@ export {
 export { contentId, ContentId, ContentKey, contentKey, ContentPackId, contentPackId } from './content-id';
 export { EntrySlug, entrySlug, PackId, Slug, slugKind, slugName } from './content-id';
 export { ContentText, EntryTextField } from './content-text';
+export {
+  ContentSearchContract,
+  ContentSearchQuery,
+  ContentSearchResult,
+  SearchLimit,
+  SearchOffset,
+  SearchText,
+  SearchTotal,
+} from './content-search';
 export { loadOrder, reaches, wouldCycle, type PackDependencyEdge } from './pack-dependencies';
 export {
   DAMAGE_GROUP_TYPES,

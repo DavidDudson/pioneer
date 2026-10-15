@@ -4,10 +4,12 @@ import {
   contentId,
   ContentEntry,
   ContentKind,
+  ContentSearchQuery,
   ContentText,
   EntrySlug,
   packContentsFromFiles,
   PackId,
+  SearchText,
 } from '@pioneer/rules/sdk';
 import type { PackContents, PackContentsLoader } from '@pioneer/rules/sdk';
 import { IDLE_SCHEDULER } from '@pioneer/shared/web';
@@ -255,6 +257,38 @@ describe(ContentLoader, () => {
       const description = await loader.description(language);
 
       expect(description).toStrictEqual(spoken);
+    });
+  });
+
+  describe('search', () => {
+    const words = SearchText.parse('common');
+
+    function query(kinds: readonly ContentKind[]): ContentSearchQuery {
+      return ContentSearchQuery.parse({ query: words, kinds: kinds.join(',') });
+    }
+
+    it('asks the server for the entries that match, and keeps nothing', async () => {
+      const { loader, delivery } = load();
+
+      const found = await loader.search(query([]));
+
+      expect(found).toStrictEqual({ ids: [ContentEntry.parse(common).id], total: 1 });
+      expect(delivery.requests).toStrictEqual(['search']);
+    });
+
+    it('passes the kinds on', async () => {
+      const { loader } = load();
+
+      const found = await loader.search(query([ContentKind.Ancestry]));
+
+      expect(found).toStrictEqual({ ids: [], total: 0 });
+    });
+
+    it('fails when the server cannot be reached', async () => {
+      const { loader, delivery } = load();
+      delivery.offline = true;
+
+      await expect(loader.search(query([]))).rejects.toThrow('Failed to fetch');
     });
   });
 });

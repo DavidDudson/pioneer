@@ -13,11 +13,12 @@ import {
   FilterChips,
   LocaleFormat,
   Page,
+  SearchInput,
   Skeleton,
   Stack,
   Text,
 } from '@pioneer/frontier';
-import type { SelectOption } from '@pioneer/frontier';
+import type { AsyncQuery, SelectOption } from '@pioneer/frontier';
 import { Table } from '@pioneer/frontier/data';
 import type { TableColumn } from '@pioneer/frontier/data';
 import { filterFromQuery, filterParamName, filterToQuery } from '@pioneer/rules/sdk';
@@ -43,6 +44,8 @@ import type { BrowseList } from './browse-list';
 import { injectBrowseRegistry } from './browse-registry';
 import { BrowseColumn } from './browse-row';
 import type { BrowseRow } from './browse-row';
+import { injectBrowseSearch, SEARCH_PARAM, searchFromQuery } from './browse-search';
+import type { BrowseSearch } from './browse-search';
 
 const NO_PARAMS: QueryParams = {};
 
@@ -60,10 +63,13 @@ const BrowseMessage = {
   Kinds: 'content.kind.label',
   Caption: 'content.list.caption',
   LoadError: 'content.list.loadError',
+  SearchError: 'content.list.searchError',
+  SearchLabel: 'content.search.label',
   Count: 'content.list.count',
   More: 'content.list.more',
   EmptyTitle: 'content.list.emptyTitle',
   EmptyDescription: 'content.list.emptyDescription',
+  SearchEmptyDescription: 'content.list.searchEmptyDescription',
   Name: 'content.column.name',
   Kind: 'content.column.kind',
   Level: 'content.column.level',
@@ -78,9 +84,10 @@ const rowIdOf = (row: BrowseRow): string => row.id;
 
 /**
  * The public content browser (content-model.md, "Filters"): pick the kinds to list, narrow them with each kind's
- * facets, and read the entries left in a table. The kinds and the filters are in the URL (`kind`, `f.<facet>`), so a
- * filtered list is a link and back and forward restore it. The entries come from the cached mechanics bundles, so
- * filtering is instant and works offline.
+ * facets, and read the entries left in a table, or search them by words. The kinds, the words and the filters are in the
+ * URL (`kind`, `q`, `f.<facet>`), so a filtered list is a link and back and forward restore it. The entries come from
+ * the cached mechanics bundles, so filtering is instant and works offline; the words are matched by the server, which
+ * ranks the entries, and the filters then apply to what it found.
  */
 @Component({
   selector: 'pio-content-browser-page',
@@ -93,6 +100,7 @@ const rowIdOf = (row: BrowseRow): string => row.id;
     FacetFilterView,
     FilterChips,
     Page,
+    SearchInput,
     Skeleton,
     Stack,
     Table,
@@ -132,15 +140,36 @@ export class ContentBrowserPage {
     return registry === undefined ? undefined : entriesOf(registry, this.kinds());
   });
 
+  /** The words in the link, if any: with them the list is what the server's search found. */
+  protected readonly words = computed(() => searchFromQuery(this.#params()[SEARCH_PARAM]));
+  protected readonly searching = computed(() => this.words() !== undefined);
+  readonly #criteria: Signal<BrowseSearch | undefined> = computed(() => {
+    const words = this.words();
+    return words === undefined ? undefined : { words, kinds: this.kinds() };
+  });
+  protected readonly search = injectBrowseSearch(() => this.#criteria());
+
   protected readonly list: Signal<BrowseList | undefined> = computed(() => {
     const entries = this.#entries();
     if (entries === undefined) {
       return undefined;
     }
-    return browseList({ entries, facets: this.#facets(), state: this.state() }, (left, right) =>
+    const matches = this.searching() ? this.search.data() : undefined;
+    if (this.searching() && matches === undefined) {
+      return undefined;
+    }
+    return browseList({ entries, facets: this.#facets(), state: this.state(), matches }, (left, right) =>
       this.#format.compare(left, right),
     );
   });
+
+  /** The list once the bundles and, while searching, the matches have loaded; the region around the table follows it. */
+  protected readonly browse: AsyncQuery<BrowseList> = {
+    data: this.list,
+    error: computed(() => (this.registry.isError() ? this.registry.error() : this.search.error())),
+    isPending: () => this.registry.isPending() || (this.searching() && this.search.isPending()),
+    isError: () => this.registry.isError() || (this.searching() && this.search.isError()),
+  };
 
   readonly #limit = signal(PAGE_SIZE);
   protected readonly rows: Signal<readonly BrowseRow[]> = computed(() => {
@@ -177,6 +206,10 @@ export class ContentBrowserPage {
     await this.#write(this.kinds(), state);
   }
 
+  protected async searched(words: string): Promise<void> {
+    await this.#write(this.kinds(), this.state(), words);
+  }
+
   protected more(): void {
     this.#limit.update((limit) => limit + PAGE_SIZE);
   }
@@ -200,14 +233,18 @@ export class ContentBrowserPage {
     return 'level' in entry && typeof entry.level === 'number' ? this.#format.number(entry.level) : '';
   }
 
-  /** A new list or new filters are a new history entry, so back and forward restore the last one. */
-  async #write(kinds: readonly BrowseKind[], state: FilterState): Promise<void> {
+  /**
+   * A new list, new filters or new words are a new history entry, so back and forward restore the last one. The words
+   * stay as they are unless `words` says otherwise; blank words leave the link.
+   */
+  async #write(kinds: readonly BrowseKind[], state: FilterState, words: string = this.words() ?? ''): Promise<void> {
     this.#limit.set(PAGE_SIZE);
     await this.#router.navigate([], {
       relativeTo: this.#route,
       queryParams: {
         ...CLEARED,
         [KIND_PARAM]: kinds.length === 0 ? undefined : kindsToQuery(kinds),
+        [SEARCH_PARAM]: searchFromQuery(words),
         ...filterToQuery(state, facetsOf(kinds)),
       },
       queryParamsHandling: 'merge',

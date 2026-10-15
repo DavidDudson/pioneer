@@ -1,12 +1,18 @@
 <fr-page [title]="Message.Title | transloco" [description]="Message.Description | transloco">
   <fr-stack gap="md">
+    <fr-search-input
+      [ariaLabel]="Message.SearchLabel | transloco"
+      [placeholder]="Message.SearchLabel | transloco"
+      [value]="words() ?? ''"
+      (searched)="searched($event)"
+    />
     <fr-filter-chips
       [ariaLabel]="Message.Kinds | transloco"
       [options]="kindOptions()"
       [value]="kindSet()"
       (valueChange)="pickKinds($event)"
     />
-    <fr-async-region [errorMessage]="Message.LoadError | transloco">
+    <fr-async-region [errorMessage]="(searching() ? Message.SearchError : Message.LoadError) | transloco">
       <ng-template frAsyncPending>
         <fr-stack gap="xs">
           @for (row of loadingRows; track row) {
@@ -14,35 +20,33 @@
           }
         </fr-stack>
       </ng-template>
-      <ng-template [frAsyncData]="registry">
-        @if (list(); as shown) {
-          <fr-stack gap="md">
-            <pio-facet-filter [counts]="shown.counts" [state]="state()" (stateChange)="filter($event)" />
-            <fr-text element="p" variant="caption" tone="muted">{{
-              Message.Count | transloco: { count: total() }
-            }}</fr-text>
-            @if (total() === 0) {
-              <fr-empty-state
-                [icon]="emptyIcon"
-                [title]="Message.EmptyTitle | transloco"
-                [description]="Message.EmptyDescription | transloco"
-              />
-            } @else {
-              <fr-table
-                hideCaption
-                [data]="rows()"
-                [columns]="columns()"
-                [rowId]="rowId"
-                [caption]="Message.Caption | transloco"
-              />
-              @if (hasMore()) {
-                <fr-stack direction="horizontal">
-                  <fr-button (pressed)="more()">{{ Message.More | transloco }}</fr-button>
-                </fr-stack>
-              }
+      <ng-template let-shown [frAsyncData]="browse">
+        <fr-stack gap="md">
+          <pio-facet-filter [counts]="shown.counts" [state]="state()" (stateChange)="filter($event)" />
+          <fr-text element="p" variant="caption" tone="muted">{{
+            Message.Count | transloco: { count: total() }
+          }}</fr-text>
+          @if (total() === 0) {
+            <fr-empty-state
+              [icon]="emptyIcon"
+              [title]="Message.EmptyTitle | transloco"
+              [description]="(searching() ? Message.SearchEmptyDescription : Message.EmptyDescription) | transloco"
+            />
+          } @else {
+            <fr-table
+              hideCaption
+              [data]="rows()"
+              [columns]="columns()"
+              [rowId]="rowId"
+              [caption]="Message.Caption | transloco"
+            />
+            @if (hasMore()) {
+              <fr-stack direction="horizontal">
+                <fr-button (pressed)="more()">{{ Message.More | transloco }}</fr-button>
+              </fr-stack>
             }
-          </fr-stack>
-        }
+          }
+        </fr-stack>
       </ng-template>
     </fr-async-region>
   </fr-stack>

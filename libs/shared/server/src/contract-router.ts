@@ -1,3 +1,4 @@
+import { UnauthorizedError } from '@pioneer/shared/kernel';
 import type { Endpoint, UserId } from '@pioneer/shared/kernel';
 import { Elysia } from 'elysia';
 import type { Context } from 'elysia';
@@ -22,6 +23,15 @@ interface SignedInHandlerInput<
   TQuery extends z.ZodObject,
 > extends HandlerInput<TParams, TBody, TQuery> {
   readonly actor: UserId;
+}
+
+/** Input to a handler open to anyone: the decoded request plus who sent it, when anyone is signed in. */
+interface MaybeSignedInHandlerInput<
+  TParams extends z.ZodObject,
+  TBody extends z.ZodType,
+  TQuery extends z.ZodObject,
+> extends HandlerInput<TParams, TBody, TQuery> {
+  readonly actor: UserId | undefined;
 }
 
 /**
@@ -72,6 +82,43 @@ export class ContractRouter {
       return z.encode(endpoint.response, output);
     });
     return this;
+  }
+
+  /**
+   * Like `handle`, for endpoints open to anyone that answer a signed-in user more fully: `actor` is the user behind the
+   * request, or undefined when there is none. Only a missing sign-in is tolerated; any other failure still fails.
+   */
+  public handleMaybeSignedIn<
+    TParams extends z.ZodObject,
+    TBody extends z.ZodType,
+    TResponse extends z.ZodType,
+    TQuery extends z.ZodObject,
+  >(
+    endpoint: Endpoint<TParams, TBody, TResponse, TQuery>,
+    auth: RequestAuthenticator,
+    handler: (input: MaybeSignedInHandlerInput<TParams, TBody, TQuery>) => Promise<z.output<TResponse>>,
+  ): this {
+    this.app.route(endpoint.method, endpoint.path, async (context) => {
+      const actor = await actingUserOrNone(auth, {
+        request: context.request,
+        responseHeaders: context.set.headers,
+      });
+      const output = await handler({ ...decode(endpoint, context), actor });
+      return z.encode(endpoint.response, output);
+    });
+    return this;
+  }
+}
+
+/** The signed-in user behind `exchange`, or undefined when the request carries no valid sign-in. */
+async function actingUserOrNone(auth: RequestAuthenticator, exchange: RequestExchange): Promise<UserId | undefined> {
+  try {
+    return await auth.actingUser(exchange);
+  } catch (error) {
+    if (error instanceof UnauthorizedError) {
+      return undefined;
+    }
+    throw error;
   }
 }
 

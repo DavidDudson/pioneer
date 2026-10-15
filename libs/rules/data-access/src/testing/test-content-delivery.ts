@@ -1,14 +1,18 @@
 import type { Provider } from '@angular/core';
-import { BundleHash, bundlePath, contentBundles, contentPackId } from '@pioneer/rules/sdk';
+import { BundleHash, bundlePath, contentBundles, contentPackId, SearchTotal } from '@pioneer/rules/sdk';
 import type {
   BundleBody,
   BundleFile,
   CanonicalJson,
+  ContentEntry,
   ContentBundles,
   ContentManifest,
   ContentPackId,
+  ContentSearchQuery,
+  ContentSearchResult,
   PackContentsLoader,
   PackId,
+  SearchText,
 } from '@pioneer/rules/sdk';
 
 import { CONTENT_BUNDLE_STORE } from '../bundle-store';
@@ -67,10 +71,33 @@ async function bundlesOf(packs: readonly PackContentsLoader[]): Promise<ContentB
   return step.bundles;
 }
 
+/** Every string under a `text` key in `value`: the words of a rich text description. */
+function textsOf(value: unknown): readonly string[] {
+  if (Array.isArray(value)) {
+    return value.flatMap((item) => textsOf(item));
+  }
+  if (typeof value !== 'object' || value === null) {
+    return [];
+  }
+  return Object.entries(value).flatMap(([key, item]) =>
+    key === 'text' && typeof item === 'string' ? [item] : textsOf(item),
+  );
+}
+
+/** Whether every word of `query` is in the entry's name or description: a stand-in for the server's full-text search. */
+function matches({ name, description }: ContentEntry, query: SearchText): boolean {
+  const haystack = [name, ...textsOf(description)].join(' ').toLowerCase();
+  return query
+    .toLowerCase()
+    .split(/\s+/u)
+    .every((word) => haystack.includes(word));
+}
+
 /** What a test delivery was asked for, by URL path. */
 export type DeliveryRequest =
   | 'manifest'
   | 'homebrew-manifest'
+  | 'search'
   | `${PackId}/${BundleFile}`
   | `homebrew:${PackId}/${BundleFile}`;
 
@@ -131,6 +158,17 @@ export class TestContentDelivery implements ContentDelivery {
       throw new Error(`No homebrew bundle ${pack}/${file}`);
     }
     return body;
+  };
+
+  /** The entries of the served packs that have all the words, names first; every page holds them all. */
+  public readonly search = async ({ query, kinds }: ContentSearchQuery): Promise<ContentSearchResult> => {
+    this.requests.push('search');
+    this.#checkOnline();
+    const contents = await Promise.all(this.#packs.map(async (pack) => pack.load()));
+    const found = contents
+      .flatMap((pack) => pack.entries)
+      .filter((entry) => (kinds.length === 0 || kinds.includes(entry.kind)) && matches(entry, query));
+    return { ids: found.map(({ id }) => id), total: SearchTotal.parse(found.length) };
   };
 
   async #built(): Promise<ContentBundles> {

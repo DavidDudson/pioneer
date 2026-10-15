@@ -1,7 +1,7 @@
 {
   "page": {
     "title": "Content",
-    "description": "Browse the rules content Pioneer holds. Filters are kept in the link, so a filtered list can be shared."
+    "description": "Browse the rules content Pioneer holds. The search and the filters are kept in the link, so a list can be shared."
   },
   "kind": {
     "label": "Kinds",
@@ -17,13 +17,18 @@
     "treasure": "Treasure",
     "weapon": "Weapons"
   },
+  "search": {
+    "label": "Search names and descriptions"
+  },
   "list": {
     "caption": "Entries",
     "loadError": "The content could not be loaded.",
+    "searchError": "The search could not be completed. Check your connection and try again.",
     "count": "{count, plural, one {# entry} other {# entries}}",
     "more": "Show more",
     "emptyTitle": "Nothing matches",
-    "emptyDescription": "No entry has all of the filters picked. Clear one to widen the list."
+    "emptyDescription": "No entry has all of the filters picked. Clear one to widen the list.",
+    "searchEmptyDescription": "No entry matches those words and filters. Try fewer words, or clear a filter."
   },
   "entry": {
     "back": "Back to the content list",

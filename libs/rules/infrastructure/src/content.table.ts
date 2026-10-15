@@ -17,7 +17,18 @@ import type {
   Trait,
 } from '@pioneer/rules/sdk';
 import type { Locale, UserId, Uuid, Version } from '@pioneer/shared/kernel';
-import { index, integer, jsonb, pgTable, smallint, text, timestamp, uniqueIndex, uuid } from 'drizzle-orm/pg-core';
+import {
+  customType,
+  index,
+  integer,
+  jsonb,
+  pgTable,
+  smallint,
+  text,
+  timestamp,
+  uniqueIndex,
+  uuid,
+} from 'drizzle-orm/pg-core';
 
 /**
  * Drizzle schema for content storage (content-model.md, "Packs and storage"). Migrations live in apps/api/migrations.
@@ -130,4 +141,34 @@ export const contentEntryTexts = pgTable(
     updatedAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
   },
   (table) => [uniqueIndex('content_entry_texts_entry_locale_field_idx').on(table.entryId, table.locale, table.field)],
+);
+
+/** Postgres `tsvector`: the lexemes of a text, searched with `@@`. Written and read in SQL only, so it has no JS value. */
+const tsvector = customType<{ data: never; driverData: string }>({
+  dataType: () => 'tsvector',
+});
+
+/**
+ * What a full-text search matches an entry's words against, one row per entry and locale (content-model.md, "Search"):
+ * the name weighs more than the description. `vector` is built in SQL by a trigger on `content_entries`, so whoever writes
+ * an entry keeps it current, from its name and the plain text of its description, using the text search configuration the
+ * locale calls for. The foreign key cascades, so a removed entry takes its vectors with it.
+ */
+export const contentEntrySearch = pgTable(
+  'content_entry_search',
+  {
+    // The audit log keys rows by id, so a vector has its own; `(entry_id, locale)` is unique instead.
+    id: uuid().$type<Uuid>().primaryKey(),
+    entryId: uuid()
+      .$type<ContentId>()
+      .notNull()
+      .references(() => contentEntries.id, { onDelete: 'cascade' }),
+    locale: text().$type<Locale>().notNull(),
+    vector: tsvector().notNull(),
+    updatedAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
+  },
+  (table) => [
+    uniqueIndex('content_entry_search_entry_locale_idx').on(table.entryId, table.locale),
+    index('content_entry_search_vector_idx').using('gin', table.vector),
+  ],
 );
