@@ -10,16 +10,9 @@ import {
   itemContent,
   NO_STAFF,
   staffLimits,
-  StaffProblem,
-  staffProblem,
-  conditionProblem,
   effectContent,
-  EffectProblem,
-  effectProblem,
-  isEffectCommand,
   needsEffectContent,
   NO_EFFECTS,
-  isConditionCommand,
   conditionValued,
   itemActivations,
   itemWands,
@@ -31,8 +24,6 @@ import {
   NO_COUNTED,
   NO_RESOURCES,
   PLAY_COMMANDS,
-  PlayCommandField,
-  ConditionProblem,
   resourceMaxima,
   restHealing,
   restRecovery,
@@ -69,6 +60,7 @@ import type { Clock, UserId } from '@pioneer/shared/kernel';
 
 import { contentOfCharacter, variantRulesOfCharacter } from './character-content';
 import type { CharacterContentSource } from './character-content';
+import { checkCondition, checkEffect, checkStaff, isDailyPreparations } from './play-checks';
 import { mayAccessCharacter } from './character-policy';
 import type { CharacterRepository, PlayWrite } from './character-repository';
 
@@ -87,23 +79,6 @@ interface RestContent {
 /** The Rest content handed to edits that don't read it. */
 const NO_REST: RestContent = { healing: NO_MAX_HIT_POINTS, recovery: new Map() };
 
-/** The message each refused effect edit answers with. */
-const EFFECT_MESSAGES = {
-  [EffectProblem.Unknown]: 'character.validation.effectUnknown',
-  [EffectProblem.Missing]: 'character.validation.effectMissing',
-  [EffectProblem.Full]: 'character.validation.effectFull',
-  [EffectProblem.Badge]: 'character.validation.effectBadge',
-} as const satisfies Record<EffectProblem, string>;
-
-/** The message each refused condition edit answers with. */
-const CONDITION_MESSAGES = {
-  [ConditionProblem.Unknown]: 'character.validation.conditionUnknown',
-  [ConditionProblem.Value]: 'character.validation.conditionValue',
-  [ConditionProblem.Missing]: 'character.validation.conditionMissing',
-  [ConditionProblem.Full]: 'character.validation.conditionFull',
-} as const satisfies Record<ConditionProblem, string>;
-
-/** The message each refused wand cast answers with. */
 const WAND_MESSAGES = {
   [WandProblem.NotHeld]: 'character.validation.wandNotHeld',
   [WandProblem.Broken]: 'character.validation.wandBroken',
@@ -307,41 +282,3 @@ export class PlayService {
   }
 }
 
-/** Refuses a condition edit the content or the character's conditions rule out. */
-function checkCondition(play: PlayState, command: PlayCommand, valued: ConditionValued): void {
-  const problem = isConditionCommand(command) ? conditionProblem(play.conditions, command, valued) : undefined;
-  if (problem !== undefined) {
-    throw new ValidationError([{ path: ['command'], message: message(CONDITION_MESSAGES[problem]) }]);
-  }
-}
-
-/** The message each refused staff choice answers with. */
-const STAFF_MESSAGES = {
-  [StaffProblem.NotAStaff]: 'character.validation.staffNotHeld',
-  [StaffProblem.SlotWithoutStaff]: 'character.validation.staffSlotWithoutStaff',
-  [StaffProblem.SlotNotExpendable]: 'character.validation.staffSlotNotExpendable',
-} as const satisfies Record<StaffProblem, string>;
-
-/** Daily preparations, the only edit that prepares a staff. */
-type DailyPreparations = Extract<PlayCommand, { readonly field: typeof PlayCommandField.DailyPreparations }>;
-
-/** Whether `command` is daily preparations, the only edit that prepares a staff. */
-function isDailyPreparations(command: PlayCommand): command is DailyPreparations {
-  return command.field === PlayCommandField.DailyPreparations;
-}
-
-/** Refuses a daily preparations that names a staff the character doesn't have, or a slot it can't expend. */
-function checkStaff(command: PlayCommand, staff: StaffLimits): void {
-  const problem = isDailyPreparations(command) ? staffProblem(command, staff) : undefined;
-  if (problem !== undefined) {
-    throw new ValidationError([{ path: ['command'], message: message(STAFF_MESSAGES[problem]) }]);
-  }
-}
-
-/** Refuses an effect edit the content or the character's effects rule out. */
-function checkEffect(play: PlayState, command: PlayCommand, content: EffectContent): void {
-  const problem = isEffectCommand(command) ? effectProblem(play.effects, command, content) : undefined;
-  if (problem !== undefined) {
-    throw new ValidationError([{ path: ['command'], message: message(EFFECT_MESSAGES[problem]) }]);
-  }
-}
