@@ -6,6 +6,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   computed,
+  ElementRef,
   input,
   linkedSignal,
   model,
@@ -15,7 +16,6 @@ import {
   viewChild,
   viewChildren,
 } from '@angular/core';
-import type { ElementRef } from '@angular/core';
 import { injectDebouncer } from '@tanstack/angular-pacer';
 
 import { Control } from '../control';
@@ -72,6 +72,8 @@ export class Combobox<TValue extends string> extends Control {
   /** Options are loading: the listbox shows skeleton rows. */
   public readonly loading = input(false, { transform: booleanAttribute });
   public readonly placeholder = input('');
+  /** Every keystroke, as typed: for matches that must follow the text at once. Never fired for a pick's label. */
+  public readonly typed = output<string>();
   /** The typed query, debounced. Never fired for the label a pick fills in. */
   public readonly searched = output<string>();
 
@@ -128,6 +130,7 @@ export class Combobox<TValue extends string> extends Control {
   protected readonly descriptionClasses = comboboxOptionDescriptionClasses;
   protected readonly translate = optionOffset;
 
+  protected readonly field = viewChild<string, ElementRef<HTMLInputElement>>('combobox', { read: ElementRef });
   protected readonly scroller = viewChild<ElementRef<HTMLElement>>('scroller');
   protected readonly optionElements = viewChildren<ElementRef<HTMLElement>>('optionElement');
   protected readonly ariaOptions = viewChildren<Option<TValue>>(Option);
@@ -221,8 +224,14 @@ export class Combobox<TValue extends string> extends Control {
     return this.options()[index];
   }
 
+  /** Puts the cursor in the input, for a shortcut that opens the box. */
+  public focus(): void {
+    this.field()?.nativeElement.focus();
+  }
+
   protected type(query: string): void {
     this.text.set(query);
+    this.typed.emit(query);
     this.#debouncer.maybeExecute(query);
   }
 

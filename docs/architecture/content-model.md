@@ -518,6 +518,12 @@ stay in the browser (see "Filters"): the server finds the entries, the browser n
   needs a connection. The content browser keeps the words in the URL as `q`, searches among the kinds picked, lists the
   ids it gets back in that order, and applies the filters to them client-side. It asks for the largest page (200
   matches) and does not page further yet.
+- **Global search.** The app shell holds a public search box (`GlobalSearch`, `libs/content/feature`), opened with `/` or
+  Ctrl/Cmd+K and loaded lazily with the content feature. Names match as you type among the official entries of the browse
+  kinds loaded so far (`GlobalSearchIndex`): the kinds load one at a time when the browser is idle, starting when the box
+  is first used, so typing never waits. Matches rank exact name, name prefix, word prefix, then substring. The server's
+  results for the same words (once typing goes quiet) are added below; entries already listed never move. The browser
+  sends no packs, so homebrew is only searched through the API.
 
 ## Filters
 
