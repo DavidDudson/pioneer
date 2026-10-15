@@ -7,9 +7,11 @@ import type {
   CampaignPacks,
   CampaignParty,
   CampaignRoster,
+  CampaignVariantRules,
   CharacterId,
   CreateCampaignBody,
   EnabledPackId,
+  EnabledVariantRuleId,
   InviteSummary,
   InviteToken,
   IssuedInvite,
@@ -26,6 +28,7 @@ const campaignKeys = {
   invites: (id: string | undefined) => [...campaignKeys.all, 'invites', id] as const,
   party: (id: string | undefined) => [...campaignKeys.all, 'party', id] as const,
   packs: (id: string | undefined) => [...campaignKeys.all, 'packs', id] as const,
+  variantRules: (id: string | undefined) => [...campaignKeys.all, 'variant-rules', id] as const,
 };
 
 /** The route's campaign id, parsed; a malformed one fails the query that asked. */
@@ -107,6 +110,17 @@ export class CampaignStore {
       queryKey: campaignKeys.packs(id),
       queryFn: async (): Promise<CampaignPacks> =>
         this.#api.call(CampaignContract.packs, { params: { id: parsedId(id) }, body: undefined }),
+      enabled: id !== undefined,
+    };
+  });
+
+  /** The open campaign's variant rules, and for its GM the ones they could enable. */
+  public readonly variantRules = injectQuery(() => {
+    const id = this.#selectedId();
+    return {
+      queryKey: campaignKeys.variantRules(id),
+      queryFn: async (): Promise<CampaignVariantRules> =>
+        this.#api.call(CampaignContract.variantRules, { params: { id: parsedId(id) }, body: undefined }),
       enabled: id !== undefined,
     };
   });
@@ -227,6 +241,23 @@ export class CampaignStore {
     await this.#client.invalidateQueries({ queryKey: campaignKeys.packs(id), refetchType: 'none' });
   }
 
+  /** Enables a variant rule in the open campaign. */
+  public async enableVariantRule(id: CampaignId, variantId: EnabledVariantRuleId): Promise<void> {
+    const rules = await this.#api.call(CampaignContract.enableVariantRule, { params: { id }, body: { variantId } });
+    await this.#client.cancelQueries({ queryKey: campaignKeys.variantRules(id) });
+    this.#client.setQueryData(campaignKeys.variantRules(id), rules);
+  }
+
+  /** Stops the campaign using a variant rule. */
+  public async disableVariantRule(id: CampaignId, variantId: EnabledVariantRuleId): Promise<void> {
+    const rules = await this.#api.call(CampaignContract.disableVariantRule, {
+      params: { id, variantId },
+      body: undefined,
+    });
+    await this.#client.cancelQueries({ queryKey: campaignKeys.variantRules(id) });
+    this.#client.setQueryData(campaignKeys.variantRules(id), rules);
+  }
+
   /** The user leaves the campaign; nothing of it is theirs to see after. */
   public async leave(id: CampaignId): Promise<void> {
     await this.#api.call(CampaignContract.leave, { params: { id }, body: undefined });
@@ -236,6 +267,7 @@ export class CampaignStore {
       campaignKeys.invites(id),
       campaignKeys.party(id),
       campaignKeys.packs(id),
+      campaignKeys.variantRules(id),
     ]) {
       this.#client.removeQueries({ queryKey: key });
     }

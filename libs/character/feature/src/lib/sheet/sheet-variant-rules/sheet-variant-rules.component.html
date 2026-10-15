@@ -1,0 +1,30 @@
+<fr-async-region [errorMessage]="'character.variantRules.loadError' | transloco">
+  <ng-template frAsyncPending>
+    <fr-stack gap="sm">
+      @for (placeholder of placeholders; track placeholder) {
+        <fr-stack gap="3xs">
+          <fr-skeleton width="sm" />
+          <fr-skeleton width="md" />
+        </fr-stack>
+      }
+    </fr-stack>
+  </ng-template>
+  <ng-template let-rules [frAsyncData]="store.rules">
+    <fr-stack gap="md">
+      @if (rules.campaign; as campaign) {
+        <fr-message tone="info">{{ 'character.variantRules.campaignDecides' | transloco: { campaign } }}</fr-message>
+      }
+      @if (linesOf(rules); as lines) {
+        @if (lines.length === 0) {
+          <fr-empty-state [icon]="emptyIcon" [title]="'character.variantRules.empty' | transloco" />
+        } @else {
+          <fr-list gap="sm">
+            @for (line of lines; track line.rule.variantId) {
+              <pio-sheet-variant-rule-row [rule]="line.rule" [on]="line.on" [manageable]="rules.manageable" />
+            }
+          </fr-list>
+        }
+      }
+    </fr-stack>
+  </ng-template>
+</fr-async-region>

@@ -24,6 +24,8 @@ export const SHEET_SECTIONS = {
   features: { anchor: 'sheet-features', headingKey: 'character.sheet.featuresHeading' },
   /** The homebrew packs the character uses, chosen by its owner or by its campaign. */
   packs: { anchor: 'sheet-packs', headingKey: 'character.sheet.packsHeading' },
+  /** The variant rules the character uses, chosen by its owner or by its campaign (ADR-0061). */
+  variantRules: { anchor: 'sheet-variant-rules', headingKey: 'character.sheet.variantRulesHeading' },
   inventory: { anchor: 'sheet-inventory', headingKey: 'character.sheet.inventory.heading' },
   /** Rest, daily preparations, Refocus and start of session (#347). */
   rest: { anchor: 'sheet-rest', headingKey: 'character.sheet.rest.heading' },
@@ -46,6 +48,7 @@ export const SHEET_TAB_SECTIONS: Readonly<Record<SheetMode, readonly SheetSectio
     SHEET_SECTIONS.feats,
     SHEET_SECTIONS.features,
     SHEET_SECTIONS.packs,
+    SHEET_SECTIONS.variantRules,
   ],
   [SheetMode.Encounter]: [
     SHEET_SECTIONS.defences,

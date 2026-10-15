@@ -316,6 +316,7 @@
       "heading": "Rest and preparations"
     },
     "packsHeading": "Content packs",
+    "variantRulesHeading": "Variant rules",
     "roll": {
       "heading": "{name} check",
       "breakdown": "Breakdown",
@@ -499,7 +500,17 @@
     }
   },
   "variantRules": {
-    "campaignDecides": "{campaign} decides which variant rules this character uses. Leave the campaign to choose your own."
+    "loadError": "Could not load the variant rules.",
+    "empty": "The packs this character uses have no variant rules.",
+    "campaignDecides": "{campaign} decides which variant rules this character uses. Leave the campaign to choose your own.",
+    "on": "On",
+    "turnOn": "Turn on",
+    "turningOn": "Turning on",
+    "turnedOn": "Turned on",
+    "turnOff": "Turn off",
+    "turningOff": "Turning off",
+    "turnedOff": "Turned off",
+    "changeFailed": "Could not change the variant rule. Try again."
   },
   "packs": {
     "loadError": "Could not load the packs.",

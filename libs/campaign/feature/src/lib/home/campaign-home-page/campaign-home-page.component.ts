@@ -20,6 +20,7 @@ import { CampaignInvitePanel } from '../campaign-invite-panel/campaign-invite-pa
 import { CampaignMemberList } from '../campaign-member-list/campaign-member-list.component';
 import { CampaignPacksPanel } from '../campaign-packs/campaign-packs.component';
 import { CampaignPartyPanel } from '../campaign-party/campaign-party.component';
+import { CampaignVariantRulesPanel } from '../campaign-variant-rules/campaign-variant-rules.component';
 
 /** One campaign's home: when it started, who is in it, their characters, and for its GM, the invite links. */
 @Component({
@@ -32,6 +33,7 @@ import { CampaignPartyPanel } from '../campaign-party/campaign-party.component';
     CampaignMemberList,
     CampaignPacksPanel,
     CampaignPartyPanel,
+    CampaignVariantRulesPanel,
     DateDisplay,
     DescriptionItem,
     DescriptionList,

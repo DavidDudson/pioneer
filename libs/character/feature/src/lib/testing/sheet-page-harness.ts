@@ -120,7 +120,12 @@ export interface SheetOptions {
   readonly featDisplay?: object;
   /** The packs the server has the character using; only the owner's choice of none by default. */
   readonly characterPacks?: object;
+  /** The variant rules the server has the character using; none, for its owner to change, by default. */
+  readonly characterVariantRules?: object;
 }
+
+/** The variant rules of a character that has enabled none, which its owner may change. */
+const NO_VARIANT_RULES = { decidedBy: 'character', manageable: true, enabled: [], available: [] };
 
 /** The packs of a character that has enabled none, which its owner may change. */
 const NO_CHARACTER_PACKS = { decidedBy: 'character', manageable: true, enabled: [], candidates: [] };
@@ -165,6 +170,21 @@ export async function answerPacksRead(packs: object = NO_CHARACTER_PACKS): Promi
   );
 }
 
+/**
+ * Answers the sheet's read of the character's variant rules, which the content registry also waits for on every tab;
+ * left unanswered the registry never loads.
+ */
+export async function answerVariantRulesRead(rules: object = NO_VARIANT_RULES): Promise<void> {
+  await vi.waitFor(
+    () => {
+      TestBed.inject(HttpTestingController)
+        .expectOne({ method: 'GET', url: `/api/characters/${id}/variant-rules` })
+        .flush(rules);
+    },
+    { interval: POLL_INTERVAL },
+  );
+}
+
 /** The server's answer to an edit of Merisiel: her sheet, and the picks the edit cleared. */
 export function patchedOf(character: object, slots: readonly object[], cleared: readonly object[] = []): object {
   return { character, slots, cleared, languages: NO_LANGUAGES };
@@ -189,7 +209,7 @@ export interface OpenSheet {
   readonly root: HTMLElement;
 }
 
-/** Answers the sheet's reads of the character, its play state and its packs. */
+/** Answers the sheet's reads of the character, its play state, its packs and its variant rules. */
 async function answerReads(character: object, options: SheetOptions): Promise<void> {
   await vi.waitFor(
     () => {
@@ -200,6 +220,7 @@ async function answerReads(character: object, options: SheetOptions): Promise<vo
   await answerPlayRead(options.play);
   // Every tab reads the character's packs: the content registry waits for them to build over the right ones.
   await answerPacksRead(options.characterPacks);
+  await answerVariantRulesRead(options.characterVariantRules);
 }
 
 /**

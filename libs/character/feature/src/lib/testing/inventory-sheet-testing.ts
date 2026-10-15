@@ -13,7 +13,7 @@ import { expect, onTestFinished, vi } from 'vitest';
 
 import { characterRoutes } from '../character.routes';
 import { prebuildServerStateTesting, provideServerStateTesting } from './provide-server-state-testing';
-import { answerPacksRead, answerPlayRead } from './sheet-page-harness';
+import { answerPacksRead, answerPlayRead, answerVariantRulesRead } from './sheet-page-harness';
 
 export const id = CharacterId.parse('0d9f7c1e-3b7a-4c55-9d1f-2a8f2b9c6e10');
 const BACKPACK = '11111111-1111-4111-8111-111111111111';
@@ -58,6 +58,13 @@ export async function settle(): Promise<void> {
 /** The packs the sheet loads in these tests: the item fixtures and kits of them. */
 export const SHEET_PACKS = [ITEM_FIXTURE_FILES, KIT_FIXTURE_FILES];
 
+/** Answers the sheet's reads of Valeros's play state, packs and variant rules, none of them changed. */
+async function answerServerState(): Promise<void> {
+  await answerPlayRead();
+  await answerPacksRead();
+  await answerVariantRulesRead();
+}
+
 /** Opens Valeros's sheet at `url` with the item fixtures and kits loaded, once his character has loaded. */
 async function openSheet(url: string): Promise<HTMLElement> {
   await prebuildServerStateTesting(SHEET_PACKS);
@@ -82,8 +89,7 @@ async function openSheet(url: string): Promise<HTMLElement> {
       .expectOne(`/api/characters/${id}`)
       .flush({ character: VALEROS, slots: [], languages: { known: [], open: 0 } });
   });
-  await answerPlayRead();
-  await answerPacksRead();
+  await answerServerState();
   return present(harness.routeNativeElement);
 }
 

@@ -1,0 +1,32 @@
+<fr-list-item>
+  <fr-stack direction="horizontal" gap="sm" align="center" wrap>
+    <fr-stack gap="3xs" grow>
+      <fr-text weight="medium">{{ rule().name }}</fr-text>
+      <fr-text variant="caption" tone="subtle">{{ rule().packTitle }}</fr-text>
+    </fr-stack>
+    @if (on()) {
+      <fr-badge>{{ 'campaign.variantRules.on' | transloco }}</fr-badge>
+    }
+    @if (manageable()) {
+      @if (on()) {
+        <fr-async-button
+          size="sm"
+          [action]="disable"
+          [describeError]="describeError"
+          [pendingLabel]="'campaign.variantRules.turningOff' | transloco"
+          [successLabel]="'campaign.variantRules.turnedOff' | transloco"
+          >{{ 'campaign.variantRules.turnOff' | transloco }}</fr-async-button
+        >
+      } @else {
+        <fr-async-button
+          size="sm"
+          [action]="enable"
+          [describeError]="describeError"
+          [pendingLabel]="'campaign.variantRules.turningOn' | transloco"
+          [successLabel]="'campaign.variantRules.turnedOn' | transloco"
+          >{{ 'campaign.variantRules.turnOn' | transloco }}</fr-async-button
+        >
+      }
+    }
+  </fr-stack>
+</fr-list-item>
