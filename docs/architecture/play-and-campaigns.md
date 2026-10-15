@@ -331,7 +331,8 @@ list in their own section, titled with the staff and showing its charges left, b
 spell shows its charge cost. At daily preparations the holder prepares one staff, which gets charges equal to their
 highest spell rank; a prepared caster can expend one slot to add charges equal to its rank. A character without
 spellcasting gets no charges. Preparing another staff clears the first one's charges, and charges left unspent are
-lost at the next daily preparations. Charges and uses are play state resources.
+lost at the next daily preparations. Charges and uses are play state resources. The slot expended is any unspent
+slot of a prepared entry's own, whether or not a spell is prepared in it, and it counts as used for the day.
 
 Casting from a held staff needs the spell on one of the holder's spell lists and the holder able to cast spells of
 its rank; the cast uses that entry's spell attack and DC. It costs charges equal to the spell's rank, and a cantrip

@@ -88,6 +88,13 @@ count within 0 and the maximum, and leave a key the build does not give as it wa
 many uses of each activation, since each item is used up on its own; an activation on a rune etched onto an item is
 not counted yet.
 
+`resources.staff` holds the charges of the one staff prepared for the day ([#366](https://github.com/DavidDudson/pioneer/issues/366)),
+keyed by inventory item: `{ max, spent }`. Unlike a slot or a use, the maximum is stored, since daily preparations set it
+from the character's highest spell rank (plus the rank of a slot expended) and the content does not give it. Held
+charges are `max` less `spent`. Daily preparations replace the whole record, so at most one staff has charges and
+unspent charges are lost. The `dailyPreparations` command takes an optional `staff` (an inventory item) and `slot`
+(`{ entry, rank }`); a staff the character does not have, or a slot of an entry that is not prepared, is refused.
+
 `conditions` holds one instance per condition put on the character ([#348](https://github.com/DavidDudson/pioneer/issues/348)):
 an instance id, the condition's content id, its value when it is valued, a duration (`rounds`, `untilStartOfTurn`,
 `untilEndOfTurn`, `unlimited` or `sustained`) and the campaign event that applied it. `addCondition`, `setConditionValue`

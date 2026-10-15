@@ -7,8 +7,10 @@ import { Doomed, recovered, withDoomed } from './death-track';
 import type { DeathTrack } from './death-track';
 import { heldIn, Resource, ResourceCount, setPoints } from './resources';
 import type { Pools } from './resources';
+import { withStaffPrepared } from './rest-staff';
 import { RestChangeKind, RestCommandField } from './rest-types';
 import type { RecoveryConditions, RestChange, RestCommand, RestLimits, RestOutcome, RestPlay } from './rest-types';
+import type { StaffChoice } from './staff-charges';
 
 const NONE = ResourceCount.parse(0);
 const NO_HIT_POINTS = HitPoints.parse(0);
@@ -223,13 +225,20 @@ function withPointsSet<Play extends RestPlay>(
   return now === from ? outcome : after(outcome, { ...play, resources: spent }, change);
 }
 
-/** Daily preparations: focus points full, and the slots and uses that reset each day back. */
-export function preparedDaily<Play extends RestPlay>(play: Play, limits: RestLimits): RestOutcome<Play> {
+/**
+ * Daily preparations: focus points full, the slots and uses that reset each day back, and the staff chosen prepared
+ * with its charges.
+ */
+export function preparedDaily<Play extends RestPlay>(
+  play: Play,
+  limits: RestLimits,
+  choice: StaffChoice = {},
+): RestOutcome<Play> {
   const focused = withPointsSet(unchanged(play), limits, {
     resource: Resource.FocusPoints,
     to: limits.resources[Resource.FocusPoints],
   });
-  return withCountsRestored(focused, limits, Boundary.Day);
+  return withStaffPrepared(withCountsRestored(focused, limits, Boundary.Day), limits, choice);
 }
 
 /** Refocus: one focus point back, if any is spent. */
@@ -262,7 +271,7 @@ export function applyRestCommand<Play extends RestPlay>(
       return rested(play, limits);
     }
     case RestCommandField.DailyPreparations: {
-      return preparedDaily(play, limits);
+      return preparedDaily(play, limits, command);
     }
     case RestCommandField.Refocus: {
       return refocused(play, limits);

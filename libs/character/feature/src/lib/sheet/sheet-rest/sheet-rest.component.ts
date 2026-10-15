@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { RestCommandField } from '@pioneer/character/domain';
+import { INVENTORY_KINDS, RestCommandField } from '@pioneer/character/domain';
 import type { RestCommand } from '@pioneer/character/domain';
 import {
   AsyncButton,
@@ -9,10 +9,13 @@ import {
   AsyncRegion,
   Button,
   ButtonVariant,
+  Select,
   Skeleton,
   Stack,
   Text,
 } from '@pioneer/frontier';
+import type { SelectOption } from '@pioneer/frontier';
+import type { ContentKind } from '@pioneer/rules/sdk';
 
 import { CharacterStore } from '../../data/character-store';
 import { injectContentRegistry } from '../../data/content-registry-query';
@@ -21,7 +24,15 @@ import { FEAT_CONTENT_KINDS } from '../sheet-feats';
 import { describeSaveError } from '../sheet-field';
 import { restLines } from '../sheet-rest';
 import type { RestLine } from '../sheet-rest';
+import { sheetStaffLimits, staffOptions, staffSlotOptions } from '../sheet-staff';
+import type { StaffOption, StaffSlotOption } from '../sheet-staff';
 import { SheetState } from '../sheet-state';
+
+/** The kinds the actions read: the character's, so its slots resolve, and the items it carries, so its staves do. */
+const REST_CONTENT_KINDS: readonly ContentKind[] = [...FEAT_CONTENT_KINDS, ...INVENTORY_KINDS];
+
+/** The value of the option that picks nothing. */
+const NONE = 'none';
 
 /** One action the player can run, with the words that name it and its preview. */
 interface RestAction {
@@ -56,17 +67,20 @@ const ACTIONS: readonly RestAction[] = [
 /** What an action chosen but not yet confirmed would do. */
 interface RestPreview {
   readonly action: RestAction;
+  /** The command to run on confirm: the action's own, with the staff and slot chosen for daily preparations. */
+  readonly command: RestCommand;
   readonly lines: readonly RestLine[];
 }
 
 /**
  * Rest, daily preparations, Refocus and start of session (#347). Each is its own optional action: choosing one shows
  * what it would restore, and confirming applies it as one command. Nothing runs on its own, such as when the app
- * opens or a new session of the app starts.
+ * opens or a new session of the app starts. Daily preparations also prepare one staff (#366), and a prepared caster
+ * can expend a slot for more charges.
  */
 @Component({
   selector: 'pio-sheet-rest',
-  imports: [AsyncButton, AsyncData, AsyncPending, AsyncRegion, Button, Skeleton, Stack, Text, TranslocoPipe],
+  imports: [AsyncButton, AsyncData, AsyncPending, AsyncRegion, Button, Select, Skeleton, Stack, Text, TranslocoPipe],
   templateUrl: './sheet-rest.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -78,17 +92,73 @@ export class SheetRest {
 
   protected readonly actions = ACTIONS;
   protected readonly cancelVariant = ButtonVariant.Ghost;
-  protected readonly registry = injectContentRegistry(FEAT_CONTENT_KINDS);
+  protected readonly registry = injectContentRegistry(REST_CONTENT_KINDS);
   protected readonly playQuery = this.#play.play;
 
   /** The action chosen and waiting for its confirmation. */
   readonly #chosen = signal<RestAction | undefined>(undefined);
 
+  /** The staff and the slot picked for daily preparations: an option's value, or `NONE`. */
+  protected readonly staffPicked = signal(NONE);
+  protected readonly slotPicked = signal(NONE);
+
   /** Whether an edit is in flight: they share one revision, so a second would meet a conflict nothing caused. */
   protected readonly busy = signal(false);
 
+  /** The staves daily preparations can prepare, and the slots a prepared caster can expend for charges. */
+  readonly #staves = computed((): readonly StaffOption[] => {
+    const registry = this.registry.data();
+    const character = this.#characters.selected();
+    return registry === undefined || character === undefined
+      ? []
+      : staffOptions(registry, character, sheetStaffLimits(registry, character));
+  });
+  readonly #slots = computed((): readonly StaffSlotOption[] => {
+    const registry = this.registry.data();
+    const character = this.#characters.selected();
+    return registry === undefined || character === undefined ? [] : staffSlotOptions(registry, character);
+  });
+
+  /** Whether daily preparations is chosen and the character has a staff to prepare. */
+  protected readonly choosingStaff = computed(
+    (): boolean => this.#chosen()?.command.field === RestCommandField.DailyPreparations && this.#staves().length > 0,
+  );
+  protected readonly staffChoices = computed((): readonly SelectOption<string>[] => [
+    { value: NONE, label: this.#i18n.translate('character.sheet.rest.staffNone') },
+    ...this.#staves().map(({ id, name }) => ({ value: id, label: name })),
+  ]);
+
+  /** The slots on offer once a staff is picked; none for a character without a prepared entry. */
+  protected readonly slotChoices = computed((): readonly SelectOption<string>[] =>
+    this.staffPicked() === NONE || this.#slots().length === 0
+      ? []
+      : [
+          { value: NONE, label: this.#i18n.translate('character.sheet.rest.slotNone') },
+          ...this.#slots().map(({ key, source, rank }) => ({
+            value: key,
+            label: this.#i18n.translate('character.sheet.rest.slotOption', { source, rank }),
+          })),
+        ],
+  );
+
+  /** The command the chosen action runs: daily preparations carry the staff and the slot picked. */
+  readonly #command = computed((): RestCommand | undefined => {
+    const action = this.#chosen();
+    if (action?.command.field !== RestCommandField.DailyPreparations) {
+      return action?.command;
+    }
+    const staff = this.#staves().find(({ id }) => id === this.staffPicked());
+    const slot = this.#slots().find(({ key }) => key === this.slotPicked());
+    return {
+      field: RestCommandField.DailyPreparations,
+      ...(staff === undefined ? {} : { staff: staff.id }),
+      ...(staff === undefined || slot === undefined ? {} : { slot: slot.slot }),
+    };
+  });
+
   protected readonly preview = computed((): RestPreview | undefined => {
     const action = this.#chosen();
+    const command = this.#command();
     const registry = this.registry.data();
     const character = this.#characters.selected();
     const read = this.#play.play.data();
@@ -96,6 +166,7 @@ export class SheetRest {
     const resources = this.#sheet.resourceMaxima();
     if (
       action === undefined ||
+      command === undefined ||
       registry === undefined ||
       character === undefined ||
       read === undefined ||
@@ -106,7 +177,8 @@ export class SheetRest {
     }
     return {
       action,
-      lines: restLines({ registry, character, play: read.play, maxima: { hitPoints, resources } }, action.command),
+      command,
+      lines: restLines({ registry, character, play: read.play, maxima: { hitPoints, resources } }, command),
     };
   });
 
@@ -114,10 +186,22 @@ export class SheetRest {
     (action: RestAction): (() => void) =>
     (): void => {
       this.#chosen.set(action);
+      this.#clearPicks();
     };
 
   protected readonly cancel = (): void => {
     this.#chosen.set(undefined);
+    this.#clearPicks();
+  };
+
+  /** Another staff may take no slot the last one had picked, so a new pick starts the slot over. */
+  protected readonly pickStaff = (value: string | undefined): void => {
+    this.staffPicked.set(value ?? NONE);
+    this.slotPicked.set(NONE);
+  };
+
+  protected readonly pickSlot = (value: string | undefined): void => {
+    this.slotPicked.set(value ?? NONE);
   };
 
   protected readonly confirm = async (): Promise<void> => {
@@ -127,8 +211,9 @@ export class SheetRest {
     }
     this.busy.set(true);
     try {
-      await this.#play.send(shown.action.command);
+      await this.#play.send(shown.command);
       this.#chosen.set(undefined);
+      this.#clearPicks();
     } finally {
       this.busy.set(false);
     }
@@ -139,4 +224,9 @@ export class SheetRest {
     const { key, params } = describeSaveError(error);
     return this.#i18n.translate(key, params);
   };
+
+  #clearPicks(): void {
+    this.staffPicked.set(NONE);
+    this.slotPicked.set(NONE);
+  }
 }

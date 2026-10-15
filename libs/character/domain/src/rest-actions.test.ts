@@ -7,11 +7,14 @@ import type { ActiveCondition } from './conditions';
 import { abilityUseKey, Boundary, slotCountKey } from './counted-resources';
 import type { CountedMaxima } from './counted-resources';
 import { Doomed, Dying, Wounded } from './death-track';
+import { InventoryItemId } from './inventory';
 import { applyPlayCommand, FRESH_PLAY, PlayCommandField } from './play-state';
 import type { PlayLimits, PlayState } from './play-state';
 import { Resource, resourceMaxima, ResourceCount } from './resources';
 import { preparedDaily, refocused, rested, sessionStarted } from './rest-actions';
 import { RestChangeKind } from './rest-types';
+import { NO_STAFF, StaffProblem, staffProblem } from './staff-limits';
+import type { StaffLimits } from './staff-limits';
 
 function count(value: number): ResourceCount {
   return ResourceCount.parse(value);
@@ -44,6 +47,7 @@ const LIMITS: PlayLimits = {
   recovery: { fatigued: FATIGUED, drained: DRAINED },
   resources: resourceMaxima(FocusPoints.parse(2)),
   counted: COUNTED,
+  staff: NO_STAFF,
   valued: new Map(),
 };
 
@@ -193,5 +197,86 @@ describe('as play commands', () => {
     expect(rest.hp.damage).toBe(hp(15));
     const session = applyPlayCommand(FRESH_PLAY, { field: PlayCommandField.StartSession }, LIMITS);
     expect(session.resources[Resource.HeroPoints]).toBe(count(2));
+  });
+});
+
+describe('daily preparations with a staff', () => {
+  const STAFF = InventoryItemId.parse('aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa');
+  const OTHER = InventoryItemId.parse('bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb');
+  const WIZARD = Slug.parse('wizard');
+  const STAFF_LIMITS: StaffLimits = {
+    staves: new Set([STAFF, OTHER]),
+    highestRank: SpellRank.parse(3),
+    expendable: new Set([SLOT]),
+  };
+  const limits: PlayLimits = { ...LIMITS, staff: STAFF_LIMITS };
+  const slot = { entry: WIZARD, rank: SpellRank.parse(1) };
+
+  test('gives the staff charges equal to the highest spell rank', () => {
+    const { play, changes } = preparedDaily(FRESH_PLAY, limits, { staff: STAFF });
+    expect(play.resources.staff).toStrictEqual({ [STAFF]: { max: count(3), spent: count(0) } });
+    expect(changes).toStrictEqual([{ kind: RestChangeKind.StaffCharges, item: STAFF, charges: count(3) }]);
+  });
+
+  test('adds the rank of an expended slot, which counts as used', () => {
+    const { play, changes } = preparedDaily(FRESH_PLAY, limits, { staff: STAFF, slot });
+    expect(play.resources.staff[STAFF]?.max).toBe(count(4));
+    expect(play.resources.slots[SLOT]).toBe(count(1));
+    expect(changes).toStrictEqual([
+      { kind: RestChangeKind.StaffCharges, item: STAFF, charges: count(4) },
+      { kind: RestChangeKind.SlotExpended, key: SLOT },
+    ]);
+  });
+
+  test('expends a slot that daily preparations gave back, not one still spent', () => {
+    const spent = played({ resources: { ...FRESH_PLAY.resources, slots: { [SLOT]: count(3) } } });
+    const { play } = preparedDaily(spent, limits, { staff: STAFF, slot });
+    expect(play.resources.slots[SLOT]).toBe(count(1));
+  });
+
+  test('prepares only one staff: another clears the first one charges', () => {
+    const first = preparedDaily(FRESH_PLAY, limits, { staff: STAFF }).play;
+    const { play } = preparedDaily(first, limits, { staff: OTHER });
+    expect(Object.keys(play.resources.staff)).toStrictEqual([OTHER]);
+  });
+
+  test('loses the charges left when no staff is chosen', () => {
+    const first = preparedDaily(FRESH_PLAY, limits, { staff: STAFF }).play;
+    expect(preparedDaily(first, limits).play.resources.staff).toStrictEqual({});
+  });
+
+  test('gives no charges without spellcasting, or for an item that is no staff', () => {
+    const none: PlayLimits = { ...limits, staff: { ...STAFF_LIMITS, highestRank: undefined } };
+    expect(preparedDaily(FRESH_PLAY, none, { staff: STAFF }).play.resources.staff).toStrictEqual({});
+    expect(preparedDaily(FRESH_PLAY, LIMITS, { staff: STAFF }).play.resources.staff).toStrictEqual({});
+  });
+
+  test('ignores a slot that is not expendable', () => {
+    const none: PlayLimits = { ...limits, staff: { ...STAFF_LIMITS, expendable: new Set() } };
+    const { play } = preparedDaily(FRESH_PLAY, none, { staff: STAFF, slot });
+    expect(play.resources.staff[STAFF]?.max).toBe(count(3));
+    expect(play.resources.slots).toStrictEqual({});
+  });
+
+  test('runs through the command with the staff and slot it names', () => {
+    const play = applyPlayCommand(
+      FRESH_PLAY,
+      { field: PlayCommandField.DailyPreparations, staff: STAFF, slot },
+      limits,
+    );
+    expect(play.resources.staff[STAFF]?.max).toBe(count(4));
+  });
+
+  test('refuses a staff that is not one, and a slot that is not expendable or has no staff', () => {
+    expect(staffProblem({ staff: STAFF, slot }, STAFF_LIMITS)).toBeUndefined();
+    expect(staffProblem({}, STAFF_LIMITS)).toBeUndefined();
+    expect(staffProblem({ staff: InventoryItemId.parse('cccccccc-cccc-4ccc-8ccc-cccccccccccc') }, STAFF_LIMITS)).toBe(
+      StaffProblem.NotAStaff,
+    );
+    expect(staffProblem({ slot }, STAFF_LIMITS)).toBe(StaffProblem.SlotWithoutStaff);
+    expect(staffProblem({ staff: STAFF, slot }, NO_STAFF)).toBe(StaffProblem.NotAStaff);
+    expect(staffProblem({ staff: STAFF, slot }, { ...STAFF_LIMITS, expendable: new Set() })).toBe(
+      StaffProblem.SlotNotExpendable,
+    );
   });
 });

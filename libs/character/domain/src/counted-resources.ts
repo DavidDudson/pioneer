@@ -6,6 +6,7 @@ import * as z from 'zod';
 
 import type { InventoryItem, InventoryItemId } from './inventory';
 import { ResourceCount } from './resource-count';
+import { StaffChargesSchema } from './staff-charges';
 
 /** The longest key a spent count is stored under: a slot's `<entry>:<pool>:<rank>`, an activation's `<item>:<slug>`. */
 const COUNT_KEY_MAX_LENGTH = 200;
@@ -29,10 +30,14 @@ export type UseCountKey = z.infer<typeof UseCountKey>;
 /** A key a count is kept under. */
 type CountKey = SlotCountKey | UseCountKey;
 
-/** The spell slots and ability uses spent, as inputs: what is held is the maximum less what is spent. */
+/**
+ * The spell slots and ability uses spent, as inputs: what is held is the maximum less what is spent. The staff
+ * prepared for the day keeps its own maximum, since daily preparations set it (`staff-charges.ts`).
+ */
 export const SpentCountsSchema = z.strictObject({
   slots: z.partialRecord(SlotCountKey, ResourceCount).default({}),
   uses: z.partialRecord(UseCountKey, ResourceCount).default({}),
+  staff: StaffChargesSchema.default({}),
 });
 export type SpentCounts = z.infer<typeof SpentCountsSchema>;
 

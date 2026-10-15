@@ -7,6 +7,11 @@ import {
   characterSpellcasting,
   characterStatisticInputs,
   characterStatistics,
+  itemContent,
+  NO_STAFF,
+  staffLimits,
+  StaffProblem,
+  staffProblem,
   conditionProblem,
   isConditionCommand,
   conditionValued,
@@ -19,6 +24,7 @@ import {
   NO_COUNTED,
   NO_RESOURCES,
   PLAY_COMMANDS,
+  PlayCommandField,
   RECOVERY_CONDITIONS,
   ConditionProblem,
   resourceMaxima,
@@ -37,6 +43,7 @@ import type {
   PlayState,
   ResourceMaxima,
   CountedMaxima,
+  StaffLimits,
 } from '@pioneer/character/domain';
 import { HitPoints } from '@pioneer/rules/sdk';
 import type { ContentRegistry, ContentSource } from '@pioneer/rules/sdk';
@@ -119,10 +126,12 @@ export class PlayService {
     const hitPoints = needsMaxHitPoints(command) ? await this.#maxHitPoints(character, play) : NO_MAX_HIT_POINTS;
     const resources = needsResourceMaxima(command) ? await this.#resourceMaxima(character) : NO_RESOURCES;
     const counted = needsResourceMaxima(command) ? await this.#counted(character) : NO_COUNTED;
+    const staff = isDailyPreparations(command) ? await this.#staff(character) : NO_STAFF;
+    checkStaff(command, staff);
     const valued = needsConditionContent(command) ? await this.#valued(character) : NO_VALUED;
     checkCondition(play, command, valued);
     const healing = needsRestContent(command) ? await this.#healing(character) : NO_MAX_HIT_POINTS;
-    const limits: PlayLimits = { hitPoints, healing, recovery: RECOVERY_CONDITIONS, resources, counted, valued };
+    const limits: PlayLimits = { hitPoints, healing, recovery: RECOVERY_CONDITIONS, resources, counted, staff, valued };
     return applyPlayCommand(play, command, limits);
   }
 
@@ -147,6 +156,13 @@ export class PlayService {
       items: character.document.inventory.items,
       activations: itemActivations(registry),
     });
+  }
+
+  /** The staves, highest spell rank and expendable slots daily preparations reads to prepare a staff. */
+  async #staff(character: Character): Promise<StaffLimits> {
+    const registry = await this.#contentOf(character).registry();
+    const grants = characterGrants(character.document, await this.#slotContent(character, registry));
+    return staffLimits(grants, character.document.inventory.items, itemContent(registry));
   }
 
   /** What Rest heals, from the Constitution modifier and level the build gives. */
@@ -196,5 +212,28 @@ function checkCondition(play: PlayState, command: PlayCommand, valued: Condition
   const problem = isConditionCommand(command) ? conditionProblem(play.conditions, command, valued) : undefined;
   if (problem !== undefined) {
     throw new ValidationError([{ path: ['command'], message: message(CONDITION_MESSAGES[problem]) }]);
+  }
+}
+
+/** The message each refused staff choice answers with. */
+const STAFF_MESSAGES = {
+  [StaffProblem.NotAStaff]: 'character.validation.staffNotHeld',
+  [StaffProblem.SlotWithoutStaff]: 'character.validation.staffSlotWithoutStaff',
+  [StaffProblem.SlotNotExpendable]: 'character.validation.staffSlotNotExpendable',
+} as const satisfies Record<StaffProblem, string>;
+
+/** Daily preparations, the only edit that prepares a staff. */
+type DailyPreparations = Extract<PlayCommand, { readonly field: typeof PlayCommandField.DailyPreparations }>;
+
+/** Whether `command` is daily preparations, the only edit that prepares a staff. */
+function isDailyPreparations(command: PlayCommand): command is DailyPreparations {
+  return command.field === PlayCommandField.DailyPreparations;
+}
+
+/** Refuses a daily preparations that names a staff the character doesn't have, or a slot it can't expend. */
+function checkStaff(command: PlayCommand, staff: StaffLimits): void {
+  const problem = isDailyPreparations(command) ? staffProblem(command, staff) : undefined;
+  if (problem !== undefined) {
+    throw new ValidationError([{ path: ['command'], message: message(STAFF_MESSAGES[problem]) }]);
   }
 }

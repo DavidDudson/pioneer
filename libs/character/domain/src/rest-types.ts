@@ -5,7 +5,10 @@ import * as z from 'zod';
 import type { ActiveCondition } from './conditions';
 import type { CountedMaxima, SlotCountKey, UseCountKey } from './counted-resources';
 import type { DeathTrack, Doomed } from './death-track';
+import { InventoryItemId } from './inventory';
 import type { Resource, ResourceCount, ResourceMaxima, ResourcesSpent } from './resources';
+import { StaffSlotSchema } from './staff-charges';
+import type { StaffLimits } from './staff-limits';
 
 /**
  * The play edits that restore resources. Each is its own action, optional at the table, and applies as one command
@@ -14,7 +17,10 @@ import type { Resource, ResourceCount, ResourceMaxima, ResourcesSpent } from './
 export const RestCommandField = {
   /** HP (Constitution modifier, at least 1, times level), fatigued removed, drained and doomed down 1. */
   Rest: 'rest',
-  /** Spell slots, focus points and per-day uses back. */
+  /**
+   * Spell slots, focus points and per-day uses back, and the staff to prepare, if any, with the slot a prepared caster
+   * expends for more charges.
+   */
   DailyPreparations: 'dailyPreparations',
   /** One focus point back. */
   Refocus: 'refocus',
@@ -25,7 +31,11 @@ export type RestCommandField = ValueOf<typeof RestCommandField>;
 
 export const RestCommandSchema = z.discriminatedUnion('field', [
   z.object({ field: z.literal(RestCommandField.Rest) }),
-  z.object({ field: z.literal(RestCommandField.DailyPreparations) }),
+  z.object({
+    field: z.literal(RestCommandField.DailyPreparations),
+    staff: InventoryItemId.optional(),
+    slot: StaffSlotSchema.optional(),
+  }),
   z.object({ field: z.literal(RestCommandField.Refocus) }),
   z.object({ field: z.literal(RestCommandField.StartSession) }),
 ]);
@@ -40,6 +50,8 @@ export const RestChangeKind = {
   Points: 'points',
   Slots: 'slots',
   Uses: 'uses',
+  StaffCharges: 'staffCharges',
+  SlotExpended: 'slotExpended',
 } as const;
 export type RestChangeKind = ValueOf<typeof RestChangeKind>;
 
@@ -73,6 +85,15 @@ export type RestChange =
       readonly kind: typeof RestChangeKind.Uses;
       readonly key: UseCountKey;
       readonly amount: ResourceCount;
+    }
+  | {
+      readonly kind: typeof RestChangeKind.StaffCharges;
+      readonly item: InventoryItemId;
+      readonly charges: ResourceCount;
+    }
+  | {
+      readonly kind: typeof RestChangeKind.SlotExpended;
+      readonly key: SlotCountKey;
     };
 
 /** The conditions Rest eases, by the id the content gives them; undefined while the content has none. */
@@ -89,6 +110,8 @@ export interface RestLimits {
   readonly recovery: RecoveryConditions;
   readonly resources: ResourceMaxima;
   readonly counted: CountedMaxima;
+  /** The staves and spell ranks daily preparations reads to prepare a staff. */
+  readonly staff: StaffLimits;
 }
 
 /** The part of a play state the restoring actions read and write. */

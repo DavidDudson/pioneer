@@ -1,7 +1,7 @@
 import { HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { SheetMode } from '@pioneer/character/domain';
-import { playerCoreClassId } from '@pioneer/character/domain/testing';
+import { ITEM_FIXTURE_FILES, ItemFixture, itemFixtureId, playerCoreClassId } from '@pioneer/character/domain/testing';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
@@ -104,6 +104,55 @@ describe('CharacterSheetPage rest actions', () => {
 
     await vi.waitFor(() => {
       expect(textOf(restOf(root))).toContain('Nothing to restore.');
+    });
+  });
+
+  it('prepares a staff at daily preparations, previewing its charges before they apply', async () => {
+    const staff = '55555555-5555-4555-8555-555555555555';
+    const bardWithStaff = {
+      ...BARD,
+      inventory: {
+        items: [{ id: staff, item: itemFixtureId(ItemFixture.FireStaff), quantity: 1 }],
+        coins: { pp: 0, gp: 0, sp: 0, cp: 0 },
+      },
+    };
+    const { root } = await openSheet(bardWithStaff, {
+      tab: SheetMode.Downtime,
+      play: playOf(0, 0),
+      packs: [...PACKS, ITEM_FIXTURE_FILES],
+    });
+    await vi.waitFor(() => {
+      expect(restOf(root).querySelectorAll('button')).toHaveLength(4);
+    });
+
+    buttonOf(root, 'Daily preparations').click();
+    await vi.waitFor(() => {
+      expect(textOf(restOf(root))).toContain('No staff');
+    });
+    expect(textOf(restOf(root))).not.toMatch(/gets \d+ charges?/u);
+
+    present(restOf(root).querySelector<HTMLElement>('fr-select button')).click();
+    const option = await vi.waitFor(() =>
+      present(
+        [...document.querySelectorAll<HTMLElement>('[role="option"]')].find((each) => textOf(each) !== 'No staff'),
+      ),
+    );
+    option.click();
+
+    await vi.waitFor(() => {
+      expect(textOf(restOf(root))).toMatch(/gets 1 charge/u);
+    });
+    TestBed.inject(HttpTestingController).expectNone({ method: 'PATCH', url: PLAY_URL });
+
+    buttonOf(root, 'Confirm').click();
+
+    await vi.waitFor(() => {
+      const request = TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: PLAY_URL });
+      expect(request.request.body).toStrictEqual({
+        expectedRevision: 1,
+        command: { field: 'dailyPreparations', staff },
+      });
+      request.flush(playOf(0, 0, 2));
     });
   });
 });

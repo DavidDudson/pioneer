@@ -5,11 +5,13 @@ import { assert, constantFrom, integer, property, record } from 'fast-check';
 
 import { abilityUseKey, Boundary, slotCountKey } from './counted-resources';
 import type { CountedMaxima } from './counted-resources';
+import { InventoryItemId } from './inventory';
 import { FRESH_PLAY } from './play-state';
 import type { PlayState } from './play-state';
 import { Resource, ResourceCount, resourceMaxima } from './resources';
 import { preparedDaily, refocused, rested, sessionStarted } from './rest-actions';
 import type { RestLimits, RestOutcome } from './rest-types';
+import { NO_STAFF } from './staff-limits';
 
 const MAX = 8;
 const HIT_POINTS_MAX = 60;
@@ -31,6 +33,7 @@ const LIMITS: RestLimits = {
   recovery: { fatigued: undefined, drained: undefined },
   resources: resourceMaxima(FocusPoints.parse(2)),
   counted: COUNTED,
+  staff: NO_STAFF,
 };
 
 const spent = integer({ min: 0, max: MAX }).map((value) => ResourceCount.parse(value));
@@ -105,6 +108,29 @@ describe('restoring actions', () => {
         const twice = action(once.play, LIMITS);
         expect(twice.play).toEqual(once.play);
         expect(twice.changes).toEqual([]);
+      }),
+    );
+  });
+
+  test('give a staff charges of at most the highest spell rank plus the rank of the slot expended', () => {
+    const staff = InventoryItemId.parse('aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa');
+    const ranks = integer({ min: 1, max: 10 }).map((rank) => SpellRank.parse(rank));
+    assert(
+      property(plays, ranks, ranks, (play, highest, slotRank) => {
+        const key = slotCountKey(Slug.parse('wizard'), undefined, slotRank);
+        const limits: RestLimits = {
+          ...LIMITS,
+          counted: { ...COUNTED, slots: new Map([[key, { max: ResourceCount.parse(MAX), boundary: Boundary.Day }]]) },
+          staff: { staves: new Set([staff]), highestRank: highest, expendable: new Set([key]) },
+        };
+        const { play: after } = preparedDaily(play, limits, {
+          staff,
+          slot: { entry: Slug.parse('wizard'), rank: slotRank },
+        });
+        const charges = after.resources.staff[staff]?.max ?? 0;
+        expect(charges).toBeLessThanOrEqual(highest + slotRank);
+        expect(charges).toBeGreaterThanOrEqual(highest);
+        expect(Object.keys(after.resources.staff)).toStrictEqual([staff]);
       }),
     );
   });

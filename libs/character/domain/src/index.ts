@@ -394,6 +394,7 @@ export { type FeatOption, type FeatSlot, featSlots, PrerequisiteStatus } from '.
 export { CHARACTER_PROSE_MAX_LENGTH, CharacterProseInput, withProse } from './character-prose';
 export { needsConditionContent, needsMaxHitPoints, needsResourceMaxima, needsRestContent } from './play-needs';
 export { applyRestCommand, preparedDaily, refocused, rested, sessionStarted } from './rest-actions';
+
 export { RECOVERY_CONDITIONS, restHealing } from './rest-limits';
 export {
   isRestCommand,
@@ -435,3 +436,12 @@ export {
 } from './class-options';
 export { characterActions } from './available-actions';
 export { type ActionContext, actionContext, characterActionContext } from './action-context';
+export {
+  chargesHeld,
+  type StaffCharges,
+  type StaffChoice,
+  StaffChargesSchema,
+  type StaffSlot,
+  StaffSlotSchema,
+} from './staff-charges';
+export { NO_STAFF, StaffProblem, type StaffLimits, staffLimits, staffProblem, staffSlotKey } from './staff-limits';
