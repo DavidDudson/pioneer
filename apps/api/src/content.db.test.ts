@@ -132,6 +132,7 @@ describe.skipIf(adminUrl === undefined)('content routes (postgres)', () => {
       'howl-of-the-wild',
       'monster-core',
       'player-core',
+      'player-core-2',
       'treasure-vault',
       'war-of-immortals',
     ]);

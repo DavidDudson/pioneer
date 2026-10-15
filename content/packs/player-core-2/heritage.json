@@ -1,0 +1,2868 @@
+[
+  {
+    "id": "b60ec50f-9470-56bb-a7f7-2ce110abb36d",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:ant-kholo",
+    "name": "Ant Kholo",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're a sharp-featured, big-eared kholo about 3 feet tall. Many are skeptical that you are in fact a kholo. Your size is Small instead of Medium. You are trained in Deception (or another skill if you were already trained in Deception). You gain a +1 circumstance bonus to Deception checks to Lie when specifically claiming innocence, to Deception DCs against "
+          },
+          {
+            "type": "ref",
+            "id": "775b68f2-1542-5f47-bc0d-87d5884d7baa"
+          },
+          {
+            "type": "text",
+            "text": " checks to uncover such lies, and to initiative checks when you roll Deception for initiative."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["initiative"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["option:deception"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["action:lie"]
+      },
+      {
+        "key": "CreatureSize",
+        "value": "small"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:deception",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.udMXXjFirjARYr4p"
+    },
+    "data": {
+      "ancestry": "0c5b0f7e-e622-5455-bbc6-45ee56dad336"
+    }
+  },
+  {
+    "id": "bc27a512-a11d-5f92-b41c-8deabd7404cf",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:cave-kholo",
+    "name": "Cave Kholo",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Storytellers spin ancient tales claiming that kholo lived in caves and underground before most of your kind ventured into the light. You're a throwback to these ancients, with a broad chest and markings that resemble short black slashes instead of spots. Your eyes are developed to see perfectly in the dark, a valuable advantage to your clan. You gain darkvision."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.JW45oQRHaqthjmIx"
+    },
+    "data": {
+      "ancestry": "0c5b0f7e-e622-5455-bbc6-45ee56dad336"
+    }
+  },
+  {
+    "id": "e1f2ff93-9eee-5fd8-a9df-326ccd7aaf48",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:cavernstalker-kobold",
+    "name": "Cavernstalker Kobold",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You hatched in a warren with narrow tunnels that was also home to a being of primal earth energy, which has made you limber and flexible. When "
+          },
+          {
+            "type": "ref",
+            "id": "d26ec2df-83bd-5f2f-988e-e922681de6ba",
+            "label": "Climbing"
+          },
+          {
+            "type": "text",
+            "text": " rock walls, stalactites, and other natural stone features, you move at half your Speed on a success and at full Speed on a critical success (and you move at full Speed on a success if you have "
+          },
+          {
+            "type": "ref",
+            "id": "a1f321de-e696-5d28-ad54-980c6372750b"
+          },
+          {
+            "type": "text",
+            "text": "). This doesn't affect you if you're using a climb Speed. If you roll a success on an Acrobatics check to "
+          },
+          {
+            "type": "ref",
+            "id": "c677e3a9-1109-541c-8888-d97a6129acda"
+          },
+          {
+            "type": "text",
+            "text": ", you get a critical success instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["skill:athletics"],
+        "title": "Cavernstalker Kobold",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "When you climb natural stone, you move at half your Speed on a success, and full speed on a critical success."
+              }
+            ]
+          }
+        ],
+        "predicate": ["action:climb", "option:natural-stone"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["skill:acrobatics"],
+        "title": "Cavernstalker Kobold",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "When you roll a success to Squeeze, you get a critical success instead."
+              }
+            ]
+          }
+        ],
+        "predicate": ["action:squeeze"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill:acrobatics"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "checkType": "skill",
+        "predicate": ["action:squeeze"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.35k2aujXYvqUCSS1"
+    },
+    "data": {
+      "ancestry": "e42e0bb3-3c3a-5c7f-a8be-ef4c3eae793b"
+    }
+  },
+  {
+    "id": "d2182525-eac0-50e7-a3e4-6fb57d559324",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:clawed-catfolk",
+    "name": "Clawed Catfolk",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your family has particularly long, sharp claws capable of delivering bleeding wounds with a wicked swipe. You gain a claw unarmed attack that deals 1d6 slashing damage. Your claws are in the brawling group and have the agile, finesse and unarmed traits."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "claw",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["finesse", "unarmed", "agile"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "slashing"
+        },
+        "display": {
+          "label": "Claw"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.bLhIBwqdjTiVJ5qm"
+    },
+    "data": {
+      "ancestry": "12568aa7-1050-549d-88a0-9a7d9e804adb"
+    }
+  },
+  {
+    "id": "71658914-1efd-538e-b341-26b0b42fbf84",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:cliffscale-lizardfolk",
+    "name": "Cliffscale Lizardfolk",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your toes are adapted for gripping and climbing. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "8d47d4b9-3de6-5aca-9993-35356f13d1f6"
+          },
+          {
+            "type": "text",
+            "text": " feat as a bonus feat, and as long as you aren't wearing footwear, you can use the sticky pads on your feet to climb, leaving your hands free. Additionally, if you roll a success on an Athletics check to climb, you get a critical success instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "8d47d4b9-3de6-5aca-9993-35356f13d1f6"
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill:athletics"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "predicate": ["action:climb"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.OoUqJJB77VfWbWRM"
+    },
+    "data": {
+      "ancestry": "d82fc8f3-fd76-5ccb-8b83-d94c4aec7aaa"
+    }
+  },
+  {
+    "id": "d2a012d4-f108-5ea2-ad3c-9be19041a518",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:cloudleaper-lizardfolk",
+    "name": "Cloudleaper Lizardfolk",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your body is light with flaps of skin along your limbs that catch the air that passes beneath you. As long as you can act and have enough room, you can open the flaps to slow any fall just enough to avoid taking damage (whether you have the room to do so depends on the GM's discretion)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.sEnMG5zbnXdJvVPz"
+    },
+    "data": {
+      "ancestry": "d82fc8f3-fd76-5ccb-8b83-d94c4aec7aaa"
+    }
+  },
+  {
+    "id": "c1e797e4-fdb7-5387-b326-013a4b2c427d",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:deep-rat",
+    "name": "Deep Rat",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your ancestors lived deeper underground than other ratfolk, granting you the ability to see in the dark. You gain darkvision."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.7p9HtLzWBHc18JDW"
+    },
+    "data": {
+      "ancestry": "166604ea-3c4f-5953-8af5-6c68acca0f0e"
+    }
+  },
+  {
+    "id": "cd0e68f9-f6eb-5f31-95a3-ad5273c80ca4",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:desert-rat",
+    "name": "Desert Rat",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are native to arid plains and likely grew up traveling the roads. If you have both hands free, you can increase your Speed to 30 feet as you run on all fours. In addition, environmental heat effects are one step less extreme for you, and you can go 10 times longer than normal before you are affected by starvation or thirst. However, unless you wear protective gear or take shelter, environmental cold effects are one step more extreme for you."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "untyped",
+        "value": 5,
+        "predicate": ["hands-free:2"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.twayjFuXbsvyHUwy"
+    },
+    "data": {
+      "ancestry": "166604ea-3c4f-5953-8af5-6c68acca0f0e"
+    }
+  },
+  {
+    "id": "a0ff6efe-b61a-599c-84de-9ae25b8e8f27",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:dhampir",
+    "name": "Dhampir",
+    "rarity": "uncommon",
+    "traits": ["dhampir"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are the scion of a vampire, half living and half undead, gifted with uncanny charm and grace, a bloodless pallor, and elongated incisors. You gain the dhampir trait, in addition to the traits from your ancestry. You have the void healing ability, which means you are harmed by vitality damage and healed by void effects as if you were undead. You also gain low-light vision, or you gain darkvision if your ancestry already has low-light vision. You can select from dhampir feats and feats from your ancestry whenever you gain an ancestry feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+      },
+      {
+        "key": "Sense",
+        "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb",
+        "predicate": ["self:low-light-vision:from-ancestry"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.UaD5VDoFlILEmbyz"
+    },
+    "data": {}
+  },
+  {
+    "id": "11b10eb2-a4be-5fcd-9eb9-b7a748327e8d",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:dog-kholo",
+    "name": "Dog Kholo",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're a nimble-bodied kholo with a prehistoric, almost dog-like build. Though you typically move like a quadruped, you can still stand and fight like a biped, allowing you to use all equipment normally. If you have both hands free, you can increase your Speed to 30 feet as you run on all fours."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:on-all-fours",
+        "toggleable": true,
+        "display": {
+          "label": "Running on all fours"
+        }
+      },
+      {
+        "key": "Change",
+        "selector": "speed:land",
+        "mode": "upgrade",
+        "value": 30,
+        "predicate": ["option:on-all-fours"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.0B0M6CUnVDkeznRv"
+    },
+    "data": {
+      "ancestry": "0c5b0f7e-e622-5455-bbc6-45ee56dad336"
+    }
+  },
+  {
+    "id": "27aa1a6b-4f25-51cb-9dfa-1e8e2d9ea49d",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:dogtooth-tengu",
+    "name": "Dogtooth Tengu",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In addition to a beak, your mouth also features a number of vicious, pointed teeth. Some legends claim your powerful jaws can even bite through steel. While you aren't that strong yet, your fangs can still leave terrible wounds. Your beak unarmed attack gains the deadly d8 trait."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon", "item:slug:beak"],
+        "property": "traits",
+        "mode": "add",
+        "value": "deadly-d8"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.2hLDilS6qbjHxgVS"
+    },
+    "data": {
+      "ancestry": "a25b24fd-47a6-5f22-b7c0-c8102e5708a7"
+    }
+  },
+  {
+    "id": "ea722ce4-e95c-5473-bd73-d822d4798898",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:dragonblood",
+    "name": "Dragonblood",
+    "rarity": "uncommon",
+    "traits": ["dragonblood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're descended in some way from a dragon. Your physical features might show this outwardly, with a pair of draconic horns, patches of scaly skin, or even a tail, or you might develop an internal reserve of draconic power. You gain the dragonblood trait, in addition to the traits from your ancestry. Add Draconic to your ancestry's list of additional languages (allowing you to choose it as a language if your Intelligence modifier is positive). When you roll a success on a saving throw against a fear effect, you get a critical success instead. You can choose from dragonblood feats and feats from your ancestry whenever you gain an ancestry feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["saving-throw"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "predicate": ["item:trait:fear"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.cbbXIV4QBred4lM5"
+    },
+    "data": {}
+  },
+  {
+    "id": "60c859ae-8a31-5c73-a8d8-2d02b572271b",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:dragonscaled-kobold",
+    "name": "Dragonscaled Kobold",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Thanks to your warren's association with a dragon, your scales are sturdier than other kobolds'. You gain 10 Hit Points from your ancestry instead of 6. You gain a +1 circumstance bonus to saves against dragon breath, effects with the sleep trait, and effects that would make you "
+          },
+          {
+            "type": "ref",
+            "id": "7802f1d9-5ced-5b9b-8a08-98ec0adb9947"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": [
+          {
+            "or": [
+              "item:trait:sleep",
+              "inflicts:paralyzed",
+              {
+                "and": ["action:breath-weapon", "origin:trait:dragon"]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.P8BP1un5BTrwXoBy"
+    },
+    "data": {
+      "ancestry": "e42e0bb3-3c3a-5c7f-a8be-ef4c3eae793b"
+    }
+  },
+  {
+    "id": "1fd3d2d2-d743-55e6-91e3-a4ba853c6193",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:duskwalker",
+    "name": "Duskwalker",
+    "rarity": "uncommon",
+    "traits": ["duskwalker"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Thanks to an ancient bargain, your soul has been reborn as a duskwalker, a planar scion with a connection to psychopomps and the Boneyard. You gain the duskwalker trait. You also gain low-light vision, or you gain darkvision if your ancestry already has low-light vision. Neither your body nor your spirit can ever become undead. You can select from duskwalker feats and feats from your ancestry whenever you gain an ancestry feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+      },
+      {
+        "key": "Sense",
+        "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb",
+        "predicate": ["self:low-light-vision:from-ancestry"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.ZZKZkeSP5TuT62IA"
+    },
+    "data": {}
+  },
+  {
+    "id": "ddd58682-7f6c-5d0a-922a-76bccd7f1847",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:elementheart-kobold",
+    "name": "Elementheart Kobold",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you hatched, you imprinted on a creature strongly associated with one of the Elemental Planes, such as an elemental or genie. Choose air, earth, fire, metal, water, or wood for your elemental benefactor. You gain resistance equal to half your level (minimum 1) to the damage type associated with your elemental benefactor: cold for air, electricity for earth, fire for fire, sonic for metal, acid for water, or poison for wood."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "element",
+        "choices": [
+          {
+            "value": "cold",
+            "label": "Air"
+          },
+          {
+            "value": "electricity",
+            "label": "Earth"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "sonic",
+            "label": "Metal"
+          },
+          {
+            "value": "acid",
+            "label": "Water"
+          },
+          {
+            "value": "poison",
+            "label": "Wood"
+          }
+        ],
+        "prompt": "Select an element."
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.dbj1cbkYeAAdkDSM"
+    },
+    "data": {
+      "ancestry": "e42e0bb3-3c3a-5c7f-a8be-ef4c3eae793b"
+    }
+  },
+  {
+    "id": "bac1da50-b6f3-5581-aa7f-d32f532b6a2d",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:elfbane-hobgoblin",
+    "name": "Elfbane Hobgoblin",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Hobgoblins were engineered long ago from the unreliable and fecund goblins to be used as an army against the elves. Although the elves ultimately freed the hobgoblins from their bondage, some hobgoblins retain ancestral resistance to magic, which they refer to as \"elf magic.\" You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "fba0f58a-6aa0-5b82-ab99-426cb2bf220b"
+          },
+          {
+            "type": "text",
+            "text": " reaction."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "fba0f58a-6aa0-5b82-ab99-426cb2bf220b"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.ikNJZRxUjcRLisO6"
+    },
+    "data": {
+      "ancestry": "ae650280-2c4f-57e9-ab05-a6177f20a21c"
+    }
+  },
+  {
+    "id": "3781aacb-6c72-56c1-9756-fce0b078f4e6",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:frilled-lizardfolk",
+    "name": "Frilled Lizardfolk",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can flare your neck frill and flex your dorsal spines, Demoralizing your foes. When you do, "
+          },
+          {
+            "type": "ref",
+            "id": "2a3671d0-7d0b-53db-8648-861d457f0175"
+          },
+          {
+            "type": "text",
+            "text": " loses the auditory trait and gains the visual trait, and you don't take a penalty when you attempt to Demoralize a creature that doesn't understand your language. You also gain the "
+          },
+          {
+            "type": "ref",
+            "id": "f4c2ba5b-49ac-568d-932c-1466b3c04246"
+          },
+          {
+            "type": "text",
+            "text": " action."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "f4c2ba5b-49ac-568d-932c-1466b3c04246"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.6rIIsZg3tOyIU3g3"
+    },
+    "data": {
+      "ancestry": "d82fc8f3-fd76-5ccb-8b83-d94c4aec7aaa"
+    }
+  },
+  {
+    "id": "3b134b8d-3b8b-5bd4-b043-ab74a449693c",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:great-kholo",
+    "name": "Great Kholo",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're an imposing, powerful kholo, with tawny fur and brown spots on your hide. You gain 10 Hit Points from your ancestry instead of 8 and gain a +1 circumstance bonus to Athletics checks to "
+          },
+          {
+            "type": "ref",
+            "id": "2f5bb1a4-2a45-5c29-ad6a-7feba044cfaa"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "082b982f-3ed4-5d9c-9722-9ab10198523a"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "6257c7f0-f483-53d3-a791-d73a616cbce4"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["action:shove", "action:trip", "action:reposition"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.SqEcb1c3yeoJMxm0"
+    },
+    "data": {
+      "ancestry": "0c5b0f7e-e622-5455-bbc6-45ee56dad336"
+    }
+  },
+  {
+    "id": "0b2cd6f3-2d06-5062-9f60-cbda79a01e65",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:hunting-catfolk",
+    "name": "Hunting Catfolk",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You come from a long line of skilled hunters and trackers and have a particularly keen sense of smell. You gain imprecise scent with a range of 30 feet. This means you can use your sense of smell to determine a creature's location. The GM will usually double the range if you're downwind from the creature or halve the range if you're upwind."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In addition, you gain a +2 circumstance bonus to "
+          },
+          {
+            "type": "ref",
+            "id": "b81cfd58-ce40-526a-b3da-f3c218b5c566"
+          },
+          {
+            "type": "text",
+            "text": " a creature or object if you've smelled it before."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:survival"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["action:track", "target:previously-smelled"],
+        "display": {
+          "label": "Hunting Catfolk (Track smelled creatures)"
+        }
+      },
+      {
+        "key": "Sense",
+        "sense": "279973df-e7b9-5fa1-9bb6-1cfdc54b82b6",
+        "acuity": "imprecise",
+        "range": 30
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.1lv7RMp7t5iqeUFT"
+    },
+    "data": {
+      "ancestry": "12568aa7-1050-549d-88a0-9a7d9e804adb"
+    }
+  },
+  {
+    "id": "93f58b30-6c3b-526e-9fa4-e847d345a6ab",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:jinxed-tengu",
+    "name": "Jinxed Tengu",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your lineage has been exposed to curse after curse, and now they slide off your feathers like rain. If you succeed at a saving throw against a curse or misfortune effect, you get a critical success instead. When you would gain the "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7"
+          },
+          {
+            "type": "text",
+            "text": " condition, attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 17
+          },
+          {
+            "type": "text",
+            "text": ". On a success, reduce the value of the doomed condition you would gain by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["saving-throw"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "checkType": "save",
+        "predicate": [
+          {
+            "or": ["item:trait:curse", "item:trait:misfortune"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.g4FRxyuHndZu4KTo"
+    },
+    "data": {
+      "ancestry": "a25b24fd-47a6-5f22-b7c0-c8102e5708a7"
+    }
+  },
+  {
+    "id": "3f30fb1e-10e7-5c90-83c6-9485274e078a",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:jungle-catfolk",
+    "name": "Jungle Catfolk",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're descended from jungle stalkers and can move swiftly through scrub and underbrush. You ignore difficult terrain from undergrowth, and greater difficult terrain from undergrowth is only difficult terrain for you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.HpqQ5VQ0w4HqYgVC"
+    },
+    "data": {
+      "ancestry": "12568aa7-1050-549d-88a0-9a7d9e804adb"
+    }
+  },
+  {
+    "id": "6d2b7067-8523-5757-8673-71257ad5b9da",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:liminal-catfolk",
+    "name": "Liminal Catfolk",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've inherited a closeness to the far corners of the world, where the boundaries between dimensions grow thin. You can cast the "
+          },
+          {
+            "type": "ref",
+            "id": "c91ac947-a9ec-5f07-b5f9-a054617eb571"
+          },
+          {
+            "type": "text",
+            "text": " cantrip as an occult innate spell at will. A cantrip is heightened to half your level rounded up. You also gain a +1 circumstance bonus to Occultism checks to "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": " about creatures that originated on planes other than the Universe."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:occultism"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["action:recall-knowledge", "target:not-from-universe"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.3F5ffk7cmnrBhPcT"
+    },
+    "data": {
+      "ancestry": "12568aa7-1050-549d-88a0-9a7d9e804adb"
+    }
+  },
+  {
+    "id": "096a1bac-5675-5cb7-b4db-08d87a4d0b9d",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:longsnout-rat",
+    "name": "Longsnout Rat",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your long snout gives you a keener sense of smell than most ratfolk. You gain imprecise scent with a range of 30 feet. This means you can use your sense of smell to determine a creature's location. The GM will usually double the range if you're downwind from the creature or halve the range if you're upwind."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In addition, you gain a +2 circumstance bonus to Perception checks to "
+          },
+          {
+            "type": "ref",
+            "id": "d45207be-e539-50ce-9463-f4edc3671076"
+          },
+          {
+            "type": "text",
+            "text": " a creature or object within the range of your scent."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "279973df-e7b9-5fa1-9bb6-1cfdc54b82b6",
+        "acuity": "imprecise",
+        "range": 30
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          "action:seek",
+          {
+            "lte": ["target:distance", 30]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.fROPRHGyUn4PgcER"
+    },
+    "data": {
+      "ancestry": "166604ea-3c4f-5953-8af5-6c68acca0f0e"
+    }
+  },
+  {
+    "id": "96243b63-60db-5403-ba28-ece4a4a5e730",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:mountainkeeper-tengu",
+    "name": "Mountainkeeper Tengu",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You come from a line of tengu ascetics, leaving you with a link to the spirits of the world and the Great Beyond. You can cast the "
+          },
+          {
+            "type": "ref",
+            "id": "ad3bed02-6064-56d1-949c-7f5b8355cee7"
+          },
+          {
+            "type": "text",
+            "text": " cantrip as a primal innate spell at will. A cantrip is heightened to a spell rank equal to half your level rounded up. Each time you cast a spell from a tengu heritage or ancestry feat, you can decide whether it's a divine or primal spell."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.ptpK6H1rM4Bu3ry4"
+    },
+    "data": {
+      "ancestry": "a25b24fd-47a6-5f22-b7c0-c8102e5708a7"
+    }
+  },
+  {
+    "id": "a27608b9-c013-5966-8b24-af99260fb880",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:nine-lives-catfolk",
+    "name": "Nine Lives Catfolk",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your family has always seems to bounce back from disaster, not through physical hardiness or specialized skill, but from sheer luck. Other catfolk whisper that you have nine lives. While you're "
+          },
+          {
+            "type": "ref",
+            "id": "c0cd649a-7029-5174-a5b4-678f51598dec"
+          },
+          {
+            "type": "text",
+            "text": ", you don't add your dying value to the DC of your recovery checks (this means the DC is typically 10). In addition, you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "730b86b0-c740-5759-ba8b-82ae1fede883"
+          },
+          {
+            "type": "text",
+            "text": " general feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "730b86b0-c740-5759-ba8b-82ae1fede883"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.hOPOyyt7qZXYYCOU"
+    },
+    "data": {
+      "ancestry": "12568aa7-1050-549d-88a0-9a7d9e804adb"
+    }
+  },
+  {
+    "id": "49fc731e-7d0f-5eb9-82c2-c85de04b788f",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:poisonhide-tripkee",
+    "name": "Poisonhide Tripkee",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You may be small, but the poison glands concealed across your body hide a deadly defense. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "03f4bb41-25c4-52f6-8c3c-648dc99bd393"
+          },
+          {
+            "type": "text",
+            "text": " reaction."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "03f4bb41-25c4-52f6-8c3c-648dc99bd393"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.bmA9JK06rnOKpNLr"
+    },
+    "data": {
+      "ancestry": "7b90fab8-e442-5eeb-afa0-37ea2a60bd6e"
+    }
+  },
+  {
+    "id": "b5c59ac1-66bf-579c-8fc7-be7bb76a8d79",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:riverside-tripkee",
+    "name": "Riverside Tripkee",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your ancestors live in and on the water. You gain a 15-foot swim Speed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:swim",
+        "mode": "upgrade",
+        "value": 15
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.87Eej7uEvTxXeli7"
+    },
+    "data": {
+      "ancestry": "7b90fab8-e442-5eeb-afa0-37ea2a60bd6e"
+    }
+  },
+  {
+    "id": "2a35a3a7-25e9-5777-8a66-20d1198e0676",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:runtboss-hobgoblin",
+    "name": "Runtboss Hobgoblin",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You come from a long line of hobgoblins who commanded goblins. You are smaller than other hobgoblins, but goblins still listen to any commands you bellow. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "da16011c-dfcb-5204-bc52-0c1f48812de2"
+          },
+          {
+            "type": "text",
+            "text": " skill feat. If you roll a success on an Intimidation check to "
+          },
+          {
+            "type": "ref",
+            "id": "ed0f3425-17f0-51f3-bb5d-1ca7475499a5"
+          },
+          {
+            "type": "text",
+            "text": " a goblin, you get a critical success instead; if you roll a critical failure, you get a failure instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "da16011c-dfcb-5204-bc52-0c1f48812de2"
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill:intimidation"],
+        "adjustment": {
+          "criticalFailure": "one-degree-better",
+          "success": "one-degree-better"
+        },
+        "predicate": [
+          {
+            "or": ["target:trait:goblin", "action:coerce"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.CzOHITB2ihLGqMuJ"
+    },
+    "data": {
+      "ancestry": "ae650280-2c4f-57e9-ab05-a6177f20a21c"
+    }
+  },
+  {
+    "id": "f646b6af-1fbd-51bc-a697-309a35f7bb01",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:sandstrider-lizardfolk",
+    "name": "Sandstrider Lizardfolk",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your thick scales help you retain water and combat the sun's glare. You gain fire resistance equal to half your level (minimum 1). Environmental heat effects are one step less extreme for you, and you can go 10 times as long as normal before you are affected by starvation or thirst. However, unless you wear protective gear or take shelter, environmental cold effects are one step more extreme for you."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": "max(1, floor(@level / 2))"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.6xxXtgj3fcCi53lt"
+    },
+    "data": {
+      "ancestry": "d82fc8f3-fd76-5ccb-8b83-d94c4aec7aaa"
+    }
+  },
+  {
+    "id": "b810d644-dad7-5109-ba02-eaf7fedba63f",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:sewer-rat",
+    "name": "Sewer Rat",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You come from a long line of ratfolk with a community based in the sewers beneath a large settlement. You are immune to the disease putrid plague. You gain a +1 circumstance bonus to saving throws against diseases and poisons. If you roll a success on a saving throw against a disease or poison, you get a critical success instead. If you have a different ability that would improve the save in this way (such as the "
+          },
+          {
+            "type": "ref",
+            "id": "cc4f7c33-0efe-5512-8ce3-d5977e69b957"
+          },
+          {
+            "type": "text",
+            "text": " fighter class feature), if you roll a critical failure on the save you get a failure instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["saving-throw"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "predicate": [
+          {
+            "or": ["item:trait:disease", "item:trait:poison"]
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["item:trait:disease", "item:trait:poison"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.eFsD7W6hnK33jlDQ"
+    },
+    "data": {
+      "ancestry": "166604ea-3c4f-5953-8af5-6c68acca0f0e"
+    }
+  },
+  {
+    "id": "5ede205f-f9f8-5169-b5ec-410b08d96b92",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:shadow-rat",
+    "name": "Shadow Rat",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your ancestors lived in dark spaces underground, granting you dark fur and a vaguely unnatural mien. You gain the trained proficiency rank in Intimidation and can use Intimidation to "
+          },
+          {
+            "type": "ref",
+            "id": "ed0f3425-17f0-51f3-bb5d-1ca7475499a5"
+          },
+          {
+            "type": "text",
+            "text": " animals. When you "
+          },
+          {
+            "type": "ref",
+            "id": "2a3671d0-7d0b-53db-8648-861d457f0175"
+          },
+          {
+            "type": "text",
+            "text": " an animal, you don't take a penalty for not sharing a language with it. If you would automatically become trained in Intimidation (from your background or class, for example), you become trained in another skill of your choice."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Animals' attitudes toward you begin one degree worse than normal, usually starting at unfriendly instead of indifferent for domesticated animals, and hostile instead of unfriendly for wild animals."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:intimidation",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.tarfuEXmi0E0Enfy"
+    },
+    "data": {
+      "ancestry": "166604ea-3c4f-5953-8af5-6c68acca0f0e"
+    }
+  },
+  {
+    "id": "9d34f183-0f60-5866-a416-2683a8613c6e",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:sharp-eared-catfolk",
+    "name": "Sharp-Eared Catfolk",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You were born with big, expressive ears that move with your moods and perk up at any unexpected sound. You gain a +2 circumstance bonus to locate undetected creatures that you could hear within 30 feet with a "
+          },
+          {
+            "type": "ref",
+            "id": "d45207be-e539-50ce-9463-f4edc3671076"
+          },
+          {
+            "type": "text",
+            "text": " action. As long as you're aware of a creature via sound, once per round, your ears can help you "
+          },
+          {
+            "type": "ref",
+            "id": "7aede910-07a5-5ffc-a163-5aa3a7638a4b"
+          },
+          {
+            "type": "text",
+            "text": " the creature to all allies as a free action."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          "action:seek",
+          {
+            "lte": ["target:distance", 30]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.NWsZ0cIeghyzk9bU"
+    },
+    "data": {
+      "ancestry": "12568aa7-1050-549d-88a0-9a7d9e804adb"
+    }
+  },
+  {
+    "id": "59abd61f-3b8f-5a4a-9008-e62cce55c916",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:shortshanks-hobgoblin",
+    "name": "Shortshanks Hobgoblin",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have a longer torso and broader shoulders than most hobgoblins, making your legs seem short by comparison. This gives you a strong, muscular core and lowers your center of gravity—features that assist you in riding and climbing—and you've trained at riding in a saddle from an extremely early age. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "ab4ac4f4-8bda-5336-a337-835bcadd041c"
+          },
+          {
+            "type": "text",
+            "text": " feat. Additionally, you are not "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " while you Climb."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "ab4ac4f4-8bda-5336-a337-835bcadd041c"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.rQJBtQ9uKUzK9ktK"
+    },
+    "data": {
+      "ancestry": "ae650280-2c4f-57e9-ab05-a6177f20a21c"
+    }
+  },
+  {
+    "id": "bd991c91-84a5-59c3-82b4-11edf5730e94",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:skyborn-tengu",
+    "name": "Skyborn Tengu",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your bones may be especially light, you may be a rare tengu with wings, or your connection to the spirits of wind and sky might be stronger than most, slowing your descent through the air. You take no damage from falling, regardless of the distance you fall."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.rKV11HWREwjjMIum"
+    },
+    "data": {
+      "ancestry": "a25b24fd-47a6-5f22-b7c0-c8102e5708a7"
+    }
+  },
+  {
+    "id": "d03a65c6-f0e0-570d-a1b7-03bf2bdcc11b",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:smokeworker-hobgoblin",
+    "name": "Smokeworker Hobgoblin",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your family have been alchemists, engineers, and scientists for generations, laboring on projects that bring smoke and fire to the field of battle. You gain fire resistance equal to half your level (minimum 1). You automatically succeed at the DC 5 flat check to target a "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " creature if that creature is concealed only by smoke."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": "max(1, floor(@level / 2))"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.n2eJEjA8pnOMiuCm"
+    },
+    "data": {
+      "ancestry": "ae650280-2c4f-57e9-ab05-a6177f20a21c"
+    }
+  },
+  {
+    "id": "79bfbe10-ece5-56ab-b547-99f5bcb4a6ff",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:snaptongue-tripkee",
+    "name": "Snaptongue Tripkee",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your tongue is especially long, and you can launch it with extraordinary range and precision. You can use your tongue to deliver spells with a range of touch and perform extremely simple Interact actions, such as opening some types of unlocked doors. Your tongue can't perform actions that require fingers or significant manual dexterity, including any action that would require a check to accomplish, and you can't use it to hold items."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.2kSzKDtwbcILZTIe"
+    },
+    "data": {
+      "ancestry": "7b90fab8-e442-5eeb-afa0-37ea2a60bd6e"
+    }
+  },
+  {
+    "id": "5f09a576-6fb0-5435-a666-d339c3e13cc5",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:snow-rat",
+    "name": "Snow Rat",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have a thicker coat and bulkier frame to defend against the cold, granting you cold resistance equal to half your level (minimum 1). You treat environmental cold effects as if they were one step less extreme (incredible cold becomes extreme, extreme cold becomes severe, and so on)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["cold"],
+        "value": "max(1, floor(@level / 2))"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.7lFPhRMAFXQsXUP2"
+    },
+    "data": {
+      "ancestry": "166604ea-3c4f-5953-8af5-6c68acca0f0e"
+    }
+  },
+  {
+    "id": "064418c8-c990-5e75-8f73-a2a2fed32704",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:spellhorn-kobold",
+    "name": "Spellhorn Kobold",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Since hatching in the vicinity of a powerful source of magic, a trace of it flows through your veins. Choose one common cantrip from the arcane spell list. You can Cast this Spell as an arcane innate spell at will. A cantrip is heightened to a spell rank equal to half your level rounded up. You are trained in the spell attack modifier and spell DC statistics, and your key spellcasting attribute is Charisma."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.VRyX00OuPGsJSurM"
+    },
+    "data": {
+      "ancestry": "e42e0bb3-3c3a-5c7f-a8be-ef4c3eae793b"
+    }
+  },
+  {
+    "id": "dcd46ba1-3b14-5d9c-baa0-6f003b5809d6",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:stickytoe-tripkee",
+    "name": "Stickytoe Tripkee",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your hands and feet exude a film that helps them adhere to surfaces. You gain a +2 circumstance bonus to your Fortitude and Reflex DC against attempts to "
+          },
+          {
+            "type": "ref",
+            "id": "ef57a555-f9e9-53cc-b09b-b7432156cbf1"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "082b982f-3ed4-5d9c-9722-9ab10198523a"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "2f5bb1a4-2a45-5c29-ad6a-7feba044cfaa"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "6257c7f0-f483-53d3-a791-d73a616cbce4"
+          },
+          {
+            "type": "text",
+            "text": " you. When ascending trees, vines, and other foliage, if you roll a success on the Athletics check to Climb, you get a critical success instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["fortitude-dc", "reflex-dc"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["action:disarm", "action:shove", "action:trip", "action:reposition"]
+          }
+        ]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill:athletics"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "predicate": [
+          "action:climb",
+          {
+            "or": ["terrain:forest", "terrain:foliage"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.rFdVYKtHsZzRCsSd"
+    },
+    "data": {
+      "ancestry": "7b90fab8-e442-5eeb-afa0-37ea2a60bd6e"
+    }
+  },
+  {
+    "id": "7b914e2c-9879-50c5-ba22-b45c6e3b15cb",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:stormtossed-tengu",
+    "name": "Stormtossed Tengu",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whether due to a blessing from Hei Feng or hatching from your egg during a squall, you are resistant to storms. You gain electricity resistance equal to half your level (minimum 1). You automatically succeed at the flat check to target a "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " creature if that creature is concealed only by rain or fog."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["electricity"],
+        "value": "max(1, floor(@level / 2))"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.7vHLPleFpSqKAjWG"
+    },
+    "data": {
+      "ancestry": "a25b24fd-47a6-5f22-b7c0-c8102e5708a7"
+    }
+  },
+  {
+    "id": "380270d1-1815-5162-b8e7-861130207501",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:strongjaw-kobold",
+    "name": "Strongjaw Kobold",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your warren is noted for their powerful jaws and sharp teeth, either to help protect against natural predators or due to reverence of a mighty beast. You gain a jaws unarmed attack that deals 1d6 piercing damage. Your jaws are in the brawling group and have the finesse and unarmed traits."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "jaws",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["finesse", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "piercing"
+        },
+        "display": {
+          "label": "Jaws"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.WaCn0mcivFv1omNK"
+    },
+    "data": {
+      "ancestry": "e42e0bb3-3c3a-5c7f-a8be-ef4c3eae793b"
+    }
+  },
+  {
+    "id": "930c6fc3-8fe4-559e-beab-dc417009c129",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:sweetbreath-kholo",
+    "name": "Sweetbreath Kholo",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're a striped, pale-furred kholo with oddly pleasant breath, which you can use to entrance your prey. You are trained in Diplomacy (or another skill if you were already trained in Diplomacy). You also gain a +1 circumstance bonus to checks to "
+          },
+          {
+            "type": "ref",
+            "id": "722e5346-27c0-5157-b5a9-e6018df94150"
+          },
+          {
+            "type": "text",
+            "text": " if the target can smell your breath."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:diplomacy",
+        "rank": "trained"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "circumstance",
+        "value": 1,
+        "slug": "sweetbreath-kholo",
+        "predicate": ["action:make-an-impression", "option:sweet-breath"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.B89BCo6LtI3SJq54"
+    },
+    "data": {
+      "ancestry": "0c5b0f7e-e622-5455-bbc6-45ee56dad336"
+    }
+  },
+  {
+    "id": "465ebb5e-154a-59a2-86bc-11edf47582fe",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:taloned-tengu",
+    "name": "Taloned Tengu",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your talons are every bit as sharp and strong as your beak. You gain a talons unarmed attack that deals 1d4 slashing damage. Your talons are in the brawling group and have the agile, finesse, unarmed, and versatile P traits."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "talon",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["agile", "finesse", "unarmed", "versatile-p"],
+        "damage": {
+          "dice": 1,
+          "die": "d4",
+          "damageType": "slashing"
+        },
+        "display": {
+          "label": "Talon"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.qM566kCXljkOpocA"
+    },
+    "data": {
+      "ancestry": "a25b24fd-47a6-5f22-b7c0-c8102e5708a7"
+    }
+  },
+  {
+    "id": "79ce4dc5-a8ec-5ce7-90ae-d0a1ce7ec7e1",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:thickskin-tripkee",
+    "name": "Thickskin Tripkee",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your thick leathery skin resembles that of a toad. You gain 8 Hit Points from your ancestry instead of 6. You gain a +1 circumstance bonus to saves against diseases and poisons."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["item:trait:disease", "item:trait:poison"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.2QLKvmCimT9ai0Bi"
+    },
+    "data": {
+      "ancestry": "7b90fab8-e442-5eeb-afa0-37ea2a60bd6e"
+    }
+  },
+  {
+    "id": "890c60d0-dd8e-51a6-8e95-75fab0b0e98b",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:tunnel-rat",
+    "name": "Tunnel Rat",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can easily compress your body and squeeze through gaps. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "8d5acd26-e889-5893-a9e0-1bff8da9f84e"
+          },
+          {
+            "type": "text",
+            "text": " feat as a bonus feat, even if you aren't trained in Acrobatics. Tight spaces not tight enough to require the "
+          },
+          {
+            "type": "ref",
+            "id": "c677e3a9-1109-541c-8888-d97a6129acda"
+          },
+          {
+            "type": "text",
+            "text": " action aren't difficult terrain for you."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "8d5acd26-e889-5893-a9e0-1bff8da9f84e"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.U882U2NUUGL6u3rL"
+    },
+    "data": {
+      "ancestry": "166604ea-3c4f-5953-8af5-6c68acca0f0e"
+    }
+  },
+  {
+    "id": "6725c842-cb75-51de-a387-9cd898cecb4a",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:tunnelflood-kobold",
+    "name": "Tunnelflood Kobold",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You grew up in a warren crisscrossed by underwater passages, whether natural or excavated, and were influenced by a powerful aquatic entity or being of primal water. You gain a swim Speed of 15 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.ZW8GX14n3ZGievK1"
+    },
+    "data": {
+      "ancestry": "e42e0bb3-3c3a-5c7f-a8be-ef4c3eae793b"
+    }
+  },
+  {
+    "id": "0c5f74bc-e11f-5649-9451-664371d7e63e",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:unseen-lizardfolk",
+    "name": "Unseen Lizardfolk",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can change your skin color to blend in with your surroundings, making minor shifts with a single action and dramatic changes over the course of an hour. When you're in an area where your coloration is roughly similar to the environment (for instance, forest green in a forest), you can use the minor, single-action application of this ability to make localized changes that help you blend into your surroundings, gaining a +2 circumstance bonus to Stealth checks until your surroundings change in coloration or pattern."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["option:coloration-matches"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.VYfpTUuXJM3iBOz0"
+    },
+    "data": {
+      "ancestry": "d82fc8f3-fd76-5ccb-8b83-d94c4aec7aaa"
+    }
+  },
+  {
+    "id": "bf8087ab-475e-5fe6-8244-7fd6460a2713",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:venomtail-kobold",
+    "name": "Venomtail Kobold",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Thanks to the proximity of a venomous creature to your warren, you were born with a vestigial spur in your tail that secretes deadly venom. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "a6278516-eae1-58fe-b671-3f44c279a45b"
+          },
+          {
+            "type": "text",
+            "text": " action."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "a6278516-eae1-58fe-b671-3f44c279a45b"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.m9rrlchS10xHFA2G"
+    },
+    "data": {
+      "ancestry": "e42e0bb3-3c3a-5c7f-a8be-ef4c3eae793b"
+    }
+  },
+  {
+    "id": "72351e21-66a2-5c7a-93af-b07677877798",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:warmarch-hobgoblin",
+    "name": "Warmarch Hobgoblin",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You come from a line of wandering mercenaries constantly on the march and scavenging food on the trail. If you fail, but don't critically fail, to "
+          },
+          {
+            "type": "ref",
+            "id": "897dec4f-1321-59a1-bb19-085290e409f0"
+          },
+          {
+            "type": "text",
+            "text": " in the wilderness, you can still keep yourself fed with poor meals. When exploring, you can "
+          },
+          {
+            "type": "ref",
+            "id": "80d65abb-eee5-5673-a8ed-871abd9c89f2"
+          },
+          {
+            "type": "text",
+            "text": " twice as long before you have to stop."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.K124fCpU03SJvmeP"
+    },
+    "data": {
+      "ancestry": "ae650280-2c4f-57e9-ab05-a6177f20a21c"
+    }
+  },
+  {
+    "id": "cff76b3a-9687-5353-ac5e-bdaf175e5e9f",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:warrenbred-hobgoblin",
+    "name": "Warrenbred Hobgoblin",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your ancestors lived underground. Your ears are larger than those of other hobgoblins and sensitive to echoes. While you're underground, when you target an opponent that is "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " from you or "
+          },
+          {
+            "type": "ref",
+            "id": "d851e3ca-be0d-55a7-a4d1-d7ed8b7ecafa"
+          },
+          {
+            "type": "text",
+            "text": " from you, reduce the DC of the flat check to 3 for a concealed target or 9 for a hidden one. In addition, if you roll a success on an Acrobatics check to "
+          },
+          {
+            "type": "ref",
+            "id": "c677e3a9-1109-541c-8888-d97a6129acda"
+          },
+          {
+            "type": "text",
+            "text": ", you get a critical success instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill:acrobatics"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "predicate": ["action:squeeze"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.0vaeOoECfVD5EGbq"
+    },
+    "data": {
+      "ancestry": "ae650280-2c4f-57e9-ab05-a6177f20a21c"
+    }
+  },
+  {
+    "id": "2a0330f8-782d-5d52-a95c-cd1b680c9650",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:wavediver-tengu",
+    "name": "Wavediver Tengu",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're one of the rare tengu who can cut through water like a bird through air, and you often lurk in rivers or oceans where few expect you. You gain a swim Speed of 15 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:swim",
+        "mode": "upgrade",
+        "value": 15
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.WEzgrxBRFBGdj8Hx"
+    },
+    "data": {
+      "ancestry": "a25b24fd-47a6-5f22-b7c0-c8102e5708a7"
+    }
+  },
+  {
+    "id": "317c556c-431d-50a4-99a6-906855844961",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:wetlander-lizardfolk",
+    "name": "Wetlander Lizardfolk",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your family is descended from the most common lizardfolk heritage, and you are accustomed to aquatic environments. You gain a 15-foot swim Speed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:swim",
+        "mode": "upgrade",
+        "value": 15
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.dJeiekfqGQ8dkwsO"
+    },
+    "data": {
+      "ancestry": "d82fc8f3-fd76-5ccb-8b83-d94c4aec7aaa"
+    }
+  },
+  {
+    "id": "f7e2de24-bffb-586a-8552-ade8103e7da0",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:windweb-tripkee",
+    "name": "Windweb Tripkee",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Tough webbing along your hands and toes can slow any fall. As long as you have one hand free, you take no falling damage, regardless of the distance you fall."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.xaTTN5anLEBzWCzv"
+    },
+    "data": {
+      "ancestry": "7b90fab8-e442-5eeb-afa0-37ea2a60bd6e"
+    }
+  },
+  {
+    "id": "2de22fe8-2bac-5310-a049-4d4dfbaa4512",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:winter-catfolk",
+    "name": "Winter Catfolk",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have a thick coat of fur that protects you from the cold. You gain cold resistance equal to half your level (minimum 1). You treat environmental cold effects as if they were one step less extreme (incredible cold becomes extreme, extreme cold becomes severe, and so on)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["cold"],
+        "value": "max(1, floor(@level / 2))"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.6dMd4JG0ndrObEUj"
+    },
+    "data": {
+      "ancestry": "12568aa7-1050-549d-88a0-9a7d9e804adb"
+    }
+  },
+  {
+    "id": "a6ba90b2-f05d-58de-852d-55aac4b978a9",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:winter-kholo",
+    "name": "Winter Kholo",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're a hardy kholo covered in thick, tufted fur that makes you able to survive in the harsh winters of the colder territories. You gain cold resistance equal to half your level (minimum 1). You treat environmental cold effects as if they were one step less extreme (incredible cold becomes extreme, extreme cold becomes severe, and so on)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["cold"],
+        "value": "max(1, floor(@level / 2))"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.hwRWx3hWx8ahBdz0"
+    },
+    "data": {
+      "ancestry": "0c5b0f7e-e622-5455-bbc6-45ee56dad336"
+    }
+  },
+  {
+    "id": "402172d1-e776-58ad-9c42-7d53c9821b90",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:witch-kholo",
+    "name": "Witch Kholo",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're a shaggy, dark-furred kholo capable of making some truly uncanny sounds. You can cast the "
+          },
+          {
+            "type": "ref",
+            "id": "d32836d8-9eeb-52c0-a7f8-6e0bc64ed7c7"
+          },
+          {
+            "type": "text",
+            "text": " cantrip as an occult innate spell at will. A cantrip is heightened to a spell rank equal to half your level rounded up. In addition, you gain a +1 circumstance bonus to checks to "
+          },
+          {
+            "type": "ref",
+            "id": "b905f68d-f05b-5179-8c61-b90a9c7d2bdb"
+          },
+          {
+            "type": "text",
+            "text": " and Impersonate when using only your voice."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": [
+          "option:auditory",
+          {
+            "or": ["action:impersonate", "action:create-a-diversion"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.kXp8qRh5AgtD4Izi"
+    },
+    "data": {
+      "ancestry": "0c5b0f7e-e622-5455-bbc6-45ee56dad336"
+    }
+  },
+  {
+    "id": "cf1f714d-75c4-582f-b1a5-0dd428c64e23",
+    "pack": "player-core-2",
+    "kind": "heritage",
+    "slug": "heritage:woodstalker-lizardfolk",
+    "name": "Woodstalker Lizardfolk",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You move easily through thick forest and jungle, using every branch or bush. You can always use the "
+          },
+          {
+            "type": "ref",
+            "id": "ef51d835-6ab6-513d-b582-80753efde13b"
+          },
+          {
+            "type": "text",
+            "text": " action when in forest or jungle terrain to gain cover, even if you're not next to an obstacle you would normally be able to Take Cover behind. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "64a7812f-3d66-543f-92ba-09b830326f80"
+          },
+          {
+            "type": "text",
+            "text": " feat, even if you're not trained in Stealth, and you must choose underbrush as your chosen terrain."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "64a7812f-3d66-543f-92ba-09b830326f80",
+        "choices": {
+          "terrain-stalker": "underbrush"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.TQFE10VFvh9wb8zb"
+    },
+    "data": {
+      "ancestry": "d82fc8f3-fd76-5ccb-8b83-d94c4aec7aaa"
+    }
+  }
+]

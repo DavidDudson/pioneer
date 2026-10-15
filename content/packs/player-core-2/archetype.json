@@ -1,0 +1,2783 @@
+[
+  {
+    "id": "33d7fbb0-eef8-551d-86c2-4a6a861cd18c",
+    "pack": "player-core-2",
+    "kind": "archetype",
+    "slug": "archetype:acrobat",
+    "name": "Acrobat",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have trained your body to perform incredible, seemingly superhuman feats of grace and agility. You move in ways that leave your opponents fumbling for a response, turning every fight into a nimble piece of performance art."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Often underestimated, such mastery over the body is useful both on a stage and a battlefield. In fact, acrobatics is an often-practiced art among thieves, assassins, and explorers."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.rhDvoOHAhAlABiae"
+    },
+    "data": {
+      "dedication": "6abeecde-b4d0-5f5d-9695-b479d1fafa94"
+    }
+  },
+  {
+    "id": "6403db06-91cd-522f-94a3-5cb6a0cc5565",
+    "pack": "player-core-2",
+    "kind": "archetype",
+    "slug": "archetype:alchemist",
+    "name": "Alchemist",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You enjoy tinkering with alchemical formulas and substances in your spare time, and your studies have progressed beyond mere experimentation."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.Ux0sa5SUBu616i5k"
+    },
+    "data": {
+      "dedication": "6b8aaa32-96b9-56ac-bfa7-d9fcc89a55b9",
+      "multiclass": "152ce81a-002e-52b2-bc20-3a68af214cf8"
+    }
+  },
+  {
+    "id": "a85ffecf-2cf4-5eb8-8d47-75bc66f8be97",
+    "pack": "player-core-2",
+    "kind": "archetype",
+    "slug": "archetype:archaeologist",
+    "name": "Archaeologist",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Adventurers raid tombs for material gain, but true archaeologists treasure the knowledge attained from such sites. You might accomplish your goals with scholarly learning, by training to overcome the tricks and traps set by ancient peoples and rivals, through magical training, or even with a bit of inexplicable luck. Many archaeologists practice a combination of all these approaches. Regardless of method, all archaeologists possess a deep desire to learn more about sapient history and prehistory. Adventuring through tombs, dodging traps, and studying magic are all means to better understand ancient sites, analyze artifacts, and decipher the meaning of any remains that can be found from previous inhabitants. You decide how you will uncover the secrets of the past and what to do with the answers you find."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "4th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Trap Finder; "
+          },
+          {
+            "type": "text",
+            "text": "10th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Delay Trap"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.O79hOcsaQyj3aQC5"
+    },
+    "data": {
+      "dedication": "62bd72ea-57fc-5e86-b3ed-e02d2b3e777d"
+    }
+  },
+  {
+    "id": "73ace9ba-4710-50a1-913b-5437bf4be3a8",
+    "pack": "player-core-2",
+    "kind": "archetype",
+    "slug": "archetype:archer",
+    "name": "Archer",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Bows of all types are powerful weapons. Generals and hunters alike recognize the power in dealing death from a distance, and from behind safe cover. Those dedicated to the bow—from mysterious cloaked strangers to heartless snipers—are often viewed with a mixture of respect and fear. Like any weapons adept, the archer's skill is forged through experience and constant practice. A true archer becomes one with their bow and is able to make incredible shots with their weapon that most would consider impossible, or at the very least magical."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "4th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Assisting Shot, Crossbow Ace, Point-Blank Shot; "
+          },
+          {
+            "type": "text",
+            "text": "6th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Double Shot, Parting Shot, Running Reload; "
+          },
+          {
+            "type": "text",
+            "text": "8th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Triple Shot; "
+          },
+          {
+            "type": "text",
+            "text": "10th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Mobile Shot Stance; "
+          },
+          {
+            "type": "text",
+            "text": "18th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Multishot Stance; "
+          },
+          {
+            "type": "text",
+            "text": "20th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Impossible Volley"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.o71hqcfzhCKXcSml"
+    },
+    "data": {
+      "dedication": "650125d5-2b7b-5d93-b021-18623e635353"
+    }
+  },
+  {
+    "id": "4a529bba-fa11-59f2-933f-af235acca028",
+    "pack": "player-core-2",
+    "kind": "archetype",
+    "slug": "archetype:assassin",
+    "name": "Assassin",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Targeted killing through stealth and subterfuge is the expertise of an assassin. While assassins are skilled in ending lives and many are evil, some live by a moral code, preying on the wicked, the cruel, or those who revel in unchecked aggression or power."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "4th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Poison Resistance; "
+          },
+          {
+            "type": "text",
+            "text": "6th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Poison Weapon, Sneak Attacker; "
+          },
+          {
+            "type": "text",
+            "text": "10th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Improved Poison Weapon"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.0e2o62hyCxbIkVoC"
+    },
+    "data": {
+      "dedication": "81c347a3-4db5-55ed-812c-dc386c180282"
+    }
+  },
+  {
+    "id": "67cad214-881e-5cf1-bf26-6c3a74a35698",
+    "pack": "player-core-2",
+    "kind": "archetype",
+    "slug": "archetype:barbarian",
+    "name": "Barbarian",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "There's a rage deep inside you that sometimes breaks loose, granting you some of the might of a barbarian in addition to your other abilities."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.uYCTmos3yZtbD9qs"
+    },
+    "data": {
+      "dedication": "aa2c211e-3b44-5616-bbf3-972cd66cac0f",
+      "multiclass": "38a90789-d5d6-5872-8226-07552c42537b"
+    }
+  },
+  {
+    "id": "ccc3f1c5-d387-5721-8074-5263c37f25d8",
+    "pack": "player-core-2",
+    "kind": "archetype",
+    "slug": "archetype:bastion",
+    "name": "Bastion",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Some say that a good offense is the best defense, but you find such boasting smacks of overconfidence. In your experience, the best defense is a good, solid shield between you and your enemies. You've focused your training on how best to use a shield to protect yourself and those around you. Darting around in search of cover isn't necessary when you carry your cover with you. With a shield in your hand, you are akin to a mobile fortress. You repel assaults and stand strong against the tide of enemies, secure in the knowledge that you have your most trusted companion at your side: your shield. This long-lasting fighting style has existed for ages due to its practicality and propensity for survival among its practitioners. While some prefer the nimbleness of a free hand or the power of a larger weapon, a bastion knows that surviving a little bit longer is worth more than a quicker or stronger attack"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "6th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Shielded Stride; "
+          },
+          {
+            "type": "text",
+            "text": "8th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Reflexive Shield, Shield Warden (Fighter); "
+          },
+          {
+            "type": "text",
+            "text": "10th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Quick Shield Block; "
+          },
+          {
+            "type": "text",
+            "text": "12th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Mirror Shield, Shield Salvation"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.C3P0TycdFCN02p9u"
+    },
+    "data": {
+      "dedication": "29cf89d3-d1ed-5418-8e21-13a4f5e26c56"
+    }
+  },
+  {
+    "id": "8cafc248-4e40-5b5e-9ff7-9744d55b52d4",
+    "pack": "player-core-2",
+    "kind": "archetype",
+    "slug": "archetype:beastmaster",
+    "name": "Beastmaster",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You attract the loyalty of animals, and as your powers increase, you can command more of them, briefly inhabit their body to perceive what they perceive, and even communicate with them over vast distances."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "4th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Animal Empathy (Ranger), Initiate Warden(Heal Companion and Magic Hide only); "
+          },
+          {
+            "type": "text",
+            "text": "6th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Advanced Warden (Enlarge Companion only), Companion's Cry; "
+          },
+          {
+            "type": "text",
+            "text": "14th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Side by Side. Warden spells granted by these feats are beastmaster focus spells for you."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Beastmaster Animal Companions"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "If you're playing a beastmaster, you determine the statistics and abilities of your animal companions according to the rules on pages 206–211 of "
+              },
+              {
+                "type": "text",
+                "text": "Player Core",
+                "marks": ["emphasis"]
+              },
+              {
+                "type": "text",
+                "text": ". As a beastmaster, it's possible for you to have more than one animal companion at one time—up to four companions—but only one of those companions, your \"active companion,\" follows you during exploration and in encounters; the rest are nearby, usually foraging or hunting for food. As soon as you gain a second animal companion from the Beastmaster archetype, you also gain "
+              },
+              {
+                "type": "ref",
+                "id": "2b6cf5fe-630b-5a54-b263-baaf009f2f04"
+              },
+              {
+                "type": "text",
+                "text": " to switch your active companion. These rules apply to all your companions, regardless of whether you got the animal companion from the beastmaster archetype or from another source."
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.4VMzG36Pm1oivS6Y"
+    },
+    "data": {
+      "dedication": "881bf709-8166-5473-85e0-d62822dbd07e"
+    }
+  },
+  {
+    "id": "26b433e3-736d-59dd-b251-440b441f770a",
+    "pack": "player-core-2",
+    "kind": "archetype",
+    "slug": "archetype:blessed-one",
+    "name": "Blessed One",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Through luck or deed, heritage or heroics, you carry the blessing of a deity. This blessing manifests as the ability to heal wounds and remove harmful conditions, and exists independent of any worship. You might offer gratitude daily to the deity whose power you wield, or you might carry these blessings reluctantly, seeking to avoid responsibility or even openly acting to defy the deity's influence on you. You might wear the robes of the deity's order, or you might give little thought and even less reverence to the source of your powers. However you feel about these potent gifts, there can be no doubt that you wield a special power. Benevolent deities are most likely to empower a blessed one. However, any deity can grant such a blessing, as long as they're capable of granting a healing divine font to their clerics. This means such deities as Lamashtu might grant the blessed one's powers for their own purposes. Despite this possibility, it's quite uncommon for deities of cruelty, death, and destruction to grant the power of rejuvenation. When this does occur, the deity usually has a malicious intent behind the gift. Ultimately, you decide how you will use this gift. Will you aid the deity who granted you this power, or will you work in defiance of them?"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "6th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "c8d1beb1-8285-5eae-9283-5fc6c0ed6cc0"
+          },
+          {
+            "type": "text",
+            "text": "; "
+          },
+          {
+            "type": "text",
+            "text": "10th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "a22ecef5-64d0-56f5-8906-b86afb1e913e"
+          },
+          {
+            "type": "text",
+            "text": "; "
+          },
+          {
+            "type": "text",
+            "text": "14th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "8ca96c57-861b-50f1-9d3b-6ba2a7bf9969"
+          },
+          {
+            "type": "text",
+            "text": "; "
+          },
+          {
+            "type": "text",
+            "text": "20th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "d8932bf3-5d9b-5849-b0eb-0dba8052c95b"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "7d3d7575-8c0f-56fc-bf4d-8e672a5a3d0f"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.SUDV5hFZ9WocxWqv"
+    },
+    "data": {
+      "dedication": "becb3368-7b40-5f8a-9607-a49504385a05"
+    }
+  },
+  {
+    "id": "8fb27988-e5ed-554a-8dc5-580e2ce53693",
+    "pack": "player-core-2",
+    "kind": "archetype",
+    "slug": "archetype:bounty-hunter",
+    "name": "Bounty Hunter",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whether for coin, glory, or justice, you know how to track, defeat, and capture dangerous individuals. You're accustomed to perusing wanted posters, following up on leads, and pursuing your quarry to hell and back. Once you locate your prey's trail, you're unshakable. Additionally, you have the skills and experience to subdue even the most troublesome mark and bring them in to secure your reward."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "4th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Monster Hunter; "
+          },
+          {
+            "type": "text",
+            "text": "14th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Double Prey"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.Fea8ZereQhNolDoP"
+    },
+    "data": {
+      "dedication": "777bb4ae-1fb0-56e7-bf49-be9f4ddebba8"
+    }
+  },
+  {
+    "id": "5542e673-68bf-595f-a16c-da7d741bf0d2",
+    "pack": "player-core-2",
+    "kind": "archetype",
+    "slug": "archetype:cavalier",
+    "name": "Cavalier",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are a skilled and dedicated warrior on the battlefield who specializes in fighting astride a powerful animal companion that serves as your mount. You and your mount are an unparalleled team, moving with shared intent to become a powerful force in combat. You might wield a banner in the name of an order of which you're a member, a liege to whom you've sworn your service, or an ideal you uphold. Or you might fight solely to further enrich your own prestige, reputation, and coffers. Traditionally, cavaliers are envisioned riding atop majestic or fearsome horses, but in reality, all kinds of animals can serve this honorable role, from riding dogs to dinosaurs. What's important is not the type of mount but the connection between the cavalier and their companion. This bond is their true strength."
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Cavalier Pledges"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "Many cavaliers pledge themselves in service to a specific organization or individual, such as a noble family or sovereign ruler, a knightly order or another organization, or particular ideal. A cavalier pledged to an order or ideal must uphold its edicts and is beholden to any anathema it has; for example, a cavalier pledged to the druid's animal order would be tied to that anathema, while a cavalier pledged to the church of Abadar would be held to the same standards as a cleric of that god. If you pledge yourself to an entity or cause without a stated anathema, you should work with your GM to determine the edicts and anathema associated with your pledge. Cavaliers who have pledged themselves can gain access to certain abilities related to that pledge, such as Cavalier's Banner. If you violate the anathema of your pledge, you lose access to those feats until you benefit from an "
+              },
+              {
+                "type": "text",
+                "text": "Atone",
+                "marks": ["emphasis"]
+              },
+              {
+                "type": "text",
+                "text": " ritual. Changing the subject of your pledge is equivalent to retraining a class feature."
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.nmcEiM2gjqjGWp2c"
+    },
+    "data": {
+      "dedication": "706dede8-e73f-5d4a-b251-064525e314e1"
+    }
+  },
+  {
+    "id": "c7a38a7b-0425-5769-a53e-49a80e9dcee7",
+    "pack": "player-core-2",
+    "kind": "archetype",
+    "slug": "archetype:celebrity",
+    "name": "Celebrity",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're a special personality... and you know it. You're not merely comfortable in the spotlight, you crave it. While the traditional celebrity is a musician or another type of performer, you could be known for any occupation. You know how to use your position to command the attention of others or steal it away from those around you. While you're in a room all eyes are on you, and you love it. Your life is a show, and you are here to steal the love and admiration of everyone watching."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.h1zdUIWX1k5PKTnc"
+    },
+    "data": {
+      "dedication": "bbf74d16-a050-5520-a8b2-da7171836dad"
+    }
+  },
+  {
+    "id": "acf91371-6323-58d9-8e50-79fdf5d83746",
+    "pack": "player-core-2",
+    "kind": "archetype",
+    "slug": "archetype:champion",
+    "name": "Champion",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have sworn a solemn oath to your deity, who has granted you champion powers to aid you in your cause."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.DXtjeVaWNB8zSjpA"
+    },
+    "data": {
+      "dedication": "a9210b6a-d2cf-5f04-afb7-582473306d4b",
+      "multiclass": "fb815ffa-994d-5b5b-9d58-0a89d3d7dfdb"
+    }
+  },
+  {
+    "id": "54526bd4-8bd7-5e1c-a68f-dca95255e2f2",
+    "pack": "player-core-2",
+    "kind": "archetype",
+    "slug": "archetype:dandy",
+    "name": "Dandy",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are a genteel master of style, culture, and decorum, aware of even the subtlest rules of etiquette."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.s9kLzXOCl2GNT6TY"
+    },
+    "data": {
+      "dedication": "bd39d0d0-20f3-5467-b974-1827614cdbb7"
+    }
+  },
+  {
+    "id": "471ac296-b5ba-568a-9e04-abb73906e415",
+    "pack": "player-core-2",
+    "kind": "archetype",
+    "slug": "archetype:dual-weapon-warrior",
+    "name": "Dual-Weapon Warrior",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're able to effortlessly fight with multiple weapons simultaneously, weaving your weapons together into a storm of quick attacks. To you, continual offense is the best form of defense, and you leave little room for your foes to avoid your whirlwind of weapons. Your unconventional fighting style still manages to weave in a unique kind of defense, blocking blade with blade, all without sacrificing power. Speed is your friend, and stagnation can mean ruin. Your attacks come fast and from unexpected angles. Become one with the blur of weapons and find victory."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "4th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Quick Draw, Dual-Weapon Reload; "
+          },
+          {
+            "type": "text",
+            "text": "6th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Twin Parry; "
+          },
+          {
+            "type": "text",
+            "text": "12th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Twin Riposte; "
+          },
+          {
+            "type": "text",
+            "text": "16th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Improved Twin Riposte, Two-Weapon Flurry; "
+          },
+          {
+            "type": "text",
+            "text": "18th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Twinned Defense"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.sAFWD8D0RKH4m25n"
+    },
+    "data": {
+      "dedication": "530bf885-c5f2-5563-9f8e-e0d792b7f575"
+    }
+  },
+  {
+    "id": "b7e693ad-d65d-54d9-95f7-5da4f43a8fd4",
+    "pack": "player-core-2",
+    "kind": "archetype",
+    "slug": "archetype:duelist",
+    "name": "Duelist",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "All across the world, students in fencing academies practice with their weapons to master one-on-one combat. The libraries of these schools contain troves of information, detailing hundreds of combat techniques, battle stances, and honorable rules of engagement. Those who gain admission to such training classes might duel in formalized settings—and that's certainly the more genteel route to take. However, others assert that there's no better training ground for duels than the chaotic life of an adventurer. In such situations, a flexible, single‑handed fighting style is invaluable. You never know when you'll need an extra hand to shove a foe, haul open a door, or grab valuable loot. You can accomplish such deeds with style and grace. Regardless of your method, fighters such as you are feared across the land."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "4th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Dueling Parry; "
+          },
+          {
+            "type": "text",
+            "text": "8th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Disarming Stance; "
+          },
+          {
+            "type": "text",
+            "text": "10th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Dueling Riposte; "
+          },
+          {
+            "type": "text",
+            "text": "12th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Disarming Twist; "
+          },
+          {
+            "type": "text",
+            "text": "14th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Dueling Dance, Improved Dueling Riposte; "
+          },
+          {
+            "type": "text",
+            "text": "16th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Guiding Riposte"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.BwPUY2X7TSmlJj5c"
+    },
+    "data": {
+      "dedication": "5f0f0fdd-3ea2-5230-bcc9-64e5c848f123"
+    }
+  },
+  {
+    "id": "75124d6a-ae30-596c-9f83-1161ac22fbe0",
+    "pack": "player-core-2",
+    "kind": "archetype",
+    "slug": "archetype:eldritch-archer",
+    "name": "Eldritch Archer",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While many archers see their craft as an art form as much as a means of battle, a small number of archers seek to perfect their skills through magic, and you are among their number. Bolstering your athletic and martial abilities with mystical talents, you achieve rare heights with the bow or crossbow—transforming arrows or bolts into eldritch ammunition, sending projectiles zig‑zagging unerringly to their targets, and manifesting arrows that can deliver spells or even instant death. The imbuing of raw magic into the point of an arrow is no easy feat. Eldritch archers are respected and feared for their prowess and make valuable members for any party of adventurers."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While having some spellcasting ability increases your flexibility and power as an eldritch archer, you might learn the secrets of these arts without being independently skilled in spellcasting, instead learning the magic of the bow for its own sake. In fact, many eldritch archers begin as archers first and spellcasters second. That is not to say that the occasional spellcaster has not picked up archery. In fact, many wizards, wise in the art of war, have studied the bow, particularly to master this art. Ultimately, what matters is a perfect combination of martial skill and magical ability; the order you go about obtaining them matters little."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "8th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Running Reload; "
+          },
+          {
+            "type": "text",
+            "text": "20th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Impossible Volley"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.6A9zBmTyt8cn6ioa"
+    },
+    "data": {
+      "dedication": "5e186f9b-1169-59a2-8027-71ca5e000dca"
+    }
+  },
+  {
+    "id": "fa98b6a9-1034-56ee-a5f1-772da6ddefed",
+    "pack": "player-core-2",
+    "kind": "archetype",
+    "slug": "archetype:familiar-master",
+    "name": "Familiar Master",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "From the wise owl perched on the wizard's shoulder to the crafty gremlin that serves the witch for their own reasons, the ghastly homunculus in the alchemist's lab to the clever monkey that picks the lock of the thief's cell, familiars have always served. Yours serves better than most. This is often due to an unusually strong connection or rigorous intentional training. Regardless of the method, the extraordinary qualities of your familiar are undeniable."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You and your familiar are a team in and of yourselves. In a tough situation, you know you have each other's back, and you are nigh inseparable. Some familiar masters, however, choose to keep familiars for only a short period. They will keep their ally for a time, then release them and forge a new bond. They form strong connections quickly and attract new familiars everywhere they go. This behavior is less common but is often done out of a high level of respect for the independence of both the adventurer and the familiar, or a strong connection to the ebb and flow of life and the cycle of change that touches all things. You are among these masters and can decide which practice best suits you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "4th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Enhanced Familiar"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.yaR8E2drX6pFUFCK"
+    },
+    "data": {
+      "dedication": "4895f5ed-5768-5ff2-86cb-72d15aac750f"
+    }
+  },
+  {
+    "id": "2d1b989a-80e7-597a-b25f-7441f7417e45",
+    "pack": "player-core-2",
+    "kind": "archetype",
+    "slug": "archetype:gladiator",
+    "name": "Gladiator",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The roar of the crowd and thrill of competitive combat drive you to become the best—and the fame isn't bad either. You always do your best work under the fervent gaze of spectators, and by work, you of course mean violence."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.gfhnRp2TEy9JCfHI"
+    },
+    "data": {
+      "dedication": "584b2b67-0208-5eb8-9067-08189007c891"
+    }
+  },
+  {
+    "id": "84f19ee4-4097-575f-8190-7303b391945e",
+    "pack": "player-core-2",
+    "kind": "archetype",
+    "slug": "archetype:herbalist",
+    "name": "Herbalist",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The plants around you can provide more remedies than the finest hospital or temple, and you are skilled in their use. Nature always provides to those who know how to look, and you have always had a talent for seeing these gifts before you. You can put it to good use, healing those around you with nothing more than what the world provides."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.Rrjz5tMJtyVEQnh8"
+    },
+    "data": {
+      "dedication": "4c89e867-c984-5c91-ae38-2338c09f13fd"
+    }
+  },
+  {
+    "id": "d87a14e2-e058-5916-9254-02f234c905bf",
+    "pack": "player-core-2",
+    "kind": "archetype",
+    "slug": "archetype:investigator",
+    "name": "Investigator",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've developed a keen eye for investigating mysteries."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.mmB3EkkdCpLke7Lk"
+    },
+    "data": {
+      "dedication": "e6d62df0-2b80-5568-be06-d792a5f3a51b",
+      "multiclass": "fcfe9e5f-a7fa-5e77-a5b7-7561edddf08a"
+    }
+  },
+  {
+    "id": "760a79e1-23ee-59e0-acc3-3e524b8e4ea4",
+    "pack": "player-core-2",
+    "kind": "archetype",
+    "slug": "archetype:linguist",
+    "name": "Linguist",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whether you study to further your own ambitions or simply out of fascination with the intricacies of language, your way with words is unparalleled."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.mtc5frNxUHORGscz"
+    },
+    "data": {
+      "dedication": "0e1eb693-2d68-58e6-bf13-ec407d5890e2"
+    }
+  },
+  {
+    "id": "4aa35a7a-409d-517f-8c02-5c195f911ff1",
+    "pack": "player-core-2",
+    "kind": "archetype",
+    "slug": "archetype:marshal",
+    "name": "Marshal",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Marshals are leaders, first and foremost. Marshals can come from any class or background, though they all share a willingness to sacrifice their own glory for the greater good of the team. Some marshals lead from the front, sword and shield raised, while others may call instructions and encouragements from the rear while providing allied spellcasters with skilled support. Regardless of their preferred method of combat, marshals' ability to bring the best out in every ally is a valuable addition to any group. Though not every marshal is seen by their allies as a source of encouragement. Such marshals strike fear both in enemies and allies alike to inspire competence in battle and ensure that cowardice will not be tolerated. Such tactics are often seen as more practical than cruel, and the results speak for themselves. Quick action and the necessity to fight drive these leaders and their allies forward into the fray of battle. Regardless of what kind of marshal you wish to become, you will lead your allies to glory and victory."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While many see marshals as traditionally warriors of martial prowess, anyone could make for a potent marshal. Not every such leader charges into the thick of battle. While doing so may inspire bravery in desperate times, many leaders lead from the safety of the back lines. Spellcaster marshals often lead in this manner. In their mind, the practicality of their own survival outweighs the powerful yet fleeting courage a charge inspires. After all, more battles await in the future, and their skills may very well be needed again."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "8th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "2e75c400-24d4-5ae6-8568-e291a063a13d"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.1F84oh5hoG86mZIw"
+    },
+    "data": {
+      "dedication": "e0951420-29a9-5169-a3b7-1cad4a83e8e5"
+    }
+  },
+  {
+    "id": "58dbf486-cd2f-5622-833b-142bcf68a0f5",
+    "pack": "player-core-2",
+    "kind": "archetype",
+    "slug": "archetype:martial-artist",
+    "name": "Martial Artist",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have trained in the martial arts, making your unarmed strikes lethal. You seek neither mysticism nor enlightenment, and you don't view this training as some greater path to wisdom. Yours is the way of the fist striking flesh, the hand turning aside the blade, and the devastating kick taking your enemy down. Your training is focused and practical, and since you have turned every part of your body into a weapon, you never find yourself without one. While you might have learned your techniques in a dojo or school focused on training the body, you might just as easily have learned them in street brawls and bar fights, combining instincts with intense athleticism for a deadly combination."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Regardless of your origins, your path is one of iron, transforming your body into a deadly weapon. The techniques available are many, but the results are all the same. Whether you attack with your fist, fang, or foot, your prowess is undeniable. Many martial artists seek to master a stance to put form to their flurry of attacks. Such techniques allow one to channel their strength. However, some prefer freedom in form and reject stances altogether. You may find your own style or master one of the forms used by legendary martial artists."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "4th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Brawling Focus, "
+          },
+          {
+            "type": "ref",
+            "id": "72a215e0-48e2-5bda-aa68-f5fc4f785966"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "0b01caf9-ac6b-50b3-9206-979e04c06557"
+          },
+          {
+            "type": "text",
+            "text": ", Gorilla Stance, "
+          },
+          {
+            "type": "ref",
+            "id": "09fd5419-28f8-5774-a1ce-6bbe2414d9bb"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "8bdbccb0-2601-5f17-993a-47fe33860573"
+          },
+          {
+            "type": "text",
+            "text": ", Rushing Goat Stance "
+          },
+          {
+            "type": "ref",
+            "id": "16bacd46-84c7-554b-8908-4f0a86e68925"
+          },
+          {
+            "type": "text",
+            "text": ", Twisting Petal Stance, "
+          },
+          {
+            "type": "ref",
+            "id": "32bf9431-3a83-5808-ac8c-8fd6e96de85c"
+          },
+          {
+            "type": "text",
+            "text": "; "
+          },
+          {
+            "type": "text",
+            "text": "8th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Advanced Monastic Weaponry, "
+          },
+          {
+            "type": "ref",
+            "id": "4b7e7f64-0bdb-581d-bb4e-f4bf65a3b06f"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "ea63b0ee-3985-5b5c-98df-e0713dd4d515"
+          },
+          {
+            "type": "text",
+            "text": ", Gorilla Pound, Momentous Charge, "
+          },
+          {
+            "type": "ref",
+            "id": "f56a81bf-ee54-5374-9af2-9f1ca3703054"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "861bd3c5-3c42-5631-b53d-64c883c81a8a"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "6ec5ca74-cd8d-5386-93a6-bf0993cabf15"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "9cc255e0-5810-5b81-99e8-f77adb6ed94e"
+          },
+          {
+            "type": "text",
+            "text": "; "
+          },
+          {
+            "type": "text",
+            "text": "10th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Scattering in Spring, "
+          },
+          {
+            "type": "text",
+            "text": "14th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Five-Gods Ram, Whirling in the Summer Storm, "
+          },
+          {
+            "type": "text",
+            "text": "16th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "f6926fee-aa2a-588b-9363-feb5774369fa"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.N01RLMQPaSeoHEuL"
+    },
+    "data": {
+      "dedication": "e397ae96-b5e2-58a9-912a-de9d6dcc1db1"
+    }
+  },
+  {
+    "id": "1a884fe0-07c5-5faa-9a1c-a44e9fc0b409",
+    "pack": "player-core-2",
+    "kind": "archetype",
+    "slug": "archetype:mauler",
+    "name": "Mauler",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You shove your way through legions of foes, knock enemies on all sides to the ground, and deal massive blows to anyone or anything that comes near. You know that when it comes to taking down an enemy, it never hurts to have a bigger weapon."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "4th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Slam Down, Vicious Swing; "
+          },
+          {
+            "type": "text",
+            "text": "12th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Crashing Slam; "
+          },
+          {
+            "type": "text",
+            "text": "14th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Brutal Finish, "
+          },
+          {
+            "type": "ref",
+            "id": "d223dfec-d5d9-50e6-acff-c99e94dbd0e7"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.RoF5NOFBefXAPftS"
+    },
+    "data": {
+      "dedication": "6967d87d-f226-5062-bd41-5aab65b6887d"
+    }
+  },
+  {
+    "id": "baf7c850-c756-5b18-9981-926bd4746899",
+    "pack": "player-core-2",
+    "kind": "archetype",
+    "slug": "archetype:medic",
+    "name": "Medic",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've studied countless techniques for providing medical aid, making you a peerless doctor and healer. While many healers happily practice the art of medicine in the safety and serenity of stationary buildings, few are in more dire need of medicinal aid than adventurers. Such an occupation comes with frequent injuries that need constant attention. Few parties would ever turn down help from a practicing medic. In fact, the need for medicine is so great that many medics started as adventurers and took up medicine as a necessity. While patching up injuries is the most common practice of medics, they are also invaluable for their ability to help fight diseases and ailments inflicted by all kinds of creatures and traps. The adaptability and utility of the medic are undeniable. Whether you studied medicine for most of your life or picked it up on the road, you are who people turn to for aid."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.XWkyCVISmVtJ0ZY3"
+    },
+    "data": {
+      "dedication": "6c12f591-bf8d-5c31-a198-846cf371b9b2"
+    }
+  },
+  {
+    "id": "771efbb5-6178-5912-a950-b2f944577f7a",
+    "pack": "player-core-2",
+    "kind": "archetype",
+    "slug": "archetype:monk",
+    "name": "Monk",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Monastic training has taught you martial arts and allowed you to hone your mind, body, and spirit to new heights."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.5v7k1XWQxaP0DoGX"
+    },
+    "data": {
+      "dedication": "651f3bcc-e66f-5b45-9294-ef67f9afd1f1",
+      "multiclass": "700cefa6-5b68-5de4-a6c9-4f92ae425698"
+    }
+  },
+  {
+    "id": "ebc68030-fc37-53bc-829b-a3ac45aff18a",
+    "pack": "player-core-2",
+    "kind": "archetype",
+    "slug": "archetype:oracle",
+    "name": "Oracle",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A mysterious force granted you divine magic and a curse."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.ngVnNmi1Qke3lTy0"
+    },
+    "data": {
+      "dedication": "40924879-edb5-5fab-9fd9-d03df08ba512",
+      "multiclass": "009e4463-4cdf-5916-9017-22c9d6906363"
+    }
+  },
+  {
+    "id": "cdc1b968-acfa-585a-bed0-2d1e874dc0f6",
+    "pack": "player-core-2",
+    "kind": "archetype",
+    "slug": "archetype:pirate",
+    "name": "Pirate",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You live a life of freedom, taking by force and intimidation all that you could possibly desire. You may be a privateer, raiding and plundering on behalf of a particular nation or another authority, or you may answer to no one but your own capricious whims. Either way, you rely on intimidation, wits, and combat prowess to take what you want from those you deem less deserving."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Pirates have much in common with swashbucklers, and many pirates have the swashbuckler class or archetype. Much like a swashbuckler's daring deeds, classic pirate maneuvers are often showy feats intended to impress, intimidate, and gain panache. For example, if you have the panache class feature, Boarding Assault gains the bravado trait."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "4th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "13aff585-5254-516c-b9d5-48daf8311d3f"
+          },
+          {
+            "type": "text",
+            "text": ", You're Next"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.O9P1YgtiCgHlPNp5"
+    },
+    "data": {
+      "dedication": "860e124a-b497-5b12-b5b9-49ca58c0713e"
+    }
+  },
+  {
+    "id": "e3e242c9-483e-52e4-8f29-50a4a6b30bbc",
+    "pack": "player-core-2",
+    "kind": "archetype",
+    "slug": "archetype:poisoner",
+    "name": "Poisoner",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "People are so delightfully fragile when exposed to the insidious power of nature. The bite of a certain serpent makes the blood congeal to jelly. A particular stone, suitably powdered, induces powerful hallucinations and delirium. The sap of a rare tree inflicts such agony that death seems preferable. The deadly medicines of nature have been molded to create concoctions capable of both killing and debilitating. Neither option is pleasant for the unfortunate recipient. You are a student of such dark wonders, making you a dangerous foe indeed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "4th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "38168c6c-4aea-5f19-9a2c-47326c7c03c8"
+          },
+          {
+            "type": "text",
+            "text": ", Poison Resistance; "
+          },
+          {
+            "type": "text",
+            "text": "6th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Poison Weapon, "
+          },
+          {
+            "type": "ref",
+            "id": "ed33ec53-25f5-57ab-8443-1845764547f2"
+          },
+          {
+            "type": "text",
+            "text": "; "
+          },
+          {
+            "type": "text",
+            "text": "8th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "bbaae5e5-7cb8-5de0-a10f-3d0ca8b878bd"
+          },
+          {
+            "type": "text",
+            "text": "; "
+          },
+          {
+            "type": "text",
+            "text": "10th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Improved Poison Weapon, "
+          },
+          {
+            "type": "ref",
+            "id": "7551c206-c9b7-58f7-b2c0-edbb75794e8f"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.HvbDEgCsLbzuMRiR"
+    },
+    "data": {
+      "dedication": "10cdf6bf-85e7-51dd-82d5-fe7740134a07"
+    }
+  },
+  {
+    "id": "a61f8565-53bc-5e5f-9b04-d4e683c7d314",
+    "pack": "player-core-2",
+    "kind": "archetype",
+    "slug": "archetype:ritualist",
+    "name": "Ritualist",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While some learn the art of ritual casting through rigorous study, other gifted individuals may find that a combination of natural talent and luck grants them surprising skill at performing rituals, whether they want that power or not. Undertaking rituals always carries an element of risk, but the potential rewards are undeniable and difficult to resist. You have learned how to perform rituals and can decide how to best use their powerful benefits."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.Ph7yWRR376aYh12T"
+    },
+    "data": {
+      "dedication": "9d9a5125-cddc-5df6-b039-a794f98bc7a5"
+    }
+  },
+  {
+    "id": "20d1fe67-a0f1-5ff8-b832-f51ba6497d05",
+    "pack": "player-core-2",
+    "kind": "archetype",
+    "slug": "archetype:scout",
+    "name": "Scout",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're an expert in espionage and reconnaissance, able to skulk silently through the wilderness to gather intelligence, sneak through enemy lines and report back to your comrades, or suddenly and decisively take down your foes. Your skills ease the difficulty of travel for you and your companions and keep you all alert to approaching danger. It's not just enemies that you scout out; you also survey the land. You're able to discover the easiest routes as safely as possible and remain watchful while moving with speed and subtlety. The responsibility of the party's safe passage depends on you performing your scouting duties with constant and consistent effort. You take pride in your vigilance, and your allies trust your guidance to ensure the safety of everyone traveling."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "12th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Camouflage"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.bApp2BZEMuYQCTDM"
+    },
+    "data": {
+      "dedication": "ed5ac4cc-a50a-5656-8aed-bbb778727fd6"
+    }
+  },
+  {
+    "id": "7fbd26fe-81e6-5f44-bc9f-9e886fd5a7bf",
+    "pack": "player-core-2",
+    "kind": "archetype",
+    "slug": "archetype:scroll-trickster",
+    "name": "Scroll Trickster",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Magic has been written down in myriad forms for a very long time. From the classic rolled parchment to strings tied with a hundred intricate knots, from baked clay tablets covered with incisions to bound collections of bamboo slips, magic is everywhere. You just need to know how to read it. You have studied the art of reading magical scrolls of various kinds. The language of magic is yours to use and manipulate, however unstable and archaic such writing tends to be."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.4gKrDFB1GlILn9la"
+    },
+    "data": {
+      "dedication": "bcd1de9d-bddd-526f-bb75-012e902a182b"
+    }
+  },
+  {
+    "id": "71254bb9-a4d2-5a81-8323-a33c23ffdd75",
+    "pack": "player-core-2",
+    "kind": "archetype",
+    "slug": "archetype:scrounger",
+    "name": "Scrounger",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have spent countless hours disassembling and rebuilding complex items to learn how they work, giving you the skill to create just about anything from the most unlikely materials. While your improvised items don't last long, they tend to be just what you need in a pinch, and your enemies find that while they might be able to disarm you, the real challenge is keeping you that way. Locked rooms, diabolical traps, and desperate situations are each their own sort of puzzle to you, and the mundane objects around you are the pieces you use to improvise your own solutions. Few are more resourceful. Given time and a handful of gears, bits, and widgets, you can create the perfect tool for just about any situation. Your ingenuity is extremely valuable while adventuring. Adventurers never truly know what's in store for them and often find themselves ill-prepared for the task at hand. Bringing along a scrounger such as you is like bringing any tool that could possibly be needed, provided your constant attempts to break down and reassemble everything aren't a bother. You never know what you may need in the future."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.rlKxNuq1obXe3m5J"
+    },
+    "data": {
+      "dedication": "84418d44-14f4-5746-bf75-1cf3052b5dc8"
+    }
+  },
+  {
+    "id": "9e4cd20e-597f-5342-a688-b837d8866c57",
+    "pack": "player-core-2",
+    "kind": "archetype",
+    "slug": "archetype:sentinel",
+    "name": "Sentinel",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Armor offers solid, reassuring protection in combat, and as someone who faces danger on a regular basis, you have made it your business to get the most out of your defenses. You stand solid on any battlefield, encased in the sturdiest armor you can find. When danger threatens, your solid defenses will safely get you, and hopefully your companions, home again. As a sentinel, you might be part of an order of knights or bodyguards who trained you how best to take advantage of heavy armor. On the other hand, you might just be an adventurer who took one too many grievous injuries and decided enough was enough, so you trained yourself to wear the heaviest plate you could get your hands on. Some witches or sorcerers have chosen to follow the path of the sentinel to increase their survivability. While this is less common, it's not less effective. Few will argue against stronger, heavier armor leading to a longer life, and as every turtle knows, it's always nice to have a nice hard shell to fall back on when threatened. No one has a tougher shell than a sentinel. Even in the midst of great battles, you know that your armor is your greatest ally. It won't abandon you, break, or falter as things get tough. You can rely on your armor to see you through whatever tough fights lie ahead, and the odds always seem better when you're protected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "10th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Mighty Bulwark"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.TnD2hTWTyjGKlw9b"
+    },
+    "data": {
+      "dedication": "b7b576d5-11de-5407-892f-6477b4857914"
+    }
+  },
+  {
+    "id": "32d933a4-445d-57a0-b355-b929992bd6ff",
+    "pack": "player-core-2",
+    "kind": "archetype",
+    "slug": "archetype:snarecrafter",
+    "name": "Snarecrafter",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're able to take ordinary materials and use them to create deadly snares—special traps that you can rig up quickly when the situation demands. While traps might grant you less brute force to apply in a fair fight than weapons would, you rarely allow your fights to be fair. Instead, when combat takes place at a location of your choosing, you have a major advantage thanks to your well‑placed snares. Once your foes realize that you may have trapped any location on a battlefield, their fear of accidentally setting one off can help you corral them toward the waiting blades of your allies, or even make them too paranoid to move at all, locking them in place. Fearless enemies face their own disadvantage: they run a greater risk of setting off the many traps you've deployed. Even if they somehow avoid them, some cunning snare crafters have the skills to set a trap right under their foes' feet. Others have found they can trigger dangerous snares from a safe distance due to years of practice. Truly, snare crafters make for a dangerous foe and handy ally."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.G9Fzy5ZK4KtAmcFb"
+    },
+    "data": {
+      "dedication": "35045961-39a7-5c67-9f6f-da23a06a0922"
+    }
+  },
+  {
+    "id": "f12e1bb8-1bb4-5b0b-8b32-04b635a56d49",
+    "pack": "player-core-2",
+    "kind": "archetype",
+    "slug": "archetype:sorcerer",
+    "name": "Sorcerer",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You coax the magic power in your blood to manifest, accessing magic others don't expect you to have."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.DJiYP5tFBrBMD0We"
+    },
+    "data": {
+      "dedication": "efeb54fa-322b-53fc-a50f-9339877e02f5",
+      "multiclass": "9c445465-50cc-5bf9-851c-2ca4161d69d9"
+    }
+  },
+  {
+    "id": "f9776264-20d9-5a36-8599-5d2f96403358",
+    "pack": "player-core-2",
+    "kind": "archetype",
+    "slug": "archetype:swashbuckler",
+    "name": "Swashbuckler",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You fight with flair and style, adding swashbuckling tricks to your combat repertoire."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.k9Ebp52kt0ZLHtMl"
+    },
+    "data": {
+      "dedication": "21e2157f-f981-5ee9-a2d0-65a60d9eb6ed",
+      "multiclass": "65d07b0a-c5f1-5046-b41d-4d08c409e8e6"
+    }
+  },
+  {
+    "id": "41b7ee34-af95-5a88-8ba8-0e4791d1af14",
+    "pack": "player-core-2",
+    "kind": "archetype",
+    "slug": "archetype:talisman-dabbler",
+    "name": "Talisman Dabbler",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The classic idea of magic is that of a hoary wizard, poring over a crumbling book of spells as years pass. But magic is so much more than that—it's thought, will, and action, and with the right talismans, you can make even the cut of a sword a deeply magical act. This all hinges on the small magical talismans you affix to your gear. You know how to make and use the perfect talisman for any job. The utility of talismans seems endless. They can help swords to swing harder, shields to block better, grant a burst of speed in a desperate situation, and even save one from a lethal fall. This all excites you, but no more than exploring just how far you can push your talent. What are the true limits of these baubles? You've heard rumors and tales of great dabblers like yourself mastering the art of creating and affixing fantastical magical memorabilia. Some say that these great sages have found a way to affix multiple talismans to a single object, circumventing the most fundamental limitation of the art. Whether you were formally trained or picked up the skill as a hobby, your talent is undeniable, and the usefulness of talismans is apparent. Take advantage of every ounce of magic you can manipulate and master these mystical trinkets."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.fPqSekmEm5byReOk"
+    },
+    "data": {
+      "dedication": "e42a2018-8d9a-5ed4-a17b-d766ae49ebf2"
+    }
+  },
+  {
+    "id": "7b072a8c-631e-5bfe-91ce-8ebfb17e39ee",
+    "pack": "player-core-2",
+    "kind": "archetype",
+    "slug": "archetype:vigilante",
+    "name": "Vigilante",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As a vigilante, you have two faces: a public persona, and a secret identity that lets you hide your extralegal actions from polite society. Your secret identity lets you adventure and carry out clandestine missions while keeping the civilians you care about safe. Whatever your purpose—fighting crime, inciting rebellion, sowing chaos—your vigilante identity makes you both hard to pin down and a mysterious, intriguing subject of gossip. While many adventurers prefer to bask in the glory or infamy of their actions, you keep that part of your life a secret. There are various reasons why you might do this. Perhaps you have something or someone in your life that you want to protect from the dangers and threats that your other life. Perhaps you are a public figure, and your alternate life could draw undue attention from your community. It could also be that you don't like attention and wish to retain the ability to step away from it all and relax in peace. Regardless of your reasons, you have a secret identity and will go to great lengths to keep it secret. Vigilantes can have many goals and agendas. Some see them as glory seekers, but more often than not, they are working towards some lofty goal. Perhaps they are trying to inspire a people to fight back against their oppressors. They could be hunting down a crime lord they have a personal vendetta against. Maybe they seek to rebalance the wealth of a nation, stealing from the rich to give to those in need. You are one such vigilante, living a hidden life so you can fight in secrecy. What will you do to keep your secret and continue down your path?"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "4th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Quick Draw"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.rtAFOZOjWHC2zRNO"
+    },
+    "data": {
+      "dedication": "dba2c820-f3d6-5a70-9959-66292122767c"
+    }
+  },
+  {
+    "id": "bd55b8a9-3835-53fb-972f-0d501b3725de",
+    "pack": "player-core-2",
+    "kind": "archetype",
+    "slug": "archetype:viking",
+    "name": "Viking",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "To go 'viking' is to raid by sea, and thus vikings have spread far and wide. Some have even settled in the very communities they once raided. Vikings traditionally travel in longboats; a score of these warriors might live aboard their ship for days at a time, sailing the seas (or, as they call it, the 'whale-road') to ambush coastal communities. Once they arrive at a settlement, they charge ashore, plundering all they can find and slaying anyone foolish enough to get in their way. The ferocity of viking raids is legendary."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "4th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Reactive Shield; "
+          },
+          {
+            "type": "text",
+            "text": "6th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Shielded Stride; "
+          },
+          {
+            "type": "text",
+            "text": "10th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Quick Shield Block"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.2CbiV0VtDKZfQNte"
+    },
+    "data": {
+      "dedication": "7f4dd8f8-c9c5-58d4-8d8b-fb1cba49ebe5"
+    }
+  },
+  {
+    "id": "b35c742a-0338-5aa2-9bae-2cd16feb508e",
+    "pack": "player-core-2",
+    "kind": "archetype",
+    "slug": "archetype:weapon-improviser",
+    "name": "Weapon Improviser",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As far as you're concerned, the best weapon to wield is the one that your opponents never see coming. By knowing how to fight effectively with whatever is at hand, you ensure that you're never caught unarmed, and you often get the drop on opponents who mistakenly think they've caught you unprepared."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whether you're smashing someone over the head with a barstool, tossing a mug of ale in their face to blind them, or stabbing your foes with a broken bottle, you can find weapons anywhere and employ them creatively whenever a brawl breaks out. Because you fight with disposable weapons, you don't need handle them with care as other warriors do, and you can break them when needed to win a fight without feeling any regrets later."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "IMPROVISED WEAPON IDEAS: ",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": "Use these for inspiration."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cavern: broken stalagmites, large mushrooms, old bones"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Docks: barrel, crate, hook"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Forest: branch, needles or thorns"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Market: box, fruit, scale, sign"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Noble Court: gavel, goblet, quill, lectern"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Tavern: bottle, mug, serving tray, stool"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "GM Advice ",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": "For a GM setting damage, typically a one-handed improvised weapon's damage is 1d4, 1d6, or 1d8; one that needs two hands is 1d8, 1d10, or occasionally 1d12, and an extremely ineffective one might deal 1 damage. Improvised weapons typically have zero, one, or two traits, and often have the nonlethal trait. Agile improvised weapons usually have a smaller die size. It's extremely rare for an improvised weapon to deal more than one die of damage, but powerful magical objects might. Improvised weapons should be fun and don't last long, so feel free to experiment!"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.HDTW0vr8QL20M5ND"
+    },
+    "data": {
+      "dedication": "f4efeacd-497e-5d9b-9ee7-395f04ec17dc"
+    }
+  },
+  {
+    "id": "df9d5a5b-e387-558a-8b2f-56944a00f069",
+    "pack": "player-core-2",
+    "kind": "archetype",
+    "slug": "archetype:wrestler",
+    "name": "Wrestler",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Wrestlers are athletes who pit their strength and skill against powerful foes. Specializing in a variety of grabs, holds, and strikes, wrestlers are dangerous opponents whose techniques can leave a foe broken and defeated without taking their life."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The wrestling tradition is common all over Golarion. Gladiators and other warriors who fight for entertainment use wrestling techniques in combat. The discipline's focus on grappling is also useful in non-gladiatorial matches, as many foes are unable to contend with an opponent's hold. Grappling is particularly effective against spellcasters, who have a difficult time completing the somatic components of their spells while grabbed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Wrestlers have storied traditions in the Hold of Belkzen, where orcs use specialized grappling techniques to subdue the large animals they ride as mounts. Orcs prefer wrestling these creatures partially to minimize harm to them, but also because they believe that the process of subduing the creature creates a stronger bond between mount and rider."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Outside of the Inner Sea, wrestlers are common in Iblydos and Arcadia. Iblydan wrestlers focus on grappling techniques to make sure they're never left without a means to fight on the battlefield, even if their weapons are destroyed. Arcadian wrestlers engage in matches designed to retell stories of ancient gods. These matches feature impressive acrobatic feats as well as highly technical grappling maneuvers."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "4th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Combat Grab, "
+          },
+          {
+            "type": "ref",
+            "id": "86747f72-13f7-5c80-af76-858fdefa4882"
+          },
+          {
+            "type": "text",
+            "text": ", Snagging Strike; "
+          },
+          {
+            "type": "text",
+            "text": "8th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "ae982954-1df8-5086-8c16-7d358163a25f"
+          },
+          {
+            "type": "text",
+            "text": "; "
+          },
+          {
+            "type": "text",
+            "text": "20th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "8a18469e-9f80-59e7-8dde-58a130a9bbf1"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.drgCQcXZbIJU0Zhw"
+    },
+    "data": {
+      "dedication": "7ab175af-3cb6-57ad-b98a-7175edca471a"
+    }
+  }
+]

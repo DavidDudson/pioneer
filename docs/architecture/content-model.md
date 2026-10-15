@@ -430,7 +430,7 @@ and homebrew cannot use that path. A pack directory holds:
 - `<kind>.json`: an array of `ContentEntry` envelopes of that kind, in a stable order.
 
 The hand-authored packs (`core-rules`, and the `monster-core` entries transcribed before the importer exists) live
-there too, beside the Foundry imports `player-core`, `gm-core`, `divine-mysteries`, `treasure-vault`,
+there too, beside the Foundry imports `player-core`, `player-core-2`, `gm-core`, `divine-mysteries`, `treasure-vault`,
 `howl-of-the-wild` and `war-of-immortals`. `libs/rules/catalog` loads them lazily and checks every entry against its
 schema and the book registry, so a malformed or wrongly sourced entry fails `bun run affected`. Ids are stored on
 characters, so changing an entry's slug, its kind included, is a data

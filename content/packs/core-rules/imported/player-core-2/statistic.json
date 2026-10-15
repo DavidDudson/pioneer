@@ -1,0 +1,194 @@
+[
+  {
+    "id": "ae52afe4-e910-5bf0-a2bd-967fe4671221",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:accounting-lore",
+    "name": "Accounting Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:accounting",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.accounting",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "01a4a1a9-4d05-5d2d-a108-07fa94acd8f8",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:astrology-lore",
+    "name": "Astrology Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:astrology",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.astrology",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "92cc2edf-94a3-58a6-a94c-403b7ea6e95c",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:boneyard-lore",
+    "name": "Boneyard Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:boneyard",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.boneyard",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "dd812a4d-8630-55f2-922e-cd9cd0043bce",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:curse-lore",
+    "name": "Curse Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:curse",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.curse",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "e9109460-63f6-569d-a906-9f75b0c5dd06",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:fey-lore",
+    "name": "Fey Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:fey",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.fey",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "ba2ce81a-a4f7-53a2-9f06-ba5b725a1a96",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:genealogy-lore",
+    "name": "Genealogy Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:genealogy",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.genealogy",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "1ea18ea3-4496-566a-a1e7-5e50b2b101b9",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:plains-lore",
+    "name": "Plains Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:plains",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.plains",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "b61829bf-7a99-5ab8-802f-eaeeb7e2e4b7",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:surgery-lore",
+    "name": "Surgery Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:surgery",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.surgery",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  }
+]
