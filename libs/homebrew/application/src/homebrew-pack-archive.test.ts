@@ -127,6 +127,20 @@ describe('archiving a homebrew pack (ADR-0062)', () => {
     expect(await service.list(amiri)).toHaveLength(2);
   });
 
+  test('a pack does not come back wider than a pack it extends, narrowed while it was archived', async () => {
+    const base = await service.create(amiri, spells);
+    const extension = await service.create(amiri, feats);
+    await service.setVisibility(amiri, base.id, PackVisibility.Public);
+    await service.setVisibility(amiri, extension.id, PackVisibility.Public);
+    await extend(extension.id, base.id);
+    await service.archive(amiri, extension.id);
+    await service.setVisibility(amiri, base.id, PackVisibility.Private);
+    const error = await rejection(service.restore(amiri, extension.id));
+    expect(error).toBeInstanceOf(ConflictError);
+    expect((error as ConflictError).descriptor.key).toBe(HomebrewMessage.WiderThanDependencies);
+    expect(await service.listArchived(amiri)).toHaveLength(1);
+  });
+
   test('archive and restore are audited by name', async () => {
     const created = await service.create(amiri, feats);
     await service.archive(amiri, created.id);

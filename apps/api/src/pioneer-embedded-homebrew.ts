@@ -25,10 +25,10 @@ function readable(row: PackRow): ReadablePack {
 
 /**
  * The character context's `EmbeddedHomebrew` over the content tables. It lives in the composition root because
- * neither the character nor the homebrew context may import the other. An archived pack is
- * treated as absent too (ADR-0062), and as held by someone else when importing, so a file never writes into it. A pack the actor may not read is treated as
- * absent when exporting and as held by someone else, with no entries to compare, when importing, so a file can't be
- * used to probe it.
+ * neither the character nor the homebrew context may import the other. An archived pack is treated as absent too
+ * (ADR-0062), and as held by someone else when importing, so a file never writes into it. A pack the actor may not
+ * read is treated as absent when exporting and as held by someone else, with no entries to compare, when importing,
+ * so a file can't be used to probe it.
  */
 export class PioneerEmbeddedHomebrew extends EmbeddedHomebrew {
   readonly #db: Database;

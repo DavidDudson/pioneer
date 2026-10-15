@@ -33,8 +33,8 @@ export abstract class HomebrewPackRepository {
   public abstract findArchivedById(id: ContentPackId): Promise<HomebrewPack | undefined>;
 
   /**
-   * Marks a live pack archived at `now`, leaving its version, entries and dependencies alone. A no-op if it already
-   * is. its `whileLocked` check runs once the pack is locked against concurrent changes.
+   * Marks a live pack archived at `now`, leaving its version, entries and dependencies alone. A no-op if it is already archived.
+   * Its `whileLocked` check runs once the pack is locked against concurrent changes.
    */
   public abstract archive(id: ContentPackId, now: Temporal.Instant, guarded: GuardedChange): Promise<void>;
 

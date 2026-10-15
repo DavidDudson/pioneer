@@ -10,6 +10,8 @@ import { and, count, eq, inArray, isNotNull, isNull, sql } from 'drizzle-orm';
 import type { SQL } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 
+import { GRAPH_LOCK } from './drizzle-pack-dependency-repository';
+
 type PackRow = typeof contentPacks.$inferSelect;
 /** What a save writes: never `archivedAt`, which only archive and restore touch. */
 type SavedRow = Omit<PackRow, 'archivedAt'>;
@@ -130,6 +132,9 @@ export class DrizzleHomebrewPackRepository extends HomebrewPackRepository {
   ): Promise<void> {
     await this.#db.transaction(async (tx) => {
       await stampAudit(tx, audit);
+      // Takes the graph lock first, as a dependency addition does.
+      // Without it a restore and an archive of the pack it extends could both pass their checks.
+      await tx.execute(sql`select pg_advisory_xact_lock(${GRAPH_LOCK})`);
       const mine = and(where, isNotNull(contentPacks.ownerId));
       const [locked] = await tx.select({ id: contentPacks.id }).from(contentPacks).where(mine).for('update');
       if (locked === undefined) {

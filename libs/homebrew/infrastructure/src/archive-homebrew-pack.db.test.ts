@@ -79,6 +79,34 @@ describe.skipIf(adminUrl === undefined)('archived homebrew packs (postgres)', ()
     expect(await repository.findById(items.id)).toStrictEqual(items);
   });
 
+  test('an archive and a restore take turns, so a live pack never extends an archived one', async () => {
+    const first = new HomebrewPackBuilder().slug('turn-first').build();
+    const second = new HomebrewPackBuilder().slug('turn-second').build();
+    await repository.insert(first);
+    await repository.insert(second);
+    await repository.archive(second.id, NOW, { audit: archiving });
+    const gate = Promise.withResolvers<undefined>();
+    let secondChecked = false;
+    const archiveFirst = repository.archive(first.id, NOW, {
+      audit: archiving,
+      whileLocked: async () => {
+        await gate.promise;
+      },
+    });
+    await Bun.sleep(100);
+    const restoreSecond = repository.restore(second.id, {
+      audit: restoring,
+      whileLocked: async () => {
+        secondChecked = true;
+      },
+    });
+    await Bun.sleep(200);
+    expect(secondChecked).toBe(false);
+    gate.resolve(undefined);
+    await Promise.all([archiveFirst, restoreSecond]);
+    expect(secondChecked).toBe(true);
+  });
+
   test('an archived pack takes no visibility change', async () => {
     const rules = new HomebrewPackBuilder().slug('frozen-rules').build();
     await repository.insert(rules);

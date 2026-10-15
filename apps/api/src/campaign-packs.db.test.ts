@@ -167,6 +167,18 @@ describe.skipIf(adminUrl === undefined)('CampaignPackService over postgres', () 
     expect(madePrivate.visibility).toBe(PackVisibility.Private);
   });
 
+  test('an archived pack is no longer listed as enabled, and its row stays', async () => {
+    await service.enable(amiri, campaignId, { packId: EnabledPackId.parse(feats.id) });
+    await homebrew.archive(amiri, feats.id);
+    try {
+      const listed = await service.packs(amiri, campaignId);
+      expect(listed.enabled.map((pack) => String(pack.title))).not.toContain('Feats');
+      expect(await stored()).toHaveLength(2);
+    } finally {
+      await homebrew.restore(amiri, feats.id);
+    }
+  });
+
   test('every lookup is served by an index', async () => {
     await service.enable(amiri, campaignId, { packId: EnabledPackId.parse(spells.id) });
     await service.packs(amiri, campaignId);

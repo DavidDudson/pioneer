@@ -153,7 +153,14 @@ export class HomebrewPackService {
     }
     const pack = archivedOwnedBy(actor, archived);
     const audit = { actor, command: HomebrewCommand.RestorePack };
-    await this.#packs.restore(id, { audit, whileLocked: async () => this.#refuseWhileExtending(pack) });
+    await this.#packs.restore(id, {
+      audit,
+      whileLocked: async () => {
+        await this.#refuseWhileExtending(pack);
+        // A pack it extends may have been narrowed while this one was archived.
+        await this.#refuseBeyondDependencies(pack, pack.visibility);
+      },
+    });
     return pack;
   }
 
