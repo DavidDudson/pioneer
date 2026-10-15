@@ -16,6 +16,13 @@ import * as z from 'zod';
 /** The most conditions a character holds at once, however many sources they come from. */
 const CONDITIONS_MAX = 64;
 
+/** The longest note on what a condition's source limits it to. */
+const RESTRICTION_MAX = 200;
+
+/** What a condition's source limits the action it gives to ("only to Strike or Stride"). */
+export const ActionRestriction = z.string().trim().min(1).max(RESTRICTION_MAX).brand<'ActionRestriction'>();
+export type ActionRestriction = z.infer<typeof ActionRestriction>;
+
 /** One condition on a character, apart from its content: an instance may be removed or changed on its own. */
 export const ConditionInstanceId = Uuid.brand<'ConditionInstanceId'>();
 export type ConditionInstanceId = z.infer<typeof ConditionInstanceId>;
@@ -69,6 +76,8 @@ export const ActiveConditionSchema = z.strictObject({
   appliedBy: EventRef.optional(),
   /** What a persistent damage condition deals; any other condition has none. */
   persistent: PersistentDamageSchema.optional(),
+  /** What the source limits the quickened extra action to ("only to Strike or Stride"); any other condition has none. */
+  restriction: ActionRestriction.optional(),
 });
 export type ActiveCondition = z.infer<typeof ActiveConditionSchema>;
 

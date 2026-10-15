@@ -22,8 +22,11 @@ export {
   HIT_POINTS_EDIT_MAX,
   type HitPointsState,
   HitPointsStateSchema,
+  PatchedPlay,
   PatchPlayBody,
+  PlayEditSchema,
   type PlayCommand,
+  type PlayEdit,
   PlayCommandField,
   PlayCommandSchema,
   type PlayState,
@@ -33,6 +36,7 @@ export {
 } from './play-state';
 export {
   type ActiveCondition,
+  ActionRestriction,
   ActiveConditionSchema,
   applyConditionCommand,
   type ConditionCommand,
@@ -544,6 +548,7 @@ export {
   effectExpired,
   healedEvent,
   type TurnEvent,
+  TurnEventSchema,
   TurnEventKind,
   TurnMessage,
   turnStarted,
@@ -551,3 +556,20 @@ export {
 export { reevaluateBadges, type Reevaluation, startTurn, type TurnInputs, type TurnOutcome } from './turn-start';
 export { endTurn, type EndTurnInputs } from './turn-end';
 export { RepertoireSwap, repertoireSwap, repertoireSwapRefusal } from './repertoire-swaps';
+export { applyTurnCommand, turnCommandInputs, type TurnCommandInputs, type TurnRun } from './turn-commands';
+export {
+  ActionCount,
+  economyConditions,
+  isTurnCommand,
+  OUT_OF_ENCOUNTER,
+  QuickenedAction,
+  refilled,
+  TURN_ACTIONS,
+  TurnCommandField,
+  turnEnded,
+  TurnPhase,
+  TurnStateSchema,
+  type EconomyConditions,
+  type TurnCommand,
+  type TurnState,
+} from './turn-state';

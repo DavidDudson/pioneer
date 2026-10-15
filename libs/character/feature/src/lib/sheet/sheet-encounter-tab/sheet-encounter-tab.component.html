@@ -1,4 +1,6 @@
 <fr-stack gap="lg">
+  <pio-sheet-turn-bar />
+
   <fr-section-index [label]="'character.sheet.sections' | transloco">
     @for (section of sectionOrder; track section.anchor) {
       <fr-section-link [anchor]="section.anchor">{{ section.headingKey | transloco }}</fr-section-link>

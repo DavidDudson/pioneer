@@ -14,7 +14,7 @@ import { CharacterSlot } from './character-slot';
 import { CharacterVariantRules, EnableVariantRuleBody } from './character-variant-rules';
 import { ClearedPick } from './dependent-picks';
 import { FeatDisplayChoice, SetFeatDisplayBody } from './feat-display';
-import { CharacterPlay, PatchPlayBody } from './play-state';
+import { CharacterPlay, PatchedPlay, PatchPlayBody } from './play-state';
 import { SetSheetModeBody, SheetModeChoice } from './sheet-mode';
 import { UnenabledContent } from './unenabled-content';
 
@@ -128,7 +128,7 @@ export const CharacterContract = {
     params: ById,
     query: NoQuery,
     body: PatchPlayBody,
-    response: CharacterPlay,
+    response: PatchedPlay,
   }),
   /** The tab the signed-in user last had open on this character's sheet, if any. */
   sheetMode: new Endpoint({

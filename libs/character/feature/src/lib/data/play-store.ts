@@ -1,6 +1,13 @@
 import { computed, inject, Injectable } from '@angular/core';
 import { CharacterContract } from '@pioneer/character/domain';
-import type { CharacterId, CharacterPlay, PlayCommand } from '@pioneer/character/domain';
+import type {
+  CharacterId,
+  CharacterPlay,
+  PlayCommand,
+  PlayEdit,
+  TurnCommand,
+  TurnEvent,
+} from '@pioneer/character/domain';
 import { ApiClient, ApiError } from '@pioneer/shared/web';
 import { injectQuery, QueryClient } from '@tanstack/angular-query-experimental';
 
@@ -41,6 +48,15 @@ export class PlayStore {
    * conflict it is read again, so the next edit starts from what someone else saved.
    */
   public async send(command: PlayCommand): Promise<void> {
+    await this.#patch(command);
+  }
+
+  /** A turn-cycle edit, as `send` makes it, answering with what the turn boundary did, in order. */
+  public async sendTurn(command: TurnCommand): Promise<readonly TurnEvent[]> {
+    return this.#patch(command);
+  }
+
+  async #patch(command: PlayEdit): Promise<readonly TurnEvent[]> {
     const id = this.#id();
     const current = this.play.data();
     if (id === undefined || current === undefined) {
@@ -48,8 +64,9 @@ export class PlayStore {
     }
     try {
       const body = { expectedRevision: current.revision, command };
-      const saved = await this.#api.call(CharacterContract.patchPlay, { params: { id }, body });
-      this.#client.setQueryData(playKey(id), saved);
+      const { events, ...stored } = await this.#api.call(CharacterContract.patchPlay, { params: { id }, body });
+      this.#client.setQueryData(playKey(id), stored);
+      return events;
     } catch (error: unknown) {
       if (ApiError.isConflict(error)) {
         await this.#client.invalidateQueries({ queryKey: playKey(id) });

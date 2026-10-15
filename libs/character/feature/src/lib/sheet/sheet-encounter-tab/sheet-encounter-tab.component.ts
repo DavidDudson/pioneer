@@ -12,6 +12,7 @@ import { SheetSpells } from '../sheet-spells/sheet-spells.component';
 import { SheetState } from '../sheet-state';
 import { SheetStaves } from '../sheet-staves/sheet-staves.component';
 import { rememberTab } from '../sheet-tab';
+import { SheetTurnBar } from '../sheet-turn-bar/sheet-turn-bar.component';
 import { SheetWands } from '../sheet-wands/sheet-wands.component';
 
 /**
@@ -33,6 +34,7 @@ import { SheetWands } from '../sheet-wands/sheet-wands.component';
     SheetPickFields,
     SheetSpells,
     SheetStaves,
+    SheetTurnBar,
     SheetWands,
     SpellcastingView,
     Stack,

@@ -249,6 +249,21 @@
       "size": "Size {size}, reach {reach} feet.",
       "noMax": "Hit Points show once the character has an ancestry and a class."
     },
+    "turn": {
+      "label": "Turn",
+      "phaseTurn": "Your turn",
+      "phaseOffTurn": "Off-turn",
+      "phaseOutOfEncounter": "Out of encounter",
+      "pipLeft": "Action",
+      "pipSpent": "Spent",
+      "pipQuickened": "Quickened action",
+      "pipQuickenedFor": "Quickened action: {restriction}",
+      "reactionReady": "Reaction ready",
+      "reactionSpent": "Reaction spent",
+      "start": "Start turn",
+      "end": "End turn",
+      "leave": "Leave encounter"
+    },
     "death": {
       "label": "Death",
       "dead": "Dead",
