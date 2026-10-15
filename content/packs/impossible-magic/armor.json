@@ -1,0 +1,1699 @@
+[
+  {
+    "id": "eeaef39b-c31d-5f8c-9b4b-c67b60b382cf",
+    "pack": "impossible-magic",
+    "kind": "armor",
+    "slug": "armor:accoutrements-of-bone",
+    "name": "Accoutrements of Bone",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["comfort", "invested", "magical", "void"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This set of +1 resilient explorer's clothing is lined with magically reinforced carved bones that are connected with reinforced sinews to provide the wearer both comfort and mobility. Spikes and spines of various shapes and sizes jut menacingly from the shoulder and forearm coverings. When you wear this outfit, you gain a +2 item bonus to Occultism checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Piercing Vengeance",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An enemy damages you with a melee Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Jagged spines from your clothing launch themselves at the triggering enemy, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 26,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:occultism"],
+        "type": "item",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.FXOfnxr6co6rUmoq"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 700
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "piercing-vengeance",
+          "name": "Piercing Vengeance",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "unarmored",
+      "group": "cloth",
+      "baseItem": "explorers-clothing",
+      "acBonus": 0,
+      "dexCap": 5,
+      "strength": 0,
+      "runes": {
+        "potency": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "48debdd7-60f0-5c5a-bffb-f8d8c5d89ee0",
+    "pack": "impossible-magic",
+    "kind": "armor",
+    "slug": "armor:chained-mist",
+    "name": "Chained Mist",
+    "level": 13,
+    "rarity": "uncommon",
+    "traits": ["flexible", "invested", "magical", "noisy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Made of standard-grade dawnsilver, mist spirals around this +1 resilient greater shadow dawnsilver chain shirt. When worn, silver vapor trails interwoven with wispy threads of shadow bedeck and move in harmony with the wearer's limbs and torso. If the wearer is in dim light, the mist obscures the wearer's form, granting the wearer the "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " condition."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Misty Mesh",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The mist immediately solidifies into a protective mesh of silvery chains that gives you resistance 10 to spirit damage for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "94a9af46-87a1-5f6b-ba97-4e4efac4a997"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.cGgN41q4Qo9taiOR"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": 1,
+      "material": {
+        "type": "dawnsilver",
+        "grade": "standard"
+      },
+      "activations": [
+        {
+          "slug": "misty-mesh",
+          "name": "Misty Mesh",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "light",
+      "group": "chain",
+      "baseItem": "chain-shirt",
+      "acBonus": 2,
+      "dexCap": 3,
+      "checkPenalty": 1,
+      "strength": 1,
+      "runes": {
+        "potency": 1,
+        "resilient": 1,
+        "property": ["94fa5f6f-fce4-5541-9c56-e4834f27aa50"]
+      }
+    }
+  },
+  {
+    "id": "717ec9b7-dca6-559a-90e5-790ed223af8a",
+    "pack": "impossible-magic",
+    "kind": "armor",
+    "slug": "armor:crystal-lattice",
+    "name": "Crystal Lattice",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["comfort", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+2 resilient raiment explorer's clothing",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a longline vest made of a flexible, durable lattice of many fine crystals. A wide variety of these vests exist, and their colors depend on the type of crystal that forms the lattice. The crystals glow briefly when an enemy hits the wearer."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Crystal Exoskeleton",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The crystals on your vest grow and extend, becoming an architecturally sculpted exoskeleton that covers your form. You gain 20 temporary Hit Points that last for 1 hour. The exoskeleton crumbles into dust when the temporary Hit Points are depleted or when the duration ends, and the crystals return to their original state."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "829977ec-f8f0-5615-8f99-7a8956c068c3"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.bpZjOL370dgKAO6Q"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1900
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "crystal-exoskeleton",
+          "name": "Crystal Exoskeleton",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "unarmored",
+      "group": "cloth",
+      "baseItem": "explorers-clothing",
+      "acBonus": 0,
+      "dexCap": 5,
+      "strength": 0,
+      "runes": {
+        "potency": 2,
+        "resilient": 1,
+        "property": ["4c5e50fd-48f6-5724-ab46-39f9229f49e8"]
+      }
+    }
+  },
+  {
+    "id": "35a3abb2-a4a3-587f-8d93-48d965175bff",
+    "pack": "impossible-magic",
+    "kind": "armor",
+    "slug": "armor:energy-shield-tunic",
+    "name": "Energy Shield Tunic",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["comfort", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This sleek, color-changing tunic has a higher thread count than most garments. It's a "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater resilient explorer's clothing",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " that helps the wearer survive powerful energy magic. During your daily preparations, you choose one of the following energy types: acid, cold, electricity, fire, or sonic. You gain resistance 10 to the chosen energy type until your next daily preparations. The tunic changes color and gains thematic embroidery to reflect the energy type you've chosen."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Acid",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The tunic turns brown and has acid splashes embroidered in bright green thread."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Cold",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The tunic turns sky blue and has snowflakes embroidered in silver thread."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Electricity",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The tunic turns dark gray and has lightning bolts embroidered in light blue thread."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Fire",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The tunic turns orange and has balls of fire embroidered in red and yellow threads."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Sonic",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The tunic turns white and has musical notes embroidered in golden thread."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "d83dc0eb-eada-5260-93d1-ff67278d8d5c"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Shielding Command",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (fortune, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You attempt a saving throw against a spell that deals acid, cold, electricity, fire, or sonic damage, but you haven't rolled yet"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Roll the triggering saving throw twice and take the better result."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.cIHNyUEYmUs9V7kV"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6500
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "shielding-command",
+          "name": "Shielding Command",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "unarmored",
+      "group": "cloth",
+      "baseItem": "explorers-clothing",
+      "acBonus": 0,
+      "dexCap": 5,
+      "strength": 0,
+      "runes": {
+        "potency": 2,
+        "resilient": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "ed8b1084-0fa8-5f9f-b9ff-1daf04a2aa9f",
+    "pack": "impossible-magic",
+    "kind": "armor",
+    "slug": "armor:energy-shield-tunic-greater",
+    "name": "Energy Shield Tunic (Greater)",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["comfort", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This sleek, color-changing tunic has a higher thread count than most garments. It's a "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater resilient explorer's clothing",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " that helps the wearer survive powerful energy magic. During your daily preparations, you choose one of the following energy types: acid, cold, electricity, fire, or sonic. You gain resistance 15 to the chosen energy type until your next daily preparations. The tunic changes color and gains thematic embroidery to reflect the energy type you've chosen."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Acid",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The tunic turns brown and has acid splashes embroidered in bright green thread."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Cold",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The tunic turns sky blue and has snowflakes embroidered in silver thread."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Electricity",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The tunic turns dark gray and has lightning bolts embroidered in light blue thread."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Fire",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The tunic turns orange and has balls of fire embroidered in red and yellow threads."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Sonic",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The tunic turns white and has musical notes embroidered in golden thread."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "d83dc0eb-eada-5260-93d1-ff67278d8d5c"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Shielding Command",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (fortune, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You attempt a saving throw against a spell that deals acid, cold, electricity, fire, or sonic damage, but you haven't rolled yet"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Roll the triggering saving throw twice and take the better result."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.p2ai0q9DTgZcsqdM"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 22500
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "shielding-command",
+          "name": "Shielding Command",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "unarmored",
+      "group": "cloth",
+      "baseItem": "explorers-clothing",
+      "acBonus": 0,
+      "dexCap": 5,
+      "strength": 0,
+      "runes": {
+        "potency": 2,
+        "resilient": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "b52de4cb-8590-595c-bfd8-4fe8e7c034ee",
+    "pack": "impossible-magic",
+    "kind": "armor",
+    "slug": "armor:invisible-chain-shirt",
+    "name": "Invisible Chain Shirt",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["comfort", "flexible", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+2 resilient invisibility chain shirt",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is itself invisible. Other creatures can't see it at all, allowing you to wear it surreptitiously. Additionally, the armor's invisible composition is quieter and more comfortable than a normal chain shirt. It loses the noisy trait and gains the comfort trait."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Obscured Approach",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per minute"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Stride and turn partially invisible, becoming "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " until the end of your next turn or until you use a hostile action, whichever comes first. As normal, you can use the concealment from this activation to Hide."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.BK1AKKi1gDMn5uBs"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2750
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "obscured-approach",
+          "name": "Obscured Approach",
+          "frequency": {
+            "max": 1,
+            "per": "minute"
+          }
+        }
+      ],
+      "category": "light",
+      "group": "chain",
+      "baseItem": "chain-shirt",
+      "acBonus": 2,
+      "dexCap": 3,
+      "checkPenalty": 1,
+      "strength": 1,
+      "runes": {
+        "potency": 2,
+        "resilient": 1,
+        "property": ["b845e180-6c72-501f-9c94-d32442d00eab"]
+      }
+    }
+  },
+  {
+    "id": "06c9358a-11d2-54ec-a6ca-f4321a9c805c",
+    "pack": "impossible-magic",
+    "kind": "armor",
+    "slug": "armor:laboratory-coat",
+    "name": "Laboratory Coat",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["comfort", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This off-white laboratory coat is "
+          },
+          {
+            "type": "text",
+            "text": "+1 resilient slick explorer's clothing",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " with many pockets and a stitched-on utility belt to hold useful tools. It was designed by a scholarly inventor who had a penchant for risky experiments. This coat grants the wearer a +2 item bonus to Crafting checks and an escape route should one's experiments go awry."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Quick Escape",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate, teleportation)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You tap a magical button and utter the code word to instantly transport yourself and any items you're wearing and holding from your current space to an unoccupied space within 20 feet of you that you can see."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:crafting"],
+        "type": "item",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.5Be4sNTgLQDKe7xm"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 700
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "quick-escape",
+          "name": "Quick Escape",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "unarmored",
+      "group": "cloth",
+      "baseItem": "explorers-clothing",
+      "acBonus": 0,
+      "dexCap": 5,
+      "strength": 0,
+      "runes": {
+        "potency": 1,
+        "resilient": 1,
+        "property": ["cc4eec7b-79a2-5889-a7a6-38aa8adb4073"]
+      }
+    }
+  },
+  {
+    "id": "0a0e1001-f3bd-5eb2-b175-5a89dd142a97",
+    "pack": "impossible-magic",
+    "kind": "armor",
+    "slug": "armor:rebounding-breastplate",
+    "name": "Rebounding Breastplate",
+    "level": 20,
+    "rarity": "common",
+    "traits": ["force", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This +3 greater resilient greater fortification breastplate absorbs impacts for later release. While wearing the armor, you gain resistance 5 to bludgeoning, piercing, and slashing damage and resistance 10 to force damage. Keep track of how much damage the armor prevents from enemy attacks, as the armor absorbs that damage. After 1 minute, the absorbed damage disperses harmlessly and resets to 0. Only damage caused by foes or hazards powers the armor, not damage you take from yourself, allies, or the environment."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Kinetic Pulse",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (force, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your armor has absorbed at least "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "30"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The absorbed energy explodes from your armor in a pulse of force. Creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "12d6",
+                "damageType": "force"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 43,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save. On a failure, they're also pushed 10 feet away from you; on a critical failure, they're instead pushed 20 feet away from you and fall "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": ". The armor's absorbed damage resets to 0."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["force"],
+        "value": 10
+      },
+      {
+        "key": "Resistance",
+        "type": ["bludgeoning", "piercing", "slashing"],
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.FKNgrFDIRBumr6P5"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 70000
+        }
+      },
+      "bulk": 2,
+      "category": "medium",
+      "group": "plate",
+      "baseItem": "breastplate",
+      "acBonus": 4,
+      "dexCap": 1,
+      "checkPenalty": 2,
+      "speedPenalty": 5,
+      "strength": 3,
+      "runes": {
+        "potency": 3,
+        "resilient": 2,
+        "property": ["cd04907f-f4ad-540b-8e85-80028195a121"]
+      }
+    }
+  },
+  {
+    "id": "d819ff90-10e8-5a23-9399-1ad0bf234fc4",
+    "pack": "impossible-magic",
+    "kind": "armor",
+    "slug": "armor:robe-of-beneficence",
+    "name": "Robe of Beneficence",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["comfort"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This soft, buttery smooth robe is +2 greater resilient explorer's clothing made from silk and unicorn hair. The back and shoulders are appliquéd with clusters of angel feathers to form a motif of unfurled wings. On this robe are subtle arabesques, loops, and curlicues that are pleasing to the eye and evoke a sense of calm. When you wear this robe, you gain an invisible aura of purity and kindness that extends from you in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": ", granting you a +3 item bonus to Diplomacy checks to Make an Impression and to make Requests of creatures who are within your aura."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Compelled Nonviolence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, incapacitation, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The wings of this robe extend, and your aura glows golden, briefly becoming visible as it does. Creatures within your aura who are hostile, indifferent, or unfriendly to you must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 36
+          },
+          {
+            "type": "text",
+            "text": " saving throw with the following effects."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+            "label": "Stunned 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+            "label": "Stunned 2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, and the creature can't use any hostile action against you for 1 round."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "item",
+        "value": 3,
+        "predicate": [
+          {
+            "or": ["action:make-an-impression", "action:request"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ZVyP843XwfqGOzka"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 14000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "compelled-nonviolence",
+          "name": "Compelled Nonviolence",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "unarmored",
+      "group": "cloth",
+      "baseItem": "explorers-clothing",
+      "acBonus": 0,
+      "dexCap": 5,
+      "strength": 0,
+      "runes": {
+        "potency": 2,
+        "resilient": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "de9d90f8-7783-5dea-bcd9-03c91f973016",
+    "pack": "impossible-magic",
+    "kind": "armor",
+    "slug": "armor:suit-of-false-impression",
+    "name": "Suit of False Impression",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["comfort", "illusion", "invested", "magical", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 explorer's clothing",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a simple, practical, and unassuming two-piece outfit. The comfortable fabric is enchanted with illusory magic to make it look as if the wearer is wearing heavy armor (as illusory disguise). While wearing the suit, you gain a +1 item bonus to Deception checks to Impersonate someone who would normally wear heavy armor."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Faux Bulwark",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, emotion, fear, mental, visual)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You strike an intimidating pose that causes enemies to fear your supposedly heavily armored form. Each foe in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": " who can see you must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 22
+          },
+          {
+            "type": "text",
+            "text": " saving throw. On a failure, they're "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 1"
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": " on a critical failure)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["action:impersonate", "option:suit-of-false-impression"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.slzJdwOimxyENTcY"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 200
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "faux-bulwark",
+          "name": "Faux Bulwark",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "unarmored",
+      "group": "cloth",
+      "baseItem": "explorers-clothing",
+      "acBonus": 0,
+      "dexCap": 5,
+      "strength": 0,
+      "runes": {
+        "potency": 1,
+        "property": []
+      }
+    }
+  }
+]

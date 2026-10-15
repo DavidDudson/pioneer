@@ -26,6 +26,7 @@ export const ORC_ATTRIBUTION: readonly AttributionGroup[] = [
       'Pathfinder War of Immortals © 2024 Paizo Inc., Authors: James Case, Liane Merciel, and Michael Sayre. Additional writing by Jessica Catalan, Matt Chapmond, Steven Hammond, Steven T. Helt, Brent Holtsberry, Jason Keeley, Michelle Y. Kim, Luis Loza, Erik Mona, AJ Neuro, Joaquin Kyle “Makapatag” Saavedra, Tony Saunders, Andrew Stoeckle, Greg A. Vaughan, and Ruvaid Virk.',
       'Pathfinder Guns & Gears Remastered © 2025, Paizo Inc.',
       'Pathfinder Treasure Vault (Remastered) © 2025, Paizo Inc.',
+      'Pathfinder Impossible Magic © 2026, Paizo Inc.',
     ],
   },
   {

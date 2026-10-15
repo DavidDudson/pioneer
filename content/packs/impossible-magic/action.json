@@ -1,0 +1,2957 @@
+[
+  {
+    "id": "6c436a88-fa0c-5e3d-b753-3bb374c98d32",
+    "pack": "impossible-magic",
+    "kind": "action",
+    "slug": "action:absorb-magic",
+    "name": "Absorb Magic",
+    "rarity": "common",
+    "traits": ["concentrate", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are not overflowing"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Another creature within 30 feet Casts a Spell or uses an action, activity, or reaction with the arcane, divine, magical, occult, or primal trait"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You breathe in a small fraction of the magic produced by the triggering effect, storing it in your internal nexus. You become overflowing. You remain overflowing for up to 1 minute before the stored magical energy fades. While overflowing, you gain a +1 status bonus to saving throws against effects with the arcane, divine, magical, occult, and primal traits. This bonus becomes +2 at 15th level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.hB8AWOWSyHCupV8T"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You are not overflowing"
+            }
+          ]
+        }
+      ],
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Another creature within 30 feet Casts a Spell or uses an action, activity, or reaction with the arcane, divine, magical, occult, or primal trait"
+            }
+          ]
+        }
+      ],
+      "selfEffect": "6674728a-cfb2-5bdc-be35-c5cad81e57b5"
+    }
+  },
+  {
+    "id": "e8e140bc-86cd-5261-9ba8-2bbb8a8ba0b2",
+    "pack": "impossible-magic",
+    "kind": "action",
+    "slug": "action:act-together",
+    "name": "Act Together",
+    "rarity": "common",
+    "traits": ["summoner", "tandem"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " to "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per round"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You and your eidolon act as one. Either you or your eidolon takes an action or activity using the same number of actions as Act Together, and the other takes a single action."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For example, if you spent 2 actions to Act Together, you could cast "
+          },
+          {
+            "type": "ref",
+            "id": "14e2abdf-052f-5a62-a6a0-8b4191474b38"
+          },
+          {
+            "type": "text",
+            "text": " (2 actions) and your eidolon could Strike (1 action), or your eidolon could use their "
+          },
+          {
+            "type": "ref",
+            "id": "b5190e49-4fab-5c90-8105-ce964007f9b9",
+            "label": "Dragon Breath"
+          },
+          {
+            "type": "text",
+            "text": " (2 actions) and you could Stride (1 action)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.2KV87ponbWXgGIhZ"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction",
+      "frequency": {
+        "max": 1,
+        "per": "round"
+      }
+    }
+  },
+  {
+    "id": "60059b8f-c2c8-5740-9ad7-cf72ea02c5ca",
+    "pack": "impossible-magic",
+    "kind": "action",
+    "slug": "action:affix-a-fulu",
+    "name": "Affix a Fulu",
+    "rarity": "common",
+    "traits": ["manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You affix a fulu to an armor, weapon, shield, creature, or structure that's beside or in the same square as you. A creature can remove a fulu from itself or an unattended object in its reach with a single action."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.9Nmz5114UB87n7Aj"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "2a32d4d9-3277-591b-8631-3e847907a1d9",
+    "pack": "impossible-magic",
+    "kind": "action",
+    "slug": "action:arcane-cascade",
+    "name": "Arcane Cascade",
+    "rarity": "common",
+    "traits": ["concentrate", "magus", "stance"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You cycle arcane power through your body and weapon using specialized forms, breathing, or footwork. While you're in the stance, your melee Strikes gain the arcane trait (making them magical) and deal 1 extra force damage, and you gain resistance 1 to damage from spells. If you have the Weapon Specialization class feature, the damage and resistance increase to 2, and if you have "
+          },
+          {
+            "type": "ref",
+            "id": "350366a2-2b56-5ada-92f6-ca1c9b6273bb"
+          },
+          {
+            "type": "text",
+            "text": ", they increase to 3."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you Cast a Spell and then enter Arcane Cascade on the same turn, you can change the damage from the stance to any one damage type that spell could deal instead of force."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.HbejhIywqIufrmVM"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "selfEffect": "ea08ae3e-9a17-5aa1-b588-35c887c34925"
+    }
+  },
+  {
+    "id": "9d00a8e8-7025-50a1-a568-99ab93044399",
+    "pack": "impossible-magic",
+    "kind": "action",
+    "slug": "action:beasts-charge",
+    "name": "Beast's Charge",
+    "rarity": "common",
+    "traits": ["eidolon"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon rushes forward, using their momentum to increase the power of their attack. Your eidolon Strides twice and then Strikes. If the eidolon moved at least 20 feet away from their starting position and moved entirely in a straight line, they gain a +1 circumstance bonus to this attack roll."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:beasts-charge",
+        "toggleable": true
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-attack-roll"],
+        "type": "circumstance",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.cx0juTYewwBmrYWv"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "884bffe9-85fa-5c6a-bf8b-0e6ddfd79e7b",
+    "pack": "impossible-magic",
+    "kind": "action",
+    "slug": "action:cleanse-soul-path",
+    "name": "Cleanse Soul Path",
+    "rarity": "common",
+    "traits": ["exploration"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You meditate, pray, or otherwise try to reinforce your soul's connection to your armament. This takes 10 minutes. Attempt a counteract check against your "
+          },
+          {
+            "type": "text",
+            "text": "soulforged corruption",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". The counteract rank is half your level rounded up, and the counteract check modifier is your Religion modifier. If successful, reduce the stage of "
+          },
+          {
+            "type": "text",
+            "text": "soulforged corruption",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " by 1 (to a minimum of stage 1)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.ZhKXvnw7ND2hQ2pp"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "850122d8-cacd-5d29-8bc9-afcf8cf2a6ef",
+    "pack": "impossible-magic",
+    "kind": "action",
+    "slug": "action:command-a-thrall",
+    "name": "Command a Thrall",
+    "rarity": "common",
+    "traits": ["concentrate", "necromancer", "thrall"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You make one of your thralls Crawl, Drop Prone, Escape, Interact, Stand, Stride, or Strike. A thrall can take only simple Interact actions, not ones that require skill checks or complicated movements. However, they can make checks to "
+          },
+          {
+            "type": "ref",
+            "id": "2ae74030-e87a-55ee-955c-fb9870392d44"
+          },
+          {
+            "type": "text",
+            "text": " using your spell attack modifier. Escaping this way uses and counts toward your multiple attack penalty."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.Gja1hFvwLUVkcQC9"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "d8f484c9-62d2-5b0e-8506-a9e498916380",
+    "pack": "impossible-magic",
+    "kind": "action",
+    "slug": "action:consume-thrall",
+    "name": "Consume Thrall",
+    "rarity": "common",
+    "traits": ["concentrate", "necromancer", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have 0 Focus Points and at least one thrall with 30 feet of you"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You destroy one thrall within 30 feet of you and regain 1 Focus Point. You can spend this focus point only to cast a grave spell."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.HW8FAK8Gp9GBrFUo"
+    },
+    "data": {
+      "cost": "free",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You have 0 Focus Points and at least one thrall with 30 feet of you"
+            }
+          ]
+        }
+      ],
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "596af506-8af6-579b-8fba-da8dca5d92f7",
+    "pack": "impossible-magic",
+    "kind": "action",
+    "slug": "action:defend-life",
+    "name": "Defend Life",
+    "rarity": "common",
+    "traits": ["concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes damage"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're within 1 mile of the target"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " After calculating the amount of damage the target would take (applying weaknesses, resistances, and the like), you lose an equal number of Hit Points, and the target doesn't take any of the damage. You can't reduce the amount of Hit Points you lose in this way. The target still takes any effects that would come with the damage, however, such as the venom on a viper's fangs Strike."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.5V49l0K460CcvBOO"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "interaction",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You're within 1 mile of the target"
+            }
+          ]
+        }
+      ],
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The target takes damage"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "578e0c5b-abaf-514b-9af3-b53d97a0da18",
+    "pack": "impossible-magic",
+    "kind": "action",
+    "slug": "action:divert-lightning",
+    "name": "Divert Lightning",
+    "rarity": "common",
+    "traits": ["electricity"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You aren't immune to electricity"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature within 30 feet of you is targeted by an electricity effect or is in the area of an electricity effect."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You draw the electricity to yourself like a lightning rod in order to shield the target. If the triggering effect was targeted, it targets you instead of the triggering creature. If it was an area effect, it leaps from the triggering creature's space to fill your space instead. This doesn't divert lightning from any other creatures targeted by or in the area of the lightning. You're automatically hit by or automatically fail your save against the effect. You then can't Divert Lightning for 1d4 rounds."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.s2RrhZx1f1X4YnYV"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You aren't immune to electricity"
+            }
+          ]
+        }
+      ],
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A creature within 30 feet of you is targeted by an electricity effect or is in the area of an electricity effect."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "b14242b3-b040-5422-be8c-e4d6aa14a2a6",
+    "pack": "impossible-magic",
+    "kind": "action",
+    "slug": "action:double-spellstrike",
+    "name": "Double Spellstrike",
+    "rarity": "common",
+    "traits": ["magus"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your "
+          },
+          {
+            "type": "ref",
+            "id": "e48bee22-9114-5ebc-87c1-aa16dc091c1f"
+          },
+          {
+            "type": "text",
+            "text": " is charged."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You Spellstrike, but you cast two spells instead of one. The combined rank of the spells must be 10 or less, and they must both meet the normal criteria for spells you can cast in a Spellstrike."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.ip3twMLbinlNAl64"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your "
+            },
+            {
+              "type": "ref",
+              "id": "e48bee22-9114-5ebc-87c1-aa16dc091c1f"
+            },
+            {
+              "type": "text",
+              "text": " is charged."
+            }
+          ]
+        }
+      ],
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "f7859ee8-e551-59e3-af3e-f53fd1d63fc2",
+    "pack": "impossible-magic",
+    "kind": "action",
+    "slug": "action:draconic-frenzy",
+    "name": "Draconic Frenzy",
+    "rarity": "common",
+    "traits": ["eidolon"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon makes one Strike with their primary unarmed attack and two Strikes with their secondary unarmed attack (in any order). If any of these attacks critically hits an enemy, your eidolon instantly recovers the use of their Dragon Breath."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.uMFB3uw8WTWL0LZD"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "b5190e49-4fab-5c90-8105-ce964007f9b9",
+    "pack": "impossible-magic",
+    "kind": "action",
+    "slug": "action:dragon-breath-eidolon",
+    "name": "Dragon Breath (Eidolon)",
+    "rarity": "common",
+    "traits": ["eidolon"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon exhales a blast of destructive energy that deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(ceil(@level / 2))d6"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to all creatures in an area with a basic Reflex save against your spell DC. Your eidolon then can't use Dragon Breath again for the next 1d4 rounds. At 3rd level and every 2 levels thereafter, the damage increases by 1d6."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When the eidolon gains this ability, you choose the area—a "
+          },
+          {
+            "type": "template",
+            "shape": "line",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": " or a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": "—as well as the damage type—acid, cold, electricity, fire, piercing, poison, or void. You can instead choose force if your eidolon has the arcane trait, spirit if they have the divine trait, or mental if they have the occult trait. If you model your eidolon after a specific type of dragon, your GM might allow you to choose from additional damage types."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Dragon Breath has the tradition trait of your eidolon and the trait matching the damage type chosen (unless you choose piercing damage)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "shape",
+        "choices": [
+          {
+            "value": "cone",
+            "label": "Cone"
+          },
+          {
+            "value": "line",
+            "label": "Line"
+          }
+        ],
+        "rollOption": "dragon-breath-shape"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.Vr3w3t028ZKDg0mO"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "8aae24cd-1e80-5289-955b-ce0fbfa64ebf",
+    "pack": "impossible-magic",
+    "kind": "action",
+    "slug": "action:drain-life",
+    "name": "Drain Life",
+    "rarity": "common",
+    "traits": ["divine", "eidolon", "void"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon attacks a living creature and drains some of the creature's life force to feed your shared link. Your eidolon Strikes a living enemy. If the Strike hits and deals damage, the target must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "options": ["inflicts:drained"]
+          },
+          {
+            "type": "text",
+            "text": " save against your spell DC, with the following effects. On a critical hit, the enemy uses the result one degree worse than it rolled."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " No effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your eidolon drains a small amount of life force. The enemy takes additional void damage equal to half your level."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your eidolon drains enough life force to satisfy itself. The enemy takes additional void damage equal to half your level and is "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 1"
+          },
+          {
+            "type": "text",
+            "text": ". Your eidolon gains temporary Hit Points equal to the enemy's level, which last for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your eidolon drains an incredible amount of life force and is thoroughly glutted with energy. As failure, but the enemy is "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 2"
+          },
+          {
+            "type": "text",
+            "text": " and the temporary Hit Points are equal to double the enemy's level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.JPHWzD2soqjffeSU"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "a878e0c5-b88e-5601-b272-8cc401a28717",
+    "pack": "impossible-magic",
+    "kind": "action",
+    "slug": "action:dutiful-retaliation",
+    "name": "Dutiful Retaliation",
+    "rarity": "common",
+    "traits": ["eidolon", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An enemy within 15 feet of you hits you with a Strike and deals damage to you"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your eidolon is within 15 feet of you"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your eidolon instinctively flashes with ectoplasmic energy, allowing them to strike back against an enemy who dares to harm you. Your eidolon makes a melee unarmed Strike against the triggering enemy, even if that enemy isn't within your eidolon's reach."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.KyKXp599tK9BgodC"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your eidolon is within 15 feet of you"
+            }
+          ]
+        }
+      ],
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "An enemy within 15 feet of you hits you with a Strike and deals damage to you"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "1a865257-6c0a-56e7-b637-ba4e474b29da",
+    "pack": "impossible-magic",
+    "kind": "action",
+    "slug": "action:empower-breath",
+    "name": "Empower Breath",
+    "rarity": "common",
+    "traits": ["concentrate", "eidolon"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per minute"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your eidolon gathers the power of the mightiest archdragons to make their magical breath even more spectacular. If your eidolon's next action is to use "
+          },
+          {
+            "type": "ref",
+            "id": "b5190e49-4fab-5c90-8105-ce964007f9b9",
+            "label": "Dragon Breath"
+          },
+          {
+            "type": "text",
+            "text": ", both the number of damage dice and area of Dragon Breath are doubled."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:empower-breath",
+        "toggleable": true
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.OJ9cIvPukPT0rppR"
+    },
+    "data": {
+      "cost": "free",
+      "category": "interaction",
+      "frequency": {
+        "max": 1,
+        "per": "minute"
+      }
+    }
+  },
+  {
+    "id": "09bc39f9-961b-5a06-ab4d-2add10ef16f3",
+    "pack": "impossible-magic",
+    "kind": "action",
+    "slug": "action:field-of-roots",
+    "name": "Field of Roots",
+    "rarity": "common",
+    "traits": ["eidolon"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon extends their roots underground to entangle and possibly damage all foes nearby. All enemies within your eidolon's reach take damage of the same type and amount as your eidolon's most damaging Strike, depending on their "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex"
+          },
+          {
+            "type": "text",
+            "text": " saves against your spell DC. Any ongoing effects of the save last until the enemy either Escapes or leaves your eidolon's reach. After using Field of Roots, your eidolon is "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": " until they take an Interact action to detach from the ground; this also ends any remaining effects on enemies from Field of Roots."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The enemy is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The enemy takes no damage, but takes a –10 foot circumstance penalty to its Speeds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The enemy takes half damage, takes a –10-foot circumstance penalty to its Speeds, and at the end of each of its turns, takes half damage again."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The enemy is immobilized, takes full damage, and at the end of each of its turns, takes full damage again."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.tNrBIYct9l1lrW1I"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "9c4eb786-27ca-53b1-800f-969d5c541e36",
+    "pack": "impossible-magic",
+    "kind": "action",
+    "slug": "action:fight-with-fear",
+    "name": "Fight with Fear",
+    "rarity": "common",
+    "traits": ["concentrate", "emotion", "fear", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature that you can see uses a mental effect against you"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The triggering creature must attempt a Will save, which has the following effects."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": ", and you gain a +2 status bonus to your saving throw or other defense against the triggering mental effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is frightened 2, and you're unaffected by the triggering mental effect."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.hi56uHG1aAb84Zzu"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "interaction",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A creature that you can see uses a mental effect against you"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "6ac73dbd-d1bb-5687-b9de-8065472d331a",
+    "pack": "impossible-magic",
+    "kind": "action",
+    "slug": "action:flowing-engulf",
+    "name": "Flowing Engulf",
+    "rarity": "common",
+    "traits": ["eidolon"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon Strides up to double their Speed and can move through the spaces of any creatures in their path. Any creature of the eidolon's size or smaller whose space your eidolon moves through is engulfed unless it succeeds at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "options": ["inflicts:grabbed", "inflicts:slowed"]
+          },
+          {
+            "type": "text",
+            "text": " save against your spell DC. Your eidolon can attempt to engulf the same creature only once in a single use of Flowing Engulf, and they can contain as many creatures as can fit in their space."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An engulfed creature is pulled into your eidolon's body. It is "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": ", and moves along with your eidolon as long as it is engulfed. It can get free by "
+          },
+          {
+            "type": "ref",
+            "id": "2ae74030-e87a-55ee-955c-fb9870392d44",
+            "label": "Escaping"
+          },
+          {
+            "type": "text",
+            "text": " against your spell DC, moving to a space of its choice adjacent to your eidolon."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.TsvrmoOYLOm3cG8t"
+    },
+    "data": {
+      "cost": "three"
+    }
+  },
+  {
+    "id": "f43fdf66-ac17-5ec3-91d4-4e4b382e3794",
+    "pack": "impossible-magic",
+    "kind": "action",
+    "slug": "action:fuel-impossible-spell",
+    "name": "Fuel Impossible Spell",
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You put more of yourself on the line to draw forth the hidden potentials behind an impossible spell. You empower the effect of one of your active impossible spells further as detailed under the spell's description. Every time you Fuel an Impossible Spell, you become "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7",
+            "label": "Doomed 1"
+          },
+          {
+            "type": "text",
+            "text": " or increase your doomed condition by 1 if you're already doomed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.N9b6ZB71ssE1gGYJ"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "round"
+      }
+    }
+  },
+  {
+    "id": "7bd5c1fa-49a6-5f4d-b84a-eecda2cbfc7a",
+    "pack": "impossible-magic",
+    "kind": "action",
+    "slug": "action:furious-strike",
+    "name": "Furious Strike",
+    "rarity": "common",
+    "traits": ["eidolon"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon makes a melee Strike. This counts as two attacks when calculating your multiple attack penalty. If this Strike hits, your eidolon deals an extra die of weapon damage and gains a +1 circumstance bonus to the damage roll."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you're at least 10th level, increase this to two extra dice with a +2 circumstance bonus, and if you're at least 18th level, increase it to three extra dice with a +3 circumstance bonus."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "melee-strike-damage",
+        "option": "option:furious-strike",
+        "toggleable": true
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["melee-strike-damage"],
+        "type": "circumstance",
+        "value": "ternary(gte(@level, 18), 3, ternary(gte(@level, 10), 2, 1))",
+        "predicate": ["option:furious-strike"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["melee-strike-damage"],
+        "diceNumber": "ternary(gte(@level, 18), 3, ternary(gte(@level, 10), 2, 1))",
+        "predicate": ["option:furious-strike"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.06frwOOuo4HJtivl"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "6cb11cb2-d209-566b-867f-172e02fbf1b8",
+    "pack": "impossible-magic",
+    "kind": "action",
+    "slug": "action:inevitable-return",
+    "name": "Inevitable Return",
+    "rarity": "common",
+    "traits": ["concentrate", "necromancer", "thrall"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A Small or Medium enemy within 30 feet dies."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The deaths of those around you simply fuel your undead army. You create a thrall in the triggering corpse's space. This thrall is the same size as the triggering creature."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.9KkkDjNz5HMtutwA"
+    },
+    "data": {
+      "cost": "reaction",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A Small or Medium enemy within 30 feet dies."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "55e40b8a-954f-5e72-9c0f-e46e6f9d097a",
+    "pack": "impossible-magic",
+    "kind": "action",
+    "slug": "action:invoke-rune",
+    "name": "Invoke Rune",
+    "rarity": "common",
+    "traits": ["invocation", "magical", "runesmith"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You utter the names of up to two of your runes within 30 feet, and each of which blazes with power, applying the effect in its Invocation entry. An invoked rune then fades away, its task completed. Though you can invoke up to two runes with a single Invoke Rune action, creatures that would be affected by multiple copies of the same rune are affected only once, as normal for duplicate effects."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.gP5oTU1Mh6GkuseX"
+    },
+    "data": {
+      "cost": "one"
+    }
+  },
+  {
+    "id": "593753a8-2a9c-537b-ac16-4df2e2f57ad7",
+    "pack": "impossible-magic",
+    "kind": "action",
+    "slug": "action:manifest-eidolon",
+    "name": "Manifest Eidolon",
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate", "summoner", "teleportation"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon appears in an open space adjacent to you, and can then take a single action. If your eidolon was already manifested, you unmanifest them instead. The conduit that allows your eidolon to manifest is also a tether between you. Your eidolon must remain within 100 feet of you at all times and can't willingly go beyond that limit. If forced beyond this distance, or if you are reduced to 0 Hit Points or your eidolon were to die, your eidolon's physical form unmanifests, and you need to use Manifest Eidolon to manifest them again."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " This activity has the trait matching your eidolon's tradition (arcane, divine, occult, or primal)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.n5vwBnLSlIXL9ptp"
+    },
+    "data": {
+      "cost": "three",
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "338ad80e-d5d3-509d-aa07-452d2475ef93",
+    "pack": "impossible-magic",
+    "kind": "action",
+    "slug": "action:manifest-soulforged-armament",
+    "name": "Manifest Soulforged Armament",
+    "rarity": "common",
+    "traits": ["concentrate", "divine", "extradimensional"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If summoning a soulforged weapon or shield, you have the hands free to wield it; if summoning soulforged armor, you aren't wearing any armor"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You immediately wield or wear the soulforged armament bound to you. The soulforged armament remains manifested until you Dismiss this effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Once per day when you use this ability, you can manifest the armament's essence form. You gain the armament's essence power until it's Dismissed. After 1 minute, the essence form armament is automatically Dismissed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.KMKuJ0onVS72t9Fv"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If summoning a soulforged weapon or shield, you have the hands free to wield it; if summoning soulforged armor, you aren't wearing any armor"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "c69b71d2-b101-57a1-9e08-b92cea7f2e26",
+    "pack": "impossible-magic",
+    "kind": "action",
+    "slug": "action:overflowing-blade",
+    "name": "Overflowing Blade",
+    "rarity": "common",
+    "traits": ["concentrate", "force", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are overflowing"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You conduct the magic in your internal nexus to coat your weapon or unarmed strike, empowering it with magical energy for a devastating attack. Make a melee Strike. If the Strike hits, you deal an additional 1d4 force damage. At 10th level, the additional damage increases to 2d4 force damage. At 18th level, the additional damage increases to 3d4 force damage. You are no longer overflowing."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:overflowing-blade",
+        "toggleable": true,
+        "predicate": ["self:effect:overflowing"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["melee-strike-damage"],
+        "slug": "overflowing-blade",
+        "diceNumber": "ternary(gte(@level, 18), 3, ternary(gte(@level, 10), 2, 1))",
+        "dieSize": "d4",
+        "damageType": "force",
+        "predicate": ["option:overflowing-blade"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.dEN2xLWOMXWhjGAF"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You are overflowing"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "fc4d20b7-9877-53a3-b817-3b43b2b3fe07",
+    "pack": "impossible-magic",
+    "kind": "action",
+    "slug": "action:part-the-veil",
+    "name": "Part the Veil",
+    "rarity": "common",
+    "traits": ["concentrate", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are not observed by any enemies"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You phase yourself into the interstices, veiling yourself from physical reality. You become "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": ". You can use this concealment to Hide or Sneak as your disassociation from reality makes you difficult to focus on. If you use a hostile action, this effect ends after the action is complete; otherwise, it lasts for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.ms9UJc2HQ4pknGa7"
+    },
+    "data": {
+      "cost": "two",
+      "category": "interaction",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You are not observed by any enemies"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "30d4aaaf-a1bb-5e7a-8fee-d54c9050c5a9",
+    "pack": "impossible-magic",
+    "kind": "action",
+    "slug": "action:plaintive-plea",
+    "name": "Plaintive Plea",
+    "rarity": "common",
+    "traits": ["fortune"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You make an emotional appeal to convince someone during a diplomatic encounter. If your next activity is to attempt a Diplomacy check to Make an Impression or Request, or to attempt to influence a creature during an influence encounter, you can roll twice and take the better result."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.seNsB8Xe6zl9NZWz"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction",
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "9c60b05f-80cf-5a82-8566-4d633265ca76",
+    "pack": "impossible-magic",
+    "kind": "action",
+    "slug": "action:primal-roar",
+    "name": "Primal Roar",
+    "rarity": "common",
+    "traits": ["auditory", "eidolon"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon unleashes a primal roar or other terrifying noise that fits your eidolon's form. Your eidolon attempts to Demoralize each enemy that can hear the roar, comparing the result of a single Intimidation check to the Will DC of each target; this check doesn't take any penalty for not sharing a language."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.kbUymGTjbesOKsV6"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "140900ef-cb83-5a87-a193-dd42a78b73c7",
+    "pack": "impossible-magic",
+    "kind": "action",
+    "slug": "action:reloading-cascade",
+    "name": "Reloading Cascade",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You use "
+          },
+          {
+            "type": "ref",
+            "id": "2a32d4d9-3277-591b-8631-3e847907a1d9"
+          },
+          {
+            "type": "text",
+            "text": " and Interact to reload a firearm."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.tmbf6xouEnRXCnKR"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "b9ad2279-e282-5967-9461-ef69703dc37e",
+    "pack": "impossible-magic",
+    "kind": "action",
+    "slug": "action:rouse-the-world",
+    "name": "Rouse the World",
+    "rarity": "common",
+    "traits": ["concentrate", "primal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The flora, fauna, and elements in a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " within 30 feet stir, aiding you and your allies and whispering in your ear. This area is known as your waking world. While in your waking world, you and your allies gain a +1 circumstance bonus to Athletics and Acrobatics checks, and you gain a +1 circumstance bonus to Nature checks to "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": " about creatures and hazards in the area."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The effect lasts for 10 minutes, but you can Dismiss it. Once per round on subsequent turns, you can Sustain this ability to increase the burst's size by 10 feet. You can Rouse the World in only one area at a time; if you use this ability again, the first area returns to normal."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.YdS8gzytU5gvK5QY"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "ee68483c-6bf4-540a-8387-871a5fb8a890",
+    "pack": "impossible-magic",
+    "kind": "action",
+    "slug": "action:seething-frenzy",
+    "name": "Seething Frenzy",
+    "rarity": "common",
+    "traits": ["concentrate", "eidolon", "emotion", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon's fury boils over into a reckless, out-of-control frenzy. While frenzied, your eidolon is affected by "
+          },
+          {
+            "type": "ref",
+            "id": "876e2b70-5be5-5c2d-a71e-6c6e47f1068d"
+          },
+          {
+            "type": "text",
+            "text": " and gains temporary Hit Points equal to your level, but takes a –1 penalty to AC. Your eidolon can't voluntarily end the frenzy or start another frenzy while in the frenzy. The frenzy and the accompanying temporary Hit Points last for 1 minute or until your eidolon is no longer manifested, whichever comes first, after which they can't start another frenzy for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When your eidolon makes a Furious Strike while in a Seething Frenzy, the status bonus from boost eidolon is 3 per damage die. The extra damage die from Furious Strike still doesn't count toward "
+          },
+          {
+            "type": "text",
+            "text": "boost eidolon",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "'s bonus, as normal for weapon dice added by abilities."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.nSTMF6kYIt6rXhJx"
+    },
+    "data": {
+      "cost": "one",
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "6cc9f110-9194-5f71-b994-82e44e22ed6f",
+    "pack": "impossible-magic",
+    "kind": "action",
+    "slug": "action:sever-conduit",
+    "name": "Sever Conduit",
+    "rarity": "common",
+    "traits": ["concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your eidolon takes damage that would bring you to 0 Hit Points and comes from an effect other than a death effect"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You quickly extinguish the link with your eidolon, causing your bonded ally to wink out of existence before you can be laid low. Your eidolon unmanifests, and you can't Manifest your Eidolon for 1 minute. In exchange, you don't take the triggering damage, though your eidolon still suffers any other adverse effects that accompanied the damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.VCUz5EnBUJF07j1a"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your eidolon takes damage that would bring you to 0 Hit Points and comes from an effect other than a death effect"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "2a47a9ff-e537-5b65-9752-c02c620b95fe",
+    "pack": "impossible-magic",
+    "kind": "action",
+    "slug": "action:share-senses",
+    "name": "Share Senses",
+    "rarity": "common",
+    "traits": ["concentrate", "scrying", "summoner"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your eidolon is manifested."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You project your senses into your eidolon, allowing you to perceive through it. When you do, you lose all sensory information from your own body, but can sense through your eidolon's body for up to 1 minute. You can "
+          },
+          {
+            "type": "ref",
+            "id": "9d0e5c47-3a1c-5d1a-bfc9-36eb6ed9b3ef"
+          },
+          {
+            "type": "text",
+            "text": " this effect."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " This action has the trait matching your eidolon's tradition (arcane, divine, occult, or primal). Your eidolon can also use this ability. When it does, it projects its senses into your body."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.3ZzoI9MTtJFd1Kjl"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your eidolon is manifested."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "c1f1e123-88c2-57b8-9311-da81d19d6200",
+    "pack": "impossible-magic",
+    "kind": "action",
+    "slug": "action:shift-spell",
+    "name": "Shift Spell",
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are within the affected area of an ongoing spell, or you can physically touch an object or creature under the effects of a spell, and you are holding your conduit"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Choose a spellshift and attempt an Arcana check against the DC of the spell (or the spell DC of the spellcaster if the spell does not normally have a DC). The caster immediately becomes aware that you're trying to shift their spell and intuitively knows the potential effects of the shift, but not the result of your skill check. A willing caster can allow you to achieve one degree of success higher than the result of your check. The effects of the check are dependent on the chosen spellshift. Regardless of the result, the spell becomes immune to Shift Spell for 24 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.iGEKY2XsPFbdiV3j"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You are within the affected area of an ongoing spell, or you can physically touch an object or creature under the effects of a spell, and you are holding your conduit"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "453d4ad0-d782-5974-9755-a6e43e938099",
+    "pack": "impossible-magic",
+    "kind": "action",
+    "slug": "action:solitary-invocation",
+    "name": "Solitary Invocation",
+    "rarity": "common",
+    "traits": ["invocation", "magical", "runesmith"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You utter the name of one of your runes within 30 feet, which blazes with power, applying the effect in its Invocation entry. An invoked rune then fades away, its task complete."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.DpboPjBwZLbEWOHe"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "e48bee22-9114-5ebc-87c1-aa16dc091c1f",
+    "pack": "impossible-magic",
+    "kind": "action",
+    "slug": "action:spellstrike",
+    "name": "Spellstrike",
+    "rarity": "common",
+    "traits": ["magus"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " until recharged (see below)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You channel a spell into a punch or sword thrust to deliver a combined attack. You cast a spell that takes 1 or 2 actions to cast and requires either a spell attack roll or a saving throw. You imbue its effects into an attack instead of executing the spell normally. Make a melee Strike with a weapon or unarmed attack. This counts as two attacks for your multiple attack penalty, but you don't apply the penalty until after you've completed the Spellstrike. The infusion of spell energy grants your Strike the arcane trait, making it magical. If the spell required a spell attack roll, use your Strike's results to determine the effects of both the Strike and the spell. If the spell required a save, the target of the Strike rolls its saving throw normally regardless of your attack roll's result unless your Strike was a critical failure, in which case your spell is disrupted. Combine the Strike and spell's damage for the purpose of resistances and weaknesses."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After you use Spellstrike, you can't do so again until you recharge your Spellstrike as a single action, which has the concentrate trait. You also recharge your Spellstrike when you cast a conflux spell that takes at least 1 action to cast; casting a focus spell of another type doesn't recharge your Spellstrike."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.QDW9H8XLIjuW2fE4"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "cbf4adc5-edaf-5ba9-b0ef-f8b6cbf6fa24",
+    "pack": "impossible-magic",
+    "kind": "action",
+    "slug": "action:surprising-anatomy",
+    "name": "Surprising Anatomy",
+    "rarity": "common",
+    "traits": ["eidolon"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An enemy adjacent to your eidolon deals damage to your eidolon"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your eidolon's form shifts horribly to retaliate against the attacker. Your eidolon makes a melee unarmed Strike against the triggering enemy."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.iwB73FV58uphEdtt"
+    },
+    "data": {
+      "cost": "reaction",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "An enemy adjacent to your eidolon deals damage to your eidolon"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "af03f723-6b3d-58df-9f91-be7419f1ef62",
+    "pack": "impossible-magic",
+    "kind": "action",
+    "slug": "action:tendril-strike",
+    "name": "Tendril Strike",
+    "rarity": "common",
+    "traits": ["eidolon"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stretching to extend their body to its limits, your eidolon attacks a foe that would normally be beyond their reach. Your eidolon makes a melee unarmed Strike, increasing their reach by 5 feet for that Strike. If the unarmed attack has the disarm, shove, or trip trait, the eidolon can use the corresponding action instead of a Strike."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:tendril-strike",
+        "toggleable": true
+      },
+      {
+        "key": "Change",
+        "selector": "reach",
+        "mode": "add",
+        "value": 5,
+        "predicate": ["option:tendril-strike"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.YpuEmI1fJBZD3kMc"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "c6669178-e7e3-5cac-92f7-8042a5530db0",
+    "pack": "impossible-magic",
+    "kind": "action",
+    "slug": "action:thundering-roar",
+    "name": "Thundering Roar",
+    "rarity": "common",
+    "traits": ["auditory", "concentrate", "emotion", "fear", "flourish", "mental", "sonic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The target unleashes a powerful vocalization. Each enemy in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d8",
+                "damageType": "sonic"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "spell-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save against your spell DC. A creature that fails its Will save is also "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.6SAdjml3OZw0BZnn"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "28c4d6fb-8f25-5b5c-aaf9-f27b6175f518",
+    "pack": "impossible-magic",
+    "kind": "action",
+    "slug": "action:trace-rune",
+    "name": "Trace Rune",
+    "rarity": "common",
+    "traits": ["concentrate", "magical", "manipulate", "runesmith"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your fingers dance, glowing light leaving behind the image of a rune. You apply one rune to an adjacent target matching the rune's Usage entry. You can have any number of runes traced at a time, but each rune remains only until the end of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you spend 2 actions to Trace a Rune, you draw the rune in the air, causing it to appear on a target within 30 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.WcpJPssJB98lsdI5"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "bbeb6563-7cc7-51cc-a34d-8b2f58dfd457",
+    "pack": "impossible-magic",
+    "kind": "action",
+    "slug": "action:visions-of-sin",
+    "name": "Visions of Sin",
+    "rarity": "common",
+    "traits": ["divine", "eidolon", "emotion", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your eidolon summons images of their sin into the mind of a target creature within 30 feet, tormenting and confusing the target. The target must attempt a Will save against your spell DC with the following effects. The effects last until the end of your next turn, but your eidolon can Sustain the effects to a maximum duration of 1 minute. If the target is unholy, it takes a –2 circumstance penalty to its save. Regardless of whether it succeeds, the target becomes temporarily immune for 1 day."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target can't use reactions."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " and can't use reactions."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, and the target is also "
+          },
+          {
+            "type": "ref",
+            "id": "6f53a234-670f-5b02-a986-7cce57585fc8"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round. The confusion can't be extended, but the other effects can."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.iJLzVonevhsi2uPs"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "ten-minutes"
+      }
+    }
+  }
+]

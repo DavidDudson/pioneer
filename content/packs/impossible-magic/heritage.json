@@ -1,0 +1,74 @@
+[
+  {
+    "id": "b3c450f6-30fd-5c35-8ea5-86a15d630b98",
+    "pack": "impossible-magic",
+    "kind": "heritage",
+    "slug": "heritage:defensive-automaton",
+    "name": "Defensive Automaton",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are built particularly tough. You can withstand more damage than most other automatons. You gain 10 hit points from your ancestry instead of 8. You also gain the Toughness feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "d21fd9b4-22f0-5dd9-980e-fd02482e0bcf"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.QOm3CGFgvUyEi9Bs"
+    },
+    "data": {}
+  },
+  {
+    "id": "020a6385-7e44-51bc-a330-7d1163658f24",
+    "pack": "impossible-magic",
+    "kind": "heritage",
+    "slug": "heritage:newly-minted-automaton",
+    "name": "Newly Minted Automaton",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are a brand-new automaton, likely constructed in the city of Quantium. While your body is largely the same as those created many years ago, your mind is fresh, and you learn new information at a rapid pace. You gain the Additional Lore skill feat in one lore of your choice. You know one additional language from the languages that you have access to."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "50ac17a9-a644-58e8-8ee0-ce4c6cfbf17b"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.B3eATjjSusACHqBR"
+    },
+    "data": {}
+  }
+]

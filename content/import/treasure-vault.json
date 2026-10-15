@@ -178,48 +178,12 @@
     {
       "type": "entry",
       "pack": "treasure-vault",
-      "slug": "armor:reef-heart",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.uuBhzN6xrplrwKyI",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "armor:reef-heart-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.RODC2TYO4cUg6fXu",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
       "slug": "consumable:amnemonic-charm",
       "foundry": "Compendium.pf2e.equipment-srd.Item.5jUIOETCI3QG69cS",
       "gaps": [
         {
           "type": "enricher",
           "enricher": "@Check[traits]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "consumable:bane-oil",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.F8jLnpBuvzM0nBp4",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[equipment-srd] Pathfinder Impossible Magic"
         }
       ]
     },
@@ -1085,18 +1049,6 @@
     {
       "type": "entry",
       "pack": "treasure-vault",
-      "slug": "consumable:mind-swap-potion",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.VqJuhN2Ba1DnrJNW",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
       "slug": "consumable:moonlit-spellgun-greater",
       "foundry": "Compendium.pf2e.equipment-srd.Item.Hh2qMYtJU4WTOUFC",
       "gaps": [
@@ -1785,69 +1737,6 @@
             "selectors": ["{item|id}-inline-damage"],
             "value": "{item|flags.system.rulesSelections.chromaticBurst}"
           }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "consumable:wand-of-clinging-rime-7th-rank",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.OpEFPyX1jwuV7ljp",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unresolved-reference",
-          "field": "spell",
-          "raw": {
-            "spell": "frigid-flurry",
-            "book": "Pathfinder Secrets of Magic"
-          }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "consumable:wand-of-clinging-rime-8th-rank",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.Z8o1V947lwkhPhzI",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unresolved-reference",
-          "field": "spell",
-          "raw": {
-            "spell": "frigid-flurry",
-            "book": "Pathfinder Secrets of Magic"
-          }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "consumable:wand-of-clinging-rime-9th-rank",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.P112tFaNhgJrBhmu",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unresolved-reference",
-          "field": "spell",
-          "raw": {
-            "spell": "frigid-flurry",
-            "book": "Pathfinder Secrets of Magic"
-          }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
         }
       ]
     },
@@ -6165,18 +6054,6 @@
     {
       "type": "entry",
       "pack": "treasure-vault",
-      "slug": "equipment:accompaniment-cloak",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.EKYjF0GuuBkmMD1J",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
       "slug": "equipment:alchemists-flamethrower",
       "foundry": "Compendium.pf2e.equipment-srd.Item.gdaLHiWRhB1l2Xr3",
       "gaps": [
@@ -6209,25 +6086,9 @@
     {
       "type": "entry",
       "pack": "treasure-vault",
-      "slug": "equipment:bagpipes-of-turmoil-major",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.nhyXfERJ0SNFmcb0",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
       "slug": "equipment:beastmasters-sigil",
       "foundry": "Compendium.pf2e.equipment-srd.Item.JWFR4O5V06UUvx6W",
       "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[pathfinder-monster-core]"
@@ -6242,10 +6103,6 @@
       "gaps": [
         {
           "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        },
-        {
-          "type": "enricher",
           "enricher": "@UUID[pathfinder-monster-core]"
         }
       ]
@@ -6258,51 +6115,11 @@
       "gaps": [
         {
           "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        },
-        {
-          "type": "enricher",
           "enricher": "@UUID[pathfinder-monster-core]"
         },
         {
           "type": "enricher",
           "enricher": "@UUID[pathfinder-monster-core-2]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:brightbloom-posy",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.LqAf5RwxiZJredii",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:brightbloom-posy-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.GHaUZqivF30WJHS3",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:brightbloom-posy-major",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.XazXltJ0tsYy1xXQ",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
         }
       ]
     },
@@ -6469,10 +6286,6 @@
           }
         },
         {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        },
-        {
           "type": "markup",
           "markup": "table[class]"
         },
@@ -6494,10 +6307,6 @@
       "gaps": [
         {
           "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        },
-        {
-          "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Dark Archive (Remastered)"
         }
       ]
@@ -6508,10 +6317,6 @@
       "slug": "equipment:dullahan-codex",
       "foundry": "Compendium.pf2e.equipment-srd.Item.1wrRaLsT6nuz8gj6",
       "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[equipment-srd] Pathfinder Impossible Magic"
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder War of Immortals"
@@ -6560,78 +6365,6 @@
             "type": "item",
             "value": 2
           }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:enigma-mirror",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.Jx7cxxTqOENzlGaj",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:enigma-mirror-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.trKFKb5BKa0kxuTJ",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:enigma-mirror-major",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.Zo3uztXAa7kEUQmC",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:entertainers-lute",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.Jpgl3HlEd8u20fUY",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:entertainers-lute-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.pDNlJMlF4OotsVBh",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:entertainers-lute-major",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.ytGUz1nsPSsyuEsJ",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
         }
       ]
     },
@@ -6778,36 +6511,12 @@
     {
       "type": "entry",
       "pack": "treasure-vault",
-      "slug": "equipment:gaffe-glasses",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.KSkIKaKM3n75BpUL",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[equipment-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
       "slug": "equipment:gelid-shard",
       "foundry": "Compendium.pf2e.equipment-srd.Item.e6lhw1SPdq3koAqG",
       "gaps": [
         {
           "type": "enricher",
           "enricher": "@UUID[journals]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:ghostcallers-planchette-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.utRZnCD2XI9Q1dWE",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
         }
       ]
     },
@@ -7089,70 +6798,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[traits]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:judgment-thurible-major",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.4PtxcrCPnBhhYmg4",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:jyotis-feather-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.GtSPUCDpIMUEq9B0",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:jyotis-feather-major",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.y4dGIbK5wGUJTufR",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:kindled-tome",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.pW3pdFtKZLSlsqSm",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[equipment-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:majordomo-torc",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.4dSzBQPb68ik7ul8",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
         }
       ]
     },
@@ -7172,18 +6817,6 @@
             "type": "custom",
             "value": 10
           }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:master-magus-ring",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.8nz3fSOOkNmNduMr",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[classfeatures] Pathfinder Impossible Magic"
         }
       ]
     },
@@ -7314,42 +6947,6 @@
     {
       "type": "entry",
       "pack": "treasure-vault",
-      "slug": "equipment:resonating-fork",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.TVpEf9gMFUuwfGoU",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:resonating-fork-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.WvrPq0UGEX3wJg4a",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:resonating-fork-major",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.Shbg6XeBx94DXbcd",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
       "slug": "equipment:ring-of-discretion",
       "foundry": "Compendium.pf2e.equipment-srd.Item.FABVnBeYtGXshlwm",
       "gaps": [
@@ -7360,18 +6957,6 @@
         {
           "type": "enricher",
           "enricher": "[[/act]]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:sanguine-fang-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.fdntl5OOhtYIPSBi",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
         }
       ]
     },
@@ -7408,30 +6993,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[traits]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:seers-flute-major",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.QqN3JHXXNveMnjnd",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:spell-duelists-siphon",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.zFdo0aBUw6cHEucT",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[feats-srd] Pathfinder Impossible Magic"
         }
       ]
     },
@@ -7551,42 +7112,6 @@
     {
       "type": "entry",
       "pack": "treasure-vault",
-      "slug": "equipment:toshigami-blossom",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.tzoN71erFxQ2HVLl",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:tricksters-mandolin-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.Pq7JhHw3QhqqxY9d",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:tricksters-mandolin-major",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.18ztTUiUZNjuc7K1",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
       "slug": "equipment:troubadours-cap",
       "foundry": "Compendium.pf2e.equipment-srd.Item.h7OCAvvnUnCIM9Aj",
       "gaps": [
@@ -7653,18 +7178,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[equipment-effects] Pathfinder #158: Sixty Feet Under"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:vigilant-eye",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.4RBeMHw6u9pxNDpo",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
         }
       ]
     },
@@ -7750,10 +7263,6 @@
         {
           "type": "enricher",
           "enricher": "@Damage[options]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
         }
       ]
     },
@@ -8626,10 +8135,6 @@
               }
             ]
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
         }
       ]
     },
@@ -8654,10 +8159,6 @@
               }
             ]
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
         }
       ]
     },
@@ -8682,10 +8183,6 @@
               }
             ]
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
         }
       ]
     },
@@ -8716,10 +8213,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Lost Omens World Guide"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
         }
       ]
     },
@@ -8732,10 +8225,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Core Rulebook"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
         }
       ]
     },
@@ -8748,10 +8237,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Core Rulebook"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
         }
       ]
     },
@@ -8835,34 +8320,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Dark Archive (Remastered)"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "weapon:composer-staff-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.KSHZBPFxPD6uCZXM",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "weapon:composer-staff-major",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.pBPVm5JjKfKX8gaX",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
         }
       ]
     },
@@ -8922,36 +8379,12 @@
     {
       "type": "entry",
       "pack": "treasure-vault",
-      "slug": "weapon:dragonprism-staff-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.inyiBwK0zNootR6G",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
       "slug": "weapon:dragontooth-leiomano",
       "foundry": "Compendium.pf2e.equipment-srd.Item.Blo642O1qsgsvYEB",
       "gaps": [
         {
           "type": "enricher",
           "enricher": "@Damage[options]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "weapon:gamblers-staff",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.IKuvON8e4o7ARe4p",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
         }
       ]
     },
@@ -8985,18 +8418,6 @@
             "slug": "base",
             "value": "{item|flags.system.rulesSelections.ghosthandsCometDamage}"
           }
-        },
-        {
-          "type": "field",
-          "reason": "unresolved-reference",
-          "field": "runes.property",
-          "raw": "bane"
-        },
-        {
-          "type": "field",
-          "reason": "unresolved-reference",
-          "field": "runes.property",
-          "raw": "greaterImpactful"
         }
       ]
     },
@@ -9019,40 +8440,12 @@
     {
       "type": "entry",
       "pack": "treasure-vault",
-      "slug": "weapon:guardian-staff-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.jIX2T21YvEsRaaqp",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
       "slug": "weapon:guardian-staff-major",
       "foundry": "Compendium.pf2e.equipment-srd.Item.REvrniIEqBykkWyI",
       "gaps": [
         {
           "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        },
-        {
-          "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Core Rulebook"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "weapon:hell-staff",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.QbEkoFL1EYNGsOom",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
         }
       ]
     },
@@ -9085,10 +8478,6 @@
       "gaps": [
         {
           "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        },
-        {
-          "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Lost Omens Rival Academies"
         }
       ]
@@ -9101,47 +8490,7 @@
       "gaps": [
         {
           "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        },
-        {
-          "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Lost Omens Rival Academies"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "weapon:lyrakien-staff",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.fcRTJBvy1RqXr3ow",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "weapon:lyrakien-staff-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.uepeQsiOEIqTyNsx",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "weapon:lyrakien-staff-major",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.uX8urrzOQM5wdoTD",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
         }
       ]
     },
@@ -9163,18 +8512,6 @@
             "group": "flail",
             "traits": ["backswing", "disarm", "monk", "parry"]
           }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "weapon:pirate-staff",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.MSzFbb4Jswvrqjru",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
         }
       ]
     },
@@ -9218,10 +8555,6 @@
       "slug": "weapon:rime-foil",
       "foundry": "Compendium.pf2e.equipment-srd.Item.py3PPoO2zMUjOzOI",
       "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        },
         {
           "type": "enricher",
           "enricher": "@Check[traits]"
@@ -9299,18 +8632,6 @@
     {
       "type": "entry",
       "pack": "treasure-vault",
-      "slug": "weapon:socialite-staff",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.rmGfBLRTfOqhwhHW",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
       "slug": "weapon:solar-shellflower",
       "foundry": "Compendium.pf2e.equipment-srd.Item.mf5eeIdKjfSZ0K3p",
       "gaps": [
@@ -9350,14 +8671,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[options]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e] Pathfinder Impossible Magic"
         }
       ]
     },
@@ -9370,14 +8683,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[options]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e] Pathfinder Impossible Magic"
         }
       ]
     },
@@ -9390,58 +8695,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[options]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "weapon:staff-of-air-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.9GUSQFJZarLs5tQC",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "weapon:staff-of-air-major",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.2wUR0XVYONWrBVa8",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "weapon:staff-of-earth-major",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.a8YCTjKnXySKpU5C",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "weapon:staff-of-water-major",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.QMqPGk7oL4kESGc3",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
         }
       ]
     },
@@ -9499,54 +8752,6 @@
             "group": "flail",
             "traits": ["dwarf", "razing", "reach"]
           }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "weapon:zealot-staff",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.5MuAq1wFhy5NE0U0",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "weapon:zombie-staff",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.JtCO2nielwAg1x9m",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "weapon:zombie-staff-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.5B8sBxQ7IeKVI6TO",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "weapon:zombie-staff-major",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.kJzp8I0rAmcucHuw",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
         }
       ]
     },

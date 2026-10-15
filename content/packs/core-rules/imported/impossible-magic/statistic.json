@@ -1,0 +1,26 @@
+[
+  {
+    "id": "05457289-0498-5722-ae30-389915535bb1",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:driving-lore",
+    "name": "Driving Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:driving",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.driving",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  }
+]

@@ -5426,7 +5426,15 @@
           },
           {
             "type": "text",
-            "text": " You cast Coral Eruption. If you conjure the coral underwater, it ceases dealing damage after 1 minute, but its duration is unlimited. If the magical coral remains in place for 1 year, it becomes non-magical coral from which a reef might grow."
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "3747c368-8ccf-5b8c-9f51-60902067fb31"
+          },
+          {
+            "type": "text",
+            "text": ". If you conjure the coral underwater, it ceases dealing damage after 1 minute, but its duration is unlimited. If the magical coral remains in place for 1 year, it becomes non-magical coral from which a reef might grow."
           }
         ]
       }
@@ -5575,7 +5583,15 @@
           },
           {
             "type": "text",
-            "text": " You cast a 7th rank Coral Eruption. If you conjure the coral underwater, it ceases dealing damage after 1 minute, but its duration is unlimited. If the magical coral remains in place for 1 year, it becomes non-magical coral from which a reef might grow."
+            "text": " You cast a 7th rank "
+          },
+          {
+            "type": "ref",
+            "id": "3747c368-8ccf-5b8c-9f51-60902067fb31"
+          },
+          {
+            "type": "text",
+            "text": ". If you conjure the coral underwater, it ceases dealing damage after 1 minute, but its duration is unlimited. If the magical coral remains in place for 1 year, it becomes non-magical coral from which a reef might grow."
           }
         ]
       }

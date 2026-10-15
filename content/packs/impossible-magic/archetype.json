@@ -1,0 +1,552 @@
+[
+  {
+    "id": "8f1daf21-1b81-5145-a01e-3a5a30e53959",
+    "pack": "impossible-magic",
+    "kind": "archetype",
+    "slug": "archetype:captivator",
+    "name": "Captivator",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Others find you inherently fascinating. You possess a facility with words that draws others in, and you've always found it easy to sway others to your point of view. This ability has grown to the point where you're capable of innate magic. You can bend others' wills to your own by weaving enchantments and distracting with illusions. Perhaps this comes from a touch of fey or draconic blood in your family's distant past, or perhaps it's the work of some special boon or curse placed on you. Your abilities might have grown over time or manifested more fully after some specific event, but they've likely always been a part of you. As a captivator, you're a potent blend of insight and personal magnetism. This is nothing like mere physical beauty but instead a blend of traits that makes others want to listen to what you have to say."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Captivators come from all areas of the world and all walks of life. A farm boy with the right gifts who's sent to the market every week to hawk his garden's bounty might find himself on the path to becoming a captivator. An urchin, who must extract sympathy from others simply to survive, might become a captivator out of necessity, and a noble, born into a deadly game of luxury and influence, might find themself forced onto the path. Regardless of their background, most captivators use their abilities to advance their station in life, make things easier for themselves, and befriend those who can help them achieve their goals."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Virtuous captivators use their gifts to bring people together. They might talk the would-be tavern brawler into sharing drinks and stories. They might offer encouragement to those facing depression or doubt. They excel in ending conflict as peacefully and efficiently as possible and leave almost everyone around them happier. When faced with violence, they use their magic to quickly subdue or enthrall enemies and minimize harm to their companions."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Wicked captivators manipulate others to achieve status, wealth, and power. They've no qualms about deceiving anyone or using their magic to cause harm, so long as they get what they want. These captivators are dangerous foes who often seem like friends, tricksters whose charms and illusions make sure they appear neither important nor dangerous. The slick politician, the devious con artist, the cunning courtier—these are all roles that an evil captivator can easily assume."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.b7oePIMEMdFFS5TH"
+    },
+    "data": {
+      "dedication": "53a8ef60-515e-5a62-8f4b-fb2e7c4afacf"
+    }
+  },
+  {
+    "id": "9a694367-a341-5e4f-822a-96f446d30a83",
+    "pack": "impossible-magic",
+    "kind": "archetype",
+    "slug": "archetype:hedge-mage",
+    "name": "Hedge Mage",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The study of magic isn't solely the province of tenured faculty who extend propositions or refutations in stately halls of ivory; neither is its practice limited to the dominions of hierophants atop ancient duskwood edifices or wish-apported towers of basalt. Despite their claims to authority, the eminent and elite do not define magic's purview or purpose. Within quiet, overlooked places, magical inquiry flourishes in countless ways. Provincial villages and remote countrysides are the bailiwicks of so-called \"hedge mages.\" Away from the stifling support of prelates or provosts, a hedge mage may experiment with old methods in new ways, working with the quotidian in the quest to further hone practical and pragmatic spells into mighty tools."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Hedge mages tend to be a rugged, individualistic lot, whose practicality might seem an odd fit with the idiosyncrasies and idealism so common to their number. Without comforts of station or stipend, hedge mages must make do with what's readily accessible or easily available, mastering unremarkable materials and processes to achieve extraordinary magical effects. With practice, everyday cantrips and catalysts become reliable and versatile tools. Many hedge mages apply a mixture of simple spells, scholastic application, and hands-on knowledge to solve their communities' problems, be it blighted crops and plagued cattle or hauntings and monster attacks. Those few who become adventurer find their self-sufficient and resourceful lifestyles to be ample training for that career's challenges and uncertainties, bringing their unorthodox, yet undeniably effective, blend of magic and common sense to face the dangers of battlefield and dungeon."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Most hedge mages come from the ranks of classes that don't inherently grant spellcasting. Many of them begin their adventuring careers as fighters, rangers, and rogues, though a few investigators and swashbucklers round out the mix. Occasionally, a rural alchemist will add hedge mage spellcasting to their repertoire. Hedge mages who delve deep into the practice of momentary magic might also become scroll tricksters or talisman dabblers."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.A8AXQhO2bZAB28NI"
+    },
+    "data": {
+      "dedication": "a5d5f9a4-ae70-5cc4-9c40-27faba415ca6"
+    }
+  },
+  {
+    "id": "07c214b2-2abb-5825-a7b8-ef919ebf88ac",
+    "pack": "impossible-magic",
+    "kind": "archetype",
+    "slug": "archetype:living-nexus",
+    "name": "Living Nexus",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "There are places in the world where the essences of magic coalesce and build on each other, creating churning wells of power and streams of the energies. These forces can make up the fabric of the planes or produce entropic fields where magic is simply nullified, consumed before it can be brought into being. Your body is one such place for these powers. Whether by exposure to magical radiation, experimentation, happenstance of birth, or intense training, the essences of magic have warped themselves around you, creating in you a living nexus of power. You have trained yourself to sense with your very being the thrum and pulse of energy that permeates all things. As you absorb the magical energy around you, your soul filters it into pure potential. This power, however, cannot be held for long, as it urges to be released. For others, magic is a formula to be memorized or the will of a deity channeled through them. For you, magic is as easy as breathing."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "On Golarion, the accidental transformation into a living nexus usually occurs in places where magic is wild and unpredictable, often suffusing the very air people breathe. Certain parts of the Mana Wastes fit this criteria as the ancient conflict between Geb and Nex scarred this once-beautiful land with stray bolts of energy and clouds of magical radiation. While not many settlements exist in the Mana Wastes outside of Alkenstar, adventurers undertaking explorations into the wastelands have been known to return with the uncanny ability to absorb any magic around them and control it as a living nexus."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.ILUws84AHO5XpYNH"
+    },
+    "data": {
+      "dedication": "d5004659-97e1-530d-a3bb-16f0f6f031c9"
+    }
+  },
+  {
+    "id": "e4e042c6-63d4-542c-b180-90c5d79df898",
+    "pack": "impossible-magic",
+    "kind": "archetype",
+    "slug": "archetype:necromancer",
+    "name": "Necromancer",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your fascination with death has allowed you to delve, however shallowly, into the magic of the dead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.lVDaKaD2XM8hLd9v"
+    },
+    "data": {
+      "dedication": "850733a4-14f1-5730-933e-11bf9466611e",
+      "multiclass": "522631fb-777a-5c72-98f9-d65bced10bae"
+    }
+  },
+  {
+    "id": "f6bf82d4-ee69-5389-a10b-1ab57c67af9c",
+    "pack": "impossible-magic",
+    "kind": "archetype",
+    "slug": "archetype:runesmith",
+    "name": "Runesmith",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You dabble in the fundamental magic of runes and explore the writing at the heart of the world."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.KrP3gCLO3PypxNCH"
+    },
+    "data": {
+      "dedication": "55e468ab-0c29-550b-83b3-377089f81f3f",
+      "multiclass": "1aa8e5bd-efbc-5a0a-978d-545fd447d79d"
+    }
+  },
+  {
+    "id": "9bb3359e-fed7-57c2-90d3-44d828c0174c",
+    "pack": "impossible-magic",
+    "kind": "archetype",
+    "slug": "archetype:soulforger",
+    "name": "Soulforger",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your devotion to a cause grants you the power to summon and wield a soulforged armament tethered to the very essence of your spirit. You're driven to fulfill your destiny. The unification of your soul with your weaponry ensures you remain dangerous at all times, even when seemingly unarmed. At any moment, you can unleash your wrath upon those who oppose your will, smiting your enemies with the manifested power of conviction."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Soulforged armaments can be summoned only in the service of a higher purpose or calling, such as a blade called forth to avenge the wrongful death of a loved one. Even full suits of armor can manifest from the sheer power of a warrior's dedication to a cause. Weaponry, shields, or armor created in this way often bear a visual resemblance to the purpose they're summoned to fulfill."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.LWgcWM8B85HHVCtZ"
+    },
+    "data": {
+      "dedication": "432f6751-95ab-55b0-976d-69bc495a52e4"
+    }
+  },
+  {
+    "id": "ec353963-b82e-51a0-8714-f0fa03b87e6c",
+    "pack": "impossible-magic",
+    "kind": "archetype",
+    "slug": "archetype:spellshifter",
+    "name": "Spellshifter",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You may or may not cast spells, but you've always possessed an uncanny knack for attuning yourself to the ebb and flow of the mystical currents that power them. Thanks to specialized training or natural aptitude, you've honed this gift into the ability to exert a modicum of control over magical spells cast nearby, allowing you to reshape and repurpose their energies to suit your own designs. You might use this talent for any number of purposes: to enhance the spells cast by you or your allies, to weaken and confound magic-wielding enemies, or even just to covertly humiliate rival spellcasters foolish enough to cross you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As a spellshifter, you carry a special implement called a conduit, a seemingly mundane tool or object that you use to tap into the magical vibrations that suffuse the world around you. Only you can use this conduit, and every spellshifter's conduit is unique. Yours might represent something distinctive about your personality, your relationship to magic, or the circumstances under which you first discovered your powers."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Spellshifters aren't widely known in many parts of the world, and individuals with the innate potential to become one are sometimes regarded by distrustful spellcasters as jinxes whose mere presence might cause magic to malfunction or behave unpredictably. Past experience with these sorts of superstitions might drive you to actively conceal your powers from those who might fear them, or it might motivate you to seek out any opportunity to flaunt them openly, refusing to be cowed by the prejudice of others."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.rRBbiM1tzKc0ge6x"
+    },
+    "data": {
+      "dedication": "cce88d26-e355-5531-a705-6ee33e106562"
+    }
+  },
+  {
+    "id": "a673db34-6cee-5470-b66e-f5600d3dd430",
+    "pack": "impossible-magic",
+    "kind": "archetype",
+    "slug": "archetype:summoner",
+    "name": "Summoner",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have a tenuous connection to an eidolon."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.b5VoSJNzoNuqbtvD"
+    },
+    "data": {
+      "dedication": "36895e38-475f-5972-b023-338227d781c7",
+      "multiclass": "d8664e76-9773-54f0-af15-5675f9de385e"
+    }
+  },
+  {
+    "id": "bddc7537-21d2-5207-8f1b-90bf68366fed",
+    "pack": "impossible-magic",
+    "kind": "archetype",
+    "slug": "archetype:veil-dancer",
+    "name": "Veil Dancer",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "There are gaps in reality, minute interstices like the spaces between threads in a cloth. These hidden pockets of the Universe, though not extraplanar, are imperceptible and inaccessible to most, who go about their daily lives without realizing they're metaphorically stepping over thousands of tiny cracks per day. Time and space act oddly in these gaps, providing hiding places, instantaneous transportation, and escape routes for those who know where to look."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You know where to look."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've studied these small fissures, imbuing yourself with the power to make use of them. Though you may or may not be a formal spellcaster, you use this innate magic to conceal yourself or maneuver into advantageous positions. In a skirmish, you rely on the element of surprise, with your hit-and-run tactics keeping your foes uncertain where the next blow might come from. You're skilled at sneaking about unseen, getting in and out of places before anyone even notices your infiltration. Thieves and assassins often learn the ways of the veil dancer, but anyone who wishes to rely on stealth and short-range teleportation in combat and exploration might make use of such techniques."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The art of veil dancing was first developed in Nex. Some sources say it was developed by the archmage Nex himself, while others claim it was honed at Nethysian temples by sacred guardians of the faith. From there, the techniques rapidly spread throughout the Inner Sea and the rest of Golarion. Due to the tradition's association with thievery and assassinations, some are wary of those who openly profess to be veil dancers, though most veil dancers would claim that the practice is merely a tool, one that can be put to either benevolent or malevolent ends."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Veil dancers are more common in places where a large proportion of the population has magical training or exposure to magical energies, such as Nex, Jalmeray, New Thassilon, and the city-state of Nantambu in the Mwangi Expanse. You might have learned the magic formally or developed your abilities on your own. In either case, you pride yourself on your ability to vanish and reappear where people least expect you. For you, distances and heights are no barrier, merely a puzzle to be solved."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats: 14th ",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": "Spring from the Shadows"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.4MVsdQXhDEGEO023"
+    },
+    "data": {
+      "dedication": "ca0cff8f-6517-588b-b4ab-a5f65a73eb73"
+    }
+  },
+  {
+    "id": "3ced1560-99de-513f-b558-c3af773f3180",
+    "pack": "impossible-magic",
+    "kind": "archetype",
+    "slug": "archetype:world-rouser",
+    "name": "World Rouser",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Life abounds from the highest mountain peaks to the driest deserts to the deepest seas, worlds that nurture plants and shelter animals. But you know worlds are wonders beyond merely sustaining life. A world like Golarion can cage a god, can recover from 1,000 years of darkness, can destroy a civilization like Tar Khadurrm."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You know what worlds can truly do—and why they don't. You know they sleep, as they have since almost the moment they were created. But more importantly, you know how to wake a world, if only for a few moments. You call to them, and they stir from their slumber. And during those brief moments where they wake, these worlds speak back to you, whispering in a language only you can hear. Alert, they take actions to sustain you, working their will via the animals, plants, and terrain that call it home."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Those who share this secret are known as world rousers. On Golarion, they are most common among those who live in the wild—druids and rangers especially—where the voice of the world isn't drowned out by the noise of civilization. Gnomes, with their roots in the restless First World, often learn to bestir the world, as do those who live along ley lines and where the barrier between the Universe and the First World is thin. In those places, the world seems to rest more fitfully."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.hFWFHirVlO7zUe3p"
+    },
+    "data": {
+      "dedication": "6c69024d-d513-554a-bab7-c1e7ba0efffb"
+    }
+  }
+]

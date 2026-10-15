@@ -1,0 +1,3283 @@
+[
+  {
+    "id": "37f5c450-5857-54e9-8e84-1c42a199ae7c",
+    "pack": "impossible-magic",
+    "kind": "ritual",
+    "slug": "ritual:awaken-object",
+    "name": "Awaken Object",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You imbue a single Small or smaller object with rudimentary awareness and consciousness, and it gains mental attribute modifiers depending on the results of the ritual. It gains the ability to see and hear, and the ability to understand (but not speak) a single language that you know. It's indifferent to you and all living creatures. In all other respects, it's an ordinary object of its type. An awakened object that gains the broken condition is rendered insensate until Repaired above its Broken Threshold."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Magical objects and constructs can't be awakened, nor can most spell or magic item abilities be added to an awakened object later (the process to do so is much more complicated than a ritual and essentially creates an intelligent magic item). However, an object that has already been awakened can have the "
+          },
+          {
+            "type": "text",
+            "text": "animate object",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " ritual cast on it by doubling the cost of "
+          },
+          {
+            "type": "text",
+            "text": "animate object.",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target's Intelligence, Wisdom, and Charisma modifiers each increase to +2 if they were lower, and it becomes friendly to you for awakening it."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target's Intelligence, Wisdom, and Charisma modifiers increase to +0."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected and the ritual fails."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected, and the primary caster's intellect is trapped in the object for 24 hours. During this time, their original body is "
+          },
+          {
+            "type": "ref",
+            "id": "e1a78dad-4887-518e-9120-e58b7009ebfd"
+          },
+          {
+            "type": "text",
+            "text": " and inert and can't be awakened by any means."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.9lz67JCNCLDfIEy3"
+    },
+    "data": {
+      "rank": 6,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "duration": {
+        "type": "unlimited"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "crushed gems and spices worth 250 gp"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:arcana", "skill:occultism"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:crafting", "skill:arcana", "skill:occultism"],
+            "pick": "primary-unused"
+          }
+        ],
+        "casters": 2
+      }
+    }
+  },
+  {
+    "id": "2efaabf0-eff8-5021-92bb-1e6335ef877b",
+    "pack": "impossible-magic",
+    "kind": "ritual",
+    "slug": "ritual:bathe-in-blood",
+    "name": "Bathe in Blood",
+    "level": 8,
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This old ritual is illegal in nearly every corner of Golarion and requires that you submerge yourself in a bath of alchemically treated blood, attended by silent servants. The blood must have been spilled within the last 6 hours; a spell such as "
+          },
+          {
+            "type": "text",
+            "text": "peaceful rest",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can extend this time, but using such preserved blood applies a -4 circumstance penalty to the primary and secondary checks. If you're Medium, you require 30 gallons of blood to immerse yourself, and a typical Medium creature holds about 1-1/2 gallons of blood in its body. This ritual doesn't strictly require that the blood donors be killed and drained dry, but the logistical challenges of gathering enough blood without murder are beyond all but the most well-resourced casters."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each time you enact this ritual, regardless of its success or failure, you take a penalty to the primary check for all subsequent castings. This penalty starts at -1 and increases by -1 during each casting (so if you were casting this ritual on yourself for the fifth time, you would take a -4 penalty on your Occultism check)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You emerge rejuvenated and revived. You become up to 40 years younger, returning to the prime of youth and life. If you're already at your desired age, your aging instead stops for the next 40 years. While remaining recognizably yourself, you also become preternaturally charismatic, gaining a +1 circumstance bonus to Make an Impression. "
+          },
+          {
+            "type": "ref",
+            "id": "629f9883-6650-587f-a8df-c0f3169090af"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You become 20 years younger or pause your aging for 20 years."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual has no effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You die. Casters killed this way frequently return as undead, often as ghosts or vampires."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.bRW61IbjaFea0wcv"
+    },
+    "data": {
+      "rank": 8,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 20
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "alchemical herbs and components worth a total of 1,000 gp × the target's level"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:occultism"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:religion"]
+          },
+          {
+            "skills": ["skill:society"]
+          }
+        ],
+        "casters": 2
+      }
+    }
+  },
+  {
+    "id": "b3875d27-2285-5db2-a556-292b6952c350",
+    "pack": "impossible-magic",
+    "kind": "ritual",
+    "slug": "ritual:cloudborne-haven",
+    "name": "Cloudborne Haven",
+    "level": 8,
+    "rarity": "rare",
+    "traits": ["air"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The land beneath the building breaks away, lifting the structure up to half a mile off the ground."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can repeat this ritual on an "
+          },
+          {
+            "type": "text",
+            "text": "existing cloudborne",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " haven to maneuver it. When you maneuver it, the structure floats at the rate of 10 miles per hour in a straight line in the direction you specify (including up, down, any cardinal directions, and angled combinations). You can also direct it to land. When performing the ritual this way, you can end the ritual early. When the ritual ends, the "
+          },
+          {
+            "type": "text",
+            "text": "cloudborne haven",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is anchored in place."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This ritual does not impart protection against the weather, altitude, or vacuum of space (if you command it to rise too high)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The duration is unlimited."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The duration lasts for 1 year."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The structure fails to float upward as the ritual fails."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The building rises a dozen feet before falling to the ground, damaging the structure and injuring its inhabitants."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (9th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You target an area containing multiple buildings up to 1 mile by 1 mile. The cost of the required keystone increases to 22,000 gp."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (10th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You target an area up to 5 miles by 5 miles. The cost of the required keystone increases to 100,000 gp."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.LN7bFOw8PFs5Q5rD"
+    },
+    "data": {
+      "rank": 8,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "week"
+      },
+      "duration": {
+        "type": "varies"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "a replica keystone of the target building crafted from quartz worth 4,500 gp"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:arcana", "skill:nature"],
+        "proficiency": "legendary"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:arcana", "skill:nature"]
+          },
+          {
+            "skills": ["skill:athletics"]
+          }
+        ],
+        "casters": 3
+      }
+    }
+  },
+  {
+    "id": "7570bd6d-9253-594d-b633-25e3cb69259e",
+    "pack": "impossible-magic",
+    "kind": "ritual",
+    "slug": "ritual:concealments-curtain",
+    "name": "Concealment's Curtain",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["curse", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At twilight for 5 days, you line the fruit in front of the mirror, chanting the name of the target. At exactly midnight on the last day, you drive the pins through the fruits, miming the action of methodically blinding the target to you and your companions. The target is immediately affected and can't visually detect any of the casters involved in the ritual-provided that the ritual was successful, the target is unaware of the effects. Since the ritual affects the target's ability to see the casters, rather than make the casters "
+          },
+          {
+            "type": "ref",
+            "id": "53cf375b-c3fa-5d92-afde-135a3c001674"
+          },
+          {
+            "type": "text",
+            "text": ", effects like "
+          },
+          {
+            "type": "ref",
+            "id": "ec6df711-1ab8-5f9d-8e01-6827c947eeff"
+          },
+          {
+            "type": "text",
+            "text": " are ineffective against "
+          },
+          {
+            "type": "text",
+            "text": "concealment's curtain",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "; instead, the target would need to remove the curse with effects like a 4th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "9495e90b-a69c-5eaf-a472-b6b536856f28"
+          },
+          {
+            "type": "text",
+            "text": ". To perform this ritual, you must have been within 5 feet of the target at least once, close enough to get a good look at their eyes. The target is temporarily immune to further castings of "
+          },
+          {
+            "type": "text",
+            "text": "concealment's curtain",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " for 1 year."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unable to visually detect the casters for the duration, and the target's detection spells don't detect the targets."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unable to visually detect the casters for the duration, but their detection spells function normally."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual has no effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual backfires and all casters participating in it are "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": " for the next 24 hours."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (8th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You aren't satisfied with simply concealing yourself from the target. The cost of the ritual mirror increases to 1,000 gp, and a personal effect of the target is required. After completing the ritual, the target takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6",
+                "damageType": "mental"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and is blinded for 1 week, requiring both a "
+          },
+          {
+            "type": "ref",
+            "id": "674398f3-e121-59fe-a086-423c20002dd1"
+          },
+          {
+            "type": "text",
+            "text": " and a 4th-rank "
+          },
+          {
+            "type": "text",
+            "text": "cleanse affliction",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to end the effect early. The target is aware that the ritual was cast on them; however, it doesn't have any additional information."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.ehd9PtifLMwjk4ep"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "time",
+        "count": 6,
+        "unit": "day"
+      },
+      "range": {
+        "type": "planetary"
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature",
+            "qualifiers": ["living"]
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "week"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "an ornate mirror worth at least 100 gp, naturally occurring round fruit the size and number of the target's eyes, and the same amount of flawless silver needles worth at least 1 gp each"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:occultism"]
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:arcana"]
+          },
+          {
+            "skills": ["skill:deception"]
+          },
+          {
+            "skills": ["skill:stealth"]
+          }
+        ],
+        "casters": 3
+      }
+    }
+  },
+  {
+    "id": "f063a6e3-e33a-5c75-a9be-0912aa88c0c1",
+    "pack": "impossible-magic",
+    "kind": "ritual",
+    "slug": "ritual:dread-ambience",
+    "name": "Dread Ambience",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["consecration", "emotion", "fear", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In some places, it feels as if the very land doesn't want you there. Hostile creatures skitter about in the underbrush. Tendrils of mist try to lead you astray. Even the scent of the place is unwelcoming. Sometimes, this eerie atmosphere is a natural occurrence. Other times, it's the result of the "
+          },
+          {
+            "type": "text",
+            "text": "dread ambience",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " ritual."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "To create this unwelcoming, intimidating aura, you must prepare the area with salts and herbs, traveling the entire edge of the area throughout the casting."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After you complete your ritual, anyone who enters the area receives a status penalty to saving throws against fear effects within the "
+          },
+          {
+            "type": "text",
+            "text": "dread ambience",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The sense of dread is particularly powerful. Every creature in an area takes a -2 status penalty to saving throws against fear effects."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The dread ambience succeeds. Every creature in the area takes a -1 status penalty to saving throws against fear effects."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The dread ambience fails."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The dread ambience fails, and the casters take a -1 status penalty to all Will saves for the next week."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "6fa1a49f-9b9c-569e-a5c4-5e54ce306115"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (7th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The dread ambience costs 750 gp and remains in place for 10 years."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (9th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The dread ambience costs 5,000 gp and remains in place for an unlimited duration."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.1QMjWGq1DPOQr4VL"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "time",
+        "count": 2,
+        "unit": "day"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "year"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "candles, specialty salts, and rare herbs worth 80 gp total"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:arcana", "skill:occultism"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:deception"]
+          }
+        ],
+        "casters": 1
+      }
+    }
+  },
+  {
+    "id": "48f38e7c-9e4e-5364-9fe0-aebf3dd0e20e",
+    "pack": "impossible-magic",
+    "kind": "ritual",
+    "slug": "ritual:elemental-sentinel",
+    "name": "Elemental Sentinel",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You place a tiny elemental wisp within a single object—usually a mirror, statue, or other mundane-looking item—to serve as an alarm. Shattering or otherwise destroying the object frees the wisp and ends the ritual's effect even if the object is magically restored."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The elemental wisps inhabits the object and willingly serves you to the best of its ability. The wisp becomes aware of the target object's surroundings and can telepathically contact you with a range of 500 feet. It reports to you about intruders or other changes to the room in which it's located. You must tell the wisp what the criteria for the reports will be—for instance, when anyone not openly wearing a certain symbol enters the room or when an item is removed. The wisp has a +5 Perception modifier and observes the room using normal vision, normal hearing, and touch."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As critical success, but the range of the telepathy is 100 feet and the wisp's Perception modifier is +3."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're unable to harness the spirit. The ritual fails."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The elemental wisp is trapped in the object as with a success, but it refuses or is somehow unable to help you. The elemental might have extremely low Intelligence or simply be spiteful. Regardless, the object's reports are always misleading."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (4th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The range of the telepathic link increases, allowing the wisp to contact you anywhere on the same planet. Its Perception modifier increases to +10, or +12 on a critical success."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (6th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As 4th level, except the wisp can see invisible creatures as though they weren't invisible, and its Perception modifier increases to +15, or +17 on a critical success."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.rOwOLlfVgLMg1FND"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "object"
+          }
+        ]
+      },
+      "duration": {
+        "type": "unlimited"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "precious metals, rare incense, and herbs worth a total value of 15 gp per spell rank"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:arcana", "skill:occultism"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [],
+        "casters": 0
+      }
+    }
+  },
+  {
+    "id": "feeefbce-f110-52fa-8093-cabf82444c05",
+    "pack": "impossible-magic",
+    "kind": "ritual",
+    "slug": "ritual:garden-of-death",
+    "name": "Garden of Death",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["consecration", "plant", "poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Typically associated with the less friendly fey or druids, this ritual calls all the poisonous, toxic, and venomous plants and animals of an area to congregate in a certain place, creating a beautiful but extravagantly deadly garden."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You and the secondary casters sprinkle the ground of the garden with water infused with various poisons and a few drops of your blood. A successful ritual draws every possible poisonous plant or animal native to the surrounding environment into its area, forming a stable ecosystem, with nonpoisonous plants or animals growing only if there's no toxic counterpart. This deadly ecosystem flourishes, if at all possible (plants still need light and water, for instance), for 1 year and gradually disperses after this period. If this ritual is successfully cast on the grounds of an existing garden of death, it resets the duration and expands the garden's radius by 20 feet instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The maximum level of plants or animals called by the ritual is equal to its spell rank, and the called plants and animals can use the ritual's spell DC instead of their own poison DC, whichever is higher. The garden's residents don't willingly use their poison on you or the secondary casters, but you don't otherwise control or command them."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A poisonous garden forms, and you and the secondary casters gain a +2 circumstance bonus to Nature or Crafting checks to deal with the plants or animals, such as feeding them or harvesting poison from them. "
+          },
+          {
+            "type": "ref",
+            "id": "9bf9baf9-91e4-536e-bd56-4a58add3ec0d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As critical success, but without the circumstance bonus when interacting with the garden."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual has no effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You and the secondary casters are each bitten by the most poisonous creature found in the environment."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.nEXkk85BQu1cREa4"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "area": {
+        "shape": "burst",
+        "size": 40
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "year"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "water infused with drops of the primary caster's blood and a dozen deadly toxins worth a total of 50 gp"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:nature"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:crafting", "skill:medicine"]
+          }
+        ],
+        "casters": 2
+      }
+    }
+  },
+  {
+    "id": "da72baca-bb70-57ed-a03d-3460add2812b",
+    "pack": "impossible-magic",
+    "kind": "ritual",
+    "slug": "ritual:ideal-mimicry",
+    "name": "Ideal Mimicry",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You craft a doll with care and quiet meditation on the target, inserting the fingernails into the body, tying the lock of hair around the neck of the doll, or emptying the vial of blood into the stuffing and allowing it to be absorbed. You then form the doll to mimic the shape of the target, including creating clothing and accessories that are similar to commonly worn items. You must have been within 5 feet of the target at least once and gotten a good look at them to perform this ritual. You can cast the ritual and create the doll at any range from the target."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Once the doll is complete, you can Interact with the doll violently once per round to cause pain to the target as long as they're within 200 feet. This pain manifests as mental damage inflicted on the target, and it depends on how many of the three body part components (hair, nails, or blood) you included in the creation of the doll. After the first time you manipulate the doll, you can continue to do so until either the target moves beyond 200 feet or until you Interact with the doll to cause pain 10 times, whichever comes first. After either of those conditions is met, the doll falls apart into stuffing and dust."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The doll becomes connected to the target. Each Interact action causes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d6",
+                "damageType": "mental"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to the target for each of the three body part components (maximum 9d6 for all three components). The connection is more powerful than normal, increasing the number of times you can Interact to cause pain from 10 to 20."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As critical success, except you can only Interact the normal 10 times."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The doll is just an ordinary doll."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Any Interact actions you take to cause pain to target instead cause "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "9d6",
+                "damageType": "mental"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to the casters. The target is alerted to the attempt nonetheless, through a feeling of the connection being subverted."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+2)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Increase the damage to the target by 1d6 per body part component, and the damage to the casters on a critical failure by 3d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.M6HsK7W6JMkJXeog"
+    },
+    "data": {
+      "rank": 6,
+      "time": {
+        "type": "time",
+        "count": 6,
+        "unit": "day"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "crafting materials worth at least 50 gp × the target's level; a lock of hair, nail clippings, or a vial of blood from the target"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:occultism"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:crafting"]
+          }
+        ],
+        "casters": 1
+      }
+    }
+  },
+  {
+    "id": "e9372113-de8b-5930-a2cf-6f278f8cab5c",
+    "pack": "impossible-magic",
+    "kind": "ritual",
+    "slug": "ritual:loyaltys-ward",
+    "name": "Loyalty's Ward",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You place wards on a structure, creating a trap for those who would work against you. You set an invisible talisman above each door, window, or other opening. When you set these wards, select one of the following criteria."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Those that mean you harm"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Those that are unholy"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Those that are holy"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Those that are members of a specified faction"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Creatures that meet your selected criteria can enter the warded area but are prevented from exiting it. As they enter the area, those that are trapped feel the magic settle on them."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your wards hold, and those that meet the criteria must attempt a Will save against the higher of your class DC or spell DC when they try to leave the area by any means. On a success, they can leave freely. On a failure, they cannot move out of the warded area and cannot attempt to leave the area again for 24 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As critical success, but on a failure, they can attempt to leave again after 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your wards are merely decorative and do not hold any creatures."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The wards turn against your intentions, instead holding those that do not meet the selected criteria (which likely includes all casters)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.qBSyP5csMVmaOWCF"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "week"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "talismans written with rare inks worth 500 gp"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:religion"],
+        "proficiency": "master"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:intimidation", "skill:religion"]
+          }
+        ],
+        "casters": 1
+      }
+    }
+  },
+  {
+    "id": "ece6b12c-cddb-56a8-97d8-9d3dbd928173",
+    "pack": "impossible-magic",
+    "kind": "ritual",
+    "slug": "ritual:mind-swap",
+    "name": "Mind Swap",
+    "level": 5,
+    "rarity": "rare",
+    "traits": ["mental", "possession"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "To walk in another's shoes is to truly understand someone. This ritual allows two subjects to exchange minds, fully inhabiting one another's bodies. The two targets can be chosen from you, the secondary caster, or unrelated third parties present throughout the ritual. Normally, both targets must be of the same ancestry for the minds to be fully compatible, but at the GM's discretion, for a much higher cost, the targets can be from different ancestries; this requires much more adjudication of ancestry feats and abilities. When both targets are of the same ancestry, muscle memory and the influence of their soul allow them to carry over all their mechanical abilities into each new body, except they use the other body's heritage (and lineage, if any). The GM might rule that similar physiological changes can't be overridden with a mind swap."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If a body dies, the mind and spirit controlling it die instantly. When the effect ends, the minds and souls snap back to their original bodies. At this time, if the original body is dead, the mind and soul attempting to return to that body die as well."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Each target's mind and spirit possess the other's body and can control it normally. The mind swap is unusually smooth, and the targets gain a +4 circumstance bonus to Deception checks to Impersonate each other. "
+          },
+          {
+            "type": "ref",
+            "id": "ae0a6271-fac0-5a06-a656-9f80899763e5"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Each target's mind and spirit possess the other's body and can control it normally."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual has no effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual is scrambled, sending a welter of confused memories into the target's minds. You and the secondary casters are "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 2"
+          },
+          {
+            "type": "text",
+            "text": " for the next week."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (9th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can cast the ritual without a duration, leaving no magic to counteract. The effects are reversible only by another "
+          },
+          {
+            "type": "text",
+            "text": "mind swap",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " ritual or other powerful magic like a "
+          },
+          {
+            "type": "text",
+            "text": "wish",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " ritual. This increases the cost of the ritual to 10,000 gp and likely violates many deity's anathema unless both targets are willing."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.RWwiFnjxoJXn7H6D"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 10
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "week"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "a pair of jeweled mirrors worth a total value of 50 gp × the level of the highest-level target"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:occultism"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:medicine", "skill:occultism"]
+          }
+        ],
+        "casters": 1
+      }
+    }
+  },
+  {
+    "id": "45a9435a-6a77-5b66-be71-19f09607a413",
+    "pack": "impossible-magic",
+    "kind": "ritual",
+    "slug": "ritual:mystic-carriage",
+    "name": "Mystic Carriage",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Magic is often the ideal method of transportation. This ritual allows you and the other casters to conjure a magical carriage that transports you to a destination of your choice. To summon the "
+          },
+          {
+            "type": "text",
+            "text": "mystic carriage",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you must be within 250 miles of your destination and spend 1 hour burning incense and feathers while chanting the name of the location you wish the carriage to take you to. When it arrives, the carriage is a Large vehicle that can fit 6 Medium or smaller passengers, as well as 100 Bulk of cargo. It has a Speed of 60 feet, AC 14, Fortitude saving throw modifier of +8, Hardness 5, 100 Hit Points (BT 50), object immunities, and immunity to critical hits and precision damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Once loaded and boarded, the "
+          },
+          {
+            "type": "text",
+            "text": "mystic carriage",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " sets out at a Speed of 60 feet, heading unerringly towards its destination using whatever roads and trails are available. If it's attacked, it continues going as long as nothing blocks its passage. If something blocks its way, living or otherwise, it will stop until the way is cleared, waiting to continue until all its passengers are aboard once more."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You create a "
+          },
+          {
+            "type": "text",
+            "text": "mystic carriage",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " that lasts for 2 weeks instead of 1 week. It can take you to up to two destinations, the first of which must be within 250 miles and the second of which must be within 250 miles of the first destination."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You create a "
+          },
+          {
+            "type": "text",
+            "text": "mystic carriage",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " as described above, save that it lasts only 1 week."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You don't create a "
+          },
+          {
+            "type": "text",
+            "text": "mystic carriage",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You don't create a "
+          },
+          {
+            "type": "text",
+            "text": "mystic carriage",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", and you're attacked by a herd of four riding horses."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The carriage's AC, Fortitude save, and Hardness increase by 2, its Hit Points increase by 20, and its Broken Threshold increases by 10."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.jOWQ5wPd4xvSkjI5"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "toy carriage, horse statues, rare incense, and feathers worth 50 gp total"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:arcana", "skill:occultism"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:crafting", "skill:lore:driving"]
+          }
+        ],
+        "casters": 1
+      }
+    }
+  },
+  {
+    "id": "4f7d2adb-6216-5ff9-bae1-273ffafe5274",
+    "pack": "impossible-magic",
+    "kind": "ritual",
+    "slug": "ritual:portrait-of-spite",
+    "name": "Portrait of Spite",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["curse"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Using the blood, you compose a portrait of the target in perfect health. Once the portrait is complete, you recite your grievances against the target and enact on the portrait the punishments you wish to see them face, choosing from the clumsy, enfeebled, drained, or stupefied condition.The target must attempt a Will saving throw. You're only able to perform this ritual if you know the target's name and are able to see their face clearly in your mind's eye, and the secondary caster who performs the Crafting check must be able to paint or draw the target from memory."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The target suffers the effects over the course of 1d6 hours, during which time the portrait transforms to reveal a caricature of the punishment you chose-muscles atrophied into nothing for enfeebled, pallid and sickly for drained, and so on. The target is immediately aware that they're under the effects of a magical ailment. If the duration expires or the target removes the curse with a 4th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "9495e90b-a69c-5eaf-a472-b6b536856f28"
+          },
+          {
+            "type": "text",
+            "text": " or similar effect, their portrait slowly returns back to its original form. Destroying the portrait also ends the effect immediately."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is either "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 4"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 4"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 4"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 4"
+          },
+          {
+            "type": "text",
+            "text": ", depending on the punishment you chose. On a successful Will save, the condition value is 2, and the target is unaffected on a critical success."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is either "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 2"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 2"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 2"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 2"
+          },
+          {
+            "type": "text",
+            "text": ", depending on the punishment you chose. On a successful Will save, the condition value is 1, and the target is unaffected on a critical success."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The portrait doesn't change, and the ritual has no effect on the target."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The portrait turns into a sickening mimicry of your form and the forms of the secondary casters, and the blood of your target extracts itself from the canvas, dripping down and drying immediately to prevent you from reattempting the ritual. Over the course of the next 1d6 hours, you and the secondary casters experience the curse you had intended to place upon the target with the effects of a critical success."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.Z60JRD78wT3afOEJ"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "time",
+        "count": 7,
+        "unit": "day"
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature",
+            "qualifiers": ["living"]
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "year"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "art supplies worth at least 100 gp × the target's level and at least one pint of blood from the target"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:occultism", "skill:religion"],
+        "proficiency": "master"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:crafting", "skill:occultism", "skill:religion"],
+            "pick": "primary-unused"
+          }
+        ],
+        "casters": 3
+      }
+    }
+  },
+  {
+    "id": "dbd7ed9f-bfe3-5670-baa7-5026bc7678be",
+    "pack": "impossible-magic",
+    "kind": "ritual",
+    "slug": "ritual:purify-soul-path",
+    "name": "Purify Soul Path",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You delve inward, spending extensive time contemplating the purity of your own soul and your past actions. If you aren't truly penitent, the outcome is always a critical failure."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You reconcile your misdeeds with your soul path, removing your soulforged corruption, so the corruption flaw from your armament stops affecting you. Before your reconciliation is complete, you must perform a special quest or other task in accord with your soul path. If completed during downtime, this task should take no less than 1 w eek. For 1 month, you receive divine insight just before performing an act that would be anathema to your soul path."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As critical success, but you gain no special insight."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You don't reconcile and must continue to meditate and redress your misdeeds. Any future purify soul path rituals for the same misdeeds cost half as much and gain a +4 circumstance bonus to the primary check."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, except you do not gain a circumstance bonus to the primary check to future purify soul path rituals for the same misdeed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.66xBcxqzYcpbItBU"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "rare incense and offerings worth a total value of 10 gp × your level"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:religion"],
+        "proficiency": "trained"
+      },
+      "secondary": {
+        "checks": [],
+        "casters": 0
+      }
+    }
+  },
+  {
+    "id": "ac2ba1bf-d071-54ec-945f-a5ccaf185baf",
+    "pack": "impossible-magic",
+    "kind": "ritual",
+    "slug": "ritual:resolute-obliteration",
+    "name": "Resolute Obliteration",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Disposing of unwanted or dangerous objects can be more difficult than simply keeping them in a vault. Cases where something needs to be truly destroyed often require a specialist. Whether it's due to the risks of keeping rusty weapons around or a desire to destroy the treasury before opponents steal it, the best way to handle it is through obliteration."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gather non-magical objects into your ritual circle and expose them to the forces of the Void. They lose color and turn brittle as they age in moments. With this magical acceleration, even items that typically last for centuries, such as gold or statues, can fall to time. Any item reduced to 0 HP turns to dust."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The rapid aging deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to all targets, which bypasses any Hardness."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As critical success, but "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The items are undamaged."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The harsh nature of the Void rebounds onto you, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to you per rank of the ritual."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Increase the damage dealt to items by 5 (or 10 on a critical success)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.RGmPRCBFcWVUoiZz"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "precious metals to create a ritual circle worth 10 gp × the ritual’s rank"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:arcana"],
+        "proficiency": "trained"
+      },
+      "secondary": {
+        "checks": [],
+        "casters": 0
+      }
+    }
+  },
+  {
+    "id": "57569f21-9473-5e49-bb7e-b4a896c8f8cd",
+    "pack": "impossible-magic",
+    "kind": "ritual",
+    "slug": "ritual:rolling-boulders",
+    "name": "Rolling Boulders",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["aura", "earth"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You compel the very earth beneath your feet to rise and follow you. When you cast this ritual, you must be on solid ground in an area without much vegetation. If you are not, the ritual automatically fails. When you successfully cast this ritual, boulders rise up within the emanation and constantly roll alongside you. They can move across most terrain, though if you ever don't have your feet on solid ground (such as by climbing a tree, swimming across a deep river, or flying through the air), the effect of the ritual is suppressed until you return to solid ground."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The area is difficult terrain for all other creatures as the boulders hinder their movement. In addition, the boulders grant you lesser cover."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When the ritual's duration has ended, the boulders remain in their last location. They are affected normally by anything in their current environment at the usual rate."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The boulders follow you for 8 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The boulders follow you for 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail to rouse the stones from their slumber."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You anger the earth with your request for it to follow you. You are immediately pelted with loose stones from the area, taking "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d8",
+                "damageType": "bludgeoning"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. For the next year, each time you venture underground, you take the damage again and once every hour you remain underground."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.RgVlYrn5mu8wNHK4"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour"
+      },
+      "area": {
+        "shape": "emanation",
+        "size": 10
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "a precious gemstone worth 50 gp"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:nature"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [],
+        "casters": 0
+      }
+    }
+  },
+  {
+    "id": "88855bcb-8d75-5ab5-a376-f27d0d2069b2",
+    "pack": "impossible-magic",
+    "kind": "ritual",
+    "slug": "ritual:sculpt-appearance",
+    "name": "Sculpt Appearance",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You permanently alter a creature's appearance, typically by sculpting new features by applying clay and coloring it with appropriate pigments. These transform the target once they see their new face and accept it as their own."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The target keeps their same size, ancestry, heritage, statistics, and traits, but you can adjust any other aspect of their appearance, including hair color, facial features, gender, and height (while remaining within the same size category)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can't attempt to change the target's appearance to that of another specific creature; any attempt to do so results in unexpected but obvious differences."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You change the target's appearance as desired. Until this appearance is changed, any future attempt to sculpt appearance on the target gains a +2 status bonus to the primary check."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You change the target's appearance as desired."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail to create a new appearance for your target."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual's magic turns on you, and for the next month, the features of your face change and sometimes even disappear at random intervals when you try to speak with someone or hide these unprompted alterations. During this time, you take a –4 status penalty to Deception, Diplomacy, Intimidation, and Performance checks."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (5th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can adjust the appearance of your target's ancestry and heritage. This does not change their traits, size, or statistics."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.90CYsk0cB2V6dRPQ"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "week"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature",
+            "qualifiers": ["willing"]
+          }
+        ]
+      },
+      "duration": {
+        "type": "unlimited"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "rare clay and pigments worth 20 gp × the rank of the ritual"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:arcana", "skill:nature"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [],
+        "casters": 0
+      }
+    }
+  },
+  {
+    "id": "2c5a1202-cdb2-54e6-804c-6961a65d0d19",
+    "pack": "impossible-magic",
+    "kind": "ritual",
+    "slug": "ritual:separation",
+    "name": "Separation",
+    "level": 9,
+    "rarity": "uncommon",
+    "traits": ["emotion", "incapacitation", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You permanently separate two creatures from each other, splitting them as a lightning bolt severs a tree's trunk. Their paths bend around your meddling so that the powers of the universe and fate keep them apart. The two targets feel this as a constant subtle, magnetic push, though it's only once they approach the other closely that the feeling can't be overcome."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you cast this ritual, select two creatures who you know. Each target can attempt a Will save against the higher of your class DC or spell DC if they are not willing. If either target succeeds at their save, the ritual fails. For the duration of this ritual, the targets cannot approach within 100 feet of each other. If an effect would attempt to force them together, the ritual attempts to counteract that effect. If it fails to counteract it, the ritual ends."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Creatures separated from each other must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 5
+          },
+          {
+            "type": "text",
+            "text": " when they target the other creature with an attack or spell, even if it is a ranged attack. On a failure, their action is lost."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but the ritual lasts for 1 year."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You ward the affected creatures from each other. This ritual lasts for 1 month."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail to bend the fates of the targets away from each other."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You accidentally intertwine your fate with those of the targets. For the next year, whenever you start your turn within 100 feet of one of the targets, you must spend at least one action per turn moving closer to them. If you are adjacent to one of the targets at the start of your turn, you must spend an action that turn doing nothing but looking at them. If you start your turn within 100 feet of both targets, these effects are cumulative, so you must spend one action moving toward one target and then another action moving toward the other."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.jh6d9n4VQTeOewEU"
+    },
+    "data": {
+      "rank": 9,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "week"
+      },
+      "duration": {
+        "type": "varies"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "protective emblems worth a total value of 5,000 gp"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:religion", "skill:occultism"],
+        "proficiency": "master"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:society"]
+          }
+        ],
+        "casters": 3
+      }
+    }
+  },
+  {
+    "id": "8d404120-4414-5621-9a7b-d48d690fef66",
+    "pack": "impossible-magic",
+    "kind": "ritual",
+    "slug": "ritual:still-life-storage",
+    "name": "Still Life Storage",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["extradimensional"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As you paint, you transform objects into a still life painting. The items disappear from the world around you as the canvas fills. You can reach into this painting and retrieve objects stored within it with an Interact action, though you cannot return objects that are removed or add additional objects to the scene. Other creatures can retrieve objects as well, though it requires a successful Crafting, Occultism or Perception check against the higher of your class DC or spell DC to Identify the still life storage. If a creature is already aware of the properties of the still life storage, they can Interact to take objects."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You create the still life scene as described, and you can designate up to 3 Bulk of objects that only you can Interact with."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You create the still life scene as described."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail to capture the objects within the canvas. They are otherwise unchanged by the attempt."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The still life twists the objects you store in it, altering their appearance and inflicting each wish the broken condition."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (3rd)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can target magical objects with a level that does not exceed twice the still life storage's rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.RqUpZmKtfnDEKkcf"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "duration": {
+        "type": "unlimited"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "a primed canvas and paints worth the highest target’s level × 10 gp"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:occultism"],
+        "proficiency": "trained"
+      },
+      "secondary": {
+        "checks": [],
+        "casters": 0
+      }
+    }
+  },
+  {
+    "id": "4e588f1c-9d09-5e21-82b6-5bf4f46c5661",
+    "pack": "impossible-magic",
+    "kind": "ritual",
+    "slug": "ritual:uncouple-memory",
+    "name": "Uncouple Memory",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Some knowledge cannot persist in the world and haunts those who possess it. Unfortunately, some of that knowledge belongs to you. With the assistance of your secondary casters, you split your mind into uneven sections. Your primary mind contains your personality, goals, general knowledge, and abilities. Your uncoupled mind exists to hold the knowledge that you have decided to hide within your own consciousness, plus a personality that oversees it. You can select the personality that appears, such as making it a copy of your own or a version of yourself tailored to protect that knowledge. While your primary mind is active, your uncoupled mind is not accessible. Accessing it requires subduing your primary mind, such as by falling asleep or entering a trance."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This does not remove all traces of the knowledge you've sequestered from the world. If you shared it with others (or if someone else also discovered that knowledge), they can still spread it. However, if you hear, see, or otherwise encounter the uncoupled knowledge while your primary mind is active, you become "
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+            "label": "Stunned 3"
+          },
+          {
+            "type": "text",
+            "text": " and your uncoupled mind becomes active instead. Your uncoupled mind can Dismiss themself based on a set condition when performing this ritual or based on their own judgment, reactivating your primary mind."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual succeeds. When your uncoupled mind would become active, you can attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 5
+          },
+          {
+            "type": "text",
+            "text": ". On a success, your primary mind stays active."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As critical success, by the flat check is DC 10."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail to uncouple your memory from your mind, leaving your memory and personality unaltered."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You uncouple the wrong memories, creating an uncoupled mind with unintended knowledge that your primary mind cannot access (as determined by the GM)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.bmz35f9k1ydHOOli"
+    },
+    "data": {
+      "rank": 6,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "duration": {
+        "type": "unlimited"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "surgical supplies worth 400 gp"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:arcana", "skill:nature", "skill:occultism", "skill:religion"],
+        "proficiency": "master"
+      },
+      "secondary": {
+        "checks": [],
+        "casters": 0
+      }
+    }
+  }
+]

@@ -118,5 +118,13 @@
     "remaster": false,
     "released": "2022-11-16",
     "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=146"
+  },
+  {
+    "id": "impossible-magic",
+    "publisher": "paizo",
+    "license": "ORC",
+    "remaster": true,
+    "released": "2026-07-30",
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=355"
   }
 ]

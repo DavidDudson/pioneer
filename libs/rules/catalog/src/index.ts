@@ -7,6 +7,7 @@ import {
   divineMysteriesPack,
   gmCorePack,
   howlOfTheWildPack,
+  impossibleMagicPack,
   monsterCorePack,
   mwangiExpansePack,
   playerCore2Pack,
@@ -81,6 +82,7 @@ export const officialPacks: readonly PackContentsLoader[] = [
   checkedLoader('character-guide', characterGuidePack),
   checkedLoader('dark-archive-remastered', darkArchiveRemasteredPack),
   checkedLoader('tian-xia-character-guide', tianXiaCharacterGuidePack),
+  checkedLoader('impossible-magic', impossibleMagicPack),
   checkedLoader('gm-core', gmCorePack),
 ];
 

@@ -52,6 +52,8 @@ export async function coreRulesPack(): Promise<PackContents> {
     import('@pioneer/content/packs/core-rules/imported/secrets-of-magic/sense.json'),
     import('@pioneer/content/packs/core-rules/imported/secrets-of-magic/statistic.json'),
     import('@pioneer/content/packs/core-rules/imported/secrets-of-magic/trait.json'),
+    import('@pioneer/content/packs/core-rules/imported/impossible-magic/statistic.json'),
+    import('@pioneer/content/packs/core-rules/imported/impossible-magic/trait.json'),
     import('@pioneer/content/packs/core-rules/imported/howl-of-the-wild/language.json'),
     import('@pioneer/content/packs/core-rules/imported/howl-of-the-wild/trait.json'),
     import('@pioneer/content/packs/core-rules/imported/gm-core/trait.json'),
@@ -277,5 +279,25 @@ export async function rageOfElementsPack(): Promise<PackContents> {
     import('@pioneer/content/packs/rage-of-elements/shield.json'),
     import('@pioneer/content/packs/rage-of-elements/spell.json'),
     import('@pioneer/content/packs/rage-of-elements/weapon.json'),
+  ]);
+}
+
+export async function impossibleMagicPack(): Promise<PackContents> {
+  return pack(import('@pioneer/content/packs/impossible-magic/pack.json'), [
+    import('@pioneer/content/packs/impossible-magic/action.json'),
+    import('@pioneer/content/packs/impossible-magic/archetype.json'),
+    import('@pioneer/content/packs/impossible-magic/armor.json'),
+    import('@pioneer/content/packs/impossible-magic/class.json'),
+    import('@pioneer/content/packs/impossible-magic/class-feature.json'),
+    import('@pioneer/content/packs/impossible-magic/consumable.json'),
+    import('@pioneer/content/packs/impossible-magic/effect.json'),
+    import('@pioneer/content/packs/impossible-magic/equipment.json'),
+    import('@pioneer/content/packs/impossible-magic/feat.json'),
+    import('@pioneer/content/packs/impossible-magic/heritage.json'),
+    import('@pioneer/content/packs/impossible-magic/ritual.json'),
+    import('@pioneer/content/packs/impossible-magic/rune.json'),
+    import('@pioneer/content/packs/impossible-magic/shield.json'),
+    import('@pioneer/content/packs/impossible-magic/spell.json'),
+    import('@pioneer/content/packs/impossible-magic/weapon.json'),
   ]);
 }

@@ -1,0 +1,1560 @@
+[
+  {
+    "id": "71215f03-5acb-5cef-9e93-fc3f76cc9db2",
+    "pack": "impossible-magic",
+    "kind": "shield",
+    "slug": "shield:archers-bulwark",
+    "name": "Archer's Bulwark",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This embossed steel buckler (Hardness 4, HP 12, BT 6) is designed to not interfere with the hand an archer uses to pull back their bowstring. When you Raise a Shield with this buckler, the circumstance bonus to AC it grants against ranged Strikes increases to +2. This increased bonus doesn't apply to unusually massive ranged projectiles (such as boulders or ballista bolts)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.29rJcxvQtN9MAhOD"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 85
+        }
+      },
+      "bulk": "light",
+      "hardness": 4,
+      "hitPoints": 12,
+      "baseItem": "buckler",
+      "acBonus": 1
+    }
+  },
+  {
+    "id": "01895126-efd6-5ba9-b310-1eb40e39a3b0",
+    "pack": "impossible-magic",
+    "kind": "shield",
+    "slug": "shield:burr-shield",
+    "name": "Burr Shield",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This well-crafted wooden shield (Hardness 5, HP 30, BT 15) is covered in numerous seed pods with long spurs. You can Strike with these burrs as though they were "
+          },
+          {
+            "type": "ref",
+            "id": "bbe81ce4-2fd6-5e24-a413-eb4c666c0fd3",
+            "label": "+1 Striking Shield Spikes"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Prickly Sticker",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your previous action was a successful Strike with the burrs"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " One of the burrs catches on the Strike's target, inflicting "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d10",
+                "damageType": "bleed",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.MK3Fq0BV2uTspvXn"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 160
+        }
+      },
+      "bulk": "light",
+      "hardness": 5,
+      "hitPoints": 30,
+      "baseItem": "wooden-shield",
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "3fceb247-218f-5bf3-86e3-bcbc8d5188cd",
+    "pack": "impossible-magic",
+    "kind": "shield",
+    "slug": "shield:cowards-shield",
+    "name": "Coward's Shield",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This eerie, blackened steel shield (Hardness 6, HP 36, BT 18) seems to actively reject light that touches it. You gain a +1 circumstance bonus to Stealth checks to Hide while this shield is raised."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Shadow Slip",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You would take damage while this shield is raised"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Shadows swallow you. You become "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " until the end of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.CyziWjcM1NaAgTFa"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 225
+        }
+      },
+      "bulk": 1,
+      "hardness": 6,
+      "hitPoints": 36,
+      "activations": [
+        {
+          "slug": "shadow-slip",
+          "name": "Shadow Slip",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "baseItem": "steel-shield",
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "fd4f6fc8-4352-56ea-8bff-aa90d3da45f0",
+    "pack": "impossible-magic",
+    "kind": "shield",
+    "slug": "shield:emergency-escape-shield",
+    "name": "Emergency Escape Shield",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This curved steel shield (Hardness 6, HP 36, BT 18) is painted with a large blue eye with a figure eight-shaped pupil."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Desperate Flight",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, teleportation)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You use the emergency escape shield to Shield Block, and the shield becomes broken"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You instantly transport yourself and any items you're wearing and holding from your current space to an unoccupied space that you can see within 20 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.7wrDxwY3FEdZacUf"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": 1,
+      "hardness": 6,
+      "hitPoints": 36,
+      "activations": [
+        {
+          "slug": "desperate-flight",
+          "name": "Desperate Flight",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "baseItem": "steel-shield",
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "06c20d67-97f1-54a4-aa4d-45e471518bd8",
+    "pack": "impossible-magic",
+    "kind": "shield",
+    "slug": "shield:resolute-shield",
+    "name": "Resolute Shield",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The edges of this large tower shield (Hardness 12, HP 96, BT 48) are dented and worn, bearing the scuffs and marks of decades of battle."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Stand Firm",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have the resolute shield raised, and you would take physical damage from a critically successful attack"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The resolute shield prevents you from taking an amount of damage up to twice the shield's Hardness. You and the shield each take any remaining damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.YgKFtPFDIdNilqtm"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1800
+        }
+      },
+      "bulk": 4,
+      "hardness": 12,
+      "hitPoints": 96,
+      "activations": [
+        {
+          "slug": "stand-firm",
+          "name": "Stand Firm",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "baseItem": "tower-shield",
+      "acBonus": 2,
+      "speedPenalty": 5
+    }
+  },
+  {
+    "id": "33d1d8ed-bdc4-5c2d-8d7f-2d1f64858f27",
+    "pack": "impossible-magic",
+    "kind": "shield",
+    "slug": "shield:shield-of-endurance",
+    "name": "Shield of Endurance",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This steel shield (Hardness 8, HP 32, BT 16) is engraved with the image of an unbroken fortress wall."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Temporary Endurance",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your shield isn't broken"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Raise the Shield, and it gains 10 temporary Hit Points that last for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.1TfWS6mCf3DJXiiX"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 600
+        }
+      },
+      "bulk": 1,
+      "hardness": 8,
+      "hitPoints": 32,
+      "activations": [
+        {
+          "slug": "temporary-endurance",
+          "name": "Temporary Endurance",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "baseItem": "steel-shield",
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "ad88f168-4378-54de-85d5-66351fdf1614",
+    "pack": "impossible-magic",
+    "kind": "shield",
+    "slug": "shield:shield-of-mental-fortitude",
+    "name": "Shield of Mental Fortitude",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This small steel buckler (Hardness 6, HP 24, BT 12) is engraved with an unbroken golden circle. While you have this shield raised, you gain resistance 5 to mental damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Mind Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You succeed at a Will save against a mental effect while the shield of mental fortitude is raised"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You return a wave of psychic energy to the creature. The creature that caused the triggering mental effect must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 27
+          },
+          {
+            "type": "text",
+            "text": " save or become "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 1"
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 2"
+          },
+          {
+            "type": "text",
+            "text": " on a critical failure)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["mental"],
+        "value": 5,
+        "predicate": ["self:effect:raise-a-shield"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.RdVXWMxgvs8WmrXH"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "light",
+      "hardness": 6,
+      "hitPoints": 24,
+      "activations": [
+        {
+          "slug": "mind-backlash",
+          "name": "Mind Backlash",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "baseItem": "buckler",
+      "acBonus": 1
+    }
+  },
+  {
+    "id": "366dfdb0-3b7a-512b-83c8-f3186f0b8d59",
+    "pack": "impossible-magic",
+    "kind": "shield",
+    "slug": "shield:shield-of-silent-words",
+    "name": "Shield of Silent Words",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The surface of this steel buckler (Hardness 6, HP 24, BT 12) has been brushed into soft swirling patterns that evoke snowstorms. While you have this shield raised, if you attempt to Cast a Spell or perform an action that has the auditory trait while you're "
+          },
+          {
+            "type": "ref",
+            "id": "4271da2e-7225-5aa7-9807-c499d8af6a5a"
+          },
+          {
+            "type": "text",
+            "text": ", reduce the DC of the flat check by 2."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TFo8aHfh12MRGi3Q"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 150
+        }
+      },
+      "bulk": "light",
+      "hardness": 6,
+      "hitPoints": 24,
+      "baseItem": "buckler",
+      "acBonus": 1
+    }
+  },
+  {
+    "id": "97061548-ffea-5a4a-9e94-9189d4c478b6",
+    "pack": "impossible-magic",
+    "kind": "shield",
+    "slug": "shield:shield-of-the-bear",
+    "name": "Shield of the Bear",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This massive steel shield (Hardness 8, HP 32, BT 16) is engraved with the image of a roaring face of a bear and lined with patches of bear fur. When you have this shield raised, if any effect would force you to move 10 feet or more, you're moved 5 fewer feet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Feral Roar",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You use the shield of the bear to Shield Block a melee Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The attacking creature must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 26
+          },
+          {
+            "type": "text",
+            "text": " save or be pushed up to 10 feet away from you (15 feet on a critical failure)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Ng5tI5xt2LGm6yty"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 700
+        }
+      },
+      "bulk": 1,
+      "hardness": 8,
+      "hitPoints": 32,
+      "activations": [
+        {
+          "slug": "feral-roar",
+          "name": "Feral Roar",
+          "frequency": {
+            "max": 1,
+            "per": "ten-minutes"
+          }
+        }
+      ],
+      "baseItem": "steel-shield",
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "19f55fab-76da-5d50-8fe2-a96dd13a33f6",
+    "pack": "impossible-magic",
+    "kind": "shield",
+    "slug": "shield:spellshock-shield",
+    "name": "Spellshock Shield",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["electricity", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This moderate reinforcing steel shield (Hardness 10, HP 92, BT 46) is inlaid with jagged crystalline veins that hum with stored energy."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Crackling Arc",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, electricity, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You succeed at a Reflex saving throw against a magical effect while the spellshock shield is raised"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A jagged bolt of unstable energy lashes out at a creature within 120 feet, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d12",
+                "damageType": "electricity"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 28,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.f13q3i96zu2AfjJ8"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1300
+        }
+      },
+      "bulk": 1,
+      "hardness": 7,
+      "hitPoints": 28,
+      "activations": [
+        {
+          "slug": "crackling-arc",
+          "name": "Crackling Arc",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "baseItem": "steel-shield",
+      "acBonus": 2,
+      "runes": {
+        "reinforcing": 3
+      }
+    }
+  },
+  {
+    "id": "6bce5a7f-b0a1-50ca-af52-98c07b7bc5f4",
+    "pack": "impossible-magic",
+    "kind": "shield",
+    "slug": "shield:staff-storing-shield",
+    "name": "Staff-Storing Shield",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["extradimensional", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This magically reinforced wooden shield (Hardness 6, HP 36, BT 18) normally has a blank face. It can absorb a staff and transform between a shield and staff. When you prepare a staff, you can hold it up to the shield, at which point the items merge until your next daily preparations, and the shield's face becomes an image corresponding to the type of magic, such as a skull for a "
+          },
+          {
+            "type": "text",
+            "text": "staff of the dead",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Astonishing Transfiguration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You change the staff-storing shield from its shield form into the stored staff, which has an image of the shield on it, or change it from the stored staff back into a shield. Reinforcing runes etched on the shield have no effect in the staff form, and fundamental weapon runes etched on the stored staff have no effect in the shield form."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.EBcZ7ftWs8lVW7Fj"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 350
+        }
+      },
+      "bulk": "negligible",
+      "hardness": 6,
+      "hitPoints": 36,
+      "baseItem": "wooden-shield",
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "8242bb54-d972-55e5-8a45-fbf2f515a913",
+    "pack": "impossible-magic",
+    "kind": "shield",
+    "slug": "shield:stifling-shield",
+    "name": "Stifling Shield",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This matte black moderate reinforcing steel shield (Hardness 10, HP 92, BT 46) seems to absorb sound, creating an eerie void around its wielder."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Silence Falls",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature within 15 feet of you Casts a Spell or takes an action with the auditory trait while you have the stifling shield raised"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The shield briefly dampens nearby sound. The triggering creature must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 28
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes a –1 status penalty to any check or DC related to the triggering action."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but the penalty is –2."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The action is disrupted."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.tfBXnTfPvIiCY3L9"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1300
+        }
+      },
+      "bulk": 1,
+      "hardness": 7,
+      "hitPoints": 28,
+      "activations": [
+        {
+          "slug": "silence-falls",
+          "name": "Silence Falls",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "baseItem": "steel-shield",
+      "acBonus": 2,
+      "runes": {
+        "reinforcing": 3
+      }
+    }
+  },
+  {
+    "id": "d552fb6d-d072-53d3-af0c-cf8d230c956b",
+    "pack": "impossible-magic",
+    "kind": "shield",
+    "slug": "shield:verdant-buckler",
+    "name": "Verdant Buckler",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This large wooden buckler (Hardness 6, HP 24, BT 12) is alive with creeping vines and mossy growths that shift in the air almost imperceptibly."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Grasping Vines",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, plant)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You use the verdant buckler to Shield Block a melee Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The attacking creature must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 24
+          },
+          {
+            "type": "text",
+            "text": " save or be "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+          },
+          {
+            "type": "text",
+            "text": " by the shield's animated vines ("
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071"
+          },
+          {
+            "type": "text",
+            "text": " on a critical failure). The affected creature is grappled or restrained for 1 round, until it Escapes, or you move, whichever comes first."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.wp3siHKmzOt6fRpU"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 450
+        }
+      },
+      "bulk": "light",
+      "hardness": 6,
+      "hitPoints": 24,
+      "activations": [
+        {
+          "slug": "grasping-vines",
+          "name": "Grasping Vines",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "baseItem": "buckler",
+      "acBonus": 1
+    }
+  }
+]
