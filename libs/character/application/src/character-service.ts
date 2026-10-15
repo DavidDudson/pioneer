@@ -25,15 +25,16 @@ import type {
   CreateCharacterBody,
   PatchCharacterBody,
   PatchedCharacterSheet,
+  SlotContent,
   SlotPick,
 } from '@pioneer/character/domain';
 import { characterImportReport, modifierDifferences, registryLookup } from '@pioneer/interop/pathbuilder';
 import type { BoostChoices, PathbuilderImportResponse } from '@pioneer/interop/pathbuilder';
-import type { AncestryId, ContentId, ContentSource } from '@pioneer/rules/sdk';
+import type { AncestryId, ContentId, ContentRegistry, ContentSource } from '@pioneer/rules/sdk';
 import { message, newId, NotFoundError, ValidationError, VersionConflictError } from '@pioneer/shared/kernel';
 import type { Clock, UserId, Version } from '@pioneer/shared/kernel';
 
-import { contentOfCharacter } from './character-content';
+import { contentOfCharacter, variantRulesOfCharacter } from './character-content';
 import type { CharacterContentSource } from './character-content';
 import { mayAccessCharacter } from './character-policy';
 import type { CharacterRepository } from './character-repository';
@@ -95,7 +96,7 @@ export class CharacterService {
    */
   public async sheet(character: Character): Promise<CharacterSheet> {
     const content = await this.#contentOf(character).registry();
-    const slots = slotContent(content);
+    const slots = await this.#slotContent(character, content);
     const deity = characterDeity(character.document, slots, deityContent(content));
     return {
       character,
@@ -207,6 +208,11 @@ export class CharacterService {
     }
   }
 
+  /** The slots `character` has over `registry`, with the variant rules in force for it (Dual Class adds a class). */
+  async #slotContent(character: Character, registry: ContentRegistry): Promise<SlotContent> {
+    return slotContent(registry, await variantRulesOfCharacter(this.#content, character, registry));
+  }
+
   /** The picks a slot edit left in slots within the edited one that no longer offer them; none for any other edit. */
   async #unfitPicks(before: Character, after: Character, patch: CharacterPatch): Promise<readonly ClearedPick[]> {
     const isSlotEdit = patch.field === CharacterPatchField.SelectSlot || patch.field === CharacterPatchField.ClearSlot;
@@ -214,7 +220,7 @@ export class CharacterService {
       return [];
     }
     const content = await this.#contentOf(before).registry();
-    return unfitPicks(before.document, after.document, slotContent(content));
+    return unfitPicks(before.document, after.document, await this.#slotContent(before, content));
   }
 
   /**
@@ -223,7 +229,7 @@ export class CharacterService {
    */
   async #assertSlotOffers(character: Character, pick: SlotPick): Promise<void> {
     const content = await this.#contentOf(character).registry();
-    const refusal = slotRefusal(character.document, slotContent(content), pick);
+    const refusal = slotRefusal(character.document, await this.#slotContent(character, content), pick);
     if (refusal !== undefined) {
       throw new ValidationError([{ path: ['patch', refusal.field], message: refusal.message }]);
     }

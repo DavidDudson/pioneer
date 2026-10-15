@@ -46,7 +46,8 @@ Pack switched off:
 - The engine takes the set as `StatisticSources.variants`, in play ahead of the character's items. The server derives
   with `CharacterContent#variantRules`; the sheet loads the same set from the API.
 - `VariantRuleData` and `VariantRuleDefinition` declare `structure`, a closed set (`extraSlots`, `secondClass`). It
-  carries no behaviour yet: the stories that build Free Archetype and Dual Class read it.
+  carries no behaviour for `extraSlots` yet; `secondClass` adds the second class root slot
+  (`characterRootSlots`, character-model.md, "Choice slots"), taken from the variants `slotContent` is given.
 
 ## Consequences
 

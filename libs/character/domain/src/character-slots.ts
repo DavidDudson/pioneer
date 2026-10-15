@@ -1,5 +1,6 @@
 import type { RootSlotDefinition } from '@pioneer/rules/grants';
-import { ContentKind, RollOption, SlotKey } from '@pioneer/rules/sdk';
+import { ContentKind, RollOption, SlotKey, VariantStructure } from '@pioneer/rules/sdk';
+import type { VariantRuleEntry } from '@pioneer/rules/sdk';
 
 /** The slot the character's ancestry is picked in (character-model.md, "Choice slots"). */
 export const ANCESTRY_SLOT = SlotKey.parse('ancestry');
@@ -7,6 +8,8 @@ export const HERITAGE_SLOT = SlotKey.parse('heritage');
 export const BACKGROUND_SLOT = SlotKey.parse('background');
 export const CLASS_SLOT = SlotKey.parse('class');
 export const DEITY_SLOT = SlotKey.parse('deity');
+/** The second class's slot, a root slot only while the Dual Class variant is in force (`characterRootSlots`). */
+export const SECOND_CLASS_SLOT = SlotKey.parse('second-class');
 
 /**
  * The slots a character has itself, before any entry grants more. The heritage slot is within the ancestry slot: it
@@ -19,6 +22,25 @@ export const CHARACTER_ROOT_SLOTS: readonly RootSlotDefinition[] = [
   { key: CLASS_SLOT, kind: ContentKind.Class },
   { key: DEITY_SLOT, kind: ContentKind.Deity },
 ];
+
+const SECOND_CLASS_ROOT_SLOT: RootSlotDefinition = { key: SECOND_CLASS_SLOT, kind: ContentKind.Class };
+
+/**
+ * The slots the character has itself with `variants` in force: Dual Class (a variant whose `structure` says
+ * `secondClass`) adds the second class's, beside the first's. A pick for a slot it does not have is kept and read
+ * again when the variant comes back.
+ */
+export function characterRootSlots(variants: readonly VariantRuleEntry[]): readonly RootSlotDefinition[] {
+  const dualClass = variants.some(
+    (variant) => variant.definition.structure?.includes(VariantStructure.SecondClass) === true,
+  );
+  return dualClass ? [...CHARACTER_ROOT_SLOTS, SECOND_CLASS_ROOT_SLOT] : CHARACTER_ROOT_SLOTS;
+}
+
+/** Whether `rootSlots` hold the second class's slot. */
+export function hasSecondClass(rootSlots: readonly RootSlotDefinition[]): boolean {
+  return rootSlots.some((slot) => slot.key === SECOND_CLASS_SLOT);
+}
 
 /**
  * Root slots a character may leave empty, each with the options that make it one to fill: any character may worship

@@ -33,12 +33,13 @@ import type {
   ConditionValued,
   PlayCommand,
   PlayLimits,
+  SlotContent,
   PlayState,
   ResourceMaxima,
   CountedMaxima,
 } from '@pioneer/character/domain';
 import { HitPoints } from '@pioneer/rules/sdk';
-import type { ContentSource } from '@pioneer/rules/sdk';
+import type { ContentRegistry, ContentSource } from '@pioneer/rules/sdk';
 import { message, NotFoundError, ValidationError, VersionConflictError } from '@pioneer/shared/kernel';
 import type { Clock, UserId } from '@pioneer/shared/kernel';
 
@@ -125,10 +126,15 @@ export class PlayService {
     return applyPlayCommand(play, command, limits);
   }
 
+  /** The slots `character` has over `registry`, with the variant rules in force for it (Dual Class adds a class). */
+  async #slotContent(character: Character, registry: ContentRegistry): Promise<SlotContent> {
+    return slotContent(registry, await variantRulesOfCharacter(this.#content, character, registry));
+  }
+
   /** Hero points are at most 3; the focus pool comes from the character's focus spells and feats. */
   async #resourceMaxima(character: Character): Promise<ResourceMaxima> {
     const registry = await this.#contentOf(character).registry();
-    const slots = slotContent(registry);
+    const slots = await this.#slotContent(character, registry);
     const entries = characterSpellcasting(characterGrants(character.document, slots));
     return resourceMaxima(characterFocus(entries, slots.spells, character.document.level).pool);
   }
@@ -136,7 +142,7 @@ export class PlayService {
   /** Spell slots by entry and rank, and ability uses, as the build and the content give them. */
   async #counted(character: Character): Promise<CountedMaxima> {
     const registry = await this.#contentOf(character).registry();
-    const grants = characterGrants(character.document, slotContent(registry));
+    const grants = characterGrants(character.document, await this.#slotContent(character, registry));
     return characterCounted(grants, abilityFrequencies(registry), {
       items: character.document.inventory.items,
       activations: itemActivations(registry),
@@ -146,7 +152,8 @@ export class PlayService {
   /** What Rest heals, from the Constitution modifier and level the build gives. */
   async #healing(character: Character): Promise<HitPoints> {
     const registry = await this.#contentOf(character).registry();
-    return restHealing(characterStatisticInputs(registry, character.document, slotContent(registry)));
+    const slots = await this.#slotContent(character, registry);
+    return restHealing(characterStatisticInputs(registry, character.document, slots));
   }
 
   /** Which conditions the server's content has, and which carry a value. */
@@ -156,9 +163,9 @@ export class PlayService {
 
   async #maxHitPoints(character: Character, play: PlayState): Promise<HitPoints> {
     const registry = await this.#contentOf(character).registry();
-    const slots = slotContent(registry);
+    const variants = await variantRulesOfCharacter(this.#content, character, registry);
+    const slots = slotContent(registry, variants);
     const inputs = characterStatisticInputs(registry, character.document, slots);
-    const variants = await variantRulesOfCharacter(this.#content, character);
     const sources = { registry, slots, inputs, variants };
     const max = maxHitPoints(characterStatistics({ ...character.document, play }, sources));
     if (max === undefined) {

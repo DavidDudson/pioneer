@@ -1,7 +1,7 @@
 import { CLASS_SLOT, classPickerContent, rootSlotOptions, skillContent } from '@pioneer/character/domain';
 import type { Character } from '@pioneer/character/domain';
 import { ContentId, RichText } from '@pioneer/rules/sdk';
-import type { Attribute, AttributeModifiers, ContentRegistry, Selector } from '@pioneer/rules/sdk';
+import type { Attribute, AttributeModifiers, ContentRegistry, Selector, SlotKey } from '@pioneer/rules/sdk';
 import { ATTRIBUTE_MESSAGES, ClassPickerMessage, PROFICIENCY_NAMES, TRADITION_MESSAGES } from '@pioneer/rules/ui';
 import type { ClassPickerRow, KeyAttributePickerRow, SubclassPickerRow } from '@pioneer/rules/ui';
 
@@ -12,6 +12,11 @@ import { sheetSlotContent } from '../sheet/sheet-slot-content';
 /** What the class rows read besides the content: words. */
 export interface ClassRowReads {
   readonly translate: (key: string, params?: object) => string;
+}
+
+/** What the class rows read: words, and the slot (the class slot unless the second class's) they are for. */
+export interface ClassPickerReads extends ClassRowReads {
+  readonly slot?: SlotKey;
 }
 
 /** What the subclass rows read: the subclass slot, and words. */
@@ -38,27 +43,23 @@ function statisticNames(registry: ContentRegistry): ReadonlyMap<Selector, string
 }
 
 /**
- * The rows of the class picker: every class the slot offers (all of them without a character) with the facts to choose
- * by, and a note when picking it would train a skill again.
+ * The rows of the class picker: every class `slot` (the class slot, or the second class's) offers (all of them without
+ * a character) with the facts to choose by, and a note when picking it would train a skill again.
  */
 export function classRows(
   registry: ContentRegistry,
   character: Character | undefined,
-  { translate }: ClassRowReads,
+  { translate, slot = CLASS_SLOT }: ClassPickerReads,
 ): readonly ClassPickerRow[] {
   const offered =
     character === undefined
       ? undefined
-      : new Set(
-          rootSlotOptions(character.document, sheetSlotContent(registry), CLASS_SLOT).map((option) => option.value),
-        );
+      : new Set(rootSlotOptions(character.document, sheetSlotContent(registry), slot).map((option) => option.value));
   const skills = new Map(skillContent(registry).skills.map((skill) => [skill.selector, skill.name]));
   const statistics = statisticNames(registry);
   const options = classPickerContent(registry).classes.filter((each) => offered?.has(each.id) ?? true);
   const trainedAgain =
-    character === undefined
-      ? undefined
-      : sheetTrainedAgain(registry, character, CLASS_SLOT)(options.map((each) => each.id));
+    character === undefined ? undefined : sheetTrainedAgain(registry, character, slot)(options.map((each) => each.id));
   return options.map(
     ({ id, name, keyAttribute, hitPoints, trained, additionalSkills, traditions, proficiencies, sources }) => {
       const again = trainedAgain?.get(id);

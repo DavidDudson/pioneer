@@ -6,7 +6,7 @@ import { AncestryId, ContentKind, ContentText } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 
 import type { CharacterDocument } from './character-document';
-import { ANCESTRY_SLOT, HERITAGE_SLOT } from './character-slots';
+import { ANCESTRY_SLOT, CHARACTER_ROOT_SLOTS, HERITAGE_SLOT } from './character-slots';
 import { ClearedPick, unfitPicks } from './dependent-picks';
 import type { SlotContent } from './slot-offer';
 import { BOOST_FIXTURES, NO_FEATS, NO_LANGUAGES, NO_SKILLS, NO_SPELLS, CharacterBuilder } from './testing';
@@ -23,6 +23,7 @@ const changeling = named(entry('changeling'), ContentKind.Heritage, 'Changeling'
 const content: SlotContent = {
   lookup: lookupOf([elf, human, whisperElf, changeling]),
   namespaces: CORE_NAMESPACES,
+  rootSlots: CHARACTER_ROOT_SLOTS,
   boosts: BOOST_FIXTURES,
   skills: NO_SKILLS,
   languages: NO_LANGUAGES,

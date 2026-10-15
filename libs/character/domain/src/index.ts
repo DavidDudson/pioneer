@@ -106,10 +106,13 @@ export {
   ANCESTRY_SLOT,
   BACKGROUND_SLOT,
   CHARACTER_ROOT_SLOTS,
+  characterRootSlots,
   CLASS_SLOT,
   DEITY_SLOT,
+  hasSecondClass,
   HERITAGE_SLOT,
   needsDeity,
+  SECOND_CLASS_SLOT,
 } from './character-slots';
 export { ClearedPick, unfitPicks } from './dependent-picks';
 export {
@@ -121,6 +124,7 @@ export {
   type ClassFeature,
   classFeatures,
   classInputs,
+  secondSubclassSlot,
   subclassSlot,
 } from './class-build';
 export { characterSpellcasting } from './spellcasting-build';

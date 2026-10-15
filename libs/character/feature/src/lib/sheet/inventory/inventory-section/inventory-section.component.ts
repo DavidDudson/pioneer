@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import type { Signal } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { attributeModifiers, boostContent, INVESTED_MAX, itemContent, runeContent } from '@pioneer/character/domain';
+import { attributeModifiers, INVESTED_MAX, itemContent, runeContent } from '@pioneer/character/domain';
 import type { ItemContent, RunedContent } from '@pioneer/character/domain';
 import { AsyncData, AsyncPending, AsyncRegion, Heading, Stack } from '@pioneer/frontier';
 import type { AsyncQuery } from '@pioneer/frontier';
@@ -13,6 +13,7 @@ import type { CarriedBulk, EntryPreviews, InventoryGroup, Investment } from '@pi
 import { CharacterStore } from '../../../data/character-store';
 import { CHARACTER_CONTENT_KINDS, injectContentRegistry } from '../../../data/content-registry-query';
 import { sheetEntryPreviews } from '../../sheet-entry-previews';
+import { sheetSlotContent } from '../../sheet-slot-content';
 import { CoinsEdit } from '../coins-edit/coins-edit.component';
 import { ItemEdits } from '../item-edits/item-edits.component';
 import { injectItemNames } from '../item-names';
@@ -66,7 +67,7 @@ export class InventorySection {
     const character = this.#store.selected();
     return registry === undefined || character === undefined
       ? undefined
-      : attributeModifiers(character.document, boostContent(registry)).get(Attribute.Strength);
+      : attributeModifiers(character.document, sheetSlotContent(registry).boosts).get(Attribute.Strength);
   });
   protected readonly content: Signal<ItemContent | undefined> = computed(() => {
     const registry = this.items.data();

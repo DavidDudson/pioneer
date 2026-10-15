@@ -6,7 +6,7 @@ import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 
 import { CharacterSlot, SlotStatus } from './character-slot';
 import { characterSlots } from './character-slot-status';
-import { ANCESTRY_SLOT, BACKGROUND_SLOT, CLASS_SLOT, HERITAGE_SLOT } from './character-slots';
+import { ANCESTRY_SLOT, BACKGROUND_SLOT, CHARACTER_ROOT_SLOTS, CLASS_SLOT, HERITAGE_SLOT } from './character-slots';
 import type { SlotContent } from './slot-offer';
 import {
   BOOST_FIXTURES,
@@ -53,6 +53,7 @@ const dwarf = {
 const content: SlotContent = {
   lookup: lookupOf([elf, dwarf]),
   namespaces: CORE_NAMESPACES,
+  rootSlots: CHARACTER_ROOT_SLOTS,
   boosts: BOOST_FIXTURES,
   skills: NO_SKILLS,
   languages: NO_LANGUAGES,

@@ -28,6 +28,8 @@ const UPGRADES: readonly UpgradeStep[] = [
   (document) => document,
   /** 5 → 6: the character's appearance and personality, rich text (#500). A version 5 document has written neither. */
   (document) => document,
+  /** 6 → 7: a second class beside the first (#705). A version 6 build has no `second-class` pick, which reads as none. */
+  (document) => document,
 ];
 
 /** The version a chain of steps upgrades to: one past the last step. */

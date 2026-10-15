@@ -58,6 +58,9 @@
     "class": "Class",
     "subclass": "Subclass",
     "keyAttribute": "Key attribute",
+    "secondClass": "Second class",
+    "secondSubclass": "Second subclass",
+    "secondKeyAttribute": "Second key attribute",
     "featsHeading": "Feats",
     "featuresHeading": "Class features",
     "cleared": {

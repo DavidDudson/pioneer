@@ -22,7 +22,7 @@ import { predicateOptions } from '@pioneer/rules/predicate';
 import { AncestryId, HitPoints, Selector } from '@pioneer/rules/sdk';
 import type { ContentRegistry, Predicate, RollOption, VariantRuleEntry } from '@pioneer/rules/sdk';
 
-import { attributeModifiers, boostContent } from './attribute-boosts';
+import { attributeModifiers } from './attribute-boosts';
 import type { CharacterDocument } from './character-document';
 import { ANCESTRY_SLOT } from './character-slots';
 import { buildRanks, characterGrants, classContent, classInputs } from './class-build';
@@ -76,7 +76,7 @@ export function characterStatisticInputs(
   const granted = grantedStrikes(grants, favored).filter(({ slug }) => !held.has(slug));
   return {
     level: document.level,
-    attributes: attributeModifiers(document, boostContent(registry)),
+    attributes: attributeModifiers(document, slots.boosts),
     ranks: buildRanks(document, slots),
     spellcasting: characterSpellcasting(grants),
     ...ancestryInputs(registry, document),

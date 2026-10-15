@@ -192,6 +192,16 @@ character's level with where it came from, "from Cleric, level 1", the level bei
 subclass feature reads the level of the feature that offered it). Changing the class keeps every pick that depended on
 the old one: the subclass and a key attribute it no longer offers read hidden, and come back with the class.
 
+**Dual Class** ([#705](https://github.com/DavidDudson/pioneer/issues/705)): a variant rule whose `structure` says
+`secondClass` adds a second root slot, `second-class`, beside `class` (`characterRootSlots`). It offers the same
+classes; its pick grants that class's features and opens the feat slots they ask for, each keyed by its own entry, so
+nothing collides with the first class's. A proficiency the two classes raise takes the better rank (`ranksInPlay`'s
+highest raise wins). The second class has a key attribute boost of its own, `boost:1:second-class:0`, labelled
+"Second class key attribute"; its subclass is the `ChoiceSet` tagged for that class. Skill training and increases,
+Hit Points and the class DC still read the first class. The pick is kept when the variant is off, read again when it
+comes back, and the second class is a pick like any other: schema version 7 adds it. A rogue's racket widens the key
+attribute options of both classes, since the options are not tracked per class yet.
+
 The engine reads the class's Hit Points and key attribute, and the ranks the effective set's `Proficiency` elements
 raise (`ranksInPlay`, the highest raise winning): the class's starting ranks, a background's skills, a feature's
 later raise. Armor Class takes the unarmored defence rank until armour is worn.

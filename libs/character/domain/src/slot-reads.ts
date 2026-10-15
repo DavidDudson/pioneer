@@ -1,13 +1,13 @@
 import { grantLookup, resolveGrants } from '@pioneer/rules/grants';
-import type { ContentLookup, GrantResolution } from '@pioneer/rules/grants';
+import type { ContentLookup, GrantResolution, RootSlotDefinition } from '@pioneer/rules/grants';
 import type { NamespaceTable } from '@pioneer/rules/predicate';
 import { Level, SlotKey } from '@pioneer/rules/sdk';
-import type { ChoiceValue, ContentRegistry } from '@pioneer/rules/sdk';
+import type { ChoiceValue, ContentRegistry, VariantRuleEntry } from '@pioneer/rules/sdk';
 
 import { boostContent } from './attribute-boosts';
 import type { BoostContent } from './attribute-boosts';
 import type { CharacterDocument } from './character-document';
-import { CHARACTER_ROOT_SLOTS } from './character-slots';
+import { characterRootSlots } from './character-slots';
 import { featContent } from './feat-content';
 import type { FeatContent } from './feat-content';
 import { languageContent } from './language-content';
@@ -28,6 +28,8 @@ import type { SpellContent } from './spell-content';
 export interface SlotContent {
   readonly lookup: ContentLookup;
   readonly namespaces: NamespaceTable;
+  /** The slots the character has itself: the second class's too while Dual Class is in force. */
+  readonly rootSlots: readonly RootSlotDefinition[];
   readonly boosts: BoostContent;
   readonly skills: SkillContent;
   readonly languages: LanguageContent;
@@ -35,12 +37,14 @@ export interface SlotContent {
   readonly feats: FeatContent;
 }
 
-/** The slot content a registry gives. */
-export function slotContent(registry: ContentRegistry): SlotContent {
+/** The slot content a registry gives, for a character with `variants` in force. */
+export function slotContent(registry: ContentRegistry, variants: readonly VariantRuleEntry[] = []): SlotContent {
+  const rootSlots = characterRootSlots(variants);
   return {
     lookup: grantLookup(registry),
     namespaces: registry.rollOptionNamespaces(),
-    boosts: boostContent(registry),
+    rootSlots,
+    boosts: boostContent(registry, rootSlots),
     skills: skillContent(registry),
     languages: languageContent(registry),
     spells: spellContent(registry),
@@ -54,7 +58,7 @@ export interface SlotContext extends SlotContent {
 }
 
 /** The character's grants at `level` over `picks`, with its own slots as roots. */
-export function resolveSlotsAt(level: Level, { picks, lookup, namespaces }: SlotContext): GrantResolution {
+export function resolveSlotsAt(level: Level, { picks, lookup, namespaces, rootSlots }: SlotContext): GrantResolution {
   return resolveGrants({
     roots: [],
     lookup,
@@ -62,7 +66,7 @@ export function resolveSlotsAt(level: Level, { picks, lookup, namespaces }: Slot
     situation: [],
     picks,
     toggles: new Map(),
-    rootSlots: CHARACTER_ROOT_SLOTS,
+    rootSlots,
     namespaces,
   });
 }
