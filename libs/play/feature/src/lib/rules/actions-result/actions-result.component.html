@@ -8,32 +8,7 @@
     <fr-list gap="sm" markers>
       @for (row of result.rows; track row.id) {
         <fr-list-item>
-          <fr-stack gap="xs">
-            <fr-stack direction="horizontal" gap="xs" align="center" wrap>
-              <fr-badge variant="solid" [tone]="ACTION_STATUS_TONES[row.status]">{{
-                ACTION_STATUS_KEYS[row.status] | transloco
-              }}</fr-badge>
-              <fr-text>{{ row.name }}</fr-text>
-              @if (row.cost; as cost) {
-                <fr-text tone="muted">{{ ACTION_COST_KEYS[cost] | transloco }}</fr-text>
-              }
-              @for (mode of row.modes; track mode) {
-                <fr-badge>{{ ACTION_MODE_KEYS[mode] | transloco }}</fr-badge>
-              }
-              @if (row.roll !== undefined) {
-                <fr-text tone="muted">{{ 'play.rules.actions.roll' | transloco: { total: row.roll } }}</fr-text>
-              }
-            </fr-stack>
-            @if (row.reasons.length > 0) {
-              <fr-list gap="3xs" markers>
-                @for (reason of row.reasons; track $index) {
-                  <fr-list-item>
-                    <fr-text tone="muted">{{ reason.key | transloco: reason.params }}</fr-text>
-                  </fr-list-item>
-                }
-              </fr-list>
-            }
-          </fr-stack>
+          <pio-actions-row [row]="row" />
         </fr-list-item>
       }
     </fr-list>

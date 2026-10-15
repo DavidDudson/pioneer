@@ -23,6 +23,6 @@ export const EXAMPLE_ACTIONS = JSON.stringify(
     ranks: [{ skill: 'skill:athletics', rank: 'trained' }],
     spent: [],
   },
-  null,
+  undefined,
   2,
 );
