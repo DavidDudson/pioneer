@@ -95,6 +95,7 @@ export { AttributeBoosts } from './lib/picker-cells/attribute-boosts/attribute-b
 export { BulkCell } from './lib/picker-cells/bulk-cell/bulk-cell.component';
 export { type Chip, ChipList, RARITY_TONES } from './lib/picker-cells/chip-list/chip-list.component';
 export { CountMeter } from './lib/picker-cells/count-meter/count-meter.component';
+export { EntryNameCell } from './lib/picker-cells/entry-name-cell/entry-name-cell.component';
 export { LevelCell } from './lib/picker-cells/level-cell/level-cell.component';
 export { ActionKind } from './lib/picker-cells/picker-cell-messages';
 export { PriceCell } from './lib/picker-cells/price-cell/price-cell.component';

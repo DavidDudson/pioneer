@@ -522,6 +522,11 @@ Behaviour:
   and shows each kind's facets: a facet that reads only some of the kinds listed (weapon group) is left out unless the
   list holds one of them. Its table and filter panel (`pio-facet-filter`) are built from the facet definitions, so a new
   definition shows up without a template change.
+- An entry opens at `/content/:kind/:slug`, the kind and the name part of its slug (`/content/feat/power-attack`), public
+  like the list. The page shows the entry with `pio-entry-preview` in full: the summary until its description shard
+  loads, then the description. It loads the kinds the browser lists and conditions beside the entry's own, so a
+  reference in the text is named and linked; one to an entry not loaded shows its label without a link. Engine-derived
+  lines (`effects`) need a character, so the page shows none.
 - The engine (`libs/rules/sdk`: `facet.ts`, `facet-filter.ts`, `filter-query.ts`) is pure and runs on parsed
   entries; the rules playground's "Content filters" tool exercises it.
 - A facet reads a field path or derives its values from the entry. Spell facets derive (`spell-facet-values.ts`):

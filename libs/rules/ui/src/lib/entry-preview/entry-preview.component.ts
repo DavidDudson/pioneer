@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
+import { booleanAttribute, ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { Badge, Heading, HeadingLevel, Stack, Text } from '@pioneer/frontier';
 import type { RichText } from '@pioneer/rules/sdk';
@@ -29,8 +29,15 @@ const SUMMARY_BLOCKS = 1;
 })
 export class EntryPreviewView {
   public readonly preview = input.required<EntryPreview>();
+  /** Shows the whole description rather than its opening, for a page that is about the entry. */
+  public readonly full = input(false, { transform: booleanAttribute });
 
   protected readonly Message = EntryPreviewMessage;
-  protected readonly headingLevel = HeadingLevel.Three;
-  protected readonly summary = computed((): RichText => this.preview().summary.slice(0, SUMMARY_BLOCKS));
+  /** The level of the entry's name, and of the headings in its text. */
+  public readonly headingLevel = input<HeadingLevel>(HeadingLevel.Three);
+
+  protected readonly summary = computed((): RichText => {
+    const { summary } = this.preview();
+    return this.full() ? summary : summary.slice(0, SUMMARY_BLOCKS);
+  });
 }

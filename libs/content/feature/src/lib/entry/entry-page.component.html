@@ -1,0 +1,25 @@
+<fr-page [title]="Message.Title | transloco">
+  <fr-stack gap="md">
+    <fr-link [to]="browse">{{ Message.Back | transloco }}</fr-link>
+    <fr-async-region [errorMessage]="Message.LoadError | transloco">
+      <ng-template frAsyncPending>
+        <fr-stack gap="xs">
+          @for (row of loadingRows; track row) {
+            <fr-skeleton width="lg" />
+          }
+        </fr-stack>
+      </ng-template>
+      <ng-template [frAsyncData]="registry">
+        @if (card(); as shown) {
+          <pio-entry-preview full [preview]="shown" [headingLevel]="headingLevel" />
+        } @else {
+          <fr-empty-state
+            [icon]="missingIcon"
+            [title]="Message.MissingTitle | transloco"
+            [description]="Message.MissingDescription | transloco"
+          />
+        }
+      </ng-template>
+    </fr-async-region>
+  </fr-stack>
+</fr-page>

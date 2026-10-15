@@ -1,6 +1,6 @@
 <fr-stack gap="xs">
   <fr-stack gap="xs" direction="horizontal" align="center">
-    <fr-heading [level]="headingLevel">{{ preview().name }}</fr-heading>
+    <fr-heading [level]="headingLevel()">{{ preview().name }}</fr-heading>
     @if (preview().value; as value) {
       <fr-badge>{{ value }}</fr-badge>
     }
@@ -15,7 +15,7 @@
       }
     </fr-stack>
   }
-  <pio-rich-text [text]="summary()" [headingLevel]="headingLevel" />
+  <pio-rich-text [text]="summary()" [headingLevel]="headingLevel()" />
   @if (preview().effects; as effects) {
     <pio-entry-effects [effects]="effects" />
   }

@@ -25,6 +25,12 @@
     "emptyTitle": "Nothing matches",
     "emptyDescription": "No entry has all of the filters picked. Clear one to widen the list."
   },
+  "entry": {
+    "back": "Back to the content list",
+    "loadError": "The entry could not be loaded.",
+    "missingTitle": "No such entry",
+    "missingDescription": "No entry has this link. It may have been renamed, or its pack is not available."
+  },
   "column": {
     "name": "Name",
     "kind": "Kind",
