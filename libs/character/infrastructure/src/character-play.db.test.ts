@@ -7,6 +7,7 @@ import {
   ConditionRounds,
   Doomed,
   Dying,
+  EffectAllyName,
   EffectBadgeValue,
   EffectInstanceId,
   EffectRounds,
@@ -51,7 +52,7 @@ const WOUNDED: PlayState = {
     {
       id: EffectInstanceId.parse('00000000-0000-4000-8000-000000000011'),
       effect: ContentId.parse('00000000-0000-4000-8000-0000000000e1'),
-      source: { kind: 'ally', name: 'Seoni' },
+      source: { kind: 'ally', name: EffectAllyName.parse('Seoni') },
       remaining: EffectRounds.parse(60),
       expiry: 'turn-start',
       badge: EffectBadgeValue.parse(2),
