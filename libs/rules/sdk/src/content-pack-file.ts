@@ -41,7 +41,7 @@ function addDefinition(definitions: PackDefinitions, entry: ContentEntry): void 
   } else if (entry.kind === ContentKind.Statistic) {
     definitions.statistics.push({ slug, name, sources, ...entry.data });
   } else if (entry.kind === ContentKind.VariantRule) {
-    definitions.variantRules.push({ slug, name, sources: [...sources], rules: [...entry.rules] });
+    definitions.variantRules.push({ slug, name, sources: [...sources], rules: [...entry.rules], ...entry.data });
   } else {
     definitions.otherEntries.push(entry);
   }

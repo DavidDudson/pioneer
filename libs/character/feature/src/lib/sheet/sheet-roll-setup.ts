@@ -2,8 +2,7 @@ import { rollSetup } from '@pioneer/character/domain';
 import type { Character, RollRequest, RollSetup } from '@pioneer/character/domain';
 import type { ContentRegistry } from '@pioneer/rules/sdk';
 
-import { statisticInputsOf } from './sheet-inputs';
-import { sheetSlotContent } from './sheet-slot-content';
+import { sheetSources } from './sheet-sources';
 
 /**
  * What rolling a statistic offers this character (`rollSetup`): the situations the roll may claim and the toggles it
@@ -14,6 +13,6 @@ export function sheetRollSetup(
   character: Character,
   request: RollRequest,
 ): RollSetup | undefined {
-  const sources = { registry, slots: sheetSlotContent(registry), inputs: statisticInputsOf(registry, character) };
+  const sources = sheetSources(registry, character);
   return rollSetup(character.document, sources, request);
 }

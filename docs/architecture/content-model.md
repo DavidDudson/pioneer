@@ -69,7 +69,7 @@ in its `rules`, not repeated in `data`; a condition's `implies` is the one excep
 | `sense`        | `acuity?`, the acuity the sense always has; `unlimitedRange?` (darkvision)                                                                        |
 | `trait`        | `appliesTo`: each kind that carries it once, from the Foundry trait list it sits in                                                               |
 | `language`     | none yet; rarity is the envelope's                                                                                                                |
-| `variant-rule` | none yet; what it changes is in `rules`, applied to every character in a campaign that enables it                                                 |
+| `variant-rule` | `structure?`, the structural changes it needs beyond `rules` (`extraSlots`, `secondClass`); `rules` apply to every character it is enabled for    |
 
 - `condition`: `valued` says whether it takes a value (Frightened 2) or not (Blinded). `group` is one of
   `abilities`, `attitudes`, `death`, `detection`, `senses`. `overrides` lists the conditions it replaces

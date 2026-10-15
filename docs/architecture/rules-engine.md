@@ -85,7 +85,8 @@ The core pack also holds the proficiency bonus table `@prof` reads, one formula 
 Core: untrained `0`, trained `2 + @level` up to legendary `8 + @level`), and the variant rule
 `proficiency-without-level` (GM Core): a `ProficiencyBonus` rule element whose table drops level and makes untrained
 -2. A variant enabled for a character is put in play like any rule element, with a `variant` origin hop, and each base
-term reading `@prof` names it ([ADR-0026](../adr/0026-proficiency-bonus-table-is-content.md)).
+term reading `@prof` names it ([ADR-0026](../adr/0026-proficiency-bonus-table-is-content.md)). `characterStatistics` and
+`rollSetups` take the enabled variants in `StatisticSources.variants` and put them in play ahead of the character's items.
 
 The fly, swim, climb and burrow Speeds start at 0: an ancestry gives none, so a `Change` that upgrades one
 (`speed:fly`) raises it from nothing, and one that finds a Speed already higher leaves it. A Speed penalty from the

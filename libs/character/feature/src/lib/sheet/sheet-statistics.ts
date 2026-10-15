@@ -5,8 +5,7 @@ import { Selector } from '@pioneer/rules/sdk';
 import type { ContentRegistry } from '@pioneer/rules/sdk';
 import type { NamedStatistic } from '@pioneer/rules/ui';
 
-import { statisticInputsOf } from './sheet-inputs';
-import { sheetSlotContent } from './sheet-slot-content';
+import { sheetSources } from './sheet-sources';
 
 /** The sheet's statistics, in order: Armor Class, the three saves, then Perception. */
 const SHEET_STATISTICS: readonly Selector[] = ['ac', 'save:fortitude', 'save:reflex', 'save:will', 'perception'].map(
@@ -38,11 +37,7 @@ export function sheetDerivation(registry: ContentRegistry, character: Character)
 }
 
 function derive(registry: ContentRegistry, character: Character): SheetDerivation {
-  return characterStatistics(character.document, {
-    registry,
-    slots: sheetSlotContent(registry),
-    inputs: statisticInputsOf(registry, character),
-  });
+  return characterStatistics(character.document, sheetSources(registry, character));
 }
 
 /**
@@ -67,10 +62,7 @@ export function sheetStatistics(registry: ContentRegistry, character: Character)
  * undefined until the character has an ancestry.
  */
 export function sheetVitalsInPlay(registry: ContentRegistry, character: Character): VitalsInPlay | undefined {
-  return characterVitals(
-    { registry, slots: sheetSlotContent(registry), inputs: statisticInputsOf(registry, character) },
-    character.document,
-  );
+  return characterVitals(sheetSources(registry, character), character.document);
 }
 
 /** Whether a derived Speed is above 0: the character moves that way. */

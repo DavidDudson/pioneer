@@ -141,3 +141,26 @@ describe('contentPackFromFiles', () => {
     expect(contentPackFromFiles(packFile, [[ancestry], [lizardfolkLanguage]]).ancestries).toHaveLength(1);
   });
 });
+
+describe('variant rules that need a structural change', () => {
+  const dualClass = entry({
+    kind: 'variant-rule',
+    slug: 'variant-rule:dual-class',
+    data: { structure: ['secondClass'] },
+  });
+
+  test('the definition keeps the structure the entry declares', () => {
+    const pack = contentPackFromFiles(packFile, [[dualClass]]);
+    expect(pack.variantRules).toMatchObject([{ slug: 'variant-rule:dual-class', structure: ['secondClass'] }]);
+  });
+
+  test('a variant that is only rule elements declares none', () => {
+    const pack = contentPackFromFiles(packFile, [[variantRule]]);
+    expect(pack.variantRules[0]?.structure).toBeUndefined();
+  });
+
+  test('a structure the engine does not know is refused', () => {
+    const unknown = entry({ kind: 'variant-rule', slug: 'variant-rule:odd', data: { structure: ['thirdClass'] } });
+    expect(() => contentPackFromFiles(packFile, [[unknown]])).toThrow();
+  });
+});

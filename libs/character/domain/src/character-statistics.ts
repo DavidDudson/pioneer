@@ -4,6 +4,7 @@ import {
   NO_SITUATION,
   rollSituation,
   statisticContent,
+  variantRulesInPlay,
   vitalsInPlay,
 } from '@pioneer/rules/engine';
 import type {
@@ -19,7 +20,7 @@ import type {
 import type { ToggleSlot } from '@pioneer/rules/grants';
 import { predicateOptions } from '@pioneer/rules/predicate';
 import { AncestryId, HitPoints, Selector } from '@pioneer/rules/sdk';
-import type { ContentRegistry, Predicate, RollOption } from '@pioneer/rules/sdk';
+import type { ContentRegistry, Predicate, RollOption, VariantRuleEntry } from '@pioneer/rules/sdk';
 
 import { attributeModifiers, boostContent } from './attribute-boosts';
 import type { CharacterDocument } from './character-document';
@@ -85,11 +86,24 @@ export function characterStatisticInputs(
   };
 }
 
-/** What a character's statistics are derived from: the registry, the slot content read from it, and its inputs. */
+/**
+ * What a character's statistics are derived from: the registry, the slot content read from it, its inputs, and the
+ * variant rules enabled for it, whose rule elements are in play beside those of its items.
+ */
 export interface StatisticSources {
   readonly registry: ContentRegistry;
   readonly slots: SlotContent;
   readonly inputs: StatisticInputs;
+  readonly variants: readonly VariantRuleEntry[];
+}
+
+/** The rules the character's items and conditions put in play, with those of its enabled variant rules first. */
+function rulesInPlay(
+  document: CharacterDocument,
+  { registry, slots, variants }: Pick<StatisticSources, 'registry' | 'slots' | 'variants'>,
+): EquippedRules {
+  const equipped = equippedRules(document, itemContent(registry), slots);
+  return { ...equipped, rules: [...variantRulesInPlay(variants), ...equipped.rules] };
 }
 
 /**
@@ -100,14 +114,14 @@ export interface StatisticSources {
  */
 export function characterStatistics(
   document: CharacterDocument,
-  { registry, slots, inputs }: StatisticSources,
+  sources: StatisticSources,
   situation: ReadonlySet<RuleId> = NO_SITUATION,
 ): ReadonlyMap<Selector, StatisticResult> {
-  const content = statisticContent(registry);
+  const content = statisticContent(sources.registry);
   if (content === undefined) {
     return new Map();
   }
-  return deriveStatistics(content, inputs, { ...equippedRules(document, itemContent(registry), slots), situation });
+  return deriveStatistics(content, sources.inputs, { ...rulesInPlay(document, sources), situation });
 }
 
 /**
@@ -173,14 +187,14 @@ interface Rederivation {
  */
 export function rollSetups(
   document: CharacterDocument,
-  { registry, slots, inputs }: StatisticSources,
+  sources: StatisticSources,
   { derived, claims }: RollSetupsRequest,
 ): ReadonlyMap<Selector, RollSetup> {
-  const content = statisticContent(registry);
+  const content = statisticContent(sources.registry);
   if (content === undefined) {
     return new Map();
   }
-  const rederivation = { content, inputs, rules: equippedRules(document, itemContent(registry), slots) };
+  const rederivation = { content, inputs: sources.inputs, rules: rulesInPlay(document, sources) };
   const setups = [...claims].flatMap(([selector, chosen]): [Selector, RollSetup][] => {
     const setup = setupFor(derived.get(selector), chosen, rederivation);
     return setup === undefined ? [] : [[selector, setup]];

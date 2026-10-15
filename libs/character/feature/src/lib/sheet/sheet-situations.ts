@@ -5,8 +5,7 @@ import { StatisticKind } from '@pioneer/rules/sdk';
 import type { ContentRegistry, Selector } from '@pioneer/rules/sdk';
 import type { NamedStatistic, StatisticSituations } from '@pioneer/rules/ui';
 
-import { statisticInputsOf } from './sheet-inputs';
-import { sheetSlotContent } from './sheet-slot-content';
+import { sheetSources } from './sheet-sources';
 import { sheetDerivation } from './sheet-statistics';
 
 /** The situations the player has claimed for the next roll of each statistic. */
@@ -60,7 +59,7 @@ export function checkSituations(
   character: Character,
   { selectors, claims }: { readonly selectors: readonly Selector[]; readonly claims: SituationClaims },
 ): ReadonlyMap<Selector, CheckSituations> {
-  const sources = { registry, slots: sheetSlotContent(registry), inputs: statisticInputsOf(registry, character) };
+  const sources = sheetSources(registry, character);
   const wanted = new Map(
     selectors.map((selector): [Selector, ReadonlySet<RuleId>] => [selector, claims.get(selector) ?? new Set()]),
   );
