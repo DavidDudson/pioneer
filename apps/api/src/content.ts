@@ -1,18 +1,33 @@
+import { PackAccessPolicy } from '@pioneer/homebrew/application';
+import { DrizzlePackDirectory } from '@pioneer/homebrew/infrastructure';
 import { officialPacks } from '@pioneer/rules/catalog';
 import {
   ContentRepository,
+  ContentSearchRepository,
   contentRoutes,
+  contentSearchRoutes,
   seedContentPacks,
   StoredContentBundles,
 } from '@pioneer/rules/infrastructure';
 import type { Clock } from '@pioneer/shared/kernel';
-import type { ContractRouter } from '@pioneer/shared/server';
+import type { ContractRouter, RequestAuthenticator } from '@pioneer/shared/server';
 
+import { CampaignPackEnablementDirectory } from './campaign-pack-enablement-directory';
 import type { Database } from './database';
+import { SearchableHomebrewPacks } from './searchable-homebrew-packs';
 
-/** The content part of the composition root: the browser's bundles of the official packs, public (ADR-0007). */
-export function content(db: Database): ContractRouter['app'] {
-  return contentRoutes(new StoredContentBundles(new ContentRepository(db)));
+/**
+ * The content part of the composition root: the browser's bundles of the official packs, public (ADR-0007), and
+ * search over them, which also covers the homebrew packs the signed-in caller may read.
+ */
+export function content(db: Database, authenticator: RequestAuthenticator): ContractRouter['app'] {
+  const homebrew = new SearchableHomebrewPacks(
+    new DrizzlePackDirectory(db),
+    new PackAccessPolicy(new CampaignPackEnablementDirectory(db)),
+  );
+  return contentRoutes(new StoredContentBundles(new ContentRepository(db))).use(
+    contentSearchRoutes(new ContentSearchRepository(db), homebrew, authenticator),
+  );
 }
 
 /**

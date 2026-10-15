@@ -11,6 +11,8 @@ import type {
   BundleFile,
   ContentEntry,
   ContentManifest,
+  ContentSearchQuery,
+  ContentSearchResult,
   ContentPack,
   ContentPackId,
   FetchedKind,
@@ -22,6 +24,7 @@ import type {
 import { IDLE_SCHEDULER } from '@pioneer/shared/web';
 
 import { ContentBundleCache } from './content-bundle-cache';
+import { CONTENT_DELIVERY } from './content-delivery';
 import { CONTENT_PACK_CACHE } from './content-pack-cache';
 
 /**
@@ -72,6 +75,7 @@ function kindsIn(pack: PackBundles, kinds: readonly ContentKind[]): readonly Kin
 @Injectable({ providedIn: 'root' })
 export class ContentLoader {
   readonly #cache = inject(ContentBundleCache);
+  readonly #delivery = inject(CONTENT_DELIVERY);
   readonly #whenIdle = inject(IDLE_SCHEDULER);
   readonly #packs = inject(CONTENT_PACK_CACHE);
   readonly #official: BundleFetch = async (pack, file) => this.#cache.bundle(pack, file);
@@ -94,6 +98,14 @@ export class ContentLoader {
       this.#cache.forgetHomebrew();
       return this.#build(kinds, homebrew);
     }
+  }
+
+  /**
+   * The entries whose name or description match the words of `query`, best first, as the server finds them. Unlike
+   * the bundles it is not kept in the browser, so it fails offline.
+   */
+  public async search(query: ContentSearchQuery): Promise<ContentSearchResult> {
+    return this.#delivery.search(query);
   }
 
   /**

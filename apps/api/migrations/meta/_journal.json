@@ -190,6 +190,20 @@
       "when": 1792073269484,
       "tag": "0026_archive_packs",
       "breakpoints": true
+    },
+    {
+      "idx": 27,
+      "version": "7",
+      "when": 1792099772276,
+      "tag": "0027_content_entry_search",
+      "breakpoints": true
+    },
+    {
+      "idx": 28,
+      "version": "7",
+      "when": 1792099776567,
+      "tag": "0028_content_entry_texts_backfill",
+      "breakpoints": true
     }
   ]
 }

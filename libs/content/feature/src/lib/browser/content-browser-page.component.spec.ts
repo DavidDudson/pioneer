@@ -22,9 +22,11 @@ function present<TValue>(value: TValue | null | undefined): TValue {
 interface Opened {
   readonly root: HTMLElement;
   readonly harness: RouterTestingHarness;
+  readonly delivery: TestContentDelivery;
 }
 
 async function open(url: string): Promise<Opened> {
+  const delivery = new TestContentDelivery([BROWSE_LOADER]);
   TestBed.configureTestingModule({
     providers: [
       provideRouter([{ path: 'content', children: contentRoutes }]),
@@ -32,11 +34,11 @@ async function open(url: string): Promise<Opened> {
       provideHttpClient(),
       provideHttpClientTesting(),
       provideTanStackQuery(new QueryClient({ defaultOptions: { queries: { retry: false } } })),
-      ...provideContentTesting(new TestContentDelivery([BROWSE_LOADER])),
+      ...provideContentTesting(delivery),
     ],
   });
   const harness = await RouterTestingHarness.create(url);
-  return { root: present(harness.routeNativeElement), harness };
+  return { root: present(harness.routeNativeElement), harness, delivery };
 }
 
 /** The names in the table's first column, in order; empty while the entries load. */
@@ -116,6 +118,55 @@ describe('ContentBrowserPage', () => {
     const { root } = await open('/content?kind=feat&f.traits=fighter,!fighter&f.level=9..');
     await vi.waitFor(() => {
       expect(root.textContent).toContain('Nothing matches');
+    });
+  });
+
+  describe('search', () => {
+    it('lists what the server found for the words in the link, and keeps them in the search box', async () => {
+      const { root } = await open('/content?kind=feat&q=power');
+      await expect(loaded(root, 1)).resolves.toStrictEqual(['Power-attack']);
+      expect(present(root.querySelector<HTMLInputElement>('fr-search-input input')).value).toBe('power');
+    });
+
+    it('applies the filters to the matches', async () => {
+      const { root } = await open('/content?kind=feat&q=i&f.traits=fighter');
+      await expect(loaded(root, 1)).resolves.toStrictEqual(['Shield-block']);
+    });
+
+    it('searches only the kinds picked', async () => {
+      const { root } = await open('/content?kind=spell&q=power');
+      await vi.waitFor(() => {
+        expect(root.textContent).toContain('No entry matches those words');
+      });
+    });
+
+    it('writes typed words to the link and lists the matches', async () => {
+      const { root } = await open('/content?kind=feat');
+      await loaded(root, 4);
+      const box = present(root.querySelector<HTMLInputElement>('fr-search-input input'));
+      box.value = 'tough';
+      box.dispatchEvent(new Event('input'));
+      box.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter' }));
+      await expect(loaded(root, 1)).resolves.toStrictEqual(['Toughness']);
+      expect(TestBed.inject(Router).url).toContain('q=tough');
+    });
+
+    it('lists everything again when the words are cleared', async () => {
+      const { root } = await open('/content?kind=feat&q=tough');
+      await loaded(root, 1);
+      present(root.querySelector<HTMLElement>('fr-search-input button')).click();
+      await expect(loaded(root, 4)).resolves.toHaveLength(4);
+      expect(TestBed.inject(Router).url).not.toContain('q=');
+    });
+
+    it('says the search failed when the server cannot be reached', async () => {
+      const { root, delivery } = await open('/content?kind=feat');
+      await loaded(root, 4);
+      delivery.offline = true;
+      await TestBed.inject(Router).navigateByUrl('/content?kind=feat&q=power');
+      await vi.waitFor(() => {
+        expect(root.textContent).toContain('The search could not be completed');
+      });
     });
   });
 });

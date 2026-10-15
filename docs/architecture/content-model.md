@@ -385,16 +385,17 @@ link alone, still waiting for a page, so pages can be filled in over time. It re
 ```text
 content_packs        id, slug, title, publisher, owner_id (null = official), visibility, license, version,
                      content_hash, data jsonb, updated_at
-content_entries      id, pack_id, kind, slug, name, level, rarity, traits text[], data jsonb,
-                     search tsvector, updated_at
+content_entries      id, pack_id, kind, slug, name, level, rarity, traits text[], data jsonb, updated_at
 content_pack_deps    id, pack_id, depends_on        -- a homebrew pack extending another pack (ADR-0057)
+content_entry_texts  id, entry_id, locale, field, text jsonb, updated_at   -- translatable text per locale
+content_entry_search id, entry_id, locale, vector tsvector, updated_at     -- full-text search, see "Search"
 ```
 
 There is no `content_books` table: the book registry is code, and a book's title is a message key (ADR-0024).
 A pack's `id` is UUIDv5 of its slug (`contentPackId`), as an entry's is of `<pack>/<slug>`. Each `data` column holds
 the whole `pack.json` or `ContentEntry`, so a row reads back as the file it came from; the other columns copy the
-fields the content browser filters on (GIN index on `traits`, btree on `level` and `(pack_id, kind)`). `search`
-waits for Epic 2.4.
+fields the content browser filters on (GIN index on `traits`, btree on `level` and `(pack_id, kind)`). Search has its
+own table, see "Search".
 
 - **Official packs** are imported once into `content/packs/<pack>/<kind>.json`, then edited by hand as normal PRs
   (diffable), and upserted on deploy by id. Errata is a hand edit and a diff (ADR-0031). `pioneer-api migrate` seeds them
@@ -455,7 +456,7 @@ split by kind and by purpose, cached in IndexedDB, and loaded lazily (spells onl
 | `player-core/feat.desc.<locale>.<shard>.<hash>.json` | descriptions, sharded by id prefix       | when an entry is opened        |
 
 Mechanics never depend on locale, so switching language downloads only text. Likely-next bundles are prefetched
-when idle. Content browser search is server-side through per-locale `tsvector` and trait/level indexes.
+when idle. Content browser search is server-side through per-locale `tsvector` (see "Search").
 
 - **Descriptions, by shard.** A kind's descriptions are many and long, so `<kind>.desc.<locale>.<shard>.<hash>.json`
   holds those of the entries whose id starts with one hex digit (`descriptionShard`), as an object from id to
@@ -490,6 +491,34 @@ when idle. Content browser search is server-side through per-locale `tsvector` a
   pack. The sheet asks for the packs its character uses (the campaign's, else its own, ADR-0060), so it waits for that
   list before the registry builds.
 
+## Search
+
+Words typed into the content browser are matched on the server, since the bundles hold no descriptions. The filters
+stay in the browser (see "Filters"): the server finds the entries, the browser narrows what it found.
+
+- **Vectors.** `content_entry_search` holds one `tsvector` per entry and locale, with a GIN index. The name weighs more
+  than the description (`setweight` A and B), so a name hit ranks above a description hit. A trigger on `content_entries`
+  keeps the source-locale (`en`) vector current whenever an entry's `name` or `data` is written, by the seed or a
+  homebrew import alike, so no writer has to remember. It reads the description from the entry's `data` and flattens the
+  rich text to its words (`content_rich_text_plain`). The text search configuration comes from the locale
+  (`content_search_config`: `english` for `en`, `simple` for a locale without stemming). Other locales' vectors arrive
+  with translated text in [#693](https://github.com/DavidDudson/pioneer/issues/693), which also adds the per-locale
+  fallback to `en`; until then only `en` exists. The trait and level indexes the filters use are on `content_entries`.
+- **`GET /api/content/search`** (`ContentSearchContract`, `libs/rules/sdk`) takes `query` (the words), `locale`, `kinds`
+  and `packs` (comma-separated), `limit` (at most 200, default 50) and `offset`, and answers `{ ids, total }`: the ids of
+  one page of matches, best first, and how many entries matched in all. The words are read as a search box is used
+  (`websearch_to_tsquery`: `"a phrase"`, `or`, `-not`), so no input is a syntax error. Ties fall to the name and then
+  the id, so a page boundary never moves.
+- **Who is searched.** Official packs are public (ADR-0007) and always searched. `packs` names homebrew packs to search
+  too; those the signed-in caller may read (`PackAccessPolicy`, through `SearchableHomebrew`) are, and any other pack is
+  ignored the way a missing one is. A search that names no pack is the same for everyone, so it is
+  `public, max-age=60` and the edge Worker can share it; one that names packs is `private, max-age=10`, whether or not
+  the caller may read them, since a shared copy would hand one user the answer worked out for another.
+- **In the browser.** `ContentLoader.search` asks the server; it is not cached in IndexedDB, so unlike the lists it
+  needs a connection. The content browser keeps the words in the URL as `q`, searches among the kinds picked, lists the
+  ids it gets back in that order, and applies the filters to them client-side. It asks for the largest page (200
+  matches) and does not page further yet.
+
 ## Filters
 
 The content browser, the builder's slot pickers, spell preparation and the shop share one filter system. Each
@@ -508,7 +537,7 @@ Facets beyond level, rarity, traits, book and pack:
 Behaviour:
 
 - Facets filter the cached mechanics bundles in the browser, so filtering is instant and works offline. Free-text
-  search still goes to the server.
+  search goes to the server (see "Search").
 - Within one facet values combine with OR, across facets with AND. Any value can be excluded ("not fire"). Every
   value shows how many entries it would leave.
 - The filter state lives in the URL, so a filtered list can be linked and survives a reload. Each facet that
@@ -519,9 +548,9 @@ Behaviour:
   selection. A `set` or `flag` facet can pick or exclude Unknown like any value; a `range` drops unknown entries
   once a bound is set. A value's count is how many entries picking only that value would leave.
 - The content browser (`/content`, `libs/content/feature`) keeps the kinds it lists in the URL too, `kind=feat,spell`,
-  and shows each kind's facets: a facet that reads only some of the kinds listed (weapon group) is left out unless the
-  list holds one of them. Its table and filter panel (`pio-facet-filter`) are built from the facet definitions, so a new
-  definition shows up without a template change.
+  and its search words as `q`. It shows each kind's facets: a facet that reads only some of the kinds listed (weapon
+  group) is left out unless the list holds one of them. Its table and filter panel (`pio-facet-filter`) are built from
+  the facet definitions, so a new definition shows up without a template change.
 - An entry opens at `/content/:kind/:slug`, the kind and the name part of its slug (`/content/feat/power-attack`), public
   like the list. The page shows the entry with `pio-entry-preview` in full: the summary until its description shard
   loads, then the description. It loads the kinds the browser lists and conditions beside the entry's own, so a

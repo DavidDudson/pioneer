@@ -32,7 +32,7 @@ export function createApp(db: Database, env: Env, extensions: readonly AppExtens
     .use(characterRoutes)
     .use(campaigns(db, clock, identityParts.authenticator))
     .use(homebrew(db, clock, identityParts.authenticator))
-    .use(content(db));
+    .use(content(db, identityParts.authenticator));
   for (const extend of extensions) {
     app = app.use(extend(identityParts));
   }
