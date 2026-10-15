@@ -26,6 +26,7 @@ const howlOfTheWild = PackId.parse('howl-of-the-wild');
 const warOfImmortals = PackId.parse('war-of-immortals');
 const mwangiExpanse = PackId.parse('mwangi-expanse');
 const impossibleMagic = PackId.parse('impossible-magic');
+const gunsAndGears = PackId.parse('guns-and-gears');
 const rageOfElements = PackId.parse('rage-of-elements');
 const secretsOfMagic = PackId.parse('secrets-of-magic');
 const tianXiaCharacterGuide = PackId.parse('tian-xia-character-guide');
@@ -46,6 +47,7 @@ describe('content catalog', () => {
       darkArchiveRemastered,
       divineMysteries,
       gmCore,
+      gunsAndGears,
       howlOfTheWild,
       impossibleLands,
       impossibleMagic,

@@ -31,6 +31,7 @@ export const FOUNDRY_BOOK_TITLES: ReadonlyMap<string, BookId> = new Map([
   ['Pathfinder Dark Archive (Remastered)', BookId.parse('dark-archive-remastered')],
   ['Pathfinder Lost Omens Tian Xia Character Guide', BookId.parse('tian-xia-character-guide')],
   ['Pathfinder Impossible Magic', BookId.parse('impossible-magic')],
+  ['Pathfinder Guns & Gears', BookId.parse('guns-and-gears')],
 ]);
 
 /**

@@ -88,6 +88,7 @@ describe('LegalPage', () => {
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
+      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e',
     ]);
   });
@@ -112,6 +113,7 @@ describe('LegalPage', () => {
       'Lost Omens Character Guide',
       'Lost Omens Impossible Lands',
       'Impossible Magic',
+      'Guns & Gears',
     ]);
     const licenses = books.map((book) => /Paizo · (?<license>.+)$/u.exec(book.textContent.trim())?.groups?.['license']);
     expect(licenses).toStrictEqual([
@@ -121,6 +123,7 @@ describe('LegalPage', () => {
       'ORC License',
       'Open Game License 1.0a',
       'Open Game License 1.0a',
+      'ORC License',
       'ORC License',
     ]);
   });
@@ -145,6 +148,7 @@ describe('LegalPage', () => {
       expect.stringMatching(/^Lost Omens Character Guide\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^Lost Omens Impossible Lands\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^Impossible Magic\s*Foundry release pf2e-8\.6\.0$/u),
+      expect.stringMatching(/^Guns & Gears\s*Foundry release pf2e-8\.6\.0$/u),
     ]);
     expect(foundry.textContent).toContain('then corrected and enriched by Pioneer contributors');
   });

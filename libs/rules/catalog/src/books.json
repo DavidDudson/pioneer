@@ -126,5 +126,13 @@
     "remaster": true,
     "released": "2026-07-30",
     "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=355"
+  },
+  {
+    "id": "guns-and-gears",
+    "publisher": "paizo",
+    "license": "ORC",
+    "remaster": true,
+    "released": "2025-02-05",
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=98"
   }
 ]

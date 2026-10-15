@@ -1,0 +1,216 @@
+[
+  {
+    "id": "59d06286-2815-5d38-8477-8e009683a18e",
+    "pack": "guns-and-gears",
+    "kind": "ancestry",
+    "slug": "ancestry:automaton",
+    "name": "Automaton",
+    "rarity": "rare",
+    "traits": ["automaton", "construct"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These intelligent constructs house actual souls and represent what remains of a dying empire's last attempt at greatness. Automatons combine technological ingenuity with magical power, creating a blended being wholly unique to Golarion.",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Automaton"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "8b65a3b5-2b89-56bc-92dd-a2377aa17a39"
+      },
+      {
+        "key": "GrantItem",
+        "item": "1f55ef87-8c82-5cb4-a4b0-28a4d01f0567"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-1",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:automaton",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Automaton feat"
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-1"
+        }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-5",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:automaton",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Automaton feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-5"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-9",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:automaton",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Automaton feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-9"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-13",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:automaton",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Automaton feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-13"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-17",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:automaton",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Automaton feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-17"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestries.Item.kYsBAJ103T44agJF"
+    },
+    "data": {
+      "hitPoints": 8,
+      "size": "medium",
+      "speed": 25,
+      "boosts": [["str"], ["str", "dex", "con", "int", "wis", "cha"]],
+      "flaws": [],
+      "languages": ["444a2133-3e11-55b6-b57a-1f11ebe8e12b", "276f9100-0ab7-552f-9522-ac588f13c106"],
+      "additionalLanguages": {
+        "count": 0,
+        "options": [
+          "ae9c727a-c819-5c5f-9329-c79ac7b4b03d",
+          "85a9a212-540b-5211-96ce-ffce82640b25",
+          "c49a86a0-8e49-56c1-86f9-eaa50a3297e3",
+          "3128d8af-f464-563e-ac8d-ac86a7e9408b",
+          "c60a69f8-1fae-5452-9c94-4cf2bd4662b1",
+          "f36d6839-c1ce-575a-bc68-1c26a7601f13",
+          "ff9d8655-df77-52bc-852f-ee4669509e08",
+          "a547cbec-9812-5731-aace-b0f5f5a08607",
+          "b12f2dea-17fb-58e9-871e-3ad0c28f05c7",
+          "abb69e36-b49e-54e5-8cba-a6bb63c45c8d"
+        ]
+      },
+      "vision": "16b42c38-9373-58ec-a7ac-2221bb17a71c",
+      "reach": 5
+    }
+  }
+]

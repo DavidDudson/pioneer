@@ -1,0 +1,168 @@
+[
+  {
+    "id": "9009cda1-f2db-5c3b-8ac0-ac265cffe53b",
+    "pack": "guns-and-gears",
+    "kind": "heritage",
+    "slug": "heritage:hunter-automaton",
+    "name": "Hunter Automaton",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You were designed to serve as a scout or assassin and have a body resembling a pack hunter like a large cat or wolf. Though you typically move like a quadruped, you can still stand and fight like a biped, allowing you to use all equipment normally. Your quadruped design allows you to move quickly; if you have both hands free, you can increase your Speed to 30 feet as you run on all fours."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:on-all-fours",
+        "toggleable": true
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "untyped",
+        "value": 5,
+        "predicate": ["option:on-all-fours"],
+        "display": {
+          "label": "Running on all fours"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.2kMltxs2rmxRSxfV"
+    },
+    "data": {
+      "ancestry": "59d06286-2815-5d38-8477-8e009683a18e"
+    }
+  },
+  {
+    "id": "cfe6c0b0-fe4d-58d8-b49f-97a12eb82263",
+    "pack": "guns-and-gears",
+    "kind": "heritage",
+    "slug": "heritage:mage-automaton",
+    "name": "Mage Automaton",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The chamber housing your core has a more direct connection to the rest of your humanoid shape, allowing you to tap into your core's magical energy. You gain one cantrip from the arcane spell list. You can cast this spell as an arcane innate spell at will. A cantrip is heightened to a spell rank equal to half your level rounded up."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.J0eAmntxXywr9sGt"
+    },
+    "data": {
+      "ancestry": "59d06286-2815-5d38-8477-8e009683a18e"
+    }
+  },
+  {
+    "id": "58c8711e-3661-5baf-a56e-7d6c385d241f",
+    "pack": "guns-and-gears",
+    "kind": "heritage",
+    "slug": "heritage:sharpshooter-automaton",
+    "name": "Sharpshooter Automaton",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your lithe, humanoid shape is designed for speed and accuracy suitable for ranged combat. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "2ca8104a-7423-5da0-9290-4c86bc8d696b"
+          },
+          {
+            "type": "text",
+            "text": " action."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "2ca8104a-7423-5da0-9290-4c86bc8d696b"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.j1nzBc9Pui7vsJ9o"
+    },
+    "data": {
+      "ancestry": "59d06286-2815-5d38-8477-8e009683a18e"
+    }
+  },
+  {
+    "id": "425799d9-b131-5ba7-9aab-dbd8e19d458b",
+    "pack": "guns-and-gears",
+    "kind": "heritage",
+    "slug": "heritage:warrior-automaton",
+    "name": "Warrior Automaton",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sporting a bulkier, powerful design, your body has been designed for combat. You have a bulky, humanoid shape. The damage die for your fist increases to 1d6 instead of 1d4. You don't take a penalty when making a lethal attack with your fist or any other unarmed attack."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "fist": true
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.y24ykEUfpIu5Gp6D"
+    },
+    "data": {
+      "ancestry": "59d06286-2815-5d38-8477-8e009683a18e"
+    }
+  }
+]

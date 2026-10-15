@@ -23,3 +23,22 @@ export async function impossibleMagicPack(): Promise<PackContents> {
     import('@pioneer/content/packs/impossible-magic/weapon.json'),
   ]);
 }
+
+export async function gunsAndGearsPack(): Promise<PackContents> {
+  return pack(import('@pioneer/content/packs/guns-and-gears/pack.json'), [
+    import('@pioneer/content/packs/guns-and-gears/action.json'),
+    import('@pioneer/content/packs/guns-and-gears/ancestry.json'),
+    import('@pioneer/content/packs/guns-and-gears/ancestry-feature.json'),
+    import('@pioneer/content/packs/guns-and-gears/archetype.json'),
+    import('@pioneer/content/packs/guns-and-gears/armor.json'),
+    import('@pioneer/content/packs/guns-and-gears/background.json'),
+    import('@pioneer/content/packs/guns-and-gears/class.json'),
+    import('@pioneer/content/packs/guns-and-gears/class-feature.json'),
+    import('@pioneer/content/packs/guns-and-gears/consumable.json'),
+    import('@pioneer/content/packs/guns-and-gears/effect.json'),
+    import('@pioneer/content/packs/guns-and-gears/equipment.json'),
+    import('@pioneer/content/packs/guns-and-gears/feat.json'),
+    import('@pioneer/content/packs/guns-and-gears/heritage.json'),
+    import('@pioneer/content/packs/guns-and-gears/weapon.json'),
+  ]);
+}

@@ -88,9 +88,12 @@ describe('CharacterSheetPage options that train a skill again', () => {
       rows.filter((row) => row.note !== undefined).map((row) => [row.name, row.note, row.disabledReason]),
     ).toStrictEqual([
       ['Acolyte', MARK, undefined],
+      ['Otherworldly Mission', MARK, undefined],
       ['Pilgrim', MARK, undefined],
+      ['Revenant', MARK, undefined],
       ['Seer of the Dead', MARK, undefined],
       ['Street Preacher', MARK, undefined],
+      ['Wandering Preacher', MARK, undefined],
     ]);
   });
 

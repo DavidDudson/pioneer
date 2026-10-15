@@ -1,0 +1,3636 @@
+[
+  {
+    "id": "6302d774-c93e-5561-a65a-5f325607b981",
+    "pack": "guns-and-gears",
+    "kind": "background",
+    "slug": "background:alkenstar-outlaw",
+    "name": "Alkenstar Outlaw",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're an outlaw whose first crime was stealing the guns from Alkenstar's Gunworks which allowed you to commence a crime spree of epic proportions. You don't know where your road ends, but it's probably going to be a bloody affair. The life of an adventurer might even be a relief compared to a life forever on the run from Alkenstar authorities and their allies."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One boost must be to "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Constitution",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in Thievery and Underworld Lore. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "8532899f-23d2-5fab-8d18-4902347b0ba2"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:thievery",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:underworld",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "8532899f-23d2-5fab-8d18-4902347b0ba2"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.fyKPDYFeIrgzADJB"
+    },
+    "data": {
+      "boosts": [
+        ["con", "dex"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "a751947c-df10-5312-82c0-1b9a8889cf95",
+    "pack": "guns-and-gears",
+    "kind": "background",
+    "slug": "background:alkenstar-sojourner",
+    "name": "Alkenstar Sojourner",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You came to Alkenstar because you heard they had guns, but you stayed because of the atmosphere. Or the guns. Either way, journalism and scientific curiosity opened the door to a life of adventure. Now you continue to adventure in the Alkenstar area, using your skills to deal with whatever situations present themselves."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in Society and Engineering Lore. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "7f7011f1-61c2-5cbd-8d5a-29a2b81efc13"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:society",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:engineering",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "7f7011f1-61c2-5cbd-8d5a-29a2b81efc13"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.Yuwr2pT3z3WYTX9T"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "int"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "22232837-3b03-557f-8deb-25abca2ca176",
+    "pack": "guns-and-gears",
+    "kind": "background",
+    "slug": "background:anti-tech-activist",
+    "name": "Anti-Tech Activist",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've seen the sorts of things that technology brings—polluted environments, workers put out of their jobs or horribly injured, and the slow erosion of society—and you've vowed to inform the larger world of these ills. You do so with long, impassioned speeches on street corners and village squares and by talking personally with the heads of various guilds. Adventuring into the wider world could help spread your message even farther."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Constitution",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Intimidation skill and the Guild Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "da16011c-dfcb-5204-bc52-0c1f48812de2"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:intimidation",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:guild",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "da16011c-dfcb-5204-bc52-0c1f48812de2"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.MgiZ25JdT6O3fLbO"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "con"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "6c02a764-0d86-56bf-a561-70b8399ea1c3",
+    "pack": "guns-and-gears",
+    "kind": "background",
+    "slug": "background:back-alley-doctor",
+    "name": "Back-Alley Doctor",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're the medic many turn to when a more official clinic or healer might not be available. You may specialize in stitching up bullet wounds or have a standing, confidential deal with a criminal syndicate to provide your services any time of day or night. In either case, you've perhaps turned to the adventuring life because a former client is unhappy with your work or members of the local constabulary have been asking too many questions."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Constitution",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Medicine skill and the Underworld Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "d9c8a8a9-540e-5825-8dfc-b5c5ae58ef76"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:medicine",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:underworld",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "d9c8a8a9-540e-5825-8dfc-b5c5ae58ef76"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.0wzTmGUb8yvzMrO0"
+    },
+    "data": {
+      "boosts": [
+        ["con", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "be5ac5c9-d1e7-5c07-98de-e4a141aa4877",
+    "pack": "guns-and-gears",
+    "kind": "background",
+    "slug": "background:cannoneer",
+    "name": "Cannoneer",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You served as a crewmate aboard a military vessel or pirate ship and were responsible for the use and maintenance of the ship's cannons. A strong back and quick reflexes were equally important to you in your duties, and you know your way around explosives and the dangers that lie therein. These skills serve you well in your new life as an adventurer, as compared to the weight of a cannon, a gear load that makes your allies blanche just makes you laugh instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One boost must be to "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Strength",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Athletics skill and the Warfare Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "7e42ccc3-1342-59f0-b827-0279e78a7260"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:athletics",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:warfare",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "7e42ccc3-1342-59f0-b827-0279e78a7260"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.8CLTXqyjdzEMKnZC"
+    },
+    "data": {
+      "boosts": [
+        ["dex", "str"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "06392f66-b9ff-5ea1-a6a5-2039ba30064a",
+    "pack": "guns-and-gears",
+    "kind": "background",
+    "slug": "background:circuit-judge",
+    "name": "Circuit Judge",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're a circuit judge, a courtroom on horseback who serves a group of communities out in the Mana Wastes or a similar backwoods region. You show up every couple of months, hear the cases that have piled up since your last visit, give verdicts, and then it's on to the next town in your itinerary. It's not the easiest life in the world, but it's an interesting one, and you hear some mighty strange cases. Chances are, it was one of those cases that set you on the road to adventure."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in Deception and Legal Lore. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "9f1831c4-3f8f-5ed2-8a7d-11dc22cce082"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:deception",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:legal",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "9f1831c4-3f8f-5ed2-8a7d-11dc22cce082"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.2TImvKwcFLDVhzUC"
+    },
+    "data": {
+      "boosts": [
+        ["int", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "cc0ea1be-c4a3-58f9-a6e1-1414501c0ac9",
+    "pack": "guns-and-gears",
+    "kind": "background",
+    "slug": "background:clockfighter",
+    "name": "Clockfighter",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While others choose to use their engineering ability to heal the injured or make brilliant innovations, you've used your skill to repair and modify clockwork constructs that battle in gladiatorial combat. You know how to get a crowd electrified for your clockwork gladiator, win or lose, and you know how to repair it when it gets damaged. These skills serve you well as an adventurer."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Crafting skill and the Gladiatorial Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "e6283293-2c8f-5f74-8b61-f753cf4abb4f"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:crafting",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:gladiatorial",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "e6283293-2c8f-5f74-8b61-f753cf4abb4f"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.dSYel8ABTevOc5YA"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "int"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "6db04f82-e8af-5a09-8d94-2436fde240c8",
+    "pack": "guns-and-gears",
+    "kind": "background",
+    "slug": "background:clockwork-researcher",
+    "name": "Clockwork Researcher",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "New forms of clockwork technology are incredibly interesting to you, and you've been studying examples of them to see where else they might be best put to use. You might eventually develop a new prototype machine or find a way to make related technologies practical enough for everyone to benefit. Though before you do, you must continue your research!"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Society skill and the Engineering Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "14dfa44b-741c-58ed-8b61-651062a946ff"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:society",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:engineering",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "14dfa44b-741c-58ed-8b61-651062a946ff"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.xKEQvxDMHWRUkL6i"
+    },
+    "data": {
+      "boosts": [
+        ["dex", "int"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "fc47f0b7-83d1-5634-8442-a246912d7c57",
+    "pack": "guns-and-gears",
+    "kind": "background",
+    "slug": "background:codebreaker",
+    "name": "Codebreaker",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whether you're employed by a military organization to decipher coded messages sent by enemy factions or work independently to crack an enigma created by a past civilization, you have a head for patterns and linguistics. You might even use new clockwork devices to aid you in your efforts."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Society skill and the Cryptography Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "254b97ae-b0af-5196-a9fe-300b14d1f9c4"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:society",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:cryptography",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "254b97ae-b0af-5196-a9fe-300b14d1f9c4"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.4XpWgGejwb2L6WpK"
+    },
+    "data": {
+      "boosts": [
+        ["int", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "36f2495a-7a3b-5478-b6a4-4a61f4f4f043",
+    "pack": "guns-and-gears",
+    "kind": "background",
+    "slug": "background:deputy",
+    "name": "Deputy",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While your life may have taken some twists and turns in the intervening years, you were once deputized as the lawful protector of a community. While the role was temporary and you've since turned in your badge, that responsibility shaped you. Whenever a community is in trouble, and the sheriff is nowhere to be found, residents call on you to capture a criminal, rescue the mayor's offspring from bandits, or go toe to toe with outlaws."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Survival skill and the Hunting Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "445d2cc0-6a94-5bbf-9b55-03a5e8a5f937"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:survival",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:hunting",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "445d2cc0-6a94-5bbf-9b55-03a5e8a5f937"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.KC5oI1bs6Wx8h91u"
+    },
+    "data": {
+      "boosts": [
+        ["dex", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "8a46845c-827a-5bb7-8647-634db3eb5f40",
+    "pack": "guns-and-gears",
+    "kind": "background",
+    "slug": "background:disciple-of-the-gear",
+    "name": "Disciple of the Gear",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While many regard science and faith as incompatible, you believe scientific advancement is your deity's will. Perhaps you're a follower of Brigh, Casandalee, or some other god of technology, or perhaps you see the furnaces and sparks of modernity as the latest manifestation of Sarenrae's flame or Gozreh's lightning—whatever the case, you're always willing to spread the word of your deity, and you've learned some basic tinkering to show how your deity's focus can increase the common standard of living."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Crafting skill and the Lore skill for the deity you worship. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "794574f1-29c1-5cfd-abdf-413a512ca0e7"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:crafting",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "794574f1-29c1-5cfd-abdf-413a512ca0e7"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.V9VsomfjbPQNfaSL"
+    },
+    "data": {
+      "boosts": [
+        ["int", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "53a4c5cf-a29a-502e-9819-ed60cb33cb9c",
+    "pack": "guns-and-gears",
+    "kind": "background",
+    "slug": "background:driver",
+    "name": "Driver",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You live behind the controls of a vehicle, and can handle anything the road or waves and sky can throw at you. You adventure to test your skills with new and interesting vehicles."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Strength",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Acrobatics skill and either the Driving Lore or Piloting Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "161d1c8a-4304-59c5-bd4b-e0f21e3afa13"
+          },
+          {
+            "type": "text",
+            "text": " skill feat with the chosen lore."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:acrobatics",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "161d1c8a-4304-59c5-bd4b-e0f21e3afa13"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.kmhZZgR7KlBzRBX0"
+    },
+    "data": {
+      "boosts": [
+        ["dex", "str"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "ef849c0f-7edc-507c-ae02-e140f917dcbe",
+    "pack": "guns-and-gears",
+    "kind": "background",
+    "slug": "background:farmsteader",
+    "name": "Farmsteader",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You built your house using wood from the trees surrounding it. Raised it up from the dirt and called it home. You thought that it would be where you would grow old and die. But despite your best efforts, you were wrong. The land that once gave you food fell fallow, and dust took to the air and choked the livestock. Now you wander the world as an adventurer. Are you in search of a new place to settle down and try again, or have you become disillusioned by your old dreams, leading you to seek out a new purpose?"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Constitution",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Survival skill and the Farming Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "5e597080-193c-5a28-a1ed-901ee2ebba74"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:survival",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:farming",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "5e597080-193c-5a28-a1ed-901ee2ebba74"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.mcL4WLO2yxBGlvuG"
+    },
+    "data": {
+      "boosts": [
+        ["con", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "5e5807e8-0918-53ca-a74c-2e21cf290eea",
+    "pack": "guns-and-gears",
+    "kind": "background",
+    "slug": "background:fireworks-performer",
+    "name": "Fireworks Performer",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Few celebrations in Tian Xia are complete without a show of fireworks, and your job is to make sure they go off without a hitch. You load the fireworks, set the fuses, and choreograph the performance, bringing the show together in a finale of lights and explosions. Then it's time to pack up your gear and move on to the next civic holiday or religious festival. Of course, someone who travels the roads with a pack full of high explosives is bound to run into an adventure or two along the way, and so over time, your fireworks have been spent in support of that life."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Performance skill and the Fireworks Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "d8c8a1ba-3ed9-5a9c-b372-87c442637d12"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:performance",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:fireworks",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "d8c8a1ba-3ed9-5a9c-b372-87c442637d12"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.2lk5NOcu1aUglUdK"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "int"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "fd64a97c-d78f-5408-85e8-162c5deb11dd",
+    "pack": "guns-and-gears",
+    "kind": "background",
+    "slug": "background:goldhand-arms-dealer",
+    "name": "Goldhand Arms Dealer",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're a dwarven agent of the Goldhand Lodge, a collection of dwarven merchants based out of Dongun Hold who seeks to sell guns far and wide. High King Anong Arunak hasn't expressed approval for such a method of distribution yet, but in the meantime you're still out and about, talking up your wares and occasionally providing visceral demonstrations of the overwhelming stopping power of your firearms. These demonstrations and sales have given you a taste for adventure, and the constant threat of piracy has convinced you of the importance of adventuring with a group."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in Diplomacy and Mercantile Lore. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "8e689441-f2b0-591d-93f7-18070fbb7d67"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:diplomacy",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:mercantile",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "8e689441-f2b0-591d-93f7-18070fbb7d67"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.B6kNrX1y8XNbQYea"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "dex"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "9970be22-6376-5d3d-8782-c3ca08edb3a6",
+    "pack": "guns-and-gears",
+    "kind": "background",
+    "slug": "background:gunsmith",
+    "name": "Gunsmith",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "From a young age, you apprenticed to an experienced gunsmith and over time your skill and knowledge rose to match that of your master. Today, you can easily repair, modify, or improve nearly any firearm you've seen before, and even if you haven't seen it, you'll break it down to learn about what makes it tick in no time. You've taken those skills on the road, using them to assist yourself and your allies as an adventurer when it comes to maintaining their weapons, shields, armor, and more."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One of these boosts must be to "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Crafting skill and the Engineering Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "794574f1-29c1-5cfd-abdf-413a512ca0e7"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:crafting",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:engineering",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "794574f1-29c1-5cfd-abdf-413a512ca0e7"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.5dezuNcZJ6wfecnG"
+    },
+    "data": {
+      "boosts": [
+        ["dex", "int"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "d6e3bea6-9882-5e4c-80a9-1594909e341d",
+    "pack": "guns-and-gears",
+    "kind": "background",
+    "slug": "background:hired-killer",
+    "name": "Hired Killer",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your life truly began after your first kill. Maybe you killed in self-defense, maybe it was a crime of passion, or maybe it was just an accident and you were a kid in the wrong place at the wrong time. In the end, the why doesn't matter. You got away with it. And then you found that maybe it didn't bother you as much as it should have. And maybe, just maybe, you had a talent you could use to forge a life for yourself. A blood-soaked talent and a blood-soaked life, sure. But it's yours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One boost must be to "
+          },
+          {
+            "type": "text",
+            "text": "Strength",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Stealth skill and the Underworld Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "64a7812f-3d66-543f-92ba-09b830326f80"
+          },
+          {
+            "type": "text",
+            "text": " skill feat, choosing a terrain appropriate for where you make your kills."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:stealth",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:underworld",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "64a7812f-3d66-543f-92ba-09b830326f80"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.1M91pTjatEejBjEl"
+    },
+    "data": {
+      "boosts": [
+        ["dex", "str"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "dd0f9b5f-1344-51b8-8bb2-b482a89f52ba",
+    "pack": "guns-and-gears",
+    "kind": "background",
+    "slug": "background:hounded-thief",
+    "name": "Hounded Thief",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Some time ago, you stole a unique item from a strange individual. It might have been a piece of clockwork from a far-off land or some other bit of strange technology. You might still have it or you might have sold it, but either way, you can't shake the feeling that you're being followed and watched, likely by forces who want to retrieve what you took. Luckily, a life of adventure keeps you on the move."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Thievery skill and the Underworld Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "3c3b4c8a-2048-541d-af12-ccb0c2fe79ba"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:thievery",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:underworld",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "3c3b4c8a-2048-541d-af12-ccb0c2fe79ba"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.T537wo3aem8GvnmR"
+    },
+    "data": {
+      "boosts": [
+        ["dex", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "8f3a2f04-fb4e-5238-9eca-6e0e134a8c0d",
+    "pack": "guns-and-gears",
+    "kind": "background",
+    "slug": "background:junk-collector",
+    "name": "Junk Collector",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You live by the adage that one person's trash is another's treasure. Whether by sifting through scrap heaps or digging up old battlefields, you remain on the lookout for lost or discarded objects that you might be able to turn into something useful. More often than not, what you find is just junk, but you're convinced that one of these days, you're going to hit the jackpot. You've even taken up adventuring as a means to supercharge your access to all sorts of junk, gear, and loot."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Crafting skill and your choice of either the Engineering Lore or Mining Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "14dfa44b-741c-58ed-8b61-651062a946ff"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:crafting",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "14dfa44b-741c-58ed-8b61-651062a946ff"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.HSNUDvPgO1NESW7S"
+    },
+    "data": {
+      "boosts": [
+        ["dex", "int"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "0d65fc42-58a2-53ab-a7f9-c83a9d726ac6",
+    "pack": "guns-and-gears",
+    "kind": "background",
+    "slug": "background:junker",
+    "name": "Junker",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You live on the outskirts of civilization, combing through the detritus left behind for interesting trinkets to sell or use in your own crafting. Though you have a preferred terrain to search, you know that the greatest treasures occur where people make greater use of technology."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Strength",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Athletics skill and the Lore skill of the terrain in which you scavenge. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "7e42ccc3-1342-59f0-b827-0279e78a7260"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:athletics",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "7e42ccc3-1342-59f0-b827-0279e78a7260"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.vTyG1bQkEENZHroY"
+    },
+    "data": {
+      "boosts": [
+        ["str", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "6bbd956a-a712-5e04-b5bb-fb3dde11f49a",
+    "pack": "guns-and-gears",
+    "kind": "background",
+    "slug": "background:mechanic",
+    "name": "Mechanic",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The intricate inner workings of machines are no stranger to you. Whether they are mundane devices or complex clockworks, you know what makes them tick and how to maintain them. An adventuring group might keep you around to repair their equipment, or you might travel around to offer your rare services to those in need—for a price, of course!"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Strength",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Crafting skill and the Engineering Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "794574f1-29c1-5cfd-abdf-413a512ca0e7"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:crafting",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:engineering",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "794574f1-29c1-5cfd-abdf-413a512ca0e7"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.cODrdTvko4Om26ik"
+    },
+    "data": {
+      "boosts": [
+        ["int", "str"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "10eaa44b-70bc-55b7-9129-ea4461e69e83",
+    "pack": "guns-and-gears",
+    "kind": "background",
+    "slug": "background:mechanical-symbiosis",
+    "name": "Mechanical Symbiosis",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whether you purposefully took it on or had it thrust upon you, a bronze, clockwork object latched onto some part of your body. It may have sunk its needles into you or locked its spidery legs around your neck, torso, or upper arm. Some entity or spirit lives in this collection of gears and wires-whether or not other people hear its whispers is up to you. The entity may be an ancient, terrible being that has razed villages with its hosts, or it may be a brilliant, starry-eyed child who barely understands you're not part of its own body."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have studied and searched for information on these rare, crab-like machines, leaving you an expert in the binding of elemental spirits or mortal souls to mechanical objects. Though you have several theories on what the symbiotic entity might be, you have no definitive answers-this may be why you're adventuring in the first place, or perhaps you've made a deal with someone to get it removed. The entity might talk to you periodically, or it might only speak when it wants you to do something in particular or finds the two of you in danger. You and the GM should decide on the entity's motivations, or if the motivations should be a secret known only to the GM."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Arcana skill and an additional skill in which the clockwork entity is well-versed, determined by the GM. Any time you attempt a skill check for the entity's skill, the GM can offer you a +1 circumstance bonus to the check, as though the entity were Aiding you. If you accept but fail the check, the entity clenches up and you are "
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+            "label": "Stunned 1"
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+            "label": "Stunned 2"
+          },
+          {
+            "type": "text",
+            "text": " on a critical failure)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "entity-skill",
+        "choices": [
+          {
+            "value": "acrobatics",
+            "label": "Acrobatics"
+          },
+          {
+            "value": "athletics",
+            "label": "Athletics"
+          },
+          {
+            "value": "crafting",
+            "label": "Crafting"
+          },
+          {
+            "value": "deception",
+            "label": "Deception"
+          },
+          {
+            "value": "diplomacy",
+            "label": "Diplomacy"
+          },
+          {
+            "value": "intimidation",
+            "label": "Intimidation"
+          },
+          {
+            "value": "medicine",
+            "label": "Medicine"
+          },
+          {
+            "value": "nature",
+            "label": "Nature"
+          },
+          {
+            "value": "occultism",
+            "label": "Occultism"
+          },
+          {
+            "value": "performance",
+            "label": "Performance"
+          },
+          {
+            "value": "religion",
+            "label": "Religion"
+          },
+          {
+            "value": "society",
+            "label": "Society"
+          },
+          {
+            "value": "stealth",
+            "label": "Stealth"
+          },
+          {
+            "value": "survival",
+            "label": "Survival"
+          },
+          {
+            "value": "thievery",
+            "label": "Thievery"
+          }
+        ],
+        "prompt": "Select a skill."
+      },
+      {
+        "key": "Proficiency",
+        "selector": {
+          "choice": "entity-skill",
+          "prefix": "skill"
+        },
+        "rank": "trained"
+      },
+      {
+        "key": "RollOption",
+        "domain": "skill-check",
+        "option": "option:entity-is-aiding",
+        "toggleable": true
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:arcana",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.wGB222d5UIBGYWsK"
+    },
+    "data": {
+      "boosts": [
+        ["int", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "8e5a1ee7-af59-5737-ac54-ff0ec619c153",
+    "pack": "guns-and-gears",
+    "kind": "background",
+    "slug": "background:medicinal-clocksmith",
+    "name": "Medicinal Clocksmith",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While others might have looked to clockwork as a mechanical innovation, you see the potential in the technology to improve the health of patients. You might be an experienced field medic who reached for a scrapped construct to help a wounded soldier, or a vanguard surgeon who's found replacing organs with clockwork more effective than repairing them. Perhaps you've also worked to \"optimize\" organic bodies with fine machinery, with or without the permission of your patients."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Medicine skill and the Engineering Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "d9c8a8a9-540e-5825-8dfc-b5c5ae58ef76"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:medicine",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:engineering",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "d9c8a8a9-540e-5825-8dfc-b5c5ae58ef76"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.x3fFxtLogoy5hZfe"
+    },
+    "data": {
+      "boosts": [
+        ["int", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "1602eedc-4bab-5144-8537-57ce8ef4c704",
+    "pack": "guns-and-gears",
+    "kind": "background",
+    "slug": "background:otherworldly-mission",
+    "name": "Otherworldly Mission",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're called to serve a specific purpose-your deity told you so, and so it must be true. Maybe you grew up knowing all along, or maybe it came to you one day in a vision, clear as a bell and twice as loud. You have some task that only you can accomplish. You mission might be as dangerous as killing a deadly tyrant or as simple as opening a particular door on a particular day. You should work with your GM on how to handle the truth of your character's backstory or leave it to the GM to decide in secret. Is this call to action a message from the character's own mind, are they being manipulated by some manner of supernatural entity, or are they actually getting marching orders from one of the deities of the setting?"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in Religion. Once per adventure, you can ask the voice you believe to be a deity for orders and get some kind of instruction-you never get any kind of explanation, simply a command to go somewhere or do something. Following those commands isn't always safe, but it's usually interesting."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:religion",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.d5fKB0ZMJQkwDF5p"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "05096ba4-6c58-5fb7-b1f5-4a03b91dcdc1",
+    "pack": "guns-and-gears",
+    "kind": "background",
+    "slug": "background:press-ganged-g-g",
+    "name": "Press-Ganged (G&G)",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Was that five shots or six? Maybe it doesn't really matter in the end, because after those nice folks paid for all your drinks, you woke up to find yourself on the lowest rung of the ladder. Whether you're now a crewmate on a ship, a conscript in an army, or something worse, you've nowhere to go but up. This background generally requires buy-in from the entire group to tell a story allowing you to play a character starting their adventuring due to circumstances outside their own control. However, you can also play a character who was once press-ganged and has since escaped that life. If you do, press-ganged doesn't have the uncommon trait, and it has the same mechanical effects either way."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Strength",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Constitution",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Athletics skill and the Labor Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "e7d969d3-deed-5b62-992b-44469b3b063f"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:athletics",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:labor",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "e7d969d3-deed-5b62-992b-44469b3b063f"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.M8EfhY6Knb2iQm6S"
+    },
+    "data": {
+      "boosts": [
+        ["con", "str"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "1edf76e6-c5b8-5082-aaa4-7364907558fe",
+    "pack": "guns-and-gears",
+    "kind": "background",
+    "slug": "background:printer",
+    "name": "Printer",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Keeping your finger on the pulse of the city, you write a small news broadsheet to sell on street corners. You rent the use of a printing press to achieve this goal, so you're familiar with such machines. However, people and their stories are your main focus, and you adventure to chase the latest scoop."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Society skill and the Scribing Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "2cf519d9-3331-5d83-80da-9041ede7e26f"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:society",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:scribing",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "2cf519d9-3331-5d83-80da-9041ede7e26f"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.qJNmSgzq0ae29qCC"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "int"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "230ee2c3-d693-5966-9772-ca313755cc29",
+    "pack": "guns-and-gears",
+    "kind": "background",
+    "slug": "background:revenant",
+    "name": "Revenant",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You died. No real doubt about that. Bullet to the brain or knife to the throat, you were dead as dead can be. Then you got back up again. Maybe you had some unfinished business, or maybe you were just so tough and so mean that Hell itself spat you out. Either way, you came back for a reason."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Constitution",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in Religion and Boneyard Lore. You're still alive, not undead, but you have the void healing ability, which means you're harmed by vitality damage and healed by void effects as if you were undead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:religion",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:boneyard",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.W6OIPZhjcV45gfoX"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "con"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "0d3ede48-ad79-531a-b731-61417e9e0f49",
+    "pack": "guns-and-gears",
+    "kind": "background",
+    "slug": "background:saloon-entertainer",
+    "name": "Saloon Entertainer",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "All you want to do is entertain the people, but sure enough, bad news seems to follow you. Gunfights, brawls, robberies, and more befall establishments you play at, and word is quick to spread. Keep one town ahead of the gossip, and you just might be able to play a gig, command a stage, or run a table again."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Performance skill and a lore skill of your choice. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "2a0e5242-b541-5e0e-bebc-cd46062960e7"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:performance",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "2a0e5242-b541-5e0e-bebc-cd46062960e7"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.4KCa67gyxUn60zdf"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "dex"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "cb6fa648-fa0f-5259-a821-ca5ec05bb0ea",
+    "pack": "guns-and-gears",
+    "kind": "background",
+    "slug": "background:saved-by-clockwork",
+    "name": "Saved by Clockwork",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Through bloody combat, a terrible accident, or purposeful sacrifice, you've lost some piece of your body that has been replaced with a clockwork mechanism. Whether your arm is now a whirring series of pumps, steel coils, and iron gears; your heart a intricate crystal clock that requires winding every day; or your lower leg a sculpted metal tube powered by adamantine springs and steam, part of you needs regular maintenance and repair. You might have received instructions from the brilliant inventor who saved you, or you might have woken up on a battlefield with no memory of the procedure or the individuals involved. Regardless, you possess the knowledge to take care of yourself-even if it's how to wind a key in your own heart or reconstruct a mechanical foot."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Strength",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Crafting skill. Every day you must perform 10 minutes of maintenance and wind up your clockwork parts, or you risk failure of the components, with consequences depending on what you replaced (determined by you and the GM). Your clockwork components allow you to react to danger with alacrity. You gain a +2 circumstance bonus to initiative rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["initiative"],
+        "type": "circumstance",
+        "value": 2
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:crafting",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.yZUzLCeuaIkNk4up"
+    },
+    "data": {
+      "boosts": [
+        ["int", "str"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "34da0e4d-e3fe-52dc-b497-12e2b730a1d5",
+    "pack": "guns-and-gears",
+    "kind": "background",
+    "slug": "background:sheriff",
+    "name": "Sheriff",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You hold an official title of sheriff or deputy in a small community. Those that would do harm to others flee your gaze, for they know it brings the promise of castigation. You protect your town, watch over those who have placed their trust in you, and make sure those that would do others harm are brought to justice."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Intimidation skill and the Hunting Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "da16011c-dfcb-5204-bc52-0c1f48812de2"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:intimidation",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:hunting",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "da16011c-dfcb-5204-bc52-0c1f48812de2"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.AqhHif8mzYjlGMxJ"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "dex"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "ee43406d-5713-5f8e-8ca6-7919597a7aaa",
+    "pack": "guns-and-gears",
+    "kind": "background",
+    "slug": "background:spotter",
+    "name": "Spotter",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An eye for detail, a sense for the wind, and a strong trust in your gut feelings. These qualities have set you apart from others when it comes to assisting a sharpshooter with setting up the perfect shot against their target. Elevation, velocity, and concealment-these are all vital factors that need to be considered to pull off a feat of true marksmanship, and no sniper would be able to function without an experienced spotter. Since your younger days, you've put your skills as a spotter to work as an adventurer. Whether you're taking your own shots now or spotting for others, your talents grant you an edge in an adventuring career."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Stealth skill and the Scouting Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "64a7812f-3d66-543f-92ba-09b830326f80"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:stealth",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:scouting",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "64a7812f-3d66-543f-92ba-09b830326f80"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.XcacLiaGDgjzHS3T"
+    },
+    "data": {
+      "boosts": [
+        ["dex", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "03307051-7e48-5250-8120-aa89c083672e",
+    "pack": "guns-and-gears",
+    "kind": "background",
+    "slug": "background:tall-tale",
+    "name": "Tall Tale",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've ridden a tornado, lassoed a river, mooned a dragon under a full moon, and shot six zombies with one bullet. That's what the stories say, anyway, and even if people don't strictly believe them, they are curious about you. Certainly, the stories keep spreading, and it would appear that you either have a unique destiny or are trying to convince the world that you do."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Constitution",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in Performance. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "73f460e2-feec-5d78-983c-ecf0c7a4b1e8"
+          },
+          {
+            "type": "text",
+            "text": " skill feat. You can gain the "
+          },
+          {
+            "type": "ref",
+            "id": "5f9f9d0c-774a-5467-887e-3d3893fa2e50"
+          },
+          {
+            "type": "text",
+            "text": " skill feat later without being expert in Society or having Courtly Graces-this represents less traditional social connections and more the way that your legend has spread, and you've learned to leverage your legend, with people wanting to meet you and see you for themselves."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:performance",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "73f460e2-feec-5d78-983c-ecf0c7a4b1e8"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.uwZ0emSBFNMGA74j"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "con"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "670a1975-2e87-5ab2-a6a0-4f3aed9d3d62",
+    "pack": "guns-and-gears",
+    "kind": "background",
+    "slug": "background:tech-reliant",
+    "name": "Tech-Reliant",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Some event, be it an accident, attack, or disaster, has left you horribly scarred by magic. Your body no longer tolerates magical healing, and you can't use magic, forcing you to rely on gadgets and ingenuity where others trust in spells and magical items. You might have been well-versed in magic before, or barely familiar with its use. This event may have injured your body in visible ways, but no matter the extent of your injuries, your body no longer interacts with healing magic in any capacity."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Constitution",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Crafting skill and the Medicine skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "9848970b-02f3-562b-9a64-29e42647bbc1"
+          },
+          {
+            "type": "text",
+            "text": " skill feat, and a +1 circumstance bonus to saving throws against spells. Healing spells, healing magic items, and magical effects with the healing trait have no effect on you."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["option:arcane", "option:divine", "option:primal", "option:occult", "item:type:spell"]
+          }
+        ]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:crafting",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:medicine",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "9848970b-02f3-562b-9a64-29e42647bbc1"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.2FUdcPsXwoWT1bms"
+    },
+    "data": {
+      "boosts": [
+        ["con", "int"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "fbbe1827-5ef5-5edb-8c8e-e2b24c08f6d8",
+    "pack": "guns-and-gears",
+    "kind": "background",
+    "slug": "background:toymaker",
+    "name": "Toymaker",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You delight in making little trinkets for children of all ages, and seeing their faces light up thanks to one of your creations brings joy to your heart. Perhaps you sell your wares from a particular shop or from the back of a wagon as you travel from town to town."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Crafting skill and the Mercantile Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "cf2fb4e9-9adb-5092-9f78-5dd9b3192301"
+          },
+          {
+            "type": "text",
+            "text": " skill feat, choosing Artistry, Blacksmithing, Glassmaking, Leatherworking, Tailoring, or Woodworking as your specialty."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:crafting",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:mercantile",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.Sj91CUyEUeWoPh2R"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "int"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "48cb7e7d-b75e-52d2-a99c-8e4660fe3d1b",
+    "pack": "guns-and-gears",
+    "kind": "background",
+    "slug": "background:undertaker",
+    "name": "Undertaker",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "People die. This is the unfortunate fact of life on which you've founded your business, because wherever people die, there is a demand for mortuary services. You might be a Pharasmin priest or a secular professional, but your job is seeing to the body, comforting the bereaved, and making sure that the deceased goes to their ultimate reward with all due dignity. Of course, someone in your position sees a lot of strange deaths, and chances are one of them set you on the road to adventure."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Medicine skill and a Lore skill specializing in one local type of undead. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "b517dee3-4af4-5f63-8ee2-bcd5fadd57d7"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:medicine",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "b517dee3-4af4-5f63-8ee2-bcd5fadd57d7"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.2Mm0BHMJZhqIqoQG"
+    },
+    "data": {
+      "boosts": [
+        ["int", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "f4847f39-c7c7-54e1-8acd-1dc5c16019bc",
+    "pack": "guns-and-gears",
+    "kind": "background",
+    "slug": "background:wandering-preacher",
+    "name": "Wandering Preacher",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While you once spoke to a small congregation in a ramshackle church, those days are behind you now. Your church was destroyed, your congregants scattered, and now you meander the lands holding a worn copy of your religious text in one hand, and a fiery conviction in the other."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One boost must be to "
+          },
+          {
+            "type": "text",
+            "text": "Constitution",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Religion skill and a Lore skill associated with the deity you preach for (such as Pharasmin Lore). You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "0a4badf5-290b-5ba6-946a-aded360069eb"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:religion",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "0a4badf5-290b-5ba6-946a-aded360069eb"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.UFHezf1LXUwcQIAQ"
+    },
+    "data": {
+      "boosts": [
+        ["con", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "539ba7bc-6e9b-5022-8377-33ceb35e656f",
+    "pack": "guns-and-gears",
+    "kind": "background",
+    "slug": "background:waste-walker",
+    "name": "Waste Walker",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whether you grew up in the Mana Wastes, the deserts of northern Garund, or another similarly desolate place, you quickly learned that only the strong survive. You and your family were forced to evade monsters, mutants, wild magic, and worse, as each new day heralded the possibility of a danger or threat you'd never seen before. You learned to adapt to the worst possible conditions and how to forage and survive in a place few others would dare to live."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One boost must be to "
+          },
+          {
+            "type": "text",
+            "text": "Strength",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Survival skill, and Mana Wastes Lore (or another similar Lore skill associated with the wastes where you grew up). You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "5e597080-193c-5a28-a1ed-901ee2ebba74"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:survival",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:mana-wastes",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "5e597080-193c-5a28-a1ed-901ee2ebba74"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.9l6q90sk8UM292CY"
+    },
+    "data": {
+      "boosts": [
+        ["str", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "b5ec39d9-8106-5277-abd0-4c8a99f0c527",
+    "pack": "guns-and-gears",
+    "kind": "background",
+    "slug": "background:wished-alive",
+    "name": "Wished Alive",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Once you were a simple construct or inanimate doll, but due to a deeply felt wish, either yours or another's, you came to life, and so you're now a living, breathing creature."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Constitution",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Diplomacy skill. Once per day, you can fervently wish for something you could work towards achieving as a single action which has the concentrate trait. If you do, you gain a +2 circumstance bonus on the first skill check you attempt before the end of your turn to fulfill that wish."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:make-a-wish",
+        "toggleable": true,
+        "display": {
+          "label": "Making a Wish"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["option:make-a-wish"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:diplomacy",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.O4xKRtHb21DCTvQ0"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "con"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  }
+]

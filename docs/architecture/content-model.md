@@ -436,7 +436,7 @@ and homebrew cannot use that path. A pack directory holds:
 The hand-authored packs (`core-rules`, and the `monster-core` entries transcribed before the importer exists) live
 there too, beside the Foundry imports `player-core`, `player-core-2`, `gm-core`, `divine-mysteries`,
 `treasure-vault`, `howl-of-the-wild`, `war-of-immortals`, `mwangi-expanse`, `secrets-of-magic`, `rage-of-elements`, `tian-xia-character-guide`,
-`dark-archive-remastered`, `character-guide`, `impossible-lands` and `impossible-magic` (`mwangi-expanse`, `secrets-of-magic`, `rage-of-elements`, `character-guide` and `impossible-lands` are pre-remaster
+`dark-archive-remastered`, `character-guide`, `impossible-lands`, `impossible-magic` and `guns-and-gears` (`mwangi-expanse`, `secrets-of-magic`, `rage-of-elements`, `character-guide` and `impossible-lands` are pre-remaster
 and OGL, for content the remaster books point at, such as the Goloma ancestry; `OGL_BOOKS` in the importer lists the books it takes that way).
 `libs/rules/catalog` loads them lazily and checks every entry against its
 schema and the book registry, so a malformed or wrongly sourced entry fails `bun run affected`. Ids are stored on

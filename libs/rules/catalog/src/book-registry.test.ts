@@ -41,6 +41,7 @@ describe('book registry', () => {
         'dark-archive-remastered',
         'divine-mysteries',
         'gm-core',
+        'guns-and-gears',
         'howl-of-the-wild',
         'impossible-lands',
         'impossible-magic',

@@ -1,0 +1,2986 @@
+[
+  {
+    "id": "0f961bd7-baf6-5a0d-aa9d-6f8ab3a1cdef",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-ablative-armor-plating-greater",
+    "name": "Effect: Ablative Armor Plating (Greater)",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "afbd0b00-db33-5711-b375-f90ff99b573c"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The plating grants the wearer of the armor the 20 Hit Points for 1 hour or until lost. Removing the plating early destroys it."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 20
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.DlqcczhwjfaEf7G1"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "a20a1e63-c3f2-5b3a-b0ed-82c18c69e6ff",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-ablative-armor-plating-lesser",
+    "name": "Effect: Ablative Armor Plating (Lesser)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "8f5179e1-f31a-5e3f-8d3a-06eb622a6347"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The plating grants the wearer of the armor the 5 Hit Points for 1 minute or until lost. Removing the plating early destroys it."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.jlVYoiPVRRVGBj5G"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "a3926b32-84d4-517e-a26f-f324729c3fb1",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-ablative-armor-plating-major",
+    "name": "Effect: Ablative Armor Plating (Major)",
+    "level": 13,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "0ee16612-eca2-53f0-b5be-4b12cafd0d5e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The plating grants the wearer of the armor the 30 Hit Points for 1 hour or until lost. Removing the plating early destroys it."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 30
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.OMW71UJzYCUr4ubh"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "c9abdcb3-a1a2-549e-b976-7317cc2de864",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-ablative-armor-plating-moderate",
+    "name": "Effect: Ablative Armor Plating (Moderate)",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "cdb8ac29-6a1c-5952-b98b-d241d3b4f4be"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The plating grants the wearer of the armor the 10 Hit Points for 10 minutes or until lost. Removing the plating early destroys it."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.mn39aML7EWKbttKT"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "8a7b0d52-8549-5cc2-9e91-d36c03e6ed30",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-ablative-armor-plating-true",
+    "name": "Effect: Ablative Armor Plating (True)",
+    "level": 19,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "4f0df42f-7666-549e-b2e4-d154268b2048"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The plating grants the wearer of the armor the 40 Hit Points for 1 hour or until lost. Removing the plating early destroys it."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 40
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.yt8meGTS7wLa6Fg2"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "c6942cfa-2f84-5430-bd95-5d9582aee0a2",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-arcane-propulsion",
+    "name": "Effect: Arcane Propulsion",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c7be81b3-8ca1-5f5e-b205-08efc701bdb4"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a fly Speed equal to your Speed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": "@stat.speed.land"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.EVRcdGt4awWPgXla"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 5,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "826d2fe1-c05e-586c-9778-f3b73bcc3bb9",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-armor-tampered-with-critical-success",
+    "name": "Effect: Armor Tampered With (Critical Success)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "a04a959f-e761-5408-afd3-23dd8cad7668"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " and take a –10-foot penalty to your Speeds."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "071324e5-bb4c-5ed2-9e2f-28185b65ded7",
+        "allowDuplicate": false
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["speed"],
+        "type": "untyped",
+        "value": -10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.rzcpTJU9MvW1x1gz"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "3a0ad382-3296-578a-a96f-e84440b9dda2",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-armor-tampered-with-success",
+    "name": "Effect: Armor Tampered With (Success)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "a04a959f-e761-5408-afd3-23dd8cad7668"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " and take a –10-foot penalty to your Speeds."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "071324e5-bb4c-5ed2-9e2f-28185b65ded7",
+        "allowDuplicate": false
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["speed"],
+        "type": "untyped",
+        "value": -10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.IfRkgjyh0JzGalIy"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "d669f4a0-0422-511f-815a-cdfbdb36c955",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-aromatic-ammunition",
+    "name": "Effect: Aromatic Ammunition",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "6ed02ebc-6caf-5628-9eae-f53fc6e53a0f"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Any creatures within 30 feet smell the target, allowing even those with a weak sense of smell to detect its presence, and all creatures gain a +1 item bonus to Track the affected creature for as long as it has the odor. A creature that has imprecise or precise scent doubles the range at which they can detect the target using their scent compared to the normal range of their scent."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:aromatic-ammo",
+        "toggleable": true,
+        "display": {
+          "label": "Tracking Aromatic Ammunition's Target"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:survival"],
+        "type": "untyped",
+        "value": 1,
+        "predicate": ["option:aromatic-ammo"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.0qJEtpXWPb7JJBbY"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "f447f0b8-57b1-56ed-844e-02f6331cb270",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-called-shot",
+    "name": "Effect: Called Shot",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "66a02885-8973-5e9e-b6df-dc48e6254255"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain an effect based on the selected body part."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Arm (or another limb used for attacks, such as a tentacle)",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You are enfeebled 2."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Head",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You are stupefied 2."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Legs",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You take a –10-foot status penalty to your Speeds."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-called-shot",
+        "choices": [
+          {
+            "value": "success",
+            "label": "Success"
+          },
+          {
+            "value": "critical-success",
+            "label": "Critical Success"
+          }
+        ],
+        "prompt": "Select the degree of success.",
+        "rollOption": "called-shot-result"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-called-shot",
+        "choices": [
+          {
+            "value": "arms",
+            "label": "Arms"
+          },
+          {
+            "value": "head",
+            "label": "Head"
+          },
+          {
+            "value": "legs",
+            "label": "Legs"
+          }
+        ],
+        "rollOption": "called-shot"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "status",
+        "value": -10,
+        "predicate": ["called-shot:legs"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.9yDGgsjW3vTZt0ez"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "83ca2679-7aa5-5c12-b2bc-35de2e2cf5b8",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-called-shot-critical",
+    "name": "Effect: Called Shot (Critical)",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "66a02885-8973-5e9e-b6df-dc48e6254255"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain an effect based on the selected body part."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Arm (or another limb used for attacks, such as a tentacle)",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You are enfeebled 1."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Head",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You are stupefied 1."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Legs",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You take a –5-foot status penalty to your Speeds."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-called-shot-critical",
+        "choices": [
+          {
+            "value": "arms",
+            "label": "Arms",
+            "predicate": [
+              {
+                "or": [
+                  {
+                    "not": "self:effect:called-shot"
+                  },
+                  "called-shot:arms"
+                ]
+              }
+            ]
+          },
+          {
+            "value": "head",
+            "label": "Head",
+            "predicate": [
+              {
+                "or": [
+                  {
+                    "not": "self:effect:called-shot"
+                  },
+                  "called-shot:head"
+                ]
+              }
+            ]
+          },
+          {
+            "value": "legs",
+            "label": "Legs",
+            "predicate": [
+              {
+                "or": [
+                  {
+                    "not": "self:effect:called-shot"
+                  },
+                  "called-shot:legs"
+                ]
+              }
+            ]
+          }
+        ],
+        "rollOption": "called-shot-critical"
+      },
+      {
+        "key": "GrantItem",
+        "item": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+        "predicate": [
+          "called-shot-critical:arms",
+          {
+            "not": "called-shot:arms"
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+        "predicate": [
+          "called-shot-critical:head",
+          {
+            "not": "called-shot:head"
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "status",
+        "value": -5,
+        "predicate": [
+          "called-shot-critical:legs",
+          {
+            "not": "called-shot:legs"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.kcxz1zHReNt8zm8Y"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "f921863a-f111-541c-b56c-05c102d75c55",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-clockwork-goggles",
+    "name": "Effect: Clockwork Goggles",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "9f0350f6-9a86-523e-a077-d048bcdedbe1"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "3446e9fe-90ab-5f9e-b6e3-cb0a73dc99a6"
+          },
+          {
+            "type": "text",
+            "text": ", Clockwork Goggles (Major)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain low-light vision, darkvision ("
+          },
+          {
+            "type": "text",
+            "text": "greater",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "major",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "), and "
+          },
+          {
+            "type": "text",
+            "text": "see the unseen",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "text",
+            "text": "major",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ")."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+      },
+      {
+        "key": "Sense",
+        "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb",
+        "predicate": [
+          {
+            "or": ["clockwork-goggles:clockwork-goggles-greater", "clockwork-goggles:clockwork-goggles-major"]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "547b02a2-94d4-5880-8199-0d10b3c1f61a",
+        "predicate": ["clockwork-goggles:clockwork-goggles-major"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.oaR6YGiZKg8a2971"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "6810ed48-b01d-50a7-8602-cc78b6d719ed",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-control-tower",
+    "name": "Effect: Control Tower",
+    "level": 14,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "d0e2ad4b-1a03-5804-a595-c4690ad5e178"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus when using the Seek action to find hidden or undetected creatures within the overwatch field."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "perception",
+        "option": "option:seeking-hidden-undetected",
+        "toggleable": true,
+        "display": {
+          "label": "Seeking a Hidden or Undetected Target"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["option:seeking-hidden-undetected"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.mkIamZGtQaSsUWLk"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "068c0ed7-317e-5db9-8f7e-146881c49682",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-core-cannon",
+    "name": "Effect: Core Cannon",
+    "level": 17,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "8220a465-e453-578e-9715-4f6177e23755"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Select a potency rune. You gain a Strike that deals 3d8 fire damage and 3d6 force damage, which increases to 4d8 fire damage and 4d6 force damage at level 20. The Strike has the item bonus from the selected rune, has a range increment of 120 feet, and on a critical hit the target takes 10 persistent fire damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:core-cannon"
+      },
+      {
+        "key": "GrantItem",
+        "item": "64278392-4910-5a32-b819-56f6e54952dd"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.Ljrx4N5XACKSk1Ks"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "0a6f0ffc-b164-5458-9c0e-4e397173f2a7",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-deep-freeze",
+    "name": "Effect: Deep Freeze",
+    "level": 12,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "8226df83-8475-51df-9cce-a39dc73f804c"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "On a "
+          },
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", you take a –5-foot status penalty to your Speeds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "On a "
+          },
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", you take a –10-foot status penalty to your Speeds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "On a "
+          },
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", you are slowed 1 and take a –15-foot status penalty to your Speeds."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "deep-freeze-speed-penalty",
+        "choices": [
+          {
+            "value": "5",
+            "label": "Success"
+          },
+          {
+            "value": "10",
+            "label": "Failure"
+          },
+          {
+            "value": "15",
+            "label": "Critical Failure"
+          }
+        ],
+        "prompt": "Select the degree of success.",
+        "rollOption": "deep-freeze-penalty"
+      },
+      {
+        "key": "GrantItem",
+        "item": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+        "predicate": ["deep-freeze-penalty:15"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.BBGg5gpMmuBSo7Mi"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "7786ff61-75d6-5500-9aaa-c47d67f9b60d",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-drake-rifle-cold",
+    "name": "Effect: Drake Rifle (Cold)",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "5081470c-e5da-5a59-80ab-29906d3e3d6f"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –10-foot status penalty to your Speeds."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "status",
+        "value": -10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.s79LDAwEZex6sy14"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "b711bca2-043f-50ef-a3e1-6f7510c5ea64",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-electromuscular-stimulator",
+    "name": "Effect: Electromuscular Stimulator",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c61ffd76-9bfd-56a0-864e-a6ec9b12ade3"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the quickened condition and you can use the extra action each round only to Stride or Strike. On a success, you also take 3 persistent electricity damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-electromuscular-stimulator",
+        "choices": [
+          {
+            "value": "success",
+            "label": "Success"
+          },
+          {
+            "value": "critical-success",
+            "label": "Critical Success"
+          }
+        ],
+        "prompt": "Select the degree of success.",
+        "rollOption": "electromuscular-stimulator"
+      },
+      {
+        "key": "GrantItem",
+        "item": "6517bbf2-8085-534b-be6a-187d52739fa0"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.lO9uGNY8qBNDJI8M"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "b2188564-7456-5bfc-bdad-a1e65506ffee",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-electromuscular-stimulator-failure",
+    "name": "Effect: Electromuscular Stimulator (Failure)",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c61ffd76-9bfd-56a0-864e-a6ec9b12ade3"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the quickened condition and you can use the extra action each round only to Stride or Strike. You also take 3 persistent electricity damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "6517bbf2-8085-534b-be6a-187d52739fa0"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.sUcGXoEOuTC1fqpu"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 2,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "5d7a6576-423e-5539-9e93-c25e4e43cc30",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-energized-cartridge",
+    "name": "Effect: Energized Cartridge",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f0883d05-79c3-51ba-8252-e67d432f5a16"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The ammunition fired from the affixed weapon transforms into your choice of acid, cold, electricity, or fire, dealing damage of the appropriate energy type instead of its usual damage as well as 1d6 persistent damage of the same type on a critical hit."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.UjXwDvLoSe9infGg"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "def56038-7ecc-50d6-a85e-347ed909749d",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-energy-shot",
+    "name": "Effect: Energy Shot",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "ec92c159-f048-51d2-bb9e-cd52660367e4"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "On your first three Strikes of this encounter with a firearm or crossbow, you deal an additional 1 acid, cold, fire or electricity damage. You choose which damage type to deal as part of making each Strike."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:energy-shot",
+        "toggleable": true,
+        "suboptions": [
+          {
+            "value": "acid",
+            "label": "Acid"
+          },
+          {
+            "value": "cold",
+            "label": "Cold"
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.zocU4IYIlWwRKUuE"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  },
+  {
+    "id": "bc672b69-aef3-5867-b47c-e8204bfce1d0",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-engine-of-destruction",
+    "name": "Effect: Engine of Destruction",
+    "level": 18,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "7beb95ae-56af-5271-92b0-263b36e2d8dc"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your construct innovation gains a +2 circumstance bonus to its attack rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack"],
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.nlMZCi8xi9YSvlYR"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "f0489e78-7863-54e2-9d9d-69a45481f1a4",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-fulminating-shot",
+    "name": "Effect: Fulminating Shot",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1c326770-e977-5636-9679-fb5ec666f44e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose acid, cold, electricity, or fire. If you hit with your next attack roll using a firearm or crossbow before the end of your turn, you deal 1d6 additional damage of this type. At 12th level, this increases to 2d6 additional damage, and at 18th level, it increases to 3d6 additional damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.UE0yky6aW0WCF0Qg"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "a090f902-0744-5d4b-a666-685f19dd33ab",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-glue-bullet",
+    "name": "Effect: Glue Bullet",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "ab07911a-0ff1-52ad-ae93-77418041765a"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –10-foot circumstance penalty to your Speeds. On a critical hit, you are also immobilized."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-glue-bullet",
+        "choices": [
+          {
+            "value": "critical-success",
+            "label": "Critical Hit"
+          },
+          {
+            "value": "success",
+            "label": "Hit"
+          }
+        ],
+        "prompt": "Select the degree of success.",
+        "rollOption": "glue-bullet"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "circumstance",
+        "value": -10
+      },
+      {
+        "key": "GrantItem",
+        "item": "64278392-4910-5a32-b819-56f6e54952dd",
+        "predicate": ["glue-bullet:critical-success"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.dBjXvsLFezo2fGRa"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 2,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "df26aeb6-e14c-52d0-b34e-d1964ebbd4ce",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-gunpowder-gauntlet",
+    "name": "Effect: Gunpowder Gauntlet",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "af56e6f0-d6a7-5edf-bfdb-1343c1f1eb9b"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a penalty to attack rolls against creatures other than the origin."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.FaEvoqZXfQ7xnpRo"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "d511721d-ba67-559c-9598-46a83e633e29",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-helpful-tinkering",
+    "name": "Effect: Helpful Tinkering",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "81284212-d040-5c40-b7e9-a08c66a804c9"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your strikes with the chosen weapon gain the same offensive boost your inventor ally's innovation has."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.MbtWd4PvUHmwPtFO"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "b949858d-442b-59af-afb4-038c9ac47ad2",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-holy-steam-ball",
+    "name": "Effect: Holy Steam Ball",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "37cacefe-eacf-5cd9-9ee0-b2cbaa4dd185"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 item bonus to Will saving throws against possession effects from fiends and undead and effects from fiends and undead that cause the controlled condition."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:holy-steam-ball",
+        "toggleable": true,
+        "display": {
+          "label": "Saving vs. Possession or Control Effect from Undead or Fiend"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:will"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["option:holy-steam-ball"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.5dhm66yN0LQTOePw"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "b83998ac-823d-5eae-aa4e-a9daf2b29d7f",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-hot-foot-critical-success",
+    "name": "Effect: Hot Foot (Critical Success)",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "3059fa8f-873c-5a22-bdc8-8cc9d89b2a93"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are off-guard and take a -2 circumstance penalty to Reflex saves."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:reflex"],
+        "type": "circumstance",
+        "value": -2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.3bvYym3Dz6b6xmEK"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "1dffbd07-b1f7-5e69-9a84-a5cd80e94199",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-living-fortification",
+    "name": "Effect: Living Fortification",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "ee6963cb-faf0-52f3-88a0-38bea8bec4e8"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to AC until the start of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.fRlvmul3LbLo2xvR"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "2a9e3edd-00fa-5245-a38e-a49f2a07d598",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-lock-on",
+    "name": "Effect: Lock On",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "e6817778-65df-5ee6-b42d-adaf0483c608"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a circumstance bonus to attack rolls against the designated enemy."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.xtqOIXCe0Nsd0QCt"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "805fcea1-e876-5f5c-9c4e-23982b467f31",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-overdrive",
+    "name": "Effect: Overdrive",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "16d7b5f8-650d-5970-ae15-d77834e8bb0d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your Strikes deal additional damage equal to your Intelligence modifier on a critical success, or half your Intelligence modifier on a success. On a failure, your Strikes deal 1 additional fire damage instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "base-damage",
+        "choices": [
+          {
+            "value": "failure",
+            "label": "Failure",
+            "predicate": [
+              {
+                "or": [
+                  "parent:context:check:outcome:1",
+                  {
+                    "not": {
+                      "gte": ["parent:context:check:outcome", 0]
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "success",
+            "label": "Success",
+            "predicate": [
+              {
+                "or": [
+                  "parent:context:check:outcome:2",
+                  {
+                    "not": {
+                      "gte": ["parent:context:check:outcome", 0]
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "critical-success",
+            "label": "Critical Success",
+            "predicate": [
+              {
+                "or": [
+                  "parent:context:check:outcome:3",
+                  {
+                    "not": {
+                      "gte": ["parent:context:check:outcome", 0]
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select the degree of success.",
+        "rollOption": "overdrive"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-damage"],
+        "type": "untyped",
+        "value": 1,
+        "slug": "overdrive-failure",
+        "damageType": "fire",
+        "predicate": ["overdrive:failure"]
+      },
+      {
+        "key": "RollOption",
+        "option": "self:effect:overdrive-failure",
+        "predicate": ["overdrive:failure"]
+      },
+      {
+        "key": "RollOption",
+        "option": "self:effect:overdrive-success",
+        "predicate": ["overdrive:success"]
+      },
+      {
+        "key": "RollOption",
+        "option": "self:effect:overdrive-critical-success",
+        "predicate": ["overdrive:critical-success"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.1XlJ9xLzL19GHoOL"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "1fe17a12-20fc-5c58-a1f3-fdaff32bcf0e",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-overdrive-ally-shared-overdrive",
+    "name": "Effect: Overdrive Ally (Shared Overdrive)",
+    "level": 12,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "183d46f4-b8a6-5a4f-a089-3f3bf9060f89"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The first time you use Overdrive Ally during a given Overdrive, the effect lasts for the remainder of the duration of your Overdrive, instead of just until the end of the target's next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.EEujvJ9UzzK7fvqG"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "04f87289-5240-5d5f-a54c-232ee017687e",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-overwatch-field",
+    "name": "Effect: Overwatch Field",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1e9881b4-6ef8-5c61-bdef-5ce10a90afaa"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to initiative rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["initiative"],
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.AKKHagjg5bL1fMG5"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "e6050452-6f74-5dfb-8418-0c02ed36b313",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-phenom-verve",
+    "name": "Effect: Phenom Verve",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "443e6e94-db54-50db-a54d-a7493f997372"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to your attack rolls with one-handed firearms and one-handed melee weapons."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll"],
+        "type": "status",
+        "value": 1,
+        "predicate": [
+          "item:usage:hands:1",
+          {
+            "or": ["item:group:firearm", "item:melee"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.1ssTlwNcRRkatmPC"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "17e7748d-306b-5448-90b5-f68f1e8c02de",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-pistoleros-challenge",
+    "name": "Effect: Pistolero's Challenge",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f27d671e-a124-5cc8-bc56-5c35503269aa"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Both you and the opponent gain a +2 status bonus to damage rolls with Strikes made against each other. If you're a master in the skill you used for the check, the status bonus to damage rolls increases to +3, and if you're legendary, it increases to +4."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.0kO3M46aK64a8ru8"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "0d5450f1-c8a3-5ae6-8b3e-c7067cf1f176",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-prepared-camouflage-suit",
+    "name": "Effect: Prepared Camouflage Suit",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "91b78267-79da-5fb5-b836-ecf0da3435f7"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain an item bonus to Stealth checks while you attempt to Hide or Sneak."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "item",
+        "value": 1,
+        "slug": "camouflage-suit-bonus",
+        "predicate": ["action:sneak", "action:hide"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["skill:stealth"],
+        "slug": "camouflage-suit-bonus",
+        "mode": "upgrade",
+        "value": 2,
+        "predicate": ["camouflage-suit:camouflage-suit-superb"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.jgaDboqENQJaS1sW"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "day",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "1cf64622-d517-5fe2-8b39-7cb2890c327a",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-sniping-duo-dedication",
+    "name": "Effect: Sniping Duo Dedication",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c49fc6a8-2034-5439-adfb-91261dcb436c"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whenever you or your spotter successfully Strikes a target, the other member of your duo gains a +1 circumstance bonus per weapon damage die on the damage roll of their next Strike made against that target before the end of their next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "damage",
+        "option": "option:sniping-duo",
+        "toggleable": true,
+        "display": {
+          "label": "Sniping Duo partner hit target with a strike since your last turn"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.zQHF2kkhZRAcrQvR"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "8b4b945b-a81e-56e3-8159-7154ccb5302a",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-spark-fist",
+    "name": "Effect: Spark Fist",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "4044eabf-7359-57ce-b459-8c8cfba83685"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your fist loses the nonlethal trait and deals additional fire damage on a successful Strike."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "fist": true
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.7juD2XQ7wKI5pjPW"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "525d5b10-4224-5b64-87f3-94e3486187f8",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-storm-chair",
+    "name": "Effect: Storm Chair",
+    "level": 14,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c5f95cf2-6ff0-54cd-b49c-68a15bcb1801"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a fly Speed equal to your Speed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": "@stat.speed.land"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.uC6KjfiWrTBXYtP8"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "9a780d1f-25c1-5ce3-973e-3aed3f09c604",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-topple-giants",
+    "name": "Effect: Topple Giants",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "059a3f53-2cda-50c9-84f6-d0bc54b7ec1c"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When an ally within your overwatch field attempts to "
+          },
+          {
+            "type": "ref",
+            "id": "ef57a555-f9e9-53cc-b09b-b7432156cbf1"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "082b982f-3ed4-5d9c-9722-9ab10198523a"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "6257c7f0-f483-53d3-a791-d73a616cbce4"
+          },
+          {
+            "type": "text",
+            "text": " an opponent within your overwatch field and fails, you coordinate efforts to provide a +2 circumstance bonus to the next Athletics check rolled by a different ally to attempt the same action on the same target before that target's next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.W8HWQ47YNHWB8kj6"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "eab7a738-0f82-51e2-97f8-a6348e1fd0eb",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-weapon-tampered-with-critical-success",
+    "name": "Effect: Weapon Tampered With (Critical Success)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "a04a959f-e761-5408-afd3-23dd8cad7668"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your weapon has been tampered with! You take a -2 circumstance penalty to attack rolls and damage rolls with that weapon. The effect lasts until you "
+          },
+          {
+            "type": "ref",
+            "id": "f87b0582-e87a-5335-b480-28482fa849b1"
+          },
+          {
+            "type": "text",
+            "text": " to remove it."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.o7qm13OmaYOMwgib"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "2aac968e-5104-5468-8e45-942e09cb9a5f",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-weapon-tampered-with-success",
+    "name": "Effect: Weapon Tampered With (Success)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "a04a959f-e761-5408-afd3-23dd8cad7668"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your weapon has been tampered with! You take a -2 circumstance penalty to attack rolls and damage rolls with that weapon. The effect ends at the start of the inventor's next turn, or until you "
+          },
+          {
+            "type": "ref",
+            "id": "f87b0582-e87a-5335-b480-28482fa849b1"
+          },
+          {
+            "type": "text",
+            "text": " to remove it."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.4QWayYR3JSL9bk2T"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "d29fb0c1-ff58-5fdc-9e8f-7b91da12fadf",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:stance-bullet-dancer-stance",
+    "name": "Stance: Bullet Dancer Stance",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "2494a5bd-7535-57a0-bb33-340e60832ebc"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While in this stance, the only Strikes you can make are those using bayonets, reinforced stocks, simple firearms, and simple combination weapons. You can use Flurry of Blows with these weapons. You can use other monk feats or monk abilities you have that normally require unarmed attacks with bayonets, reinforced stocks, and the melee component of simple combination weapons, so long as the feat or ability doesn't require a single, specific Strike. You can also use them with simple firearms when attacking within half the first range increment."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.6ctQFQfSZ6o1uyyZ"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  }
+]
