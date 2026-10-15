@@ -28,3 +28,8 @@ export { CharacterVariantRepository } from './character-variant-repository';
 export { InMemoryCharacterVariantRepository } from './in-memory-character-variant-repository';
 export { CharacterVariantService, type CharacterVariantPorts } from './character-variant-service';
 export { EffectiveVariants } from './effective-variants';
+export {
+  CharacterUnenabledService,
+  type CharacterUnenabledPorts,
+  type OwnChoices,
+} from './character-unenabled-service';

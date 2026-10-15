@@ -1,0 +1,15 @@
+@if (unenabled(); as view) {
+  <fr-message tone="warning">
+    <fr-stack gap="xs">
+      <fr-text element="p">{{ 'character.unenabled.intro' | transloco: { campaign: view.campaign } }}</fr-text>
+      @for (group of view.groups; track group.heading) {
+        <fr-text element="p">{{ group.heading | transloco }}</fr-text>
+        <fr-list markers gap="3xs">
+          @for (line of group.lines; track line.key) {
+            <fr-list-item>{{ 'character.unenabled.entry' | transloco: line.params }}</fr-list-item>
+          }
+        </fr-list>
+      }
+    </fr-stack>
+  </fr-message>
+}

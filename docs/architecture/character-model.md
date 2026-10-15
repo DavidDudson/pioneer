@@ -547,6 +547,27 @@ with its own `play_revision`, and read into `document.play`: play-state commands
 `version`, and build saves never write play state ([ADR-0023](../adr/0022-foundry-module-and-sync-model.md)). It
 syncs with Foundry per the campaign's mode (see [play-and-campaigns.md](play-and-campaigns.md#campaigns)).
 
+## Content a campaign has not enabled
+
+A character in a campaign uses the campaign's homebrew packs and variant rules and ignores its own rows
+([ADR-0060](../adr/0060-a-character-uses-its-own-packs-until-a-campaign-decides.md),
+[ADR-0061](../adr/0061-variant-rules-are-enabled-per-campaign-and-character.md)). What the character would use on its
+own and the campaign has not enabled is never banned, only warned about: the Plan page names it so the player can raise
+it with the GM, and the sheet derives as before. `GET /characters/:id/unenabled-content` answers it, for the owner only;
+it is empty while the character is in no campaign. What a character "uses" of each kind:
+
+- **A variant rule**: one of the character's own enabled variant rules (`character_variant_rules`, as a Pathbuilder
+  import with Dual Class writes) that a pack the character uses defines. A row whose pack is off is left out, as
+  everywhere else.
+- **A pack**: one of the character's own enabled homebrew packs that it may still read. Official packs are always on and
+  never listed. A feat, class or ancestry taken from a pack, or an item carried from it, can only resolve while the
+  character uses that pack, so those are covered by the pack and not listed apart.
+- **An item**: an item the character carries (`inventory.items`) that a pack the campaign has not enabled defines. A
+  campaign enables packs, not single items, so this is the pack's gear named for the player, under that pack.
+
+Each is the set difference against the campaign's enabled packs and variant rules; nothing is blocked, removed or hidden.
+The warning clears once the campaign enables the pack or variant rule, or the character stops using it.
+
 ## Overrides
 
 ```ts

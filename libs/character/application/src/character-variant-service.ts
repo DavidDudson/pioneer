@@ -68,6 +68,14 @@ export class CharacterVariantService extends EffectiveVariants {
     return this.#enabledIds(character, await this.#campaigns.of(character.id));
   }
 
+  /**
+   * The variant rules the owner has enabled for the character, whether or not a campaign decides instead, and whether
+   * or not a pack it uses still defines them. No access check; the caller has one.
+   */
+  public async own(character: Character): Promise<readonly VariantRuleId[]> {
+    return this.#enabledIds(character, undefined);
+  }
+
   /** The character's variant rules, and for its owner the ones they could enable. Not the owner: 404. */
   public async variantRules(actor: UserId, id: CharacterId): Promise<CharacterVariantRules> {
     return this.#view(await this.#owned(actor, id));

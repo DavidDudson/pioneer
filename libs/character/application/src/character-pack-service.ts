@@ -89,6 +89,14 @@ export class CharacterPackService extends EffectivePacks {
     return this.#inForce(character, await this.#campaigns.of(character.id));
   }
 
+  /**
+   * The homebrew packs the owner has enabled for the character and may still read, whether or not a campaign decides
+   * instead: what the character uses of its own. No access check; the caller has one.
+   */
+  public async own(character: Character): Promise<readonly ContentPackId[]> {
+    return this.#inForce(character, undefined);
+  }
+
   /** The homebrew packs among `order`, in that order. */
   static #homebrewOf(
     order: readonly ContentPackId[],
