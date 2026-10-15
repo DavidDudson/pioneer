@@ -2315,16 +2315,6 @@
             "selector": "swim",
             "value": "floor(@actor.system.movement.speeds.land.value*0.5)"
           }
-        },
-        {
-          "type": "rule",
-          "key": "BaseSpeed",
-          "raw": {
-            "key": "BaseSpeed",
-            "predicate": ["dragon-turtle-scale:dragon-turtle-scale-greater"],
-            "selector": "swim",
-            "value": "@actor.system.movement.speeds.land.value"
-          }
         }
       ]
     },
@@ -3169,40 +3159,6 @@
             "key": "ChoiceSet",
             "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
             "rollOption": "potion-of-sonic-resistance"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "effect:effect-potion-of-swimming",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.W3xQBLj5hLOtb6Tj",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "BaseSpeed",
-          "raw": {
-            "key": "BaseSpeed",
-            "selector": "swim",
-            "value": "@actor.system.movement.speeds.land.value"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "effect:effect-potion-of-swimming-greater",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.ModBoFdCi7YQU4gP",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "BaseSpeed",
-          "raw": {
-            "key": "BaseSpeed",
-            "selector": "swim",
-            "value": "@actor.system.movement.speeds.land.value"
           }
         }
       ]

@@ -1132,6 +1132,13 @@
         ],
         "prompt": "Select a movement type.",
         "rollOption": "invoke-movement"
+      },
+      {
+        "key": "Change",
+        "selector": "speed:burrow",
+        "mode": "upgrade",
+        "value": "floor(@stat.speed.land / 2)",
+        "predicate": ["invoke-movement:burrow", "self:effect:enter-spirit-trance"]
       }
     ],
     "externalIds": {
@@ -1622,6 +1629,13 @@
         ],
         "prompt": "Select a benefit.",
         "rollOption": "adapt-self"
+      },
+      {
+        "key": "Change",
+        "selector": "speed:swim",
+        "mode": "upgrade",
+        "value": "round(@stat.speed.land / 2)",
+        "predicate": ["adapt-self:swim"]
       }
     ],
     "externalIds": {

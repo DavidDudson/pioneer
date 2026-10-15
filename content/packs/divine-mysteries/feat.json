@@ -348,6 +348,12 @@
       {
         "key": "ActorTraits",
         "add": ["celestial"]
+      },
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": "@stat.speed.land"
       }
     ],
     "externalIds": {
@@ -2617,6 +2623,12 @@
       {
         "key": "ActorTraits",
         "add": ["fiend"]
+      },
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": "@stat.speed.land"
       }
     ],
     "externalIds": {
@@ -5299,7 +5311,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": "@stat.speed.land"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.fZFdoqeSQGBPDgai"
     },

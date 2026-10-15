@@ -27,6 +27,7 @@ const FOUNDRY_SPELLINGS = [
   ['actor.system.attributes.ancestryhp', 'ancestry.hp'],
   ['actor.ancestry.system.hp', 'ancestry.hp'],
   ['actor.ancestry.system.speed', 'ancestry.speed'],
+  ['actor.system.movement.speeds.land.value', 'stat.speed.land'],
   ['actor.system.attributes.classhp', 'class.hp'],
   ['actor.class.system.hp', 'class.hp'],
   ['actor.skills.<skill>.rank', 'rank.skill.<skill>'],

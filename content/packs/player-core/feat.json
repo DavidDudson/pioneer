@@ -18772,7 +18772,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": "@stat.speed.land"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.OWL6ZNVWMU0AFqvZ"
     },
@@ -39752,6 +39759,13 @@
         ],
         "outcome": ["success", "criticalSuccess"],
         "predicate": ["action:climb"]
+      },
+      {
+        "key": "Change",
+        "selector": "speed:climb",
+        "mode": "upgrade",
+        "value": "@stat.speed.land",
+        "predicate": ["skill:athletics:rank:4"]
       }
     ],
     "externalIds": {
@@ -40403,6 +40417,13 @@
         ],
         "outcome": ["success", "criticalSuccess"],
         "predicate": ["action:swim"]
+      },
+      {
+        "key": "Change",
+        "selector": "speed:swim",
+        "mode": "upgrade",
+        "value": "@stat.speed.land",
+        "predicate": ["skill:athletics:rank:4"]
       }
     ],
     "externalIds": {

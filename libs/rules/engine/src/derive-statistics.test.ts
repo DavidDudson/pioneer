@@ -120,6 +120,11 @@ describe('deriveStatistics', () => {
     expect(resultOf(results, 'spell-dc:arcane')).toMatchObject({ ok: true, total: 15 });
   });
 
+  test('a speed reads the land speed, as a fly speed equal to it does', () => {
+    const results = derive(statistic('speed:fly', '@stat.speed.land'), statistic('speed:land', '25'));
+    expect(resultOf(results, 'speed:fly')).toMatchObject({ ok: true, total: 25 });
+  });
+
   test('a cycle names every statistic in it and points at each one’s reference into it', () => {
     const results = derive(
       statistic('a', '@stat.b + 1'),

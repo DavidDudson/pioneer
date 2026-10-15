@@ -4729,23 +4729,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:effect-divine-wings",
-      "foundry": "Compendium.pf2e.feat-effects.Item.HfXGhXc9D120gvl5",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "BaseSpeed",
-          "raw": {
-            "key": "BaseSpeed",
-            "selector": "fly",
-            "value": "@actor.system.movement.speeds.land.value"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:effect-dwarven-reinforcement",
       "foundry": "Compendium.pf2e.feat-effects.Item.PYhYBec0aujjx0VW",
       "gaps": [
@@ -7215,34 +7198,6 @@
           }
         }
       }
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-animal-feature",
-      "foundry": "Compendium.pf2e.spell-effects.Item.Dcva6SCHr9vWE7nJ",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "BaseSpeed",
-          "raw": {
-            "key": "BaseSpeed",
-            "predicate": ["animal-feature:fish-tail"],
-            "selector": "swim",
-            "value": "@actor.system.movement.speeds.land.value"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "BaseSpeed",
-          "raw": {
-            "key": "BaseSpeed",
-            "predicate": ["animal-feature:wings"],
-            "selector": "fly",
-            "value": "@actor.system.movement.speeds.land.value"
-          }
-        }
-      ]
     },
     {
       "type": "entry",
@@ -11828,23 +11783,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:spell-effect-fly",
-      "foundry": "Compendium.pf2e.spell-effects.Item.MuRBCiZn5IKeaoxi",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "BaseSpeed",
-          "raw": {
-            "key": "BaseSpeed",
-            "selector": "fly",
-            "value": "max(20,@actor.system.movement.speeds.land.value)"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:spell-effect-foresight",
       "foundry": "Compendium.pf2e.spell-effects.Item.X9Na6IK8FSPcTuoc",
       "gaps": [
@@ -11922,23 +11860,6 @@
             ],
             "selectors": ["ac", "saving-throw", "attack-roll", "damage", "athletics", "fortitude", "reflex"],
             "value": "@item.flags.system.rulesSelections.fortissimoBonus"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-gecko-grip",
-      "foundry": "Compendium.pf2e.spell-effects.Item.qn7uO5Ih01yLJot7",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "BaseSpeed",
-          "raw": {
-            "key": "BaseSpeed",
-            "selector": "climb",
-            "value": "@actor.system.movement.speeds.land.value"
           }
         }
       ]
@@ -13673,34 +13594,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:spell-effect-shifting-form",
-      "foundry": "Compendium.pf2e.spell-effects.Item.iN6shVYuzvQ4A95i",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "BaseSpeed",
-          "raw": {
-            "key": "BaseSpeed",
-            "predicate": ["shifting-form:climb"],
-            "selector": "climb",
-            "value": "floor(@actor.system.movement.speeds.land.value/2)"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "BaseSpeed",
-          "raw": {
-            "key": "BaseSpeed",
-            "predicate": ["shifting-form:swim"],
-            "selector": "swim",
-            "value": "floor(@actor.system.movement.speeds.land.value/2)"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:spell-effect-silence",
       "foundry": "Compendium.pf2e.spell-effects.Item.mmJNE57hC7G3SPae",
       "gaps": [
@@ -13750,23 +13643,6 @@
           "raw": {
             "key": "RollOption",
             "option": "song-of-strength:origin:signature:{item|origin.signature}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-stormwind-flight",
-      "foundry": "Compendium.pf2e.spell-effects.Item.8GUkKvCeI0xljCOk",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "BaseSpeed",
-          "raw": {
-            "key": "BaseSpeed",
-            "selector": "fly",
-            "value": "@actor.system.movement.speeds.land.value"
           }
         }
       ]
@@ -17626,23 +17502,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:eternal-wings-nephilim",
-      "foundry": "Compendium.pf2e.feats-srd.Item.OWL6ZNVWMU0AFqvZ",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "BaseSpeed",
-          "raw": {
-            "key": "BaseSpeed",
-            "selector": "fly",
-            "value": "@actor.system.movement.speeds.land.value"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:expert-bard-spellcasting",
       "foundry": "Compendium.pf2e.feats-srd.Item.0RB3f3J7gOEv3fni",
       "gaps": [
@@ -20517,24 +20376,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:quick-climb",
-      "foundry": "Compendium.pf2e.feats-srd.Item.P04Hw8E6WAWARKHP",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "BaseSpeed",
-          "raw": {
-            "key": "BaseSpeed",
-            "predicate": ["skill:athletics:rank:4"],
-            "selector": "climb",
-            "value": "@actor.system.movement.speeds.land.value"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:quick-recognition",
       "foundry": "Compendium.pf2e.feats-srd.Item.2rSyTfPgAmNAo01r",
       "gaps": [
@@ -20552,24 +20393,6 @@
                 "text": "{item|description}"
               }
             ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:quick-swim",
-      "foundry": "Compendium.pf2e.feats-srd.Item.bFoh3267kNLk68cU",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "BaseSpeed",
-          "raw": {
-            "key": "BaseSpeed",
-            "predicate": ["skill:athletics:rank:4"],
-            "selector": "swim",
-            "value": "@actor.system.movement.speeds.land.value"
           }
         }
       ]
