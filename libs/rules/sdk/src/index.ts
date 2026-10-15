@@ -198,6 +198,7 @@ export {
   FilterParamText,
   type FilterQuery,
   filterFromQuery,
+  filterParamName,
   filterToQuery,
   type QueryParams,
 } from './filter-query';

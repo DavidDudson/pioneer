@@ -508,6 +508,10 @@ Behaviour:
 - An entry whose field is missing (no level) counts under **Unknown** rather than vanishing from every
   selection. A `set` or `flag` facet can pick or exclude Unknown like any value; a `range` drops unknown entries
   once a bound is set. A value's count is how many entries picking only that value would leave.
+- The content browser (`/content`, `libs/content/feature`) keeps the kinds it lists in the URL too, `kind=feat,spell`,
+  and shows each kind's facets: a facet that reads only some of the kinds listed (weapon group) is left out unless the
+  list holds one of them. Its table and filter panel (`pio-facet-filter`) are built from the facet definitions, so a new
+  definition shows up without a template change.
 - The engine (`libs/rules/sdk`: `facet.ts`, `facet-filter.ts`, `filter-query.ts`) is pure and runs on parsed
   entries; the rules playground's "Content filters" tool exercises it.
 - A facet reads a field path or derives its values from the entry. Spell facets derive (`spell-facet-values.ts`):

@@ -19,7 +19,7 @@ const groupClasses = cva('flex flex-wrap items-center gap-xs')();
  * fires `committed`.
  *
  * ```html
- * <fr-filter-chips [options]="rarities" [(value)]="rarity" [ariaLabel]="'content.filter.rarity' | transloco" />
+ * <fr-filter-chips [options]="rarities" [(value)]="rarity" [ariaLabel]="'filters.rarity' | transloco" />
  * ```
  */
 @Component({
