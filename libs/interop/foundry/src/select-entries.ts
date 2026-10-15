@@ -39,7 +39,7 @@ export const FOUNDRY_BOOK_TITLES: ReadonlyMap<string, BookId> = new Map([
  * which Pathbuilder exports name). Their entries are legacy and OGL, which selection otherwise skips. Adding a book
  * here is a licensing decision: NOTICE.md and the Legal page must carry its notice.
  */
-export const OGL_BOOKS: ReadonlySet<BookId> = new Set([
+const OGL_BOOKS: ReadonlySet<BookId> = new Set([
   BookId.parse('mwangi-expanse'),
   BookId.parse('secrets-of-magic'),
   BookId.parse('rage-of-elements'),
