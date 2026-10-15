@@ -28,3 +28,7 @@ nin = "nin"
 sherif = "sherif"
 # Slugs drop apostrophes: `feat:youre-next` is You're Next.
 youre = "youre"
+# Slug: `feat:complete-the-heros-journey` is Complete the Hero's Journey.
+heros = "heros"
+# Verex's Ruin, a cursed weapon (War of Immortals).
+verex = "verex"

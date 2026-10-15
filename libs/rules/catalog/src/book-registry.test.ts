@@ -44,6 +44,7 @@ describe('book registry', () => {
         'player-core',
         'player-core-2',
         'treasure-vault',
+        'war-of-immortals',
       ].map((id) => BookId.parse(id)),
     );
   });

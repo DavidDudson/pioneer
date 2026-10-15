@@ -19,6 +19,7 @@ export const FOUNDRY_IMPORTS: readonly FoundryImport[] = [
   { pack: PackId.parse('treasure-vault'), book: BookId.parse('treasure-vault'), release: 'pf2e-8.6.0' },
   { pack: PackId.parse('gm-core'), book: BookId.parse('gm-core'), release: 'pf2e-8.6.0' },
   { pack: PackId.parse('howl-of-the-wild'), book: BookId.parse('howl-of-the-wild'), release: 'pf2e-8.6.0' },
+  { pack: PackId.parse('war-of-immortals'), book: BookId.parse('war-of-immortals'), release: 'pf2e-8.6.0' },
 ];
 
 /** The release's page on GitHub. */

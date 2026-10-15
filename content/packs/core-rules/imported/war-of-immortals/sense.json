@@ -1,0 +1,40 @@
+[
+  {
+    "id": "922de711-b9d9-502d-91b0-237d146a011d",
+    "pack": "core-rules",
+    "kind": "sense",
+    "slug": "sense:motion-sense",
+    "name": "Motion Sense",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "95348cb8-1dfc-5d94-a4bf-e313b0900013",
+    "pack": "core-rules",
+    "kind": "sense",
+    "slug": "sense:truesight",
+    "name": "Truesight",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "acuity": "precise"
+    }
+  }
+]

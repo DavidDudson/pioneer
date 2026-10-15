@@ -10,6 +10,7 @@ import {
   monsterCorePack,
   playerCorePack,
   treasureVaultPack,
+  warOfImmortalsPack,
 } from './json-packs';
 import { checkPackSources } from './source-check';
 
@@ -60,6 +61,7 @@ export const officialPacks: readonly PackContentsLoader[] = [
   checkedLoader('divine-mysteries', divineMysteriesPack),
   checkedLoader('treasure-vault', treasureVaultPack),
   checkedLoader('howl-of-the-wild', howlOfTheWildPack),
+  checkedLoader('war-of-immortals', warOfImmortalsPack),
   checkedLoader('gm-core', gmCorePack),
 ];
 

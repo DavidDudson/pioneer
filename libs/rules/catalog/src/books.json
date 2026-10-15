@@ -54,5 +54,13 @@
     "remaster": true,
     "released": "2024-05-29",
     "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=226"
+  },
+  {
+    "id": "war-of-immortals",
+    "publisher": "paizo",
+    "license": "ORC",
+    "remaster": true,
+    "released": "2024-10-30",
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=232"
   }
 ]

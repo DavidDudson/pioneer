@@ -1,0 +1,50 @@
+[
+  {
+    "id": "e1840e37-a68b-5f5e-b891-3e08c455fd42",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:kaiju-lore",
+    "name": "Kaiju Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:kaiju",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.kaiju",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "7463612a-938b-5210-99b4-aede58b2747d",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:void-lore",
+    "name": "Void Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:void",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.void",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  }
+]

@@ -133,6 +133,7 @@ describe.skipIf(adminUrl === undefined)('content routes (postgres)', () => {
       'monster-core',
       'player-core',
       'treasure-vault',
+      'war-of-immortals',
     ]);
     expect(responses.map((response) => response.status)).toStrictEqual(files.map(() => 200));
     expect(responses.map((response) => response.headers.get('cache-control'))).toStrictEqual(

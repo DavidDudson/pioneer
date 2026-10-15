@@ -1,0 +1,87 @@
+[
+  {
+    "id": "c17093ac-35f9-5171-aa4a-af13961b3c02",
+    "pack": "war-of-immortals",
+    "kind": "archetype",
+    "slug": "archetype:animist",
+    "name": "Animist",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have established a relationship with a spiritual entity known as an apparition, unlocking the ability to use animistic magic."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.ZNz2aC4wQ7KC6Ixe"
+    },
+    "data": {
+      "dedication": "6f34e21f-5975-5622-8532-5e7a97d51767",
+      "multiclass": "b8d86a6f-e0c4-5332-8dd0-f33a29ded79b"
+    }
+  },
+  {
+    "id": "5b645939-372d-57f0-adf4-36689f8d582a",
+    "pack": "war-of-immortals",
+    "kind": "archetype",
+    "slug": "archetype:exemplar",
+    "name": "Exemplar",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Rare"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have awakened a tiny spark of divinity within yourself, either through your deeds or through exposure to a source of divine power. As you nurture this spark, you can become a potent divine combatant."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.IBJrhr3Sj6CSIBWo"
+    },
+    "data": {
+      "dedication": "7e0e9bb7-e474-59dc-a6c3-6a17bd469d38",
+      "multiclass": "c91ec883-4c7c-53bb-bc82-1ed6007f2091"
+    }
+  }
+]
