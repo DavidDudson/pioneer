@@ -1,0 +1,134 @@
+[
+  {
+    "id": "d07964b6-c341-56b7-9e41-1dc0c8a346a6",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:contingency",
+    "name": "Contingency",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry-feature",
+        "class-feature",
+        "condition",
+        "consumable",
+        "effect",
+        "feat",
+        "ritual",
+        "spell"
+      ]
+    }
+  },
+  {
+    "id": "e64dffc1-2540-5e4f-bfc9-e837ba6343c1",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:eidolon",
+    "name": "Eidolon",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "consumable",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "ritual",
+        "spell"
+      ]
+    }
+  },
+  {
+    "id": "f8dacea1-3428-575f-b1df-ec264da6195d",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:evolution",
+    "name": "Evolution",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "condition", "effect", "feat"]
+    }
+  },
+  {
+    "id": "be5c0d2f-da66-5eaf-9739-bf88356d59b4",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:pervasive-magic",
+    "name": "Pervasive Magic",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "feat"]
+    }
+  },
+  {
+    "id": "2778c65c-4c03-54d0-b2b8-e448ba9666e9",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:true-name",
+    "name": "True Name",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry-feature",
+        "class-feature",
+        "condition",
+        "consumable",
+        "effect",
+        "feat",
+        "ritual",
+        "spell"
+      ]
+    }
+  }
+]

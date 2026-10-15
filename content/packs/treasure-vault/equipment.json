@@ -386,7 +386,15 @@
         "content": [
           {
             "type": "text",
-            "text": "This sturdy, rigid alchemical chart contains shorthand references on quickly mixing reagents for maximum effect. If you hold this chart while using Quick Alchemy, the items you create of 18th level or lower remain potent for 1 additional round."
+            "text": "This sturdy, rigid alchemical chart contains shorthand references on quickly mixing reagents for maximum effect. If you hold this chart while using "
+          },
+          {
+            "type": "ref",
+            "id": "f062a8dd-04bd-5b48-8a69-2bbdfd1e5cb2"
+          },
+          {
+            "type": "text",
+            "text": ", the items you create of 18th level or lower remain potent for 1 additional round."
           }
         ]
       }
@@ -429,7 +437,15 @@
         "content": [
           {
             "type": "text",
-            "text": "This sturdy, rigid alchemical chart contains shorthand references on quickly mixing reagents for maximum effect. If you hold this chart while using Quick Alchemy, the items you create of 4th level or lower remain potent for 1 additional round."
+            "text": "This sturdy, rigid alchemical chart contains shorthand references on quickly mixing reagents for maximum effect. If you hold this chart while using "
+          },
+          {
+            "type": "ref",
+            "id": "f062a8dd-04bd-5b48-8a69-2bbdfd1e5cb2"
+          },
+          {
+            "type": "text",
+            "text": ", the items you create of 4th level or lower remain potent for 1 additional round."
           }
         ]
       }
@@ -472,7 +488,15 @@
         "content": [
           {
             "type": "text",
-            "text": "This sturdy, rigid alchemical chart contains shorthand references on quickly mixing reagents for maximum effect. If you hold this chart while using Quick Alchemy, the items you create of 12th level or lower remain potent for 1 additional round."
+            "text": "This sturdy, rigid alchemical chart contains shorthand references on quickly mixing reagents for maximum effect. If you hold this chart while using "
+          },
+          {
+            "type": "ref",
+            "id": "f062a8dd-04bd-5b48-8a69-2bbdfd1e5cb2"
+          },
+          {
+            "type": "text",
+            "text": ", the items you create of 12th level or lower remain potent for 1 additional round."
           }
         ]
       }
@@ -1654,7 +1678,15 @@
           },
           {
             "type": "text",
-            "text": ", or Resplendent Mansion spell, you add a room to the structure that is up to 10 feet per side per rank of the spell. This room is outfitted with all the accoutrements for a particular type of recreation, determined by you when you cast the spell. Any character who spends at least 1 hour using this recreational facility and then sleeps a full 8 hours inside the location created by the spell is exceptionally well-rested. They regain double the amount of Hit Points they would normally receive for an 8-hour rest, and when they make the next day's preparations, they gain a +1 circumstance bonus to Athletics checks and Will saves for the next 12 hours."
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "0c07289f-ca48-58ac-a9e3-3ff2cc46c5f1"
+          },
+          {
+            "type": "text",
+            "text": " spell, you add a room to the structure that is up to 10 feet per side per rank of the spell. This room is outfitted with all the accoutrements for a particular type of recreation, determined by you when you cast the spell. Any character who spends at least 1 hour using this recreational facility and then sleeps a full 8 hours inside the location created by the spell is exceptionally well-rested. They regain double the amount of Hit Points they would normally receive for an 8-hour rest, and when they make the next day's preparations, they gain a +1 circumstance bonus to Athletics checks and Will saves for the next 12 hours."
           }
         ]
       },
@@ -2968,17 +3000,7 @@
       "usage": {
         "type": "held",
         "hands": "two"
-      },
-      "staff": [
-        {
-          "rank": "cantrip",
-          "spells": ["0964edfe-0384-5444-908b-fe24653c28f5"]
-        },
-        {
-          "rank": 1,
-          "spells": ["42ecad5f-026b-577a-9b47-b97ae76568c9"]
-        }
-      ]
+      }
     }
   },
   {
@@ -3144,7 +3166,11 @@
                 },
                 {
                   "type": "text",
-                  "text": ", Shift Blame"
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "d463be96-fdf4-58b2-b560-2489ad2ca28f"
                 }
               ]
             }
@@ -3373,7 +3399,11 @@
                 },
                 {
                   "type": "text",
-                  "text": ", Shift Blame"
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "d463be96-fdf4-58b2-b560-2489ad2ca28f"
                 }
               ]
             }
@@ -6898,7 +6928,15 @@
         "content": [
           {
             "type": "text",
-            "text": "Champions adorn these bracers with the symbol of their deity or the text of the tenets they follow. While they're clasped around your forearms, reassuring focus and devotion flow into you through them. Each time you spend a Focus Point to cast a devotion spell, your Blessing of the Devoted gains a benefit until the start of your next turn, depending on its type."
+            "text": "Champions adorn these bracers with the symbol of their deity or the text of the tenets they follow. While they're clasped around your forearms, reassuring focus and devotion flow into you through them. Each time you spend a Focus Point to cast a devotion spell, your "
+          },
+          {
+            "type": "ref",
+            "id": "18c65aa2-67b6-56bd-98ad-ce970bb71a3c"
+          },
+          {
+            "type": "text",
+            "text": " gains a benefit until the start of your next turn, depending on its type."
           }
         ]
       },
@@ -6911,9 +6949,8 @@
               "type": "paragraph",
               "content": [
                 {
-                  "type": "text",
-                  "text": "Blessed Armament",
-                  "marks": ["strong"]
+                  "type": "ref",
+                  "id": "adf93c63-19d7-50d3-9d3b-7bc709a7abbe"
                 },
                 {
                   "type": "text",
@@ -6935,9 +6972,8 @@
               "type": "paragraph",
               "content": [
                 {
-                  "type": "text",
-                  "text": "Blessed Shield",
-                  "marks": ["strong"]
+                  "type": "ref",
+                  "id": "b2a06c9b-6958-54f7-850d-c858bcc09cb2"
                 },
                 {
                   "type": "text",
@@ -6951,9 +6987,8 @@
               "type": "paragraph",
               "content": [
                 {
-                  "type": "text",
-                  "text": "Blessed Swiftness",
-                  "marks": ["strong"]
+                  "type": "ref",
+                  "id": "c687ff5f-f8d6-5e70-ae19-670ec2b7fb7b"
                 },
                 {
                   "type": "text",
@@ -11627,7 +11662,15 @@
           },
           {
             "type": "text",
-            "text": " You cast Haunting Hymn."
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "c798a1dd-dd19-5020-8adf-40c66538310e"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       },
@@ -11874,7 +11917,15 @@
           },
           {
             "type": "text",
-            "text": " You cast Haunting Hymn."
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "c798a1dd-dd19-5020-8adf-40c66538310e"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       },
@@ -12170,7 +12221,15 @@
           },
           {
             "type": "text",
-            "text": " You cast Haunting Hymn."
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "c798a1dd-dd19-5020-8adf-40c66538310e"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       },
@@ -13156,21 +13215,7 @@
       "usage": {
         "type": "held",
         "hands": "two"
-      },
-      "staff": [
-        {
-          "rank": "cantrip",
-          "spells": ["6dee4f5d-f584-5402-af2a-d3738ec685b3"]
-        },
-        {
-          "rank": 1,
-          "spells": [
-            "1c97409b-bd67-5df2-a7d3-a49aff4d3896",
-            "7c5ef7d9-d7ac-5654-b88c-5504257ec3f7",
-            "566a10d1-097c-5ee1-b473-4e0ab1475228"
-          ]
-        }
-      ]
+      }
     }
   },
   {
@@ -13410,33 +13455,7 @@
       "usage": {
         "type": "held",
         "hands": "two"
-      },
-      "staff": [
-        {
-          "rank": "cantrip",
-          "spells": ["6dee4f5d-f584-5402-af2a-d3738ec685b3"]
-        },
-        {
-          "rank": 1,
-          "spells": [
-            "1c97409b-bd67-5df2-a7d3-a49aff4d3896",
-            "7c5ef7d9-d7ac-5654-b88c-5504257ec3f7",
-            "566a10d1-097c-5ee1-b473-4e0ab1475228"
-          ]
-        },
-        {
-          "rank": 2,
-          "spells": [
-            "18377ab1-5227-575a-9895-fa1920850f0d",
-            "51b9baac-1f99-5c5a-a902-ed642a3849ef",
-            "e0681ca0-8a1d-5d21-a033-813e782d04b5"
-          ]
-        },
-        {
-          "rank": 3,
-          "spells": ["2b79f5bd-e9d5-59cd-81f8-b1362ed0b59a", "749d15ad-5bf7-53bd-a646-cbbec6452867"]
-        }
-      ]
+      }
     }
   },
   {
@@ -14536,7 +14555,15 @@
           },
           {
             "type": "text",
-            "text": " You cast Mirror's Misfortune."
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "b0596304-ecc4-5b5b-b922-0c66b08ad6e6"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       }
@@ -14722,7 +14749,15 @@
           },
           {
             "type": "text",
-            "text": " You cast Mirror's Misfortune."
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "b0596304-ecc4-5b5b-b922-0c66b08ad6e6"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       },
@@ -15083,7 +15118,11 @@
                 },
                 {
                   "type": "text",
-                  "text": ", Phantasmal Treasure"
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "513a293d-bfa9-5a6c-acaa-d37223df997f"
                 }
               ]
             }
@@ -15301,7 +15340,11 @@
                 },
                 {
                   "type": "text",
-                  "text": ", Phantasmal Treasure"
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "513a293d-bfa9-5a6c-acaa-d37223df997f"
                 }
               ]
             }
@@ -17626,7 +17669,11 @@
                 },
                 {
                   "type": "text",
-                  "text": ", Visions of Danger"
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "791ae195-cc24-55de-88fe-457a59dc1abd"
                 }
               ]
             }
@@ -21419,7 +21466,15 @@
           },
           {
             "type": "text",
-            "text": ". When worn, the crown allows you to tap further into your instincts, granting you even greater benefits if the crown's essence matches your instinct. You must be able to Rage to use the crown's activations."
+            "text": ". When worn, the crown allows you to tap further into your instincts, granting you even greater benefits if the crown's essence matches your instinct. You must be able to "
+          },
+          {
+            "type": "ref",
+            "id": "6018ad4a-3bf1-50f0-9452-3c633fe443e0"
+          },
+          {
+            "type": "text",
+            "text": " to use the crown's activations."
           }
         ]
       },
@@ -21486,7 +21541,15 @@
           },
           {
             "type": "text",
-            "text": " You have Quick-Tempered and meet its requirements"
+            "text": " You have "
+          },
+          {
+            "type": "ref",
+            "id": "72f8bfea-4d71-53cb-bfdb-620059f1ed61"
+          },
+          {
+            "type": "text",
+            "text": " and meet its requirements"
           }
         ]
       },
@@ -21663,7 +21726,15 @@
           },
           {
             "type": "text",
-            "text": ". When worn, the crown allows you to tap further into your instincts, granting you even greater benefits if the crown's essence matches your instinct. You must be able to Rage to use the crown's activations."
+            "text": ". When worn, the crown allows you to tap further into your instincts, granting you even greater benefits if the crown's essence matches your instinct. You must be able to "
+          },
+          {
+            "type": "ref",
+            "id": "6018ad4a-3bf1-50f0-9452-3c633fe443e0"
+          },
+          {
+            "type": "text",
+            "text": " to use the crown's activations."
           }
         ]
       },
@@ -21730,7 +21801,15 @@
           },
           {
             "type": "text",
-            "text": " You have Quick-Tempered and meet its requirements"
+            "text": " You have "
+          },
+          {
+            "type": "ref",
+            "id": "72f8bfea-4d71-53cb-bfdb-620059f1ed61"
+          },
+          {
+            "type": "text",
+            "text": " and meet its requirements"
           }
         ]
       },
@@ -21898,7 +21977,15 @@
           },
           {
             "type": "text",
-            "text": ". When worn, the crown allows you to tap further into your instincts, granting you even greater benefits if the crown's essence matches your instinct. You must be able to Rage to use the crown's activations."
+            "text": ". When worn, the crown allows you to tap further into your instincts, granting you even greater benefits if the crown's essence matches your instinct. You must be able to "
+          },
+          {
+            "type": "ref",
+            "id": "6018ad4a-3bf1-50f0-9452-3c633fe443e0"
+          },
+          {
+            "type": "text",
+            "text": " to use the crown's activations."
           }
         ]
       },
@@ -21965,7 +22052,15 @@
           },
           {
             "type": "text",
-            "text": " You have Quick-Tempered and meet its requirements"
+            "text": " You have "
+          },
+          {
+            "type": "ref",
+            "id": "72f8bfea-4d71-53cb-bfdb-620059f1ed61"
+          },
+          {
+            "type": "text",
+            "text": " and meet its requirements"
           }
         ]
       },
@@ -22150,7 +22245,15 @@
           },
           {
             "type": "text",
-            "text": ". When worn, the crown allows you to tap further into your instincts, granting you even greater benefits if the crown's essence matches your instinct. You must be able to Rage to use the crown's activations."
+            "text": ". When worn, the crown allows you to tap further into your instincts, granting you even greater benefits if the crown's essence matches your instinct. You must be able to "
+          },
+          {
+            "type": "ref",
+            "id": "6018ad4a-3bf1-50f0-9452-3c633fe443e0"
+          },
+          {
+            "type": "text",
+            "text": " to use the crown's activations."
           }
         ]
       },
@@ -22217,7 +22320,15 @@
           },
           {
             "type": "text",
-            "text": " You have Quick-Tempered and meet its requirements"
+            "text": " You have "
+          },
+          {
+            "type": "ref",
+            "id": "72f8bfea-4d71-53cb-bfdb-620059f1ed61"
+          },
+          {
+            "type": "text",
+            "text": " and meet its requirements"
           }
         ]
       },
@@ -22394,7 +22505,15 @@
           },
           {
             "type": "text",
-            "text": ". When worn, the crown allows you to tap further into your instincts, granting you even greater benefits if the crown's essence matches your instinct. You must be able to Rage to use the crown's activations."
+            "text": ". When worn, the crown allows you to tap further into your instincts, granting you even greater benefits if the crown's essence matches your instinct. You must be able to "
+          },
+          {
+            "type": "ref",
+            "id": "6018ad4a-3bf1-50f0-9452-3c633fe443e0"
+          },
+          {
+            "type": "text",
+            "text": " to use the crown's activations."
           }
         ]
       },
@@ -22461,7 +22580,15 @@
           },
           {
             "type": "text",
-            "text": " You have Quick-Tempered and meet its requirements"
+            "text": " You have "
+          },
+          {
+            "type": "ref",
+            "id": "72f8bfea-4d71-53cb-bfdb-620059f1ed61"
+          },
+          {
+            "type": "text",
+            "text": " and meet its requirements"
           }
         ]
       },
@@ -22638,7 +22765,15 @@
           },
           {
             "type": "text",
-            "text": ". When worn, the crown allows you to tap further into your instincts, granting you even greater benefits if the crown's essence matches your instinct. You must be able to Rage to use the crown's activations."
+            "text": ". When worn, the crown allows you to tap further into your instincts, granting you even greater benefits if the crown's essence matches your instinct. You must be able to "
+          },
+          {
+            "type": "ref",
+            "id": "6018ad4a-3bf1-50f0-9452-3c633fe443e0"
+          },
+          {
+            "type": "text",
+            "text": " to use the crown's activations."
           }
         ]
       },
@@ -22705,7 +22840,15 @@
           },
           {
             "type": "text",
-            "text": " You have Quick-Tempered and meet its requirements"
+            "text": " You have "
+          },
+          {
+            "type": "ref",
+            "id": "72f8bfea-4d71-53cb-bfdb-620059f1ed61"
+          },
+          {
+            "type": "text",
+            "text": " and meet its requirements"
           }
         ]
       },
@@ -26591,7 +26734,15 @@
           },
           {
             "type": "text",
-            "text": " You cast Confusing Colors."
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "44f801ac-e3d8-5dde-804a-258e472262ea"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       }
@@ -30307,7 +30458,15 @@
           },
           {
             "type": "text",
-            "text": " The wayfinder casts Wanderer's Guide on you."
+            "text": " The wayfinder casts "
+          },
+          {
+            "type": "ref",
+            "id": "30ad7d61-9571-5e3f-88b2-4757e2d322da"
+          },
+          {
+            "type": "text",
+            "text": " on you."
           }
         ]
       }
@@ -30739,7 +30898,15 @@
           },
           {
             "type": "text",
-            "text": " You cast Phantasmal Treasure."
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "513a293d-bfa9-5a6c-acaa-d37223df997f"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       }
@@ -31967,21 +32134,7 @@
       "usage": {
         "type": "held",
         "hands": "two"
-      },
-      "staff": [
-        {
-          "rank": "cantrip",
-          "spells": ["0964edfe-0384-5444-908b-fe24653c28f5"]
-        },
-        {
-          "rank": 1,
-          "spells": [
-            "a3738cb8-aa5d-5084-b250-86fe19b7498d",
-            "15904512-5f17-5bba-b1a0-1f892989912c",
-            "a8b9cc60-f471-559b-a07c-6ad022c23b56"
-          ]
-        }
-      ]
+      }
     }
   },
   {
@@ -32223,34 +32376,7 @@
       "usage": {
         "type": "held",
         "hands": "two"
-      },
-      "staff": [
-        {
-          "rank": "cantrip",
-          "spells": ["0964edfe-0384-5444-908b-fe24653c28f5"]
-        },
-        {
-          "rank": 1,
-          "spells": [
-            "a3738cb8-aa5d-5084-b250-86fe19b7498d",
-            "15904512-5f17-5bba-b1a0-1f892989912c",
-            "a8b9cc60-f471-559b-a07c-6ad022c23b56"
-          ]
-        },
-        {
-          "rank": 2,
-          "spells": ["14ef4b6a-5640-523d-ae50-9e3f4fbf860b", "8a83becc-07c0-52c9-92ce-77546175cc07"]
-        },
-        {
-          "rank": 3,
-          "spells": [
-            "a3738cb8-aa5d-5084-b250-86fe19b7498d",
-            "bd03779f-21b9-55bd-8656-887b25c8f8dd",
-            "9aed7b61-843a-5ec7-b205-94e5369630f3",
-            "f27c5853-2de7-5506-a02e-1dcf562fb4b6"
-          ]
-        }
-      ]
+      }
     }
   },
   {
@@ -32488,7 +32614,15 @@
                 },
                 {
                   "type": "text",
-                  "text": ", Glimmer of Charm, "
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "328a0133-e342-50da-b3ad-866269d5da54"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -33527,7 +33661,15 @@
           },
           {
             "type": "text",
-            "text": " You cast Confusing Colors."
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "44f801ac-e3d8-5dde-804a-258e472262ea"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       }
@@ -34124,7 +34266,15 @@
           },
           {
             "type": "text",
-            "text": " You cast Bullhorn."
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "427481f6-06b8-5e15-9f76-a87a84b28d01"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       },
@@ -34308,7 +34458,15 @@
           },
           {
             "type": "text",
-            "text": " You cast Bullhorn."
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "427481f6-06b8-5e15-9f76-a87a84b28d01"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       },
@@ -34545,7 +34703,15 @@
           },
           {
             "type": "text",
-            "text": " You cast Bullhorn."
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "427481f6-06b8-5e15-9f76-a87a84b28d01"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       },
@@ -35104,7 +35270,15 @@
           },
           {
             "type": "text",
-            "text": " You cast 3rd-rank Chilling Spray."
+            "text": " You cast 3rd-rank "
+          },
+          {
+            "type": "ref",
+            "id": "a3d53fc9-c4f7-562e-ac49-db710e6199e3"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       }
@@ -35319,7 +35493,15 @@
           },
           {
             "type": "text",
-            "text": " You cast Ice Storm."
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "f8d9bba2-3061-5beb-aff8-57dc839a5583"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       },
@@ -37219,7 +37401,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Object Reading"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "982bfd2b-5f56-5940-983b-a1a9aba1bb98"
                 }
               ]
             }
@@ -37377,7 +37563,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Object Reading"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "982bfd2b-5f56-5940-983b-a1a9aba1bb98"
                 }
               ]
             }
@@ -37401,7 +37591,15 @@
                 },
                 {
                   "type": "text",
-                  "text": ", Object Reading, "
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "982bfd2b-5f56-5940-983b-a1a9aba1bb98"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -37437,7 +37635,11 @@
                 },
                 {
                   "type": "text",
-                  "text": ", Wanderer's Guide"
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "30ad7d61-9571-5e3f-88b2-4757e2d322da"
                 }
               ]
             }
@@ -37595,7 +37797,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Object Reading"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "982bfd2b-5f56-5940-983b-a1a9aba1bb98"
                 }
               ]
             }
@@ -37619,7 +37825,15 @@
                 },
                 {
                   "type": "text",
-                  "text": ", Object Reading, "
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "982bfd2b-5f56-5940-983b-a1a9aba1bb98"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -37655,7 +37869,11 @@
                 },
                 {
                   "type": "text",
-                  "text": ", Wanderer's Guide"
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "30ad7d61-9571-5e3f-88b2-4757e2d322da"
                 }
               ]
             }
@@ -37679,7 +37897,15 @@
                 },
                 {
                   "type": "text",
-                  "text": ", Object Reading, "
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "982bfd2b-5f56-5940-983b-a1a9aba1bb98"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -38465,7 +38691,15 @@
           },
           {
             "type": "text",
-            "text": ", and if you're an investigator, any checks you make to Pursue a Lead."
+            "text": ", and if you're an investigator, any checks you make to "
+          },
+          {
+            "type": "ref",
+            "id": "c3e8808d-49ed-5855-90ec-9b753ba89635"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       }
@@ -38994,7 +39228,23 @@
         "content": [
           {
             "type": "text",
-            "text": "If you're an investigator, you can use this activation as part of the action you take to Devise a Stratagem or Pursue a Lead, and you can do the latter even though you can't see the creature. You must choose the same creature you chose for Devise a Stratagem or Pursue a Lead."
+            "text": "If you're an investigator, you can use this activation as part of the action you take to "
+          },
+          {
+            "type": "ref",
+            "id": "5ac07788-c8ee-564f-ab8e-cd6c1a52e6c8"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "c3e8808d-49ed-5855-90ec-9b753ba89635"
+          },
+          {
+            "type": "text",
+            "text": ", and you can do the latter even though you can't see the creature. You must choose the same creature you chose for Devise a Stratagem or Pursue a Lead."
           }
         ]
       },
@@ -45038,21 +45288,7 @@
       "usage": {
         "type": "held",
         "hands": "two"
-      },
-      "staff": [
-        {
-          "rank": "cantrip",
-          "spells": ["bb73ff19-7c70-5f9f-8c0e-dbd71c099926"]
-        },
-        {
-          "rank": 1,
-          "spells": [
-            "adcc4c8f-05ae-5440-83d0-9e88ad22209b",
-            "b1ebbfda-a31b-56b3-95d3-ee7a4b4bc8c8",
-            "600c3684-32bc-5dbc-8b49-99924728c1cd"
-          ]
-        }
-      ]
+      }
     }
   },
   {
@@ -45273,7 +45509,11 @@
                 },
                 {
                   "type": "text",
-                  "text": ", Phantom Prison, Shared Invisibility"
+                  "text": ", Phantom Prison, "
+                },
+                {
+                  "type": "ref",
+                  "id": "cd231408-c98a-515b-b4bf-ec7600b5f32c"
                 }
               ]
             }
@@ -45550,7 +45790,11 @@
                 },
                 {
                   "type": "text",
-                  "text": ", Phantom Prison, Shared Invisibility"
+                  "text": ", Phantom Prison, "
+                },
+                {
+                  "type": "ref",
+                  "id": "cd231408-c98a-515b-b4bf-ec7600b5f32c"
                 }
               ]
             }
@@ -45880,7 +46124,15 @@
         "content": [
           {
             "type": "text",
-            "text": "The name of your beloved adorns this stylized image of a heart. An unbreakable heart tattoo can be received only at the end of a successful Heartbond ritual, serving as your token. The other participant can have a token other than a tattoo if they wish. If you have more than one "
+            "text": "The name of your beloved adorns this stylized image of a heart. An unbreakable heart tattoo can be received only at the end of a successful "
+          },
+          {
+            "type": "ref",
+            "id": "b6be88a1-ab7e-508c-ac01-e5a5591acdf5"
+          },
+          {
+            "type": "text",
+            "text": " ritual, serving as your token. The other participant can have a token other than a tattoo if they wish. If you have more than one "
           },
           {
             "type": "text",
@@ -46625,7 +46877,15 @@
           },
           {
             "type": "text",
-            "text": " The tattoo casts Thoughtful Gift."
+            "text": " The tattoo casts "
+          },
+          {
+            "type": "ref",
+            "id": "1061f43a-5cb3-5717-952b-c7fedf6e0df1"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       }
@@ -46731,7 +46991,15 @@
           },
           {
             "type": "text",
-            "text": " The tattoo casts Concordant Choir."
+            "text": " The tattoo casts "
+          },
+          {
+            "type": "ref",
+            "id": "904dd564-8ba8-5960-80eb-6f5c1ed7fd17"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       }
@@ -55336,7 +55604,34 @@
           },
           {
             "type": "text",
-            "text": ", Blasting Stone, Bottled Lightning, or Frost Vial. The next three attacks made with the weapon deal 1d4 damage of the bomb's damage type in addition to the weapon's normal damage. If the second and third attacks aren't all made within 1 minute of the first attack, the bomb's energy is wasted. These attacks never deal splash damage or other special effects of the bomb and aren't modified by any abilities that add to or modify a bomb's effect."
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "3b84ef7a-9109-5a3c-abee-f28f0ec18403",
+            "label": "Blasting Stone"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "cddda25a-f21f-55c6-9b35-638b5a9869ef",
+            "label": "Bottled Lightning"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "9d88fb91-b29d-51bd-aa41-7b44e1ef1f84",
+            "label": "Frost Vial"
+          },
+          {
+            "type": "text",
+            "text": ". The next three attacks made with the weapon deal 1d4 damage of the bomb's damage type in addition to the weapon's normal damage. If the second and third attacks aren't all made within 1 minute of the first attack, the bomb's energy is wasted. These attacks never deal splash damage or other special effects of the bomb and aren't modified by any abilities that add to or modify a bomb's effect."
           }
         ]
       },
@@ -57190,7 +57485,15 @@
           },
           {
             "type": "text",
-            "text": " The tattoo casts the Dragon Wings focus spell on you."
+            "text": " The tattoo casts the "
+          },
+          {
+            "type": "ref",
+            "id": "c39b2362-3615-59be-915d-ef624506077e"
+          },
+          {
+            "type": "text",
+            "text": " focus spell on you."
           }
         ]
       }
@@ -57365,7 +57668,15 @@
           },
           {
             "type": "text",
-            "text": " The tattoo casts the Dragon Wings focus spell on you."
+            "text": " The tattoo casts the "
+          },
+          {
+            "type": "ref",
+            "id": "c39b2362-3615-59be-915d-ef624506077e"
+          },
+          {
+            "type": "text",
+            "text": " focus spell on you."
           }
         ]
       },
@@ -57604,7 +57915,15 @@
           },
           {
             "type": "text",
-            "text": " The tattoo casts the Dragon Wings focus spell on you."
+            "text": " The tattoo casts the "
+          },
+          {
+            "type": "ref",
+            "id": "c39b2362-3615-59be-915d-ef624506077e"
+          },
+          {
+            "type": "text",
+            "text": " focus spell on you."
           }
         ]
       },

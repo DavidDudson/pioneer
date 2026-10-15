@@ -11,6 +11,8 @@ import {
   mwangiExpansePack,
   playerCore2Pack,
   playerCorePack,
+  rageOfElementsPack,
+  secretsOfMagicPack,
   treasureVaultPack,
   warOfImmortalsPack,
 } from './json-packs';
@@ -70,6 +72,8 @@ export const officialPacks: readonly PackContentsLoader[] = [
   checkedLoader('howl-of-the-wild', howlOfTheWildPack),
   checkedLoader('war-of-immortals', warOfImmortalsPack),
   checkedLoader('mwangi-expanse', mwangiExpansePack),
+  checkedLoader('secrets-of-magic', secretsOfMagicPack),
+  checkedLoader('rage-of-elements', rageOfElementsPack),
   checkedLoader('gm-core', gmCorePack),
 ];
 

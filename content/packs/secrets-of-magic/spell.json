@@ -1,0 +1,6462 @@
+[
+  {
+    "id": "f32dfe35-be2e-5d8f-aef9-971423bdcc9c",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:bandits-doom",
+    "name": "Bandit's Doom",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["concentrate", "curse", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You ward the target item against those who would steal it. When a creature attempts to take the target into its possession, it takes 8d8 mental damage and is doomed, depending on the result of its Will save. The spell then ends. You can choose up to 10 creatures when you cast this spell; if you do, those creatures can take the target item without triggering the ward. You can only have one "
+          },
+          {
+            "type": "text",
+            "text": "bandit's doom",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " active at a time. If you cast the spell again, the newer casting supersedes the older."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes half damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7",
+            "label": "Doomed 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes full damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7",
+            "label": "Doomed 2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes double damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7",
+            "label": "Doomed 3"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+2)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by 2d8."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.N9KjnGyVMKgqKcCw"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "time",
+        "count": 30,
+        "unit": "minute"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "month"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "divine", "occult"],
+      "damage": [
+        {
+          "key": "0",
+          "formula": "8d8",
+          "damageType": "mental",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 2,
+        "damage": [
+          {
+            "key": "0",
+            "formula": "2d8"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "6ec5e26a-c803-52f5-af50-b298d4a83700",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:boil-blood",
+    "name": "Boil Blood",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["concentrate", "fire", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You heat a foe's blood and boil it within its veins. The target takes 10d10 fire damage, with a Fortitude save. A nonliving creature with blood in its body (such as a vampire) can be affected, but a creature with no blood is immune."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes half damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes full damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes double damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 3"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by 1d10."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.fBoiPXmcIO50OFFR"
+    },
+    "data": {
+      "rank": 8,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 60
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:fortitude",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "primal"],
+      "damage": [
+        {
+          "key": "0",
+          "formula": "10d10",
+          "damageType": "fire",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "0",
+            "formula": "1d10"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "f0595ec8-8cad-5ce9-b86a-6543f7fe5eb1",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:catch-your-name",
+    "name": "Catch Your Name",
+    "level": 6,
+    "rarity": "rare",
+    "traits": ["manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature on your plane speaks your private or true name"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You know your own true name."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You learn a private name (but not the true name) of the creature who spoke your name, as well as their precise location, unless they succeed at a Will save to negate the effect. You are aware any time the trigger conditions are met as long as you have the spell prepared or in your repertoire. There is no way to distinguish one trigger of this spell from another without actually casting the spell. This can become a nuisance if you are so famous that your name is regularly on others' lips."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.FyOgUkq71LNC143w"
+    },
+    "data": {
+      "rank": 6,
+      "time": {
+        "type": "actions",
+        "cost": "reaction"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "divine", "occult", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "1f5f8f2d-666f-53e4-8098-b0331acb1bb0",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:chromatic-armor",
+    "name": "Chromatic Armor",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["concentrate", "light", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You wrap the target in armor made of sheets of colored light. The armor sheds bright light for 20 feet (and dim light for the next 20 feet). Whenever a creature attacks the target and is adjacent to it, the attacker must attempt a Will save at the end of its action. On a failure, it becomes "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " until the end of its next turn. Regardless of the result of the save, the attacker is temporarily immune until the end of its next turn. The dazzling effect has the light and visual traits."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you cast the spell, roll 1d8 twice on the table below to see the armor's colors (rerolling any duplicates). Each color grants resistance 5 to the indicated damage type. If you spend three actions to Cast the Spell, roll three times instead."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": true,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Red",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " fire"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Orange",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " acid"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Yellow",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " electricity"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Green",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " poison"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Blue",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " sonic"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Indigo",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " mental"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Violet",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " force"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Matching Color",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The armor becomes the color matching the type of damage the target took most recently in the past minute. If it didn't take any of those seven types of damage or the armor is already that color, roll again, rerolling any results of 8."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "640d1cf7-5f16-5370-8dfd-53f469e9c1c3"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+3)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The resistance is increased by 5."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.NBSBFHxBm88qxQUy"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "two",
+        "upTo": "three"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature",
+            "qualifiers": ["willing"]
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "a718090b-9917-514d-ac33-8a374b87c831",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:chromatic-image",
+    "name": "Chromatic Image",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["concentrate", "illusion", "manipulate", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You call forth three illusory images of yourself, and each of the four of you takes on a different color, your colors all shifting each time someone attacks you. This has the effects of Mirror Image, except that whenever a foe destroys one of the images, roll 1d4 to see which color the image was when it was destroyed. The attacker takes the corresponding effect."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": true,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Red",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "5",
+                      "damageType": "fire"
+                    },
+                    {
+                      "formula": "5",
+                      "damageType": "mental"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Orange",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "5",
+                      "damageType": "acid"
+                    },
+                    {
+                      "formula": "5",
+                      "damageType": "mental"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Yellow",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "5",
+                      "damageType": "electricity"
+                    },
+                    {
+                      "formula": "5",
+                      "damageType": "mental"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Green",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "5",
+                      "damageType": "poison"
+                    },
+                    {
+                      "formula": "5",
+                      "damageType": "mental"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage, plus it's "
+                },
+                {
+                  "type": "ref",
+                  "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+                  "label": "Frightened 1"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.FgRpddPORsRFwNoX"
+    },
+    "data": {
+      "rank": 6,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "01dc41ab-115a-5b38-a563-82e1779bf7b4",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:chromatic-ray",
+    "name": "Chromatic Ray",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["attack", "concentrate", "light", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You send out a ray of colored light streaming toward your enemy, with a magical effect depending on the ray's color. Make a spell attack roll. If you hit, roll 1d4 to see which beam you cast. If the ray deals damage, that damage is doubled on a critical hit. Any additional traits that apply to a ray are listed in parentheses just after the name of the color."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": true,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Red",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (fire) The ray deals "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "30",
+                      "damageType": "fire"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage to the target."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Orange",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (acid) The ray deals "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "40",
+                      "damageType": "acid"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage to the target."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Yellow",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (electricity) The ray deals "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "50",
+                      "damageType": "electricity"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage to the target."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Green",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (poison) The ray deals "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "25",
+                      "damageType": "poison"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage to the target, and the target must succeed at a Fortitude save or be "
+                },
+                {
+                  "type": "ref",
+                  "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+                  "label": "Enfeebled 1"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 minute ("
+                },
+                {
+                  "type": "ref",
+                  "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+                  "label": "Enfeebled 2"
+                },
+                {
+                  "type": "text",
+                  "text": " on a critical failure)."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (6th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage for "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "40",
+                "damageType": "fire"
+              }
+            ],
+            "label": "Red"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "50",
+                "damageType": "acid"
+              }
+            ],
+            "label": "Orange"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "60",
+                "damageType": "electricity"
+              }
+            ],
+            "label": "Yellow"
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "35",
+                "damageType": "poison"
+              }
+            ],
+            "label": "Green"
+          },
+          {
+            "type": "text",
+            "text": " each increase by 10. Roll 1d8 to determine the ray's color, using the results for 1-4 above and the results for 5-8 below."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": true,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Blue",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The ray has the effect of the "
+                },
+                {
+                  "type": "ref",
+                  "id": "86c529b1-5a2f-5bac-9c74-674544b5bd32"
+                },
+                {
+                  "type": "text",
+                  "text": " spell. On a critical hit, the target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+                  "label": "Clumsy 1"
+                },
+                {
+                  "type": "text",
+                  "text": " as long as it's "
+                },
+                {
+                  "type": "ref",
+                  "id": "13584c6a-a624-511c-a5de-0c36a9136b9e"
+                },
+                {
+                  "type": "text",
+                  "text": " by the "
+                },
+                {
+                  "type": "text",
+                  "text": "flesh to stone",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": " effect."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Indigo",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (emotion, incapacitation, mental) The ray has the effect of the "
+                },
+                {
+                  "type": "ref",
+                  "id": "f16d1dce-4fec-5ce3-982c-beead5f20615"
+                },
+                {
+                  "type": "text",
+                  "text": " spell. On a critical hit, it has the effect of "
+                },
+                {
+                  "type": "ref",
+                  "id": "1748638c-efed-5899-a084-68570d86b128"
+                },
+                {
+                  "type": "text",
+                  "text": " instead."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Violet",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "13584c6a-a624-511c-a5de-0c36a9136b9e"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 minute. It must also succeed at a will save or be teleported 120 feet directly away from you (if there isn't room for it to appear there, it appears in the nearest open space); this is a teleportation effect."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Intense Color",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+                },
+                {
+                  "type": "text",
+                  "text": " until the end of your next turn, or "
+                },
+                {
+                  "type": "ref",
+                  "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+                },
+                {
+                  "type": "text",
+                  "text": " if your attack roll was a critical hit. Roll again and add the effects of another color (rerolling results of 8)."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.Hb8GdAhP0zBCv3zU"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:fortitude",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "bacaa20c-a7ac-540f-9ef9-4f13432cfd90",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:compel-true-name",
+    "name": "Compel True Name",
+    "level": 4,
+    "rarity": "rare",
+    "traits": ["auditory", "concentrate", "incapacitation", "linguistic", "mental", "true-name"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You instruct the target to do something, compelling obedience by calling it by its true name. Your instructions can't be self-destructive. Though this spell has the linguistic trait, this applies only to the instructions; the creature doesn't need to know its own true name to be affected. The target must attempt a Will saving throw."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected, is temporarily immune to further castings of this spell by you for 1 week, and learns your true name."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected, is temporarily immune to further castings of this spell by you for 1 day, and learns a fragment of your true name."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target does as you command. The spell has a duration of 10 minutes, or until the target has completed a finite instruction or the instructions become selfdestructive. The creature is temporarily immune to further castings of this spell by you for 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but the spell's duration is 8 hours, and the creature is not temporarily immune."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.53Kw9WQtvrEtABEu"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "duration": {
+        "type": "varies"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "divine", "occult", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "a8fa51c5-f5b8-548f-8be4-367df447523e",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:corrosive-body",
+    "name": "Corrosive Body",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["acid", "concentrate", "manipulate", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You exhale corrosive gas, and acidic secretions coat your skin as you transform into a being of living acid. You gain acid immunity. Any creature that touches you or damages you with an unarmed melee attack or non-reach melee weapon takes 3d6 acid damage, and your unarmed attacks deal 1d4 additional acid damage. The first time each round that you deal acid damage to a creature in this way, you gain 3d6 Temporary Hit Points temporary Hit Points as your body digests the eroded material and transforms it into a protective acid. When the spell ends, any remaining temporary HP expires as well. Your acid spells deal one additional die of acid damage (of the same damage die the spell uses). You can cast Acid Splash as an innate spell; the splash damage affects all creatures within 15 feet instead of the normal 5 feet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "c4d03ed1-a601-5a84-a1a0-b9644fce0f9e"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (9th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Creatures touching you take 4d6 acid damage instead of 3d6, your unarmed attacks deal 2d4 additional acid damage, and you gain 5d6 Temporary Hit Points temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.9aFg4EuOBVz0i3Lb"
+    },
+    "data": {
+      "rank": 7,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "traditions": ["arcane", "primal"],
+      "damage": [
+        {
+          "key": "ezufcvepwgltk1pu",
+          "formula": "3d6",
+          "damageType": "acid",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "fixed",
+        "ranks": [
+          {
+            "rank": 9,
+            "damage": [
+              {
+                "key": "ezufcvepwgltk1pu",
+                "formula": "4d6",
+                "damageType": "acid",
+                "kinds": ["damage"]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "199aae58-d9c6-503e-b195-f29a1a3ffade",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:darklight",
+    "name": "Darklight",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "darkness", "focus", "manipulate", "shadow"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Shadows pour forth from your eyes, creating a field of darkness that prevents light from emanating within the area. Light doesn't enter the area; any non-magical light sources, such as a torches or lanterns, don't emanate any light while inside the area, even if their light radius would extend beyond the darkness. The spell similarly suppresses magical light of the spell's rank or lower."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Light can't pass through, so creatures in the area can't see outside. Even creatures with darkvision (but not greater darkvision) can barely see through the darkness; any creatures seen through the darkness are "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " to them. Creatures with greater darkvision can see through the darkness normally."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Creatures who move into the field or start their turn within the field have some of the life and light sucked out of them, taking 2d6 bludgeoning damage and 2d6 void damage, with a basic Fortitude save."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you cast this spell, choose up to four allies in the area to spare from "
+          },
+          {
+            "type": "text",
+            "text": "darklight's",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " effects. Until the spell ends, they're immune to damage from "
+          },
+          {
+            "type": "text",
+            "text": "darklight",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " spells and can see through "
+          },
+          {
+            "type": "text",
+            "text": "darklight",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " (but not other darkness) as though they had greater darkvision."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (10th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The bludgeoning and void damage both increase to 3d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.sFwoKj0TsacsmoWj"
+    },
+    "data": {
+      "rank": 7,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 120
+      },
+      "area": {
+        "shape": "burst",
+        "size": 20
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:fortitude",
+          "basic": true
+        }
+      },
+      "traditions": [],
+      "damage": [
+        {
+          "key": "0",
+          "formula": "2d6",
+          "damageType": "bludgeoning",
+          "kinds": ["damage"]
+        },
+        {
+          "key": "1",
+          "formula": "2d6",
+          "damageType": "void",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "fixed",
+        "ranks": [
+          {
+            "rank": 10,
+            "damage": [
+              {
+                "key": "0",
+                "formula": "3d6",
+                "damageType": "bludgeoning",
+                "kinds": ["damage"]
+              },
+              {
+                "key": "1",
+                "formula": "3d6",
+                "damageType": "void",
+                "kinds": ["damage"]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "6f98ea33-d33f-538a-b833-0debd3fe3687",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:distracting-chatter",
+    "name": "Distracting Chatter",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["auditory", "concentrate", "illusion", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You bombard a target with distracting auditory illusions, surrounding them with a tumultuous cacophony of overlapping speech, whispers, screams, and muttering. The target is "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": ", takes a -2 status penalty to purely auditory Perception checks, and must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 5
+          },
+          {
+            "type": "text",
+            "text": " to use auditory abilities or verbal spell components. Similarly, a creature who attempts to affect the target with an auditory effect must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 5
+          },
+          {
+            "type": "text",
+            "text": " or the attempt fails. The duration depends on the target's Will save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The duration is 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The duration is 3 rounds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The duration is 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (7th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can target up to five creatures."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.JHntYF0SbaWKq7wR"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "duration": {
+        "type": "varies"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": [],
+      "heightening": {
+        "type": "fixed",
+        "ranks": [
+          {
+            "rank": 7,
+            "targets": {
+              "any": [
+                {
+                  "count": 5,
+                  "of": "creature"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "6e1cd1fd-d87e-5a39-b8fe-5de73bad8880",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:draw-ire",
+    "name": "Draw Ire",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["concentrate", "emotion", "manipulate", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You cause mental distress to a creature, goading it to strike back at you. You deal 1d10 mental damage to the creature and cause it to take a -1 status penalty to attack rolls against creatures other than you. The creature must attempt a Will saving throw."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes half damage and the penalty. The spell ends at the end of the target's next turn. "
+          },
+          {
+            "type": "ref",
+            "id": "b335a981-53f6-5d39-9dcb-4545db78ed20"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes full damage and the penalty."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes double damage, and the status penalty is -2."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "6ae813c8-6c43-50b8-a2f8-94a1de595c0b"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by 1d10."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.jsWthW1Qy6tg3SwD"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 120
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": [
+        {
+          "key": "0",
+          "formula": "1d10",
+          "damageType": "mental",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "0",
+            "formula": "1d10"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "5f2c820b-a0a3-5019-93d4-761b18baee52",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:extract-poison",
+    "name": "Extract Poison",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "With the lightest touch, you can siphon the poison from an object and save it for your own later use, making an assassin's blade or politician's wine less deadly while you become all the more so. Attempt a counteract check against one poison you're aware of on or in an object you touch. If you successfully counteract the poison, you negate the object's toxicity and transfer the poison into a weapon you are holding, coating the weapon with a simple but powerful poison. On your next successful attack with that weapon before the end of your next turn, you add 1d6 poison damage per level of the poison you counteracted. On a critically failed attack roll, you lose the extracted poison from your weapon as normal."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "ff0cb43d-cbd8-544f-a67d-b6e98d6c292b"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.CLThxp8Qf43IQ3Sb"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "traditions": ["arcane", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "b60906e2-e80d-59a7-8883-4f63e846ccc9",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:flammable-fumes",
+    "name": "Flammable Fumes",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate", "poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sending magic deep underground, you conjure a cloud of toxic gases that swiftly degenerate into volatile fumes. The gases are invisible, requiring a successful Perception check against your spell DC to detect visually, though their acrid smell and toxic effects are clear once a creature has entered the cloud. A creature that enters the cloud or is within the cloud at the start of its turn takes 2d6 poison damage. A creature can take the poison damage from "
+          },
+          {
+            "type": "text",
+            "text": "flammable fumes",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " only once per round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "One round after you conjure the cloud, the gases loses stability and become flammable. If an open flame is brought into the cloud, or if anyone within the area uses a fire effect, the cloud detonates in a massive blaze that deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to all creatures within it with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save, and the spell ends."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+2)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The poison damage increases by 1d6 and the fire damage on an explosion increases by 2d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.6AqH5SGchbdhOJxA"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 120
+      },
+      "area": {
+        "shape": "burst",
+        "size": 20
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "traditions": ["arcane", "primal"],
+      "damage": [
+        {
+          "key": "0",
+          "formula": "2d6",
+          "damageType": "poison",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 2,
+        "damage": [
+          {
+            "key": "0",
+            "formula": "1d6"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "72720e08-9892-5014-96f6-04b9c33d0bfa",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:forceful-hand",
+    "name": "Forceful Hand",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["concentrate", "force", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A Medium floating, disembodied hand made of magical force appears in an unoccupied space adjacent to you, following you across the battlefield to shield you against your foes' attacks. Each time you Sustain the Spell, the hand moves to an unoccupied space of your choice adjacent to you. When you Sustain the Spell, you can have the hand Fly to an unoccupied space of your choice adjacent to an ally to protect that ally instead. The hand's movement does not trigger reactions based on creature movement. The "
+          },
+          {
+            "type": "text",
+            "text": "forceful hand",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " occupies its space, but creatures can move through the hand freely."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Successful attacks against the hand damage it, and damaging effects that can target a creature can target the hand. The hand has an AC of 25, 50 Hit Points, and can't recover HP by any means. A hit by a "
+          },
+          {
+            "type": "text",
+            "text": "disintegrate",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " spell or similar effect destroys the hand."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The hand's actions and the cover it provides depend on what actions you take during your turn. At the end of your turn, what the hand does is determined by the first entry on this list that matches a trait from any of the actions you used on your turn. For instance, if you Step, Stride, and Sustain the Spell, you use the entry for move actions, so the hand provides standard cover."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Manipulate or Attack",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The hand interposes between you and your foes. It provides lesser cover (+1 circumstance bonus to AC) against all attacks that pass through the hand's square."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Move",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The hand provides standard cover (+2 circumstance bonus to AC, Reflex, and Stealth checks) against all attacks that pass through the hand's square."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Concentrate",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The hand provides greater cover (+4 circumstance bonus to AC, Reflex, and Stealth checks) against all attacks that pass through the hand's square."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (6th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The hand has AC 27 and 60 Hit Points. When you Cast this Spell, you can choose to replace the hand's Manipulate or Attack option with Swat."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Swat",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The hand Flies to an enemy of your choice within range and attempts to Push that enemy, using your spell attack roll instead of an Athletics check to determine the results of the Push."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (7th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The hand has AC 30 and 70 Hit Points, and it is Large. When you Cast this Spell, you can choose to replace the hand's Manipulate or Attack option with Grasp or Swat."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Grasp",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The hand Flies to an enemy of your choice within range and attempts to Grapple that enemy, using your spell attack roll instead of an Athletics check to determine the results of the Grapple."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (8th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The hand has AC 32 and 80 Hit Points, and it is Large. When you Cast this Spell, you can choose to replace the hand's Manipulate or Attack option with Grasp, Punch, or Swat."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Punch",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The hand Flies to an enemy of your choice within range and attempts to Strike that enemy with crushing force. The hand's Strikes use your melee spell attack modifiers and deal "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "7d8",
+                      "damageType": "force"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage. The hand's Strikes don't use or contribute to your multiple attack penalty."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (9th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The hand has AC 35 and 90 Hit Points, and it is Large. When you Cast this Spell, you can choose to replace the hand's Manipulate or Attack option with Crush, Grasp, Punch, or Swat."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Crush",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " If the hand doesn't have a target grabbed, it Flies to an enemy of your choice within range and attempts to Strike that enemy with deadly crushing force. The hand's Strikes are melee spell attacks that deal "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "6d8",
+                      "damageType": "force"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage. The hand's Strikes don't take or contribute to your multiple attack penalty. On a successful Strike, the target is grabbed by the hand until the end of your next turn, unless the hand moves or the target successfully Escapes against your spell DC. However, if the hand has a target grabbed when it uses Crush, it instead Constricts the target, dealing "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "6d8",
+                      "damageType": "force"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage with a basic Fortitude save."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.rMGkk23qWvxTmgA8"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 60
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "328a0133-e342-50da-b3ad-866269d5da54",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:glimmer-of-charm",
+    "name": "Glimmer of Charm",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["aura", "concentrate", "emotion", "incapacitation", "manipulate", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're bathed in a smooth, almost glittering aura that improves the attitude of those near you. Any creature that ends its turn in the aura must attempt a Will saving throw with the following effects. No matter the result, it's then temporarily immune for 24 hours. The effect lasts until the spell ends, even after the creature leaves the aura."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected and is aware of the aura."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature's attitude toward you improves by one step. If that improves its attitude to at least "
+          },
+          {
+            "type": "ref",
+            "id": "44d39747-aad3-5b73-a493-af78cda98eef"
+          },
+          {
+            "type": "text",
+            "text": ", it can't take hostile actions against you, though the effect ends as soon as you take a hostile action against the creature or its allies."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature's attitude toward you improves by two steps. It can't take hostile actions against you, though the effect ends as soon as you take a hostile action against the creature or its allies."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature's attitude becomes "
+          },
+          {
+            "type": "ref",
+            "id": "3f0ec457-8edb-5a4d-b6b9-bafc0ee9311f"
+          },
+          {
+            "type": "text",
+            "text": " to you, though the effect ends as soon as you take a hostile action against the creature or its allies. While the creature is helpful, it can't take hostile actions against you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.ftZ750SD2iIJKIy3"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "area": {
+        "shape": "emanation",
+        "size": 20
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "occult", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "cb7f100e-5318-58f1-ae56-8a052082c320",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:healing-plaster",
+    "name": "Healing Plaster",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["cantrip", "earth", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You purify some dirt or mud into a pliable, claylike plaster that can aid in clotting and healing. This restorative substance can be used in lieu of healer's tools for Medicine checks to Administer First Aid or Treat Wounds. If the plaster isn't used within the spell's duration, or if you Cast the Spell again before using the plaster, it reverts to being normal non-magical earth."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (3rd)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The plaster grants anyone using it to Administer First Aid or Treat Wounds a +1 item bonus to the Medicine check."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.m5QS8q5M6K0euKcT"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "one"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 5
+      },
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute"
+      },
+      "traditions": ["primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "437df595-c36d-5c61-88b4-b4f78d3ca7a3",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:impending-doom",
+    "name": "Impending Doom",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["concentrate", "emotion", "fear", "incapacitation", "manipulate", "mental", "prediction"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You sift through myriad potential futures, seize upon one potential moment in which the target meets a particularly gruesome and fatal end, and then show it a vision of its impending demise. The intense mental vision grows more and more terrifying to the target as the doom grows closer, and it takes 3 rounds to reach its conclusion. The target must attempt a Will saving throw to determine the effects. At the end of the spell's duration, if the target was affected, the target witnesses its death and takes 6d6 mental damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected for 1 round. On the second round, it becomes "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": ". Finally, on the third round, it becomes "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 1"
+          },
+          {
+            "type": "text",
+            "text": ". At the end of the third round, it takes half damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is immediately off-guard. On the second round, it becomes "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": ". Finally, on the third round, it also becomes "
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+            "label": "Stunned 1"
+          },
+          {
+            "type": "text",
+            "text": ". At the end of the third round, the creature takes full damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is immediately off-guard and "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 3"
+          },
+          {
+            "type": "text",
+            "text": ". On the second round, it becomes stunned 1. Finally, on the third round, it also becomes "
+          },
+          {
+            "type": "ref",
+            "id": "7802f1d9-5ced-5b9b-8a08-98ec0adb9947"
+          },
+          {
+            "type": "text",
+            "text": ". At the end of the third round, the creature takes double damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by 2d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.rfFZKfeCSweFv7P3"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature",
+            "qualifiers": ["living"]
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 3,
+        "unit": "round"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "divine", "occult"],
+      "damage": [
+        {
+          "key": "0",
+          "formula": "6d6",
+          "damageType": "mental",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "0",
+            "formula": "2d6"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "a8a36963-c093-5fa8-b1c3-701f8385f853",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:inexhaustible-cynicism",
+    "name": "Inexhaustible Cynicism",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["concentrate", "emotion", "manipulate", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You inflict your targets with a crushing doubt about everyone and everything around them. For the duration, each target is unwilling to receive any effects that require a willing target (in case the effect was secretly an attack), refuse to ingest anything (in case the substances have been replaced with poisons and cursed duplicates), doesn't treat anyone as an ally (in case its friends were replaced by an impostor), and doesn't believe anything it's told (in case of lies, though this doesn't mean the creature automatically believes the opposite either). It doesn't even fully trust its own ability to Recall Knowledge, as it becomes convinced it most likely remembered false information, as from a critical failure on a check to Recall Knowledge."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Finally, the creature takes 6d6 mental damage at the end of each of its turns (with no save) unless it spent at least 1 action that turn Seeking or otherwise interacting with its surroundings in an attempt to disbelieve the illusions that it feels are obviously surrounding it."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is affected for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is affected for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is affected for 1 hour."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.gMbrNFKz9NP3TR4s"
+    },
+    "data": {
+      "rank": 7,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 5,
+            "upTo": true,
+            "of": "creature"
+          }
+        ]
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "divine", "occult"],
+      "damage": [
+        {
+          "key": "0",
+          "formula": "6d6",
+          "damageType": "mental",
+          "kinds": ["damage"]
+        }
+      ]
+    }
+  },
+  {
+    "id": "44c32030-3b8b-517a-98eb-20983f35ad30",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:inscrutable-mask",
+    "name": "Inscrutable Mask",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "illusion", "manipulate", "shadow"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You shroud your form and features in an impenetrable mask of shadow. The mask grants you a +1 status bonus to Deception checks to "
+          },
+          {
+            "type": "ref",
+            "id": "1ee7b671-dd18-5950-a4db-fbd4f8dae832"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "8b950c56-7b5d-5063-9439-adb52a323cd9"
+          },
+          {
+            "type": "text",
+            "text": ", Intimidation checks to "
+          },
+          {
+            "type": "ref",
+            "id": "2a3671d0-7d0b-53db-8648-861d457f0175"
+          },
+          {
+            "type": "text",
+            "text": ", and Stealth checks to "
+          },
+          {
+            "type": "ref",
+            "id": "5a86b7d0-fc0e-52a6-9b0d-fb58ed15233d"
+          },
+          {
+            "type": "text",
+            "text": " in areas of dim light or darkness."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (6th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The status bonus increases to +2."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (9th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The status bonus increases to +3."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "387ee6b7-09b4-58ca-8aaa-8b5764ca81c6"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.YQWq1DZuLRk32M3h"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute"
+      },
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
+    "id": "5c4b6202-0c92-5303-84ab-5fcadebbceb3",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:invisibility-curtain",
+    "name": "Invisibility Curtain",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["concentrate", "illusion", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You create a transparent invisible wall that makes any creatures on one side of the wall invisible to those on the other side. You choose which side of the wall provides invisibility to the creatures on that side when you cast the spell. You create either a 1-inch-thick wall in a straight line up to 60 feet long and 10 feet high or a 1-inch-thick, 10-foot-radius ring with the same height. The wall is intangible and stands vertically in either of the two forms. If you wish to do so, you can create the wall with a shorter length or height, or with a smaller radius. Any creature that crosses the wall becomes visible or invisible as appropriate, and it's visible if any portion of it is on the visible side of the wall. If a creature rendered invisible by the wall takes a hostile action, the spell ends after the hostile action is completed."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (7th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The spell doesn't end if an invisible creature takes a hostile action."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.a8xXWCQhIR7o6IvP"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 120
+      },
+      "duration": {
+        "type": "sustained"
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "540ff231-780e-5ad6-b8a2-c0d966371519",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:invoke-true-name",
+    "name": "Invoke True Name",
+    "level": 1,
+    "rarity": "rare",
+    "traits": ["cantrip", "concentrate", "true-name"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You speak the true name of a creature to more surely affect it with your magic. Until the end of the current turn, the target is "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " against your spells and takes a -2 circumstance penalty to saving throws against your spells. In addition, the first time this turn the target takes damage from one of your spells, it has weakness to that damage equal to double the rank of "
+          },
+          {
+            "type": "text",
+            "text": "invoke true name",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.09C2wvWZLCxwjINk"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "one"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "traditions": ["arcane", "divine", "occult", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "42e74158-6240-57aa-bbb5-001bc1abd847",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:mimic-undead",
+    "name": "Mimic Undead",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take death and wrap it about you like a cloak-your colors wash out and your skin grows cold to the touch. Your heartbeat, breathing, and similar life functions become very difficult to detect. Senses such as lifesense detect you as undead unless a creature succeeds at a Perception check against the spell's DC, and on a failed check, they don't detect you at all if they only sense living creatures. Detection spells that specifically sense living creatures must succeed at a counteract check against "
+          },
+          {
+            "type": "text",
+            "text": "mimic undead",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to detect you. You gain a +4 status bonus to Impersonate an undead but physically intact version of yourself and can add your level as your proficiency bonus even if you're untrained. You don't gain these benefits to Impersonate any other sort of undead. Mindless undead usually don't have a reason to even attempt the Perception check to notice your Impersonation unless you interact with them in some way."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "8dae124f-f7da-59fd-ac6f-a5d1062ab50a"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.xlRv8vCTHh1NeMpw"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute"
+      },
+      "requirements": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You're a living creature"
+            }
+          ]
+        }
+      ],
+      "traditions": ["divine", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "b0596304-ecc4-5b5b-b922-0c66b08ad6e6",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:mirrors-misfortune",
+    "name": "Mirror's Misfortune",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["concentrate", "illusion", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You split into your real self and a mirrored version of yourself that curses would-be attackers with misfortune on their next attacks. When you cast this spell, you seem to split in two. As you do, you can Step to any adjacent square. In either your initial square, or another square adjacent to your initial square, an exact illusory duplicate of you appears. You decide a simple course of action for the duplicate to follow, such as to walk to a specific point or wave its hands in the air, but more complex routines are beyond its abilities. A creature can distinguish between you and the duplicate only if it spends an action to Seek and succeeds at a Perception check against the spell's DC."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If a creature takes a hostile action against the duplicate, the illusion shatters into mirrorlike shards, inflicting bad luck on the attacker's next few attacks as misfortune's toll for shattering the mirror. The attacker must attempt a Will save with the following effects; this is a curse and misfortune effect. When the duplicate shatters, the spell ends."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Within the next hour, the creature must roll its next two attack rolls twice and take the lower result."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Within the next hour, the creature must roll its next four attack rolls twice and take the lower result."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.A7w3YQBrFNH8KYsB"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "c5126384-c459-5312-88b5-530c478d006d",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:ocular-overload",
+    "name": "Ocular Overload",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["concentrate", "contingency", "illusion", "incapacitation", "manipulate", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Just as a creature is about to attack you, you assault them with jarring illusions, completely surrounding their eyes with blinding flashes of motion and color. When the spell is complete, you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "5adb2fb7-c421-51f5-a9fc-be20ac66dbd7"
+          },
+          {
+            "type": "text",
+            "text": " reaction; once you use the reaction, the spell ends."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "check",
+            "statistic": "save:fortitude"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.HvBpSeUDg0KcK2Hg"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute"
+      },
+      "duration": {
+        "type": "time",
+        "count": 24,
+        "unit": "hour"
+      },
+      "traditions": ["arcane", "occult", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "c2f26a10-83f4-54f2-98b6-25d100d62507",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:oneiric-mire",
+    "name": "Oneiric Mire",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["concentrate", "illusion", "manipulate", "mental", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You shroud an area in illusory dreamstuff, making the ground look and feel like a deep mire or quicksand. Ground in the area is difficult terrain."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each creature in the area when the spell is cast, or that enters the area, must attempt a Will save. On a failure, it believes it's being pulled down by the earth, taking a –10-foot circumstance penalty to its Speeds. On a critical failure, it's also "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": ". In addition to the normal actions to Escape, at the end of an affected creature's turn, it can attempt a Will save, removing the effects on a success. On a critical success at any Will save made against oneiric mire, the creature fully disbelieves the illusion and no longer needs to make Will saves to risk a Speed penalty or being immobilized, though the area is still difficult terrain."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.87zLUuTMmZ9zc7gH"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 120
+      },
+      "area": {
+        "shape": "burst",
+        "size": 20
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "occult", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "b52cc865-189b-53cc-97e6-190e25feb6bb",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:ooze-form",
+    "name": "Ooze Form",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You invoke all things that seep and ooze, your body dissolving into a thick slurry and then reconstituting itself into a Medium ooze battle form. When you first cast this spell, choose black pudding, gelatinous cube, gray ooze, or ochre jelly. While in this form, you gain the ooze trait. You can Dismiss the spell. You gain the following statistics and abilities regardless of which battle form you choose:"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "AC = 7 + your level. Ignore your armor's check penalty and Speed reduction."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "20 temporary Hit Points."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You are immune to critical hits, precision damage, and visual effects."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Resistance 5 to acid, piercing, and slashing damage."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "No vision and motion sense 30 feet. You can sense nearby motion through vibration and air movement as a precise sense."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "One or more unarmed melee attacks specific to the battle form you choose, which are the only attacks you can Strike with. You're trained with them. Your attack modifier is +14, and you use the listed damage. These attacks are Strength based (for the purpose of the enfeebled condition, for example). If your unarmed attack modifier is higher, you can use it instead."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Athletics modifier of +14, unless your own is higher."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You also gain specific abilities based on the ooze:"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Black Pudding",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Speed 15 feet, climb 15 feet;"
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Melee",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "action-cost",
+                        "cost": "one"
+                      },
+                      {
+                        "type": "text",
+                        "text": " pseudopod, "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Damage",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " 2d6+5 bludgeoning and 1d8 acid."
+                      }
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Gelatinous Cube",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Speed 15 feet;"
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Melee",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "action-cost",
+                        "cost": "one"
+                      },
+                      {
+                        "type": "text",
+                        "text": " cube face, "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Damage",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " 1d6+5 acid;"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "a creature hit by your cube face Strike must succeed at a Fortitude save against your spell DC or be "
+                      },
+                      {
+                        "type": "ref",
+                        "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+                        "label": "Stunned 1"
+                      },
+                      {
+                        "type": "text",
+                        "text": " (or "
+                      },
+                      {
+                        "type": "ref",
+                        "id": "7802f1d9-5ced-5b9b-8a08-98ec0adb9947"
+                      },
+                      {
+                        "type": "text",
+                        "text": " for 1 round on a critical failure); this save has the incapacitation trait."
+                      }
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Gray Ooze",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Speed 15 feet, climb 15 feet, swim 15 feet"
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Melee",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "action-cost",
+                        "cost": "one"
+                      },
+                      {
+                        "type": "text",
+                        "text": " pseudopod, "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Damage",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " 1d6+5 bludgeoning and 1d6 acid, and you can spend an action after a hit to Grab the target."
+                      }
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ochre Jelly",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Speed 15 feet, climb 10 feet; resistance 5 to electricity;"
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Melee",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "action-cost",
+                        "cost": "one"
+                      },
+                      {
+                        "type": "text",
+                        "text": " pseudopod, "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Damage",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " 1d8+5 bludgeoning and 1d8 acid, and you can spend an action after a hit to Grab the target."
+                      }
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "530845cf-8d89-5ad4-b354-3788933fe55b"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (4th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your battle form is Large, and your attacks have 10-foot reach. You must have enough space to expand into or the spell is lost. You instead gain 30 temporary HP; resistance 7 to acid, piercing, and slashing; attack modifier +16; damage bonus +9; and Athletics +16. Your motion sense has a range of 40 feet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (5th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your battle form is Huge, and your attacks have 15-foot reach. You must have enough space to expand into or the spell is lost. You instead gain 40 temporary HP; resistance 10 to acid, piercing, and slashing; attack modifier +18; damage bonus +6 and double damage dice; and Athletics +20. Your motion sense has a range of 60 feet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (8th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your battle form is Gargantuan (20-foot- by-20-foot space), and your attacks have 20-foot reach. You must have enough space to expand into or the spell is lost. You instead gain 60 temporary HP; resistance 12 to acid, piercing, and slashing; attack modifier +28; damage bonus +13 and double damage dice; and Athletics +29. Your motion sense has a range of 60 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.0gdZrT9lwO17EIxc"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "3f066ca4-7ad6-50de-9a67-6034980216dc",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:organsight",
+    "name": "Organsight",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate", "revelation"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You see the target as though it's dissected and arrayed before you. For the duration, you gain a +2 circumstance bonus on Medicine checks against the target that depend on its organs, but a -2 circumstance penalty on Medicine checks depending on seeing its skin."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you Cast the Spell, attempt a special Recall Knowledge check using Medicine to spot and discern a vital organ. If you have a Lore skill appropriate to the creature, you can use that skill instead of Medicine. If you succeed, the next time you deal piercing or slashing damage to the target with a Strike or spell, you deal 4d6 additional precision damage. Once on each of your subsequent turns, you can use a single action to attempt the special Recall Knowledge check again. The extra damage isn't cumulative, so making the check more than once before a Strike or spell has no extra benefit."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "6648ab85-040f-581b-964b-62095529218e"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The precision damage increases by 1d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.bH9cH9aDByY91l1d"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "traditions": ["arcane", "divine", "occult", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "436022dd-9958-5c2b-87b9-536f83d88517",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:portrait-of-the-artist",
+    "name": "Portrait of the Artist",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["concentrate", "illusion", "manipulate", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You change your appearance to look like a well-known artist talented at a particular craft or performance, such as a painter, singer, or orator, with the effects of illusory disguise. Additionally, you appear to mimic their skill, although such appearances are merely an illusion. If they are famous for physical art, the spell creates illusions of physical artwork matching their style, and onlookers who don't disbelieve are convinced these works are as impressive as the real thing. If they are famous for their ability to perform, you create an illusory performance that tricks onlookers into thinking you are as skillful as the performer you're pretending to be. The audience can disbelieve this spell if they interact with your art or actively listen to the performance, using either Perception or an appropriate Lore, whichever is higher. When the duration ends, any fake art disappears, and those who were duped by a performance realize it wasn't as good as they thought, though they still might not discover that you weren't really the artist you claimed to be."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This spell can't grant you any benefits from special abilities that take such skill they require a Performance check, such as the lingering performance focus spell. Using the spell to maintain the ruse long enough to Earn Income from your art is also quite difficult; because it requires careful timing and repeated deceit, it can't be assumed to automatically work on an Earn Income check."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.CuRat8IXBUu9C3Yw"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour"
+      },
+      "traditions": ["occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "84c67cbc-04fd-5e18-b982-aeaae7853483",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:positive-attunement",
+    "name": "Positive Attunement",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["concentrate", "healing", "manipulate", "vitality"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You attune a creature to the Forge of Creation, connecting its life force without fully transporting it. The creature's appearance becomes more brightly colored. If the creature is living, it heals 1d8 Hit Points immediately and at the end of each of your turns. Effects that increase healing only increase the initial healing."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the creature is undead or has void healing, it instead takes 1d8 vitality damage, depending on the result of its Will save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is damaged once and the spell ends."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is damaged immediately and at the end of each of your turns (so twice in the round you Cast the Spell)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, and the damage is doubled."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+3)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage and healing each increase by 1d8."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.9iJaD4S7ptUeq5vO"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "traditions": ["divine", "primal"],
+      "damage": [
+        {
+          "key": "0",
+          "formula": "1d8",
+          "kinds": ["healing"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 3,
+        "damage": [
+          {
+            "key": "0",
+            "formula": "1d8"
+          }
+        ]
+      },
+      "variants": [
+        {
+          "name": "Positive Attunement (Damage)",
+          "defense": {
+            "save": {
+              "statistic": "save:will",
+              "basic": false
+            }
+          },
+          "damage": [
+            {
+              "key": "0",
+              "formula": "1d8",
+              "damageType": "vitality",
+              "kinds": ["damage"]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "531b524b-003d-58b7-82ae-47b683327b4e",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:prismatic-armor",
+    "name": "Prismatic Armor",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["concentrate", "light", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You wrap the target in armor made of multicolored light. It functions as "
+          },
+          {
+            "type": "ref",
+            "id": "1f5f8f2d-666f-53e4-8098-b0331acb1bb0"
+          },
+          {
+            "type": "text",
+            "text": " that is all colors (granting resistance 5 to acid, electricity, fire, force, mental, poison, and sonic). An attacker that critically fails on its saving throw against the spell is "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": " rather than "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "fc25511f-33b4-5d48-ac58-1b746f677c13"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (9th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The resistances increase to 10 each."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.4nEY2BcV85wavKLO"
+    },
+    "data": {
+      "rank": 7,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature",
+            "qualifiers": ["willing"]
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "0b0a883e-fad7-5ac6-8114-44f5867eafce",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:proliferating-eyes",
+    "name": "Proliferating Eyes",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate", "scrying"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You implant an "
+          },
+          {
+            "type": "ref",
+            "id": "53cf375b-c3fa-5d92-afde-135a3c001674"
+          },
+          {
+            "type": "text",
+            "text": ", magical eye sensor on the target's body. The eye has sight and vision, but no other special senses. The eye is highly contagious-the first two times the target touches another creature during the duration, the spell buds off an additional eye that implants itself on that creature, which can then bud off two eyes of its own. This process can propagate up to four times from the original target, for a potential maximum of 31 eyes if each affected creature touches two new creatures."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can switch between perceiving through your own senses or the vision of any of the eye sensors using a single action, which has the concentrate trait. You always know how many eyes there are and can tell which original eyes budded off to make which new eyes, though you gain no special insight into the identity of the new targets other than what you can glean from spying on them."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.coKiMMBLESkaLNVa"
+    },
+    "data": {
+      "rank": 9,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "duration": {
+        "type": "time",
+        "count": 8,
+        "unit": "hour"
+      },
+      "traditions": ["arcane", "divine", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "9e8a8a2b-375e-53a2-88d3-8e41c4a3b117",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:rapid-adaptation",
+    "name": "Rapid Adaptation",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You flood the target with energy from the terrain around it, compressing centuries of evolution into a single moment. The target gains one of the following natural adaptations based on the surrounding environment."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Aquatic",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The target gains a swim Speed equal to its land Speed. If it already had a swim Speed, it gains a +10-foot status bonus to its swim Speed."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Arctic",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The target isn't affected by severe or extreme cold, and when it rolls a success on an Acrobatics check to Balance on ice and snow, it gets a critical success instead."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Desert",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The target isn't affected by severe or extreme heat, and when it rolls a success on an Acrobatics check to Balance on sand, it gets a critical success instead."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Forest",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The target gains scent as an imprecise sense with a range of 30 feet."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Mountain",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The target isn't "
+                },
+                {
+                  "type": "ref",
+                  "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+                },
+                {
+                  "type": "text",
+                  "text": " when Climbing, and when it rolls a success on an Acrobatics check to Balance on rubble, it gets a critical success instead."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Plains",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The target gains a +10-foot status bonus to its land Speed."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Underground",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The target gains darkvision."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "53bfe698-65ec-5202-bd78-d56393e56ffc"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.fTK6ysisGhy3hRvz"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour"
+      },
+      "traditions": ["primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "c5cab317-6c75-51dc-8b9c-57fdfc633008",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:ravenous-portal",
+    "name": "Ravenous Portal",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You place a ward upon the door that triggers when a creature attempts to open, unlock, or destroy the door. When that happens, the door transforms into a Mimic that can't move and is hostile to all creatures. When Casting the Spell, you designate yourself and up to 10 other creatures of your choice; these creatures don't trigger the ward, and the mimic is helpful to them instead of hostile. No effect can move the mimic unless it's also capable of moving the entire door. Once the door transforms into a mimic, it attacks creatures in its reach for up to 1 minute, and then the spell ends. If the mimic is killed before that time, the spell ends and the door returns to its normal form."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While turned into a mimic, the door can't be opened, unlocked, or bypassed-not even by the designated creatures. It's a creature, not a door, during that time. When the spell ends, the door returns to the state it was in before the ward was triggered."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.ER1LOEgCLtmEKd05"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour"
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "8ad22f9a-cf4d-52da-99ed-7950c4ce586a",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:repelling-pulse",
+    "name": "Repelling Pulse",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["concentrate", "force", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You unleash a powerful pulse of telekinetic power, and the pulse violently hurls creatures away from you. Each creature in the area takes 7d10 force damage depending on its Reflex save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes half damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes full damage and is pushed 10 feet away from you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes double damage. The creature is pushed 20 feet away from you and is then knocked "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+2)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The force damage increases by 2d10, and the distance the target is moved on a failure and critical failure increases by 5 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.TLqMFgCewxuricJw"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "area": {
+        "shape": "emanation",
+        "size": 30
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:reflex",
+          "basic": false
+        }
+      },
+      "traditions": ["divine", "occult"],
+      "damage": [
+        {
+          "key": "0",
+          "formula": "7d10",
+          "damageType": "force",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 2,
+        "damage": [
+          {
+            "key": "0",
+            "formula": "2d10"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "be0c9bfb-41e4-51b2-8f30-ec74e5d2043d",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:replicate",
+    "name": "Replicate",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["concentrate", "illusion", "manipulate", "shadow"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You create an illusory magical double that physically looks and behaves very similarly to the target. This double is limited to moving, Interacting, speaking short sentences, and other similar basic tasks. It is unable to cast spells, attack, or use any complex skills."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The illusory duplicate is your minion. You can issue new commands to the double as part of Sustaining the Spell. You can command the duplicate telepathically as long as the spell lasts, provided it's within 1 mile of you. You can switch between using your own senses and the duplicate's senses with a single action, which has the concentrate trait. The illusory duplicate has the same statistics as the original creature, except it doesn't have any of the original's item bonuses, and it has one quarter of the original's Hit Points. If the double's Hit Points are reduced to 0, the spell ends."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The maximum level of the target increases by 2."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.srEKUvym9kDVbEhD"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 60
+      },
+      "duration": {
+        "type": "sustained"
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "d463be96-fdf4-58b2-b560-2489ad2ca28f",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:shift-blame",
+    "name": "Shift Blame",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["concentrate", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You or another creature attacks a creature or fails at a Deception, Diplomacy, or Intimidation check."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You alter the target's memories of the triggering event as they form. You choose another creature (which can be you) with the capacity to make the triggering attack or skill check, and you alter the target's memories to recall the creature you chose as responsible for the triggering attack or skill check. The target must attempt a Will save and is then temporarily immune for 24 hours."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target knows you attempted to alter its memories."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target doesn't realize you attempted to alter its memories, though it knows you cast a spell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You successfully alter the target's memory. It isn't forced to react to the new memories in a particular way, and it's likely to question them if they contradict other information it knows or are implausible for the situation."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.lONs4r14LEBZRLLw"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "reaction"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "763a1a14-e09b-5450-b43c-1042449e89be",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:spiritual-attunement",
+    "name": "Spiritual Attunement",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You attune yourself to a spiritual plane of the Outer Sphere, connecting your spirit without fully transporting to it. Your Strikes and spells gain the alignment traits of the plane you chose, which deals additional damage to creatures with a weakness to either of those alignment traits. Furthermore, the plane protects you from energy of the alignments that oppose the plane. You gain resistance 5 to damage of the alignments that oppose those of your chosen plane. For example, if you chose Heaven, your Strikes would gain the good and lawful traits, and you would gain resistance to chaotic and evil. If you choose the Boneyard, the resistance is to vitality and void damage instead."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+2)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The resistance increases by 5."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The nine main planes of the Outer Sphere are the homes of many deities, celestials, monitors, and fiends. Their names, along with their alignments, are: Heaven (LG), Nirvana (NG), Elysium (CG), Axis (LN), the Boneyard (N), the Maelstrom (CN), Hell (LE), Abaddon (NE), and the Abyss (CE)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.GjmMFEJcDd6MDG2P"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "traditions": ["divine", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "670011c9-6df7-582e-8dfd-643fa899319d",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:sudden-recollection",
+    "name": "Sudden Recollection",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "manipulate", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You place a bit of knowledge deep in a creature's subconscious or make a willing creature forget some information until a specific trigger occurs. The target gets a Will saving throw to resist the effect. A willing creature can choose to fail its save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected and realizes you tried to alter its memory."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected but thinks your spell was something harmless instead of sudden recollection, unless it identifies the spell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You choose a piece of information the target didn't already know and create a trigger, such as seeing an object, hearing a key phrase, or witnessing an event. As soon as the target experiences the trigger, it receives the information and the spell ends. If the target was willing, you can instead choose a piece of information the target already knew and suppress its memory of that information until it experiences the trigger, after which it recovers the information and the spell ends."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.h5cMTygLpjY3IEF0"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "duration": {
+        "type": "unlimited"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "26567f0b-bc6e-5a6c-89d8-e1e6fe75a862",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:summon-anarch",
+    "name": "Summon Anarch",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You conjure a chaotic celestial, monitor, or fiend to fight on your behalf. You summon a common chaotic creature that has the celestial, monitor, or fiend trait and whose level is 5 or lower. You can't summon a creature unless its alignment is one of your deity's preferred alignments (or, if you don't have a deity, is within one step of your alignment). At the GM's discretion, some deities might restrict specific types of creatures, even if their alignments match. Heightening the spell increases the maximum level of creature you can summon."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (6th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Level 7."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (7th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Level 9."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (8th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Level 11."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (9th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Level 13."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (10th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Level 15."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.n8ckecJpatSBEp7M"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "traditions": ["divine"],
+      "damage": []
+    }
+  },
+  {
+    "id": "0378826b-b43f-53e1-8675-db27a2e5e111",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:summon-axiom",
+    "name": "Summon Axiom",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You conjure a lawful celestial, monitor, or fiend to fight on your behalf. You summon a common lawful creature that has the celestial, monitor, or fiend trait and whose level is 5 or lower. You can't summon a creature unless its alignment is one of your deity's preferred alignments (or, if you don't have a deity, is within one step of your alignment). At the GM's discretion, some deities might restrict specific types of creatures, even if their alignments match. Heightening the spell increases the maximum level of creature you can summon."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (6th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Level 7."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (7th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Level 9."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (8th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Level 11."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (9th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Level 13."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (10th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Level 15."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.ba12fO37w7O37gim"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "traditions": ["divine"],
+      "damage": []
+    }
+  },
+  {
+    "id": "13af4d63-a1c9-5bbb-8190-ba2c4a112da8",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:temporary-glyph",
+    "name": "Temporary Glyph",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Area",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 5-foot square"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You temporarily bind a hostile spell into a symbol. While Casting this Spell, you also Cast a Spell of a lower spell rank to store in the glyph. The stored spell must take 2 actions or fewer to Cast, have a hostile effect, and target one creature or have an area. Any creature that enters "
+          },
+          {
+            "type": "text",
+            "text": "temporary glyph's",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " area activates the glyph, releasing the harmful spell within. You can set a password for the glyph. Speaking it when entering the spell's area prevents the glyph from triggering. You can also set a more specific trigger to limit which types of creatures set off the glyph."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Once a spell is stored in the glyph, the glyph gains all the traits of that spell. If the stored spell can target one or more creatures, it targets the creature that set off the glyph. If it has an area, that area is centered on the creature that set off the glyph. "
+          },
+          {
+            "type": "text",
+            "text": "Temporary glyph's",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " duration ends when the glyph is triggered. The glyph is a magical trap, using your spell DC for both the Perception check to notice it and the Thievery check to disable it; both checks require the creature attempting them to be trained in order to succeed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can Dismiss "
+          },
+          {
+            "type": "text",
+            "text": "temporary glyph",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.YWuyjhWbdoTiA1pw"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "traditions": ["arcane", "divine", "occult", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "cebff10b-5a86-5cb6-ab2c-c175edabad09",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:umbral-extraction",
+    "name": "Umbral Extraction",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["concentrate", "illusion", "manipulate", "mental", "shadow"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You prepare to steal spells from your foes, ripping them from the foe's shadow to stow them in an ephemeral pocket in the Shadow Plane. You gain a temporary spell slot, which you can fill only by stealing a spell from an enemy spellcaster. During "
+          },
+          {
+            "type": "text",
+            "text": "umbral extraction's",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " duration, you can use the Steal action to attempt to take one of the foe's prepared spells or unused spontaneous spell slots instead of an item. You can also make one attempt to Steal as part of Casting "
+          },
+          {
+            "type": "text",
+            "text": "umbral extraction",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". If you succeed at your check to Steal a spell, you deal 1d4 mental damage to the target per rank of the spell stolen due to the psychological toll of the spiritual emptiness created by wrenching the spell away, and you place the stolen spell in your temporary spell slot. It gains the shadow trait if cast from this temporary slot."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Determine the stolen spell at random from the target's spells that are 1 rank lower than "
+          },
+          {
+            "type": "text",
+            "text": "umbral extraction",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", or from spells of the same rank if you got a critical success. If the target has no spell slots of that rank, use the highest rank below that in which the target does have a spell slot. (If the target has no eligible spells, you get nothing, but you can continue to attempt to Steal spells for the remaining duration.) If the target is a prepared caster, you randomly steal one of their prepared spells. If the target is a spontaneous caster, you instead steal an unexpended spell slot of the appropriate rank and determine the spell at random from all the target's known spells at that level. You can't steal a target's innate spells, focus spells, or cantrips. You know what the spell is as soon as you steal it, and your temporary spell slot becomes a spell slot of the same rank as the spell you stole."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As normal, you can Steal only from a target within your reach. Once you've placed a spell in your temporary spell slot, you can't attempt to Steal more spells. If you succeed at your Thievery check, you must take the spell you stole. Even if you're a spontaneous caster, you can use the temporary spell slot only to cast the stolen spell and you can cast only the stolen spell from your temporary spell slot. When "
+          },
+          {
+            "type": "text",
+            "text": "umbral extraction",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " ends, you lose the temporary spell slot and any spell still stored in it. When you cast "
+          },
+          {
+            "type": "text",
+            "text": "umbral extraction",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", any previous casting of "
+          },
+          {
+            "type": "text",
+            "text": "umbral extraction",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " currently affecting you ends."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.EDwakYQTS1t6XHD4"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "duration": {
+        "type": "time",
+        "count": 3,
+        "unit": "round"
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "f68530c7-2e8a-5d0d-a079-5443a20ed383",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:umbral-graft",
+    "name": "Umbral Graft",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["concentrate", "illusion", "manipulate", "shadow"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You reflect a spell into a shadowy version of itself, in the process depleting the power of the initial spell. During "
+          },
+          {
+            "type": "text",
+            "text": "umbral graft's",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " duration, you can use the Steal action to attempt to abscond with spells affecting a foe instead of stealing an item. You can also make one attempt to Steal as part of Casting "
+          },
+          {
+            "type": "text",
+            "text": "umbral graft",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". If you succeed at your check to Steal a spell, randomly determine a spell affecting the foe that has a target entry. That spell ceases to affect the target, and you can either cause the spell to affect you or store it in your shadow. If your attempt to Steal was a critical success, you automatically steal the spell if its rank is equal to or lower than umbral graft. If it was a success, you automatically steal it if its rank is lower than umbral graft. If you succeeded, but the spell's rank was too high to steal automatically, you must attempt a counteract check to see if you steal the spell. You know what the spell is as soon as you steal it. If you store it, you can transfer it to a willing creature as a single action that has the manipulate trait. The spell lasts for its remaining duration, to a maximum of 1 minute, and any time you keep it stored subtracts from its duration normally. The spell gains the shadow trait."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can't steal constant innate spells that are always active on a creature, such as a choral angel's constant tongues, or innate spells that have special restrictions that remove their ability to target other creatures, such as an imp's invisibility. At the GM's discretion, you might not be able to steal innate spells with other unusual modifications to the base spell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As normal, you can Steal only from a target within your reach. Once you've stolen a spell, you can't attempt to Steal more spells, nor can you choose not to take a spell if you succeed at your Thievery check. When you cast umbral graft, any spells you stole with a previous umbral graft end even if their duration hasn't elapsed. If you're affected by both umbral graft and umbral extraction, you make the choice whether to steal a spell slot, an active spell, or an item each time you Steal."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.juzb53CW6Uzz5pFY"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "duration": {
+        "type": "time",
+        "count": 3,
+        "unit": "round"
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "d9259b07-7ad5-5f33-b260-853a1a0cd073",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:unspeakable-shadow",
+    "name": "Unspeakable Shadow",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["concentrate", "death", "emotion", "fear", "illusion", "manipulate", "mental", "shadow", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You alter a creature's shadow, transforming it into a terrifying monster out to devour the creature. The creature must attempt a Will save. A creature that has the frightened condition from "
+          },
+          {
+            "type": "text",
+            "text": "unspeakable shadow",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " must spend at least one of its actions each turn to either attack its shadow (making a Strike ineffectually) or flee from its shadow (using one action to move away as though it had the fleeing condition)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 3"
+          },
+          {
+            "type": "text",
+            "text": ". It can't reduce its frightened value below 1 for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is so afraid, it might instantly die. It must succeed at a Fortitude save or die; this saving throw has the incapacitation trait. If it succeeds at its save, the target is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 4"
+          },
+          {
+            "type": "text",
+            "text": " and can't reduce its frightened value below 1 for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.hq57j7Nif1zuQ2Ab"
+    },
+    "data": {
+      "rank": 9,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 120
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "duration": {
+        "type": "varies"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "3c0bd81e-ac5b-54b2-a3da-198bb730eda6",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:variable-gravity",
+    "name": "Variable Gravity",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can adjust how strongly gravity grips you, changing between low gravity, normal gravity, and high gravity with ease. Choose one type of gravity when you cast the spell. While the spell lasts, you can change the type of gravity with a single action, which has the concentrate trait. The spell doesn't alter your physical appearance, so it's impossible to what type of gravity you're subjected to by casual observation."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Low Gravity",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You can jump double the normal distance when you "
+                },
+                {
+                  "type": "ref",
+                  "id": "a76317a3-de3d-58c2-8b3e-5a73b09657be"
+                },
+                {
+                  "type": "text",
+                  "text": " or "
+                },
+                {
+                  "type": "ref",
+                  "id": "1a0bed3d-5eb7-554f-ad07-4c8630afd0c8"
+                },
+                {
+                  "type": "text",
+                  "text": ", though still to a maximum of your Speed. When you High Jump, you can use the calculation for a Long Jump but don't double the distance. Rather than the normal calculation for falling damage, when you fall, you take no damage for the first 10 feet and then take bludgeoning damage equal to a quarter of the remaining distance you fell. Abilities that adjust how much falling damage you take still apply."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "High Gravity",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You become "
+                },
+                {
+                  "type": "ref",
+                  "id": "c7876f7b-3d87-55d8-af48-a396b2676415"
+                },
+                {
+                  "type": "text",
+                  "text": ". You gain a +2 status bonus to your saving throws and DCs to resist forced movement and attempts to knock you "
+                },
+                {
+                  "type": "ref",
+                  "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+                },
+                {
+                  "type": "text",
+                  "text": ". You reduce the distance forced movement moves you by half or 10 feet, whichever is more. You can only jump half as high and far. Rather than the normal calculation for falling damage, you take bludgeoning damage equal to the distance you fall. Abilities that adjust how much falling damage you take still apply. "
+                },
+                {
+                  "type": "ref",
+                  "id": "d7dfb22a-86ae-526c-a59a-33c3d096bf96"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (6th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The duration increases to 1 hour."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.DcmWrD0V5PWQQyDm"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "duration": {
+        "type": "time",
+        "count": 5,
+        "unit": "minute"
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "a13132a9-eec8-5466-b8eb-6bbf14888653",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:wall-of-water",
+    "name": "Wall of Water",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Raising your hand in the air, you call a massive wave onto the battlefield. The wall stays upright in a straight line that is 60 feet long, 10 feet high, and 5 feet thick."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Any non-magical fires within the wall of water's area that are its size or smaller are put out instantly. It also attempts to counteract any magical fires in its area. Both of these effects happen when the spell is cast and whenever a fire enters the wall's area. If the wall fails to counteract a given fire, it can't counteract that fire for the duration of the spell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Bludgeoning or slashing projectiles can't pass through the wall, and piercing projectiles have their range increments halved if they pass through the wall. A creature traversing the wall of water needs to Swim through. The rules of aquatic combat apply to creatures traversing the wall of water, targeting creatures within the wall, or passing through the wall. For instance, a bludgeoning or slashing melee attack targeting a creature in the wall would take a -2 circumstance penalty."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.LNOwaJAkCfsgTKgV"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 120
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "traditions": ["arcane", "primal"],
+      "damage": [],
+      "counteraction": true
+    }
+  },
+  {
+    "id": "7ab95937-b4d6-5cde-ba39-657f9300c320",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:whirlwind",
+    "name": "Whirlwind",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["air", "concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Area",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (continued) 15-foot radius, 80-foot-tall cylinder"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Powerful winds coalesce into a devastating tornado. You can Cast this Spell only if you are outside or the ceiling is 80 feet or higher. All squares in the whirlwind are difficult terrain."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "All creatures in the area take 5d10 bludgeoning damage as powerful winds and debris buffet them, with a Reflex save. Each time you Sustain the Spell, you can move the whirlwind up to 30 feet in a straight line. Each creature the whirlwind moves through takes the damage, also with a Reflex save. A creature can be affected by a whirlwind only once per round."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes half damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes full damage and rises 10 feet into the air. If it doesn't have a fly Speed, the creature gains one equal to its Speed until it either reaches the ground or ceases to be in the whirlwind's area, potentially falling when the spell ends or when it leaves the area."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, except the creature takes double damage and rises 20 feet into the air."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Increase the bludgeoning damage by 1d10."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.8hKW4mWQyLnkHVta"
+    },
+    "data": {
+      "rank": 8,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 500
+      },
+      "area": {
+        "shape": "cylinder",
+        "size": 15
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:reflex",
+          "basic": false
+        }
+      },
+      "traditions": ["primal"],
+      "damage": [
+        {
+          "key": "0",
+          "formula": "5d10",
+          "damageType": "bludgeoning",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "0",
+            "formula": "1d10"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "c805082e-3b69-5885-bd06-7ab6ea837abf",
+    "pack": "secrets-of-magic",
+    "kind": "spell",
+    "slug": "spell:zero-gravity",
+    "name": "Zero Gravity",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Area",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 20-foot radius, 40-foot-tall cylinder"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You negate gravity's effects in the area. Creatures float in place unless they can Push Off a surface. Pushing Off is a single action which has the move trait, allowing the creature to move half its Speed in a straight line through the area. After Pushing Off a surface, the creature continues to move the same distance at the start of each of its turns until it leaves the area or Pushes Off against something else. A creature pushing against an untethered object of its size or smaller causes both the creature and the object to move at the same speed, but in opposite directions. Creatures who can levitate or fly can use those abilities to move around in the area without having to push off anything. Creatures who can't levitate or fly are usually on the ground, giving them a surface from which to push off."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can Dismiss this spell. When zero gravity ends, all creatures and objects in the area fall back down."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.P1iqzEIidRagUs7W"
+    },
+    "data": {
+      "rank": 6,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 120
+      },
+      "area": {
+        "shape": "cylinder",
+        "size": 20
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": []
+    }
+  }
+]

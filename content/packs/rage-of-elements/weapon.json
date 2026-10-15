@@ -1,0 +1,5805 @@
+[
+  {
+    "id": "bd94dd0a-1607-5061-8ff7-a64658db9095",
+    "pack": "rage-of-elements",
+    "kind": "weapon",
+    "slug": "weapon:atmospheric-staff",
+    "name": "Atmospheric Staff",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["air", "magical", "staff", "two-hand-d8"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This staff is made of a dense wood and strikes the ground with an imposing boom. At the top of the staff is a perfectly round obsidian sphere that, when stared at for too long, makes viewers feel as though they're heavier than before. When wielding this staff, you gain a +1 item bonus to saves against forced movement."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You expend a number of charges from the staff to cast a spell from its list."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Cantrip",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "dba15ee9-5cd9-52d6-99e7-3ae396c94a33"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "331c6b08-d0c7-5f40-a23e-692a10a5e4c9"
+                },
+                {
+                  "type": "text",
+                  "text": ", Gravitational Pull"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "2nd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "83605cb1-fc67-5c38-b409-d40018ea36c4"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "3rd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "5263685f-0e57-5004-8b25-d34fc64a8f97"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "99e4b5b6-aff5-587d-a5cb-932cabbdc60c"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply one casting of all listed ranks of all listed spells."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["option:forced-movement"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.CPZC4rAHGkQqPLJ9"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 480
+        }
+      },
+      "bulk": 2,
+      "category": "simple",
+      "group": "club",
+      "baseItem": "staff",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "23742a63-25ab-556b-99de-2c167eb77752",
+    "pack": "rage-of-elements",
+    "kind": "weapon",
+    "slug": "weapon:atmospheric-staff-greater",
+    "name": "Atmospheric Staff (Greater)",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["air", "magical", "staff", "two-hand-d8"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This staff is made of a dense wood and strikes the ground with an imposing boom. At the top of the staff is a perfectly round obsidian sphere that, when stared at for too long, makes viewers feel as though they're heavier than before. When wielding this staff, you gain a +1 item bonus to saves against forced movement."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You expend a number of charges from the staff to cast a spell from its list."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Cantrip",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "dba15ee9-5cd9-52d6-99e7-3ae396c94a33"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "331c6b08-d0c7-5f40-a23e-692a10a5e4c9"
+                },
+                {
+                  "type": "text",
+                  "text": ", Gravitational Pull"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "2nd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "83605cb1-fc67-5c38-b409-d40018ea36c4"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "3rd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "5263685f-0e57-5004-8b25-d34fc64a8f97"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "99e4b5b6-aff5-587d-a5cb-932cabbdc60c"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "4th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "5ff17619-93b1-5680-ad41-5f66ad9a8c0b"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "3c0bd81e-ac5b-54b2-a3da-198bb730eda6"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "5th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "877e8c19-8f14-5568-8d0b-4b9c520e07ea"
+                },
+                {
+                  "type": "text",
+                  "text": " (air only), "
+                },
+                {
+                  "type": "ref",
+                  "id": "a0d8d75b-39a6-5671-a6cf-1fc2713753f4"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply one casting of all listed ranks of all listed spells."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["option:forced-movement"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.SKKVjloic8hQbYo7"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1900
+        }
+      },
+      "bulk": 2,
+      "category": "simple",
+      "group": "club",
+      "baseItem": "staff",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "c2d5a63c-20c7-5125-a83e-f160fa9f61e8",
+    "pack": "rage-of-elements",
+    "kind": "weapon",
+    "slug": "weapon:atmospheric-staff-lesser",
+    "name": "Atmospheric Staff (Lesser)",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["air", "magical", "staff", "two-hand-d8"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This staff is made of a dense wood and strikes the ground with an imposing boom. At the top of the staff is a perfectly round obsidian sphere that, when stared at for too long, makes viewers feel as though they're heavier than before. When wielding this staff, you gain a +1 item bonus to saves against forced movement."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You expend a number of charges from the staff to cast a spell from its list."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Cantrip",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "dba15ee9-5cd9-52d6-99e7-3ae396c94a33"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "331c6b08-d0c7-5f40-a23e-692a10a5e4c9"
+                },
+                {
+                  "type": "text",
+                  "text": ", Gravitational Pull"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply one casting of all listed ranks of all listed spells."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["option:forced-movement"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.HarOsJI1p5oHt2Vd"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 95
+        }
+      },
+      "bulk": 2,
+      "category": "simple",
+      "group": "club",
+      "baseItem": "staff",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "e6083923-1670-5680-b3cd-5c8fac77c262",
+    "pack": "rage-of-elements",
+    "kind": "weapon",
+    "slug": "weapon:atmospheric-staff-major",
+    "name": "Atmospheric Staff (Major)",
+    "level": 16,
+    "rarity": "uncommon",
+    "traits": ["air", "magical", "staff", "two-hand-d8"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This staff is made of a dense wood and strikes the ground with an imposing boom. At the top of the staff is a perfectly round obsidian sphere that, when stared at for too long, makes viewers feel as though they're heavier than before. When wielding this staff, you gain a +1 item bonus to saves against forced movement."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You expend a number of charges from the staff to cast a spell from its list."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Cantrip",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "dba15ee9-5cd9-52d6-99e7-3ae396c94a33"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "331c6b08-d0c7-5f40-a23e-692a10a5e4c9"
+                },
+                {
+                  "type": "text",
+                  "text": ", Gravitational Pull"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "2nd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "83605cb1-fc67-5c38-b409-d40018ea36c4"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "3rd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "5263685f-0e57-5004-8b25-d34fc64a8f97"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "99e4b5b6-aff5-587d-a5cb-932cabbdc60c"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "4th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "5ff17619-93b1-5680-ad41-5f66ad9a8c0b"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "3c0bd81e-ac5b-54b2-a3da-198bb730eda6"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "5th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "877e8c19-8f14-5568-8d0b-4b9c520e07ea"
+                },
+                {
+                  "type": "text",
+                  "text": " (air only), "
+                },
+                {
+                  "type": "ref",
+                  "id": "a0d8d75b-39a6-5671-a6cf-1fc2713753f4"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "6th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "c805082e-3b69-5885-bd06-7ab6ea837abf"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "7th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "877e8c19-8f14-5568-8d0b-4b9c520e07ea"
+                },
+                {
+                  "type": "text",
+                  "text": " (air only), "
+                },
+                {
+                  "type": "ref",
+                  "id": "58f5410e-1cd7-5af4-b121-75f15609c1c3"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply one casting of all listed ranks of all listed spells."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["option:forced-movement"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.YMz8ZKeOmSU9VuKp"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 8900
+        }
+      },
+      "bulk": 2,
+      "category": "simple",
+      "group": "club",
+      "baseItem": "staff",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "26a99c3e-b930-56c7-bfad-227533ac147f",
+    "pack": "rage-of-elements",
+    "kind": "weapon",
+    "slug": "weapon:carver-cutter",
+    "name": "Carver-cutter",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["magical", "sweep", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Many of the experienced woodcarvers of the Plane of Wood learn to fight as well, the better to travel into hazardous areas in search of rare and beautiful types of wood for their craft. A "
+          },
+          {
+            "type": "text",
+            "text": "carver-cutter",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " serves a dual role as a weapon and a tool for felling trees and engraving wood. The "
+          },
+          {
+            "type": "text",
+            "text": "+2 striking battle axe",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " looks like an exquisitely made woodcutting axe."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate - Carving Chisel",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You pull free a woodworking chisel stored in the knob of the axe. It can have any standard chisel shape you imagine as you activate this ability. You get a +2 item bonus to "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:crafting",
+            "options": ["action:craft:woodworking"]
+          },
+          {
+            "type": "text",
+            "text": " checks for woodworking if you use chisels from the "
+          },
+          {
+            "type": "text",
+            "text": "carver-cutter.",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " The chisel also functions as a main-gauche. All runes on the axe are replicated on the chisel, but only while both items are on the same person. You can Interact to reinsert the chisel."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate - Chop Down",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Make a Strike with the axe against a plant creature or a creature made primarily of wood. This Strike deals an additional 2d6 precision damage, and on a hit, the creature is "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:crafting"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["action:craft:woodworking"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:chop-down",
+        "toggleable": true,
+        "display": {
+          "label": "Carver-Cutter — Chop Down"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.0liiZqvhcM69tKl9"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1400
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "axe",
+      "baseItem": "battle-axe",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "09f04098-9f65-5038-a534-e4346e204e44",
+    "pack": "rage-of-elements",
+    "kind": "weapon",
+    "slug": "weapon:carver-cutter-greater",
+    "name": "Carver-cutter (Greater)",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["magical", "sweep", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Many of the experienced woodcarvers of the Plane of Wood learn to fight as well, the better to travel into hazardous areas in search of rare and beautiful types of wood for their craft. A "
+          },
+          {
+            "type": "text",
+            "text": "carver-cutter",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " serves a dual role as a weapon and a tool for felling trees and engraving wood. The "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater striking battle axe",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " looks like an exquisitely made woodcutting axe."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate - Carving Chisel",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You pull free a woodworking chisel stored in the knob of the axe. It can have any standard chisel shape you imagine as you activate this ability. You get a +2 item bonus to "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:crafting",
+            "options": ["action:craft:woodworking"]
+          },
+          {
+            "type": "text",
+            "text": " checks for woodworking if you use chisels from the "
+          },
+          {
+            "type": "text",
+            "text": "carver-cutter.",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " The chisel also functions as a main-gauche. All runes on the axe are replicated on the chisel, but only while both items are on the same person. You can Interact to reinsert the chisel."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate - Chop Down",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Make a Strike with the axe against a plant creature or a creature made primarily of wood. This Strike deals an additional 3d6 precision damage, and on a hit, the creature is "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:crafting"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["action:craft:woodworking"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:chop-down",
+        "toggleable": true,
+        "display": {
+          "label": "Carver-Cutter — Chop Down"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.MNx8UznusoyRy06k"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "axe",
+      "baseItem": "battle-axe",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "6a4b0876-a013-58bc-8e58-37199d8ffe73",
+    "pack": "rage-of-elements",
+    "kind": "weapon",
+    "slug": "weapon:carver-cutter-major",
+    "name": "Carver-cutter (Major)",
+    "level": 15,
+    "rarity": "uncommon",
+    "traits": ["magical", "sweep", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Many of the experienced woodcarvers of the Plane of Wood learn to fight as well, the better to travel into hazardous areas in search of rare and beautiful types of wood for their craft. A "
+          },
+          {
+            "type": "text",
+            "text": "carver-cutter",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " serves a dual role as a weapon and a tool for felling trees and engraving wood. The "
+          },
+          {
+            "type": "text",
+            "text": "+2 keen greater striking battle axe",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " looks like an exquisitely made woodcutting axe."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate - Carving Chisel",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You pull free a woodworking chisel stored in the knob of the axe. It can have any standard chisel shape you imagine as you activate this ability. You get a +2 item bonus to "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:crafting",
+            "options": ["action:craft:woodworking"]
+          },
+          {
+            "type": "text",
+            "text": " checks for woodworking if you use chisels from the "
+          },
+          {
+            "type": "text",
+            "text": "carver-cutter.",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " The chisel also functions as a main-gauche. All runes on the axe are replicated on the chisel, but only while both items are on the same person. You can Interact to reinsert the chisel."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate - Chop Down",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Make a Strike with the axe against a plant creature or a creature made primarily of wood. This Strike deals an additional 3d6 precision damage, and on a hit, the creature is "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:crafting"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["action:craft:woodworking"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:chop-down",
+        "toggleable": true,
+        "display": {
+          "label": "Carver-Cutter — Chop Down"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.O5PgCWNhFtTFL7S5"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5500
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "axe",
+      "baseItem": "battle-axe",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 2,
+        "property": ["bc974552-c0c5-57ac-9924-d474d2bdf9a0"]
+      }
+    }
+  },
+  {
+    "id": "1bdc942b-6f0b-57ec-859b-faff6d5a8902",
+    "pack": "rage-of-elements",
+    "kind": "weapon",
+    "slug": "weapon:carver-cutter-true",
+    "name": "Carver-cutter (True)",
+    "level": 18,
+    "rarity": "uncommon",
+    "traits": ["magical", "sweep", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Many of the experienced woodcarvers of the Plane of Wood learn to fight as well, the better to travel into hazardous areas in search of rare and beautiful types of wood for their craft. A "
+          },
+          {
+            "type": "text",
+            "text": "carver-cutter",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " serves a dual role as a weapon and a tool for felling trees and engraving wood. The "
+          },
+          {
+            "type": "text",
+            "text": "+3 keen greater striking battle axe",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " looks like an exquisitely made woodcutting axe."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate - Carving Chisel",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You pull free a woodworking chisel stored in the knob of the axe. It can have any standard chisel shape you imagine as you activate this ability. You get a +3 item bonus to "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:crafting",
+            "options": ["action:craft:woodworking"]
+          },
+          {
+            "type": "text",
+            "text": " checks for woodworking if you use chisels from the "
+          },
+          {
+            "type": "text",
+            "text": "carver-cutter.",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " The chisel also functions as a main-gauche. All runes on the axe are replicated on the chisel, but only while both items are on the same person. You can Interact to reinsert the chisel."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate - Chop Down",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Make a Strike with the axe against a plant creature or a creature made primarily of wood. This Strike deals an additional 4d6 precision damage, and on a hit, the creature is "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:crafting"],
+        "type": "item",
+        "value": 3,
+        "predicate": ["action:craft:woodworking"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:chop-down",
+        "toggleable": true,
+        "display": {
+          "label": "Carver-Cutter — Chop Down"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ePmUVkh4NgM4eGdR"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 24000
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "axe",
+      "baseItem": "battle-axe",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 3,
+        "striking": 2,
+        "property": ["bc974552-c0c5-57ac-9924-d474d2bdf9a0"]
+      }
+    }
+  },
+  {
+    "id": "12a22864-a2f8-53dd-bad0-3b9de835dc3f",
+    "pack": "rage-of-elements",
+    "kind": "weapon",
+    "slug": "weapon:lionfish-spear",
+    "name": "Lionfish Spear",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["magical", "thrown-20", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Colorful stripes and trailing ribbons give this "
+          },
+          {
+            "type": "text",
+            "text": "+2 striking underwater wounding spear",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " an appearance like a poisonous lionfish. While holding the spear, you gain a +2 item bonus to Athletic checks to "
+          },
+          {
+            "type": "ref",
+            "id": "890ca16b-87be-53af-b93c-ffddb037a2f8"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Lionfish Poison",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You successfully Strike a creature with the "
+          },
+          {
+            "type": "text",
+            "text": "lionfish spear",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The spear injects lionfish poison into the target"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Saving Throw",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 28
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Maximum Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 6 rounds"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": " (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "5d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": " (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "7802f1d9-5ced-5b9b-8a08-98ec0adb9947"
+          },
+          {
+            "type": "text",
+            "text": " for 2d4 hours"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["action:swim"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ZbZMaY8B8dinYhHK"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "lionfish-poison",
+          "name": "Lionfish Poison",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "simple",
+      "group": "spear",
+      "baseItem": "spear",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 1,
+        "property": ["febc17e0-b9b6-596e-b8e2-9ff26045886a", "2ed55af4-0d60-53f9-ad8e-ce9db657b9c0"]
+      }
+    }
+  },
+  {
+    "id": "8871925d-6c26-53aa-bb44-26c784bd55fa",
+    "pack": "rage-of-elements",
+    "kind": "weapon",
+    "slug": "weapon:lionfish-spear-greater",
+    "name": "Lionfish Spear (Greater)",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["magical", "thrown-20", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Colorful stripes and trailing ribbons give this "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater striking underwater wounding spear",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " an appearance like a poisonous lionfish. While holding the spear, you gain a +2 item bonus to Athletic checks to "
+          },
+          {
+            "type": "ref",
+            "id": "890ca16b-87be-53af-b93c-ffddb037a2f8"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Strikes with this weapon deal an additional 1d6 poison damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Lionfish Poison",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You successfully Strike a creature with the "
+          },
+          {
+            "type": "text",
+            "text": "lionfish spear",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The spear injects lionfish poison into the target"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Saving Throw",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 31
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Maximum Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 6 rounds"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": " (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "5d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": " (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "7802f1d9-5ced-5b9b-8a08-98ec0adb9947"
+          },
+          {
+            "type": "text",
+            "text": " for 2d4 hours"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["action:swim"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.R4nk2W7rTvMDqyUR"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4000
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "lionfish-poison",
+          "name": "Lionfish Poison",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "category": "simple",
+      "group": "spear",
+      "baseItem": "spear",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 2,
+        "property": ["febc17e0-b9b6-596e-b8e2-9ff26045886a", "2ed55af4-0d60-53f9-ad8e-ce9db657b9c0"]
+      }
+    }
+  },
+  {
+    "id": "3b062945-ba80-50f2-98c7-5bc325ac9b5f",
+    "pack": "rage-of-elements",
+    "kind": "weapon",
+    "slug": "weapon:obsidian-edge",
+    "name": "Obsidian Edge",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["combination", "concussive", "fire", "kickback", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This black obsidian blade is a "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking gun sword",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". Magma seeps along its many cracks and crags, and the handle is hot but not scalding to the touch. Strikes with this gun sword deal 1 extra fire damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Explosion of Shards",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your most recent action this turn was a successful ranged Strike with "
+          },
+          {
+            "type": "text",
+            "text": "obsidian edge",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Magma coats the sword blade completely before exploding from your weapon in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": " of fire and glass. Creatures in the area take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "fire"
+              },
+              {
+                "formula": "2d6",
+                "damageType": "piercing"
+              }
+            ],
+            "label": "2d6 fire damage and 2d6 piercing damage"
+          },
+          {
+            "type": "text",
+            "text": " with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 20,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.39bdYkGlqjFR0AOL"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "explosion-of-shards",
+          "name": "Explosion of Shards",
+          "frequency": {
+            "max": 1,
+            "per": "ten-minutes"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "firearm",
+      "baseItem": "gun-sword",
+      "damage": {
+        "dice": 1,
+        "die": "d10",
+        "damageType": "piercing"
+      },
+      "range": 30,
+      "reload": 1,
+      "ammunition": {
+        "type": "rounds-gun-sword",
+        "capacity": 1
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "625c7362-ca75-505f-be80-1445e9c0cf83",
+    "pack": "rage-of-elements",
+    "kind": "weapon",
+    "slug": "weapon:obsidian-edge-greater",
+    "name": "Obsidian Edge (Greater)",
+    "level": 9,
+    "rarity": "uncommon",
+    "traits": ["combination", "concussive", "fire", "kickback", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This black obsidian blade is a "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking flaming gun sword",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". Magma seeps along its many cracks and crags, and the handle is hot but not scalding to the touch."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Explosion of Shards",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your most recent action this turn was a successful ranged Strike with "
+          },
+          {
+            "type": "text",
+            "text": "greater obsidian edge",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Magma coats the sword blade completely before exploding from your weapon in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": " of fire and glass. Creatures in the area take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d6",
+                "damageType": "fire"
+              },
+              {
+                "formula": "2d6",
+                "damageType": "piercing"
+              }
+            ],
+            "label": "3d6 fire damage and 2d6 piercing damage"
+          },
+          {
+            "type": "text",
+            "text": " with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 25,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.XVxnCBQEW5idfAPw"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 700
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "explosion-of-shards",
+          "name": "Explosion of Shards",
+          "frequency": {
+            "max": 1,
+            "per": "ten-minutes"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "firearm",
+      "baseItem": "gun-sword",
+      "damage": {
+        "dice": 1,
+        "die": "d10",
+        "damageType": "piercing"
+      },
+      "range": 30,
+      "reload": 1,
+      "ammunition": {
+        "type": "rounds-gun-sword",
+        "capacity": 1
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": ["161a6329-9809-57d5-9b34-c150d2bfe235"]
+      }
+    }
+  },
+  {
+    "id": "6faabca6-209c-5be1-8e70-eafc12cbebf2",
+    "pack": "rage-of-elements",
+    "kind": "weapon",
+    "slug": "weapon:obsidian-edge-major",
+    "name": "Obsidian Edge (Major)",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["combination", "concussive", "fire", "kickback", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This black obsidian blade is a "
+          },
+          {
+            "type": "text",
+            "text": "+2 striking flaming gun sword",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". Magma seeps along its many cracks and crags, and the handle is hot but not scalding to the touch."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Explosion of Shards",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your most recent action this turn was a successful ranged Strike with "
+          },
+          {
+            "type": "text",
+            "text": "major obsidian edge",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Magma coats the sword blade completely before exploding from your weapon in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": " of fire and glass. Creatures in the area take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "fire"
+              },
+              {
+                "formula": "3d6",
+                "damageType": "piercing"
+              }
+            ],
+            "label": "4d6 fire damage and 3d6 piercing damage"
+          },
+          {
+            "type": "text",
+            "text": " with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 29,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.KRQDhu2XVmOlaVRu"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1800
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "explosion-of-shards",
+          "name": "Explosion of Shards",
+          "frequency": {
+            "max": 1,
+            "per": "ten-minutes"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "firearm",
+      "baseItem": "gun-sword",
+      "damage": {
+        "dice": 1,
+        "die": "d10",
+        "damageType": "piercing"
+      },
+      "range": 30,
+      "reload": 1,
+      "ammunition": {
+        "type": "rounds-gun-sword",
+        "capacity": 1
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 1,
+        "property": ["161a6329-9809-57d5-9b34-c150d2bfe235"]
+      }
+    }
+  },
+  {
+    "id": "76c97bef-88c1-57ac-85c8-4a21faf789f0",
+    "pack": "rage-of-elements",
+    "kind": "weapon",
+    "slug": "weapon:obsidian-edge-true",
+    "name": "Obsidian Edge (True)",
+    "level": 18,
+    "rarity": "uncommon",
+    "traits": ["combination", "concussive", "fire", "kickback", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This black obsidian blade is a "
+          },
+          {
+            "type": "text",
+            "text": "+3 greater striking greater flaming gun sword",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". Magma seeps along its many cracks and crags, and the handle is hot but not scalding to the touch."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Explosion of Shards",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your most recent action this turn was a successful ranged Strike with "
+          },
+          {
+            "type": "text",
+            "text": "true obsidian edge",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Magma coats the sword blade completely before exploding from your weapon in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": " of fire and glass. Creatures in the area take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "5d6",
+                "damageType": "fire"
+              },
+              {
+                "formula": "4d6",
+                "damageType": "piercing"
+              }
+            ],
+            "label": "5d6 fire damage and 4d6 piercing damage"
+          },
+          {
+            "type": "text",
+            "text": " with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 38,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.8W8NvYlRM2lQPJf0"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 22000
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "explosion-of-shards",
+          "name": "Explosion of Shards",
+          "frequency": {
+            "max": 1,
+            "per": "ten-minutes"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "firearm",
+      "baseItem": "gun-sword",
+      "damage": {
+        "dice": 1,
+        "die": "d10",
+        "damageType": "piercing"
+      },
+      "range": 30,
+      "reload": 1,
+      "ammunition": {
+        "type": "rounds-gun-sword",
+        "capacity": 1
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 3,
+        "striking": 2,
+        "property": ["5747a85f-d782-56c0-80af-ba0961339c1b"]
+      }
+    }
+  },
+  {
+    "id": "0ae4b351-9857-5a07-b4c7-da1404ec4d0a",
+    "pack": "rage-of-elements",
+    "kind": "weapon",
+    "slug": "weapon:rustbringer",
+    "name": "Rustbringer",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["disarm", "magical", "metal", "sweep", "trip"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The handle, chain, and spiked ball of this "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking corrosive flail",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " are all made of iron so rusted that the weapon appears nonfunctional at first glance. On Strikes against a creature that's primarily made of metal, it gains the deadly d10 trait."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Rusting Disarm",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You critically succeed at a "
+          },
+          {
+            "type": "ref",
+            "id": "ef57a555-f9e9-53cc-b09b-b7432156cbf1"
+          },
+          {
+            "type": "text",
+            "text": " attempt with the flail against a metal weapon"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Flakes of acid-laden rust are deposited on the disarmed weapon. The weapon takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, ignoring the weapon's Hardness."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.rnoP6uPxauJiSGPK"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 900
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "flail",
+      "baseItem": "flail",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": ["9ec0c103-48fb-55b5-b03b-ccc5d857dd7d"]
+      }
+    }
+  },
+  {
+    "id": "60e28eda-4dd3-5152-988a-7ad7db2f47d2",
+    "pack": "rage-of-elements",
+    "kind": "weapon",
+    "slug": "weapon:rustbringer-greater",
+    "name": "Rustbringer (Greater)",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["disarm", "magical", "metal", "sweep", "trip"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The handle, chain, and spiked ball of this "
+          },
+          {
+            "type": "text",
+            "text": "+3 greater striking greater corrosive flail",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " are all made of iron so rusted that the weapon appears nonfunctional at first glance. On Strikes against a creature that's primarily made of metal, it gains the deadly d10 trait."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Rusting Disarm",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You critically succeed at a "
+          },
+          {
+            "type": "ref",
+            "id": "ef57a555-f9e9-53cc-b09b-b7432156cbf1"
+          },
+          {
+            "type": "text",
+            "text": " attempt with the flail against a metal weapon"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Flakes of acid-laden rust are deposited on the disarmed weapon. The weapon takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "acid"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, ignoring the weapon's Hardness."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Fye3IZN9FVDYm4KJ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 13500
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "flail",
+      "baseItem": "flail",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 3,
+        "striking": 2,
+        "property": ["5050ed53-adbb-5208-b463-94fd353f8413"]
+      }
+    }
+  },
+  {
+    "id": "bd1bc34b-b9d9-5eac-b066-0a5c977a5f2e",
+    "pack": "rage-of-elements",
+    "kind": "weapon",
+    "slug": "weapon:scalding-gauntlets",
+    "name": "Scalding Gauntlets",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["agile", "fire", "free-hand", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Prized by naari geniekin who prefer to fight with their fists, "
+          },
+          {
+            "type": "text",
+            "text": "scalding gauntlets",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " are a pair of "
+          },
+          {
+            "type": "text",
+            "text": "+2 striking spiked gauntlets",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". The intricate golden gauntlets are engraved with Pyric writing praising the glories of the Dominion of Flame and embellished with shimmering black and red gemstones. A creature you grab or restrain while wearing the gauntlets must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 26,
+            "options": ["inflicts:sickened"]
+          },
+          {
+            "type": "text",
+            "text": " save or take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "fire",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and be "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": " from the pain; it's temporarily immune to being sickened by "
+          },
+          {
+            "type": "text",
+            "text": "scalding gauntlets",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " for 1 hour."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["skill-check"],
+        "title": "Scalding Gauntlets",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "A creature you grab or restrain while wearing the gauntlets must succeed at a "
+              },
+              {
+                "type": "check",
+                "statistic": "save:fortitude",
+                "dc": 26,
+                "options": ["inflicts:sickened"]
+              },
+              {
+                "type": "text",
+                "text": " save or take "
+              },
+              {
+                "type": "damage",
+                "instances": [
+                  {
+                    "formula": "2d6",
+                    "damageType": "fire",
+                    "category": "persistent"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " damage and be Sickened 1 from the pain; it's temporarily immune to being sickened by "
+              },
+              {
+                "type": "text",
+                "text": "scalding gauntlets",
+                "marks": ["emphasis"]
+              },
+              {
+                "type": "text",
+                "text": " for 1 hour."
+              }
+            ]
+          }
+        ],
+        "outcome": ["success", "criticalSuccess"],
+        "predicate": ["action:grapple"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.QT1H3f9u44IZ3TmT"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1300
+        }
+      },
+      "bulk": "light",
+      "category": "simple",
+      "group": "brawling",
+      "baseItem": "spiked-gauntlet",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "e3a2ce69-9e42-5a04-aa42-c6661200c3ca",
+    "pack": "rage-of-elements",
+    "kind": "weapon",
+    "slug": "weapon:scalding-gauntlets-greater",
+    "name": "Scalding Gauntlets (Greater)",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["agile", "fire", "free-hand", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Prized by naari geniekin who prefer to fight with their fists, "
+          },
+          {
+            "type": "text",
+            "text": "greater scalding gauntlets",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " are a pair of "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater striking flaming spiked gauntlets",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". The intricate golden gauntlets are engraved with Pyric writing praising the glories of the Dominion of Flame and embellished with shimmering black and red gemstones. A creature you grab or restrain while wearing the gauntlets must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 28,
+            "options": ["inflicts:sickened"]
+          },
+          {
+            "type": "text",
+            "text": " save or take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "fire",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and be "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": " from the pain; it's temporarily immune to being sickened by "
+          },
+          {
+            "type": "text",
+            "text": "scalding gauntlets",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " for 1 hour."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["skill-check"],
+        "title": "Scalding Gauntlets (Greater)",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "A creature you grab or restrain while wearing the gauntlets must succeed at a "
+              },
+              {
+                "type": "check",
+                "statistic": "save:fortitude",
+                "dc": 28,
+                "options": ["inflicts:sickened"]
+              },
+              {
+                "type": "text",
+                "text": " save or take "
+              },
+              {
+                "type": "damage",
+                "instances": [
+                  {
+                    "formula": "2d6",
+                    "damageType": "fire",
+                    "category": "persistent"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " damage and be Sickened 1 from the pain; it's temporarily immune to being sickened by "
+              },
+              {
+                "type": "text",
+                "text": "scalding gauntlets",
+                "marks": ["emphasis"]
+              },
+              {
+                "type": "text",
+                "text": " for 1 hour."
+              }
+            ]
+          }
+        ],
+        "outcome": ["success", "criticalSuccess"],
+        "predicate": ["action:grapple"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.lenQyWTYsMrcC3Vg"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": "light",
+      "category": "simple",
+      "group": "brawling",
+      "baseItem": "spiked-gauntlet",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 2,
+        "property": ["161a6329-9809-57d5-9b34-c150d2bfe235"]
+      }
+    }
+  },
+  {
+    "id": "fe33957d-6f49-5da7-9578-6206e377f472",
+    "pack": "rage-of-elements",
+    "kind": "weapon",
+    "slug": "weapon:scalding-gauntlets-major",
+    "name": "Scalding Gauntlets (Major)",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["agile", "fire", "free-hand", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Prized by naari geniekin who prefer to fight with their fists, "
+          },
+          {
+            "type": "text",
+            "text": "major scalding gauntlets",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " are a pair of "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater striking flaming spiked gauntlets",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". The intricate golden gauntlets are engraved with Pyric writing praising the glories of the Dominion of Flame and embellished with shimmering black and red gemstones. A creature you grab or restrain while wearing the gauntlets must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 32,
+            "options": ["inflicts:sickened"]
+          },
+          {
+            "type": "text",
+            "text": " save or take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d6",
+                "damageType": "fire",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and be "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": " from the pain; it's temporarily immune to being sickened by "
+          },
+          {
+            "type": "text",
+            "text": "scalding gauntlets",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " for 1 hour."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["skill-check"],
+        "title": "Scalding Gauntlets (Major)",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "A creature you grab or restrain while wearing the gauntlets must succeed at a "
+              },
+              {
+                "type": "check",
+                "statistic": "save:fortitude",
+                "dc": 32,
+                "options": ["inflicts:sickened"]
+              },
+              {
+                "type": "text",
+                "text": " save or take "
+              },
+              {
+                "type": "damage",
+                "instances": [
+                  {
+                    "formula": "3d6",
+                    "damageType": "fire",
+                    "category": "persistent"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " damage and be Sickened 1 from the pain; it's temporarily immune to being sickened by "
+              },
+              {
+                "type": "text",
+                "text": "scalding gauntlets",
+                "marks": ["emphasis"]
+              },
+              {
+                "type": "text",
+                "text": " for 1 hour."
+              }
+            ]
+          }
+        ],
+        "outcome": ["success", "criticalSuccess"],
+        "predicate": ["action:grapple"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.f0R9al9iggvAQ59p"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6250
+        }
+      },
+      "bulk": "light",
+      "category": "simple",
+      "group": "brawling",
+      "baseItem": "spiked-gauntlet",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 2,
+        "property": ["161a6329-9809-57d5-9b34-c150d2bfe235"]
+      }
+    }
+  },
+  {
+    "id": "66d9153b-66be-574b-8b6f-285c004ef2b9",
+    "pack": "rage-of-elements",
+    "kind": "weapon",
+    "slug": "weapon:scalding-gauntlets-true",
+    "name": "Scalding Gauntlets (True)",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["agile", "fire", "free-hand", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Prized by naari geniekin who prefer to fight with their fists, "
+          },
+          {
+            "type": "text",
+            "text": "true scalding gauntlets",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " are a pair of "
+          },
+          {
+            "type": "text",
+            "text": "+3 greater striking greater flaming spiked gauntlets",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". The intricate golden gauntlets are engraved with Pyric writing praising the glories of the Dominion of Flame and embellished with shimmering black and red gemstones. A creature you grab or restrain while wearing the gauntlets must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 36,
+            "options": ["inflicts:sickened"]
+          },
+          {
+            "type": "text",
+            "text": " save or take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "fire",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and be "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": " from the pain; it's temporarily immune to being sickened by "
+          },
+          {
+            "type": "text",
+            "text": "scalding gauntlets",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " for 1 hour."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["skill-check"],
+        "title": "Scalding Gauntlets (True)",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "A creature you grab or restrain while wearing the gauntlets must succeed at a "
+              },
+              {
+                "type": "check",
+                "statistic": "save:fortitude",
+                "dc": 36,
+                "options": ["inflicts:sickened"]
+              },
+              {
+                "type": "text",
+                "text": " save or take "
+              },
+              {
+                "type": "damage",
+                "instances": [
+                  {
+                    "formula": "4d6",
+                    "damageType": "fire",
+                    "category": "persistent"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " damage and be Sickened 1 from the pain; it's temporarily immune to being sickened by "
+              },
+              {
+                "type": "text",
+                "text": "scalding gauntlets",
+                "marks": ["emphasis"]
+              },
+              {
+                "type": "text",
+                "text": " for 1 hour."
+              }
+            ]
+          }
+        ],
+        "outcome": ["success", "criticalSuccess"],
+        "predicate": ["action:grapple"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.trs1C4DEkETh9bio"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 20000
+        }
+      },
+      "bulk": "light",
+      "category": "simple",
+      "group": "brawling",
+      "baseItem": "spiked-gauntlet",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 3,
+        "striking": 2,
+        "property": ["5747a85f-d782-56c0-80af-ba0961339c1b"]
+      }
+    }
+  },
+  {
+    "id": "b2c0619b-c477-5a29-9fa3-7923784f54f4",
+    "pack": "rage-of-elements",
+    "kind": "weapon",
+    "slug": "weapon:spellsap-grenade",
+    "name": "Spellsap Grenade",
+    "level": 12,
+    "rarity": "rare",
+    "traits": ["alchemical", "bomb", "consumable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The mixture of reagents, liquid djezet, and solid metal shrapnel inside this grenade explodes on contact with air. A "
+          },
+          {
+            "type": "text",
+            "text": "spellsap grenade",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " deals 3d4 slashing damage and 3 slashing splash damage. You gain a +2 item bonus to attack rolls. On a hit against a prepared or spontaneous spellcaster, the target must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 30
+          },
+          {
+            "type": "text",
+            "text": " saving throw or lose one prepared spell or one spontaneous spell slot. The spell is randomly selected from among the caster's highest three spell ranks (and then from among the spells prepared in that rank, for a prepared spellcaster)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.lBITo8JcWfGxKmYT"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 360
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 3,
+        "die": "d4",
+        "damageType": "slashing"
+      },
+      "splash": 3,
+      "itemBonus": 2,
+      "range": 20,
+      "ammunition": {},
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "70e7c3e8-9efb-55b4-9d2d-5a91f119c429",
+    "pack": "rage-of-elements",
+    "kind": "weapon",
+    "slug": "weapon:spellsap-grenade-greater",
+    "name": "Spellsap Grenade (Greater)",
+    "level": 18,
+    "rarity": "rare",
+    "traits": ["alchemical", "bomb", "consumable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The mixture of reagents, liquid djezet, and solid metal shrapnel inside this grenade explodes on contact with air. A "
+          },
+          {
+            "type": "text",
+            "text": "spellsap grenade",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " deals 4d4 slashing damage and 4 slashing splash damage. You gain a +3 item bonus to attack rolls. On a hit against a prepared or spontaneous spellcaster, the target must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 38
+          },
+          {
+            "type": "text",
+            "text": " saving throw or lose one prepared spell or one spontaneous spell slot. The spell is randomly selected from among the caster's highest three spell ranks (and then from among the spells prepared in that rank, for a prepared spellcaster)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ry4In8lT0xB8Dc17"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4500
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 4,
+        "die": "d4",
+        "damageType": "slashing"
+      },
+      "splash": 4,
+      "itemBonus": 3,
+      "range": 20,
+      "ammunition": {},
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "83cfd194-8825-522f-84ef-874cdb7879f2",
+    "pack": "rage-of-elements",
+    "kind": "weapon",
+    "slug": "weapon:splintering-spear",
+    "name": "Splintering Spear",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["magical", "monk", "thrown-20", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The entirety of this "
+          },
+          {
+            "type": "text",
+            "text": "+2 duskwood greater striking spear",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is made of worn, cracked, splintered wood, including the spearhead. These splinters never harm you when you hold the weapon, but when you hit with the spear, splinters break off in the target, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "bleed"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Shatter",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You smash the spear into the ground or another nearby surface, shattering it into thousands of duskwood splinters in your choice of a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " or a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": ". Each creature in the area takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "12d6",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 30,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save. A creature that fails also takes the same amount of persistent bleed damage as the spear deals on a hit. The spear regrows into its full form at the end of this turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.CH2t4lYE6IbE3F3Q"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2700
+        }
+      },
+      "bulk": 1,
+      "material": {
+        "type": "duskwood",
+        "grade": "standard"
+      },
+      "activations": [
+        {
+          "slug": "shatter",
+          "name": "Shatter",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "simple",
+      "group": "spear",
+      "baseItem": "spear",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing",
+        "persistent": {
+          "formula": "1d6",
+          "damageType": "bleed"
+        }
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "3574692e-2a75-582a-ba8d-6a323e1d40f2",
+    "pack": "rage-of-elements",
+    "kind": "weapon",
+    "slug": "weapon:splintering-spear-greater",
+    "name": "Splintering Spear (Greater)",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["magical", "monk", "thrown-20", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The entirety of this "
+          },
+          {
+            "type": "text",
+            "text": "+3 high-grade duskwood greater striking spear",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is made of worn, cracked, splintered wood, including the spearhead. These splinters never harm you when you hold the weapon, but when you hit with the spear, splinters break off in the target, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "bleed"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Shatter",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You smash the spear into the ground or another nearby surface, shattering it into thousands of duskwood splinters in your choice of a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " or a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": ". Each creature in the area takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "16d6",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 37,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save. A creature that fails also takes the same amount of persistent bleed damage as the spear deals on a hit. The spear regrows into its full form at the end of this turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.K07yZnXG1DQwFjX7"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15000
+        }
+      },
+      "bulk": 1,
+      "material": {
+        "type": "duskwood",
+        "grade": "high"
+      },
+      "activations": [
+        {
+          "slug": "shatter",
+          "name": "Shatter",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "simple",
+      "group": "spear",
+      "baseItem": "spear",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing",
+        "persistent": {
+          "formula": "1d6",
+          "damageType": "bleed"
+        }
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 3,
+        "striking": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "202b12c0-c59c-5fe7-a2bd-a09fc351414a",
+    "pack": "rage-of-elements",
+    "kind": "weapon",
+    "slug": "weapon:splintering-spear-major",
+    "name": "Splintering Spear (Major)",
+    "level": 20,
+    "rarity": "common",
+    "traits": ["magical", "monk", "thrown-20", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The entirety of this "
+          },
+          {
+            "type": "text",
+            "text": "+3 high-grade duskwood major striking spear",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is made of worn, cracked, splintered wood, including the spearhead. These splinters never harm you when you hold the weapon, but when you hit with the spear, splinters break off in the target, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "bleed"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Shatter",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You smash the spear into the ground or another nearby surface, shattering it into thousands of duskwood splinters in your choice of a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " or a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": ". Each creature in the area takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "18d6",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 43,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save. A creature that fails also takes the same amount of persistent bleed damage as the spear deals on a hit. The spear regrows into its full form at the end of this turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.iQM5xKCkfpfdPrzL"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 60000
+        }
+      },
+      "bulk": 1,
+      "material": {
+        "type": "duskwood",
+        "grade": "high"
+      },
+      "activations": [
+        {
+          "slug": "shatter",
+          "name": "Shatter",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "simple",
+      "group": "spear",
+      "baseItem": "spear",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing",
+        "persistent": {
+          "formula": "1d6",
+          "damageType": "bleed"
+        }
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 3,
+        "striking": 3,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "a0425bf3-6348-551e-8b7e-986e12cc67c5",
+    "pack": "rage-of-elements",
+    "kind": "weapon",
+    "slug": "weapon:staff-of-metal",
+    "name": "Staff of Metal",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["magical", "metal", "staff", "two-hand-d8"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This cylindrical iron staff has colored segments on both ends, one red and one blue. When you Strike with the staff, you gain a +1 circumstance bonus to the attack roll if the target is wearing metal armor or is primarily made of metal."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You expend a number of charges from the staff to cast a spell from its list."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Cantrips",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "687d9a32-c799-5614-881d-b262ab1f3633"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "248bb8df-49f3-51db-ae05-afebdded8c5c"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "914276a4-71c0-5e9a-b3a1-48109e2bf6bc"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "2nd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "e81c103a-dfdd-5700-a67a-dfe89f275213"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "5bab2388-5c4a-5dd0-89b0-441ea6f23c20"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.iNC3uS24FSc40AQ4"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": "light",
+      "category": "simple",
+      "group": "club",
+      "baseItem": "staff",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "5eecb6fc-22b4-5423-9615-2f8b4842d2b6",
+    "pack": "rage-of-elements",
+    "kind": "weapon",
+    "slug": "weapon:staff-of-metal-greater",
+    "name": "Staff of Metal (Greater)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["magical", "metal", "staff", "two-hand-d8"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This cylindrical iron staff has colored segments on both ends, one red and one blue. When you Strike with the staff, you gain a +1 circumstance bonus to the attack roll if the target is wearing metal armor or is primarily made of metal."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You expend a number of charges from the staff to cast a spell from its list."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Cantrips",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "687d9a32-c799-5614-881d-b262ab1f3633"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "248bb8df-49f3-51db-ae05-afebdded8c5c"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "914276a4-71c0-5e9a-b3a1-48109e2bf6bc"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "2nd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "e81c103a-dfdd-5700-a67a-dfe89f275213"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "5bab2388-5c4a-5dd0-89b0-441ea6f23c20"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "3rd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "06a86803-d1a0-5c8c-be3c-5fa87dd048f7"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "7eee8d89-12a6-580e-8d31-9fc9d86f18ab"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "4th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "e87d197e-3943-5e46-8e04-a712264914a9"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "8592bca6-0f4f-55d8-b72f-b043c13f4eb5"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.qvl1OmV5F60ZOdcC"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 900
+        }
+      },
+      "bulk": "light",
+      "category": "simple",
+      "group": "club",
+      "baseItem": "staff",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "0b90bd64-9638-5cca-8cd9-55ec1bdf0f44",
+    "pack": "rage-of-elements",
+    "kind": "weapon",
+    "slug": "weapon:staff-of-metal-major",
+    "name": "Staff of Metal (Major)",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["magical", "metal", "staff", "two-hand-d8"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This cylindrical iron staff has colored segments on both ends, one red and one blue. When you Strike with the staff, you gain a +1 circumstance bonus to the attack roll if the target is wearing metal armor or is primarily made of metal."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You expend a number of charges from the staff to cast a spell from its list."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Cantrips",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "687d9a32-c799-5614-881d-b262ab1f3633"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "248bb8df-49f3-51db-ae05-afebdded8c5c"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "914276a4-71c0-5e9a-b3a1-48109e2bf6bc"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "2nd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "e81c103a-dfdd-5700-a67a-dfe89f275213"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "5bab2388-5c4a-5dd0-89b0-441ea6f23c20"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "3rd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "06a86803-d1a0-5c8c-be3c-5fa87dd048f7"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "7eee8d89-12a6-580e-8d31-9fc9d86f18ab"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "4th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "e87d197e-3943-5e46-8e04-a712264914a9"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "8592bca6-0f4f-55d8-b72f-b043c13f4eb5"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "5th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "5bab2388-5c4a-5dd0-89b0-441ea6f23c20"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "efcbeb7d-28bc-5644-abad-cbccad85de79"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "6th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "c4792ce6-24c9-5d8d-858e-5d1e18f2f6e6"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "06a86803-d1a0-5c8c-be3c-5fa87dd048f7"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.8FKxOiKAoQqPiqPA"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4000
+        }
+      },
+      "bulk": "light",
+      "category": "simple",
+      "group": "club",
+      "baseItem": "staff",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "b93c32f2-bb2a-55b6-995f-03f190628041",
+    "pack": "rage-of-elements",
+    "kind": "weapon",
+    "slug": "weapon:sticky-algae-bomb-greater",
+    "name": "Sticky Algae Bomb (Greater)",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["alchemical", "bomb", "consumable", "splash", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These bombs have been mixed with sticky algae that glow and emit poison. Attacks with this bomb don't take the normal penalties and restrictions for being used in water or underwater. You gain a +2 item bonus to attack rolls. The bomb deals 3d8 poison damage and 3 poison splash damage. In addition, the target is tagged by the bioluminescent substance and leaves a highly visible trail for the next hour. The DC to "
+          },
+          {
+            "type": "ref",
+            "id": "b81cfd58-ce40-526a-b3da-f3c218b5c566"
+          },
+          {
+            "type": "text",
+            "text": " a creature using this trail is 19, but the trail appears only in water."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.cVUhP1qWxe9USvVp"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 280
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 3,
+        "die": "d8",
+        "damageType": "poison"
+      },
+      "splash": 3,
+      "itemBonus": 2,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "2b982897-9646-522d-bae8-ef0f089df95e",
+    "pack": "rage-of-elements",
+    "kind": "weapon",
+    "slug": "weapon:sticky-algae-bomb-lesser",
+    "name": "Sticky Algae Bomb (Lesser)",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["alchemical", "bomb", "consumable", "splash", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These bombs have been mixed with sticky algae that glow and emit poison. Attacks with this bomb don't take the normal penalties and restrictions for being used in water or underwater. The bomb deals 1d8 poison damage and 1 poison splash damage. In addition, the target is tagged by the bioluminescent substance and leaves a highly visible trail for the next hour. The DC to "
+          },
+          {
+            "type": "ref",
+            "id": "b81cfd58-ce40-526a-b3da-f3c218b5c566"
+          },
+          {
+            "type": "text",
+            "text": " a creature using this trail is 19, but the trail appears only in water."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.S1TrEDE8JNkchMca"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "poison"
+      },
+      "splash": 1,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "666e1177-39b7-5bd0-a7a1-36e8b8ef7492",
+    "pack": "rage-of-elements",
+    "kind": "weapon",
+    "slug": "weapon:sticky-algae-bomb-major",
+    "name": "Sticky Algae Bomb (Major)",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["alchemical", "bomb", "consumable", "splash", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These bombs have been mixed with sticky algae that glow and emit poison. Attacks with this bomb don't take the normal penalties and restrictions for being used in water or underwater. You gain a +3 item bonus to attack rolls. The bomb deals 4d8 poison damage and 4 poison splash damage. In addition, the target is tagged by the bioluminescent substance and leaves a highly visible trail for the next hour. The DC to "
+          },
+          {
+            "type": "ref",
+            "id": "b81cfd58-ce40-526a-b3da-f3c218b5c566"
+          },
+          {
+            "type": "text",
+            "text": " a creature using this trail is 19, but the trail appears only in water."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.AAoAQCBwAITvHJSu"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2800
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 4,
+        "die": "d8",
+        "damageType": "poison"
+      },
+      "splash": 4,
+      "itemBonus": 3,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "ee81997b-37de-5995-8779-fcd97c86edec",
+    "pack": "rage-of-elements",
+    "kind": "weapon",
+    "slug": "weapon:sticky-algae-bomb-moderate",
+    "name": "Sticky Algae Bomb (Moderate)",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["alchemical", "bomb", "consumable", "splash", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These bombs have been mixed with sticky algae that glow and emit poison. Attacks with this bomb don't take the normal penalties and restrictions for being used in water or underwater. You gain a +1 item bonus to attack rolls. The bomb deals 2d8 poison damage and 2 poison splash damage. In addition, the target is tagged by the bioluminescent substance and leaves a highly visible trail for the next hour. The DC to "
+          },
+          {
+            "type": "ref",
+            "id": "b81cfd58-ce40-526a-b3da-f3c218b5c566"
+          },
+          {
+            "type": "text",
+            "text": " a creature using this trail is 19, but the trail appears only in water."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.h6O5uto0Ry1WDjXn"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 12
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 2,
+        "die": "d8",
+        "damageType": "poison"
+      },
+      "splash": 2,
+      "itemBonus": 1,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

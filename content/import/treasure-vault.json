@@ -178,18 +178,6 @@
     {
       "type": "entry",
       "pack": "treasure-vault",
-      "slug": "armor:powered-full-plate",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.3mmS3Y291h6Ckgin",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[equipment-srd] Pathfinder Player Core 2"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
       "slug": "armor:reef-heart",
       "foundry": "Compendium.pf2e.equipment-srd.Item.uuBhzN6xrplrwKyI",
       "gaps": [
@@ -208,18 +196,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "armor:rusting-carapace",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.Wfu6R7y4w9iTZcDs",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Rage of Elements"
         }
       ]
     },
@@ -446,35 +422,7 @@
         },
         {
           "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        },
-        {
-          "type": "enricher",
           "enricher": "@UUID[equipment-effects] "
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "consumable:dragonclaw-scutcheon",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.3joQBdbHQo66FT6S",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "consumable:elder-seed",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.uf05VGoYSaeKtUG1",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
         }
       ]
     },
@@ -951,30 +899,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[options]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "consumable:false-death-vial",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.RtU28UqJuqJQMJym",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "consumable:false-death-vial-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.FZxrYMcH0uH617EQ",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
         }
       ]
     },
@@ -1487,30 +1411,6 @@
     {
       "type": "entry",
       "pack": "treasure-vault",
-      "slug": "consumable:reflecting-shard",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.cRtDr8WhXhxkGrmx",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "consumable:reflecting-shard-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.MpyuCFBQwbOQhhm0",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
       "slug": "consumable:reverberating-stone",
       "foundry": "Compendium.pf2e.equipment-srd.Item.fTpJc3XoC2gzhuSN",
       "gaps": [
@@ -1554,10 +1454,6 @@
         },
         {
           "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        },
-        {
-          "type": "enricher",
           "enricher": "@Damage[options]"
         },
         {
@@ -1580,10 +1476,6 @@
         },
         {
           "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        },
-        {
-          "type": "enricher",
           "enricher": "@Damage[options]"
         },
         {
@@ -1603,10 +1495,6 @@
           "reason": "unmapped-value",
           "field": "description.frequency",
           "raw": "once every [[/r 1d4 #rounds]]{1d4 rounds}"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
         },
         {
           "type": "enricher",
@@ -1833,10 +1721,6 @@
           "reason": "unmapped-value",
           "field": "usage",
           "raw": "touched"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
         }
       ]
     },
@@ -1858,19 +1742,6 @@
       "slug": "consumable:wand-of-choking-mist-4th-rank",
       "foundry": "Compendium.pf2e.equipment-srd.Item.GL1C4vC6mmXFm25L",
       "gaps": [
-        {
-          "type": "field",
-          "reason": "unresolved-reference",
-          "field": "spell",
-          "raw": {
-            "spell": "cinder-swarm",
-            "book": "Pathfinder Rage of Elements"
-          }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Rage of Elements"
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[journals]"
@@ -1894,19 +1765,6 @@
             "selectors": ["{item|id}-inline-damage"],
             "value": "{item|flags.system.rulesSelections.chromaticBurst}"
           }
-        },
-        {
-          "type": "field",
-          "reason": "unresolved-reference",
-          "field": "spell",
-          "raw": {
-            "spell": "chromatic-armor",
-            "book": "Pathfinder Secrets of Magic"
-          }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Secrets of Magic"
         }
       ]
     },
@@ -1927,19 +1785,6 @@
             "selectors": ["{item|id}-inline-damage"],
             "value": "{item|flags.system.rulesSelections.chromaticBurst}"
           }
-        },
-        {
-          "type": "field",
-          "reason": "unresolved-reference",
-          "field": "spell",
-          "raw": {
-            "spell": "chromatic-armor",
-            "book": "Pathfinder Secrets of Magic"
-          }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Secrets of Magic"
         }
       ]
     },
@@ -2009,237 +1854,12 @@
     {
       "type": "entry",
       "pack": "treasure-vault",
-      "slug": "consumable:wand-of-dumbfounding-doom-3rd-rank",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.bv1bQGFywtNkYWWD",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unresolved-reference",
-          "field": "spell",
-          "raw": {
-            "spell": "impending-doom",
-            "book": "Pathfinder Secrets of Magic"
-          }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Secrets of Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "consumable:wand-of-dumbfounding-doom-4th-rank",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.80HjjtcTF6DS1w30",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unresolved-reference",
-          "field": "spell",
-          "raw": {
-            "spell": "impending-doom",
-            "book": "Pathfinder Secrets of Magic"
-          }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Secrets of Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "consumable:wand-of-dumbfounding-doom-5th-rank",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.xC4W6YAcu0rQFmgm",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unresolved-reference",
-          "field": "spell",
-          "raw": {
-            "spell": "impending-doom",
-            "book": "Pathfinder Secrets of Magic"
-          }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Secrets of Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "consumable:wand-of-dumbfounding-doom-6th-rank",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.W6QXdPS9d0eoBAuw",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unresolved-reference",
-          "field": "spell",
-          "raw": {
-            "spell": "impending-doom",
-            "book": "Pathfinder Secrets of Magic"
-          }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Secrets of Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "consumable:wand-of-dumbfounding-doom-7th-rank",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.SkBZG0AO2wpuKBLT",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unresolved-reference",
-          "field": "spell",
-          "raw": {
-            "spell": "impending-doom",
-            "book": "Pathfinder Secrets of Magic"
-          }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Secrets of Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "consumable:wand-of-dumbfounding-doom-8th-rank",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.UC7YCJmKbuau54fS",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unresolved-reference",
-          "field": "spell",
-          "raw": {
-            "spell": "impending-doom",
-            "book": "Pathfinder Secrets of Magic"
-          }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Secrets of Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "consumable:wand-of-dumbfounding-doom-9th-rank",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.FagkWG1cXRucHcQ6",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unresolved-reference",
-          "field": "spell",
-          "raw": {
-            "spell": "impending-doom",
-            "book": "Pathfinder Secrets of Magic"
-          }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Secrets of Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "consumable:wand-of-refracting-rays-4th-rank",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.cMErkgi3GjwT0bTz",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unresolved-reference",
-          "field": "spell",
-          "raw": {
-            "spell": "chromatic-ray",
-            "book": "Pathfinder Secrets of Magic"
-          }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Secrets of Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "consumable:wand-of-refracting-rays-7th-rank",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.cIYjYb9e5ieQmHo7",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unresolved-reference",
-          "field": "spell",
-          "raw": {
-            "spell": "chromatic-ray",
-            "book": "Pathfinder Secrets of Magic"
-          }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Secrets of Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
       "slug": "consumable:wand-of-the-ash-puppet",
       "foundry": "Compendium.pf2e.equipment-srd.Item.JzGuXGSjsfWDMu7P",
       "gaps": [
         {
           "type": "enricher",
           "enricher": "@UUID[pathfinder-monster-core-2]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "consumable:wand-of-toxic-blades-6th-rank",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.7AdpzgqC9wCVyeoe",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[equipment-srd] Pathfinder Player Core 2"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "consumable:wand-of-toxic-blades-7th-rank",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.m7oTstzUfkFfaaLc",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[equipment-srd] Pathfinder Player Core 2"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "consumable:wand-of-toxic-blades-8th-rank",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.s9ciKYFPOepnHpxG",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[equipment-srd] Pathfinder Player Core 2"
         }
       ]
     },
@@ -3983,10 +3603,6 @@
             "slug": "insight-coffee-bonus",
             "value": 4
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[classfeatures] Pathfinder Player Core 2"
         }
       ]
     },
@@ -6561,42 +6177,6 @@
     {
       "type": "entry",
       "pack": "treasure-vault",
-      "slug": "equipment:alchemical-chart-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.MnKL30xS3FHlwdS1",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e] Pathfinder Player Core 2"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:alchemical-chart-lesser",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.cKYWot4ifTOa6ans",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e] Pathfinder Player Core 2"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:alchemical-chart-moderate",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.dtQnQn4LBSIAzQCZ",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e] Pathfinder Player Core 2"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
       "slug": "equipment:alchemists-flamethrower",
       "foundry": "Compendium.pf2e.equipment-srd.Item.gdaLHiWRhB1l2Xr3",
       "gaps": [
@@ -6629,37 +6209,9 @@
     {
       "type": "entry",
       "pack": "treasure-vault",
-      "slug": "equipment:architects-pattern-book",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.Kx1Se9u0LU1ZS5R1",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:bagpipes-of-turmoil-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.7eggb7exEAbZABrd",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Secrets of Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
       "slug": "equipment:bagpipes-of-turmoil-major",
       "foundry": "Compendium.pf2e.equipment-srd.Item.nhyXfERJ0SNFmcb0",
       "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Secrets of Magic"
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
@@ -6715,18 +6267,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[pathfinder-monster-core-2]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:bracers-of-devotion",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.fZLZGO0YLY8xYPh5",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[classfeatures] Pathfinder Player Core 2"
         }
       ]
     },
@@ -6885,10 +6425,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[traits]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
         }
       ]
     },
@@ -6901,10 +6437,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[traits]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
         }
       ]
     },
@@ -6917,10 +6449,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[traits]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
         }
       ]
     },
@@ -7056,10 +6584,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Secrets of Magic"
         }
       ]
     },
@@ -7072,10 +6596,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Secrets of Magic"
         }
       ]
     },
@@ -7100,10 +6620,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
         }
       ]
     },
@@ -7116,10 +6632,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
         }
       ]
     },
@@ -7220,18 +6732,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Player Core"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:fiddle-of-the-maestro",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.2smAtaNAi2fIVTLF",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
         }
       ]
     },
@@ -7436,10 +6936,6 @@
             "priority": 41,
             "value": 10
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e] Pathfinder Player Core 2"
         }
       ]
     },
@@ -7461,10 +6957,6 @@
             "priority": 41,
             "value": 10
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e] Pathfinder Player Core 2"
         }
       ]
     },
@@ -7486,10 +6978,6 @@
             "priority": 41,
             "value": 10
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e] Pathfinder Player Core 2"
         }
       ]
     },
@@ -7511,10 +6999,6 @@
             "priority": 41,
             "value": 10
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e] Pathfinder Player Core 2"
         }
       ]
     },
@@ -7536,10 +7020,6 @@
             "priority": 41,
             "value": 10
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e] Pathfinder Player Core 2"
         }
       ]
     },
@@ -7561,10 +7041,6 @@
             "priority": 41,
             "value": 10
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e] Pathfinder Player Core 2"
         }
       ]
     },
@@ -7665,18 +7141,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[equipment-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:lightweave-scarf-major",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.Uk342C6qpSkdjHBb",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
         }
       ]
     },
@@ -7824,34 +7288,6 @@
             "slug": "no-compass",
             "suppress": true
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:phantasmal-doorknob",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.IISieImYvSQ8AqmC",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:pipes-of-compulsion-major",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.kakeEbGrFPwW6Rhu",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Secrets of Magic"
         }
       ]
     },
@@ -7878,25 +7314,9 @@
     {
       "type": "entry",
       "pack": "treasure-vault",
-      "slug": "equipment:radiant-prism-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.POKglmR5IdpEEefR",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
       "slug": "equipment:resonating-fork",
       "foundry": "Compendium.pf2e.equipment-srd.Item.TVpEf9gMFUuwfGoU",
       "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
@@ -7911,10 +7331,6 @@
       "gaps": [
         {
           "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        },
-        {
-          "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
         }
       ]
@@ -7927,35 +7343,7 @@
       "gaps": [
         {
           "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        },
-        {
-          "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:rime-crystal-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.neanlQgRTZQh2zy7",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:rime-crystal-major",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.p6tS5mzfGkQJLUDp",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
         }
       ]
     },
@@ -8026,64 +7414,12 @@
     {
       "type": "entry",
       "pack": "treasure-vault",
-      "slug": "equipment:seers-flute",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.eLsmwHVW5qiwcd7c",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:seers-flute-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.D7ARQDAr9tO61UqY",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
       "slug": "equipment:seers-flute-major",
       "foundry": "Compendium.pf2e.equipment-srd.Item.QqN3JHXXNveMnjnd",
       "gaps": [
         {
           "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        },
-        {
-          "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:sleuths-pipe",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.JNOKoVNCwRT1aIhm",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e] Pathfinder Player Core 2"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:spectacles-of-inquiry",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.mxI7Ah8eZNmonNKj",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e] Pathfinder Player Core 2"
         }
       ]
     },
@@ -8233,10 +7569,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
         }
       ]
     },
@@ -8249,10 +7581,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
         }
       ]
     },
@@ -8265,18 +7593,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Core Rulebook"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:unbreakable-heart",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.fr2K2wJnSLD0ERpo",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
         }
       ]
     },
@@ -8299,25 +7615,9 @@
     {
       "type": "entry",
       "pack": "treasure-vault",
-      "slug": "equipment:unifying-emblem-shundar-quah",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.qNMOpzpeQz51vMhf",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
       "slug": "equipment:unifying-emblem-sklar-quah",
       "foundry": "Compendium.pf2e.equipment-srd.Item.bw2RNhvtX1vvHi0y",
       "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        },
         {
           "type": "markup",
           "markup": "span[class]"
@@ -8402,18 +7702,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Core Rulebook"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:weapon-siphon",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.touk9g0Lc2REwowo",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[equipment-srd] Pathfinder Player Core 2"
         }
       ]
     },
@@ -8510,10 +7798,6 @@
             "type": "{item|flags.system.rulesSelections.resistance}",
             "value": 5
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
         }
       ]
     },
@@ -8558,10 +7842,6 @@
             "type": "{item|flags.system.rulesSelections.resistance}",
             "value": 10
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
         }
       ]
     },
@@ -8606,10 +7886,6 @@
             "type": "{item|flags.system.rulesSelections.resistance}",
             "value": 15
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
         }
       ]
     },
@@ -9028,18 +8304,6 @@
     {
       "type": "entry",
       "pack": "treasure-vault",
-      "slug": "shield:magnetic-shield",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.BPZPA9Y8kPewVYoW",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[equipment-srd] Pathfinder Player Core 2"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
       "slug": "shield:sapling-shield-greater",
       "foundry": "Compendium.pf2e.equipment-srd.Item.QR7rqHMuU72NA47A",
       "gaps": [
@@ -9422,10 +8686,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
         }
       ]
     },
@@ -9450,37 +8710,9 @@
     {
       "type": "entry",
       "pack": "treasure-vault",
-      "slug": "weapon:beast-staff-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.zzLGE9zmSu3yMEOq",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "weapon:beast-staff-major",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.PeRLqNTbzaiITNuO",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
       "slug": "weapon:boreal-staff",
       "foundry": "Compendium.pf2e.equipment-srd.Item.tU4PKaoo1XuPkKg1",
       "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Lost Omens World Guide"
@@ -9503,10 +8735,6 @@
         },
         {
           "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        },
-        {
-          "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
         }
       ]
@@ -9520,10 +8748,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Core Rulebook"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
         },
         {
           "type": "enricher",
@@ -9599,10 +8823,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
         }
       ]
     },
@@ -9613,18 +8833,8 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.XBn3aapPC0x7X13W",
       "gaps": [
         {
-          "type": "field",
-          "reason": "unresolved-reference",
-          "field": "runes.property",
-          "raw": "speed"
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Dark Archive (Remastered)"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
         },
         {
           "type": "enricher",
@@ -9635,25 +8845,9 @@
     {
       "type": "entry",
       "pack": "treasure-vault",
-      "slug": "weapon:composer-staff",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.6TC4FywUTzVAK97v",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
       "slug": "weapon:composer-staff-greater",
       "foundry": "Compendium.pf2e.equipment-srd.Item.KSHZBPFxPD6uCZXM",
       "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
@@ -9666,10 +8860,6 @@
       "slug": "weapon:composer-staff-major",
       "foundry": "Compendium.pf2e.equipment-srd.Item.pBPVm5JjKfKX8gaX",
       "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
@@ -9732,25 +8922,9 @@
     {
       "type": "entry",
       "pack": "treasure-vault",
-      "slug": "weapon:dragonprism-staff",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.tEI1WOo4ZRJ5cI0K",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
       "slug": "weapon:dragonprism-staff-greater",
       "foundry": "Compendium.pf2e.equipment-srd.Item.inyiBwK0zNootR6G",
       "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
@@ -9778,10 +8952,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Secrets of Magic"
         }
       ]
     },
@@ -9871,10 +9041,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Core Rulebook"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
         }
       ]
     },
@@ -9886,25 +9052,7 @@
       "gaps": [
         {
           "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        },
-        {
-          "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "weapon:kaldemashs-lament",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.urcBTs4AgSq8u5FJ",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unresolved-reference",
-          "field": "runes.property",
-          "raw": "speed"
         }
       ]
     },
@@ -9969,10 +9117,6 @@
       "gaps": [
         {
           "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        },
-        {
-          "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
         }
       ]
@@ -9985,10 +9129,6 @@
       "gaps": [
         {
           "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        },
-        {
-          "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
         }
       ]
@@ -9999,10 +9139,6 @@
       "slug": "weapon:lyrakien-staff-major",
       "foundry": "Compendium.pf2e.equipment-srd.Item.uX8urrzOQM5wdoTD",
       "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
@@ -10036,10 +9172,6 @@
       "slug": "weapon:pirate-staff",
       "foundry": "Compendium.pf2e.equipment-srd.Item.MSzFbb4Jswvrqjru",
       "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
@@ -10173,10 +9305,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Secrets of Magic"
         }
       ]
     },
@@ -10272,61 +9400,9 @@
     {
       "type": "entry",
       "pack": "treasure-vault",
-      "slug": "weapon:spy-staff",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.eoSl6Rbop1EX5DwP",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "weapon:spy-staff-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.4nEdlX9GOlXGyfpl",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "weapon:spy-staff-major",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.tzzvevwmwwKQaHK0",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "weapon:staff-of-air",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.8TEundYBdonchDj1",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
       "slug": "weapon:staff-of-air-greater",
       "foundry": "Compendium.pf2e.equipment-srd.Item.9GUSQFJZarLs5tQC",
       "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
@@ -10341,35 +9417,7 @@
       "gaps": [
         {
           "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        },
-        {
-          "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "weapon:staff-of-earth",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.pX3rpVDBLqClcL9M",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "weapon:staff-of-earth-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.jaM12dWpIozRiIhk",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
         }
       ]
     },
@@ -10381,39 +9429,7 @@
       "gaps": [
         {
           "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        },
-        {
-          "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "weapon:staff-of-water",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.frCSW1zLFYiYpjdR",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "weapon:staff-of-water-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.DwNELc8YIKTb2uj1",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Secrets of Magic"
         }
       ]
     },
@@ -10423,14 +9439,6 @@
       "slug": "weapon:staff-of-water-major",
       "foundry": "Compendium.pf2e.equipment-srd.Item.QMqPGk7oL4kESGc3",
       "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Secrets of Magic"
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
@@ -10450,12 +9458,6 @@
           "raw": {
             "attribute": "dex"
           }
-        },
-        {
-          "type": "field",
-          "reason": "unresolved-reference",
-          "field": "runes.property",
-          "raw": "speed"
         }
       ]
     },
@@ -10521,10 +9523,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
         }
       ]
     },
@@ -10537,10 +9535,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
         }
       ]
     },
@@ -10553,10 +9547,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
         }
       ]
     },

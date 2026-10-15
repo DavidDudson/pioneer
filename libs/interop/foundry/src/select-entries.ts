@@ -24,6 +24,8 @@ export const FOUNDRY_BOOK_TITLES: ReadonlyMap<string, BookId> = new Map([
   ['Pathfinder Howl of the Wild', BookId.parse('howl-of-the-wild')],
   ['Pathfinder War of Immortals', BookId.parse('war-of-immortals')],
   ['Pathfinder Lost Omens The Mwangi Expanse', BookId.parse('mwangi-expanse')],
+  ['Pathfinder Secrets of Magic', BookId.parse('secrets-of-magic')],
+  ['Pathfinder Rage of Elements', BookId.parse('rage-of-elements')],
 ]);
 
 /**
@@ -31,7 +33,11 @@ export const FOUNDRY_BOOK_TITLES: ReadonlyMap<string, BookId> = new Map([
  * which Pathbuilder exports name). Their entries are legacy and OGL, which selection otherwise skips. Adding a book
  * here is a licensing decision: NOTICE.md and the Legal page must carry its notice.
  */
-export const OGL_BOOKS: ReadonlySet<BookId> = new Set([BookId.parse('mwangi-expanse')]);
+export const OGL_BOOKS: ReadonlySet<BookId> = new Set([
+  BookId.parse('mwangi-expanse'),
+  BookId.parse('secrets-of-magic'),
+  BookId.parse('rage-of-elements'),
+]);
 
 /** Why a document in an item pack is not imported, in the order selection checks. */
 export const SkipReason = {

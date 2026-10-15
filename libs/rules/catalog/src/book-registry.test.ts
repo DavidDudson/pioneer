@@ -44,6 +44,8 @@ describe('book registry', () => {
         'mwangi-expanse',
         'player-core',
         'player-core-2',
+        'rage-of-elements',
+        'secrets-of-magic',
         'treasure-vault',
         'war-of-immortals',
       ].map((id) => BookId.parse(id)),

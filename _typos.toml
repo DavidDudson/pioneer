@@ -17,6 +17,8 @@ extend-ignore-re = [
   "\\{#(st|nd|rd|th)\\}",
   # Pronunciation guides in deity descriptions: Tolte Coatl (TOLL-teh coh-AHtl).
   "TOLL-teh",
+  # A typo in Foundry's Rage of Elements text, kept as imported.
+  "difficult terrain fo your enemies",
 ]
 
 [default.extend-words]
@@ -32,3 +34,5 @@ youre = "youre"
 heros = "heros"
 # Verex's Ruin, a cursed weapon (War of Immortals).
 verex = "verex"
+# Slug: `option:against-poison-disease-onself` is Foundry's own spelling of a rule option (Rage of Elements).
+onself = "onself"

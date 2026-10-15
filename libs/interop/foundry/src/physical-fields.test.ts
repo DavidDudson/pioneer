@@ -80,6 +80,7 @@ describe('runeSlug', () => {
     ['ghostTouch', 'ghost-touch'],
     ['greaterEnergyResistant', 'energy-resistant-greater'],
     ['majorSlick', 'slick-major'],
+    ['speed', 'quickstrike'],
     ['greater', 'greater'],
   ] as const)('%s is %s', (key, slug) => {
     expect(runeSlug(key)).toBe(slug);

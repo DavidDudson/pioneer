@@ -36,6 +36,11 @@ export async function coreRulesPack(): Promise<PackContents> {
     import('@pioneer/content/packs/core-rules/imported/war-of-immortals/trait.json'),
     import('@pioneer/content/packs/core-rules/imported/mwangi-expanse/language.json'),
     import('@pioneer/content/packs/core-rules/imported/mwangi-expanse/trait.json'),
+    import('@pioneer/content/packs/core-rules/imported/rage-of-elements/statistic.json'),
+    import('@pioneer/content/packs/core-rules/imported/rage-of-elements/trait.json'),
+    import('@pioneer/content/packs/core-rules/imported/secrets-of-magic/sense.json'),
+    import('@pioneer/content/packs/core-rules/imported/secrets-of-magic/statistic.json'),
+    import('@pioneer/content/packs/core-rules/imported/secrets-of-magic/trait.json'),
     import('@pioneer/content/packs/core-rules/imported/howl-of-the-wild/language.json'),
     import('@pioneer/content/packs/core-rules/imported/howl-of-the-wild/trait.json'),
     import('@pioneer/content/packs/core-rules/imported/gm-core/trait.json'),
@@ -187,5 +192,41 @@ export async function treasureVaultPack(): Promise<PackContents> {
     import('@pioneer/content/packs/treasure-vault/shield.json'),
     import('@pioneer/content/packs/treasure-vault/spell.json'),
     import('@pioneer/content/packs/treasure-vault/weapon.json'),
+  ]);
+}
+
+export async function secretsOfMagicPack(): Promise<PackContents> {
+  return pack(import('@pioneer/content/packs/secrets-of-magic/pack.json'), [
+    import('@pioneer/content/packs/secrets-of-magic/action.json'),
+    import('@pioneer/content/packs/secrets-of-magic/archetype.json'),
+    import('@pioneer/content/packs/secrets-of-magic/background.json'),
+    import('@pioneer/content/packs/secrets-of-magic/class-feature.json'),
+    import('@pioneer/content/packs/secrets-of-magic/consumable.json'),
+    import('@pioneer/content/packs/secrets-of-magic/effect.json'),
+    import('@pioneer/content/packs/secrets-of-magic/equipment.json'),
+    import('@pioneer/content/packs/secrets-of-magic/feat.json'),
+    import('@pioneer/content/packs/secrets-of-magic/spell.json'),
+    import('@pioneer/content/packs/secrets-of-magic/weapon.json'),
+  ]);
+}
+
+export async function rageOfElementsPack(): Promise<PackContents> {
+  return pack(import('@pioneer/content/packs/rage-of-elements/pack.json'), [
+    import('@pioneer/content/packs/rage-of-elements/action.json'),
+    import('@pioneer/content/packs/rage-of-elements/archetype.json'),
+    import('@pioneer/content/packs/rage-of-elements/armor.json'),
+    import('@pioneer/content/packs/rage-of-elements/background.json'),
+    import('@pioneer/content/packs/rage-of-elements/class-feature.json'),
+    import('@pioneer/content/packs/rage-of-elements/class.json'),
+    import('@pioneer/content/packs/rage-of-elements/consumable.json'),
+    import('@pioneer/content/packs/rage-of-elements/effect.json'),
+    import('@pioneer/content/packs/rage-of-elements/equipment.json'),
+    import('@pioneer/content/packs/rage-of-elements/feat.json'),
+    import('@pioneer/content/packs/rage-of-elements/heritage.json'),
+    import('@pioneer/content/packs/rage-of-elements/ritual.json'),
+    import('@pioneer/content/packs/rage-of-elements/rune.json'),
+    import('@pioneer/content/packs/rage-of-elements/shield.json'),
+    import('@pioneer/content/packs/rage-of-elements/spell.json'),
+    import('@pioneer/content/packs/rage-of-elements/weapon.json'),
   ]);
 }

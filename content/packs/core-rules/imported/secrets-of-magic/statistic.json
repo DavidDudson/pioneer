@@ -1,0 +1,170 @@
+[
+  {
+    "id": "6ea809f4-826b-5fc9-af0f-2a8f397a7dee",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:genie-lore",
+    "name": "Genie Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:genie",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.genie",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "e054f4e7-02d3-5a8d-b663-910ec5c1a851",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:ley-line-lore",
+    "name": "Ley Line Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:ley-line",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.ley-line",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "68ea51be-8a0b-5f20-82b8-d7d8f0d68cd3",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:magical-terrain-lore",
+    "name": "Magical Terrain Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:magical-terrain",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.magical-terrain",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "cd875887-be77-5f74-b539-2cc86c495a1d",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:music-lore",
+    "name": "Music Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:music",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.music",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "b5c8dd16-540d-5f70-a6fa-b0612b07c740",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:ocean-lore",
+    "name": "Ocean Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:ocean",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.ocean",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "d01d9ac2-80d7-5a3d-ade1-e4d6d083e577",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:plant-lore",
+    "name": "Plant Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:plant",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.plant",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "a42a8cbf-2dab-5acf-a947-0f857feae845",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:undead-lore",
+    "name": "Undead Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:undead",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.undead",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  }
+]
