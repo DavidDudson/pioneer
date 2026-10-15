@@ -195,6 +195,26 @@ describe.skipIf(adminUrl === undefined)('CharacterPackService over postgres', ()
     ]);
   });
 
+  test('the allies are the rest of the campaign party, and none outside a campaign', async () => {
+    const directory = new CampaignPackDirectory(database.db);
+    const seoni = new CharacterBuilder().named('Seoni').ownedBy(amiri).build();
+    await new DrizzleCharacterRepository(database.db).insert(seoni, {
+      actor: amiri,
+      command: CharacterCommand.CreateCharacter,
+    });
+    expect(await directory.alliesOf(kyra)).toStrictEqual([]);
+
+    await attach();
+    await database.db.execute(
+      sql`insert into campaign_characters (id, campaign_id, member_id, character_id, attached_at) values (${newId()}, ${campaignId}, ${memberId}, ${seoni.id}, ${at})`,
+    );
+    const allies = await directory.alliesOf(kyra);
+    await database.db.execute(sql`delete from campaign_characters where character_id = ${seoni.id}`);
+    await database.db.execute(sql`delete from characters where id = ${seoni.id}`);
+
+    expect(allies.map(({ characterId, name }) => [characterId, String(name)])).toStrictEqual([[seoni.id, 'Seoni']]);
+  });
+
   test('every lookup is served by an index', async () => {
     await service.enable(amiri, kyra, { packId: ContentPackId.parse(spells.id) });
     await attach();

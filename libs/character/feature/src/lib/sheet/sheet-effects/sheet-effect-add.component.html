@@ -12,7 +12,16 @@
     [value]="sourceKind()"
     (valueChange)="setSource($event)"
   />
-  @if (isAlly()) {
+  @if (isAlly() && hasParty()) {
+    <fr-select
+      [ariaLabel]="'character.sheet.effects.allyPick' | transloco"
+      [placeholder]="'character.sheet.effects.allyPick' | transloco"
+      [options]="allyOptions()"
+      [value]="allyChoice()"
+      (valueChange)="allyChoice.set($event)"
+    />
+  }
+  @if (typesAlly()) {
     <fr-text-input
       [placeholder]="'character.sheet.effects.allyName' | transloco"
       [value]="allyName()"

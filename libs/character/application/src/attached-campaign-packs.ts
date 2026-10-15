@@ -1,4 +1,4 @@
-import type { AttachedCampaignName, CharacterId } from '@pioneer/character/domain';
+import type { AttachedCampaignName, CampaignAlly, CharacterId } from '@pioneer/character/domain';
 import type { ContentPackId, VariantRuleId } from '@pioneer/rules/sdk';
 
 /** The campaign a character is attached to, the homebrew packs it enables and the variant rules its GM turned on. */
@@ -16,4 +16,7 @@ export interface AttachedCampaign {
 export abstract class AttachedCampaignPacks {
   /** The campaign the character is attached to; none when it is in no campaign. */
   public abstract of(characterId: CharacterId): Promise<AttachedCampaign | undefined>;
+
+  /** The other characters in the campaign the character is attached to, by name; none when it is in no campaign. */
+  public abstract alliesOf(characterId: CharacterId): Promise<readonly CampaignAlly[]>;
 }

@@ -19,6 +19,7 @@ export { InMemoryCharacterPackCatalog, type KnownPack } from './in-memory-charac
 export { CharacterPackMessage } from './character-pack-message';
 export { CharacterPackRepository } from './character-pack-repository';
 export { InMemoryCharacterPackRepository } from './in-memory-character-pack-repository';
+export { CharacterAllyService, type CharacterAllyPorts } from './character-ally-service';
 export { CharacterPackService, type CharacterPackPorts } from './character-pack-service';
 export { EffectivePacks } from './effective-packs';
 export { CharacterContent, type CharacterContentSource } from './character-content';
