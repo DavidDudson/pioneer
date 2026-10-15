@@ -7,7 +7,6 @@ import {
   divineMysteriesPack,
   gmCorePack,
   howlOfTheWildPack,
-  impossibleMagicPack,
   monsterCorePack,
   mwangiExpansePack,
   playerCore2Pack,
@@ -20,6 +19,7 @@ import {
   warOfImmortalsPack,
 } from './json-packs';
 import { characterGuidePack, impossibleLandsPack } from './ogl-packs';
+import { impossibleMagicPack } from './orc-packs';
 import { checkPackSources } from './source-check';
 
 export { BookRegistry, bookRegistry } from './book-registry';
