@@ -43,6 +43,7 @@ describe('book registry', () => {
         'gm-core',
         'howl-of-the-wild',
         'impossible-lands',
+        'impossible-magic',
         'monster-core',
         'mwangi-expanse',
         'player-core',

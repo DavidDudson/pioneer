@@ -2413,7 +2413,15 @@
         "content": [
           {
             "type": "text",
-            "text": "Bane oil comes in as many forms as the bane weapon property rune. Coating a weapon with the oil gives the weapon the benefit of one type of Bane rune for 1 minute. A weapon can be coated in only one type of bane oil at a time. Any new application of this oil supersedes any previous one. If a weapon has the bane rune, this oil has no effect if it's of the same type as the rune."
+            "text": "Bane oil comes in as many forms as the bane weapon property rune. Coating a weapon with the oil gives the weapon the benefit of one type of "
+          },
+          {
+            "type": "ref",
+            "id": "b87722cc-7fc3-535c-963c-8c06864b69c6"
+          },
+          {
+            "type": "text",
+            "text": " rune for 1 minute. A weapon can be coated in only one type of bane oil at a time. Any new application of this oil supersedes any previous one. If a weapon has the bane rune, this oil has no effect if it's of the same type as the rune."
           }
         ]
       }
@@ -26677,7 +26685,15 @@
         "content": [
           {
             "type": "text",
-            "text": "Small bolts of brightly colored electricity flicker through the cloudy mind-swap potion. The potion often comes in a double-chambered flask, because when you drink it, you consume half the contents. If another creature of the same ancestry consumes the remainder of the contents within 1 minute, your minds swap per the effect of a critical success on a Mind Swap ritual. The effects last for 24 hours or until one of you Dismisses the activation."
+            "text": "Small bolts of brightly colored electricity flicker through the cloudy mind-swap potion. The potion often comes in a double-chambered flask, because when you drink it, you consume half the contents. If another creature of the same ancestry consumes the remainder of the contents within 1 minute, your minds swap per the effect of a critical success on a "
+          },
+          {
+            "type": "ref",
+            "id": "ece6b12c-cddb-56a8-97d8-9d3dbd928173"
+          },
+          {
+            "type": "text",
+            "text": " ritual. The effects last for 24 hours or until one of you Dismisses the activation."
           }
         ]
       }
@@ -46380,7 +46396,15 @@
           },
           {
             "type": "text",
-            "text": " You cast 7th-rank Frigid Flurry. After you cast the spell, the ice crystals freeze to flesh and other surfaces, clinging to the creatures in the area. Each creature that fails its save takes "
+            "text": " You cast 7th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "b3dcd979-4b76-5644-9270-45fa805a7d73"
+          },
+          {
+            "type": "text",
+            "text": ". After you cast the spell, the ice crystals freeze to flesh and other surfaces, clinging to the creatures in the area. Each creature that fails its save takes "
           },
           {
             "type": "damage",
@@ -46411,7 +46435,15 @@
           },
           {
             "type": "text",
-            "text": " Supply a casting of Frigid Flurry of the appropriate rank."
+            "text": " Supply a casting of "
+          },
+          {
+            "type": "ref",
+            "id": "b3dcd979-4b76-5644-9270-45fa805a7d73"
+          },
+          {
+            "type": "text",
+            "text": " of the appropriate rank."
           }
         ]
       }
@@ -46440,6 +46472,10 @@
       ],
       "category": "wand",
       "kept": true,
+      "spell": {
+        "spell": "b3dcd979-4b76-5644-9270-45fa805a7d73",
+        "rank": 7
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -46512,7 +46548,15 @@
           },
           {
             "type": "text",
-            "text": " You cast 8th-rank Frigid Flurry. After you cast the spell, the ice crystals freeze to flesh and other surfaces, clinging to the creatures in the area. Each creature that fails its save takes "
+            "text": " You cast 8th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "b3dcd979-4b76-5644-9270-45fa805a7d73"
+          },
+          {
+            "type": "text",
+            "text": ". After you cast the spell, the ice crystals freeze to flesh and other surfaces, clinging to the creatures in the area. Each creature that fails its save takes "
           },
           {
             "type": "damage",
@@ -46543,7 +46587,15 @@
           },
           {
             "type": "text",
-            "text": " Supply a casting of Frigid Flurry of the appropriate rank."
+            "text": " Supply a casting of "
+          },
+          {
+            "type": "ref",
+            "id": "b3dcd979-4b76-5644-9270-45fa805a7d73"
+          },
+          {
+            "type": "text",
+            "text": " of the appropriate rank."
           }
         ]
       }
@@ -46572,6 +46624,10 @@
       ],
       "category": "wand",
       "kept": true,
+      "spell": {
+        "spell": "b3dcd979-4b76-5644-9270-45fa805a7d73",
+        "rank": 8
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -46644,7 +46700,15 @@
           },
           {
             "type": "text",
-            "text": " You cast 9th-rank Frigid Flurry. After you cast the spell, the ice crystals freeze to flesh and other surfaces, clinging to the creatures in the area. Each creature that fails its save takes "
+            "text": " You cast 9th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "b3dcd979-4b76-5644-9270-45fa805a7d73"
+          },
+          {
+            "type": "text",
+            "text": ". After you cast the spell, the ice crystals freeze to flesh and other surfaces, clinging to the creatures in the area. Each creature that fails its save takes "
           },
           {
             "type": "damage",
@@ -46675,7 +46739,15 @@
           },
           {
             "type": "text",
-            "text": " Supply a casting of Frigid Flurry of the appropriate rank."
+            "text": " Supply a casting of "
+          },
+          {
+            "type": "ref",
+            "id": "b3dcd979-4b76-5644-9270-45fa805a7d73"
+          },
+          {
+            "type": "text",
+            "text": " of the appropriate rank."
           }
         ]
       }
@@ -46704,6 +46776,10 @@
       ],
       "category": "wand",
       "kept": true,
+      "spell": {
+        "spell": "b3dcd979-4b76-5644-9270-45fa805a7d73",
+        "rank": 9
+      },
       "usage": {
         "type": "held",
         "hands": "one"

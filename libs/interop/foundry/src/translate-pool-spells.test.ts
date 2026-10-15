@@ -1,11 +1,12 @@
 import { describe, expect, test } from 'bun:test';
 
-import { RuleElementKey } from '@pioneer/rules/sdk';
+import { contentId, EntrySlug, PackId, RuleElementKey } from '@pioneer/rules/sdk';
 
 import { rulesIn } from './testing/build-helpers';
 import { idOf, translate } from './testing/import-fixtures';
 import type { DocumentFixture } from './testing/import-fixtures';
 import { DIVINE_FONT, SCHOOL_OF_BATTLE_MAGIC, SCHOOL_OF_UNIFIED_MAGICAL_THEORY } from './testing/spellcasting-fixtures';
+import { poolSpellRules } from './translate-pool-spells';
 
 const { ChoiceSet, PoolSpells } = RuleElementKey;
 
@@ -68,5 +69,14 @@ describe('translateKindData: pool spells', () => {
       ].flatMap((rank) => rank.map((spell) => idOf(`spell:${spell}`))),
     );
     expect(keyed(PoolSpells, 'school-of-unified-magical-theory', SCHOOL_OF_UNIFIED_MAGICAL_THEORY)).toEqual([]);
+  });
+
+  test("a curriculum names another pack's spells as pack:slug and its own pack's by slug", () => {
+    const impossibleMagic = PackId.parse('impossible-magic');
+    const [curriculum] = poolSpellRules('class-feature:school-of-keen-inquiry', impossibleMagic);
+    const { spells } = curriculum as { readonly spells: readonly string[] };
+
+    expect(spells).toContain(contentId(PackId.parse('player-core'), EntrySlug.parse('spell:detect-magic')));
+    expect(spells).not.toContain(contentId(impossibleMagic, EntrySlug.parse('spell:detect-magic')));
   });
 });

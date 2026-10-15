@@ -126,7 +126,15 @@
           },
           {
             "type": "text",
-            "text": " You peel the musicians from the garment and fling them around you. The cloak casts a 4th-rank Phantom Crowd spell (DC 28); each of the 10-foot squares must be adjacent to you. The crowd looks like the musicians on the garment and continues to accompany your Performance checks. You can Sustain this effect as described in the spell."
+            "text": " You peel the musicians from the garment and fling them around you. The cloak casts a 4th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "14a91524-39d7-5dea-929d-34a4983c48ae"
+          },
+          {
+            "type": "text",
+            "text": " spell (DC 28); each of the 10-foot squares must be adjacent to you. The crowd looks like the musicians on the garment and continues to accompany your Performance checks. You can Sustain this effect as described in the spell."
           }
         ]
       },
@@ -3427,7 +3435,11 @@
                 },
                 {
                   "type": "text",
-                  "text": ", Painful Vibrations"
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "cc034788-af52-5d7e-beae-c056b0dcd71c"
                 }
               ]
             }
@@ -3923,7 +3935,15 @@
           },
           {
             "type": "text",
-            "text": " You cast Tame."
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "3ff7ccf0-ac52-5b1b-8147-3a8d4ac3daf4"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       },
@@ -4172,7 +4192,15 @@
           },
           {
             "type": "text",
-            "text": " You cast Tame."
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "3ff7ccf0-ac52-5b1b-8147-3a8d4ac3daf4"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       },
@@ -4421,7 +4449,15 @@
           },
           {
             "type": "text",
-            "text": " You cast Tame."
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "3ff7ccf0-ac52-5b1b-8147-3a8d4ac3daf4"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       },
@@ -8166,7 +8202,15 @@
           },
           {
             "type": "text",
-            "text": " You cast Soothing Blossoms."
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "cf5f423c-f1a2-518f-88c7-2bdd38b8bcdd"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       }
@@ -8370,7 +8414,15 @@
           },
           {
             "type": "text",
-            "text": " You cast Soothing Blossoms."
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "cf5f423c-f1a2-518f-88c7-2bdd38b8bcdd"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       },
@@ -8418,7 +8470,15 @@
           },
           {
             "type": "text",
-            "text": " You cast Petal Storm."
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "7e67a7f6-1a53-5197-9d95-dca6c71afa8d"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       }
@@ -8622,7 +8682,15 @@
           },
           {
             "type": "text",
-            "text": " You cast 6th-rank Petal Storm."
+            "text": " You cast 6th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "7e67a7f6-1a53-5197-9d95-dca6c71afa8d"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       },
@@ -8670,7 +8738,15 @@
           },
           {
             "type": "text",
-            "text": " You cast Burning Blossoms."
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "1269b5df-e034-504c-bacf-3413a051ac9e"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       }
@@ -12966,8 +13042,8 @@
             ],
             [
               {
-                "type": "text",
-                "text": "Animal Allies"
+                "type": "ref",
+                "id": "4de5ff4f-99c5-5900-8a63-13f852832366"
               }
             ]
           ],
@@ -13657,7 +13733,11 @@
                 },
                 {
                   "type": "text",
-                  "text": ", Tortoise and the Hare"
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "3ce00696-2b27-5d1f-854f-095b0d4aa070"
                 }
               ]
             }
@@ -13798,7 +13878,16 @@
           },
           {
             "type": "text",
-            "text": " is a jet-black tome bearing a single rune embossed on its cover, and it functions as a true endless grimoire. Inside, scrawled across its parchment pages in a delicate, spidery script, is a lengthy list of names that always appears in a reader's native alphabet. The grimoire isn't sentient, but it selects its owners, quickly passing out of the hands of those it doesn't choose. An intended victim's name appears on the list of names."
+            "text": " is a jet-black tome bearing a single rune embossed on its cover, and it functions as a "
+          },
+          {
+            "type": "ref",
+            "id": "ad25f21b-751f-5bd7-8c56-bae5ff696541",
+            "label": "true endless grimoire"
+          },
+          {
+            "type": "text",
+            "text": ". Inside, scrawled across its parchment pages in a delicate, spidery script, is a lengthy list of names that always appears in a reader's native alphabet. The grimoire isn't sentient, but it selects its owners, quickly passing out of the hands of those it doesn't choose. An intended victim's name appears on the list of names."
           }
         ]
       },
@@ -14275,7 +14364,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " After you cast an illusion spell by activating the mirror, illusory copies of the weapon swirl in the air around it. You're affected by the Thicket of Knives spell until the end of your next turn. The spell ends if you stop wielding the affixed weapon."
+                  "text": " After you cast an illusion spell by activating the mirror, illusory copies of the weapon swirl in the air around it. You're affected by the "
+                },
+                {
+                  "type": "ref",
+                  "id": "cbd0b143-4d55-5fb6-a925-38a832234583"
+                },
+                {
+                  "type": "text",
+                  "text": " spell until the end of your next turn. The spell ends if you stop wielding the affixed weapon."
                 }
               ]
             }
@@ -14465,7 +14562,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " After you cast an illusion spell by activating the mirror, illusory copies of the weapon swirl in the air around it. You're affected by the Thicket of Knives spell until the end of your next turn. The spell ends if you stop wielding the affixed weapon."
+                  "text": " After you cast an illusion spell by activating the mirror, illusory copies of the weapon swirl in the air around it. You're affected by the "
+                },
+                {
+                  "type": "ref",
+                  "id": "cbd0b143-4d55-5fb6-a925-38a832234583"
+                },
+                {
+                  "type": "text",
+                  "text": " spell until the end of your next turn. The spell ends if you stop wielding the affixed weapon."
                 }
               ]
             }
@@ -14659,7 +14764,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " After you cast an illusion spell by activating the mirror, illusory copies of the weapon swirl in the air around it. You're affected by the Thicket of Knives spell until the end of your next turn. The spell ends if you stop wielding the affixed weapon."
+                  "text": " After you cast an illusion spell by activating the mirror, illusory copies of the weapon swirl in the air around it. You're affected by the "
+                },
+                {
+                  "type": "ref",
+                  "id": "cbd0b143-4d55-5fb6-a925-38a832234583"
+                },
+                {
+                  "type": "text",
+                  "text": " spell until the end of your next turn. The spell ends if you stop wielding the affixed weapon."
                 }
               ]
             }
@@ -14805,7 +14918,15 @@
           },
           {
             "type": "text",
-            "text": " You cast Mirror Malefactors."
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "c3b4fb80-f742-510b-897b-35a6f5c09a35"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       }
@@ -14908,7 +15029,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Infectious Enthusiasm"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "d9740604-3ad7-5446-8cf1-a96815ac0c74"
                 }
               ]
             }
@@ -15066,7 +15191,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Infectious Enthusiasm"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "d9740604-3ad7-5446-8cf1-a96815ac0c74"
                 }
               ]
             }
@@ -15288,7 +15417,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Infectious Enthusiasm"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "d9740604-3ad7-5446-8cf1-a96815ac0c74"
                 }
               ]
             }
@@ -15404,7 +15537,11 @@
                 },
                 {
                   "type": "text",
-                  "text": ", Infectious Melody"
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "184bfcdd-a178-5c10-95fe-b959762d1392"
                 }
               ]
             }
@@ -18298,7 +18435,15 @@
         "content": [
           {
             "type": "text",
-            "text": "These wire-rim glasses appear to be Glasses of Sociability, making you think they grant a +1 item bonus to Diplomacy when they grant none. The GM secretly adjusts your Diplomacy checks to ignore the bonus, and if you have multiple +1 item bonuses to Diplomacy, the glasses take precedence, negating those bonuses."
+            "text": "These wire-rim glasses appear to be "
+          },
+          {
+            "type": "ref",
+            "id": "63b77405-b2e9-5aa4-bb9e-9e195ab7021f"
+          },
+          {
+            "type": "text",
+            "text": ", making you think they grant a +1 item bonus to Diplomacy when they grant none. The GM secretly adjusts your Diplomacy checks to ignore the bonus, and if you have multiple +1 item bonuses to Diplomacy, the glasses take precedence, negating those bonuses."
           }
         ]
       },
@@ -19060,7 +19205,15 @@
           },
           {
             "type": "text",
-            "text": " You cast Incarnate Tempest of Shades."
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "22d2a595-1d9d-52c2-b2de-07864c61858b"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       }
@@ -23644,7 +23797,15 @@
           },
           {
             "type": "text",
-            "text": " You cast Draw the Lightning."
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "3a3944da-e03d-5d3d-a903-4ca61fde13b5"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       }
@@ -24374,7 +24535,15 @@
           },
           {
             "type": "text",
-            "text": " You cast Incarnate Deific Herald."
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "711297e6-fc2d-5e70-9235-91fbed4cb5ea"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       }
@@ -25001,7 +25170,11 @@
           },
           {
             "type": "text",
-            "text": " You cast Healing Well"
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "4a78151f-2873-5fbc-9628-ca56ede6c836"
           }
         ]
       }
@@ -25212,7 +25385,11 @@
           },
           {
             "type": "text",
-            "text": " You cast 6th-rank Healing Well"
+            "text": " You cast 6th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "4a78151f-2873-5fbc-9628-ca56ede6c836"
           }
         ]
       },
@@ -25414,7 +25591,15 @@
           },
           {
             "type": "text",
-            "text": " is a Book of Lingering Blaze awakened to sapience and imbued with an enthusiasm for fire. It encourages you to learn new fire spells to inscribe within its pages. When you attempt a skill check to "
+            "text": " is a "
+          },
+          {
+            "type": "ref",
+            "id": "e4366e8a-8932-50de-9279-27a1d2cb5854"
+          },
+          {
+            "type": "text",
+            "text": " awakened to sapience and imbued with an enthusiasm for fire. It encourages you to learn new fire spells to inscribe within its pages. When you attempt a skill check to "
           },
           {
             "type": "ref",
@@ -27321,7 +27506,15 @@
           },
           {
             "type": "text",
-            "text": " The majordomo torc casts Befitting Attire on you, usually to your specifications. However the torc can also choose the appearance of the illusion for you."
+            "text": " The majordomo torc casts "
+          },
+          {
+            "type": "ref",
+            "id": "845dd58a-a977-5bea-bb03-3a3fd62a6ab1"
+          },
+          {
+            "type": "text",
+            "text": " on you, usually to your specifications. However the torc can also choose the appearance of the illusion for you."
           }
         ]
       }
@@ -28277,7 +28470,23 @@
           },
           {
             "type": "text",
-            "text": " adorns experienced magi. Each ring has a significant metal and symbol to represent a particular hybrid study, such as a heavy iron ring with an icon of a mountain for Inexorable Iron, or glittering silver with a shield-like emblem for Sparkling Targe. You gain a +2 item bonus to Arcana checks."
+            "text": " adorns experienced magi. Each ring has a significant metal and symbol to represent a particular hybrid study, such as a heavy iron ring with an icon of a mountain for "
+          },
+          {
+            "type": "ref",
+            "id": "264d6816-7635-50c1-b5a8-bc7f4e663660"
+          },
+          {
+            "type": "text",
+            "text": ", or glittering silver with a shield-like emblem for "
+          },
+          {
+            "type": "ref",
+            "id": "060e21fb-bf38-5a44-9299-20bab8482151"
+          },
+          {
+            "type": "text",
+            "text": ". You gain a +2 item bonus to Arcana checks."
           }
         ]
       },
@@ -34319,7 +34528,15 @@
           },
           {
             "type": "text",
-            "text": " You cast Biting Words."
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "bcd18575-6537-5dfc-a539-5bd5399dcd34"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       }
@@ -34511,7 +34728,15 @@
           },
           {
             "type": "text",
-            "text": " You cast 2nd-rank Biting Words."
+            "text": " You cast 2nd-rank "
+          },
+          {
+            "type": "ref",
+            "id": "bcd18575-6537-5dfc-a539-5bd5399dcd34"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       },
@@ -34809,7 +35034,15 @@
           },
           {
             "type": "text",
-            "text": " You cast Painful Vibrations."
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "cc034788-af52-5d7e-beae-c056b0dcd71c"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       }
@@ -36237,7 +36470,15 @@
           },
           {
             "type": "text",
-            "text": " You cast Sanguine Mist."
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "c6871199-db5c-5647-8e0f-c1b7d6c3f66d"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       },
@@ -37925,7 +38166,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Inevitable Disaster, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "42a945f7-e04c-5687-8b3b-91b811876129"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -39499,7 +39748,15 @@
           },
           {
             "type": "text",
-            "text": " You have the Raise a Tome feat"
+            "text": " You have the "
+          },
+          {
+            "type": "ref",
+            "id": "c1464a4a-7f39-5ded-999f-bd697d63663f"
+          },
+          {
+            "type": "text",
+            "text": " feat"
           }
         ]
       },
@@ -44216,7 +44473,15 @@
           },
           {
             "type": "text",
-            "text": " The blossom casts Soothing Blossoms to your specifications."
+            "text": " The blossom casts "
+          },
+          {
+            "type": "ref",
+            "id": "cf5f423c-f1a2-518f-88c7-2bdd38b8bcdd"
+          },
+          {
+            "type": "text",
+            "text": " to your specifications."
           }
         ]
       },
@@ -45509,7 +45774,15 @@
                 },
                 {
                   "type": "text",
-                  "text": ", Phantom Prison, "
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "febe6c1a-73a3-5897-9a31-ee2ba7bc05d9"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -45790,7 +46063,15 @@
                 },
                 {
                   "type": "text",
-                  "text": ", Phantom Prison, "
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "febe6c1a-73a3-5897-9a31-ee2ba7bc05d9"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -47886,7 +48167,15 @@
           },
           {
             "type": "text",
-            "text": " You cast Web of Eyes."
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "af94b6ff-fecb-5590-b39f-28cd1498b7a6"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       }
@@ -57309,7 +57598,15 @@
           },
           {
             "type": "text",
-            "text": " You cast Incarnate Draconic Legion."
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "59374b0e-4ec8-58bb-93b7-e27f8521ce01"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       }

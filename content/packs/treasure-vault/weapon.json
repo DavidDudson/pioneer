@@ -144,7 +144,11 @@
                 },
                 {
                   "type": "text",
-                  "text": ", Warrior's Regret"
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "346f239a-1db9-59e1-92f3-30c2c84ac10d"
                 }
               ]
             }
@@ -339,7 +343,11 @@
                 },
                 {
                   "type": "text",
-                  "text": ", Warrior's Regret"
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "346f239a-1db9-59e1-92f3-30c2c84ac10d"
                 }
               ]
             }
@@ -355,7 +363,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Claim Curse, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "dd9e973d-5244-5646-8f88-de487ad2824f"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -391,7 +407,11 @@
                 },
                 {
                   "type": "text",
-                  "text": ", Warrior's Regret"
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "346f239a-1db9-59e1-92f3-30c2c84ac10d"
                 }
               ]
             }
@@ -586,7 +606,11 @@
                 },
                 {
                   "type": "text",
-                  "text": ", Warrior's Regret"
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "346f239a-1db9-59e1-92f3-30c2c84ac10d"
                 }
               ]
             }
@@ -602,7 +626,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Claim Curse, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "dd9e973d-5244-5646-8f88-de487ad2824f"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -638,7 +670,11 @@
                 },
                 {
                   "type": "text",
-                  "text": ", Warrior's Regret"
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "346f239a-1db9-59e1-92f3-30c2c84ac10d"
                 }
               ]
             }
@@ -654,7 +690,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Inevitable Disaster, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "42a945f7-e04c-5687-8b3b-91b811876129"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -3992,7 +4036,15 @@
                 },
                 {
                   "type": "text",
-                  "text": ", Elemental Absorption (water only)"
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "d83c67fd-63b2-5a59-82cc-2db06ecc9db3"
+                },
+                {
+                  "type": "text",
+                  "text": " (water only)"
                 }
               ]
             }
@@ -4279,7 +4331,15 @@
                 },
                 {
                   "type": "text",
-                  "text": ", Elemental Absorption (water only)"
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "d83c67fd-63b2-5a59-82cc-2db06ecc9db3"
+                },
+                {
+                  "type": "text",
+                  "text": " (water only)"
                 }
               ]
             }
@@ -4331,7 +4391,11 @@
                 },
                 {
                   "type": "text",
-                  "text": ", Mantle of the Frozen Heart"
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "438d2d39-35d8-563e-96e8-e898fad6028d"
                 }
               ]
             }
@@ -4615,7 +4679,15 @@
                 },
                 {
                   "type": "text",
-                  "text": ", Elemental Absorption (water only)"
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "d83c67fd-63b2-5a59-82cc-2db06ecc9db3"
+                },
+                {
+                  "type": "text",
+                  "text": " (water only)"
                 }
               ]
             }
@@ -4667,7 +4739,11 @@
                 },
                 {
                   "type": "text",
-                  "text": ", Mantle of the Frozen Heart"
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "438d2d39-35d8-563e-96e8-e898fad6028d"
                 }
               ]
             }
@@ -4703,7 +4779,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Frigid Flurry, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "b3dcd979-4b76-5644-9270-45fa805a7d73"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -5662,7 +5746,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Frigid Flurry, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "b3dcd979-4b76-5644-9270-45fa805a7d73"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -5949,7 +6041,11 @@
                 },
                 {
                   "type": "text",
-                  "text": ", Synchronize"
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "455f5d43-b55e-511f-8ba9-b99ca16490a8"
                 }
               ]
             }
@@ -5965,7 +6061,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Loose Time's Arrow, Synchronize"
+                  "text": " Loose Time's Arrow, "
+                },
+                {
+                  "type": "ref",
+                  "id": "455f5d43-b55e-511f-8ba9-b99ca16490a8"
                 }
               ]
             }
@@ -5981,7 +6081,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Day's Weight, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "e8505996-de7d-5a81-9cd5-d1d03f632018"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -5997,7 +6105,11 @@
                 },
                 {
                   "type": "text",
-                  "text": ", Time Jump"
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "94cedcb9-7178-5cd9-a215-4579bd82142f"
                 }
               ]
             }
@@ -6033,7 +6145,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Quicken Time, Rewinding Step, Stagnate Time"
+                  "text": " Quicken Time, "
+                },
+                {
+                  "type": "ref",
+                  "id": "8ddf52fb-3fb4-5a2c-9789-5b0249083a03"
+                },
+                {
+                  "type": "text",
+                  "text": ", Stagnate Time"
                 }
               ]
             }
@@ -6049,7 +6169,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Cast into Time, Day's Weight"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "0fd979d6-a692-5b61-842e-2d91df3d51cc"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "e8505996-de7d-5a81-9cd5-d1d03f632018"
                 }
               ]
             }
@@ -6726,7 +6858,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Sonata Span"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "df8b32a8-efdb-5955-80bf-f87a3b1eae11"
                 }
               ]
             }
@@ -6758,7 +6894,11 @@
                 },
                 {
                   "type": "text",
-                  "text": ", Roaring Applause"
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "68f04a14-989b-50d7-b62e-1945489208c9"
                 }
               ]
             }
@@ -6953,7 +7093,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Sonata Span"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "df8b32a8-efdb-5955-80bf-f87a3b1eae11"
                 }
               ]
             }
@@ -6985,7 +7129,11 @@
                 },
                 {
                   "type": "text",
-                  "text": ", Roaring Applause"
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "68f04a14-989b-50d7-b62e-1945489208c9"
                 }
               ]
             }
@@ -7001,7 +7149,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Infectious Melody"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "184bfcdd-a178-5c10-95fe-b959762d1392"
                 }
               ]
             }
@@ -8440,7 +8592,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Incarnate Draconic Legion, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "59374b0e-4ec8-58bb-93b7-e27f8521ce01"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -9256,7 +9416,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Wash Your Luck"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "7ba6e333-e425-5b30-b9de-590214a6cb6f"
                 }
               ]
             }
@@ -9272,7 +9436,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Nudge the Odds"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "0c5d2f4c-4097-5b70-a281-f24c681867d1"
                 }
               ]
             }
@@ -9288,7 +9456,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Lucky Number"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "02bc8f91-9b85-55a6-a335-3bd6a12556ec"
                 }
               ]
             }
@@ -9332,7 +9504,11 @@
                 },
                 {
                   "type": "text",
-                  "text": ", Winning Streak"
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "c732805b-7d3c-5c77-a653-0ca3434d79da"
                 }
               ]
             }
@@ -9348,7 +9524,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Nudge the Odds"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "0c5d2f4c-4097-5b70-a281-f24c681867d1"
                 }
               ]
             }
@@ -9637,7 +9817,7 @@
       "runes": {
         "potency": 4,
         "striking": 3,
-        "property": []
+        "property": ["b87722cc-7fc3-535c-963c-8c06864b69c6", "e36b58bb-be47-56e6-a6e3-aceb91d46c09"]
       }
     }
   },
@@ -10398,7 +10578,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Life Connection, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "0e77861a-ebaa-560e-83fe-9dc857c48094"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -10684,7 +10872,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Life Connection, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "0e77861a-ebaa-560e-83fe-9dc857c48094"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -10732,7 +10928,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Blessing of Defiance, Death Ward, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "4a9dbd85-edc6-5c36-b5aa-adb0b2b30f9f"
+                },
+                {
+                  "type": "text",
+                  "text": ", Death Ward, "
                 },
                 {
                   "type": "ref",
@@ -11183,7 +11387,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Devil Form, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "224f2326-544e-5d6b-846b-e43b55ba105c"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -12079,7 +12291,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Approximate, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "2ba9d69c-c5a2-54be-a3dc-57f263113216"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -12099,7 +12319,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Pocket Library, Quick Sort, "
+                  "text": " Pocket Library, "
+                },
+                {
+                  "type": "ref",
+                  "id": "2bb2f973-c99d-528b-962a-161c8e96c461"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -12119,7 +12347,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Timely Tutor, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "5333b37f-538f-5830-9f3b-8d8b277e2a39"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -12298,7 +12534,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Approximate, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "2ba9d69c-c5a2-54be-a3dc-57f263113216"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -12318,7 +12562,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Pocket Library, Quick Sort, "
+                  "text": " Pocket Library, "
+                },
+                {
+                  "type": "ref",
+                  "id": "2bb2f973-c99d-528b-962a-161c8e96c461"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -12338,7 +12590,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Timely Tutor, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "5333b37f-538f-5830-9f3b-8d8b277e2a39"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -12358,7 +12618,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Pocket Library, Quick Sort, "
+                  "text": " Pocket Library, "
+                },
+                {
+                  "type": "ref",
+                  "id": "2bb2f973-c99d-528b-962a-161c8e96c461"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -12406,7 +12674,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Quick Sort, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "2bb2f973-c99d-528b-962a-161c8e96c461"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -12864,7 +13140,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Guiding Star, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "c35d6f79-639a-5bcf-89e6-f60d75f7f2bf"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -13057,7 +13341,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Guiding Star, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "c35d6f79-639a-5bcf-89e6-f60d75f7f2bf"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -13330,7 +13622,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Guiding Star, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "c35d6f79-639a-5bcf-89e6-f60d75f7f2bf"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -13490,7 +13790,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Cosmic Form, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "de61bd2b-2c79-53c7-8c74-92f56b7a4651"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -14134,7 +14442,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Seashell of Stolen Sound"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "eab4ef48-4623-5589-b027-26d3a7e90c0f"
                 }
               ]
             }
@@ -14186,7 +14498,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Mind of Menace, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "42a5bea2-feb5-5ca0-a88a-7c72349e16fd"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -14206,7 +14526,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Coral Eruption, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "3747c368-8ccf-5b8c-9f51-60902067fb31"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -14234,7 +14562,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Flowing Strike, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "efa19cae-f44e-5ac7-9671-4ea33fa76ae0"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -14912,7 +15248,15 @@
           },
           {
             "type": "text",
-            "text": " You cast 5th-rank Phantom Prison on the target ("
+            "text": " You cast 5th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "febe6c1a-73a3-5897-9a31-ee2ba7bc05d9"
+          },
+          {
+            "type": "text",
+            "text": " on the target ("
           },
           {
             "type": "check",
@@ -16698,7 +17042,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Read the Air"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "c273ca98-143e-5c76-a806-4b7a99fd855a"
                 }
               ]
             }
@@ -16722,7 +17070,11 @@
                 },
                 {
                   "type": "text",
-                  "text": ", Restyle"
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "f0d43f76-dcc5-5fb1-9c69-afd187c9bd42"
                 }
               ]
             }
@@ -16738,7 +17090,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Befitting Attire, Phantom Crowd"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "845dd58a-a977-5bea-bb03-3a3fd62a6ab1"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "14a91524-39d7-5dea-929d-34a4983c48ae"
                 }
               ]
             }
@@ -16754,7 +17118,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Bottomless Stomach, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "e17f23ee-b810-51d9-9d64-60631a609405"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -16774,7 +17146,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Befitting Attire, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "845dd58a-a977-5bea-bb03-3a3fd62a6ab1"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -16794,7 +17174,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Befitting Attire, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "845dd58a-a977-5bea-bb03-3a3fd62a6ab1"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -17436,7 +17824,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Echoing Weapon, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "5a936d1e-9144-5bf1-afa5-b2389fa911ee"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -17488,7 +17884,15 @@
           },
           {
             "type": "text",
-            "text": " You have the magus's Spellstrike activity. Supply one casting of all listed ranks of all listed spells."
+            "text": " You have the magus's "
+          },
+          {
+            "type": "ref",
+            "id": "e48bee22-9114-5ebc-87c1-aa16dc091c1f"
+          },
+          {
+            "type": "text",
+            "text": " activity. Supply one casting of all listed ranks of all listed spells."
           }
         ]
       }
@@ -17745,7 +18149,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Echoing Weapon, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "5a936d1e-9144-5bf1-afa5-b2389fa911ee"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -17793,7 +18205,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Echoing Weapon, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "5a936d1e-9144-5bf1-afa5-b2389fa911ee"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -17845,7 +18265,15 @@
           },
           {
             "type": "text",
-            "text": " You have the magus's Spellstrike activity. Supply one casting of all listed ranks of all listed spells."
+            "text": " You have the magus's "
+          },
+          {
+            "type": "ref",
+            "id": "e48bee22-9114-5ebc-87c1-aa16dc091c1f"
+          },
+          {
+            "type": "text",
+            "text": " activity. Supply one casting of all listed ranks of all listed spells."
           }
         ]
       }
@@ -18102,7 +18530,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Echoing Weapon, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "5a936d1e-9144-5bf1-afa5-b2389fa911ee"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -18150,7 +18586,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Echoing Weapon, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "5a936d1e-9144-5bf1-afa5-b2389fa911ee"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -18198,7 +18642,23 @@
                 },
                 {
                   "type": "text",
-                  "text": " Blink Charge, Echoing Weapon, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "4f76af7b-4ffd-540a-ade9-9f05135c743e"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "5a936d1e-9144-5bf1-afa5-b2389fa911ee"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -18246,7 +18706,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Blink Charge, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "4f76af7b-4ffd-540a-ade9-9f05135c743e"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -19584,7 +20052,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Ash Cloud, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "31ac17ae-303f-5814-bf3c-7cf706fad103"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -19604,7 +20080,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Blazing Dive, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "68f9dc27-4d1b-5796-a9fe-454cdbdbda8c"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -19806,7 +20290,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Ash Cloud, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "31ac17ae-303f-5814-bf3c-7cf706fad103"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -19826,7 +20318,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Blazing Dive, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "68f9dc27-4d1b-5796-a9fe-454cdbdbda8c"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -19854,7 +20354,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Ash Cloud, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "31ac17ae-303f-5814-bf3c-7cf706fad103"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -19874,7 +20382,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Blazing Dive, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "68f9dc27-4d1b-5796-a9fe-454cdbdbda8c"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -20604,7 +21120,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Blazing Fissure, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "a30ba665-964a-55b1-93d4-10e19294e7a0"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -21314,7 +21838,11 @@
                 },
                 {
                   "type": "text",
-                  "text": ", Geyser"
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "2c4d3243-6191-51ef-b82e-c8570859ba91"
                 }
               ]
             }
@@ -24170,7 +24698,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Warding Aggression"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "911683ea-3527-5131-a2c5-a11c802d5acf"
                 }
               ]
             }
@@ -24446,7 +24978,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Protect Companion"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "9198ac81-2024-597a-81e7-00a1c256105d"
                 }
               ]
             }
@@ -24462,7 +24998,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Necromancer's Generosity, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "98d69d0f-59d7-52b0-9e64-02d7a832913f"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -24651,7 +25195,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Protect Companion"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "9198ac81-2024-597a-81e7-00a1c256105d"
                 }
               ]
             }
@@ -24667,7 +25215,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Necromancer's Generosity, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "98d69d0f-59d7-52b0-9e64-02d7a832913f"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -24723,7 +25279,15 @@
                 },
                 {
                   "type": "text",
-                  "text": ", Necromancer's Generosity, "
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "98d69d0f-59d7-52b0-9e64-02d7a832913f"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -24920,7 +25484,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Protect Companion"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "9198ac81-2024-597a-81e7-00a1c256105d"
                 }
               ]
             }
@@ -24936,7 +25504,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Necromancer's Generosity, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "98d69d0f-59d7-52b0-9e64-02d7a832913f"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -24992,7 +25568,15 @@
                 },
                 {
                   "type": "text",
-                  "text": ", Necromancer's Generosity, "
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "98d69d0f-59d7-52b0-9e64-02d7a832913f"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -25048,7 +25632,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Necromancer's Generosity, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "98d69d0f-59d7-52b0-9e64-02d7a832913f"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -25076,7 +25668,15 @@
                 },
                 {
                   "type": "text",
-                  "text": ", Necrotize, "
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "01e4987b-e534-53b7-af0c-d4cfd3c341ee"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",

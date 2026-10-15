@@ -44,6 +44,7 @@ export const FOUNDRY_IMPORTS: readonly FoundryImport[] = [
     book: BookId.parse('impossible-lands'),
     release: 'pf2e-8.6.0',
   },
+  { pack: PackId.parse('impossible-magic'), book: BookId.parse('impossible-magic'), release: 'pf2e-8.6.0' },
 ];
 
 /** The release's page on GitHub. */

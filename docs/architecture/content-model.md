@@ -435,7 +435,7 @@ and homebrew cannot use that path. A pack directory holds:
 The hand-authored packs (`core-rules`, and the `monster-core` entries transcribed before the importer exists) live
 there too, beside the Foundry imports `player-core`, `player-core-2`, `gm-core`, `divine-mysteries`,
 `treasure-vault`, `howl-of-the-wild`, `war-of-immortals`, `mwangi-expanse`, `secrets-of-magic`, `rage-of-elements`, `tian-xia-character-guide`,
-`dark-archive-remastered`, `character-guide` and `impossible-lands` (`mwangi-expanse`, `secrets-of-magic`, `rage-of-elements`, `character-guide` and `impossible-lands` are pre-remaster
+`dark-archive-remastered`, `character-guide`, `impossible-lands` and `impossible-magic` (`mwangi-expanse`, `secrets-of-magic`, `rage-of-elements`, `character-guide` and `impossible-lands` are pre-remaster
 and OGL, for content the remaster books point at, such as the Goloma ancestry; `OGL_BOOKS` in the importer lists the books it takes that way).
 `libs/rules/catalog` loads them lazily and checks every entry against its
 schema and the book registry, so a malformed or wrongly sourced entry fails `bun run affected`. Ids are stored on
@@ -691,7 +691,7 @@ FlatModifier` appends the import's rules of the keys named to the committed entr
   `--apply-rules` also clears a gap the import no longer reports, as for these, in an entry that gains no rule.
 - **References across packs.** A compendium UUID naming a document an earlier import brought in resolves to that
   import's entry, found by the document's UUID in the entry's `externalIds.foundry`, never by name or slug: a Divine
-  Mysteries deity's Player Core spells. A reference to a book not imported yet (Player Core 2, Impossible Magic)
+  Mysteries deity's Player Core spells. A reference to a book not imported yet
   goes to the backlog as an unresolved reference.
 - **Labels.** Foundry writes much of its text as lang keys (`PF2E.SpecificRule.Prompt.Skill`). They resolve against
   Foundry's English lang tables, every `en` file `system.pf2e.json` lists (`en.json`, `action-en.json`,

@@ -52,6 +52,8 @@ export async function coreRulesPack(): Promise<PackContents> {
     import('@pioneer/content/packs/core-rules/imported/secrets-of-magic/sense.json'),
     import('@pioneer/content/packs/core-rules/imported/secrets-of-magic/statistic.json'),
     import('@pioneer/content/packs/core-rules/imported/secrets-of-magic/trait.json'),
+    import('@pioneer/content/packs/core-rules/imported/impossible-magic/statistic.json'),
+    import('@pioneer/content/packs/core-rules/imported/impossible-magic/trait.json'),
     import('@pioneer/content/packs/core-rules/imported/howl-of-the-wild/language.json'),
     import('@pioneer/content/packs/core-rules/imported/howl-of-the-wild/trait.json'),
     import('@pioneer/content/packs/core-rules/imported/gm-core/trait.json'),

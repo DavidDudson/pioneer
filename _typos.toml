@@ -13,6 +13,9 @@ extend-exclude = [
 # Foundry document ids are random 16-character strings inside compendium UUIDs.
 extend-ignore-re = [
   "Compendium\\.pf2e\\.[a-z0-9-]+\\.Item\\.[A-Za-z0-9]{16}",
+  "JournalEntryPage\\.[A-Za-z0-9]{16}",
+  # Foundry's 16-character rule and note keys.
+  "\"key\": \"[a-z0-9]{16}\"",
   # ICU ordinal suffixes in messages: `{rank, selectordinal, one {#st} two {#nd} ...}`.
   "\\{#(st|nd|rd|th)\\}",
   # Pronunciation guides in deity descriptions: Tolte Coatl (TOLL-teh coh-AHtl).
@@ -36,3 +39,6 @@ heros = "heros"
 verex = "verex"
 # Slug: `option:against-poison-disease-onself` is Foundry's own spelling of a rule option (Rage of Elements).
 onself = "onself"
+# Feat name Hobbling Criticals, and Foundry's spelling in an item description (Impossible Magic).
+criticals = "criticals"
+overlayed = "overlayed"

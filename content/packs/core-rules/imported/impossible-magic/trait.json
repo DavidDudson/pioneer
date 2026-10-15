@@ -1,0 +1,132 @@
+[
+  {
+    "id": "b658f954-32f4-5444-9d9a-15b48654cbf4",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:automaton",
+    "name": "Automaton",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "6e3ae918-b1ac-5f0b-af83-54e114d8ce8a",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:impossible",
+    "name": "Impossible",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry-feature",
+        "class-feature",
+        "condition",
+        "consumable",
+        "effect",
+        "feat",
+        "ritual",
+        "spell"
+      ]
+    }
+  },
+  {
+    "id": "5b7e8743-b8a3-5c2c-9fef-692071f935cf",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:invocation",
+    "name": "Invocation",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "condition", "effect", "feat"]
+    }
+  },
+  {
+    "id": "cbb7d6ea-ab44-54ea-b001-8ddf13586110",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:tandem",
+    "name": "Tandem",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "feat"]
+    }
+  },
+  {
+    "id": "479152d9-4bea-5d4c-bae3-3e4b72137c76",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:thrall",
+    "name": "Thrall",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry-feature",
+        "class-feature",
+        "condition",
+        "consumable",
+        "effect",
+        "feat",
+        "ritual",
+        "spell"
+      ]
+    }
+  }
+]

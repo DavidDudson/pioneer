@@ -1,0 +1,1453 @@
+[
+  {
+    "id": "b87722cc-7fc3-535c-963c-8c06864b69c6",
+    "pack": "impossible-magic",
+    "kind": "rune",
+    "slug": "rune:bane",
+    "name": "Bane",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A bane rune grants you improved understanding of creatures of a particular type, allowing you to deal more damage to those creatures. The crafter chooses aberration, animal, beast, celestial, construct, dragon, elemental, fey, fiend, giant, monitor, ooze, or both fungus and plant. The weapon deals 1d6 additional damage of the weapon's damage type to creatures with the chosen trait or traits. The benefit doesn't apply against creatures of the chosen type disguised as other creatures. It's up to GM discretion whether the bane rune applies against a creature disguised as a creature of the chosen type."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The GM might allow bane runes for other creature traits, such as astral, demon, dream, or vampire. However, the humanoid trait, the undead trait, and the traits for specific types of humanoids (such as elf) are never a valid option."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.hnbbqvzYDyhDiJnf"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 100
+        }
+      },
+      "bulk": "negligible",
+      "type": "property",
+      "etchedOnto": {
+        "item": "weapon"
+      }
+    }
+  },
+  {
+    "id": "2db3be9c-1a5b-54a2-aaf7-275f8d6d55bc",
+    "pack": "impossible-magic",
+    "kind": "rune",
+    "slug": "rune:convincing",
+    "name": "Convincing",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A convincing rune blends in with your armor's decorative elements, such as embossed patterns and colorful ornaments. While wearing the armor, you gain a +1 item bonus to Diplomacy checks to Make an Impression and Request."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "item",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["action:make-an-impression", "action:request"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ft3Iejj2UlqH4J3J"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 45
+        }
+      },
+      "bulk": "negligible",
+      "type": "property",
+      "etchedOnto": {
+        "item": "armor"
+      }
+    }
+  },
+  {
+    "id": "b6707820-aca2-583f-9c07-304ed5d40e94",
+    "pack": "impossible-magic",
+    "kind": "rune",
+    "slug": "rune:convincing-greater",
+    "name": "Convincing (Greater)",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A convincing rune blends in with your armor's decorative elements, such as embossed patterns and colorful ornaments. While wearing the armor, you gain a +2 item bonus to Diplomacy checks to Make an Impression and Request."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "item",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["action:make-an-impression", "action:request"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.QyR2zHM3tChs6I6M"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 450
+        }
+      },
+      "bulk": "negligible",
+      "type": "property",
+      "etchedOnto": {
+        "item": "armor"
+      }
+    }
+  },
+  {
+    "id": "2c122a46-4ecc-5412-b43b-156ed4f6f15a",
+    "pack": "impossible-magic",
+    "kind": "rune",
+    "slug": "rune:convincing-major",
+    "name": "Convincing (Major)",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A convincing rune blends in with your armor's decorative elements, such as embossed patterns and colorful ornaments. While wearing the armor, you gain a +3 item bonus to Diplomacy checks to Make an Impression and Request."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "item",
+        "value": 3,
+        "predicate": [
+          {
+            "or": ["action:make-an-impression", "action:request"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.0IlAAtOLgJ4kA537"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 9000
+        }
+      },
+      "bulk": "negligible",
+      "type": "property",
+      "etchedOnto": {
+        "item": "armor"
+      }
+    }
+  },
+  {
+    "id": "9d9629a3-4e7c-5ace-bbd4-62bcbd8cffa7",
+    "pack": "impossible-magic",
+    "kind": "rune",
+    "slug": "rune:deflecting",
+    "name": "Deflecting",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When using a weapon etched with this rune to parry, you have the potential to reduce the damage you take."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Deflecting Parry",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're critically hit with a Strike that deals physical damage"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're benefiting from the bonus to AC from the weapon's parry trait"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain resistance 5 to physical damage against the triggering Strike."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.djfRlJTck2pVnIjA"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 230
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "deflecting-parry",
+          "name": "Deflecting Parry",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "type": "property",
+      "etchedOnto": {
+        "item": "weapon",
+        "restriction": "melee"
+      }
+    }
+  },
+  {
+    "id": "02895cb2-3e89-57d5-8cf1-65e062435d6f",
+    "pack": "impossible-magic",
+    "kind": "rune",
+    "slug": "rune:energy-vulnerability",
+    "name": "Energy Vulnerability",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A weapon etched with this rune has a sheen of a color corresponding to the energy type chosen when the rune is created: green (acid), blue (cold), white (electricity), orange (fire), or yellow (sonic). When you critically hit a target with a weapon with this rune, the target gains weakness 5 to the chosen energy type until the end of your next turn. This weakness isn't cumulative with any weakness to that energy type the target already has and doesn't affect a creature with immunity or resistance to that energy type."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Nu7RhPPOyUcRjUDy"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 90
+        }
+      },
+      "bulk": "negligible",
+      "type": "property",
+      "etchedOnto": {
+        "item": "weapon"
+      }
+    }
+  },
+  {
+    "id": "e6fa821b-240d-52ee-8cf4-fb070dd1daf6",
+    "pack": "impossible-magic",
+    "kind": "rune",
+    "slug": "rune:energy-vulnerability-greater",
+    "name": "Energy Vulnerability (Greater)",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A weapon etched with this rune has a sheen of a color corresponding to the energy type chosen when the rune is created: green (acid), blue (cold), white (electricity), orange (fire), or yellow (sonic). When you critically hit a target with a weapon with this rune, the target gains weakness 10 to the chosen energy type until the end of your next turn. This weakness isn't cumulative with any weakness to that energy type the target already has and doesn't affect a creature with immunity or resistance to that energy type."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.h6JfPh8XEjH9HlDk"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 9000
+        }
+      },
+      "bulk": "negligible",
+      "type": "property",
+      "etchedOnto": {
+        "item": "weapon"
+      }
+    }
+  },
+  {
+    "id": "8a83a07a-a165-50a5-a061-a1669493db9b",
+    "pack": "impossible-magic",
+    "kind": "rune",
+    "slug": "rune:impactful",
+    "name": "Impactful",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["force", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This rune thrums with pure magical energy. Weapons with the rune deal an additional 1d6 force damage on a successful Strike. On a critical hit, you can choose to force the target to succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 27
+          },
+          {
+            "type": "text",
+            "text": " save or be pushed 5 feet away from you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.H9qYN48voa2ZDy3i"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "negligible",
+      "type": "property",
+      "etchedOnto": {
+        "item": "weapon"
+      }
+    }
+  },
+  {
+    "id": "e36b58bb-be47-56e6-a6e3-aceb91d46c09",
+    "pack": "impossible-magic",
+    "kind": "rune",
+    "slug": "rune:impactful-greater",
+    "name": "Impactful (Greater)",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["force", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This rune thrums with pure magical energy. Weapons with the rune deal an additional 1d6 force damage on a successful Strike. On a critical hit, you can choose to force the target to succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 37
+          },
+          {
+            "type": "text",
+            "text": " save or be pushed 10 feet away from you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ri9QkRCD6cAbQ6t3"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15000
+        }
+      },
+      "bulk": "negligible",
+      "type": "property",
+      "etchedOnto": {
+        "item": "weapon"
+      }
+    }
+  },
+  {
+    "id": "f2a9ef15-7651-5cf1-8406-ab3c20498510",
+    "pack": "impossible-magic",
+    "kind": "rune",
+    "slug": "rune:mobile",
+    "name": "Mobile",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Armor etched with this rune lightens your feet. Once per turn, you can move an additional 5 feet when you Step."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.DDdYXpxPtjvnJLJH"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 160
+        }
+      },
+      "bulk": "negligible",
+      "type": "property",
+      "etchedOnto": {
+        "item": "armor"
+      }
+    }
+  },
+  {
+    "id": "abf538c2-d659-5e11-96ee-20e52e0d8818",
+    "pack": "impossible-magic",
+    "kind": "rune",
+    "slug": "rune:moonweave",
+    "name": "Moonweave",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your armor bathes your wounds in the cool light of the moon. While wearing this armor, whenever you would be healed by a spell or magical effect, you recover an additional "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points. You regain additional Hit Points from moonweave only the first time you regain HP from a given healing spell or effect, so a spell or effect that heals you repeatedly over a duration would restore additional Hit Points only once, when you're first healed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.PV2TxKcs09x9BfCc"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 140
+        }
+      },
+      "bulk": "light",
+      "type": "property",
+      "etchedOnto": {
+        "item": "armor"
+      }
+    }
+  },
+  {
+    "id": "94b87fa0-bcb4-50e6-89a4-b3ebfc6c5b59",
+    "pack": "impossible-magic",
+    "kind": "rune",
+    "slug": "rune:moonweave-greater",
+    "name": "Moonweave (Greater)",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your armor bathes your wounds in the cool light of the moon. While wearing this armor, whenever you would be healed by a spell or magical effect, you recover an additional "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "5"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points. You regain additional Hit Points from moonweave only the first time you regain HP from a given healing spell or effect, so a spell or effect that heals you repeatedly over a duration would restore additional Hit Points only once, when you're first healed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Lf4j51ICwt4zgxnj"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": "negligible",
+      "type": "property",
+      "etchedOnto": {
+        "item": "armor"
+      }
+    }
+  },
+  {
+    "id": "a76949cf-1fa6-536e-85b3-f5db393bec80",
+    "pack": "impossible-magic",
+    "kind": "rune",
+    "slug": "rune:moonweave-major",
+    "name": "Moonweave (Major)",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your armor bathes your wounds in the cool light of the moon. While wearing this armor, whenever you would be healed by a spell or magical effect, you recover an additional "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points. You regain additional Hit Points from moonweave only the first time you regain HP from a given healing spell or effect, so a spell or effect that heals you repeatedly over a duration would restore additional Hit Points only once, when you're first healed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.2SeX2vfTta5EL8x4"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 14000
+        }
+      },
+      "bulk": "negligible",
+      "type": "property",
+      "etchedOnto": {
+        "item": "armor"
+      }
+    }
+  },
+  {
+    "id": "51f9a9d3-ae87-5b0a-af40-c3ce51dfad04",
+    "pack": "impossible-magic",
+    "kind": "rune",
+    "slug": "rune:safeguarding",
+    "name": "Safeguarding",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your armor is overlayed with a shimmering mosaic of pink, turquoise, and blue energy that protects the most vital aspects of your person. When activated, the armor's hue shifts according to the type of resistance you gain: turquoise (mental), blue (poison), or pink (spirit)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Adaptive Aegis",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You would take mental, poison, or spirit damage"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain resistance 5 to the triggering damage type that lasts for 10 minutes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.f4GQdPIDAl058wfs"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2600
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "adaptive-aegis",
+          "name": "Adaptive Aegis",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "type": "property",
+      "etchedOnto": {
+        "item": "armor"
+      }
+    }
+  },
+  {
+    "id": "56d3d00b-ca75-570a-be19-ae3d6bd6933a",
+    "pack": "impossible-magic",
+    "kind": "rune",
+    "slug": "rune:self-sealing",
+    "name": "Self-Sealing",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A suit of armor etched with this rune can create a bolstering magical layer that closes off to protect the wearer against dangerous environments. When you would take environmental damage, or when you enter an environment where you can't safely breathe, your self-sealing armor seals itself shut. It holds 1 minute's worth of air and grants you resistance 10 to environmental damage while sealed. You or another creature can take an Interact action to unseal it at any time. Once unsealed, the armor can't seal itself again for 1 hour."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.48tdInl0iSnUA5JA"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 320
+        }
+      },
+      "bulk": "negligible",
+      "type": "property",
+      "etchedOnto": {
+        "item": "armor"
+      }
+    }
+  },
+  {
+    "id": "93c77662-c381-52ab-9384-458a4e034ec5",
+    "pack": "impossible-magic",
+    "kind": "rune",
+    "slug": "rune:sidestepping",
+    "name": "Sidestepping",
+    "level": 13,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A suit of armor etched with this rune can cause its wearer's form to vibrate slightly out of phase with the rest of the world, allowing them to impossibly pass through solid objects."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Phase Through",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Until the end of your current turn, you can move through non-magical solid surfaces. Treat any movement through an item thicker than air as difficult terrain. When the duration ends, if you're sharing space with a solid item, you'll be shoved into the closest unoccupied space and take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6",
+                "damageType": "bludgeoning"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.E4iDTr5likUCR6gz"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "phase-through",
+          "name": "Phase Through",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "type": "property",
+      "etchedOnto": {
+        "item": "armor"
+      }
+    }
+  },
+  {
+    "id": "119e8b62-a90d-5ffd-8f9a-00f1c39c6c60",
+    "pack": "impossible-magic",
+    "kind": "rune",
+    "slug": "rune:sunweave",
+    "name": "Sunweave",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your armor glows softly, granting you a +1 item bonus to Perception checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Glint of Ambition",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, fortune)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're about to attempt a Perception check for initiative"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You roll the check twice and take the better result."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "item",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.81Ejj6xXLN3l6uDb"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 350
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "glint-of-ambition",
+          "name": "Glint of Ambition",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "type": "property",
+      "etchedOnto": {
+        "item": "armor"
+      }
+    }
+  },
+  {
+    "id": "52a761a4-a3c4-59c9-9053-44802d132545",
+    "pack": "impossible-magic",
+    "kind": "rune",
+    "slug": "rune:sunweave-greater",
+    "name": "Sunweave (Greater)",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your armor glows softly, granting you a +2 item bonus to Perception checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Glint of Ambition",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, fortune)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're about to attempt a Perception check for initiative"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You roll the check twice and take the better result."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "item",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.mDEkOSueuDOFW6V2"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1200
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "glint-of-ambition",
+          "name": "Glint of Ambition",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "type": "property",
+      "etchedOnto": {
+        "item": "armor"
+      }
+    }
+  },
+  {
+    "id": "510cb428-2692-500c-8ce9-0bb1973c9568",
+    "pack": "impossible-magic",
+    "kind": "rune",
+    "slug": "rune:sunweave-major",
+    "name": "Sunweave (Major)",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your armor glows softly, granting you a +3 item bonus to Perception checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Glint of Ambition",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, fortune)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're about to attempt a Perception check for initiative"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You roll the check twice and take the better result."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "item",
+        "value": 3
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.yYCZXExIR7b9PO4V"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 24000
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "glint-of-ambition",
+          "name": "Glint of Ambition",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "type": "property",
+      "etchedOnto": {
+        "item": "armor"
+      }
+    }
+  },
+  {
+    "id": "c41fbc70-93f2-55ea-9687-56232e1db236",
+    "pack": "impossible-magic",
+    "kind": "rune",
+    "slug": "rune:unnerving",
+    "name": "Unnerving",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The sound of weapons clanging against a suit of unnerving armor transforms into an inhuman screech that unsettles enemies and makes them hesitate to attack again. Any creature that hits you with a melee Strike takes a –1 circumstance penalty to its next melee Strike that targets you before the end of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.lVNAswkvRe2ZxKPQ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 350
+        }
+      },
+      "bulk": "negligible",
+      "type": "property",
+      "etchedOnto": {
+        "item": "armor"
+      }
+    }
+  }
+]
