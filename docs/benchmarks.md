@@ -34,7 +34,7 @@ benchmark({
   written. A benchmark without a budget is tracked only.
 - Check the result is right with `expect` before the benchmark: a fast wrong answer is not a result.
 - `name` is the key the history tracks the benchmark under, so renaming one starts a new chart. Prefix it with its
-  area (`grants:`, `catalog:`).
+  area (`grants:`, `catalog:`, `character:`).
 - A bench file is a script, not a test: `bun test` does not run it. Run one with `bun path/to/x.bench.ts`.
 
 ## How a run is measured
