@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1792068078499,
+  "lastUpdate": 1792068143129,
   "repoUrl": "https://github.com/DavidDudson/pioneer",
   "entries": {
     "Pioneer benchmarks": [
@@ -270,6 +270,168 @@ window.BENCHMARK_DATA = {
             "value": 0.416,
             "unit": "ms",
             "extra": "median 0.942 ms, 51 runs after 20 warm-up, budget 3 ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "DavidDudson@users.noreply.github.com",
+            "name": "David Dudson",
+            "username": "DavidDudson"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "9f41a4515ba8bd73be61ecb276345fb639522624",
+          "message": "feat(play): staff charges at daily preparations (#878)\n\n* feat(play): prepare a staff with charges at daily preparations\n\nDaily preparations take an optional staff and a slot to expend. The staff\ngets charges equal to the highest spell rank, plus the expended slot's\nrank; any earlier staff loses its charges. The server refuses a staff the\ncharacter does not have and a slot it cannot expend.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* feat(play): staff picker at daily preparations\n\nThe preparations preview offers the character's staves and, once one is\npicked, the slots of its prepared entries to expend. The preview lists\nthe staff's charges and the slot before anything applies. The rest panel\nnow loads item content, so item activation resets show in the preview.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Sonnet 5.5 <noreply@anthropic.com>",
+          "timestamp": "2026-10-15T22:40:01+10:00",
+          "tree_id": "4d4d422fa15a050b1693722800f4a56f7a608e0d",
+          "url": "https://github.com/DavidDudson/pioneer/commit/9f41a4515ba8bd73be61ecb276345fb639522624"
+        },
+        "date": 1792068142394,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "grants: level 20 Bard with every slot it offers picked",
+            "value": 0.788,
+            "unit": "ms",
+            "extra": "median 0.902 ms, 51 runs after 20 warm-up, budget 3 ms"
+          },
+          {
+            "name": "grants: level 20 Cleric with every slot it offers picked",
+            "value": 0.979,
+            "unit": "ms",
+            "extra": "median 1.244 ms, 51 runs after 20 warm-up, budget 3 ms"
+          },
+          {
+            "name": "grants: level 20 Druid with every slot it offers picked",
+            "value": 0.731,
+            "unit": "ms",
+            "extra": "median 0.786 ms, 51 runs after 20 warm-up, budget 3 ms"
+          },
+          {
+            "name": "grants: level 20 Fighter with every slot it offers picked",
+            "value": 0.65,
+            "unit": "ms",
+            "extra": "median 0.735 ms, 51 runs after 20 warm-up, budget 3 ms"
+          },
+          {
+            "name": "grants: level 20 Ranger with every slot it offers picked",
+            "value": 1.129,
+            "unit": "ms",
+            "extra": "median 1.185 ms, 51 runs after 20 warm-up, budget 3 ms"
+          },
+          {
+            "name": "grants: level 20 Rogue with every slot it offers picked",
+            "value": 0.983,
+            "unit": "ms",
+            "extra": "median 1.034 ms, 51 runs after 20 warm-up, budget 3 ms"
+          },
+          {
+            "name": "grants: level 20 Witch with every slot it offers picked",
+            "value": 0.664,
+            "unit": "ms",
+            "extra": "median 0.706 ms, 51 runs after 20 warm-up, budget 3 ms"
+          },
+          {
+            "name": "grants: level 20 Wizard with every slot it offers picked",
+            "value": 0.686,
+            "unit": "ms",
+            "extra": "median 0.741 ms, 51 runs after 20 warm-up, budget 3 ms"
+          },
+          {
+            "name": "grants: level 20 Alchemist with every slot it offers picked",
+            "value": 0.772,
+            "unit": "ms",
+            "extra": "median 0.845 ms, 51 runs after 20 warm-up, budget 3 ms"
+          },
+          {
+            "name": "grants: level 20 Barbarian with every slot it offers picked",
+            "value": 0.826,
+            "unit": "ms",
+            "extra": "median 0.876 ms, 51 runs after 20 warm-up, budget 3 ms"
+          },
+          {
+            "name": "grants: level 20 Champion with every slot it offers picked",
+            "value": 1.175,
+            "unit": "ms",
+            "extra": "median 1.23 ms, 51 runs after 20 warm-up, budget 3 ms"
+          },
+          {
+            "name": "grants: level 20 Investigator with every slot it offers picked",
+            "value": 0.918,
+            "unit": "ms",
+            "extra": "median 0.995 ms, 51 runs after 20 warm-up, budget 3 ms"
+          },
+          {
+            "name": "grants: level 20 Monk with every slot it offers picked",
+            "value": 0.641,
+            "unit": "ms",
+            "extra": "median 0.719 ms, 51 runs after 20 warm-up, budget 3 ms"
+          },
+          {
+            "name": "grants: level 20 Oracle with every slot it offers picked",
+            "value": 1.075,
+            "unit": "ms",
+            "extra": "median 1.122 ms, 51 runs after 20 warm-up, budget 3 ms"
+          },
+          {
+            "name": "grants: level 20 Sorcerer with every slot it offers picked",
+            "value": 0.655,
+            "unit": "ms",
+            "extra": "median 0.714 ms, 51 runs after 20 warm-up, budget 3 ms"
+          },
+          {
+            "name": "grants: level 20 Swashbuckler with every slot it offers picked",
+            "value": 1.347,
+            "unit": "ms",
+            "extra": "median 1.415 ms, 51 runs after 20 warm-up, budget 3 ms"
+          },
+          {
+            "name": "grants: level 20 Animist with every slot it offers picked",
+            "value": 0.598,
+            "unit": "ms",
+            "extra": "median 0.649 ms, 51 runs after 20 warm-up, budget 3 ms"
+          },
+          {
+            "name": "grants: level 20 Exemplar with every slot it offers picked",
+            "value": 0.912,
+            "unit": "ms",
+            "extra": "median 0.957 ms, 51 runs after 20 warm-up, budget 3 ms"
+          },
+          {
+            "name": "catalog: level 20 Fighter derives grants and every statistic",
+            "value": 4.35,
+            "unit": "ms",
+            "extra": "median 5.195 ms, 51 runs after 20 warm-up, budget 10 ms"
+          },
+          {
+            "name": "catalog: level 20 Fighter with Proficiency Without Level and a homebrew pack restating Perception",
+            "value": 4.445,
+            "unit": "ms",
+            "extra": "median 5.455 ms, 51 runs after 20 warm-up, budget 10 ms"
+          },
+          {
+            "name": "grants: a query over 1000 entries",
+            "value": 1.145,
+            "unit": "ms",
+            "extra": "median 1.383 ms, 51 runs after 20 warm-up, budget 2 ms"
+          },
+          {
+            "name": "grants: level 20 character with every slot picked over 1000 more feats",
+            "value": 1.038,
+            "unit": "ms",
+            "extra": "median 1.286 ms, 51 runs after 20 warm-up, budget 3 ms"
+          },
+          {
+            "name": "grants: level 20 Fighter resolves to a fixpoint",
+            "value": 0.541,
+            "unit": "ms",
+            "extra": "median 1.091 ms, 51 runs after 20 warm-up, budget 3 ms"
           }
         ]
       }
