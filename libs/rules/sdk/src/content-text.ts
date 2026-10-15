@@ -1,3 +1,4 @@
+import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 /**
@@ -6,3 +7,9 @@ import * as z from 'zod';
  */
 export const ContentText = z.string().min(1).brand<'ContentText'>();
 export type ContentText = z.infer<typeof ContentText>;
+
+/** The translatable fields of an entry that are stored per locale (`content_entry_texts`). */
+export const EntryTextField = {
+  Description: 'description',
+} as const;
+export type EntryTextField = ValueOf<typeof EntryTextField>;

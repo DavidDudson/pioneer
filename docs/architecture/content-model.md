@@ -453,6 +453,11 @@ split by kind and by purpose, cached in IndexedDB, and loaded lazily (spells onl
 Mechanics never depend on locale, so switching language downloads only text. Likely-next bundles are prefetched
 when idle. Content browser search is server-side through per-locale `tsvector` and trait/level indexes.
 
+- **Descriptions, by shard.** A kind's descriptions are many and long, so `<kind>.desc.<locale>.<shard>.<hash>.json`
+  holds those of the entries whose id starts with one hex digit (`descriptionShard`), as an object from id to
+  `RichText`. An entry with no description is in none, and a kind with none has no description bundles; the manifest
+  lists each kind's shards (`KindBundles.descriptions`). Only the source locale `en` ships; per-locale shards and the
+  `en` fallback when a translation is missing arrive with [#693](https://github.com/DavidDudson/pioneer/issues/693).
 - **Built from the seeded rows.** `contentBundles` (`libs/rules/sdk`) makes, per official pack, `pack.<hash>.json`
   (its `pack.json`), and per kind `<kind>.mech.<hash>.json` (entries sorted by id, without `name` or `description`)
   and `<kind>.names.en.<hash>.json` (id to name). The hash is the first 16 hex digits of SHA-256 of the bundle's
@@ -467,8 +472,9 @@ when idle. Content browser search is server-side through per-locale `tsvector` a
   manifest read stands in, so every kind kept still loads. `ContentLoader` builds a `ContentRegistry` of every
   pack with only the kinds a page asks for, then prefetches the likely next kinds (ancestry, then heritage and
   languages, and so on through building a character) when idle. A bundle that fails to load (a re-seed since the
-  session read the manifest makes it a 404) sends the loader back for a new manifest, once. Descriptions arrive
-  with their own bundles in Epic 2.4; until then an entry read from bundles has none.
+  session read the manifest makes it a 404) sends the loader back for a new manifest, once. An entry read from
+  the registry has no description: `ContentLoader.description(entry)` fetches the entry's shard of the kind's
+  description bundles and keeps it in IndexedDB like any bundle.
 - **Homebrew packs, for signed-in members.** `POST /api/content/homebrew/manifest` takes the pack ids a page uses
   and answers with the manifest of those packs and the packs they extend; `GET /api/content/homebrew/bundles/<pack>/<file>`
   serves one bundle (`HomebrewContentContract`, `libs/rules/sdk`). `HomebrewBundleService` (`libs/homebrew/application`)
@@ -548,8 +554,11 @@ Behaviour:
 ## Localisation
 
 Names, descriptions, summaries and rule element labels are translatable; mechanics are not. Text lives in
-`content_entry_texts (entry_id, locale, field, text)`, with `en` as the source and per-field fallback, marked in
-the UI when a fallback is shown. Homebrew authors can add translations for their packs. Community Foundry
+`content_entry_texts (entry_id, locale, field, text)` (one row per locale and field, unique together, with its own
+`id` for the audit log), with `en` as the source and per-field fallback, marked in the UI when a fallback is shown.
+The seed writes each official entry's `description` as an `en` row beside its `data`, and removes the row when the
+entry loses its description; it never touches another locale's rows. Description bundles are built from the pack's
+entries until translations exist. Homebrew authors can add translations for their packs. Community Foundry
 translation modules (Babele-based) can be imported as text-only packs keyed by Foundry id. See
 [ADR-0009](../adr/0009-i18n-and-lazy-loading.md).
 

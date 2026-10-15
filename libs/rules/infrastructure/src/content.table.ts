@@ -8,13 +8,15 @@ import type {
   ContentPackFile,
   ContentPackId,
   ContentText,
+  EntryTextField,
   PackId,
   PackVisibility,
   Rarity,
+  RichText,
   EntrySlug,
   Trait,
 } from '@pioneer/rules/sdk';
-import type { UserId, Uuid, Version } from '@pioneer/shared/kernel';
+import type { Locale, UserId, Uuid, Version } from '@pioneer/shared/kernel';
 import { index, integer, jsonb, pgTable, smallint, text, timestamp, uniqueIndex, uuid } from 'drizzle-orm/pg-core';
 
 /**
@@ -100,4 +102,28 @@ export const contentPackDeps = pgTable(
     // Serves the foreign key check when a pack something depends on is deleted.
     index('content_pack_deps_depends_on_idx').on(table.dependsOn),
   ],
+);
+
+/**
+ * An entry's translatable text, one row per locale and field (content-model.md, "Localisation"): `en` is the source and
+ * every other locale falls back to it per field. Official packs' descriptions are written by the seed, beside the
+ * entry's own `data`. The foreign key cascades, so a removed entry takes its texts with it.
+ */
+export const contentEntryTexts = pgTable(
+  'content_entry_texts',
+  {
+    // The audit log keys rows by id, so a text has its own;
+    // `(entry_id, locale, field)` is unique instead.
+    id: uuid().$type<Uuid>().primaryKey(),
+    entryId: uuid()
+      .$type<ContentId>()
+      .notNull()
+      .references(() => contentEntries.id, { onDelete: 'cascade' }),
+    locale: text().$type<Locale>().notNull(),
+    field: text().$type<EntryTextField>().notNull(),
+    // Rich text for a description; the shape depends on the field.
+    text: jsonb().$type<RichText>().notNull(),
+    updatedAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
+  },
+  (table) => [uniqueIndex('content_entry_texts_entry_locale_field_idx').on(table.entryId, table.locale, table.field)],
 );

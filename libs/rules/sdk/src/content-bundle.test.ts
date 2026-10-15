@@ -1,10 +1,18 @@
 import { describe, expect, test } from 'bun:test';
 
-import { BundleHash, bundlePath, contentBundles, contentPackFromBundles } from './content-bundle';
+import {
+  BundleHash,
+  bundlePath,
+  contentBundles,
+  contentPackFromBundles,
+  descriptionFromBundle,
+  descriptionShard,
+} from './content-bundle';
 import type { BundleBody, CanonicalJson, BundleFile, ContentBundles, KindBundles, PackBundles } from './content-bundle';
-import { contentId, EntrySlug, PackId } from './content-id';
+import { ContentId, contentId, EntrySlug, PackId } from './content-id';
 import type { ContentPack } from './content-pack';
 import { contentPackFromFiles, packContentsFromFiles } from './content-pack-file';
+import type { RichText } from './rich-text';
 
 const PACK = PackId.parse('homebrew');
 const idOf = (slug: string): string => contentId(PACK, EntrySlug.parse(slug));
@@ -91,6 +99,22 @@ function fetched(built: ContentBundles, kinds: readonly string[]): ContentPack {
   );
 }
 
+const contentIdOf = (slug: string): ContentId => ContentId.parse(idOf(slug));
+
+/** Every file a pack's manifest names. */
+function filesOf(pack: PackBundles): readonly BundleFile[] {
+  const kinds = pack.kinds.flatMap((kind) =>
+    [kind.mechanics, kind.names, kind.descriptions.map(({ file }) => file)].flat(),
+  );
+  return [pack.file, ...kinds];
+}
+
+/** `id`'s description as the bundles give it: undefined when its shard does not exist or does not hold it. */
+function descriptionOf(built: ContentBundles, kind: string, id: ContentId): RichText | undefined {
+  const shard = kindOf(built, kind).descriptions.find((each) => each.shard === descriptionShard(id));
+  return shard === undefined ? undefined : descriptionFromBundle(bodyOf(built, shard.file), id);
+}
+
 describe('contentBundles', () => {
   test('names a pack file and, per kind in kind order, a mechanics and a names bundle', () => {
     const built = bundles();
@@ -104,9 +128,8 @@ describe('contentBundles', () => {
 
   test('holds a body for every file the manifest names, and no other', () => {
     const built = bundles();
-    const pack = onlyPack(built);
-    const named = [pack.file, ...pack.kinds.flatMap((kind) => [kind.mechanics, kind.names])];
-    expect([...built.bodies.keys()].toSorted()).toStrictEqual(named.map((file) => bundlePath(PACK, file)).toSorted());
+    const named = filesOf(onlyPack(built)).map((file) => bundlePath(PACK, file));
+    expect([...built.bodies.keys()].toSorted()).toStrictEqual(named.toSorted());
   });
 
   test('mechanics leave out names and descriptions, sorted by id', () => {
@@ -125,6 +148,47 @@ describe('contentBundles', () => {
       [idOf('language:common')]: { name: 'Common' },
       [idOf('language:draconic')]: { name: 'Draconic' },
     });
+  });
+
+  test('descriptions are sharded by id prefix, one bundle per shard in use', () => {
+    const { descriptions } = kindOf(bundles(), 'language');
+    const ids = [contentIdOf('language:common'), contentIdOf('language:draconic')];
+    const shards = new Set(ids.map((id) => descriptionShard(id)));
+    expect(descriptions.map(({ shard }) => shard)).toStrictEqual([...shards].toSorted());
+    const stems = descriptions.map(({ file }) => file.replace(/\.[\da-f]{16}\.json$/u, ''));
+    expect(stems).toStrictEqual(descriptions.map(({ shard }) => `language.desc.en.${shard}`));
+  });
+
+  test('a shard maps the ids in it to their descriptions', () => {
+    const description = descriptionOf(bundles(), 'language', contentIdOf('language:common'));
+    expect(description).toStrictEqual([{ type: 'paragraph', content: [{ type: 'text', text: 'Common is spoken.' }] }]);
+  });
+
+  test('an entry without a description is in no shard', () => {
+    const silent = { ...language('draconic', 'Draconic'), description: [] };
+    const built = bundles([ancestry, common, silent]);
+    expect(descriptionOf(built, 'language', contentIdOf('language:draconic'))).toBeUndefined();
+    expect(descriptionOf(built, 'language', contentIdOf('language:common'))).toBeDefined();
+  });
+
+  test('a kind none of whose entries has a description has no description bundles', () => {
+    const silent = { ...language('draconic', 'Draconic'), description: [] };
+    expect(kindOf(bundles([silent]), 'language').descriptions).toStrictEqual([]);
+  });
+
+  test('a changed description changes only its shard', () => {
+    const before = bundles();
+    const reworded = {
+      ...language('draconic', 'Draconic'),
+      description: [{ type: 'paragraph', content: [{ type: 'text', text: 'Dragons speak it.' }] }],
+    };
+    const after = bundles([ancestry, common, reworded]);
+    const [was, now] = [kindOf(before, 'language'), kindOf(after, 'language')];
+    expect(now.mechanics).toBe(was.mechanics);
+    expect(now.names).toBe(was.names);
+    const changed = now.descriptions.filter(({ file }, index) => file !== was.descriptions[index]?.file);
+    const draconicShard = descriptionShard(contentIdOf('language:draconic'));
+    expect(changed.map(({ shard }) => shard)).toStrictEqual([draconicShard]);
   });
 
   test('a reordered file gives the same bundles', () => {
@@ -164,5 +228,16 @@ describe('contentPackFromBundles', () => {
     expect(() => contentPackFromBundles(bodyOf(built, file), unnamed)).toThrow(
       `No name for content entry ${idOf('language:common')}`,
     );
+  });
+});
+
+describe('descriptionFromBundle', () => {
+  test('is undefined for an id the shard does not hold', () => {
+    expect(descriptionFromBundle({}, contentIdOf('language:common'))).toBeUndefined();
+  });
+
+  test('refuses a shard that is not descriptions', () => {
+    const shard = { [idOf('language:common')]: 'text' };
+    expect(() => descriptionFromBundle(shard, contentIdOf('language:common'))).toThrow();
   });
 });

@@ -1,7 +1,15 @@
 import { inject, Injectable } from '@angular/core';
-import { bundlePath, ContentKind, contentPackFromBundles, ContentRegistry } from '@pioneer/rules/sdk';
+import {
+  bundlePath,
+  ContentKind,
+  contentPackFromBundles,
+  ContentRegistry,
+  descriptionFromBundle,
+  descriptionShard,
+} from '@pioneer/rules/sdk';
 import type {
   BundleFile,
+  ContentEntry,
   ContentManifest,
   ContentPack,
   ContentPackId,
@@ -9,6 +17,7 @@ import type {
   KindBundles,
   PackBundles,
   PackId,
+  RichText,
 } from '@pioneer/rules/sdk';
 import { IDLE_SCHEDULER } from '@pioneer/shared/web';
 
@@ -39,6 +48,15 @@ type BundleFetch = (pack: PackId, file: BundleFile) => Promise<unknown>;
 async function fetchKind(pack: PackId, { mechanics, names }: KindBundles, fetch: BundleFetch): Promise<FetchedKind> {
   const [mechanicsBody, namesBody] = await Promise.all([fetch(pack, mechanics), fetch(pack, names)]);
   return { mechanics: mechanicsBody, names: namesBody };
+}
+
+/** The file of `entry`'s shard of its kind's descriptions, when its pack is in `manifest` and the entry has one. */
+function shardFile(manifest: ContentManifest, entry: ContentEntry): BundleFile | undefined {
+  const shard = descriptionShard(entry.id);
+  return manifest.packs
+    .find((pack) => pack.id === entry.pack)
+    ?.kinds.find((bundles) => bundles.kind === entry.kind)
+    ?.descriptions.find((bundle) => bundle.shard === shard)?.file;
 }
 
 /** A pack's bundles for `kinds`, of the kinds it has. */
@@ -75,6 +93,42 @@ export class ContentLoader {
       this.#cache.forgetManifest();
       this.#cache.forgetHomebrew();
       return this.#build(kinds, homebrew);
+    }
+  }
+
+  /**
+   * `entry`'s description, fetched from its shard of the kind's description bundles: a shard is fetched when an entry
+   * in it is first opened and kept in the store after, so the entry's neighbours cost nothing. Undefined when the
+   * entry has no description, so the caller shows its summary. A failed fetch reads the manifests again and tries once
+   * more, as `registry` does.
+   */
+  public async description(
+    entry: ContentEntry,
+    homebrew: readonly ContentPackId[] = [],
+  ): Promise<RichText | undefined> {
+    try {
+      return await this.#description(entry, homebrew);
+    } catch {
+      this.#cache.forgetManifest();
+      this.#cache.forgetHomebrew();
+      return this.#description(entry, homebrew);
+    }
+  }
+
+  async #description(entry: ContentEntry, homebrew: readonly ContentPackId[]): Promise<RichText | undefined> {
+    const [manifest, brewed] = await Promise.all([this.#cache.manifest(), this.#cache.homebrewManifest(homebrew)]);
+    const official = manifest.packs.some((pack) => pack.id === entry.pack);
+    const file = shardFile(official ? manifest : brewed, entry);
+    if (file === undefined) {
+      return undefined;
+    }
+    const body = await (official ? this.#official : this.#homebrew)(entry.pack, file);
+    try {
+      return descriptionFromBundle(body, entry.id);
+    } catch (error) {
+      // A kept body that no longer reads must not stick: drop it, so the retry fetches it again.
+      await this.#cache.forget(entry.pack, [file]);
+      throw error;
     }
   }
 

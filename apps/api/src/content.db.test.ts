@@ -4,7 +4,9 @@ import { BUNDLE_CACHE_CONTROL, MANIFEST_CACHE_CONTROL, seedContentPacks } from '
 import {
   AncestryId,
   BundleFile,
+  ContentId,
   contentId,
+  descriptionShard,
   ContentManifest,
   EntrySlug,
   packContentsFromFiles,
@@ -37,7 +39,7 @@ function ignore(): void {
   // Seed log lines are not under test.
 }
 
-function ancestryEntry(slug: string, name: string): object {
+function ancestryEntry(slug: string, name: string, description: readonly object[] = []): object {
   return {
     id: contentId(PACK, EntrySlug.parse(`ancestry:${slug}`)),
     pack: PACK,
@@ -47,7 +49,7 @@ function ancestryEntry(slug: string, name: string): object {
     rarity: 'common',
     traits: [slug, 'humanoid'],
     sources: [{ kind: 'book', book: 'player-core', page: 42 }],
-    description: [],
+    description,
     rules: [],
     data: {
       hitPoints: 10,
@@ -62,9 +64,9 @@ function ancestryEntry(slug: string, name: string): object {
   };
 }
 
-function ancestryPack(name: string): PackContents {
+function ancestryPack(name: string, description: readonly object[] = []): PackContents {
   const packFile = { id: PACK, title: 'Test Pack', publisher: 'Pioneer', license: 'homebrew' };
-  return packContentsFromFiles(packFile, [[ancestryEntry('dwarf', name)]]);
+  return packContentsFromFiles(packFile, [[ancestryEntry('dwarf', name, description)]]);
 }
 
 function loader(contents: PackContents): PackContentsLoader {
@@ -121,7 +123,10 @@ describe.skipIf(adminUrl === undefined)('content routes (postgres)', () => {
 
     const { packs } = await manifest();
     const files = packs.flatMap((pack) =>
-      [pack.file, ...pack.kinds.flatMap((kind) => [kind.mechanics, kind.names])].map((file) => `${pack.id}/${file}`),
+      [
+        pack.file,
+        ...pack.kinds.flatMap((kind) => [kind.mechanics, kind.names, ...kind.descriptions.map(({ file }) => file)]),
+      ].map((file) => `${pack.id}/${file}`),
     );
     const responses = await Promise.all(files.map(async (file) => api.handle(get(`/content/bundles/${file}`))));
 
@@ -158,6 +163,24 @@ describe.skipIf(adminUrl === undefined)('content routes (postgres)', () => {
     expect(entries[0]).not.toHaveProperty('name');
     expect(entries[0]).not.toHaveProperty('description');
     expect(await namesResponse.json()).toStrictEqual({ [dwarf]: { name: 'Dwarf' } });
+  });
+
+  test('a kind’s descriptions are served by shard, from the stored texts', async () => {
+    const text = [{ type: 'paragraph', content: [{ type: 'text', text: 'Stout folk of the deep.' }] }];
+    await seedContentPacks(database.db, [loader(ancestryPack('Dwarf', text))], clock);
+    const { descriptions } = await ancestries();
+    const dwarf = AncestryId.parse(contentId(PACK, EntrySlug.parse('ancestry:dwarf')));
+
+    expect(descriptions.map(({ shard }) => shard)).toStrictEqual([descriptionShard(ContentId.parse(dwarf))]);
+    const [shard] = descriptions;
+    const response = await api.handle(get(`/content/bundles/${PACK}/${shard?.file}`));
+
+    expect(response.status).toBe(200);
+    expect(response.headers.get('cache-control')).toBe(BUNDLE_CACHE_CONTROL);
+    expect(await response.json()).toStrictEqual({ [dwarf]: text });
+    const kind = await ancestries();
+    const mechanics = await api.handle(get(`/content/bundles/${PACK}/${kind.mechanics}`));
+    expect(JSON.stringify(await mechanics.json())).not.toContain('Stout folk');
   });
 
   test('a re-seed is served on the next request, and the old bundle is a 404 no one caches', async () => {
