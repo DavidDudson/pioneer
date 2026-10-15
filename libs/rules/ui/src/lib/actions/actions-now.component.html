@@ -1,0 +1,14 @@
+@if (groups(); as shown) {
+  <fr-stack gap="md">
+    @for (group of shown; track group.heading) {
+      <fr-stack gap="xs">
+        <fr-heading variant="subheading" [level]="3">{{ group.heading }}</fr-heading>
+        <pio-action-list [rows]="group.rows" [empty]="Message.EmptyNow | transloco" />
+      </fr-stack>
+    } @empty {
+      <fr-empty-state [title]="Message.EmptyNow | transloco" />
+    }
+  </fr-stack>
+} @else {
+  <pio-action-list [rows]="undefined" [empty]="Message.EmptyNow | transloco" />
+}

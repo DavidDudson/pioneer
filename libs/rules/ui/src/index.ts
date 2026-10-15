@@ -195,3 +195,6 @@ export {
   skillPickerColumns,
   slotPickerColumns,
 } from './lib/slot-picker/slot-picker-table';
+export type { ActionLine } from './lib/actions/action-line';
+export { ActionsViewKind } from './lib/actions/actions-list';
+export { ActionsView } from './lib/actions/actions.component';

@@ -1,0 +1,32 @@
+<fr-stack gap="md">
+  <fr-disclosure>
+    <fr-text frDisclosureSummary>{{ Message.Filters | transloco }}</fr-text>
+    <fr-stack gap="sm">
+      <fr-filter-chips
+        [options]="modeOptions()"
+        [value]="modes()"
+        [ariaLabel]="Message.FilterMode | transloco"
+        (valueChange)="setModes($event)"
+      />
+      <fr-filter-chips
+        [options]="costOptions()"
+        [value]="costs()"
+        [ariaLabel]="Message.FilterCost | transloco"
+        (valueChange)="setCosts($event)"
+      />
+      <fr-filter-chips
+        [options]="traitOptions()"
+        [value]="traits()"
+        [ariaLabel]="Message.FilterTrait | transloco"
+        (valueChange)="setTraits($event)"
+      />
+      <fr-filter-chips
+        [options]="sourceOptions()"
+        [value]="sources()"
+        [ariaLabel]="Message.FilterSource | transloco"
+        (valueChange)="setSources($event)"
+      />
+    </fr-stack>
+  </fr-disclosure>
+  <pio-action-list [rows]="rows()" [empty]="Message.EmptyAll | transloco" [showStatus]="true" />
+</fr-stack>

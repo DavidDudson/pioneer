@@ -1,0 +1,11 @@
+<fr-async-region>
+  <ng-template frAsyncPending><pio-actions [lines]="undefined" /></ng-template>
+  <ng-template [frAsyncData]="registry">
+    <fr-async-region>
+      <ng-template frAsyncPending><pio-actions [lines]="undefined" /></ng-template>
+      <ng-template [frAsyncData]="playQuery">
+        <pio-actions [lines]="lines()" [mode]="mode()" [(view)]="view" />
+      </ng-template>
+    </fr-async-region>
+  </ng-template>
+</fr-async-region>

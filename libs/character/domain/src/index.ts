@@ -434,3 +434,4 @@ export {
   type SubclassOption,
 } from './class-options';
 export { characterActions } from './available-actions';
+export { type ActionContext, actionContext, characterActionContext } from './action-context';

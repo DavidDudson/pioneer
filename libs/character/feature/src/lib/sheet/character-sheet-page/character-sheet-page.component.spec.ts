@@ -35,11 +35,13 @@ describe('CharacterSheetPage', () => {
       ['Defences', true],
       ['Skills', true],
       ['Strikes', true],
+      ['Actions', true],
       ['Spellcasting', true],
     ]);
     await openTab(root, 'Exploration', 'Appearance and personality');
     expect(regionsOf(root)).toStrictEqual([
       ['Appearance and personality', true],
+      ['Actions', true],
       ['Deity', true],
       ['Languages', true],
       ['Inventory', true],
@@ -47,6 +49,7 @@ describe('CharacterSheetPage', () => {
     await openTab(root, 'Downtime', 'Rest and preparations');
     expect(regionsOf(root)).toStrictEqual([
       ['Rest and preparations', true],
+      ['Actions', true],
       ['Downtime', true],
     ]);
   });

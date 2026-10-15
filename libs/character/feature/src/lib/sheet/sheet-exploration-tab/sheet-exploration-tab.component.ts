@@ -2,9 +2,11 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { DEITY_SLOT, SheetMode } from '@pioneer/character/domain';
 import { AsyncData, AsyncPending, AsyncRegion, Section, SectionIndex, SectionLink, Stack } from '@pioneer/frontier';
+import { ActionMode } from '@pioneer/rules/sdk';
 import { DeityView } from '@pioneer/rules/ui';
 
 import { InventorySection } from '../inventory/inventory-section/inventory-section.component';
+import { SheetActions } from '../sheet-actions/sheet-actions.component';
 import { SheetDeitySection } from '../sheet-deity-section/sheet-deity-section.component';
 import { SheetLanguagesSection } from '../sheet-languages-section/sheet-languages-section.component';
 import { SheetRoleplaySection } from '../sheet-roleplay-section/sheet-roleplay-section.component';
@@ -19,6 +21,7 @@ import { rememberTab } from '../sheet-tab';
 @Component({
   selector: 'pio-sheet-exploration-tab',
   imports: [
+    SheetActions,
     AsyncData,
     AsyncPending,
     AsyncRegion,
@@ -39,6 +42,7 @@ import { rememberTab } from '../sheet-tab';
 export class SheetExplorationTab {
   protected readonly sheet = inject(SheetState);
   protected readonly sections = SHEET_SECTIONS;
+  protected readonly Mode = ActionMode.Exploration;
   protected readonly sectionOrder = SHEET_TAB_SECTIONS[SheetMode.Exploration];
   protected readonly deityOptions = this.sheet.picks.rootOptions(DEITY_SLOT);
   protected readonly deity = this.sheet.picks.rootField(DEITY_SLOT, this.deityOptions);

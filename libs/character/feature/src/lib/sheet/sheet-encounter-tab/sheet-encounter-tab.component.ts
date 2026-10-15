@@ -2,9 +2,10 @@ import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/c
 import { TranslocoPipe } from '@jsverse/transloco';
 import { SheetMode } from '@pioneer/character/domain';
 import { AsyncData, AsyncPending, AsyncRegion, Section, SectionIndex, SectionLink, Stack } from '@pioneer/frontier';
-import { SpellPreparation } from '@pioneer/rules/sdk';
+import { ActionMode, SpellPreparation } from '@pioneer/rules/sdk';
 import { DefencesView, SpellcastingView, StatisticsView, StrikesView } from '@pioneer/rules/ui';
 
+import { SheetActions } from '../sheet-actions/sheet-actions.component';
 import { SheetPickFields } from '../sheet-pick-fields/sheet-pick-fields.component';
 import { SHEET_SECTIONS, SHEET_TAB_SECTIONS } from '../sheet-sections';
 import { SheetSpells } from '../sheet-spells/sheet-spells.component';
@@ -19,6 +20,7 @@ import { rememberTab } from '../sheet-tab';
 @Component({
   selector: 'pio-sheet-encounter-tab',
   imports: [
+    SheetActions,
     AsyncData,
     AsyncPending,
     AsyncRegion,
@@ -41,6 +43,7 @@ export class SheetEncounterTab {
   protected readonly sheet = inject(SheetState);
   protected readonly picks = this.sheet.picks;
   protected readonly sections = SHEET_SECTIONS;
+  protected readonly Mode = ActionMode.Encounter;
   protected readonly sectionOrder = SHEET_TAB_SECTIONS[SheetMode.Encounter];
   /** Whether the character has a spellcasting entry, so its spell picks load. */
   protected readonly casts = computed(() => (this.picks.spellcasting()?.length ?? 0) > 0);
