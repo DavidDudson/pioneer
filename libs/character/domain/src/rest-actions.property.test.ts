@@ -1,15 +1,30 @@
 import { describe, expect, test } from 'bun:test';
 
-import { ContentId, FocusPoints, HitPoints, Slug, SpellRank } from '@pioneer/rules/sdk';
-import { assert, constantFrom, integer, property, record } from 'fast-check';
+import {
+  ConditionEffect,
+  ConditionValue,
+  ContentId,
+  ContentKind,
+  ContentRegistry,
+  FocusPoints,
+  HitPoints,
+  Slug,
+  SpellRank,
+} from '@pioneer/rules/sdk';
+import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
+import { assert, boolean, constantFrom, integer, property, record } from 'fast-check';
 
+import { ConditionDurationKind, ConditionInstanceId } from './conditions';
+import type { ActiveCondition } from './conditions';
 import { abilityUseKey, Boundary, slotCountKey } from './counted-resources';
 import type { CountedMaxima } from './counted-resources';
+import { Doomed } from './death-track';
 import { InventoryItemId } from './inventory';
 import { FRESH_PLAY } from './play-state';
 import type { PlayState } from './play-state';
 import { Resource, ResourceCount, resourceMaxima } from './resources';
 import { preparedDaily, refocused, rested, sessionStarted } from './rest-actions';
+import { restRecovery } from './rest-limits';
 import type { RestLimits, RestOutcome } from './rest-types';
 import { NO_STAFF } from './staff-limits';
 
@@ -133,5 +148,87 @@ describe('restoring actions', () => {
         expect(Object.keys(after.resources.staff)).toStrictEqual([staff]);
       }),
     );
+  });
+});
+
+const CONDITIONS = new ContentPackBuilder()
+  .withCondition('fatigued', [], { recovery: { rest: ConditionEffect.Remove } })
+  .withCondition('drained', [], { valued: true, recovery: { rest: ConditionEffect.Lower } });
+const REGISTRY = new ContentRegistry();
+REGISTRY.register(CONDITIONS.build());
+const FATIGUED = CONDITIONS.idOf(ContentKind.Condition, 'fatigued');
+const DRAINED = CONDITIONS.idOf(ContentKind.Condition, 'drained');
+const EASING: RestLimits = { ...LIMITS, recovery: restRecovery(REGISTRY) };
+
+const DRAINED_MAX = 4;
+const DOOMED_MAX = 2;
+const FATIGUED_ID = ConditionInstanceId.parse('11111111-1111-4111-8111-111111111111');
+const DRAINED_ID = ConditionInstanceId.parse('22222222-2222-4222-8222-222222222222');
+
+function activeCondition(id: ConditionInstanceId, content: ContentId, value?: number): ActiveCondition {
+  return {
+    id,
+    condition: content,
+    ...(value === undefined ? {} : { value: ConditionValue.parse(value) }),
+    duration: { kind: ConditionDurationKind.Unlimited },
+  };
+}
+
+/** A play state that is doomed and drained, and fatigued when `fatigued`. */
+function afflicted(doomed: number, drained: number, fatigued: boolean): PlayState {
+  return {
+    ...FRESH_PLAY,
+    doomed: Doomed.parse(doomed),
+    conditions: [
+      ...(fatigued ? [activeCondition(FATIGUED_ID, FATIGUED)] : []),
+      ...(drained === 0 ? [] : [activeCondition(DRAINED_ID, DRAINED, drained)]),
+    ],
+  };
+}
+
+const doomedValues = integer({ min: 0, max: DOOMED_MAX });
+const drainedValues = integer({ min: 0, max: DRAINED_MAX });
+
+function drainedOf(play: PlayState): number {
+  return play.conditions.find(({ condition }) => condition === DRAINED)?.value ?? 0;
+}
+
+describe('rest easing conditions', () => {
+  test('lowers doomed and drained to a floor of 0 and leaves no fatigued', () => {
+    assert(
+      property(doomedValues, drainedValues, boolean(), (doomed, drained, fatigued) => {
+        const after = rested(afflicted(doomed, drained, fatigued), EASING).play;
+        expect(after.doomed).toBe(Math.max(doomed - 1, 0));
+        expect(drainedOf(after)).toBe(Math.max(drained - 1, 0));
+        expect(after.conditions.some(({ condition }) => condition === FATIGUED)).toBe(false);
+      }),
+    );
+  });
+
+  test('applied twice eases a second time, unlike daily preparations and start of session', () => {
+    assert(
+      property(integer({ min: 2, max: DRAINED_MAX }), (drained) => {
+        const once = rested(afflicted(DOOMED_MAX, drained, true), EASING);
+        const twice = rested(once.play, EASING);
+        expect(drainedOf(twice.play)).toBe(drainedOf(once.play) - 1);
+        expect(twice.play.doomed).toBeLessThan(once.play.doomed);
+        expect(twice.changes).not.toEqual([]);
+      }),
+    );
+  });
+
+  test('refocus applied twice restores a second focus point, unlike daily preparations', () => {
+    const spentOut: PlayState = playOf({
+      damage: 0,
+      hero: 0,
+      focus: 2,
+      slot: ResourceCount.parse(0),
+      daily: ResourceCount.parse(0),
+      session: ResourceCount.parse(0),
+    });
+    const once = refocused(spentOut, EASING);
+    const twice = refocused(once.play, EASING);
+    expect(twice.play.resources[Resource.FocusPoints]).toBe(once.play.resources[Resource.FocusPoints] - 1);
+    expect(twice.changes).not.toEqual([]);
   });
 });
