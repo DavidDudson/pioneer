@@ -1,4 +1,5 @@
 export { Campaign, type CampaignMember, CampaignMemberWire, CampaignWire } from './campaign';
+export { CampaignCommand } from './campaign-command';
 export {
   AttachCharacterBody,
   CampaignContract,

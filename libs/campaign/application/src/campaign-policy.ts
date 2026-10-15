@@ -48,3 +48,8 @@ export function mayManagePacks(actor: UserId, campaign: Campaign): boolean {
 export function mayManageVariantRules(actor: UserId, campaign: Campaign): boolean {
   return campaign.roleOf(actor) === CampaignRole.Gm;
 }
+
+/** Who may archive a campaign and restore it: its GM. */
+export function mayArchiveCampaign(actor: UserId, campaign: Campaign): boolean {
+  return campaign.roleOf(actor) === CampaignRole.Gm;
+}

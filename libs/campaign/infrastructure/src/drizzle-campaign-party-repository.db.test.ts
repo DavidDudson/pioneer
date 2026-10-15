@@ -172,17 +172,20 @@ describe.skipIf(adminUrl === undefined)('DrizzleCampaignPartyRepository (postgre
     expect(await repository.attach(vaults.id, elsewhere)).toBeUndefined();
   });
 
-  test('deleting its campaign takes a character out of the party; archiving the character does not', async () => {
+  test('archiving its campaign or the character leaves the party as it was', async () => {
     const [vaults, kingmaker] = await Promise.all([newCampaign('Deleted character'), newCampaign('Deleted campaign')]);
     const [valeros, kyra] = await Promise.all([insertCharacter(database, ezren), insertCharacter(database, seelah)]);
     await attachAs(vaults, ezren, valeros);
     await attachAs(kingmaker, seelah, kyra);
 
     await database.db.execute(sql`update characters set archived_at = now() where id = ${valeros}`);
-    await database.db.execute(sql`delete from campaigns where id = ${kingmaker.id}`);
+    await database.db.execute(sql`update campaigns set archived_at = now() where id = ${kingmaker.id}`);
     const kept = await repository.listForCampaign(vaults.id);
     expect(kept.map((attached) => attached.characterId)).toStrictEqual([valeros]);
-    expect(await repository.campaignsOf([kyra])).toStrictEqual(new Map());
+    const archivedParty = await repository.listForCampaign(kingmaker.id);
+    expect(archivedParty.map((attached) => attached.characterId)).toStrictEqual([kyra]);
+    const placed = await repository.campaignsOf([kyra]);
+    expect(placed.get(kyra)).toBe(kingmaker.id);
   });
 
   test('every query the repository issued is served by an index', async () => {

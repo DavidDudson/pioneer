@@ -61,6 +61,15 @@ export const CampaignContract = {
     body: NoBody,
     response: z.array(Campaign.codec),
   }),
+  /** The campaigns the actor runs and has archived (ADR-0062), in the order they joined them. */
+  archived: new Endpoint({
+    method: HttpMethod.Get,
+    path: '/campaigns/archived',
+    params: NoParams,
+    query: NoQuery,
+    body: NoBody,
+    response: z.array(Campaign.codec),
+  }),
   get: new Endpoint({
     method: HttpMethod.Get,
     path: '/campaigns/:id',
@@ -75,6 +84,27 @@ export const CampaignContract = {
     params: NoParams,
     query: NoQuery,
     body: CreateCampaignBody,
+    response: Campaign.codec,
+  }),
+  /**
+   * GM only: archives the campaign, which then reads as missing to everyone, the GM's archived list aside. Its
+   * members, party, packs and invites are left as they are. Archiving twice is harmless.
+   */
+  archive: new Endpoint({
+    method: HttpMethod.Post,
+    path: '/campaigns/:id/archive',
+    params: ById,
+    query: NoQuery,
+    body: NoBody,
+    response: Campaign.codec,
+  }),
+  /** GM only: brings an archived campaign back as it was. Restoring a live one is harmless. */
+  restore: new Endpoint({
+    method: HttpMethod.Post,
+    path: '/campaigns/:id/restore',
+    params: ById,
+    query: NoQuery,
+    body: NoBody,
     response: Campaign.codec,
   }),
   /** The campaign's members with their names, and the actor's own role. */

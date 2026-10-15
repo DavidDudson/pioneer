@@ -122,12 +122,13 @@ describe.skipIf(adminUrl === undefined)('DrizzleCampaignRepository (postgres)', 
     expect(found?.roleOf(fixtureGmId)).toBe(CampaignRole.Gm);
   });
 
-  test('deleting a GM’s user deletes the campaigns they run', async () => {
-    const goneGm = UserId.parse(newId());
-    await insertUser(database, goneGm);
-    const theirs = await repository.insert(new CampaignBuilder().named('Blood Lords').ranBy(goneGm).build());
-    await database.db.execute(sql`delete from users where id = ${goneGm}`);
-    expect(await repository.findById(theirs.id)).toBeUndefined();
+  test('a user who runs a campaign cannot be deleted', async () => {
+    const busyGm = UserId.parse(newId());
+    await insertUser(database, busyGm);
+    const theirs = await repository.insert(new CampaignBuilder().named('Blood Lords').ranBy(busyGm).build());
+    const refused = await rejection(database.db.execute(sql`delete from users where id = ${busyGm}`));
+    expect(refused).toBeInstanceOf(Error);
+    expect(await repository.findById(theirs.id)).toBeDefined();
   });
 
   test('updateMembers removes a player and bumps the version', async () => {

@@ -3,7 +3,7 @@ import { PackEnablementDirectory } from '@pioneer/homebrew/application';
 import type { ReadablePack } from '@pioneer/homebrew/application';
 import { EnablingCampaignName } from '@pioneer/homebrew/domain';
 import type { UserId } from '@pioneer/shared/kernel';
-import { and, eq } from 'drizzle-orm';
+import { and, eq, isNull } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 
 /**
@@ -32,11 +32,12 @@ export class CampaignPackEnablementDirectory extends PackEnablementDirectory {
     const [row] = await this.#db
       .select({ campaignId: campaignPacks.campaignId })
       .from(campaignPacks)
+      .innerJoin(campaigns, eq(campaigns.id, campaignPacks.campaignId))
       .innerJoin(
         campaignMembers,
         and(eq(campaignMembers.campaignId, campaignPacks.campaignId), eq(campaignMembers.userId, user)),
       )
-      .where(eq(campaignPacks.packId, pack.id))
+      .where(and(eq(campaignPacks.packId, pack.id), isNull(campaigns.archivedAt)))
       .limit(1);
     return row !== undefined;
   }

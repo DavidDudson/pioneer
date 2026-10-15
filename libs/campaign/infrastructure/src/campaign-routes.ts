@@ -30,9 +30,12 @@ export function campaignRoutes(
 ): ContractRouter['app'] {
   return new ContractRouter('campaign-routes')
     .handleSignedIn(CampaignContract.list, auth, async ({ actor }) => [...(await service.list(actor))])
+    .handleSignedIn(CampaignContract.archived, auth, async ({ actor }) => [...(await service.listArchived(actor))])
     .handleSignedIn(CampaignContract.join, auth, async ({ actor, body }) => invites.join(actor, body.token))
     .handleSignedIn(CampaignContract.get, auth, async ({ actor, params }) => service.get(actor, params.id))
     .handleSignedIn(CampaignContract.create, auth, async ({ actor, body }) => service.create(actor, body))
+    .handleSignedIn(CampaignContract.archive, auth, async ({ actor, params }) => service.archive(actor, params.id))
+    .handleSignedIn(CampaignContract.restore, auth, async ({ actor, params }) => service.restore(actor, params.id))
     .handleSignedIn(CampaignContract.roster, auth, async ({ actor, params }) => service.roster(actor, params.id))
     .handleSignedIn(CampaignContract.removeMember, auth, async ({ actor, params }) =>
       service.removeMember(actor, params.id, params.memberId),

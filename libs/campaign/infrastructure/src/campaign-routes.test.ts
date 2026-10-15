@@ -175,3 +175,46 @@ describe('campaign routes across users', () => {
     expect(((await listed.json()) as CampaignJson[]).map(({ id }) => id)).toStrictEqual([mine.id]);
   });
 });
+
+async function status(api: AnyElysia, sent: Request): Promise<number> {
+  const response = await api.handle(sent);
+  return response.status;
+}
+
+async function listFrom(api: AnyElysia, path: string, as: UserId = amiri): Promise<readonly CampaignJson[]> {
+  const response = await api.handle(request('GET', path, { as }));
+  return (await response.json()) as CampaignJson[];
+}
+
+describe('archived campaign routes (ADR-0062)', () => {
+  test('archive hides the campaign, restore brings it back', async () => {
+    const api = app();
+    const { id } = await create(api, amiri, 'Abomination Vaults');
+    expect(await status(api, request('POST', `/campaigns/${id}/archive`))).toBe(200);
+    expect(await status(api, request('GET', `/campaigns/${id}`))).toBe(404);
+    expect(await status(api, request('GET', `/campaigns/${id}/party`))).toBe(404);
+    expect(await listFrom(api, '/campaigns')).toStrictEqual([]);
+    const archived = await listFrom(api, '/campaigns/archived');
+    expect(archived.map((campaign) => campaign.id)).toStrictEqual([id]);
+
+    expect(await status(api, request('POST', `/campaigns/${id}/restore`))).toBe(200);
+    expect(await status(api, request('GET', `/campaigns/${id}`))).toBe(200);
+    expect(await listFrom(api, '/campaigns/archived')).toStrictEqual([]);
+  });
+
+  test('an archived campaign takes no invites', async () => {
+    const api = app();
+    const { id } = await create(api, amiri, 'Abomination Vaults');
+    await api.handle(request('POST', `/campaigns/${id}/archive`));
+    expect(await status(api, request('POST', `/campaigns/${id}/invites`))).toBe(404);
+  });
+
+  test('a stranger gets a 404 and signed out a 401', async () => {
+    const api = app();
+    const { id } = await create(api, amiri, 'Abomination Vaults');
+    expect(await status(api, request('POST', `/campaigns/${id}/archive`, { as: ezren }))).toBe(404);
+    expect(await status(api, request('POST', `/campaigns/${id}/archive`, { as: anonymous }))).toBe(401);
+    expect(await status(api, request('GET', '/campaigns/archived', { as: anonymous }))).toBe(401);
+    expect(await listFrom(api, '/campaigns/archived', ezren)).toStrictEqual([]);
+  });
+});

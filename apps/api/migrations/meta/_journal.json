@@ -176,6 +176,13 @@
       "when": 1792073234736,
       "tag": "0024_archive_characters",
       "breakpoints": true
+    },
+    {
+      "idx": 25,
+      "version": "7",
+      "when": 1792073257022,
+      "tag": "0025_archive_campaigns",
+      "breakpoints": true
     }
   ]
 }
