@@ -47,7 +47,7 @@ export const aid = {
   rules: [],
   data: {
     cost: 'reaction',
-    requirements: [paragraph('The ally is willing to accept your aid, and you have prepared to help.')],
+    requirementsText: [paragraph('The ally is willing to accept your aid, and you have prepared to help.')],
     trigger: [paragraph('An ally is about to use an action that requires a skill check or attack roll.')],
   },
 };

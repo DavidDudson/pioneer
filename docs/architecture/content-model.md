@@ -61,15 +61,15 @@ Each kind's `data` follows what Foundry pf2e stores for it, in Pioneer's words. 
 in its `rules`, not repeated in `data`; a condition's `implies` is the one exception, below. Schemas live in
 `libs/rules/sdk`, registered in `kind-data.ts`.
 
-| Kind           | `data`                                                                                                                                                        |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `condition`    | `valued`; `group?`, Foundry's sheet grouping, which says nothing about stacking; `overrides`; `implies`                                                       |
-| `action`       | `cost?`; `upTo?`; `skills?`; `category?`; `requirements?` and `trigger?` as rich text; `triggerEvent?`; `autoApply?`; `frequency?`; `selfEffect?`             |
-| `damage-type`  | none yet; a type's group stays in `DAMAGE_GROUP_TYPES`, as Foundry keeps it in code                                                                           |
-| `sense`        | `acuity?`, the acuity the sense always has; `unlimitedRange?` (darkvision)                                                                                    |
-| `trait`        | `appliesTo`: each kind that carries it once, from the Foundry trait list it sits in                                                                           |
-| `language`     | none yet; rarity is the envelope's                                                                                                                            |
-| `variant-rule` | `structure?`, the structural changes it needs beyond `rules` (`extraSlots`, `secondClass` for Dual Class); `rules` apply to every character it is enabled for |
+| Kind           | `data`                                                                                                                                                                                                                             |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `condition`    | `valued`; `group?`, Foundry's sheet grouping, which says nothing about stacking; `overrides`; `implies`                                                                                                                            |
+| `action`       | `cost?`; `upTo?`; `skills?`; `minimumProficiency?`; `category?`; `modes?`; `universal?`; `requirements?`, a predicate; `requirementsText?` and `trigger?` as rich text; `triggerEvent?`; `autoApply?`; `frequency?`; `selfEffect?` |
+| `damage-type`  | none yet; a type's group stays in `DAMAGE_GROUP_TYPES`, as Foundry keeps it in code                                                                                                                                                |
+| `sense`        | `acuity?`, the acuity the sense always has; `unlimitedRange?` (darkvision)                                                                                                                                                         |
+| `trait`        | `appliesTo`: each kind that carries it once, from the Foundry trait list it sits in                                                                                                                                                |
+| `language`     | none yet; rarity is the envelope's                                                                                                                                                                                                 |
+| `variant-rule` | `structure?`, the structural changes it needs beyond `rules` (`extraSlots`, `secondClass` for Dual Class); `rules` apply to every character it is enabled for                                                                      |
 
 - `condition`: `valued` says whether it takes a value (Frightened 2) or not (Blinded). `group` is one of
   `abilities`, `attitudes`, `death`, `detection`, `senses`. `overrides` lists the conditions it replaces
@@ -425,7 +425,8 @@ and homebrew cannot use that path. A pack directory holds:
 - `<kind>.json`: an array of `ContentEntry` envelopes of that kind, in a stable order.
 
 The hand-authored packs (`core-rules`, and the `monster-core` entries transcribed before the importer exists) live
-there too, beside the Foundry imports `player-core`, `gm-core`, `divine-mysteries` and `treasure-vault`. `libs/rules/catalog` loads them
+there too, beside the Foundry imports `player-core`, `gm-core`, `divine-mysteries` and `treasure-vault`.
+`libs/rules/catalog` loads them
 lazily and checks every entry against its schema and the book registry, so a malformed or wrongly sourced entry fails
 `bun run affected`. Ids are stored on characters, so changing an entry's slug, its kind included, is a data
 migration; a catalog test pins every id that exists. The slug names its kind (ADR-0034), so only two entries of one
@@ -717,7 +718,7 @@ FlatModifier` appends the import's rules of the keys named to the committed entr
   `ritual` and equipment with an `etched-onto-…` usage under `rune` (`documentKind`); kind data is built for the kinds
   with a translator (`TRANSLATORS`): the rules core kinds `action` and `condition`, and the build, magic, effect and
   equipment kinds below. An action's cost comes from `actionType` and `actions`, its frequency period from Foundry's
-  words or ISO 8601 durations (`PT1H` is `hour`), and its `trigger` and `requirements` from the description's labelled
+  words or ISO 8601 durations (`PT1H` is `hour`), and its `trigger` and `requirementsText` from the description's labelled
   paragraphs, translated as descriptions are so their links and inline checks stay. A condition's `implies` is its
   unpredicated `GrantItem`s of conditions, so it lists exactly what its rules grant; its duration, active and removable
   flags are instance state and Foundry's back links are derived, so neither is carried. A set `system` field with no
@@ -770,7 +771,8 @@ FlatModifier` appends the import's rules of the keys named to the committed entr
     `system.proficiencies.defenses.<category>.rank` (`unarmored`, `light`, `medium`, `heavy`) and
     `system.proficiencies.spellcasting.rank` is a `Proficiency` on `attack:<category>`, `defense:<category>` or
     `spellcasting`; a base weapon (`weapon-base-club`), a pick, a formula rank and a `self:level` predicate stay in
-    the backlog. An `ActiveEffectLike` adding to or upgrading a number Pioneer derives is a `Change` on that statistic, predicate
+    the backlog. An `ActiveEffectLike` adding to or upgrading a number Pioneer derives is a `Change` on that
+    statistic, predicate
     kept and Foundry's `phase` dropped: `system.attributes.reach.base` is `reach` (Bendy Arm Mutagen) and
     `system.attributes.dying.max` is `dying-max` (Mortalis Coin). A boolean (`system.attributes.flanking.flankable`)
     or a formula value stays in the backlog, as does a path with no statistic yet (`system.attributes.hp.recoveryAddend`,
@@ -962,8 +964,9 @@ tradition of spell cast in the ritual` its `pick`. Its secondary checks are sepa
 - **Trigger enrichment.** Foundry's triggers are text only. `bun run content:triggers` sets `triggerEvent` on every
   action, feat action and class feature action in the committed packs whose whole trigger matches a known wording
   ("Your turn begins.", "You cast a focus spell.") and that has none yet, so a hand correction is never
-  overwritten. An action with `requirements` is skipped, since the engine can't read them; its event and a predicate
-  for them are set by hand. A trigger with any other wording, or anything richer than words and links, is left for a
+  overwritten. An action whose requirements are only `requirementsText` is skipped, since the engine can't read them;
+  its event and a predicate for them are set by hand. A trigger with any other wording, or anything richer than
+  words and links, is left for
   hand edit and listed by the coverage report.
 - **Prerequisite enrichment.** Foundry's prerequisites are text only. `bun run content:prerequisites` sets
   `prerequisitePredicate` on every feat in the committed packs whose prerequisites all parse and that has none yet, so

@@ -48,10 +48,7 @@
   />
   <pio-strike-notes [notes]="row().attackNotes" />
   <fr-text>{{ row().damage }}</fr-text>
-  @for (extra of row().extras; track extra) {
-    <fr-text>{{ extra }}</fr-text>
-  }
-  @for (line of row().thrown; track line) {
+  @for (line of lines(); track line) {
     <fr-text>{{ line }}</fr-text>
   }
   <pio-statistic-conditions [conditions]="row().damageConditions" />

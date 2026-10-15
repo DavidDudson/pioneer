@@ -1,0 +1,27 @@
+@let each = row();
+<fr-stack gap="xs">
+  <fr-stack direction="horizontal" gap="xs" align="center" wrap>
+    <fr-badge variant="solid" [tone]="ACTION_STATUS_TONES[each.status]">{{
+      ACTION_STATUS_KEYS[each.status] | transloco
+    }}</fr-badge>
+    <fr-text>{{ each.name }}</fr-text>
+    @if (each.cost; as cost) {
+      <fr-text tone="muted">{{ ACTION_COST_KEYS[cost] | transloco }}</fr-text>
+    }
+    @for (mode of each.modes; track mode) {
+      <fr-badge>{{ ACTION_MODE_KEYS[mode] | transloco }}</fr-badge>
+    }
+    @if (each.roll !== undefined) {
+      <fr-text tone="muted">{{ 'play.rules.actions.roll' | transloco: { total: each.roll } }}</fr-text>
+    }
+  </fr-stack>
+  @if (each.reasons.length > 0) {
+    <fr-list gap="3xs" markers>
+      @for (reason of each.reasons; track $index) {
+        <fr-list-item>
+          <fr-text tone="muted">{{ reason.key | transloco: reason.params }}</fr-text>
+        </fr-list-item>
+      }
+    </fr-list>
+  }
+</fr-stack>

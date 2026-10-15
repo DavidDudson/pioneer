@@ -84,6 +84,11 @@ export function entryAction(entry: ContentEntry): ActionData | undefined {
   return undefined;
 }
 
+/** Whether an action's requirements are wording the engine cannot test: text with no predicate beside it. */
+function isWordingOnly({ requirementsText, requirements }: ActionData): boolean {
+  return requirementsText !== undefined && requirements === undefined;
+}
+
 /** The event the matcher read for one entry. */
 export interface TriggerMatch {
   readonly entry: ContentKey;
@@ -92,13 +97,13 @@ export interface TriggerMatch {
 
 /**
  * For each entry whose action has a trigger but no event, the event its wording names. An entry that already has an
- * event keeps it, so a hand correction is never overwritten. An action with requirements is skipped: the engine can't
- * read them, so its event needs a predicate set by hand, or it would fire when they aren't met.
+ * event keeps it, so a hand correction is never overwritten. An action whose requirements are only wording is skipped:
+ * the engine can't read them, so its event needs a predicate set by hand, or it would fire when they aren't met.
  */
 export function triggerMatches(entries: readonly ContentEntry[], names: RefNames): readonly TriggerMatch[] {
   return entries.flatMap((entry) => {
     const action = entryAction(entry);
-    if (action?.trigger === undefined || action.triggerEvent !== undefined || action.requirements !== undefined) {
+    if (action?.trigger === undefined || action.triggerEvent !== undefined || isWordingOnly(action)) {
       return [];
     }
     const triggerEvent = matchTrigger(action.trigger, names);

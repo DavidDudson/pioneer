@@ -1,7 +1,8 @@
 import { NO_MODIFIERS, RuleInPlay } from '@pioneer/rules/engine';
 import type { ArmorInputs, ModifierInputs, WeaponInputs } from '@pioneer/rules/engine';
 import { resolveGrants } from '@pioneer/rules/grants';
-import type { GrantEntry, GrantRoot, ToggleSlot } from '@pioneer/rules/grants';
+import type { GrantEntry, GrantResolution, GrantRoot, ToggleSlot } from '@pioneer/rules/grants';
+import type { PredicateFacts } from '@pioneer/rules/predicate';
 import {
   AttributeModifier,
   CheckPenalty,
@@ -201,13 +202,12 @@ export interface EquippedRules extends ModifierInputs {
 }
 
 /**
- * The rule elements of the character's active items and the property runes working on them (`workingPropertyRunes`),
- * of the encumbered condition while it carries too much (`encumberedRoots`), of the conditions active in its play state
- * (`conditionRoots`), and of what they grant, each with an origin that starts at its inventory or condition hop, and
- * the facts their predicates are read against. Grants are resolved with the character's picks, so an item's
- * predicate sees its ancestry and class. Rule elements of the build itself arrive with the builder (Epic 3.3).
+ * Everything the character's active items, the property runes working on them, the encumbered condition while it carries
+ * too much (`encumberedRoots`) and the conditions active in its play state (`conditionRoots`) put in play, resolved with
+ * the character's picks so an item's predicate sees its ancestry and class. Each entry's origin starts at its inventory
+ * or condition hop; the facts are what every predicate reads.
  */
-export function equippedRules(document: CharacterDocument, content: ItemContent, slots: SlotContent): EquippedRules {
+function equippedResolution(document: CharacterDocument, content: ItemContent, slots: SlotContent): GrantResolution {
   const { lookup, namespaces, rootSlots } = slots;
   const active = activeItems(document.inventory, content);
   const roots: GrantRoot[] = [
@@ -218,7 +218,7 @@ export function equippedRules(document: CharacterDocument, content: ItemContent,
     ...encumberedRoots(document, content, slots),
     ...conditionRoots(document.play.conditions),
   ];
-  const resolution = resolveGrants({
+  return resolveGrants({
     roots,
     lookup,
     level: Level.parse(document.level),
@@ -228,6 +228,29 @@ export function equippedRules(document: CharacterDocument, content: ItemContent,
     rootSlots,
     namespaces,
   });
+}
+
+/** An entry that is in play through the inventory or a condition, and why. */
+export interface EquippedGrants {
+  readonly items: readonly Resolved[];
+  readonly facts: PredicateFacts;
+}
+
+/** What the character's active items and conditions put in play, and the facts that holds (see `equippedRules`). */
+export function equippedGrants(document: CharacterDocument, content: ItemContent, slots: SlotContent): EquippedGrants {
+  const { items, facts } = equippedResolution(document, content, slots);
+  return { items: items.filter(({ origin }) => fromInventory(origin)), facts };
+}
+
+/**
+ * The rule elements of the character's active items and the property runes working on them (`workingPropertyRunes`),
+ * of the encumbered condition while it carries too much (`encumberedRoots`), of the conditions active in its play state
+ * (`conditionRoots`), and of what they grant, each with an origin that starts at its inventory or condition hop, and
+ * the facts their predicates are read against. Grants are resolved with the character's picks, so an item's
+ * predicate sees its ancestry and class. Rule elements of the build itself arrive with the builder (Epic 3.3).
+ */
+export function equippedRules(document: CharacterDocument, content: ItemContent, slots: SlotContent): EquippedRules {
+  const resolution = equippedResolution(document, content, slots);
   const rules = resolution.items
     .filter(({ origin }) => fromInventory(origin))
     .flatMap(({ entry, origin, value }) =>

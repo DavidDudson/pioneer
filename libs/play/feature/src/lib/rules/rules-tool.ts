@@ -4,6 +4,8 @@ import { ContentEntry, RichText } from '@pioneer/rules/sdk';
 import type { SourceRef } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 
+import { ActionsStatus, checkActions } from './actions-check';
+import type { ActionsCheck } from './actions-check';
 import { checkFilters } from './filters-check';
 import type { FiltersCheck } from './filters-check';
 import { checkFormula } from './formula-check';
@@ -30,6 +32,7 @@ export const ToolKind = {
   Statistics: 'statistics',
   Grants: 'grants',
   Filters: 'filters',
+  Actions: 'actions',
 } as const;
 export type ToolKind = ValueOf<typeof ToolKind>;
 
@@ -75,7 +78,8 @@ export type ToolCheck =
   | { readonly kind: typeof ToolKind.Verdict; readonly check: VerdictCheck }
   | { readonly kind: typeof ToolKind.Statistics; readonly check: StatisticsCheck }
   | { readonly kind: typeof ToolKind.Grants; readonly check: GrantsCheck }
-  | { readonly kind: typeof ToolKind.Filters; readonly check: FiltersCheck };
+  | { readonly kind: typeof ToolKind.Filters; readonly check: FiltersCheck }
+  | { readonly kind: typeof ToolKind.Actions; readonly check: ActionsCheck };
 
 /** The rich text check, with the document to preview once it validates; the text is parsed once for both. */
 function checkRichText(text: string): ToolCheck {
@@ -154,6 +158,11 @@ function verdictOf(text: string, { facts, namespaces }: ToolInputs): VerdictChec
   return namespaces === undefined ? { status: VerdictStatus.Pending } : checkVerdict(text, facts, namespaces);
 }
 
+/** The action list weighed against the roll options, once the namespaces that read them have loaded. */
+function actionsOf(text: string, { facts, namespaces }: ToolInputs): ActionsCheck {
+  return namespaces === undefined ? { status: ActionsStatus.Pending } : checkActions(text, facts, namespaces);
+}
+
 /** Run the chosen tool on the page's text and whichever extra inputs it reads. Never throws. */
 export function checkTool(tool: RulesTool, text: string, inputs: ToolInputs): ToolCheck {
   if (tool === RulesTool.Formula) {
@@ -167,6 +176,9 @@ export function checkTool(tool: RulesTool, text: string, inputs: ToolInputs): To
   }
   if (tool === RulesTool.Filters) {
     return { kind: ToolKind.Filters, check: checkFilters(text, inputs.filterQuery) };
+  }
+  if (tool === RulesTool.Actions) {
+    return { kind: ToolKind.Actions, check: actionsOf(text, inputs) };
   }
   return checkSchema(tool, text);
 }

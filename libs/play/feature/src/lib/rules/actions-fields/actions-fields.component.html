@@ -1,0 +1,27 @@
+@let result = check();
+<fr-stack gap="md">
+  <fr-field [invalid]="result.status === ActionsStatus.NotJson || result.status === ActionsStatus.Invalid">
+    <fr-label>{{ 'play.rules.actionsLabel' | transloco }}</fr-label>
+    <fr-text-area monospace [rows]="actionRows" [(value)]="actions" />
+    @if (result.status === ActionsStatus.NotJson) {
+      <fr-field-error>{{ 'play.rules.notJson' | transloco }}</fr-field-error>
+    } @else if (result.status === ActionsStatus.Invalid) {
+      <fr-field-error>{{ 'play.rules.invalidSummary' | transloco: { count: result.issues.length } }}</fr-field-error>
+    } @else {
+      <fr-field-hint>{{ 'play.rules.actionsHint' | transloco }}</fr-field-hint>
+    }
+  </fr-field>
+  <fr-field [invalid]="result.status === ActionsStatus.InvalidFacts || coreRulesFailed()">
+    <fr-label>{{ 'play.rules.factsLabel' | transloco }}</fr-label>
+    <fr-text-area monospace [rows]="factRows" [(value)]="facts" />
+    @if (result.status === ActionsStatus.InvalidFacts) {
+      <fr-field-error>{{
+        'play.rules.badFacts' | transloco: { count: result.lines.length, lines: badLines() }
+      }}</fr-field-error>
+    } @else if (coreRulesFailed()) {
+      <fr-field-error>{{ 'play.rules.coreRulesFailed' | transloco }}</fr-field-error>
+    } @else {
+      <fr-field-hint>{{ 'play.rules.factsHint' | transloco }}</fr-field-hint>
+    }
+  </fr-field>
+</fr-stack>

@@ -2,7 +2,8 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { List, ListItem, Message, Stack, Text } from '@pioneer/frontier';
 
-import { CheckStatus, formatPath } from '../rules-check';
+import { formatPath } from '../format-path';
+import { CheckStatus } from '../rules-check';
 import type { CheckOutcome } from '../rules-check';
 
 /** A JSON check's result: the value as Pioneer encodes it, or each problem with its path. */

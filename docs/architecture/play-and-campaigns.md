@@ -13,13 +13,16 @@ interface ActionData {
     | { kind: 'free' }
     | { kind: 'activity'; duration: Duration }
     | { kind: 'variable'; min: 1; max: 3 };
-  modes: readonly ('encounter' | 'exploration' | 'downtime')[];
+  modes?: readonly ('encounter' | 'exploration' | 'downtime')[]; // an action that lists none is an Encounter one
+  universal?: true; // every character has it: the basic and skill actions
   requirements?: Predicate; // e.g. wielding a shield, not prone
+  requirementsText?: RichText; // the wording shown; an action with only this is `conditional`
+  skills?: readonly SkillSelector[]; // the skills it rolls; the best one's breakdown comes with the action
+  minimumProficiency?: Proficiency; // trained-only skill actions: the rank one of `skills` must have
   trigger?: RichText; // reactions and free actions
   triggerEvent?: { event: TriggerEventType; predicate?: Predicate }; // what the engine matches
   autoApply?: false; // always prompt
   frequency?: Frequency; // once per round, once per day, ...
-  minimumProficiency?: { selector: Selector; rank: Proficiency }; // trained-only skill actions
   roll?: { statistic: Selector; against?: DcRef }; // Demoralize: Intimidation vs Will DC
   outcomes?: Partial<Record<DegreeOfSuccess, RichText>>;
 }
@@ -30,13 +33,23 @@ The engine produces an **available actions** list for the current state:
 ```ts
 interface AvailableAction {
   action: ContentId;
-  origin: Origin; // basic, skill, or granted by feat X
-  cost: ActionCost;
+  origin: ActionOrigin; // basic, skill, or granted (with the Origin chain that put it there)
+  cost?: ActionCost;
+  modes: readonly ActionMode[];
   status: 'available' | 'conditional' | 'unavailable';
-  reasons: readonly string[]; // "requires a raised shield", "used this round", "untrained in Arcana"
-  roll?: Breakdown; // the modifier you would roll, already explained
+  reasons: readonly MessageDescriptor[]; // "requires a raised shield", "used this round", "untrained in Arcana"
+  roll?: StatisticValue; // the best of its skills, already explained
 }
 ```
+
+`availableActions` (`libs/rules/engine`) weighs candidates against the roll options, skill ranks and spent
+frequencies it is given; `characterActions` (`libs/character/domain`) gathers them. The candidates are the
+`universal` actions every character has, then the actions the build gives (feats, class and ancestry features) and
+what the build, active items and active conditions grant by `GrantItem`. An action is **unavailable** when its
+`requirements` predicate is false, no skill it lists is at its `minimumProficiency`, or its frequency has no uses
+left; **conditional** when its predicate is unknown or its requirements are only `requirementsText`; **available**
+otherwise. Every action that is not available gives a reason. The rules playground's Available actions tool shows the
+list for actions, skill ranks and roll options typed in.
 
 UI behaviour:
 

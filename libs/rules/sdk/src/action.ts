@@ -5,6 +5,7 @@ import * as z from 'zod';
 import { ContentId } from './content-id';
 import { RulesMessage } from './messages';
 import { Predicate } from './predicate';
+import { ProficiencySchema } from './proficiency';
 import { ActionCost, ActionCostSchema, RichText } from './rich-text';
 import { SkillSelector } from './selector';
 import { uniqueItems } from './unique-items';
@@ -117,12 +118,24 @@ const SKILLS_MAX = 16;
 export const Skills = z.array(SkillSelector).max(SKILLS_MAX).readonly().check(uniqueItems);
 
 const UP_TO = { ...issueParams(message(RulesMessage.ActionUpTo)), path: ['upTo'] };
+const MINIMUM_PROFICIENCY = {
+  ...issueParams(message(RulesMessage.ActionMinimumProficiency)),
+  path: ['minimumProficiency'],
+};
 
 /** A variable cost starts at a glyph that counts actions and runs to more of them. */
 function isVariableCost(cost: ActionCost | undefined, upTo: ActionCount): boolean {
   const from = cost === undefined ? undefined : ACTION_COUNT[cost];
   return from !== undefined && from < upTo;
 }
+
+/** The sheet modes an action is used in: a fight, travel and scouting, or the time between adventures. */
+export const ActionMode = { Encounter: 'encounter', Exploration: 'exploration', Downtime: 'downtime' } as const;
+export type ActionMode = ValueOf<typeof ActionMode>;
+const ActionModeSchema = z.enum(ActionMode);
+
+/** The most modes an action lists: all of them. */
+const MODES_MAX = 3;
 
 /**
  * An action's `data` on the `ContentEntry` envelope. Its effects are its `rules` and description; this is how it is
@@ -137,7 +150,16 @@ export const ActionData = z
     /** The skills it uses (Climb uses Athletics). */
     skills: Skills.optional(),
     category: ActionCategorySchema.optional(),
-    requirements: RichText.optional(),
+    /** The wording shown for what it needs ("you have a free hand"); `requirements` is what the engine tests. */
+    requirementsText: RichText.optional(),
+    /** What must hold to use it, as roll options (`self:condition:prone` negated, a raised shield); absent when nothing is tested. */
+    requirements: Predicate.optional(),
+    /** The sheet modes it is used in; an action that lists none is an Encounter one. */
+    modes: z.array(ActionModeSchema).max(MODES_MAX).check(uniqueItems).readonly().optional(),
+    /** Every character has it, granted or not: the basic and skill actions. */
+    universal: z.literal(true).optional(),
+    /** With `skills`, the rank it takes in one of them to use it: a trained-only skill action. */
+    minimumProficiency: ProficiencySchema.optional(),
     /** The wording shown; `triggerEvent` is what the engine matches. */
     trigger: RichText.optional(),
     ...triggerFields,
@@ -149,6 +171,10 @@ export const ActionData = z
     ...issueParams(message(RulesMessage.ActionReactionTrigger)),
     path: ['trigger'],
   })
+  .refine(
+    ({ minimumProficiency, skills }) => minimumProficiency === undefined || (skills !== undefined && skills.length > 0),
+    MINIMUM_PROFICIENCY,
+  )
   .refine(({ cost, upTo }) => upTo === undefined || isVariableCost(cost, upTo), UP_TO)
   .refine(AUTO_APPLY_NEEDS_EVENT.check, AUTO_APPLY_NEEDS_EVENT.params);
 export type ActionData = z.infer<typeof ActionData>;

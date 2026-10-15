@@ -2,7 +2,8 @@ import { RulesMessage } from '@pioneer/rules/sdk';
 import { message, ValidationMessage } from '@pioneer/shared/kernel';
 import { describe, expect, it } from 'vitest';
 
-import { CheckStatus, checkRulesJson, formatPath, RulesSchema, rulesExample } from './rules-check';
+import { formatPath } from './format-path';
+import { CheckStatus, checkRulesJson, RulesSchema, rulesExample } from './rules-check';
 
 describe(checkRulesJson, () => {
   it.each(Object.values(RulesSchema))('passes the %s example and returns it unchanged', (schema) => {

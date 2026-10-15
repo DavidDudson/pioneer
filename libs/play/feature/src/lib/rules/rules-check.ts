@@ -22,6 +22,7 @@ import { fieldIssues } from '@pioneer/shared/kernel';
 import type { FieldIssue, ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
+import { EXAMPLE_ACTIONS } from './actions-example';
 import { EXAMPLE_CONTENT_ENTRIES } from './content-entry-examples';
 import { EXAMPLE_FILTER_ENTRIES } from './filter-examples';
 import { EXAMPLE_GRANT_ENTRIES } from './grant-examples';
@@ -81,6 +82,7 @@ export const RulesTool = {
   Statistics: 'statistics',
   Grants: 'grants',
   Filters: 'filters',
+  Actions: 'actions',
 } as const;
 export type RulesTool = ValueOf<typeof RulesTool>;
 
@@ -91,6 +93,7 @@ export const RULES_TOOL_KEYS: Readonly<Record<RulesTool, string>> = {
   [RulesTool.Statistics]: 'play.rules.schema.statistics',
   [RulesTool.Grants]: 'play.rules.schema.grants',
   [RulesTool.Filters]: 'play.rules.schema.filters',
+  [RulesTool.Actions]: 'play.rules.schema.actions',
 };
 
 const PLAYER_CORE = PackId.parse('player-core');
@@ -194,6 +197,9 @@ export function rulesExample(tool: RulesTool): string {
   if (tool === RulesTool.Filters) {
     return EXAMPLE_FILTER_ENTRIES;
   }
+  if (tool === RulesTool.Actions) {
+    return EXAMPLE_ACTIONS;
+  }
   const schema = tool === RulesTool.Verdict ? RulesSchema.Predicate : tool;
   return JSON.stringify(EXAMPLE_VALUES[schema], undefined, JSON_INDENT);
 }
@@ -274,25 +280,4 @@ export function checkOutcome<Value>(target: z.ZodType<Value>, read: JsonRead<Val
   return read.status === CheckStatus.Valid
     ? { status: CheckStatus.Valid, parsed: JSON.stringify(z.encode(target, read.value), undefined, JSON_INDENT) }
     : read;
-}
-
-/** A key that reads unambiguously after a dot; anything else is quoted in brackets. */
-const IDENTIFIER = /^[A-Za-z_$][\w$]*$/u;
-
-function formatSegment(segment: FieldIssue['path'][number], index: number): string {
-  if (typeof segment === 'number') {
-    return `[${segment}]`;
-  }
-  if (!IDENTIFIER.test(segment)) {
-    return `[${JSON.stringify(segment)}]`;
-  }
-  return index === 0 ? segment : `.${segment}`;
-}
-
-/**
- * A path as it reads in JSON tooling: `[0].or[1].not`, with awkward keys quoted (`["a.b"]`, `[""]`).
- * Empty for the whole value.
- */
-export function formatPath(path: FieldIssue['path']): string {
-  return path.map((segment, index) => formatSegment(segment, index)).join('');
 }

@@ -484,7 +484,7 @@
       "prerequisitePredicate": ["feat:palatine-detective-dedication"],
       "action": {
         "cost": "reaction",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -1340,7 +1340,7 @@
       ],
       "action": {
         "cost": "two",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -1988,7 +1988,7 @@
       ],
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -3071,7 +3071,7 @@
       "prerequisitePredicate": ["feat:heralds-weapon"],
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -4167,7 +4167,7 @@
       "prerequisitePredicate": ["feat:rivethun-invoker-dedication"],
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -4254,7 +4254,7 @@
       "prerequisitePredicate": ["feat:rivethun-invoker-dedication"],
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -4350,7 +4350,7 @@
       "prerequisitePredicate": ["feat:rivethun-invoker-dedication"],
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -5797,7 +5797,7 @@
       "prerequisitePredicate": ["feat:rivethun-invoker-dedication"],
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
@@ -6384,7 +6384,7 @@
       ],
       "action": {
         "cost": "free",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [

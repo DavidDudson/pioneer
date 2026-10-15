@@ -1,5 +1,7 @@
 @let tool = result();
-@if (tool.kind === ToolKind.Formula) {
+@if (tool.kind === ToolKind.Actions) {
+  <pio-actions-result [check]="tool.check" />
+} @else if (tool.kind === ToolKind.Formula) {
   <pio-formula-result [check]="tool.check" />
 } @else if (tool.kind === ToolKind.Verdict) {
   <pio-predicate-verdict-result [check]="tool.check" />

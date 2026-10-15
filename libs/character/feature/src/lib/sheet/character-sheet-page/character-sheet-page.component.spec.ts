@@ -76,9 +76,14 @@ describe('CharacterSheetPage', () => {
   it('lists a row for each level from 1 to 20 on the Plan tab, marking the current one in text', async () => {
     const { root } = await openSheet();
     const timeline = present(root.querySelector('section[aria-labelledby="sheet-timeline"]'));
-    const headings = [...timeline.querySelectorAll('pio-level-timeline-level fr-heading')].map((heading) =>
-      heading.textContent.trim(),
-    );
+    const levelHeadings = (): string[] =>
+      [...timeline.querySelectorAll('pio-level-timeline-level fr-heading')].map((heading) =>
+        heading.textContent.trim(),
+      );
+    await vi.waitFor(() => {
+      expect(levelHeadings()).toHaveLength(20);
+    });
+    const headings = levelHeadings();
 
     expect(headings).toHaveLength(20);
     expect(headings.at(0)).toBe('Level 1');

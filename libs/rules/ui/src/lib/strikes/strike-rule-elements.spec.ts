@@ -33,9 +33,6 @@ describe('StrikesView rule elements', () => {
     const host = await render();
 
     const shown = [...host.querySelectorAll('pio-strike-notes')].map((each) => textOf(each));
-    expect(shown).toStrictEqual([
-      'GloomOn a critical success, a success The target is dazzled.',
-      'The flame lingers.',
-    ]);
+    expect(shown).toStrictEqual(['GloomOn a critical success, a success The target is dazzled.', 'The flame lingers.']);
   });
 });

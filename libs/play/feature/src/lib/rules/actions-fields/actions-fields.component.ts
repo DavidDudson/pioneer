@@ -1,0 +1,36 @@
+import { ChangeDetectionStrategy, Component, computed, inject, input, model } from '@angular/core';
+import { TranslocoPipe } from '@jsverse/transloco';
+import { Field, FieldError, FieldHint, Label, LocaleFormat, Stack, TextArea } from '@pioneer/frontier';
+
+import { ActionsStatus } from '../actions-check';
+import type { ActionsCheck } from '../actions-check';
+
+const ACTION_ROWS = 18;
+const FACT_ROWS = 5;
+
+/** The actions tool's inputs: the actions on offer as JSON and the roll options, each with its own problem. */
+@Component({
+  selector: 'pio-actions-fields',
+  imports: [Field, FieldError, FieldHint, Label, Stack, TextArea, TranslocoPipe],
+  templateUrl: './actions-fields.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class ActionsFields {
+  protected readonly ActionsStatus = ActionsStatus;
+  protected readonly actionRows = ACTION_ROWS;
+  protected readonly factRows = FACT_ROWS;
+  public readonly check = input.required<ActionsCheck>();
+  public readonly actions = model.required<string>();
+  public readonly facts = model.required<string>();
+  /** The core rules pack did not load, so the roll options cannot be read. */
+  public readonly coreRulesFailed = input(false);
+
+  readonly #format = inject(LocaleFormat);
+  /** The roll option lines that are not roll options, as a list in the UI locale ("2, 4 and 7"). */
+  protected readonly badLines = computed((): string => {
+    this.#format.locale();
+    const result = this.check();
+    const lines = result.status === ActionsStatus.InvalidFacts ? result.lines : [];
+    return this.#format.list(lines.map((line) => this.#format.number(line)));
+  });
+}
