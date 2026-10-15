@@ -1,0 +1,1254 @@
+[
+  {
+    "id": "78c48df5-d6b0-5b3c-8455-f3d51eddf323",
+    "pack": "impossible-lands",
+    "kind": "effect",
+    "slug": "effect:effect-crystal-luminescence",
+    "name": "Effect: Crystal Luminescence",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "a3a7fcc8-94dd-55a0-8d17-61a1decd3843"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The radius of the bright light and dim light of your crystal luminescence increase by 10 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.1bzFIIEw2K1CAUe9"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "0af8009d-8e96-542f-a5dc-ab034da46353",
+    "pack": "impossible-lands",
+    "kind": "effect",
+    "slug": "effect:effect-curse-of-stone",
+    "name": "Effect: Curse of Stone",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains a +1 status bonus to its AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "status",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.UgoM6FBiZfc7KqCV"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "8ef35566-afee-5140-aa20-394ad5749e89",
+    "pack": "impossible-lands",
+    "kind": "effect",
+    "slug": "effect:effect-disruptive-stare",
+    "name": "Effect: Disruptive Stare",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "23896daa-2188-53ad-9bfb-7e9050e505ee"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –2 status penalty to your spell attack rolls and DCs."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["spell-attack", "spell-dc"],
+        "type": "status",
+        "value": -2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.QcReJp7kgURdQCGz"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "af4328af-95c3-57d6-b4e4-3a6537cc2666",
+    "pack": "impossible-lands",
+    "kind": "effect",
+    "slug": "effect:effect-equitable-defense",
+    "name": "Effect: Equitable Defense",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "9543d98d-37a5-5a5b-919e-fb9939717ef8"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus on the next Strike you make against the marked creature."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.w0k59TPWUZ9Me4yF"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "ff5c3725-3a42-549a-a6e8-2620dba069b0",
+    "pack": "impossible-lands",
+    "kind": "effect",
+    "slug": "effect:effect-goo-grenade",
+    "name": "Effect: Goo Grenade",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "17a3f03b-4f45-5199-ac53-a29027af08d4"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "eb4a2ea3-a1b7-5573-868c-ab345c5203d3"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "bc86d2d0-ca8c-54c0-8fbe-2f9b1b2568b0"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "07262892-076c-5277-b3dd-e31854edeb0b"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a circumstance penalty to your Speeds."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["speed"],
+        "type": "circumstance",
+        "value": -5,
+        "slug": "goo-grenade-penalty"
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["speed"],
+        "slug": "goo-grenade-penalty",
+        "mode": "downgrade",
+        "value": -10,
+        "predicate": [
+          {
+            "or": ["goo-grenade:goo-grenade-greater", "goo-grenade:goo-grenade-major"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.5JYchreCttBg7RcD"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "489d5f09-6aa8-5825-9f99-20559b53cb03",
+    "pack": "impossible-lands",
+    "kind": "effect",
+    "slug": "effect:effect-heavens-thunder",
+    "name": "Effect: Heaven's Thunder",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "978c5b37-8b7b-5943-afca-5767233239e2"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your unarmed attacks and any monk weapons you wield deal additional electricity and sonic damage; the amount of each damage type is equal to the number of damage dice for the weapon or unarmed attack."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you also know the "
+          },
+          {
+            "type": "text",
+            "text": "qi blast",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " qi spell, you can choose to deal either electricity or sonic damage with the spell instead of force ("
+          },
+          {
+            "type": "text",
+            "text": "qi blast",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " loses the force trait and gains the electricity or sonic trait instead)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.L9g3EMCT3imX650b"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "73acf313-fc05-5b9f-ab33-bbf569458df9",
+    "pack": "impossible-lands",
+    "kind": "effect",
+    "slug": "effect:effect-monarch-wings",
+    "name": "Effect: Monarch Wings",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "7cf63233-3636-5cdc-bd75-e068057a2ee2"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a fly Speed equal to your Speed while you've manifested your wings."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": "@stat.speed.land"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.nMMqJQsdV37TLfTu"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "e187b1f4-e666-5edf-88e9-fc3ea571b749",
+    "pack": "impossible-lands",
+    "kind": "effect",
+    "slug": "effect:effect-perfect-resistance",
+    "name": "Effect: Perfect Resistance",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "7617e2e2-e6d2-5990-9b88-8d426ef70827"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After using a Student of Perfection ki spell, the resistance increases to be equal to your level for 1 round."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.DyX4E7KDkzRnDxzc"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "b31d1175-77a2-589a-b6ff-d5ea3f201dac",
+    "pack": "impossible-lands",
+    "kind": "effect",
+    "slug": "effect:effect-stone-flesh-weakened",
+    "name": "Effect: Stone Flesh (Weakened)",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You lose your resistance to physical damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.m9hevf7O7XMUgG83"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "b137a68e-44e1-52e9-9356-6a457f0fb1b0",
+    "pack": "impossible-lands",
+    "kind": "effect",
+    "slug": "effect:effect-supercharge-prosthetic-eyes",
+    "name": "Effect: Supercharge Prosthetic Eyes",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "12fc31d8-10a9-5a55-a265-45b7e0e9940a"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain darkvision and low-light vision, and you gain a +1 status bonus to visual Perception checks."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["option:visual"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.qSKVcw6brzrvfhUM"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "f5d89f3a-4523-5d7f-a017-4914ee34be6c",
+    "pack": "impossible-lands",
+    "kind": "effect",
+    "slug": "effect:spell-effect-speaking-sky",
+    "name": "Spell Effect: Speaking Sky",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "29b81b74-cf8d-5937-a977-0d4009a3068d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain precise motion sense within 60 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "922de711-b9d9-502d-91b0-237d146a011d",
+        "acuity": "precise",
+        "range": 60
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.mhklZ6wjfty0bF44"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "0d69e260-8f98-522a-a050-8f542e2bbaa1",
+    "pack": "impossible-lands",
+    "kind": "effect",
+    "slug": "effect:spell-effect-summon-healing-servitor",
+    "name": "Spell Effect: Summon Healing Servitor",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "fa4f1d23-60bc-5b33-8ff3-193976f04cec"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "ceil(@item.level / 2) * 8 - 4"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.T3NbslG6huktyNRm"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "c369fb6e-5234-54e8-b884-15c7a701819f",
+    "pack": "impossible-lands",
+    "kind": "effect",
+    "slug": "effect:spell-effect-unblinking-flame-aura",
+    "name": "Spell Effect: Unblinking Flame Aura",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "27234a67-9a41-512c-b07f-20bcd90847bb"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus on Perception checks and resistance 10 to cold."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "status",
+        "value": 2
+      },
+      {
+        "key": "Resistance",
+        "type": ["cold"],
+        "value": "2 * @item.level"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.HoCUCi2jL1OLfXWR"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "4fce8d99-cfbe-521e-8a4e-4ef14254c7cb",
+    "pack": "impossible-lands",
+    "kind": "effect",
+    "slug": "effect:spell-effect-unblinking-flame-ignition",
+    "name": "Spell Effect: Unblinking Flame Ignition",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "e748e73c-8039-5429-a687-ac6c46692b2c"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain greater darkvision, low‐light vision, and the ability to see invisible creatures. You gain a fly Speed equal to your land Speed as you launch flame from your aura to soar through the sky. You become quickened, and you can use the extra action each round only to Strike or Fly using your flames."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "d9c41f9d-318a-5062-b129-db87b8f08f5e"
+      },
+      {
+        "key": "Sense",
+        "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+      },
+      {
+        "key": "Sense",
+        "sense": "1853ffc0-c400-5107-bcde-24728797d4e1"
+      },
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": "@stat.speed.land"
+      },
+      {
+        "key": "GrantItem",
+        "item": "6517bbf2-8085-534b-be6a-187d52739fa0"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.hya8NfBB1GJofTXm"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 3,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "6f3152f6-ad89-580f-a387-280d3f1b7bfa",
+    "pack": "impossible-lands",
+    "kind": "effect",
+    "slug": "effect:spell-effect-unbreaking-wave-barrier",
+    "name": "Spell Effect: Unbreaking Wave Barrier",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "89f4ccc7-a338-5b0c-b43a-a89b17a27abe"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "status",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.v09uwq1eHEAy2bgh"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start",
+        "sustained": true
+      }
+    }
+  },
+  {
+    "id": "fc46a339-8218-547e-97e1-59cef9b37119",
+    "pack": "impossible-lands",
+    "kind": "effect",
+    "slug": "effect:spell-effect-unbreaking-wave-vapor",
+    "name": "Spell Effect: Unbreaking Wave Vapor",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "5ea1351e-fae4-5760-9549-5b50ca422fcc"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're concealed against the triggering attack and gain a +2 circumstance bonus to AC against it."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2
+      },
+      {
+        "key": "GrantItem",
+        "item": "f410da96-b56a-5c7c-857b-7096defec0a1"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.m6x0IvoeX0a0bZiQ"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "5d25d4f3-1253-5a7a-923a-19fe14d72a1d",
+    "pack": "impossible-lands",
+    "kind": "effect",
+    "slug": "effect:spell-effect-untwisting-iron-augmentation",
+    "name": "Spell Effect: Untwisting Iron Augmentation",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "df6137ff-9d75-573e-bb9f-958b70ae8387"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your unarmed attacks are treated as cold iron and silver, they gain the earth trait, and they gain a +1 status bonus to damage rolls per damage die."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:category:unarmed"],
+        "property": "materials",
+        "mode": "add",
+        "value": "cold-iron"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:category:unarmed"],
+        "property": "materials",
+        "mode": "add",
+        "value": "silver"
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon", "item:category:unarmed"],
+        "property": "traits",
+        "mode": "add",
+        "value": "earth"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:category:unarmed"],
+        "predicate": [
+          {
+            "gte": ["parent:level", 9]
+          }
+        ],
+        "property": "materials",
+        "mode": "add",
+        "value": "adamantine"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.4ktNx3cVz5GkcGJa"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "51fc50f8-143d-5f88-a739-d627ef716a8d",
+    "pack": "impossible-lands",
+    "kind": "effect",
+    "slug": "effect:spell-effect-untwisting-iron-pillar",
+    "name": "Spell Effect: Untwisting Iron Pillar",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "6ebbd2c7-8355-502c-b548-f847a5e47f14"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain 50 temporary Hit Points that last for the duration or until you lose them, as well as resistance 5 to all physical damage (except adamantine)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 50
+      },
+      {
+        "key": "Resistance",
+        "type": ["physical"],
+        "value": 5,
+        "exceptions": ["adamantine"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.p8F3MVUkGmpsUDOn"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 5,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "2e01f17a-16ae-5e6b-82fc-7d3aa5977396",
+    "pack": "impossible-lands",
+    "kind": "effect",
+    "slug": "effect:stance-masquerade-of-seasons-stance",
+    "name": "Stance: Masquerade of Seasons Stance",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "415e7bc3-10ce-51f2-ac62-b1627be9815d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose one of the following traits: water, fire, void, or cold. You gain resistance to damage dealt by effects with the chosen trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.6IsZQpwRJQWIzdGx"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  },
+  {
+    "id": "ea44c6f7-8b42-52b3-8eb9-ce5f75b2f9e9",
+    "pack": "impossible-lands",
+    "kind": "effect",
+    "slug": "effect:stance-sky-and-heaven-stance",
+    "name": "Stance: Sky and Heaven Stance",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "ee799b53-8896-5c44-9fb0-a3b4e9bcc580"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The only Strikes you can make are skyward slash unarmed attacks. These unarmed attacks deal 1d10 slashing damage; are in the brawling group; and have the nonlethal, unarmed, and versatile P traits."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance 2 to electricity and resistance 2 to sonic damage. These resistances increase to 5 at 12th level and to 8 at 18th level."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["electricity", "sonic"],
+        "value": "ternary(gte(@level, 18), 8, ternary(gte(@level, 12), 5, 2))"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.CQfkyJkRHw4IHWhv"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  }
+]

@@ -1,0 +1,39 @@
+import type { PackContents } from '@pioneer/rules/sdk';
+
+import { pack } from './json-packs';
+
+/* Pre-remaster Open Game License packs under `content/packs/<pack>/`, read like `json-packs.ts`. */
+
+export async function characterGuidePack(): Promise<PackContents> {
+  return pack(import('@pioneer/content/packs/character-guide/pack.json'), [
+    import('@pioneer/content/packs/character-guide/action.json'),
+    import('@pioneer/content/packs/character-guide/archetype.json'),
+    import('@pioneer/content/packs/character-guide/armor.json'),
+    import('@pioneer/content/packs/character-guide/class-feature.json'),
+    import('@pioneer/content/packs/character-guide/consumable.json'),
+    import('@pioneer/content/packs/character-guide/effect.json'),
+    import('@pioneer/content/packs/character-guide/equipment.json'),
+    import('@pioneer/content/packs/character-guide/feat.json'),
+    import('@pioneer/content/packs/character-guide/heritage.json'),
+    import('@pioneer/content/packs/character-guide/spell.json'),
+    import('@pioneer/content/packs/character-guide/weapon.json'),
+  ]);
+}
+
+export async function impossibleLandsPack(): Promise<PackContents> {
+  return pack(import('@pioneer/content/packs/impossible-lands/pack.json'), [
+    import('@pioneer/content/packs/impossible-lands/action.json'),
+    import('@pioneer/content/packs/impossible-lands/ancestry-feature.json'),
+    import('@pioneer/content/packs/impossible-lands/ancestry.json'),
+    import('@pioneer/content/packs/impossible-lands/archetype.json'),
+    import('@pioneer/content/packs/impossible-lands/armor.json'),
+    import('@pioneer/content/packs/impossible-lands/class-feature.json'),
+    import('@pioneer/content/packs/impossible-lands/consumable.json'),
+    import('@pioneer/content/packs/impossible-lands/effect.json'),
+    import('@pioneer/content/packs/impossible-lands/equipment.json'),
+    import('@pioneer/content/packs/impossible-lands/feat.json'),
+    import('@pioneer/content/packs/impossible-lands/heritage.json'),
+    import('@pioneer/content/packs/impossible-lands/spell.json'),
+    import('@pioneer/content/packs/impossible-lands/weapon.json'),
+  ]);
+}

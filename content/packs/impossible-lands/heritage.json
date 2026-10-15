@@ -1,0 +1,1379 @@
+[
+  {
+    "id": "2faad052-1f41-56f0-a31e-19ac3917fdb7",
+    "pack": "impossible-lands",
+    "kind": "heritage",
+    "slug": "heritage:ancient-ash",
+    "name": "Ancient Ash",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your memory is sharp and clear, and you remember so much. You remember the calm before the storm and the soil after the rain, the acrid tang of magic and the whisper of a song. You remember it all. You become trained in one skill of your choice. At 5th level, you become an expert in that skill."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.CMf0qluB0LXWReew"
+    },
+    "data": {
+      "ancestry": "ee9b32d9-9832-5609-84d5-b8ce457f8563"
+    }
+  },
+  {
+    "id": "4f951fad-06c8-5b9d-bb45-678ff83fc43c",
+    "pack": "impossible-lands",
+    "kind": "heritage",
+    "slug": "heritage:athamasi",
+    "name": "Athamasi",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have a set of small secondary arms adapted for climbing and hanging from trees. You can't hold or retrieve objects with these limbs, but you can Climb or "
+          },
+          {
+            "type": "ref",
+            "id": "3e3e8499-292e-5d45-854b-f79ad765f6c0"
+          },
+          {
+            "type": "text",
+            "text": " even if one or both of your primary hands are full. You aren't "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " while Climbing."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.CnCFZfuKzAYqy61e"
+    },
+    "data": {
+      "ancestry": "3e847c4b-e68b-5829-b4a9-071e6f9e167d"
+    }
+  },
+  {
+    "id": "1b9ede71-d4db-5a1c-886c-bdf4ddbdcef8",
+    "pack": "impossible-lands",
+    "kind": "heritage",
+    "slug": "heritage:bandaagee-vanara",
+    "name": "Bandaagee Vanara",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your family is one of many who claims to be descended from the regal vanara peacekeeping family called the Bandaagee. Bandaagee are the most common kind of vanaras. You're very familiar with the trappings of civilization and move easily through the most crowded communities. You ignore difficult terrain from crowds."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.ClshvrjvBTMm3INX"
+    },
+    "data": {
+      "ancestry": "2192c8fb-1e01-5177-89a1-378ed80794d7"
+    }
+  },
+  {
+    "id": "29db2bad-04ad-5f32-8ac7-810433e242d5",
+    "pack": "impossible-lands",
+    "kind": "heritage",
+    "slug": "heritage:cataphract-fleshwarp",
+    "name": "Cataphract Fleshwarp",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your battle-hardened skeleton is laced with additional cartilage and muscle to help bear armor across vast areas of operation, and your skin is bedecked with tiny spurs of pliable, resilient keratin to optimize the grip and weight distribution of your armor. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "e1672739-83e2-5940-8dbd-2fef4aaf5e14"
+          },
+          {
+            "type": "text",
+            "text": " feat."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If your class makes you trained in all types of armor, you instead become trained in Athletics (or a skill of your choice if you're already trained in Athletics) and gain the "
+          },
+          {
+            "type": "ref",
+            "id": "e7d969d3-deed-5b62-992b-44469b3b063f"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "e1672739-83e2-5940-8dbd-2fef4aaf5e14"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.PQuJEYI0UFl8W7fH"
+    },
+    "data": {}
+  },
+  {
+    "id": "983ecbb4-729d-58a0-a2c8-d5498c97cdd0",
+    "pack": "impossible-lands",
+    "kind": "heritage",
+    "slug": "heritage:discarded-fleshwarp",
+    "name": "Discarded Fleshwarp",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The biomancers and mutagenists who warped your form labeled you a \"discard on discovery\"—a euphemism for destroying you on sight. An anomaly among anomalies, your body stubbornly repudiates the efforts of fleshcrafters seeking to mold you to their grandiose visions, and your immune responses blunt the worst effects of unwanted fleshwarping attempts. If you roll a success on a saving throw against a transmutation effect, you get a critical success instead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.OtqOC3ElpF444qMe"
+    },
+    "data": {}
+  },
+  {
+    "id": "0451eee8-7efd-5826-9073-3c8ca48fc2c0",
+    "pack": "impossible-lands",
+    "kind": "heritage",
+    "slug": "heritage:elusive-vishkanya",
+    "name": "Elusive Vishkanya",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your flexible body seems unnaturally fluid to some, though they can rarely put a finger on what seems strange about you. You can escape foes with ease. You gain a +1 circumstance bonus to checks to "
+          },
+          {
+            "type": "ref",
+            "id": "2ae74030-e87a-55ee-955c-fb9870392d44"
+          },
+          {
+            "type": "text",
+            "text": ". Additionally, you move twice as fast when Squeezing."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics", "skill:acrobatics"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["action:escape"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.ywNXVLZtwrAStyh1"
+    },
+    "data": {
+      "ancestry": "4872c329-45a6-5c69-b9ee-61ce144b0088"
+    }
+  },
+  {
+    "id": "61b31cfd-51fb-57c9-a663-69594aa2d2db",
+    "pack": "impossible-lands",
+    "kind": "heritage",
+    "slug": "heritage:enchanting-lily",
+    "name": "Enchanting Lily",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You smell ever so sweet—a delicate, floral scent like the intoxicating fragrance of lilies and the soft scent of lilacs. You're trained in Diplomacy (or another skill if you were already trained in Diplomacy). You also gain a +1 circumstance bonus to checks to "
+          },
+          {
+            "type": "ref",
+            "id": "722e5346-27c0-5157-b5a9-e6018df94150"
+          },
+          {
+            "type": "text",
+            "text": " if the target can smell your fragrance."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:diplomacy",
+        "rank": "trained"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["action:make-an-impression", "option:enchanting-lily"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.VqgrYMaAwnNjT9Mn"
+    },
+    "data": {
+      "ancestry": "ee9b32d9-9832-5609-84d5-b8ce457f8563"
+    }
+  },
+  {
+    "id": "1151e86e-db74-5e57-b13f-a76b8be9d3ea",
+    "pack": "impossible-lands",
+    "kind": "heritage",
+    "slug": "heritage:hooded-nagaji",
+    "name": "Hooded Nagaji",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You bear the hooded head of a spitting cobra, and like such cobras, you can shoot streams of venom from your mouth. You gain a venomous spit ranged unarmed attack with a range increment of 10 feet that deals 1d4 poison damage. On a critical hit, the target takes persistent poison damage equal to the number of weapon damage dice. Your spit doesn't have a weapon group or a critical specialization effect."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "venomous-spit",
+        "category": "unarmed",
+        "traits": ["unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d4",
+          "damageType": "poison"
+        },
+        "range": 10,
+        "predicate": [
+          {
+            "not": "feat:venom-spit"
+          }
+        ],
+        "display": {
+          "label": "Venomous Spit"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.tf3edMCyS15GhFPx"
+    },
+    "data": {
+      "ancestry": "720b0d85-39b7-5eb2-827d-b67d802e5707"
+    }
+  },
+  {
+    "id": "a994990d-1d25-5eec-af39-647903a6791d",
+    "pack": "impossible-lands",
+    "kind": "heritage",
+    "slug": "heritage:keen-venom-vishkanya",
+    "name": "Keen-Venom Vishkanya",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're practiced with using your venom in combat, allowing you to employ your venom at a moment's notice. Your "
+          },
+          {
+            "type": "ref",
+            "id": "2783355b-5bc2-5d36-80b0-e899073ff895"
+          },
+          {
+            "type": "text",
+            "text": " action doesn't trigger reactions that normally trigger on a manipulate action. Additionally, you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "58063647-1931-5054-9a3d-e62146d74b8b"
+          },
+          {
+            "type": "text",
+            "text": " action."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "58063647-1931-5054-9a3d-e62146d74b8b"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.BhbwjTFw2V67XF35"
+    },
+    "data": {
+      "ancestry": "4872c329-45a6-5c69-b9ee-61ce144b0088"
+    }
+  },
+  {
+    "id": "a59537a2-c87a-5a07-bd11-5ba56ef2a46c",
+    "pack": "impossible-lands",
+    "kind": "heritage",
+    "slug": "heritage:lahkgyan-vanara",
+    "name": "Lahkgyan Vanara",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your vanara ancestors might have been born in Ragdya's image, but they found survival only in service to his enemy: the red-faced Lahkgya. You have sharp teeth meant for gnashing and ripping into flesh. You can subsist on raw meat alone. You have a jaws unarmed attack that deals 1d6 piercing damage. Your jaws are in the brawling group and have the finesse and unarmed traits."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "jaws",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["finesse", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "piercing"
+        },
+        "display": {
+          "label": "Jaws"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.Kq3k1Z6IWGVsLrmg"
+    },
+    "data": {
+      "ancestry": "2192c8fb-1e01-5177-89a1-378ed80794d7"
+    }
+  },
+  {
+    "id": "7415238c-5b88-50ee-a6f7-a485125ea3a9",
+    "pack": "impossible-lands",
+    "kind": "heritage",
+    "slug": "heritage:lethoci",
+    "name": "Lethoci",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You come from a kashrishi family adapted to coastal shores, or inland ponds and lakes. You gain a +2 circumstance bonus to Athletics checks to Swim. If you critically fail an Athletics check to Swim, you get a failure instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["action:swim"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill:athletics"],
+        "adjustment": {
+          "criticalFailure": "one-degree-better"
+        },
+        "checkType": "skill",
+        "predicate": ["action:swim"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.Csezts78L4FMaskB"
+    },
+    "data": {
+      "ancestry": "3e847c4b-e68b-5829-b4a9-071e6f9e167d"
+    }
+  },
+  {
+    "id": "7b9c8167-475d-50c8-b08b-38d1dd6b7f1d",
+    "pack": "impossible-lands",
+    "kind": "heritage",
+    "slug": "heritage:nascent",
+    "name": "Nascent",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While most kashrishi are fully adapted to their environment by the time they reach adulthood, some retain unrealized potential well into adulthood before unlocking it. You gain a 1st-level kashrishi ancestry feat for which you meet the prerequisites, if any."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "nascent",
+        "choices": {
+          "kind": "feat",
+          "filter": ["item:level:1", "item:category:ancestry", "item:trait:kashrishi"]
+        },
+        "prompt": "Select a 1st-level ancestry feat."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "nascent"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.pJ395g22dKNoufIK"
+    },
+    "data": {
+      "ancestry": "3e847c4b-e68b-5829-b4a9-071e6f9e167d"
+    }
+  },
+  {
+    "id": "25437a56-db8d-590f-ab2c-98a33fba82eb",
+    "pack": "impossible-lands",
+    "kind": "heritage",
+    "slug": "heritage:old-blood-vishkanya",
+    "name": "Old-Blood Vishkanya",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have a direct matrilineal line to the original group of vishkanyas upon the Vudrani ships that came to reclaim Jalmeray. Since then, your family has adjusted well to a new life in the Inner Sea. You become trained in Society (or another skill of your choice if you're already trained in Society), and you gain your choice of the "
+          },
+          {
+            "type": "ref",
+            "id": "6da557f7-550b-5b33-890f-47f75d6e5650"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "7f7011f1-61c2-5cbd-8d5a-29a2b81efc13"
+          },
+          {
+            "type": "text",
+            "text": " feat."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.PbXqlzRdQbKLQx1R"
+    },
+    "data": {
+      "ancestry": "4872c329-45a6-5c69-b9ee-61ce144b0088"
+    }
+  },
+  {
+    "id": "7aebea11-7dc4-5a87-b2e9-133e0d553d06",
+    "pack": "impossible-lands",
+    "kind": "heritage",
+    "slug": "heritage:prismatic-vishkanya",
+    "name": "Prismatic Vishkanya",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your scales shimmer and catch the light in an intoxicating display of colors. You become trained in Performance (or another skill of your choice if you're already trained in Performance) and gain the "
+          },
+          {
+            "type": "ref",
+            "id": "d8c8a1ba-3ed9-5a9c-b372-87c442637d12"
+          },
+          {
+            "type": "text",
+            "text": " feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:performance",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "d8c8a1ba-3ed9-5a9c-b372-87c442637d12"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.vrU3lmDO7FYzmuQc"
+    },
+    "data": {
+      "ancestry": "4872c329-45a6-5c69-b9ee-61ce144b0088"
+    }
+  },
+  {
+    "id": "348e8a88-74a4-5d39-a007-3b8dbfae158f",
+    "pack": "impossible-lands",
+    "kind": "heritage",
+    "slug": "heritage:ragdyan-vanara",
+    "name": "Ragdyan Vanara",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Keepers of traditions and tellers of ancient tales, your family traces its lineage to those born directly from Ragdya's whims. When you speak, others are inclined to listen to you, perhaps due to the divine spark of your connection to Ragdya. You gain one cantrip from the divine spell list; this cantrip can't deal damage or otherwise cause direct harm. You can cast this spell as a divine innate spell at will. A cantrip is heightened to a spell rank equal to half your level rounded up."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.By1y7HCfVPgX2GmI"
+    },
+    "data": {
+      "ancestry": "2192c8fb-1e01-5177-89a1-378ed80794d7"
+    }
+  },
+  {
+    "id": "91c7609b-5dcd-55fb-85ee-b920fc063b66",
+    "pack": "impossible-lands",
+    "kind": "heritage",
+    "slug": "heritage:sacred-nagaji",
+    "name": "Sacred Nagaji",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You stand out from most nagaji, with the upper body of a beautiful human and the lower body of a green or white snake. Legends claim your ancestors were faithful snakes uplifted by Nalinivati rather than nagaji created by the goddess. Instead of a fangs unarmed attack, you have a tail attack that deals 1d6 bludgeoning damage, is in the brawling weapon group, and has the finesse and unarmed traits. You gain a +2 circumstance bonus to your Fortitude or Reflex DC against attempts to "
+          },
+          {
+            "type": "ref",
+            "id": "380d34f1-f6f6-5820-b9dd-c01ee4e19fd5"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "6257c7f0-f483-53d3-a791-d73a616cbce4"
+          },
+          {
+            "type": "text",
+            "text": " you. This bonus also applies to saving throws against effects that would "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146",
+            "label": "Grab"
+          },
+          {
+            "type": "text",
+            "text": " you, "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071",
+            "label": "Restrain"
+          },
+          {
+            "type": "text",
+            "text": " you, or knock you "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:fortitude", "save:reflex"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["action:grapple", "action:trip", "inflicts:grabbed", "inflicts:restrained", "inflicts:prone"]
+          }
+        ]
+      },
+      {
+        "key": "Strike",
+        "slug": "tail",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["unarmed", "finesse"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "bludgeoning"
+        },
+        "display": {
+          "label": "Tail"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.iOREr80Q0SsvPP8B"
+    },
+    "data": {
+      "ancestry": "720b0d85-39b7-5eb2-827d-b67d802e5707"
+    }
+  },
+  {
+    "id": "0c4aa252-86d5-57bc-95bf-50a1a4088fa2",
+    "pack": "impossible-lands",
+    "kind": "heritage",
+    "slug": "heritage:scalekeeper-vishkanya",
+    "name": "Scalekeeper Vishkanya",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are part of the family of vishkanyas in your community tasked with keeping records of the history and experiences of your people. Your scholarly skill affords you a quick mind. Once per day, you can attempt to Recall Knowledge as a free action."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.ohOJHeFenX97sBHf"
+    },
+    "data": {
+      "ancestry": "4872c329-45a6-5c69-b9ee-61ce144b0088"
+    }
+  },
+  {
+    "id": "004b07ea-d757-574a-8c41-fb9316f461ee",
+    "pack": "impossible-lands",
+    "kind": "heritage",
+    "slug": "heritage:strong-oak",
+    "name": "Strong Oak",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Most ghorans have bodies of pliable vines and tough stems, but you're covered in sturdy, rough bark and your legs are stable as roots. You gain a +2 circumstance bonus on your Fortitude or Reflex DC against attempts to "
+          },
+          {
+            "type": "ref",
+            "id": "380d34f1-f6f6-5820-b9dd-c01ee4e19fd5"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "6257c7f0-f483-53d3-a791-d73a616cbce4"
+          },
+          {
+            "type": "text",
+            "text": " you. This bonus also applies to saving throws against effects that would "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146",
+            "label": "Grab"
+          },
+          {
+            "type": "text",
+            "text": " you, "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071",
+            "label": "Restrain"
+          },
+          {
+            "type": "text",
+            "text": " you, or knock you "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": ". You also gain a +2 circumstance bonus on Acrobatics checks to "
+          },
+          {
+            "type": "ref",
+            "id": "6fb6b45a-8b16-55e4-ba53-e23a62359b56"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:fortitude", "save:reflex"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["action:grapple", "action:trip", "inflicts:grabbed", "inflicts:restrained", "inflicts:prone"]
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:acrobatics"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["action:balance"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.bKr34Uvxc2XClr9q"
+    },
+    "data": {
+      "ancestry": "ee9b32d9-9832-5609-84d5-b8ce457f8563"
+    }
+  },
+  {
+    "id": "a564c42e-6421-5bf1-b8fd-2f0ea6728dcf",
+    "pack": "impossible-lands",
+    "kind": "heritage",
+    "slug": "heritage:surgewise-fleshwarp",
+    "name": "Surgewise Fleshwarp",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The undulations of your body's cilia are hyper-attuned to wellsprings of magic; they trill and thrum with insights into occult energies, and their vibrations alert you to the presence of secrets. You gain the trained proficiency rank in Occultism. If you're trained in Occultism, you instead become trained in another skill of your choice. You also gain the "
+          },
+          {
+            "type": "ref",
+            "id": "777e0aa6-b6ce-5ea2-959d-6f2331e44907"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:occultism",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "777e0aa6-b6ce-5ea2-959d-6f2331e44907"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.hzW7VoRDYsKJB8ku"
+    },
+    "data": {}
+  },
+  {
+    "id": "20485351-0b41-5617-9785-381ad7a4620e",
+    "pack": "impossible-lands",
+    "kind": "heritage",
+    "slug": "heritage:thorned-rose",
+    "name": "Thorned Rose",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your beautiful petals and seemingly smooth skin hide silent barbs to pierce the unwary. Your body is covered with wickedly sharp thorns to discourage those that might prey upon you. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "3f325294-a55d-5e89-85f7-8e1c86d051f8"
+          },
+          {
+            "type": "text",
+            "text": " reaction."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "3f325294-a55d-5e89-85f7-8e1c86d051f8"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.6KhxY5ArGFhLF7r1"
+    },
+    "data": {
+      "ancestry": "ee9b32d9-9832-5609-84d5-b8ce457f8563"
+    }
+  },
+  {
+    "id": "69af4909-fda7-59e4-bfcc-1e19b6c4e54c",
+    "pack": "impossible-lands",
+    "kind": "heritage",
+    "slug": "heritage:titan-nagaji",
+    "name": "Titan Nagaji",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You were raised to be a warrior or a bodyguard, and your specialized diet and bulging muscles have made your scales as strong as armored plates. Your scales are medium armor in the plate armor group that grant a +4 item bonus to AC, a Dex cap of +1, a check penalty of –2, a Speed penalty of –5 feet, a Strength value of +3, and have the comfort trait. You can never wear other armor or remove your scales. You can etch armor runes onto your scales."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.LlUEmCDOLSZaGOyI"
+    },
+    "data": {
+      "ancestry": "720b0d85-39b7-5eb2-827d-b67d802e5707"
+    }
+  },
+  {
+    "id": "83e02168-d448-55da-b08c-754da3a8b70a",
+    "pack": "impossible-lands",
+    "kind": "heritage",
+    "slug": "heritage:trogloshi",
+    "name": "Trogloshi",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're adapted to the sunless regions of dense jungle forests and deep caves, with soft flesh lacking pigment and unusually clear crystalline horns. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "a3a7fcc8-94dd-55a0-8d17-61a1decd3843"
+          },
+          {
+            "type": "text",
+            "text": " ancestry feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "a3a7fcc8-94dd-55a0-8d17-61a1decd3843"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.AVZJI5wP2X5o0LL3"
+    },
+    "data": {
+      "ancestry": "3e847c4b-e68b-5829-b4a9-071e6f9e167d"
+    }
+  },
+  {
+    "id": "2bd7dd82-0c42-5b8f-bb74-f581a0462201",
+    "pack": "impossible-lands",
+    "kind": "heritage",
+    "slug": "heritage:venom-resistant-vishkanya",
+    "name": "Venom-Resistant Vishkanya",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your body contains not just venom but numerous antivenoms. You gain poison resistance equal to half your level (minimum 1), and each of your successful saving throws against a poison affliction reduces its stage by 2, or by 1 for a virulent poison. Each critical success against an ongoing poison reduces its stage by 3, or by 2 for a virulent poison."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["poison"],
+        "value": "max(1, floor(@level / 2))"
+      },
+      {
+        "key": "Note",
+        "selectors": ["saving-throw"],
+        "title": "Venom-Resistant Vishkanya",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Each of your successful saving throws against a virulent poison affliction reduces its stage by 1. Each critical success against an ongoing virulent poison reduces its stage by 2."
+              }
+            ]
+          }
+        ],
+        "outcome": ["success", "criticalSuccess"],
+        "predicate": ["option:poison", "option:virulent"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["saving-throw"],
+        "title": "Venom-Resistant Vishkanya",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Each of your successful saving throws against a poison affliction reduces its stage by 2. Each critical success against an ongoing poison reduces its stage by 3."
+              }
+            ]
+          }
+        ],
+        "outcome": ["success", "criticalSuccess"],
+        "predicate": [
+          "option:poison",
+          {
+            "not": "option:virulent"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.OBxrlZKg0IC5n238"
+    },
+    "data": {
+      "ancestry": "4872c329-45a6-5c69-b9ee-61ce144b0088"
+    }
+  },
+  {
+    "id": "492d0f5b-d4ab-5762-a3f8-5ac0783b4567",
+    "pack": "impossible-lands",
+    "kind": "heritage",
+    "slug": "heritage:venomshield-nagaji",
+    "name": "Venomshield Nagaji",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your intrinsic connection to nagas and mundane serpents grants you an innate resistance to toxins of every sort. You gain resistance to poison equal to half your level (minimum 1 resistance), and you gain a +1 circumstance bonus to all saving throws against poison."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["poison"],
+        "value": "max(1, floor(@level / 2))"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["option:poison"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.2jsWmnKtidCTpaQV"
+    },
+    "data": {
+      "ancestry": "720b0d85-39b7-5eb2-827d-b67d802e5707"
+    }
+  },
+  {
+    "id": "0dc5317a-34e8-59b4-b873-12bd0ddbd53e",
+    "pack": "impossible-lands",
+    "kind": "heritage",
+    "slug": "heritage:wajaghand-vanara",
+    "name": "Wajaghand Vanara",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your ancestors were forced into labor by the rakshasa immortal Ravana, the First and the Last. Although their cleverness while in captivity saved countless lives, and they're bound no longer, the time marked your family with scars upon the mind that will never truly heal, even across the generations. You gain a +1 circumstance bonus to saving throws against emotion effects, and whenever you roll a success on a saving throw against an emotion effect, you get a critical success instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["option:emotion"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.nUCRd8tmz3C6LM0T"
+    },
+    "data": {
+      "ancestry": "2192c8fb-1e01-5177-89a1-378ed80794d7"
+    }
+  },
+  {
+    "id": "264596b6-e103-50ca-9d96-6525eb3b8528",
+    "pack": "impossible-lands",
+    "kind": "heritage",
+    "slug": "heritage:whipfang-nagaji",
+    "name": "Whipfang Nagaji",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have a long, flexible neck that can curl into a striking pose like that of a snake. Your deceptively powerful muscles allow you to bite with surprising distance and speed. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "d5550013-3ee4-5871-ae32-23a6e769a6f7"
+          },
+          {
+            "type": "text",
+            "text": " action."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "d5550013-3ee4-5871-ae32-23a6e769a6f7"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.cDElVLonQvUK3vVk"
+    },
+    "data": {
+      "ancestry": "720b0d85-39b7-5eb2-827d-b67d802e5707"
+    }
+  },
+  {
+    "id": "8ca49808-4eec-5acb-955c-e581bf735db4",
+    "pack": "impossible-lands",
+    "kind": "heritage",
+    "slug": "heritage:xyloshi",
+    "name": "Xyloshi",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have prominent neck muscles that allow you to use your facial horn as a tool or weapon. You gain a horn unarmed attack that deals 1d6 piercing damage. Your horn is in the brawling group, and has the finesse and unarmed traits."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "horn",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["finesse", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "piercing"
+        },
+        "predicate": [
+          {
+            "not": "feat:puncturing-horn"
+          }
+        ],
+        "display": {
+          "label": "Horn"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.FLWUYM2XxYwnIDQf"
+    },
+    "data": {
+      "ancestry": "3e847c4b-e68b-5829-b4a9-071e6f9e167d"
+    }
+  }
+]

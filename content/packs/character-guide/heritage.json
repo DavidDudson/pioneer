@@ -1,0 +1,579 @@
+[
+  {
+    "id": "3461b8b9-b4df-50ca-8017-c5e502518e5e",
+    "pack": "character-guide",
+    "kind": "heritage",
+    "slug": "heritage:anvil-dwarf",
+    "name": "Anvil Dwarf",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are a descendant of a famed crafter and have your own amazing talent. Other dwarves might consider this a blessing from your ancestors or from the Forgefather himself, depending on where you grew up. You become trained in Crafting (or another skill if you were already trained in Crafting) and gain the "
+          },
+          {
+            "type": "ref",
+            "id": "cf2fb4e9-9adb-5092-9f78-5dd9b3192301"
+          },
+          {
+            "type": "text",
+            "text": " skill feat, but you can pick two different specialties instead of one."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:crafting",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "cf2fb4e9-9adb-5092-9f78-5dd9b3192301"
+      },
+      {
+        "key": "GrantItem",
+        "item": "cf2fb4e9-9adb-5092-9f78-5dd9b3192301"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.kRDsVbhdBVeSlpBa"
+    },
+    "data": {
+      "ancestry": "e6d808d9-95b9-5477-8322-791194226314"
+    }
+  },
+  {
+    "id": "ed60c1b9-ae43-5e28-9bfd-ffe82383320d",
+    "pack": "character-guide",
+    "kind": "heritage",
+    "slug": "heritage:desert-elf",
+    "name": "Desert Elf",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You live under the desert's blazing heat, gaining incredible resilience to warm environments. You gain fire resistance equal to half your level (minimum 1), and environmental heat effects are one step less extreme for you (incredible heat becomes extreme, extreme heat becomes severe, and so on)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": "max(1, floor(@level / 2))"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.kiKxnKd7Dfegk9dM"
+    },
+    "data": {
+      "ancestry": "85929532-15d1-52c2-8500-d3b27f174266"
+    }
+  },
+  {
+    "id": "0548e8de-6525-505b-b58e-74aa54ce0fa4",
+    "pack": "character-guide",
+    "kind": "heritage",
+    "slug": "heritage:elemental-heart-dwarf",
+    "name": "Elemental Heart Dwarf",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whether through a connection to "
+          },
+          {
+            "type": "ref",
+            "id": "353363db-a5c9-5093-a83d-5091fea2308d",
+            "label": "Torag's"
+          },
+          {
+            "type": "text",
+            "text": " forge, the azers of the Plane of Fire, or another source, you can exude a burst of energy. Mbe'ke and Taralu dwarves of the Mwangi Expanse believe this heritage is a gift from dragons or elemental spirits. Choose one of the following damage types: acid, cold, electricity, or fire. Once chosen, this can't be changed. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "61ecd9da-430c-53b8-8218-53ff9a360bb4"
+          },
+          {
+            "type": "text",
+            "text": " activity."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "61ecd9da-430c-53b8-8218-53ff9a360bb4"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.MeMAAtUlZmFgKSMF"
+    },
+    "data": {
+      "ancestry": "e6d808d9-95b9-5477-8322-791194226314"
+    }
+  },
+  {
+    "id": "311169db-49ef-5a2d-b2a1-a880c4f5a990",
+    "pack": "character-guide",
+    "kind": "heritage",
+    "slug": "heritage:oathkeeper-dwarf",
+    "name": "Oathkeeper Dwarf",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Growing up, you never tried to lie to get what you wanted, and even when necessary, lying makes you uncomfortable. The especially faithful might even have thought that you were blessed by the dwarven god of duty, "
+          },
+          {
+            "type": "ref",
+            "id": "628bbb26-f97c-5b71-8d94-5248c0e5016f"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to Perception checks to "
+          },
+          {
+            "type": "ref",
+            "id": "775b68f2-1542-5f47-bc0d-87d5884d7baa"
+          },
+          {
+            "type": "text",
+            "text": " and to Perception DCs against attempts to "
+          },
+          {
+            "type": "ref",
+            "id": "1ee7b671-dd18-5950-a4db-fbd4f8dae832"
+          },
+          {
+            "type": "text",
+            "text": " to you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Furthermore, you gain a +2 circumstance bonus to Diplomacy checks to convince others you speak the truth when you are telling the truth, and you take a -4 circumstance penalty to lie and to your Deception DC against "
+          },
+          {
+            "type": "ref",
+            "id": "775b68f2-1542-5f47-bc0d-87d5884d7baa"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "circumstance",
+        "value": 1,
+        "slug": "oathkeeper-dwarf-to-sense-motive",
+        "predicate": ["action:sense-motive"],
+        "display": {
+          "label": "to Sense Motive"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "circumstance",
+        "value": 2,
+        "slug": "oathkeeper-dwarf-tell-the-truth",
+        "predicate": ["option:tell-truth"],
+        "display": {
+          "label": "To Tell the Truth"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "circumstance",
+        "value": -4,
+        "slug": "oathkeeper-dwarf-lie",
+        "predicate": ["action:lie"],
+        "display": {
+          "label": "To Lie"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["action:lie"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "circumstance",
+        "value": -4,
+        "predicate": ["action:sense-motive"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.85tRKGZUTFa6pKpG"
+    },
+    "data": {
+      "ancestry": "e6d808d9-95b9-5477-8322-791194226314"
+    }
+  },
+  {
+    "id": "49fc7089-5766-501c-99c7-8ca8f1f38f99",
+    "pack": "character-guide",
+    "kind": "heritage",
+    "slug": "heritage:observant-halfling",
+    "name": "Observant Halfling",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your finely honed senses quickly clue you in to danger or trickery. You gain a +1 circumstance bonus to your Perception DC, though not to your Perception checks."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception-dc"],
+        "type": "circumstance",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.Lp7ywxabmm88Gei6"
+    },
+    "data": {
+      "ancestry": "abf704ef-d31d-527c-b030-3bd58a49b0bd"
+    }
+  },
+  {
+    "id": "fad2ebf7-e121-50bc-bb66-8865bde65944",
+    "pack": "character-guide",
+    "kind": "heritage",
+    "slug": "heritage:tailed-goblin",
+    "name": "Tailed Goblin",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have a powerful tail, likely because you descend from a community of monkey goblins. You gain a +2 circumstance bonus to Athletics checks to "
+          },
+          {
+            "type": "ref",
+            "id": "d26ec2df-83bd-5f2f-988e-e922681de6ba"
+          },
+          {
+            "type": "text",
+            "text": ", you gain "
+          },
+          {
+            "type": "ref",
+            "id": "8d47d4b9-3de6-5aca-9993-35356f13d1f6"
+          },
+          {
+            "type": "text",
+            "text": " as a bonus feat, and you reduce the number of free hands required to climb or "
+          },
+          {
+            "type": "ref",
+            "id": "6257c7f0-f483-53d3-a791-d73a616cbce4"
+          },
+          {
+            "type": "text",
+            "text": " by one."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["action:climb"],
+        "display": {
+          "label": "Tailed Goblin (Climb)"
+        }
+      },
+      {
+        "key": "GrantItem",
+        "item": "8d47d4b9-3de6-5aca-9993-35356f13d1f6"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.8wGUh9RsMUamOKjh"
+    },
+    "data": {
+      "ancestry": "054f4768-e40c-50b9-bf71-cebc5bd9064e"
+    }
+  },
+  {
+    "id": "84b98fa4-9134-5d8c-9630-b46b695d371f",
+    "pack": "character-guide",
+    "kind": "heritage",
+    "slug": "heritage:treedweller-goblin",
+    "name": "Treedweller Goblin",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have adapted particularly well to living in forested environments. As long as you are in a forest or jungle, you gain a +2 circumstance bonus to Stealth checks to "
+          },
+          {
+            "type": "ref",
+            "id": "5a86b7d0-fc0e-52a6-9b0d-fb58ed15233d"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "7e4e48de-b626-5513-9518-73261c58b5f4"
+          },
+          {
+            "type": "text",
+            "text": ", Survival checks to "
+          },
+          {
+            "type": "ref",
+            "id": "897dec4f-1321-59a1-bb19-085290e409f0"
+          },
+          {
+            "type": "text",
+            "text": ", and your Survival DC to "
+          },
+          {
+            "type": "ref",
+            "id": "1c678b1d-a165-51e0-b936-1769b16a5955"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:survival"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["action:subsist"],
+        "display": {
+          "label": "Treedweller Goblin (Subsist)"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["action:hide", "action:sneak"]
+          }
+        ],
+        "display": {
+          "label": "Treedweller Goblin (Hide or Sneak)"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.EEvA4uj8h3zDiAfP"
+    },
+    "data": {
+      "ancestry": "054f4768-e40c-50b9-bf71-cebc5bd9064e"
+    }
+  },
+  {
+    "id": "f7190e19-41be-5544-bd95-d6435a34e4c1",
+    "pack": "character-guide",
+    "kind": "heritage",
+    "slug": "heritage:vivacious-gnome",
+    "name": "Vivacious Gnome",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have an incredibly strong connection to the vitality energy that flows through the First World, making it harder to attack your life force with void energy. You gain void resistance equal to half your level (minimum 1). When you have the "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7"
+          },
+          {
+            "type": "text",
+            "text": " condition, the condition affects you as if its value was 1 lower than it actually is (doomed 1 has no effect, doomed 2 causes you to die at "
+          },
+          {
+            "type": "ref",
+            "id": "c0cd649a-7029-5174-a5b4-678f51598dec",
+            "label": "Dying 3"
+          },
+          {
+            "type": "text",
+            "text": ", and so on)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["void"],
+        "value": "max(1, floor(@level / 2))"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.ViKRoVgog172r163"
+    },
+    "data": {
+      "ancestry": "be1b027a-40cb-5267-ac66-7cdc1c0d7813"
+    }
+  },
+  {
+    "id": "dbabe8fe-ac32-5387-9b6b-1c303b7811b9",
+    "pack": "character-guide",
+    "kind": "heritage",
+    "slug": "heritage:wintertouched-human",
+    "name": "Wintertouched Human",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The power of winter flows through you. This heritage is most common among the Jadwiga of Irrisen, due to their descent from Baba Yaga, and certain Erutaki touched by the spirits. You gain cold resistance equal to half your level (minimum 1), and you treat environmental cold effects as if they were one step less extreme (incredible cold becomes extreme, extreme cold becomes severe, and so on)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["cold"],
+        "value": "max(1, floor(@level / 2))"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.KO33MNyY9VqNQmbZ"
+    },
+    "data": {
+      "ancestry": "58312ecf-5705-5e7d-b695-248d34618288"
+    }
+  }
+]

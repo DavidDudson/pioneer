@@ -102,5 +102,21 @@
     "remaster": true,
     "released": "2026-02-04",
     "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=293"
+  },
+  {
+    "id": "character-guide",
+    "publisher": "paizo",
+    "license": "OGL",
+    "remaster": false,
+    "released": "2019-10-16",
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=12"
+  },
+  {
+    "id": "impossible-lands",
+    "publisher": "paizo",
+    "license": "OGL",
+    "remaster": false,
+    "released": "2022-11-16",
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=146"
   }
 ]

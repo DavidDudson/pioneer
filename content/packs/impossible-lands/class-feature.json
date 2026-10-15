@@ -1,0 +1,133 @@
+[
+  {
+    "id": "58eed54c-29cb-5aa3-93ed-1e5b0c7ae39e",
+    "pack": "impossible-lands",
+    "kind": "class-feature",
+    "slug": "class-feature:way-of-the-triggerbrand",
+    "name": "Way of the Triggerbrand",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["gunslinger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You prefer firearms that work well as weapons in both melee and ranged combat, particularly those that allow you to exercise a bit of style and flair. You might be a survivor who cobbled your weapon together from the City of Smog's street scrap or a noble wielder of a master smith's bespoke commission for duels among Alkenstar's elite. You gain access to combination weapons."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Slinger's Reload",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "de07d64b-f3cb-51cb-90af-34363366b218"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Deeds",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Initial ",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "ref",
+            "id": "bbe0b0a4-f196-52d4-b5d2-77cb285b0e12"
+          },
+          {
+            "type": "text",
+            "text": "; "
+          },
+          {
+            "type": "text",
+            "text": "Advanced ",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "ref",
+            "id": "4f31f358-b056-5010-9d3c-9606f031170d"
+          },
+          {
+            "type": "text",
+            "text": "; "
+          },
+          {
+            "type": "text",
+            "text": "Greater ",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "ref",
+            "id": "dc324d1c-d5cd-50d3-95dd-d7c8efbb4d45"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Way Skill",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Thievery"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:thievery",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "bbe0b0a4-f196-52d4-b5d2-77cb285b0e12",
+        "predicate": ["class:gunslinger"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "de07d64b-f3cb-51cb-90af-34363366b218",
+        "predicate": ["class:gunslinger"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.YryaWAGcHeaRnXzS"
+    },
+    "data": {
+      "tags": ["gunslinger-way"]
+    }
+  }
+]

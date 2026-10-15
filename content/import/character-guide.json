@@ -3,5 +3,2127 @@
     "tag": "pf2e-8.6.0",
     "sha256": "d9c4c1f6bbf9bd907ec0acbaea9b8d4e8b0d049758a8616829f07c1b4ee81342"
   },
-  "backlog": []
+  "backlog": [
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "action:energy-emanation",
+      "foundry": "Compendium.pf2e.actionspf2e.Item.7qjfYsLNTr17Aftf",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Damage[type:@actor.flags.system.elementalHeartDwarf.damageType]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "armor:glorious-plate",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.tLNsmY90aN668PMG",
+      "gaps": [
+        {
+          "type": "trait",
+          "trait": "good"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "class-feature:order-of-the-chain",
+      "foundry": "Compendium.pf2e.classfeatures.Item.YrJj8UI0XpkHv0Ho",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[feats-srd] Pathfinder Lost Omens Hellfire Dispatches"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "class-feature:order-of-the-gate",
+      "foundry": "Compendium.pf2e.classfeatures.Item.igMHwREgpM9GsvLs",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[feats-srd] Pathfinder Lost Omens Hellfire Dispatches"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "class-feature:order-of-the-godclaw",
+      "foundry": "Compendium.pf2e.classfeatures.Item.UTRDN1TAieBMjwP1",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[deities] Pathfinder Lost Omens Gods & Magic"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[feats-srd] Pathfinder Lost Omens Hellfire Dispatches"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "class-feature:order-of-the-nail",
+      "foundry": "Compendium.pf2e.classfeatures.Item.ub9gwFXnMuKvhnPL",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[feats-srd] Pathfinder Lost Omens Hellfire Dispatches"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "class-feature:order-of-the-pyre",
+      "foundry": "Compendium.pf2e.classfeatures.Item.zGxO2cETUsXuvqRu",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[feats-srd] Pathfinder Lost Omens Hellfire Dispatches"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "class-feature:order-of-the-rack",
+      "foundry": "Compendium.pf2e.classfeatures.Item.lVdfcITy5bkywW5f",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[feats-srd] Pathfinder Lost Omens Hellfire Dispatches"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "class-feature:order-of-the-scourge",
+      "foundry": "Compendium.pf2e.classfeatures.Item.t01K3DB2qHnbt1q3",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[equipment-srd] Pathfinder Battlecry!"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[feats-srd] Pathfinder Lost Omens Hellfire Dispatches"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "effect:effect-boasters-challenge",
+      "foundry": "Compendium.pf2e.feat-effects.Item.0BNGjyW5WigX1FIs",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["target:mark:boasters-challenge"],
+            "selector": "strike-damage",
+            "type": "status",
+            "value": "ternary(gte(@actor.skills.{item|flags.system.rulesSelections.skill}.rank,4),6,ternary(gte(@actor.skills.{item|flags.system.rulesSelections.skill}.rank,3),4,2))"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "effect:effect-boasters-challenge-critical-success",
+      "foundry": "Compendium.pf2e.feat-effects.Item.xdlAursiOE9A9rK7",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["target:mark:boasters-challenge"],
+            "selector": "strike-damage",
+            "type": "status",
+            "value": "ternary(gte(@actor.skills.{item|flags.system.rulesSelections.skill}.rank,4),6,ternary(gte(@actor.skills.{item|flags.system.rulesSelections.skill}.rank,3),4,2))"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "effect:effect-brightness-seeker",
+      "foundry": "Compendium.pf2e.feat-effects.Item.xPg5wzzKNxJy18rU",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": [
+              {
+                "label": "PF2E.SpecificRule.Elf.BrightnessSeeker.Weal",
+                "value": 1
+              },
+              {
+                "label": "PF2E.SpecificRule.Elf.BrightnessSeeker.Woe",
+                "value": 2
+              },
+              {
+                "label": "PF2E.SpecificRule.Elf.BrightnessSeeker.WealAndWoe",
+                "value": 1
+              }
+            ],
+            "flag": "brightnessSeeker",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Elf.BrightnessSeeker.Prompt"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["call-upon-the-brightness"],
+            "selector": ["attack", "saving-throw", "skill-check"],
+            "type": "status",
+            "value": "{item|flags.system.rulesSelections.brightnessSeeker}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "effect:effect-inventive-offensive",
+      "foundry": "Compendium.pf2e.feat-effects.Item.SITsBOnOG1EJsEpl",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": {
+              "ownedItems": true,
+              "predicate": [
+                "item:melee",
+                {
+                  "gt": ["item:hands-held", 0]
+                }
+              ],
+              "types": ["weapon"]
+            },
+            "flag": "inventiveOffensiveWeapon",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Weapon"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": [
+              {
+                "label": "PF2E.TraitDeadlyD6",
+                "predicate": [
+                  {
+                    "not": "inventive-offensive:deadly-d6"
+                  }
+                ],
+                "value": "deadly-d6"
+              },
+              {
+                "label": "PF2E.TraitDisarm",
+                "predicate": [
+                  {
+                    "not": "inventive-offensive:disarm"
+                  }
+                ],
+                "value": "disarm"
+              },
+              {
+                "label": "PF2E.TraitNonlethal",
+                "predicate": [
+                  {
+                    "not": "inventive-offensive:nonlethal"
+                  }
+                ],
+                "value": "nonlethal"
+              },
+              {
+                "label": "PF2E.TraitShove",
+                "predicate": [
+                  {
+                    "not": "inventive-offensive:shove"
+                  }
+                ],
+                "value": "shove"
+              },
+              {
+                "label": "PF2E.TraitTrip",
+                "predicate": [
+                  {
+                    "not": "inventive-offensive:trip"
+                  }
+                ],
+                "value": "trip"
+              },
+              {
+                "label": "PF2E.TraitVersatileB",
+                "predicate": [
+                  {
+                    "not": "inventive-offensive:versatile-b"
+                  }
+                ],
+                "value": "versatile-b"
+              },
+              {
+                "label": "PF2E.TraitVersatileP",
+                "predicate": [
+                  {
+                    "not": "inventive-offensive:versatile-p"
+                  }
+                ],
+                "value": "versatile-p"
+              },
+              {
+                "label": "PF2E.TraitVersatileS",
+                "predicate": [
+                  {
+                    "not": "inventive-offensive:versatile-s"
+                  }
+                ],
+                "value": "versatile-s"
+              }
+            ],
+            "flag": "inventiveOffensiveSecondTrait",
+            "key": "ChoiceSet",
+            "predicate": [
+              {
+                "gte": ["skill:crafting:rank", 4]
+              }
+            ]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|flags.system.rulesSelections.inventiveOffensiveWeapon}",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "gt": ["item:hands-held", 0]
+              }
+            ],
+            "property": "traits",
+            "value": "{item|flags.system.rulesSelections.inventiveOffensiveFirstTrait}"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|flags.system.rulesSelections.inventiveOffensiveWeapon}",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "gt": ["item:hands-held", 0]
+              }
+            ],
+            "property": "traits",
+            "value": "{item|flags.system.rulesSelections.inventiveOffensiveSecondTrait}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "effect:effect-lastwall-soup",
+      "foundry": "Compendium.pf2e.equipment-effects.Item.6A8jsLR7upLGuRiv",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:lastwall-soup",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Lastwall Soup"
+              },
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:lastwall-soup-improved",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Lastwall Soup (Improved)"
+              },
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:lastwall-soup-greater",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Lastwall Soup (Greater)"
+              }
+            ],
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
+            "rollOption": "lastwall-soup"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[equipment-srd] Pathfinder Lost Omens Knights of Lastwall"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "effect:effect-saoc-astrology",
+      "foundry": "Compendium.pf2e.feat-effects.Item.6ACbQIpmmemxmoBJ",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "hideIfDisabled": true,
+            "key": "FlatModifier",
+            "predicate": [
+              {
+                "not": "feat:heir-of-the-saoc"
+              }
+            ],
+            "removeAfterRoll": true,
+            "selector": "skill-check",
+            "type": "circumstance",
+            "value": "ternary(gte(@item.badge.value,6),2,ternary(gte(@item.badge.value,3),1,ternary(eq(@item.badge.value,2),0,-1)))"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "hideIfDisabled": true,
+            "key": "FlatModifier",
+            "predicate": ["feat:heir-of-the-saoc"],
+            "removeAfterRoll": true,
+            "selector": "skill-check",
+            "slug": "heir-of-the-saoc-bonus",
+            "type": "circumstance",
+            "value": "ternary(gte(@item.badge.value,3),ceil(@item.badge.value/2),-1)"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "effect:stance-everstand-stance",
+      "foundry": "Compendium.pf2e.feat-effects.Item.GGebXpRPyONZB3eS",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "weapon",
+            "key": "ItemAlteration",
+            "mode": "upgrade",
+            "predicate": [
+              "item:hands-held:2",
+              {
+                "or": ["item:base:shield-boss", "item:base:shield-spikes"]
+              }
+            ],
+            "property": "damage-dice-faces"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "equipment:armored-skirt",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.bkbL0YitEh46Ne0f",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "armor",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "predicate": ["item:equipped", "armor:base:chain-shirt"],
+            "property": "category",
+            "value": "medium"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "armor",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "predicate": [
+              "item:equipped",
+              {
+                "or": ["armor:base:breastplate", "armor:base:chain-mail", "armor:base:scale-mail"]
+              }
+            ],
+            "property": "category",
+            "value": "heavy"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "equipment:bi-resonant-wayfinder",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.LDVqBvMNNcRBucW1",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "AdjustModifier",
+          "raw": {
+            "key": "AdjustModifier",
+            "requiresEquipped": false,
+            "selector": "survival",
+            "slug": "no-compass",
+            "suppress": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "equipment:pathfinders-pouch",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.0c7zLY9c88K2n0GC",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "stowing",
+          "raw": false
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "equipment:shining-wayfinder",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.z6eQdPTgSxTLR1Qr",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "AdjustModifier",
+          "raw": {
+            "key": "AdjustModifier",
+            "requiresEquipped": false,
+            "selector": "survival",
+            "slug": "no-compass",
+            "suppress": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "equipment:vanishing-wayfinder",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.SCkQb4QdFWkATiby",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "AdjustModifier",
+          "raw": {
+            "key": "AdjustModifier",
+            "requiresEquipped": false,
+            "selector": "survival",
+            "slug": "no-compass",
+            "suppress": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "feat:adaptive-mask-familiar",
+      "foundry": "Compendium.pf2e.feats-srd.Item.FkOtiB52wIOi7SP7",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.attributes.familiarAbilities.value",
+            "priority": 9,
+            "value": 4
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "feat:arcane-tattoos",
+      "foundry": "Compendium.pf2e.feats-srd.Item.Dq4JSejEdCzGNeTc",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": {
+              "filter": [
+                {
+                  "or": [
+                    "item:slug:shield",
+                    "item:slug:tangle-vine",
+                    "item:slug:daze",
+                    "item:slug:electric-arc",
+                    "item:slug:ghost-sound",
+                    "item:slug:void-warp",
+                    "item:slug:sigil"
+                  ]
+                }
+              ],
+              "itemType": "spell",
+              "slugsAsValues": true
+            },
+            "flag": "cantrip",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:{item|flags.system.rulesSelections.cantrip}", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:{item|flags.system.rulesSelections.cantrip}", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:human"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[spells-srd] Pathfinder Core Rulebook"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "feat:boasters-challenge",
+      "foundry": "Compendium.pf2e.feats-srd.Item.UtUT6JngJbQRHySX",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[against]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "feat:brightness-seeker",
+      "foundry": "Compendium.pf2e.feats-srd.Item.8aRa9VHoDKl9B1Z1",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "invalid-data",
+          "field": "action.trigger",
+          "raw": {
+            "cost": "reaction"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "feat:daring-act",
+      "foundry": "Compendium.pf2e.feats-srd.Item.cny7ouhsoiNsWJ7X",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[against]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "feat:dragon-spit",
+      "foundry": "Compendium.pf2e.feats-srd.Item.UsJtnrqWOs7puRZa",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": {
+              "filter": [
+                {
+                  "or": [
+                    "item:slug:acid-splash",
+                    "item:slug:electric-arc",
+                    "item:slug:ignition",
+                    "item:slug:produce-flame",
+                    "item:slug:ray-of-frost"
+                  ]
+                }
+              ],
+              "itemType": "spell",
+              "slugsAsValues": true
+            },
+            "flag": "cantrip",
+            "key": "ChoiceSet"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:{item|flags.system.rulesSelections.cantrip}", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:{item|flags.system.rulesSelections.cantrip}", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:human"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[spells-srd] Pathfinder Core Rulebook"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "feat:educated-assessment",
+      "foundry": "Compendium.pf2e.feats-srd.Item.a2Owk9WI4pjSPuHf",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "feat:elemental-wrath",
+      "foundry": "Compendium.pf2e.feats-srd.Item.yMfZulJcoSomQ6dO",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:acid-splash", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:acid-splash", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:elf"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "override",
+            "predicate": ["item:slug:acid-splash", "spellcasting:innate"],
+            "property": "damage-type",
+            "selectors": ["spell-damage", "inline-damage"],
+            "value": "{item|flags.system.rulesSelections.element}"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              "item:slug:acid-splash",
+              "spellcasting:innate",
+              {
+                "not": "elemental-wrath:acid"
+              }
+            ],
+            "property": "traits",
+            "value": "{item|flags.system.rulesSelections.element}"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[spells-srd] Pathfinder Core Rulebook"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "feat:elven-instincts",
+      "foundry": "Compendium.pf2e.feats-srd.Item.4M36jGbeSDfZFM38",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.initiative.tiebreakPriority",
+            "value": 0
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "feat:energy-blessed",
+      "foundry": "Compendium.pf2e.feats-srd.Item.B5HiNholWMwYdHTC",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:energy-emanation"],
+            "property": "description",
+            "value": [
+              {
+                "text": "{item|description}"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "feat:everyone-duck",
+      "foundry": "Compendium.pf2e.feats-srd.Item.amf2zZuW299eiHAZ",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "feat:fade-away",
+      "foundry": "Compendium.pf2e.feats-srd.Item.qr1E37Tla555tvIO",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:invisibility", "item:slug:disguise-magic"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:invisibility", "item:slug:disguise-magic"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell:halfling"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "feat:fang-sharpener",
+      "foundry": "Compendium.pf2e.feats-srd.Item.FnGOkNyLF4w3FyqZ",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "DamageDice",
+          "raw": {
+            "key": "DamageDice",
+            "override": {
+              "upgrade": true
+            },
+            "predicate": ["heritage:razortooth-goblin"],
+            "selector": "razortooth-jaws-damage"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "critical": true,
+            "damageType": "bleed",
+            "key": "FlatModifier",
+            "predicate": [
+              {
+                "or": ["item:slug:irongut-jaws", "item:slug:razortooth-jaws"]
+              }
+            ],
+            "selector": "unarmed-damage",
+            "value": "@weapon.system.damage.dice"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "feat:firebrand-braggart-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.NagTqSLK8bAlo2nY",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "feat:forced-entry",
+      "foundry": "Compendium.pf2e.feats-srd.Item.uwJQUFLymAWtJu1a",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "feat:fortuitous-shift",
+      "foundry": "Compendium.pf2e.feats-srd.Item.Twhkz2FfzaZezVnG",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "feat",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:unexpected-shift"],
+            "property": "description",
+            "value": [
+              {
+                "text": "{item|description}"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "feat:freeze-it",
+      "foundry": "Compendium.pf2e.feats-srd.Item.LhpE0NsfNwYP6MOz",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[against]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "feat:gnome-polyglot",
+      "foundry": "Compendium.pf2e.feats-srd.Item.ccWf2F5DqiqFwiQ1",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "flags.system.multilingualTaken",
+            "priority": 19,
+            "value": 0
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "system.build.languages.max",
+            "priority": 21,
+            "value": "@actor.flags.system.multilingualTaken"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "feat:grim-insight",
+      "foundry": "Compendium.pf2e.feats-srd.Item.zs2FFGI88zB7EaBT",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Note",
+          "raw": {
+            "key": "Note",
+            "predicate": ["fear"],
+            "selector": "saving-throw",
+            "text": "{item|name} @Localize[PF2E.SpecificRule.Gnome.GrimInsight.SaveNote]"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "feat:halcyon-speaker-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.7fU6e3HIT4NvwLYa",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "feat:heroes-call",
+      "foundry": "Compendium.pf2e.feats-srd.Item.7cM7uKRKQDWz5eeu",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:heroism", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:heroism", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:dwarf"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "lt": ["hp-percent", 50]
+              },
+              "item:slug:heroism",
+              "item:tag:ancestral-spell:dwarf"
+            ],
+            "property": "description",
+            "value": [
+              {
+                "text": "PF2E.SpecificRule.Dwarf.HeroesCall.DescriptionAlteration"
+              },
+              {
+                "text": "@UUID[Compendium.pf2e.feat-effects.Item.Effect: Heroes' Call]"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "feat:incredible-luck-halfling",
+      "foundry": "Compendium.pf2e.feats-srd.Item.iTsLr3zEaGZ45zez",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "feat",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:halfling-luck"],
+            "property": "description",
+            "value": [
+              {
+                "text": "PF2E.SpecificRule.Halfling.IncredibleLuck.Base"
+              },
+              {
+                "predicate": ["feat:guiding-luck"],
+                "text": "PF2E.SpecificRule.Halfling.IncredibleLuck.GuidingLuck"
+              },
+              {
+                "predicate": ["feat:shared-luck"],
+                "text": "PF2E.SpecificRule.Halfling.IncredibleLuck.SharedLuck"
+              }
+            ]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "feat",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "predicate": ["item:slug:halfling-luck"],
+            "property": "frequency-per",
+            "value": "PT1H"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "feat:irriseni-ice-witch",
+      "foundry": "Compendium.pf2e.feats-srd.Item.arlZTqfppOAXBhdw",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:wall-of-ice", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:wall-of-ice", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:human"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "feat:knight-reclaimant-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.H86VNC6cNWhBI8Ed",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "feat:knight-vigilant-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.1YFrl8I6ZGo7BIM9",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "feat:magaambyan-attendant-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.ZhToff996PnTESwb",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        },
+        {
+          "type": "markup",
+          "markup": "div"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "feat:mask-familiar",
+      "foundry": "Compendium.pf2e.feats-srd.Item.GByIIkeHN3JWkZIZ",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.attributes.familiarAbilities.value",
+            "priority": 9,
+            "value": 2
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "feat:natural-illusionist",
+      "foundry": "Compendium.pf2e.feats-srd.Item.HKGyFj2w5dzkf3SW",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:illusory-disguise", "item:slug:item-facade", "item:slug:ventriloquism"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:illusory-disguise", "item:slug:item-facade", "item:slug:ventriloquism"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell:gnome"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "feat:recognize-threat",
+      "foundry": "Compendium.pf2e.feats-srd.Item.5vRXZcGAbqKRoaqL",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "feat:scalding-spit",
+      "foundry": "Compendium.pf2e.feats-srd.Item.ulQzdBOnZH9LQu8M",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Strike",
+          "raw": {
+            "category": "unarmed",
+            "damage": {
+              "base": {
+                "damageType": "fire",
+                "dice": 1,
+                "die": "d6"
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.SpecificRule.Goblin.ScaldingSpit.BoilingSpit",
+            "predicate": ["self:condition:persistent-damage:fire"],
+            "range": {
+              "max": 30
+            },
+            "slug": "boiling-spit",
+            "traits": ["unarmed"]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "feat:scrollmaster-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.uhfZtjbfJ8pZIWrF",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[feats-srd] Pathfinder Lost Omens World Guide"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "feat:sense-thoughts",
+      "foundry": "Compendium.pf2e.feats-srd.Item.LRBzEzpS19z3Eghd",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:mind-reading", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:mind-reading", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:elf"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "feat:shadow-pact",
+      "foundry": "Compendium.pf2e.feats-srd.Item.ACeqRSWr4CEwLZgO",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:creation", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:creation", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:human"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "feat:shared-luck-halfling",
+      "foundry": "Compendium.pf2e.feats-srd.Item.f5Vkk2rM6tCe2zQn",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "feat",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:halfling-luck"],
+            "property": "description",
+            "value": [
+              {
+                "text": "PF2E.SpecificRule.Halfling.SharedLuck.Base"
+              },
+              {
+                "predicate": ["feat:guiding-luck"],
+                "text": "PF2E.SpecificRule.Halfling.SharedLuck.GuidingLuck"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "feat:signifer-armor-expertise",
+      "foundry": "Compendium.pf2e.feats-srd.Item.wDo5dsSmyJqfmPgj",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.defenses.medium.rank",
+            "phase": "beforeDerived",
+            "predicate": [
+              {
+                "or": [
+                  {
+                    "gte": ["defense:light:rank", 2]
+                  },
+                  {
+                    "gte": ["defense:unarmored:rank", 2]
+                  }
+                ]
+              }
+            ],
+            "value": 2
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.defenses.heavy.rank",
+            "phase": "beforeDerived",
+            "predicate": [
+              {
+                "or": [
+                  {
+                    "gte": ["defense:light:rank", 2]
+                  },
+                  {
+                    "gte": ["defense:unarmored:rank", 2]
+                  }
+                ]
+              }
+            ],
+            "value": 2
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "feat:spellmaster-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.vuApM8xHOZs4o6oS",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[feats-srd] Pathfinder Lost Omens World Guide"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "feat:spellmasters-resilience",
+      "foundry": "Compendium.pf2e.feats-srd.Item.dWkf6LhYBfBkeyOA",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": [
+              {
+                "label": "PF2E.TraitArcane",
+                "value": "arcane"
+              },
+              {
+                "label": "PF2E.TraitDivine",
+                "value": "divine"
+              },
+              {
+                "label": "PF2E.TraitPrimal",
+                "value": "primal"
+              },
+              {
+                "label": "PF2E.TraitOccult",
+                "value": "occult"
+              }
+            ],
+            "flag": "featSpellmastersResilience",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.SpellmastersResilience.Prompt"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "key": "Resistance",
+            "type": "{item|flags.system.rulesSelections.featSpellmastersResilience}",
+            "value": 5
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["{item|flags.system.rulesSelections.featSpellmastersResilience}"],
+            "selector": "saving-throw",
+            "type": "circumstance",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "feat:sun-blade",
+      "foundry": "Compendium.pf2e.feats-srd.Item.TNpoEG0cUEAuSju7",
+      "gaps": [
+        {
+          "type": "link",
+          "entry": "character-guide/spell:sun-blade",
+          "element": {
+            "type": "ref",
+            "id": "ed99a8a4-3937-5526-9bf5-1f3da278c31f"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "feat:swordmaster-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.SHpVHkPxtQggD9Cf",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "feat:synergistic-spell",
+      "foundry": "Compendium.pf2e.feats-srd.Item.WAWaew53zpTFVwQM",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.TraitSpellshape",
+            "mergeable": true,
+            "option": "spellshape",
+            "placement": "spellcasting",
+            "suboptions": [
+              {
+                "label": "{item|name}",
+                "value": "synergistic-spell"
+              }
+            ],
+            "toggleable": true
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["spellshape:synergistic-spell", "item:cast:actions:2"],
+            "property": "description",
+            "value": [
+              {
+                "text": "PF2E.SpecificRule.Spellshape.SynergisticSpell"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "feat:tail-spin",
+      "foundry": "Compendium.pf2e.feats-srd.Item.rnEfO5eyRw7Fywzb",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[action-macros]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "feat:torch-goblin",
+      "foundry": "Compendium.pf2e.feats-srd.Item.U5FcfRvveTKtgebq",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "damageType": "fire",
+            "key": "FlatModifier",
+            "predicate": ["item:melee", "self:condition:persistent-damage:fire", "target:distance:5"],
+            "selector": "strike-damage",
+            "value": "@weapon.system.damage.dice"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "feat:unbreakable-er-goblin",
+      "foundry": "Compendium.pf2e.feats-srd.Item.99WRahrMC91D6MMe",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.attributes.ancestryhp",
+            "priority": 51,
+            "value": 20
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "feat:viking-shieldbearer",
+      "foundry": "Compendium.pf2e.feats-srd.Item.BoqMvGy1jXpsaBbo",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.weapon-base-{item|flags.system.rulesSelections.weapon}.rank",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "feat:wildborn-adept",
+      "foundry": "Compendium.pf2e.feats-srd.Item.3NZSRyoulnzsi3sn",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:light", "item:slug:tangle-vine", "item:slug:vitality-lash"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:light", "item:slug:tangle-vine", "item:slug:vitality-lash"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell:elf"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "heritage:elemental-heart-dwarf",
+      "foundry": "Compendium.pf2e.heritages.Item.MeMAAtUlZmFgKSMF",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": [
+              {
+                "label": "PF2E.TraitAcid",
+                "value": "acid"
+              },
+              {
+                "label": "PF2E.TraitCold",
+                "value": "cold"
+              },
+              {
+                "label": "PF2E.TraitElectricity",
+                "value": "electricity"
+              },
+              {
+                "label": "PF2E.TraitFire",
+                "value": "fire"
+              }
+            ],
+            "flag": "elementalHeartDwarf",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Dwarf.ElementalHeart.Prompt"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "flags.system.elementalHeartDwarf.damageType",
+            "value": "{item|flags.system.rulesSelections.elementalHeartDwarf}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "spell:light-of-revelation",
+      "foundry": "Compendium.pf2e.spells-srd.Item.ou56ShiFH7GWF8hX",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "range.value",
+          "raw": "30-foot emanation"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "spell:sun-blade",
+      "foundry": "Compendium.pf2e.spells-srd.Item.pMTltbI3S3UIuFaR",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "DamageDice",
+          "raw": {
+            "damageType": "spirit",
+            "diceNumber": "@item.level -1",
+            "key": "DamageDice",
+            "predicate": ["target:trait:unholy"],
+            "selector": "{item|_id}-damage"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "DamageDice",
+          "raw": {
+            "damageType": "vitality",
+            "diceNumber": "@spell.level -1",
+            "key": "DamageDice",
+            "predicate": ["target:mode:undead"],
+            "selector": "{item|_id}-damage"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "overlays.CuGW0j3SYzsrf89R.rules",
+          "raw": []
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "overlays.zkpyb1D8OCsASYRi.rules",
+          "raw": []
+        },
+        {
+          "type": "field",
+          "reason": "invalid-data",
+          "field": "variants.0.damage.0.category",
+          "raw": {
+            "rank": 2,
+            "time": {
+              "type": "actions",
+              "cost": "two"
+            },
+            "range": {
+              "type": "feet",
+              "feet": 60
+            },
+            "targets": {
+              "any": [
+                {
+                  "count": 1,
+                  "of": "creature"
+                }
+              ]
+            },
+            "traditions": [],
+            "damage": [
+              {
+                "key": "0",
+                "formula": "1d4",
+                "damageType": "fire",
+                "kinds": ["damage"]
+              }
+            ],
+            "heightening": {
+              "type": "interval",
+              "interval": 1,
+              "damage": [
+                {
+                  "key": "0",
+                  "formula": "1d4"
+                }
+              ]
+            },
+            "variants": [
+              {
+                "name": "Sun Blade",
+                "damage": [
+                  {
+                    "key": "0",
+                    "formula": "1d4",
+                    "damageType": "fire",
+                    "category": "",
+                    "kinds": ["damage"]
+                  }
+                ]
+              },
+              {
+                "name": "Sun Blade (Bright Natural Sunlight)",
+                "damage": [
+                  {
+                    "key": "0",
+                    "formula": "1d6",
+                    "damageType": "fire",
+                    "category": "",
+                    "kinds": ["damage"]
+                  }
+                ],
+                "heightening": {
+                  "type": "interval",
+                  "interval": 1,
+                  "damage": [
+                    {
+                      "key": "0",
+                      "formula": "1d6"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "document": {
+        "_id": "pMTltbI3S3UIuFaR",
+        "name": "Sun Blade",
+        "type": "spell",
+        "system": {
+          "publication": {
+            "title": "Pathfinder Lost Omens Character Guide",
+            "license": "OGL",
+            "remaster": false
+          },
+          "level": {
+            "value": 2
+          },
+          "traits": {
+            "value": ["attack", "concentrate", "fire", "focus", "light", "manipulate", "vitality"],
+            "rarity": "uncommon",
+            "traditions": []
+          },
+          "description": {
+            "value": "<p>You fire a ray of burning sunlight from your weapon. You must be wielding a sword or spear to cast <em>sun blade</em>, and you perform this spell's somatic component with the weapon. Make a spell attack roll. The ray deals 1d4 fire damage. If the target is unholy, the ray deals an additional 1d4 spirit damage, and if the target is undead, the ray deals an additional 1d4 vitality damage (both effects apply against creatures that are both unholy and undead). If you are in an area of bright natural sunlight, increase the die size of each damage die by one step (from d4 to d6).</p>\n<hr />\n<p><strong>Critical Success</strong> The ray deals double damage.</p>\n<p><strong>Success</strong> The ray deals full damage.</p>\n<hr />\n<p><strong>Heightened (+1)</strong> The damage increases by 1d4 fire, 1d4 spirit, and 1d4 vitality (or 1d6 of each type of damage in bright natural sunlight).</p>"
+          },
+          "rules": [
+            {
+              "damageType": "spirit",
+              "diceNumber": "@item.level -1",
+              "key": "DamageDice",
+              "predicate": ["target:trait:unholy"],
+              "selector": "{item|_id}-damage"
+            },
+            {
+              "damageType": "vitality",
+              "diceNumber": "@spell.level -1",
+              "key": "DamageDice",
+              "predicate": ["target:mode:undead"],
+              "selector": "{item|_id}-damage"
+            }
+          ],
+          "area": null,
+          "cost": {
+            "value": ""
+          },
+          "counteraction": false,
+          "damage": {
+            "0": {
+              "applyMod": false,
+              "category": null,
+              "formula": "1d4",
+              "kinds": ["damage"],
+              "materials": [],
+              "type": "fire"
+            }
+          },
+          "defense": null,
+          "duration": {
+            "sustained": false,
+            "value": ""
+          },
+          "heightening": {
+            "damage": {
+              "0": "1d4"
+            },
+            "interval": 1,
+            "type": "interval"
+          },
+          "overlays": {
+            "CuGW0j3SYzsrf89R": {
+              "name": "Sun Blade",
+              "overlayType": "override",
+              "sort": 1,
+              "system": {
+                "damage": {
+                  "0": {
+                    "category": ""
+                  }
+                },
+                "defense": {
+                  "save": {
+                    "statistic": ""
+                  }
+                },
+                "rules": []
+              }
+            },
+            "zkpyb1D8OCsASYRi": {
+              "name": "Sun Blade (Bright Natural Sunlight)",
+              "overlayType": "override",
+              "sort": 2,
+              "system": {
+                "damage": {
+                  "0": {
+                    "category": "",
+                    "formula": "1d6"
+                  }
+                },
+                "defense": {
+                  "save": {
+                    "statistic": ""
+                  }
+                },
+                "heightening": {
+                  "damage": {
+                    "0": "1d6"
+                  }
+                },
+                "rules": []
+              }
+            }
+          },
+          "range": {
+            "value": "60 feet"
+          },
+          "requirements": "",
+          "target": {
+            "value": "1 creature"
+          },
+          "time": {
+            "value": "2"
+          }
+        },
+        "folder": "wnvibtD90h7CStDC"
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "weapon:radiant-lance",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.fLqRH3XpvDZEMxOO",
+      "gaps": [
+        {
+          "type": "trait",
+          "trait": "good"
+        }
+      ]
+    },
+    {
+      "type": "vocabulary",
+      "kind": "damage-type",
+      "slug": "untyped",
+      "reason": "unmapped-value",
+      "detail": "untyped"
+    }
+  ]
 }

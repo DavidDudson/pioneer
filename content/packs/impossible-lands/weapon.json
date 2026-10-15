@@ -1,0 +1,976 @@
+[
+  {
+    "id": "d55d167b-9994-5dce-8a73-f7ad0e4738bd",
+    "pack": "impossible-lands",
+    "kind": "weapon",
+    "slug": "weapon:broadspear",
+    "name": "Broadspear",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["reach", "sweep", "versatile-s"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The spearhead of this weapon is in the shape of a long leaf."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.bzhJNnkIXdVRbjAA"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2
+        }
+      },
+      "bulk": 2,
+      "category": "advanced",
+      "group": "spear",
+      "baseItem": "broadspear",
+      "damage": {
+        "dice": 1,
+        "die": "d10",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "890ae13f-68b4-5494-964b-fda293687e00",
+    "pack": "impossible-lands",
+    "kind": "weapon",
+    "slug": "weapon:chakri-lost-omens",
+    "name": "Chakri (Lost Omens)",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["agile", "deadly-d8", "thrown"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A chakri is a small, circular throwing weapon with a sharp outer edge."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.0GEXLXh8M5Ce6oYT"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "cp": 2
+        }
+      },
+      "bulk": "negligible",
+      "category": "advanced",
+      "group": "dart",
+      "baseItem": "chakri",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "slashing"
+      },
+      "range": 30,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "3e65780b-8221-56c3-8ac7-00f9aab44f13",
+    "pack": "impossible-lands",
+    "kind": "weapon",
+    "slug": "weapon:dandpatta",
+    "name": "Dandpatta",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["agile", "twin"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This long, narrow blade is attached to a gauntlet that also acts as a handguard."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.5v2mhiBbYQDhlsw5"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 8
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "dandpatta",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "8107a142-2258-5422-9e91-046fbde115bd",
+    "pack": "impossible-lands",
+    "kind": "weapon",
+    "slug": "weapon:donchak",
+    "name": "Donchak",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["hampering", "reach", "tethered", "thrown-20"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This long metal pole has a large chakram attached at the end. A mechanism within the handle allows the wielder to launch and retract the chakram, which is connected with wire to the inside of the weapon. The donchak is seldom seen used outside training scenarios."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Po1oeTDUaSUxeZxG"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": 2,
+      "category": "advanced",
+      "group": "polearm",
+      "baseItem": "donchak",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "8b32feb3-8e7e-5d5b-8d83-e1b067794016",
+    "pack": "impossible-lands",
+    "kind": "weapon",
+    "slug": "weapon:gada",
+    "name": "Gada",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["backswing", "two-hand-d12", "vanara"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A large spherical head with a spike on top sits mounted to a long shaft."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.IoJ0WpfUPWGuaqBG"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1
+        }
+      },
+      "bulk": 1,
+      "category": "advanced",
+      "group": "club",
+      "baseItem": "gada",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "bc86d2d0-ca8c-54c0-8fbe-2f9b1b2568b0",
+    "pack": "impossible-lands",
+    "kind": "weapon",
+    "slug": "weapon:goo-grenade-greater",
+    "name": "Goo Grenade (Greater)",
+    "level": 11,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "bomb", "consumable", "splash"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A goo grenade is a flask filled with a fast-growing, short-lived alchemical ooze. When you hit a creature with a goo grenade, that creature takes 3d4 acid damage, 3 persistent acid damage, and 3 acid splash damage, and a -10 circumstance penalty to its Speeds from the clinging goo. You gain a +2 item bonus to attack rolls. The target can end any penalties, conditions, and persistent damage caused by the bomb by Escaping or spending a total of 3 Interact actions to pry themselves free of the ooze. These Interact actions don't have to be consecutive, and other creatures can provide the actions as well."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "ff5c3725-3a42-549a-a6e8-2620dba069b0"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.SAtG9jrqey2y8EGb"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 3,
+        "die": "d4",
+        "damageType": "acid",
+        "persistent": {
+          "formula": "3",
+          "damageType": "acid"
+        }
+      },
+      "splash": 3,
+      "itemBonus": 2,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "17a3f03b-4f45-5199-ac53-a29027af08d4",
+    "pack": "impossible-lands",
+    "kind": "weapon",
+    "slug": "weapon:goo-grenade-lesser",
+    "name": "Goo Grenade (Lesser)",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "bomb", "consumable", "splash"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A goo grenade is a flask filled with a fast-growing, short-lived alchemical ooze. When you hit a creature with a goo grenade, that creature takes 1d4 acid damage, 1 persistent acid damage, and 1 acid splash damage, and a -5 circumstance penalty to its Speeds from the clinging goo. The target can end any penalties, conditions, and persistent damage caused by the bomb by Escaping or spending a total of 3 Interact actions to pry themselves free of the ooze. These Interact actions don't have to be consecutive, and other creatures can provide the actions as well."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "ff5c3725-3a42-549a-a6e8-2620dba069b0"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.t2A5PzInAqmErLzK"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "acid",
+        "persistent": {
+          "formula": "1",
+          "damageType": "acid"
+        }
+      },
+      "splash": 1,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "07262892-076c-5277-b3dd-e31854edeb0b",
+    "pack": "impossible-lands",
+    "kind": "weapon",
+    "slug": "weapon:goo-grenade-major",
+    "name": "Goo Grenade (Major)",
+    "level": 17,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "bomb", "consumable", "splash"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A goo grenade is a flask filled with a fast-growing, short-lived alchemical ooze. When you hit a creature with a goo grenade, that creature takes 4d4 acid damage, 4 persistent acid damage, and 4 acid splash damage, and a -10 circumstance penalty to its Speeds from the clinging goo. You gain a +3 item bonus to attack rolls. The target can end any penalties, conditions, and persistent damage caused by the bomb by Escaping or spending a total of 3 Interact actions to pry themselves free of the ooze. These Interact actions don't have to be consecutive, and other creatures can provide the actions as well."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "ff5c3725-3a42-549a-a6e8-2620dba069b0"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.W0RWd2E0jkF2ZXhf"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2500
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 4,
+        "die": "d4",
+        "damageType": "acid",
+        "persistent": {
+          "formula": "4",
+          "damageType": "acid"
+        }
+      },
+      "splash": 4,
+      "itemBonus": 3,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "eb4a2ea3-a1b7-5573-868c-ab345c5203d3",
+    "pack": "impossible-lands",
+    "kind": "weapon",
+    "slug": "weapon:goo-grenade-moderate",
+    "name": "Goo Grenade (Moderate)",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "bomb", "consumable", "splash"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A goo grenade is a flask filled with a fast-growing, short-lived alchemical ooze. When you hit a creature with a goo grenade, that creature takes 2d4 acid damage, 2 persistent acid damage, and 2 acid splash damage, and a -5 circumstance penalty to its Speeds from the clinging goo. You gain a +1 item bonus to attack rolls. The target can end any penalties, conditions, and persistent damage caused by the bomb by Escaping or spending a total of 3 Interact actions to pry themselves free of the ooze. These Interact actions don't have to be consecutive, and other creatures can provide the actions as well."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "ff5c3725-3a42-549a-a6e8-2620dba069b0"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.wi97vRj8IXx3wLmZ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 2,
+        "die": "d4",
+        "damageType": "acid",
+        "persistent": {
+          "formula": "2",
+          "damageType": "acid"
+        }
+      },
+      "splash": 2,
+      "itemBonus": 1,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "d9f075e4-867b-5c8e-8852-a6b0ad995456",
+    "pack": "impossible-lands",
+    "kind": "weapon",
+    "slug": "weapon:kalis",
+    "name": "Kalis",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["deadly-d8", "versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A larger version of the asymmetrical, wavy-bladed kris, this double-edged sword is effective at creating grievous injuries."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.6v4aedCiIAoSJfiL"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": 1,
+      "category": "advanced",
+      "group": "sword",
+      "baseItem": "kalis",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "22eae8eb-9e94-5801-adde-5af2116b6463",
+    "pack": "impossible-lands",
+    "kind": "weapon",
+    "slug": "weapon:kris",
+    "name": "Kris",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["agile", "deadly-d8", "finesse"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This blade features multiple curves in a serpentine pattern set on a wide, asymmetrical base, its hilt and sheath often intricately decorated."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ADvVuMwIWDZZF9cv"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 7
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "knife",
+      "baseItem": "kris",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "de8c5999-e62c-5863-9ec7-546d0438c276",
+    "pack": "impossible-lands",
+    "kind": "weapon",
+    "slug": "weapon:talwar",
+    "name": "Talwar",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["forceful", "two-hand-d10", "versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Longer, and with less curve than a scimitar, this blade is ubiquitous in guard and mercenary groups throughout Casmaron."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.GuWKXErLL5R43sIy"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "talwar",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "1df3c2e0-6da3-590a-b356-265b29cf2698",
+    "pack": "impossible-lands",
+    "kind": "weapon",
+    "slug": "weapon:thorn-whip",
+    "name": "Thorn Whip",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["disarm", "finesse", "ghoran", "reach", "trip"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Carefully woven from plant fibers, the thorn whip sports small spikes that protrude from various locations."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.2P9jItR1sV20OqmD"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 6
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "brawling",
+      "baseItem": "thorn-whip",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "a5d47b27-c9b4-5d32-adab-d096c05a928d",
+    "pack": "impossible-lands",
+    "kind": "weapon",
+    "slug": "weapon:triggerbrand",
+    "name": "Triggerbrand",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["combination", "concussive", "fatal-d8"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This unusual combination weapon integrates features of a flintlock pistol and a shortsword. Like other combination weapons, a wielder can transform it between ranged and melee modes as an Interact action."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.RytXxlJJ7dib8seN"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "firearm",
+      "baseItem": "triggerbrand",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "range": 30,
+      "reload": 1,
+      "ammunition": {
+        "type": "rounds-triggerbrand",
+        "capacity": 1
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "ce656c7c-24b2-5c22-bbbe-860eb4c19c65",
+    "pack": "impossible-lands",
+    "kind": "weapon",
+    "slug": "weapon:visap",
+    "name": "Visap",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["agile", "finesse", "injection", "versatile-p", "vishkanya"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Two small, curved blades extend from a single hilt. There's a hollow area inside that vishkanyas can use to store an unused dose of their blood, or other poison, for the future."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.sY3UJ34xJ4MA0FMK"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2
+        }
+      },
+      "bulk": "light",
+      "category": "advanced",
+      "group": "knife",
+      "baseItem": "visap",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "9ab464cd-e303-5dfd-9cfe-4778802890f4",
+    "pack": "impossible-lands",
+    "kind": "weapon",
+    "slug": "weapon:zulfikar",
+    "name": "Zulfikar",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["deadly-d8", "disarm", "sweep", "versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This curved blade has a bifurcated tip, creating what looks like a second blade. It's a customary practice among zulfikar users to have religious or personal inscriptions upon the blade."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.LdOXiIVgRWpnOtcd"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": 1,
+      "category": "advanced",
+      "group": "sword",
+      "baseItem": "zulfikar",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

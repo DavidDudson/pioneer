@@ -1,0 +1,575 @@
+[
+  {
+    "id": "94d9ec11-7b8e-5598-8035-dc18663e0079",
+    "pack": "character-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:order-of-the-chain",
+    "name": "Order of the Chain",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Members of the Order of the Chain are skilled at hunting down and capturing criminals, especially those who dare flee from justice."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Lesser Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Shackles of Law"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Greater Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Sturdy Bindings"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.YrJj8UI0XpkHv0Ho"
+    },
+    "data": {}
+  },
+  {
+    "id": "c9457734-3afc-59cb-944d-17de4849c270",
+    "pack": "character-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:order-of-the-gate",
+    "name": "Order of the Gate",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Favored Weapon",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "aea5fd3d-cb47-57b8-9622-601490152a97"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The Hellknight signifers of the Order of the Gate seek to prevent lawlessness of all types through the use of their considerable spellcasting prowess and command of fiendish outsiders."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Lesser Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Locate Lawbreakers"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Greater Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Devil Allies"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.igMHwREgpM9GsvLs"
+    },
+    "data": {}
+  },
+  {
+    "id": "67a41780-5f20-527d-99a4-f6adb286cf2f",
+    "pack": "character-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:order-of-the-godclaw",
+    "name": "Order of the Godclaw",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Favored Weapon",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "3200dc7f-03bd-50bf-96e2-1893f46612d1"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The Order of the Godclaw's Hellknights see their cause as a holy mandate from The Godclaw. They seek to punish criminals with a zeal rarely matched by others who enforce the law."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Lesser Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Dedication to the Five"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Greater Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Blessing of the Five"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.UTRDN1TAieBMjwP1"
+    },
+    "data": {}
+  },
+  {
+    "id": "bd64bbe3-e6c7-5a0f-9553-dad98eb599d7",
+    "pack": "character-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:order-of-the-nail",
+    "name": "Order of the Nail",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Favored Weapons",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "77421382-2e1e-5a1e-893b-6a98de69c3fe"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "e81e770c-47c2-5e2f-9da1-421236a0ba83"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Members of the Order of the Nail see civilized society as an ideal and seek to unite all people within their cultural baseline. They also seek to destroy anyone who does not accept Chelaxian culture along with the wild beasts that threaten the safety of civilization."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Lesser Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Trailblazing Stride"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Greater Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Reveal Beasts"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.ub9gwFXnMuKvhnPL"
+    },
+    "data": {}
+  },
+  {
+    "id": "d5eec402-9e38-502c-a7d7-b9b522e052d3",
+    "pack": "character-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:order-of-the-pyre",
+    "name": "Order of the Pyre",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Favored Weapon",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "6b3496fb-d934-53f4-a613-17be4c607bd0"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The Order of the Pyre is dedicated to eliminating those faiths and beliefs they consider to be a threat to the Inner Sea region. They are particularly keen on stamping out dangerous cults."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Lesser Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Righteous Resistance"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Greater Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Spiritual Disruption"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.zGxO2cETUsXuvqRu"
+    },
+    "data": {}
+  },
+  {
+    "id": "d2578664-bcd7-5893-b299-88d222c899c1",
+    "pack": "character-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:order-of-the-rack",
+    "name": "Order of the Rack",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Favored Weapons",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "e38c39d9-c59f-5dd5-9739-8a3b9b5a3eba"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "0eccc9d5-6b58-5835-8101-db0500c0276f"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Members of the Order of the Rack seek to eliminate wastefulness throughout the Inner Sea region. They seek to quash pointless dreams, quell rebellions, and destroy dangerous inventions."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Lesser Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Disillusionment"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Greater Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Silence Heresy"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.lVdfcITy5bkywW5f"
+    },
+    "data": {}
+  },
+  {
+    "id": "c6339921-a342-59ea-9d55-5e1007e95676",
+    "pack": "character-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:order-of-the-scourge",
+    "name": "Order of the Scourge",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Favored Weapons",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "3bac8a5f-c4f9-5194-bf37-27be1f93b3e6"
+          },
+          {
+            "type": "text",
+            "text": ", Scourge, "
+          },
+          {
+            "type": "ref",
+            "id": "0eccc9d5-6b58-5835-8101-db0500c0276f"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Hellknights of the Order of the Scourge hunt those who pervert the law for their own selfish ends. They seek to destroy corruption and those who hide behind unjust laws and bureaucracy."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Lesser Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Fear No Law, Fear No One"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Greater Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Seek Injustice"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.t01K3DB2qHnbt1q3"
+    },
+    "data": {}
+  }
+]

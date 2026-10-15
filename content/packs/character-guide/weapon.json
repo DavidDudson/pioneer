@@ -1,0 +1,493 @@
+[
+  {
+    "id": "c2e26ab9-9135-5805-b41f-a0d9ccc15203",
+    "pack": "character-guide",
+    "kind": "weapon",
+    "slug": "weapon:crimson-brand",
+    "name": "Crimson Brand",
+    "level": 9,
+    "rarity": "uncommon",
+    "traits": ["magical", "two-hand-d12"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These ominous swords are decorated with crimson lacquer and serve as perfect conduits for the Crimson Oath's power. The first was granted to Clarethe Iomedar by a mysterious patron who many Reclaimers believe to be an emissary of Ragathiel."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A crimson brand is a +1 striking "
+          },
+          {
+            "type": "ref",
+            "id": "2ed55af4-0d60-53f9-ad8e-ce9db657b9c0"
+          },
+          {
+            "type": "text",
+            "text": " bastard sword. When the wielder uses the crimson brand to cast "
+          },
+          {
+            "type": "ref",
+            "id": "474b1c35-f0e7-5774-9fd0-52ea10e8ee84"
+          },
+          {
+            "type": "text",
+            "text": ", they can generate a "
+          },
+          {
+            "type": "template",
+            "shape": "line",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": " or a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " instead of the normal "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 20
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whenever the wielder would inflict persistent bleed damage on an undead creature with the "
+          },
+          {
+            "type": "text",
+            "text": "crimson brand",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", they can instead wreathe the creature in ruby energy, inflicting the same amount of persistent vitality damage instead of persistent bleed damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.k5P9YZO4ARlE4By3"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 700
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "bastard-sword",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": ["2ed55af4-0d60-53f9-ad8e-ce9db657b9c0"]
+      }
+    }
+  },
+  {
+    "id": "8a9eb092-77fd-5149-914a-7b13d0b1a965",
+    "pack": "character-guide",
+    "kind": "weapon",
+    "slug": "weapon:radiant-lance",
+    "name": "Radiant Lance",
+    "level": 15,
+    "rarity": "uncommon",
+    "traits": ["deadly-d8", "divine", "fire", "good", "holy", "jousting-d6", "light", "reach"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When wielded in battle, these silver lances blaze with light. A "
+          },
+          {
+            "type": "text",
+            "text": "radiant lance",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater striking ",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "ref",
+            "id": "1c942139-39ff-5ab6-bccc-88a68a1ec2e6"
+          },
+          {
+            "type": "text",
+            "text": " ",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "ref",
+            "id": "161a6329-9809-57d5-9b34-c150d2bfe235"
+          },
+          {
+            "type": "text",
+            "text": " silver lance",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When wielded in battle, the "
+          },
+          {
+            "type": "text",
+            "text": "radiant lance",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " sheds bright light in a 60-foot radius."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "On a hit against an undead creature that is specifically vulnerable to sunlight, the lance bursts with a brilliant flash of light, and that undead must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 35
+          },
+          {
+            "type": "text",
+            "text": " save. If the attack was a critical hit, the undead uses an outcome one degree of success worse than the result of its saving throw."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The undead is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The undead is "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The undead is slowed 1 for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " command, Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You point the lance at a foe and call out, firing a beam with the effects of a 7th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "67633206-076f-520c-b8a2-8d30d756fa26"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:in-combat",
+        "toggleable": true,
+        "display": {
+          "label": "In Combat"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.fLqRH3XpvDZEMxOO"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5750
+        }
+      },
+      "bulk": 2,
+      "material": {
+        "type": "silver",
+        "grade": "standard"
+      },
+      "activations": [
+        {
+          "slug": "radiant-lance",
+          "name": "Radiant Lance",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "spear",
+      "baseItem": "lance",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 2,
+        "property": ["161a6329-9809-57d5-9b34-c150d2bfe235", "1c942139-39ff-5ab6-bccc-88a68a1ec2e6"]
+      }
+    }
+  },
+  {
+    "id": "2f4e6faf-2656-5673-8e26-5b023db806f8",
+    "pack": "character-guide",
+    "kind": "weapon",
+    "slug": "weapon:scrollstaff",
+    "name": "Scrollstaff",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["magical", "two-hand-d8"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A band of pliant wood encircles the head of this slender mahogany staff. The Magaambya created the first "
+          },
+          {
+            "type": "text",
+            "text": "scrollstaves",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " millennia ago, and even the few "
+          },
+          {
+            "type": "text",
+            "text": "scrollstaves",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " found beyond the organization often incorporate Magaambyan iconography as an homage to their source."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "scrollstaff",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " serves as a weapon just like an ordinary staff and can be improved via runes like any other staff. In addition, if you are capable of creating magical scrolls, you can inscribe a single scroll onto the staff's head for the same cost as normal for Crafting the scroll. If necessary, you can embed a required material focus into the staff as part of the same Craft activity. As long as you are holding the staff, you can cast the spell from the staff's head. Casting the written spell works just like casting from a scroll, but you can perform the necessary material component with the staff, even if you don't have a free hand. Once you cast the inscribed spell, any material focus remains embedded in the staff until removed as an Interact action."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The staff can hold only a single scroll at a time. If you inscribe a new scroll before casting the previous spell, you replace the existing spell and remove any previous material focus as part of the Craft activity to write the new scroll."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.WS78LUHzlpeONMRo"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 12
+        }
+      },
+      "bulk": 1,
+      "category": "simple",
+      "group": "club",
+      "baseItem": "staff",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

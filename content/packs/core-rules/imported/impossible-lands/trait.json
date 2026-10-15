@@ -1,0 +1,162 @@
+[
+  {
+    "id": "732473ac-7132-5fe7-a488-b2e520c8fb18",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:drug",
+    "name": "Drug",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "condition", "consumable", "effect"]
+    }
+  },
+  {
+    "id": "b8f13e50-8040-51af-ba9f-a51f59e1400d",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:fleshwarp",
+    "name": "Fleshwarp",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "bc3dadae-650c-5067-bdb5-00d23ae10ec6",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:injection",
+    "name": "Injection",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "a652e7c7-3303-52fd-af34-c97ae59469bd",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:kashrishi",
+    "name": "Kashrishi",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "05748499-af30-51e6-9d63-2fac56792bdf",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:vanara",
+    "name": "Vanara",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "96c37d87-b8b3-533c-9bef-b3b2527ea2a9",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:vishkanya",
+    "name": "Vishkanya",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-lands"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  }
+]
