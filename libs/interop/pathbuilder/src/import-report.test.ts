@@ -160,6 +160,29 @@ describe('buildImportReport: golden fixture against loaded packs', () => {
   });
 });
 
+describe('buildImportReport: kinds Pathbuilder files under feats and class features', () => {
+  const packs = new ContentRegistry();
+  packs.register(
+    new ContentPackBuilder()
+      .withId('howl-of-the-wild')
+      .withAncestry('goloma')
+      .withHeritage('vigilant-goloma', 'goloma')
+      .build(),
+  );
+  const lookup = registryLookup(packs);
+
+  test('a heritage matches as a feat and as a class feature', () => {
+    const report = buildImportReport(
+      [imported(ImportKind.Feat, 'Vigilant Goloma'), imported(ImportKind.ClassFeature, 'Vigilant Goloma')],
+      lookup,
+    );
+    expect(report.groups.flatMap((group) => group.rows.map((row) => row.status))).toStrictEqual([
+      MatchStatus.Matched,
+      MatchStatus.Matched,
+    ]);
+  });
+});
+
 describe('buildImportReport: Mordred against loaded packs', () => {
   const registry = new ContentRegistry();
   registry.register(new ContentPackBuilder().withAncestry('human').build());
