@@ -1,7 +1,7 @@
-import { characterStrikeRules, heldShields, itemContent } from '@pioneer/character/domain';
+import { characterStrikeRules, equippedRules, heldShields, itemContent } from '@pioneer/character/domain';
 import type { Character } from '@pioneer/character/domain';
 import { deriveStrikes } from '@pioneer/rules/engine';
-import type { WeaponInputs } from '@pioneer/rules/engine';
+import type { ModifierInputs, WeaponInputs } from '@pioneer/rules/engine';
 import { OriginHopKind, Selector } from '@pioneer/rules/sdk';
 import type { ContentId, ContentRegistry } from '@pioneer/rules/sdk';
 import { StatisticsMessage } from '@pioneer/rules/ui';
@@ -72,7 +72,9 @@ export function sheetStrikes(
 /** The shields the character holds, by name, with their Hardness, Hit Points and Broken Threshold (`heldShields`). */
 export function sheetShields(registry: ContentRegistry, character: Character): readonly StrikesShield[] {
   const slots = sheetSlotContent(registry);
-  return heldShields(character.document.inventory, itemContent(registry)).map(
+  const items = itemContent(registry);
+  const rules = (): ModifierInputs => equippedRules(character.document, items, slots);
+  return heldShields(character.document.inventory, items, rules).map(
     ({ entry, hardness, hitPoints, brokenThreshold }): StrikesShield => ({
       name: slots.lookup.entry(entry)?.name ?? entry,
       hardness,

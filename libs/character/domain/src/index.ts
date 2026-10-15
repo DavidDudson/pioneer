@@ -314,9 +314,8 @@ export {
   ONE_HAND,
   STOWED,
 } from './item-carry';
+export { type ActiveItem, activeItems } from './active-items';
 export {
-  type ActiveItem,
-  activeItems,
   type EquippedInputs,
   equippedInputs,
   equippedRules,

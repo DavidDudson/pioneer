@@ -640,7 +640,8 @@ FlatModifier` appends the import's rules of the keys named to the committed entr
   `item:slug:longsword`) becomes `strikes`; `traits`, `materials`, `property-runes` and `range-increment` are
   translated. One aimed at a roll domain (`selectors`), and any whose `definition` or `value` is read from a pick or the
   item (`item:id:{item|_id}`, `{item|flags...}`), stay in the backlog. Pioneer's engine reads `Strike` elements;
-  `AdjustStrike` lands typed and is applied to Strikes by a later story, as `ItemAlteration` is.
+  `AdjustStrike` lands typed and is applied to Strikes by a later story. `ItemAlteration` is applied
+  (rules-engine.md, "Item alterations").
 - **Size and traits.** A `CreatureSize` takes its `value` and `maximumSize` as Pioneer names a size (`sm` is `small`,
   `med` `medium`, `lg` `large`, `grg` `gargantuan`) or, as a number, as steps from the current size; `resizeEquipment` and
   `reach` (`override` or `add`) stand. A size or reach read from a pick stays in the backlog. An `ActorTraits` needs no

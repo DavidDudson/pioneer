@@ -250,7 +250,7 @@ export {
   PredicateNumber,
   PredicateStatement,
 } from './predicate';
-export { RollOption } from './roll-option';
+export { RollOption, RollOptionTail } from './roll-option';
 export { NamespaceKind, NamespaceKindSchema, RollOptionNamespace, RollOptionNamespaces } from './roll-option-namespace';
 export { Domain, Selector, SlotKey, ToggleKey } from './selector';
 export { AonUrl, BookId, PageNumber, SourceKind, SourceRef, SourceTitle, WebUrl } from './source-ref';

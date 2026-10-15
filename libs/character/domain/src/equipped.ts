@@ -1,69 +1,40 @@
-import { RuleInPlay } from '@pioneer/rules/engine';
+import { NO_MODIFIERS, RuleInPlay } from '@pioneer/rules/engine';
 import type { ArmorInputs, ModifierInputs, WeaponInputs } from '@pioneer/rules/engine';
 import { resolveGrants } from '@pioneer/rules/grants';
-import type { ContentLookup, GrantEntry, GrantRoot, ToggleSlot } from '@pioneer/rules/grants';
+import type { GrantEntry, GrantRoot, ToggleSlot } from '@pioneer/rules/grants';
 import {
-  Attribute,
   AttributeModifier,
+  CheckPenalty,
   ContentKind,
+  Feet,
+  Hardness,
   HitPoints,
   ItemCount,
   Level,
   Modifier,
-  Origin,
+  NumericItemProperty,
   OriginHopKind,
   RuneGrade,
   SlotKey,
-  Slug,
   slugName,
-  SOURCE_SLUG_MAX,
   Trait,
 } from '@pioneer/rules/sdk';
-import type { BaseWeapon, ContentId, Hardness, ItemState, OriginHop } from '@pioneer/rules/sdk';
+import type { BaseWeapon, ContentId, Origin, Slug } from '@pioneer/rules/sdk';
 
-import { attributeModifiers } from './attribute-boosts';
-import { Encumbrance, inventoryBulk } from './bulk';
+import { activeItems, inventoryHop, itemsIn, originOf } from './active-items';
+import type { ActiveItem } from './active-items';
 import type { CharacterDocument } from './character-document';
 import { conditionRoots } from './conditions';
-import type { Inventory, InventoryItem } from './inventory';
+import { encumberedRoots } from './encumbered-roots';
+import type { Inventory } from './inventory';
 import { activeState, equippedState } from './inventory-content';
-import type { ItemContent, ItemEntry } from './inventory-content';
+import type { ItemContent } from './inventory-content';
+import { alteredItem } from './item-alteration-inputs';
 import { itemRunes, workingPropertyRunes } from './item-runes';
 import { NO_RUNES } from './rune-etching';
 import type { SlotContent } from './slot-offer';
 import { toggleStates } from './toggle-commands';
-
-/** An item that works on the character: its inventory line, its content and how it works (its origin hop's state). */
-export interface ActiveItem {
-  readonly item: InventoryItem;
-  readonly entry: ItemEntry;
-  readonly state: ItemState;
-}
-
-/** How an item is in play: equipped (its physical benefits) or active (its magic). */
-type StateOf = (item: InventoryItem, entry: ItemEntry | undefined) => ItemState | undefined;
-
-function itemsIn(inventory: Inventory, content: ItemContent, stateOf: StateOf): readonly ActiveItem[] {
-  return inventory.items.flatMap((item): ActiveItem[] => {
-    const entry = content.get(item.item);
-    const state = stateOf(item, entry);
-    return entry === undefined || state === undefined ? [] : [{ item, entry, state }];
-  });
-}
-
-/** The items whose magic works on the character, in inventory order (`activeState`). */
-export function activeItems(inventory: Inventory, content: ItemContent): readonly ActiveItem[] {
-  return itemsIn(inventory, content, activeState);
-}
-
-function inventoryHop({ item, state }: ActiveItem): OriginHop {
-  return { kind: OriginHopKind.Inventory, item: item.id, state };
-}
-
-/** Why an active item is on the character: its entry, reached through the inventory. */
-function originOf(active: ActiveItem): Origin {
-  return Origin.parse({ hops: [inventoryHop(active)], entry: active.entry.id, sources: active.entry.sources });
-}
+import { uniqueSlug } from './unique-slug';
 
 /** What the worn armour and held weapons give the statistics. */
 export interface EquippedInputs {
@@ -82,47 +53,38 @@ const CONSUMABLE = Trait.parse('consumable');
  * The worn armour's bonus to AC and Dexterity cap, and while its runes work (it is invested, `activeState`) its
  * potency rune's bonus to AC and resilient rune's to saves.
  */
-function armorInputs(active: ActiveItem | undefined): Pick<EquippedInputs, 'armor' | 'dexterityCap'> {
+function armorInputs(
+  active: ActiveItem | undefined,
+  rules: ModifierInputs,
+): Pick<EquippedInputs, 'armor' | 'dexterityCap'> {
   if (active?.entry.kind !== ContentKind.Armor) {
     return {};
   }
   const { item, entry } = active;
-  const { acBonus, dexCap, checkPenalty, strength } = entry.data;
+  const { numbers } = alteredItem(rules, entry);
+  const acBonus = numbers.get(NumericItemProperty.AcBonus) ?? entry.data.acBonus;
+  const dexCap = numbers.get(NumericItemProperty.DexCap);
+  const checkPenalty = numbers.get(NumericItemProperty.CheckPenalty);
+  const strength = numbers.get(NumericItemProperty.Strength);
   const runes = activeState(item, entry) === undefined ? NO_RUNES : itemRunes(item, entry);
   const armor = {
     bonus: Modifier.parse(acBonus + (runes.potency ?? NO_POTENCY)),
     resilient: runes.resilient,
-    checkPenalty,
-    strength,
+    checkPenalty: checkPenalty === undefined || checkPenalty === 0 ? undefined : CheckPenalty.parse(checkPenalty),
+    strength: strength === undefined ? undefined : AttributeModifier.parse(strength),
     origin: originOf(active),
   };
   return dexCap === undefined ? { armor } : { armor, dexterityCap: AttributeModifier.parse(dexCap) };
-}
-
-/** Room left in a weapon's slug for the `-<n>` that tells two of the same weapon apart. */
-const SUFFIX_ROOM = 4;
-
-/**
- * `name`, or `name-2`, `name-3` for the second and third of the same weapon. A name too long to be a source slug is
- * cut short, leaving room for the count.
- */
-function uniqueSlug(name: Slug, taken: ReadonlySet<Slug>): Slug {
-  if (name.length <= SOURCE_SLUG_MAX && !taken.has(name)) {
-    return name;
-  }
-  const base = name.slice(0, SOURCE_SLUG_MAX - SUFFIX_ROOM).replace(/-+$/u, '');
-  let slug = Slug.parse(base);
-  for (let count = 2; taken.has(slug); count += 1) {
-    slug = Slug.parse(`${base}-${count}`);
-  }
-  return slug;
 }
 
 /**
  * Each held weapon as its Strike reads it: its potency is its rune's, or a bomb's own item bonus, and its striking
  * rune adds damage dice. One whose base the character's deity favours is marked so (ADR-0048).
  */
-function weaponInputs(active: readonly ActiveItem[], favored: ReadonlySet<BaseWeapon>): readonly WeaponInputs[] {
+function weaponInputs(
+  active: readonly ActiveItem[],
+  { favored, rules }: { readonly favored: ReadonlySet<BaseWeapon>; readonly rules: ModifierInputs },
+): readonly WeaponInputs[] {
   const taken = new Set<Slug>();
   return active.flatMap((each): WeaponInputs[] => {
     const { entry } = each;
@@ -133,15 +95,22 @@ function weaponInputs(active: readonly ActiveItem[], favored: ReadonlySet<BaseWe
     taken.add(slug);
     const runes = itemRunes(each.item, entry);
     const potency = runes.potency ?? entry.data.itemBonus;
+    const altered = alteredItem(rules, entry);
+    const range = altered.numbers.get(NumericItemProperty.RangeIncrement);
     return [
       {
         slug,
         category: entry.data.category,
-        traits: entry.traits,
-        range: entry.data.range,
+        traits: altered.traits,
+        materials: altered.materials,
+        propertyRunes: altered.propertyRunes,
+        range: range === undefined ? undefined : Feet.parse(range),
         potency: potency === undefined ? undefined : RuneGrade.parse(potency),
         striking: runes.striking,
-        damage: entry.data.damage,
+        damage:
+          altered.damageType === undefined
+            ? entry.data.damage
+            : { ...entry.data.damage, damageType: altered.damageType },
         splash: entry.data.splash,
         quantity: entry.traits.includes(CONSUMABLE) ? ItemCount.parse(each.item.quantity) : undefined,
         favored: entry.data.baseItem !== undefined && favored.has(entry.data.baseItem),
@@ -151,20 +120,33 @@ function weaponInputs(active: readonly ActiveItem[], favored: ReadonlySet<BaseWe
   });
 }
 
+/** What else shapes the equipment's inputs besides the inventory and its content. */
+export interface EquippedContext {
+  /** The base weapons the character's deity favours (`favoredWeapons`); none when absent. */
+  readonly favored?: ReadonlySet<BaseWeapon>;
+  /**
+   * The rule elements in play, whose `ItemAlteration`s change the equipment (`alteredItem`); none when absent. Asked
+   * for only when armour or a weapon is equipped, as reading them resolves the character's grants.
+   */
+  readonly rules?: () => ModifierInputs;
+}
+
 /**
  * What the character's equipment gives its statistics: the worn armour's bonus and Dexterity cap, and a Strike for
- * each held weapon. These are physical benefits, so an invested-trait item gives them uninvested (`equippedState`).
- * Stowed and dropped items, and items not carried as they are used, give nothing. `favored` are the base weapons the
- * character's deity favours (`favoredWeapons`).
+ * each held weapon, as the `ItemAlteration` elements in play change them. These are physical benefits, so an
+ * invested-trait item gives them uninvested (`equippedState`). Stowed and dropped items, and items not carried as they
+ * are used, give nothing.
  */
 export function equippedInputs(
   inventory: Inventory,
   content: ItemContent,
-  favored: ReadonlySet<BaseWeapon> = new Set(),
+  { favored = new Set(), rules = () => NO_MODIFIERS }: EquippedContext = {},
 ): EquippedInputs {
   const active = itemsIn(inventory, content, equippedState);
   const worn = active.find(({ entry }) => entry.kind === ContentKind.Armor);
-  return { ...armorInputs(worn), weapons: weaponInputs(active, favored) };
+  const altering = active.some(({ entry }) => entry.kind === ContentKind.Armor || entry.kind === ContentKind.Weapon);
+  const inPlay = altering ? rules() : NO_MODIFIERS;
+  return { ...armorInputs(worn, inPlay), weapons: weaponInputs(active, { favored, rules: inPlay }) };
 }
 
 /** A shield the character holds: what the sheet shows beside its Strikes. */
@@ -179,15 +161,23 @@ export interface HeldShield {
 const BROKEN_DIVISOR = 2;
 
 /**
- * Each shield held, in inventory order, with its Hardness, Hit Points and Broken Threshold from its content. A
- * reinforcing rune does not change them yet.
+ * Each shield held, in inventory order, with its Hardness, Hit Points and Broken Threshold from its content, as the
+ * `ItemAlteration` elements in `rules` change them. A reinforcing rune does not change them yet.
  */
-export function heldShields(inventory: Inventory, content: ItemContent): readonly HeldShield[] {
-  return itemsIn(inventory, content, equippedState).flatMap(({ entry }): HeldShield[] => {
+export function heldShields(
+  inventory: Inventory,
+  content: ItemContent,
+  rules: () => ModifierInputs = () => NO_MODIFIERS,
+): readonly HeldShield[] {
+  const shields = itemsIn(inventory, content, equippedState).filter(({ entry }) => entry.kind === ContentKind.Shield);
+  const inPlay = shields.length === 0 ? NO_MODIFIERS : rules();
+  return shields.flatMap(({ entry }): HeldShield[] => {
     if (entry.kind !== ContentKind.Shield) {
       return [];
     }
-    const { hardness, hitPoints } = entry.data;
+    const { numbers } = alteredItem(inPlay, entry);
+    const hardness = Hardness.parse(numbers.get(NumericItemProperty.Hardness) ?? entry.data.hardness);
+    const hitPoints = HitPoints.parse(numbers.get(NumericItemProperty.HitPointsMax) ?? entry.data.hitPoints);
     return [
       {
         entry: entry.id,
@@ -197,28 +187,6 @@ export function heldShields(inventory: Inventory, content: ItemContent): readonl
       },
     ];
   });
-}
-
-/** The encumbered condition, by its name within its kind. */
-const ENCUMBERED = Slug.parse('encumbered');
-
-function conditionNamed(lookup: ContentLookup, name: Slug): ContentId | undefined {
-  return lookup.ofKind(ContentKind.Condition).findLast((entry) => entry.slug === name)?.id;
-}
-
-/**
- * The encumbered condition as a root with a condition hop while the character carries more Bulk than 5 plus its
- * Strength modifier (`inventoryBulk`); none while it doesn't, or while no loaded pack has the condition. The last
- * pack's entry wins, as in the registry.
- */
-function encumberedRoots(document: CharacterDocument, content: ItemContent, slots: SlotContent): readonly GrantRoot[] {
-  const strength = attributeModifiers(document, slots.boosts).get(Attribute.Strength);
-  const { encumbrance } = inventoryBulk(document.inventory, content, strength);
-  const condition = conditionNamed(slots.lookup, ENCUMBERED);
-  if (encumbrance === Encumbrance.Unencumbered || condition === undefined) {
-    return [];
-  }
-  return [{ entry: condition, hop: { kind: OriginHopKind.Condition, condition } }];
 }
 
 /** Whether a resolved entry is in play through the inventory: an active item, or the condition its Bulk brings. */

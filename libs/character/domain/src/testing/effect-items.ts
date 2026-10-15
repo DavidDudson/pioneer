@@ -31,6 +31,19 @@ export const EMBER_BLADE: MagicItemFields & { readonly kind: ContentKind } = {
   ],
 };
 
+/** A worn invested charm whose alterations add 3 to a shield's Hardness and give weapons cold iron, agile and flaming. */
+export const BULWARK_CHARM: MagicItemFields & { readonly kind: ContentKind } = {
+  kind: ContentKind.Equipment,
+  data: { bulk: 'light', usage: { type: 'worn', slot: 'necklace' } },
+  traits: ['invested', 'magical'],
+  rules: [
+    { key: 'ItemAlteration', items: ['item:type:shield'], property: 'hardness', mode: 'add', value: 3 },
+    { key: 'ItemAlteration', items: ['item:type:weapon'], property: 'materials', mode: 'add', value: 'cold-iron' },
+    { key: 'ItemAlteration', items: ['item:type:weapon'], property: 'traits', mode: 'add', value: 'agile' },
+    { key: 'ItemAlteration', items: ['item:type:weapon'], property: 'property-runes', mode: 'add', value: 'flaming' },
+  ],
+};
+
 /** A worn invested charm that gives fast healing 2, 4 temporary Hit Points and one size larger. */
 export const TROLL_CHARM: MagicItemFields & { readonly kind: ContentKind } = {
   kind: ContentKind.Equipment,

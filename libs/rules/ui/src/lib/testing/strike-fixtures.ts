@@ -260,3 +260,20 @@ function longswordDamage(): StrikeDamage {
   }
   return damage;
 }
+
+/** A longsword that item alterations made of cold iron, with the flaming rune and the agile trait. */
+export const ALTERED_STRIKE: readonly NamedStrike[] = [
+  {
+    name: 'Longsword',
+    traits: ['Agile'],
+    strike: {
+      ...strikeOf(0),
+      weapon: {
+        ...strikeOf(0).weapon,
+        traits: [Trait.parse('agile')],
+        materials: [Slug.parse('cold-iron')],
+        propertyRunes: [Slug.parse('flaming')],
+      },
+    },
+  },
+];
