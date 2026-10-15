@@ -1,0 +1,7 @@
+{
+  "name": "shared-bench",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/shared/bench/src",
+  "tags": ["scope:shared", "type:domain", "platform:any"]
+}

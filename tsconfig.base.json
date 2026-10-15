@@ -33,6 +33,7 @@
 
     "types": [],
     "paths": {
+      "@pioneer/shared/bench": ["./libs/shared/bench/src/index.ts"],
       "@pioneer/shared/kernel": ["./libs/shared/kernel/src/index.ts"],
       "@pioneer/shared/kernel/testing": ["./libs/shared/kernel/src/testing/index.ts"],
       "@pioneer/shared/server": ["./libs/shared/server/src/index.ts"],

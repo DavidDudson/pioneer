@@ -1,4 +1,4 @@
-import { describe, expect, test } from 'bun:test';
+import { expect } from 'bun:test';
 
 import { deriveStatistics, LineStatusKind } from '@pioneer/rules/engine';
 import type { RuleInPlay, StatisticContent, StatisticResult } from '@pioneer/rules/engine';
@@ -6,12 +6,11 @@ import { resolveGrants } from '@pioneer/rules/grants';
 import type { GrantInputs, GrantResolution } from '@pioneer/rules/grants';
 import { FIGHTER_CONTENT, inputsOf, LEVEL_20_PICKS, picked, picksOf } from '@pioneer/rules/grants/testing';
 import { Attribute, ContentLicense, ContentPack, Selector, StatisticKind } from '@pioneer/rules/sdk';
+import { benchmark } from '@pioneer/shared/bench';
 
 import { contentOf, core, coreRules, withoutLevel } from './testing/core-rules';
 import { coreNamespaces, LEVEL_20_SITUATION, level20Fighter, level20FighterRules } from './testing/fighter';
 
-const WARMUP_RUNS = 20;
-const TIMED_RUNS = 51;
 /** The budget rules-engine.md sets: a full derivation of a level 20 character in under 10 ms, so the builder can re-derive per keystroke. */
 const BUDGET_MS = 10;
 
@@ -72,22 +71,6 @@ function derive({ content, grantInputs: inputs, rules }: Given): Derivation {
   return { grants, statistics: deriveStatistics(content, level20Fighter, { rules, facts: grants.facts }) };
 }
 
-/**
- * The fastest of `TIMED_RUNS` derivations after a warm-up, in milliseconds. Other work on the machine (CI runs
- * projects in parallel) only ever adds time, so the fastest run is the closest to what derivation itself costs.
- */
-function fastest(run: () => Derivation): number {
-  for (let warm = 0; warm < WARMUP_RUNS; warm += 1) {
-    run();
-  }
-  const times = Array.from({ length: TIMED_RUNS }, (): number => {
-    const start = performance.now();
-    run();
-    return performance.now() - start;
-  });
-  return Math.min(...times);
-}
-
 /** Every status a breakdown line ends in, so the load is known to exercise stacking, predicates and conditions. */
 function lineStatuses(statistics: ReadonlyMap<Selector, StatisticResult>): readonly LineStatusKind[] {
   const kinds = [...statistics.values()].flatMap((result) =>
@@ -100,29 +83,33 @@ function failed(statistics: ReadonlyMap<Selector, StatisticResult>): readonly Se
   return [...statistics].flatMap(([selector, result]) => (result.ok ? [] : [selector]));
 }
 
-describe('level 20 full derivation (bench)', () => {
-  test(`a level 20 Fighter derives grants and every statistic in under ${BUDGET_MS} ms`, () => {
-    const standard = given(core);
-    const { grants, statistics } = derive(standard);
-    expect(grants.errors).toEqual([]);
-    expect(grants.answered).toHaveLength(LEVEL_20_PICKS.length);
-    expect(failed(statistics)).toEqual([]);
-    expect(statistics.has(Selector.parse('strike:shortbow'))).toBe(true);
-    expect(lineStatuses(statistics)).toStrictEqual([
-      LineStatusKind.Applied,
-      LineStatusKind.Conditional,
-      LineStatusKind.Inactive,
-      LineStatusKind.Suppressed,
-    ]);
-    expect(fastest(() => derive(standard))).toBeLessThan(BUDGET_MS);
-  });
+const standard = given(core);
+const { grants, statistics } = derive(standard);
+expect(grants.errors).toEqual([]);
+expect(grants.answered).toHaveLength(LEVEL_20_PICKS.length);
+expect(failed(statistics)).toEqual([]);
+expect(statistics.has(Selector.parse('strike:shortbow'))).toBe(true);
+expect(lineStatuses(statistics)).toStrictEqual([
+  LineStatusKind.Applied,
+  LineStatusKind.Conditional,
+  LineStatusKind.Inactive,
+  LineStatusKind.Suppressed,
+]);
+benchmark({
+  name: 'catalog: level 20 Fighter derives grants and every statistic',
+  budgetMs: BUDGET_MS,
+  prepare: () => standard,
+  run: derive,
+});
 
-  test(`with Proficiency Without Level on and a homebrew pack restating Perception, still under ${BUDGET_MS} ms`, () => {
-    const variant = given(contentOf(coreRules, houseRules), withoutLevel());
-    const { statistics } = derive(variant);
-    expect(failed(statistics)).toEqual([]);
-    // Wisdom +3, master without level +6, and the house rule's +1.
-    expect(statistics.get(Selector.parse('perception'))).toMatchObject({ ok: true, formulaValue: 10 });
-    expect(fastest(() => derive(variant))).toBeLessThan(BUDGET_MS);
-  });
+const variant = given(contentOf(coreRules, houseRules), withoutLevel());
+const variantDerivation = derive(variant);
+expect(failed(variantDerivation.statistics)).toEqual([]);
+// Wisdom +3, master without level +6, and the house rule's +1.
+expect(variantDerivation.statistics.get(Selector.parse('perception'))).toMatchObject({ ok: true, formulaValue: 10 });
+benchmark({
+  name: 'catalog: level 20 Fighter with Proficiency Without Level and a homebrew pack restating Perception',
+  budgetMs: BUDGET_MS,
+  prepare: () => variant,
+  run: derive,
 });

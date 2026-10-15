@@ -17,6 +17,7 @@
     "format:check": "oxfmt --check .",
     "affected": "nx affected -t lint lint-templates typecheck test test-storybook build verify-styles verify-dev-free",
     "test:tools": "bun test tools",
+    "bench": "bun tools/bench.ts",
     "check:messages": "bun tools/check-message-keys.ts",
     "check:components": "bun tools/check-component-coverage.ts",
     "check:contrast": "bun tools/check-token-contrast.ts",

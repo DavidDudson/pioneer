@@ -1,6 +1,7 @@
-import { expect, test } from 'bun:test';
+import { expect } from 'bun:test';
 
 import type { SlotKey } from '@pioneer/rules/sdk';
+import { benchmark } from '@pioneer/shared/bench';
 
 import type { GrantEntry } from './grant-entry';
 import { resolveGrants } from './resolve-grants';
@@ -11,8 +12,6 @@ import { FIGHTER_CONTENT, LEVEL_20_PICKS } from './testing/fighter';
 const FILLER_FEATS = 1000;
 const LEVEL_MAX = 20;
 const TRAITS: readonly string[] = ['fighter', 'rogue', 'wizard', 'general', 'skill', 'human'];
-const WARMUP_RUNS = 20;
-const TIMED_RUNS = 51;
 /** The issue's budget for a level 20 character over real content, within the 10 ms budget for a derivation. */
 const BUDGET_MS = 3;
 
@@ -75,26 +74,12 @@ function inputs(): GrantInputs {
   });
 }
 
-/**
- * The fastest of `times`, in milliseconds. Other work on the machine (CI runs projects in parallel) only ever adds
- * time, so the fastest run is the closest to what resolution itself costs.
- */
-function fastestOf(times: readonly number[]): number {
-  return Math.min(...times);
-}
-
-test(`a level 20 character with every slot picked over ${FILLER_FEATS} more feats resolves in under ${BUDGET_MS} ms`, () => {
-  for (let run = 0; run < WARMUP_RUNS; run += 1) {
-    resolveGrants(inputs());
-  }
-  const times = Array.from({ length: TIMED_RUNS }, (): number => {
-    const given = inputs();
-    const start = performance.now();
-    resolveGrants(given);
-    return performance.now() - start;
-  });
-  const result = resolveGrants(inputs());
-  expect(result.open).toEqual([]);
-  expect(result.answered).toHaveLength(LEVEL_20_PICKS.length + ANCESTRY_PICKS.length);
-  expect(fastestOf(times)).toBeLessThan(BUDGET_MS);
+const result = resolveGrants(inputs());
+expect(result.open).toEqual([]);
+expect(result.answered).toHaveLength(LEVEL_20_PICKS.length + ANCESTRY_PICKS.length);
+benchmark({
+  name: `grants: level 20 character with every slot picked over ${FILLER_FEATS} more feats`,
+  budgetMs: BUDGET_MS,
+  prepare: inputs,
+  run: resolveGrants,
 });
