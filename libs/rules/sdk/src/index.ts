@@ -82,7 +82,7 @@ export { SPELL_RANK_MAX, SpellRank } from './spell-rank';
 export { uniqueItems } from './unique-items';
 export { MagicTradition, MagicTraditionSchema, SpellcastingTraditionData } from './spellcasting-tradition';
 export { FeatCategory, UNLIMITED } from './feat';
-export { ConditionData, ConditionGroup } from './condition';
+export { ConditionData, ConditionEffect, ConditionGroup, ConditionRecovery, ConditionTrigger } from './condition';
 export { ContentKind, ContentKindSchema } from './content-kind';
 export {
   ContentPack,

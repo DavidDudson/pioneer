@@ -1,4 +1,4 @@
-import type { ConditionValue, ContentId, HitPoints } from '@pioneer/rules/sdk';
+import type { ConditionEffect, ConditionValue, ContentId, HitPoints } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
@@ -15,7 +15,7 @@ import type { StaffLimits } from './staff-limits';
  * after its changes were previewed; none is ever applied on its own, such as when the app opens.
  */
 export const RestCommandField = {
-  /** HP (Constitution modifier, at least 1, times level), fatigued removed, drained and doomed down 1. */
+  /** HP (Constitution modifier, at least 1, times level), the conditions the content eases on Rest (fatigued, drained) eased, and doomed down 1. */
   Rest: 'rest',
   /**
    * Spell slots, focus points and per-day uses back, and the staff to prepare, if any, with the slot a prepared caster
@@ -96,11 +96,8 @@ export type RestChange =
       readonly key: SlotCountKey;
     };
 
-/** The conditions Rest eases, by the id the content gives them; undefined while the content has none. */
-export interface RecoveryConditions {
-  readonly fatigued: ContentId | undefined;
-  readonly drained: ContentId | undefined;
-}
+/** What Rest does to each condition the content says it eases, by id: remove it, or lower it by 1. None without content. */
+export type RecoveryConditions = ReadonlyMap<ContentId, ConditionEffect>;
 
 /** What a restoring action reads besides the play state. */
 export interface RestLimits {

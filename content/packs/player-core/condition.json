@@ -585,7 +585,8 @@
       "valued": true,
       "group": "abilities",
       "overrides": [],
-      "implies": []
+      "implies": [],
+      "recovery": { "rest": "lower" }
     }
   },
   {
@@ -863,7 +864,8 @@
     "data": {
       "valued": false,
       "overrides": [],
-      "implies": []
+      "implies": [],
+      "recovery": { "rest": "remove" }
     }
   },
   {

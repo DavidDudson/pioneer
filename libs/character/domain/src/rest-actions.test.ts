@@ -1,6 +1,14 @@
 import { describe, expect, test } from 'bun:test';
 
-import { ConditionValue, ContentId, FocusPoints, HitPoints, Slug, SpellRank } from '@pioneer/rules/sdk';
+import {
+  ConditionEffect,
+  ConditionValue,
+  ContentId,
+  FocusPoints,
+  HitPoints,
+  Slug,
+  SpellRank,
+} from '@pioneer/rules/sdk';
 
 import { ConditionInstanceId, ConditionDurationKind } from './conditions';
 import type { ActiveCondition } from './conditions';
@@ -44,7 +52,10 @@ const COUNTED: CountedMaxima = {
 const LIMITS: PlayLimits = {
   hitPoints: hp(40),
   healing: hp(10),
-  recovery: { fatigued: FATIGUED, drained: DRAINED },
+  recovery: new Map([
+    [FATIGUED, ConditionEffect.Remove],
+    [DRAINED, ConditionEffect.Lower],
+  ]),
   resources: resourceMaxima(FocusPoints.parse(2)),
   counted: COUNTED,
   staff: NO_STAFF,

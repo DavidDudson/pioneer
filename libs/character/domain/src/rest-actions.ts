@@ -1,4 +1,4 @@
-import { ConditionValue, HitPoints } from '@pioneer/rules/sdk';
+import { ConditionEffect, ConditionValue, HitPoints } from '@pioneer/rules/sdk';
 
 import type { ActiveCondition } from './conditions';
 import { Boundary } from './counted-resources';
@@ -69,22 +69,14 @@ interface EasedCondition {
   readonly change: RestChange | undefined;
 }
 
-/** One condition after Rest: gone if fatigued, a point lower if drained (gone at 0), else as it was. */
-function easedCondition(condition: ActiveCondition, { fatigued, drained }: RecoveryConditions): EasedCondition {
-  if (condition.condition === fatigued) {
-    return {
-      kept: [],
-      change: {
-        kind: RestChangeKind.ConditionRemoved,
-        condition: condition.condition,
-      },
-    };
-  }
-  if (condition.condition !== drained) {
+/** One condition after Rest: gone if the content removes it, a point lower if it lowers it (gone at 0), else as it was. */
+function easedCondition(condition: ActiveCondition, recovery: RecoveryConditions): EasedCondition {
+  const effect = recovery.get(condition.condition);
+  if (effect === undefined) {
     return { kept: [condition], change: undefined };
   }
   const value = condition.value ?? ConditionValue.parse(1);
-  if (value <= 1) {
+  if (effect === ConditionEffect.Remove || value <= 1) {
     return {
       kept: [],
       change: {
@@ -104,7 +96,7 @@ function easedCondition(condition: ActiveCondition, { fatigued, drained }: Recov
   };
 }
 
-/** Rest removes fatigued and lowers drained by 1. */
+/** Rest removes or lowers by 1 each condition the content eases on Rest. */
 function withConditionsEased<Play extends RestPlay>(
   outcome: RestOutcome<Play>,
   { recovery }: RestLimits,
@@ -133,7 +125,8 @@ function withDoomedLowered<Play extends RestPlay>(outcome: RestOutcome<Play>): R
 }
 
 /**
- * Rest: heals Constitution modifier (at least 1) times level, removes fatigued, and lowers drained and doomed by 1.
+ * Rest: heals Constitution modifier (at least 1) times level, eases the conditions the content eases on Rest (fatigued
+ * is removed, drained lowered), and lowers doomed by 1.
  * Not idempotent: each rest eases them again.
  */
 export function rested<Play extends RestPlay>(play: Play, limits: RestLimits): RestOutcome<Play> {

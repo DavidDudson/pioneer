@@ -232,13 +232,13 @@ export class ContentPackBuilder {
 
   /**
    * A condition slugged `condition:<name>`, with `rules` as JSON: what it does to statistics. It carries no value
-   * unless `valued` (Clumsy 1).
+   * unless `valued` (Clumsy 1), and recovers as `recovery` says.
    */
-  public withCondition(name: string, rules: readonly object[] = [], { valued = false }: ConditionFields = {}): this {
+  public withCondition(name: string, rules: readonly object[] = [], fields: ConditionFields = {}): this {
     this.#entries.push({
       kind: ContentKind.Condition,
       name,
-      data: { valued, overrides: [], implies: [] },
+      data: { valued: false, overrides: [], implies: [], recovery: {}, ...fields },
       rules,
     });
     return this;

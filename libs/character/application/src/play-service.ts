@@ -31,10 +31,10 @@ import {
   NO_RESOURCES,
   PLAY_COMMANDS,
   PlayCommandField,
-  RECOVERY_CONDITIONS,
   ConditionProblem,
   resourceMaxima,
   restHealing,
+  restRecovery,
   slotContent,
 } from '@pioneer/character/domain';
 import type {
@@ -46,6 +46,7 @@ import type {
   EffectContent,
   PlayCommand,
   PlayLimits,
+  RecoveryConditions,
   SlotContent,
   PlayState,
   ResourceMaxima,
@@ -67,6 +68,15 @@ const NO_MAX_HIT_POINTS = HitPoints.parse(0);
 
 /** The condition content handed to edits that don't read it. */
 const NO_VALUED: ConditionValued = new Map();
+
+/** What Rest reads from the build and the content. */
+interface RestContent {
+  readonly healing: HitPoints;
+  readonly recovery: RecoveryConditions;
+}
+
+/** The Rest content handed to edits that don't read it. */
+const NO_REST: RestContent = { healing: NO_MAX_HIT_POINTS, recovery: new Map() };
 
 /** The message each refused effect edit answers with. */
 const EFFECT_MESSAGES = {
@@ -147,11 +157,11 @@ export class PlayService {
     checkCondition(play, command, valued);
     const effects = needsEffectContent(command) ? await this.#effects(character) : NO_EFFECTS;
     checkEffect(play, command, effects);
-    const healing = needsRestContent(command) ? await this.#healing(character) : NO_MAX_HIT_POINTS;
+    const { healing, recovery } = needsRestContent(command) ? await this.#rest(character) : NO_REST;
     const limits: PlayLimits = {
       hitPoints,
       healing,
-      recovery: RECOVERY_CONDITIONS,
+      recovery,
       resources,
       counted,
       staff,
@@ -196,6 +206,12 @@ export class PlayService {
     const registry = await this.#contentOf(character).registry();
     const slots = await this.#slotContent(character, registry);
     return restHealing(characterStatisticInputs(registry, character.document, slots));
+  }
+
+  /** What Rest heals, and what it does to the conditions the character's content eases on Rest. */
+  async #rest(character: Character): Promise<RestContent> {
+    const registry = await this.#contentOf(character).registry();
+    return { healing: await this.#healing(character), recovery: restRecovery(registry) };
   }
 
   /** Which conditions the server's content has, and which carry a value. */

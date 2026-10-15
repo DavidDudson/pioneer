@@ -63,7 +63,7 @@ in its `rules`, not repeated in `data`; a condition's `implies` is the one excep
 
 | Kind           | `data`                                                                                                                                                                                                                             |
 | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `condition`    | `valued`; `group?`, Foundry's sheet grouping, which says nothing about stacking; `overrides`; `implies`                                                                                                                            |
+| `condition`    | `valued`; `group?`, Foundry's sheet grouping, which says nothing about stacking; `overrides`; `implies`; `recovery?`                                                                                                               |
 | `action`       | `cost?`; `upTo?`; `skills?`; `minimumProficiency?`; `category?`; `modes?`; `universal?`; `requirements?`, a predicate; `requirementsText?` and `trigger?` as rich text; `triggerEvent?`; `autoApply?`; `frequency?`; `selfEffect?` |
 | `damage-type`  | none yet; a type's group stays in `DAMAGE_GROUP_TYPES`, as Foundry keeps it in code                                                                                                                                                |
 | `sense`        | `acuity?`, the acuity the sense always has; `unlimitedRange?` (darkvision)                                                                                                                                                         |
@@ -73,7 +73,10 @@ in its `rules`, not repeated in `data`; a condition's `implies` is the one excep
 
 - `condition`: `valued` says whether it takes a value (Frightened 2) or not (Blinded). `group` is one of
   `abilities`, `attitudes`, `death`, `detection`, `senses`. `overrides` lists the conditions it replaces
-  (Blinded overrides Dazzled), and is how conditions exclude each other. `overrides` and `implies` are `ContentId[]`.
+  (Blinded overrides Dazzled), and is how conditions exclude each other. `overrides` and `implies` are `ContentId[]`. `recovery` maps a trigger
+  (`rest`) to what it does to the condition: `remove` ends it, `lower` takes its value down by 1 (it ends at 0). Fatigued
+  is `{ rest: remove }` and Drained `{ rest: lower }`; a pack gives a recovery condition of its own the same way. Absent
+  means only an edit or its own duration ends the condition.
 - `action`: `cost` is an `action-cost` glyph, absent for a passive ability. `upTo` makes the cost variable, the user
   picking how many: a count above a `one`, `two` or `three` cost, at most six, as an activity can span two turns.
   `skills` are the skills it uses, by selector (`skill:athletics`). `frequency` is `max` uses `per` turn, round,

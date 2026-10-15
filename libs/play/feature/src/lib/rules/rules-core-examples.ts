@@ -38,7 +38,7 @@ export const grabbed = {
     { key: 'GrantItem', item: offGuard },
     { key: 'GrantItem', item: immobilized },
   ],
-  data: { valued: false, overrides: [], implies: [offGuard, immobilized] },
+  data: { valued: false, overrides: [], implies: [offGuard, immobilized], recovery: {} },
 };
 
 export const aid = {

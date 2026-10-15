@@ -20,8 +20,14 @@ import {
 
 describe('translateKindData: condition values', () => {
   test('valued, and group when Foundry sets one', () => {
-    expect(dataOf([FRIGHTENED], 'frightened')).toEqual({ valued: true, overrides: [], implies: [] });
-    expect(dataOf([DAZZLED], 'dazzled')).toEqual({ valued: false, group: 'senses', overrides: [], implies: [] });
+    expect(dataOf([FRIGHTENED], 'frightened')).toEqual({ valued: true, overrides: [], implies: [], recovery: {} });
+    expect(dataOf([DAZZLED], 'dazzled')).toEqual({
+      valued: false,
+      group: 'senses',
+      overrides: [],
+      implies: [],
+      recovery: {},
+    });
   });
 
   test("a system not shaped as a condition's is reported as invalid data", () => {
@@ -36,7 +42,12 @@ describe('translateKindData: condition values', () => {
   test('an unknown group is reported and left out', () => {
     const translation = translate([condition('qqqqqqqqqqqqqqqq', 'Odd', { group: 'moods' })]);
 
-    expect(entryOf(translation, 'odd')?.kindData?.data).toEqual({ valued: false, overrides: [], implies: [] });
+    expect(entryOf(translation, 'odd')?.kindData?.data).toEqual({
+      valued: false,
+      overrides: [],
+      implies: [],
+      recovery: {},
+    });
     expect(gapsOf(translation)).toContainEqual({
       reason: KindDataGapReason.UnmappedValue,
       field: 'group',

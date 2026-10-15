@@ -321,7 +321,7 @@ The actions sit in the Rest and preparations section of the Downtime tab. Choosi
 (nothing, when there is nothing to), and confirming applies it as one command. Each runs only when the player chooses
 it: opening the app or the sheet never starts a session or a rest. Daily preparations restores spell slots, focus
 points and the uses that reset each day; prepared spells, staff charges and re-investing items join it in their own
-stories. Rest gives back Hit Points, fatigued, drained and doomed; the uses that reset by the minute, ten minutes or
+stories. Rest gives back Hit Points, eases the conditions whose content says Rest recovers them (fatigued, drained) and lowers doomed; the uses that reset by the minute, ten minutes or
 hour come back with the item frequencies story.
 
 ### Staves and charged items
