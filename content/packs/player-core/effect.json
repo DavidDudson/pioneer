@@ -6655,6 +6655,53 @@
         "display": {
           "label": "Jaws"
         }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "animal-feature",
+        "choices": [
+          {
+            "value": "cat-eyes",
+            "label": "Cat Eyes"
+          },
+          {
+            "value": "claw",
+            "label": "Claw"
+          },
+          {
+            "value": "jaws",
+            "label": "Jaws"
+          },
+          {
+            "value": "fish-tail",
+            "label": "Fish Tail",
+            "predicate": [
+              {
+                "gte": ["item:level", 4]
+              }
+            ]
+          },
+          {
+            "value": "owl-eyes",
+            "label": "Owl Eyes",
+            "predicate": [
+              {
+                "gte": ["item:level", 4]
+              }
+            ]
+          },
+          {
+            "value": "wings",
+            "label": "Wings",
+            "predicate": [
+              {
+                "gte": ["item:level", 4]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select a feature.",
+        "rollOption": "animal-feature"
       }
     ],
     "externalIds": {
@@ -17418,7 +17465,57 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "material",
+        "choices": [
+          {
+            "value": "adamantine",
+            "label": "Adamantine",
+            "predicate": [
+              {
+                "gte": ["item:level", 8]
+              }
+            ]
+          },
+          {
+            "value": "cold-iron",
+            "label": "Cold Iron"
+          },
+          {
+            "value": "copper",
+            "label": "Copper"
+          },
+          {
+            "value": "dawnsilver",
+            "label": "Dawnsilver",
+            "predicate": [
+              {
+                "gte": ["item:level", 8]
+              }
+            ]
+          },
+          {
+            "value": "gold",
+            "label": "Gold"
+          },
+          {
+            "value": "iron",
+            "label": "Iron"
+          },
+          {
+            "value": "silver",
+            "label": "Silver"
+          },
+          {
+            "value": "steel",
+            "label": "Steel"
+          }
+        ],
+        "rollOption": "precious-metals:material"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.vf2KJ4oGJY4efnKE"
     },
