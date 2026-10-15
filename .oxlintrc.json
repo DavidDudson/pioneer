@@ -313,8 +313,13 @@
       }
     },
     {
-      // Bun tests import from bun:test, which the vitest plugin does not recognise.
-      "files": ["**/*.test.ts"],
+      // A benchmark builds its input from the testing barrels and is full of the sizes it measures, as a test is.
+      "files": ["**/*.bench.ts"],
+      "rules": { "pioneer/no-magic-numbers": "off", "eslint/max-lines-per-function": "off" }
+    },
+    {
+      // Bun tests and benchmarks import from bun:test, which the vitest plugin does not recognise.
+      "files": ["**/*.test.ts", "**/*.bench.ts"],
       "rules": { "vitest/prefer-importing-vitest-globals": "off", "vitest/prefer-describe-function-title": "off" }
     },
     {
@@ -329,9 +334,9 @@
       "rules": { "vitest/no-conditional-in-test": "off" }
     },
     {
-      // Tests and testing helpers may import testing barrels. Oxlint replaces a rule's options per
+      // Tests, benchmarks and testing helpers may import testing barrels. Oxlint replaces a rule's options per
       // override, so the `paths` list above is repeated here without the testing patterns.
-      "files": ["**/*.test.ts", "**/*.spec.ts", "**/testing/**"],
+      "files": ["**/*.test.ts", "**/*.spec.ts", "**/*.bench.ts", "**/testing/**"],
       "rules": {
         "eslint/no-restricted-imports": [
           "error",
@@ -379,7 +384,9 @@
         "tools/content-import/main.ts",
         "tools/enrich-prerequisites.ts",
         "tools/enrich-staves.ts",
-        "tools/enrich-triggers.ts"
+        "tools/enrich-triggers.ts",
+        "tools/bench.ts",
+        "libs/shared/bench/src/bench.ts"
       ],
       "rules": { "eslint/no-console": "off" }
     },

@@ -1,0 +1,80 @@
+name: Benchmarks
+
+# The suite (`bun run bench`, docs/benchmarks.md) on every push to main, recording each benchmark's fastest run to the
+# history on GitHub Pages (`gh-pages` branch, `dev/bench`), and on pull requests that touch code, comparing against
+# that history. A benchmark more than 1.5 times its main baseline comments on the commit and fails the check.
+on:
+  pull_request:
+    paths:
+      - 'apps/**'
+      - 'libs/**'
+      - 'tools/bench*'
+      - 'bun.lock'
+      - 'tsconfig.base.json'
+      - '.github/workflows/bench.yml'
+  push:
+    branches: [main]
+
+permissions: {}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  # A push to main records history, so none is dropped; a superseded pull request run is not worth finishing.
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  bench:
+    name: Benchmarks
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      # Pushes the history to gh-pages on main, and comments on the commit of a regression.
+      contents: write
+    defaults:
+      run:
+        # Same toolchain as local: every step runs inside the flake devshell.
+        shell: nix develop --command bash -euo pipefail {0}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: cachix/install-nix-action@13d8dd58da0234aa297dedd986986ccb8e7f3e24 # v31.11.1
+        with:
+          github_access_token: ${{ github.token }}
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/.bun/install/cache
+          key: bun-${{ runner.os }}-${{ hashFiles('bun.lock') }}
+      - name: Install
+        run: bun install --frozen-lockfile
+      - name: Run benchmarks
+        id: bench
+        # A budget over fails the run, but only after the results are written: the tracker below still records and
+        # compares them, and the last step fails the job.
+        continue-on-error: true
+        run: |
+          bun run bench --out tmp/bench-results.json --summary tmp/bench-summary.md
+          {
+            echo '## Benchmarks'
+            cat tmp/bench-summary.md
+          } >> "$GITHUB_STEP_SUMMARY"
+      - name: Track results
+        uses: benchmark-action/github-action-benchmark@4322e5726e6334590d251fc4f92bec0efafc45dc # v1.22.2
+        with:
+          name: Pioneer benchmarks
+          tool: customSmallerIsBetter
+          output-file-path: tmp/bench-results.json
+          gh-pages-branch: gh-pages
+          benchmark-data-dir-path: dev/bench
+          github-token: ${{ github.token }}
+          # Only main writes history; a pull request reads it as the baseline.
+          auto-push: ${{ github.event_name == 'push' }}
+          alert-threshold: '150%'
+          comment-on-alert: true
+          fail-on-alert: true
+          summary-always: true
+      - name: Fail on a budget
+        if: steps.bench.outcome == 'failure'
+        run: |
+          echo 'A benchmark is over its budget; see the Run benchmarks step.' >&2
+          exit 1

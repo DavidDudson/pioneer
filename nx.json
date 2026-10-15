@@ -6,6 +6,7 @@
     "production": [
       "default",
       "!{projectRoot}/**/*.{spec,test}.ts",
+      "!{projectRoot}/**/*.bench.ts",
       "!{projectRoot}/tsconfig.spec.json",
       "!{projectRoot}/**/*.stories.@(js|jsx|ts|tsx|mdx)",
       "!{projectRoot}/.storybook/**/*"
