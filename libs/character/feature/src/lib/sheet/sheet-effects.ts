@@ -117,6 +117,11 @@ export function steppedView(view: EffectView, up: boolean): EffectBadgeValue | u
     : steppedBadge(view.counter, view.badge, up);
 }
 
+/** Whether `formula` is a plain dice expression that `rollBadge` can roll. */
+export function canRollBadge(formula: DamageFormula): boolean {
+  return parseDiceExpression(DiceExpressionText.parse(formula)).ok;
+}
+
 /**
  * What a formula badge rolls when the effect is applied. A formula that reads the character (`@attr.str`) is not a
  * plain dice expression, so it is not rolled here and the effect cannot be applied yet.

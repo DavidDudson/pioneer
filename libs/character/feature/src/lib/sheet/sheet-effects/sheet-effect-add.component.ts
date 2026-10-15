@@ -15,7 +15,7 @@ import { RANDOM_SOURCE } from '@pioneer/play/ui';
 import { ContentId } from '@pioneer/rules/sdk';
 import { newId } from '@pioneer/shared/kernel';
 
-import { rollBadge } from '../sheet-effects';
+import { canRollBadge, rollBadge } from '../sheet-effects';
 import type { EffectOption } from '../sheet-effects';
 
 /** The message each source of an effect is worded with. */
@@ -62,7 +62,8 @@ export class SheetEffectAdd {
   );
   protected readonly canAdd = computed((): boolean => {
     const option = this.pickedOption();
-    return option !== undefined && (!this.isAlly() || this.allyName().trim() !== '');
+    const rollable = option?.formula === undefined || canRollBadge(option.formula);
+    return option !== undefined && rollable && (!this.isAlly() || this.allyName().trim() !== '');
   });
 
   protected readonly setSource = (kind: EffectSourceKind | undefined): void => {

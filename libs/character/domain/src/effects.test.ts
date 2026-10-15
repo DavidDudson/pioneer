@@ -153,7 +153,7 @@ describe('effect commands', () => {
   });
 
   test('setEffectRemaining and setEffectBadge change that instance', () => {
-    const start = applyPlayCommand(FRESH_PLAY, apply(FIRST, STANCE), LIMITS);
+    const start = applyPlayCommand(FRESH_PLAY, apply(FIRST, HEROISM), LIMITS);
     const timed = applyPlayCommand(
       start,
       { field: EffectCommandField.SetEffectRemaining, id: FIRST, remaining: EffectRounds.parse(4) },
@@ -165,6 +165,16 @@ describe('effect commands', () => {
       LIMITS,
     );
     expect(stepped.effects[0]).toMatchObject({ remaining: 4, badge: 2 });
+  });
+
+  test('setEffectRemaining leaves an effect that has no clock alone', () => {
+    const start = applyPlayCommand(FRESH_PLAY, apply(FIRST, STANCE), LIMITS);
+    const after = applyPlayCommand(
+      start,
+      { field: EffectCommandField.SetEffectRemaining, id: FIRST, remaining: EffectRounds.parse(4) },
+      LIMITS,
+    );
+    expect(after.effects[0]?.remaining).toBeUndefined();
   });
 });
 

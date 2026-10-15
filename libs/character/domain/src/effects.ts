@@ -174,7 +174,7 @@ export function effectContent(registry: ContentRegistry): EffectContent {
 
 /**
  * The effects as roots of the effective set, each behind an effect hop, so their modifiers show in breakdowns until
- * they end. An instance's rule elements read its badge as `item.badge.value`.
+ * they end. The hop carries no badge yet, so a badge changes what the sheet shows but not what the effect grants.
  */
 export function effectRoots(effects: readonly ActiveEffect[]): readonly GrantRoot[] {
   return effects.map(({ effect }) => ({ entry: effect, hop: { kind: OriginHopKind.Effect, effect } }));

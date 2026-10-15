@@ -128,7 +128,9 @@ export function applyEffectCommand(
       return effects.filter(({ id }) => id !== command.id);
     }
     case EffectCommandField.SetEffectRemaining: {
-      return effects.map((each) => (each.id === command.id ? { ...each, remaining: command.remaining } : each));
+      return effects.map((each) =>
+        each.id === command.id && each.remaining !== undefined ? { ...each, remaining: command.remaining } : each,
+      );
     }
     case EffectCommandField.SetEffectBadge: {
       return effects.map((each) => (each.id === command.id ? { ...each, badge: command.value } : each));
