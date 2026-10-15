@@ -1,0 +1,1268 @@
+[
+  {
+    "id": "38236b11-3476-52bd-89c6-3964ec6ca46b",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:additive1",
+    "name": "Additive 1",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "equipment", "feat"]
+    }
+  },
+  {
+    "id": "176ca243-61cf-561d-a079-560af42ad711",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:adjusted",
+    "name": "Adjusted",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["armor", "equipment", "weapon"]
+    }
+  },
+  {
+    "id": "2b2cedfd-8546-5b77-89ec-dd225592ccf2",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:adjustment",
+    "name": "Adjustment",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["equipment"]
+    }
+  },
+  {
+    "id": "c103d94a-0f9e-542f-b234-3c8f9fa8a79e",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:aquadynamic",
+    "name": "Aquadynamic",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["armor"]
+    }
+  },
+  {
+    "id": "7daacf64-7eb7-58eb-b398-130200bfd17e",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:brace",
+    "name": "Brace",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "8249ddee-963e-5640-bcb7-f20c1d5446c4",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:capacity-2",
+    "name": "Capacity 2",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "276da042-ce62-5966-9e9f-726c6490878a",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:capacity-3",
+    "name": "Capacity 3",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "ea401399-ad90-5687-9361-08556e4c2efc",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:capacity-4",
+    "name": "Capacity 4",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "a8063626-b5ad-58dd-ba75-a16d158dd1fd",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:catalyst",
+    "name": "Catalyst",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "consumable"]
+    }
+  },
+  {
+    "id": "51818999-4578-5b8d-a387-ab010a50a4bf",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:clockwork",
+    "name": "Clockwork",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry", "armor", "consumable", "creature", "equipment", "heritage", "weapon"]
+    }
+  },
+  {
+    "id": "6830859b-da90-5133-b2ea-398eeb4068c3",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:coda",
+    "name": "Coda",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["equipment"]
+    }
+  },
+  {
+    "id": "df6fe748-f98c-5a1e-a2a1-a22babed99a4",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:combination",
+    "name": "Combination",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "58a505e4-11a4-56c7-9a62-f73844f296d8",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:concussive",
+    "name": "Concussive",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "ce19e53a-5e40-53dd-a533-11de1d4d3245",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:contact",
+    "name": "Contact",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "condition", "consumable", "effect"]
+    }
+  },
+  {
+    "id": "f5c3b41f-ab0f-57a9-97cb-ff193e7dc079",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:deadly-d12",
+    "name": "Deadly d12",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "308405d9-9ffc-5eb6-8413-f4a833c95077",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:deflecting-bludgeoning",
+    "name": "Deflecting Bludgeoning",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["shield"]
+    }
+  },
+  {
+    "id": "1a0c6cce-c4ed-51d0-b384-0cbd137c214d",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:deflecting-physical-ranged",
+    "name": "Deflecting Physical Ranged",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["shield"]
+    }
+  },
+  {
+    "id": "9ff2aa4a-555e-5c9c-9314-5834cf24bcdd",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:deflecting-slashing",
+    "name": "Deflecting Slashing",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["shield"]
+    }
+  },
+  {
+    "id": "a25f3e0c-7e90-5d79-a6ff-a82cdb461ef9",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:entrench-melee",
+    "name": "Entrench Melee",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["armor"]
+    }
+  },
+  {
+    "id": "044dd157-d0d7-5c02-afe4-fc9b92c5e2d1",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:entrench-ranged",
+    "name": "Entrench Ranged",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["armor"]
+    }
+  },
+  {
+    "id": "71cbd20e-b4e7-548b-bdf7-195dc0d4bf4e",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:fatal-aim-d12",
+    "name": "Fatal Aim d12",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "ec5ca8af-96ac-56aa-b462-01b9e5468806",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:foldaway",
+    "name": "Foldaway",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["shield"]
+    }
+  },
+  {
+    "id": "d7c891f1-fc68-5e88-bc2a-141edc970ead",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:fulu",
+    "name": "Fulu",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "consumable", "equipment"]
+    }
+  },
+  {
+    "id": "db7bceab-cfa0-5045-aa54-c69f6e1174b6",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:grimoire",
+    "name": "Grimoire",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["equipment"]
+    }
+  },
+  {
+    "id": "20000764-3739-59dc-b40a-39b940bae135",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:harnessed",
+    "name": "Harnessed",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["shield"]
+    }
+  },
+  {
+    "id": "0978e88d-12bc-5aa3-b73f-9e073f95fa7e",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:hefty-2",
+    "name": "Hefty 2",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["shield"]
+    }
+  },
+  {
+    "id": "41a3d7c8-bfde-58ad-aacb-1e8e44e5e4c6",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:hindering",
+    "name": "Hindering",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["armor"]
+    }
+  },
+  {
+    "id": "1b091c58-2c59-5a5e-a32b-2fda156a82c1",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:hobgoblin",
+    "name": "Hobgoblin",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "97ab1655-ad75-5a11-9dd1-051ad2fb420d",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:incorporeal",
+    "name": "Incorporeal",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "condition",
+        "consumable",
+        "creature",
+        "effect",
+        "equipment",
+        "feat",
+        "heritage",
+        "ritual",
+        "spell"
+      ]
+    }
+  },
+  {
+    "id": "1c7437b2-de6b-5c22-92a9-3aab382b9a2d",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:ingested",
+    "name": "Ingested",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "condition", "consumable", "effect"]
+    }
+  },
+  {
+    "id": "03765649-d54e-5867-b3f5-caca81fa49b9",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:inhaled",
+    "name": "Inhaled",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry-feature",
+        "class-feature",
+        "condition",
+        "consumable",
+        "effect",
+        "feat",
+        "ritual",
+        "spell",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "f8429031-2e43-5dc5-ae86-b75c9c9d5e2c",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:injury",
+    "name": "Injury",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "condition", "consumable", "effect", "feat"]
+    }
+  },
+  {
+    "id": "9239ce8c-2a0d-5df4-9791-0627bd3f10f7",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:inscribed",
+    "name": "Inscribed",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["armor", "shield"]
+    }
+  },
+  {
+    "id": "df4ecc62-32b3-5ee3-94b8-84b44004c6d2",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:integrated-1d6-s",
+    "name": "Integrated 1d6 S",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["shield"]
+    }
+  },
+  {
+    "id": "dc9d203d-c0ea-539c-9a59-e5f51bcd68b1",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:integrated-1d6-s-versatile-p",
+    "name": "Integrated 1d6 S (Versatile P)",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["shield"]
+    }
+  },
+  {
+    "id": "cee41e9d-88bf-50f2-8f20-dba346e13553",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:kickback",
+    "name": "Kickback",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "39380bd4-1c05-5e99-9db3-c9d18bd8b835",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:kobold",
+    "name": "Kobold",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "consumable",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "b8ab22b1-5031-50b2-9e6f-522ad74ec738",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:laminar",
+    "name": "Laminar",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["armor"]
+    }
+  },
+  {
+    "id": "89a35399-ecf5-5579-8035-9b5a1cb4f417",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:launching-dart",
+    "name": "Launching",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["shield"]
+    }
+  },
+  {
+    "id": "c164e8d5-efcb-58e0-9bf6-8c5b892ea43b",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:lozenge",
+    "name": "Lozenge",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "consumable"]
+    }
+  },
+  {
+    "id": "834986bd-2e19-5832-bae0-f2eef706a269",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:mechanical",
+    "name": "Mechanical",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "condition", "consumable", "effect", "equipment"]
+    }
+  },
+  {
+    "id": "8888795b-f16e-5d9c-84ef-69df2d65c091",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:missive",
+    "name": "Missive",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "consumable"]
+    }
+  },
+  {
+    "id": "39a2bb4e-9f21-5a02-b473-6474f634508d",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:modular",
+    "name": "Modular",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "dbe97855-7818-5afb-8a62-f50fd58b3efe",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:mutagen",
+    "name": "Mutagen",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "consumable"]
+    }
+  },
+  {
+    "id": "e765791c-8cca-5969-9a9d-968b3c4d4949",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:ponderous",
+    "name": "Ponderous",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["armor"]
+    }
+  },
+  {
+    "id": "e92d467d-33aa-520d-95c5-2e322a6b5430",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:processed",
+    "name": "Processed",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "consumable"]
+    }
+  },
+  {
+    "id": "776dacd7-b25c-5c24-95fc-2b215fa402d4",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:razing",
+    "name": "Razing",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "7ba3a65d-a68c-5b3b-b32e-909f7770c0c8",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:recovery",
+    "name": "Recovery",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "57ca8c3a-aa96-5084-8c34-f2947b396ee2",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:repeating",
+    "name": "Repeating",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "d43a48ac-d2f4-588c-bcb0-31d7c748118d",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:scatter-10",
+    "name": "Scatter 10",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "4920567c-2ded-5a5f-9e12-6c03685750ae",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:shield-throw-20",
+    "name": "Shield Throw 20 ft",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["shield"]
+    }
+  },
+  {
+    "id": "c1ba88bd-15c6-5e3c-a6df-ebe74c6c9683",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:shield-throw-30",
+    "name": "Shield Throw 30 ft",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["shield"]
+    }
+  },
+  {
+    "id": "cb09ae8f-e123-55b1-a79b-f89feeae9507",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:spellgun",
+    "name": "Spellgun",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "consumable", "equipment"]
+    }
+  },
+  {
+    "id": "d9235e95-fa10-526b-80ee-31f9d8c7cd06",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:spellheart",
+    "name": "Spellheart",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["equipment"]
+    }
+  },
+  {
+    "id": "9e77788d-a629-571e-8e10-1f47528477bc",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:tattoo",
+    "name": "Tattoo",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["equipment"]
+    }
+  },
+  {
+    "id": "6dd71bd7-9b01-552b-a943-390a35682986",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:tethered",
+    "name": "Tethered",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "f796b0f9-2da9-592b-8672-c3aa8e1e0c40",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:training",
+    "name": "Training",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "0cbae9b7-7a63-514e-b06c-96139f60c3f7",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:unarmed",
+    "name": "Unarmed",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "4d4532c2-20b3-57fe-b86d-a9ec9c22cad8",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:vehicular",
+    "name": "Vehicular",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "a7e7cdcb-4fd9-5065-881c-dc1d32778c73",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:virulent",
+    "name": "Virulent",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "condition", "consumable", "effect", "feat"]
+    }
+  },
+  {
+    "id": "de0a5c1f-29f9-5183-aa4d-e77a0f2417f7",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:volley-20",
+    "name": "Volley 20 ft.",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "weapon"]
+    }
+  }
+]

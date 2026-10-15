@@ -21,7 +21,7 @@ const CONCURRENT_MIGRATIONS = 3;
 const MIGRATION_DELAY = 2;
 const LISTENING = /listening on :(?<port>\d+)/u;
 /** The official packs, as the content seed stores them. */
-const OFFICIAL_PACKS = ['core-rules', 'divine-mysteries', 'gm-core', 'monster-core', 'player-core'];
+const OFFICIAL_PACKS = ['core-rules', 'divine-mysteries', 'gm-core', 'monster-core', 'player-core', 'treasure-vault'];
 
 const JournalEntry = z.object({ tag: z.string() });
 const Journal = z.object({ entries: z.array(JournalEntry) });

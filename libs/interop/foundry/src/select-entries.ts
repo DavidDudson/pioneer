@@ -17,6 +17,10 @@ export const FOUNDRY_BOOK_TITLES: ReadonlyMap<string, BookId> = new Map([
   ['Pathfinder Lost Omens Divine Mysteries', BookId.parse('divine-mysteries')],
   // The book's free online supplement, filed under the book.
   ['Pathfinder Lost Omens Divine Mysteries Web Supplement', BookId.parse('divine-mysteries')],
+  ['Pathfinder Treasure Vault (Remastered)', BookId.parse('treasure-vault')],
+  // Two entries carry the title with a leading space, and 42 the pre-remaster title while flagged remaster.
+  [' Pathfinder Treasure Vault (Remastered)', BookId.parse('treasure-vault')],
+  ['Pathfinder Treasure Vault', BookId.parse('treasure-vault')],
 ]);
 
 /** Why a document in an item pack is not imported, in the order selection checks. */

@@ -20,6 +20,7 @@ const coreRules = PackId.parse('core-rules');
 const playerCore = PackId.parse('player-core');
 const monsterCore = PackId.parse('monster-core');
 const divineMysteries = PackId.parse('divine-mysteries');
+const treasureVault = PackId.parse('treasure-vault');
 const gmCore = PackId.parse('gm-core');
 const humanId = AncestryId.parse(contentId(playerCore, EntrySlug.parse('ancestry:human')));
 const zombieId = CreatureId.parse(contentId(monsterCore, EntrySlug.parse('creature:zombie-shambler')));
@@ -34,6 +35,7 @@ describe('content catalog', () => {
       gmCore,
       monsterCore,
       playerCore,
+      treasureVault,
     ]);
     const human = registry.ancestry(humanId);
     expect(human?.definition.hitPoints).toBe(HitPoints.parse(8));

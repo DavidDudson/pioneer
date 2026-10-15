@@ -1,0 +1,6701 @@
+[
+  {
+    "id": "84d324f2-0fc9-523e-915c-6c9b808f21ba",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:arachnid-harness",
+    "name": "Arachnid Harness",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 leather armor",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has four knobbed ribs that wrap around the torso. The armor grants you resistance 2 to poison damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ribs from the armor spread into functional spider limbs. For 1 minute, you gain a climb Speed equal to half your land Speed and have your limbs free as you climb. If you use all your free limbs to help you Climb, your climb Speed equals your land Speed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "c3d4a997-d31c-5f22-964a-941bd1297e77"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include four intact legs from a giant tarantula."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["poison"],
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.JG7p7yI12cAPuJ8X"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 360
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "arachnid-harness",
+          "name": "Arachnid Harness",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "light",
+      "group": "leather",
+      "baseItem": "leather-armor",
+      "acBonus": 1,
+      "dexCap": 4,
+      "checkPenalty": 1,
+      "strength": 0,
+      "runes": {
+        "potency": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "4d5a554d-b669-5762-b6f5-b049a95801da",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:arachnid-harness-greater",
+    "name": "Arachnid Harness (Greater)",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 resilient leather armor",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has four knobbed ribs that wrap around the torso. The armor grants you resistance 5 to poison damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ribs from the armor spread into functional spider limbs. For 1 minute, you gain a climb Speed equal to half your land Speed and have your limbs free as you climb. If you use all your free limbs to help you Climb, your climb Speed equals your land Speed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "c3d4a997-d31c-5f22-964a-941bd1297e77"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include four intact legs from a goliath spider."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["poison"],
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.NIyJqiW1Wci6gP9m"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 700
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "arachnid-harness-greater",
+          "name": "Arachnid Harness (Greater)",
+          "frequency": {
+            "max": 1,
+            "per": "ten-minutes"
+          }
+        }
+      ],
+      "category": "light",
+      "group": "leather",
+      "baseItem": "leather-armor",
+      "acBonus": 1,
+      "dexCap": 4,
+      "checkPenalty": 1,
+      "strength": 0,
+      "runes": {
+        "potency": 1,
+        "resilient": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "e460a4fd-07d3-594f-827f-42e9f3417343",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:autumns-embrace",
+    "name": "Autumn's Embrace",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["laminar"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Woven by fey seamstresses as rewards for servants of nature, countless leaves continually changing colors in autumnal hues comprise "
+          },
+          {
+            "type": "text",
+            "text": "autumn's embrace",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", a suit of "
+          },
+          {
+            "type": "text",
+            "text": "+2 invisibility resilient leaf weave",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". Leaves shed from the armor as they might fall in autumn. When activating the armor's Invisibility property rune, you disappear in a swirl of colorful leaves."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (aura, concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You call forth a storm of leaves from "
+          },
+          {
+            "type": "text",
+            "text": "autumn's embrace",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". These leaves swirl in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 20
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute. Creatures within the area are Concealed, and creatures outside the area are concealed to creatures within the leaves. However, you can see through this concealment. You can Dismiss the activation."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.l3BVdNdtv3486bOk"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2000
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "autumns-embrace",
+          "name": "Autumn's Embrace",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "light",
+      "group": "wood",
+      "baseItem": "leaf-weave",
+      "acBonus": 1,
+      "dexCap": 4,
+      "checkPenalty": 1,
+      "strength": 0,
+      "runes": {
+        "potency": 2,
+        "resilient": 1,
+        "property": ["b845e180-6c72-501f-9c94-d32442d00eab"]
+      }
+    }
+  },
+  {
+    "id": "b963f6b8-2b54-5564-ab14-cb2646cc413b",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:bastion-of-the-inheritor",
+    "name": "Bastion of the Inheritor",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["bulwark", "entrench-melee", "hindering"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Worn by Iomedae's prestigious knights, this "
+          },
+          {
+            "type": "text",
+            "text": "+2 resilient bastion plate",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is emblazoned with the Inheritor's religious symbol and sports a white cloak. While the cloak is white, this armor grants you a +2 item bonus to Diplomacy checks to Make an Impression, provided your target has no enmity toward Iomedae."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The armor's cloak becomes red for 1 minute. As long as the cloak is red, you gain the benefits of the armor's deflect melee trait without needing to spend an additional action to activate it during each turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You worship Iomedae."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["action:make-an-impression"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.IAPztxiK2T5mC2Y5"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1750
+        }
+      },
+      "bulk": 5,
+      "category": "heavy",
+      "group": "plate",
+      "baseItem": "bastion-plate",
+      "acBonus": 6,
+      "dexCap": 0,
+      "checkPenalty": 3,
+      "speedPenalty": 10,
+      "strength": 4,
+      "runes": {
+        "potency": 2,
+        "resilient": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "a14a685b-b0a7-53b8-9217-2a94096fc7e8",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:bastion-plate",
+    "name": "Bastion Plate",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["bulwark", "entrench-melee", "hindering"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This cumbersome and sturdy plate armor has fluting and additional protection built into the cuirass, helm, pauldrons, and vambraces. Bastion plate was invented for protection in combat tournaments meant to be sporting rather than lethal."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.oGVtymwknrJS8gWW"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 33
+        }
+      },
+      "bulk": 5,
+      "category": "heavy",
+      "group": "plate",
+      "baseItem": "bastion-plate",
+      "acBonus": 6,
+      "dexCap": 0,
+      "checkPenalty": 3,
+      "speedPenalty": 10,
+      "strength": 4
+    }
+  },
+  {
+    "id": "675a97f6-c686-51be-a883-29d0529224c1",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:black-hole-armor",
+    "name": "Black Hole Armor",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["bulwark", "entrench-ranged", "ponderous"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The joints of this black "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater resilient fortification fortress plate",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " look like swirling vortices of silver. Non-magical ammunition and thrown weapons aimed at you are destroyed after they hit you and deal damage or miss you. You also have resistance 10 to physical damage from ranged attacks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When an enemy's ranged attack misses you or hits you and deals no damage, the armor absorbs the projectile. When it has absorbed six projectiles, the armor glows at the joints."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per minute"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A ranged weapon Strike targets a creature within 20 feet of you and the attacker hasn't yet rolled its attack"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The triggering Strike targets you instead of its intended target."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "black hole armor",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has absorbed six or more projectiles"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " All the projectiles absorbed by the armor appear out of thin air, as though transported there, falling in a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " within 120 feet of you. Each creature in the burst takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10d8",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 35
+          },
+          {
+            "type": "text",
+            "text": " save. The absorbed projectiles are all expended, and the armor's joints stop glowing."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.DUTKrSu5iJMktfZI"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 8500
+        }
+      },
+      "bulk": 5,
+      "activations": [
+        {
+          "slug": "black-hole-armor",
+          "name": "Black Hole Armor",
+          "frequency": {
+            "max": 1,
+            "per": "minute"
+          }
+        }
+      ],
+      "category": "heavy",
+      "group": "plate",
+      "baseItem": "fortress-plate",
+      "acBonus": 6,
+      "dexCap": 0,
+      "checkPenalty": 3,
+      "speedPenalty": 10,
+      "strength": 4,
+      "runes": {
+        "potency": 2,
+        "resilient": 2,
+        "property": ["1100f76c-d253-50b6-82c0-c70593e97e10"]
+      }
+    }
+  },
+  {
+    "id": "6fccdee2-50bf-516c-9251-4d8c08167384",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:blade-byrnie",
+    "name": "Blade Byrnie",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["flexible", "noisy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Instead of chain links, this "
+          },
+          {
+            "type": "text",
+            "text": "+1 chain shirt",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is assembled from metal \"leaves\" that each resemble a small blade."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You pull a link from the armor, which transforms into a "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking dagger",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". The dagger disappears and reappears as a link in the armor after you Strike with it, or at the end of this turn if you don't make a Strike. You can Activate the "
+          },
+          {
+            "type": "text",
+            "text": "blade byrnie",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " in place of an Interact action to draw a weapon for abilities such as the Quick Draw feat."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Upgrading the runes on the "
+          },
+          {
+            "type": "text",
+            "text": "blade byrnie",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " makes the daggers pulled from it more powerful. The daggers have a "
+          },
+          {
+            "type": "text",
+            "text": "+2 weapon potency",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune if the armor has a "
+          },
+          {
+            "type": "text",
+            "text": "+2 armor potency",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune, or a "
+          },
+          {
+            "type": "text",
+            "text": "+3 weapon potency",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune if the armor has a "
+          },
+          {
+            "type": "text",
+            "text": "+3 armor potency",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "ec44d7cc-96bd-5062-be83-b7bf576ff3df"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.JDgFHv334yCrBY38"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 360
+        }
+      },
+      "bulk": 1,
+      "category": "light",
+      "group": "chain",
+      "baseItem": "chain-shirt",
+      "acBonus": 2,
+      "dexCap": 3,
+      "checkPenalty": 1,
+      "strength": 1,
+      "runes": {
+        "potency": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "a37db214-03b1-541a-87bd-0c9ad3da1458",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:blade-byrnie-greater",
+    "name": "Blade Byrnie (Greater)",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["flexible", "noisy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Instead of chain links, this "
+          },
+          {
+            "type": "text",
+            "text": "+2 resilient chain shirt",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is assembled from metal \"leaves\" that each resemble a small blade."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You pull a link from the armor, which transforms into a "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater striking dagger",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". The dagger disappears and reappears as a link in the armor after you Strike with it, or at the end of this turn if you don't make a Strike. You can Activate the "
+          },
+          {
+            "type": "text",
+            "text": "blade byrnie",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " in place of an Interact action to draw a weapon for abilities such as the Quick Draw feat."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Upgrading the runes on the "
+          },
+          {
+            "type": "text",
+            "text": "blade byrnie",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " makes the daggers pulled from it more powerful. The daggers have a "
+          },
+          {
+            "type": "text",
+            "text": "+3 weapon potency",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune if the armor has a "
+          },
+          {
+            "type": "text",
+            "text": "+3 armor potency",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "ec44d7cc-96bd-5062-be83-b7bf576ff3df"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.qdUlmO7XfBWQU3p5"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": 1,
+      "category": "light",
+      "group": "chain",
+      "baseItem": "chain-shirt",
+      "acBonus": 2,
+      "dexCap": 3,
+      "checkPenalty": 1,
+      "strength": 1,
+      "runes": {
+        "potency": 2,
+        "resilient": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "37078d82-e03d-5207-baf9-b10d8b0dcfa5",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:blade-byrnie-major",
+    "name": "Blade Byrnie (Major)",
+    "level": 19,
+    "rarity": "common",
+    "traits": ["flexible", "noisy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Instead of chain links, this "
+          },
+          {
+            "type": "text",
+            "text": "+3 greater resilient chain shirt",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is assembled from metal \"leaves\" that each resemble a small blade."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You pull a link from the armor, which transforms into a "
+          },
+          {
+            "type": "text",
+            "text": "+3 greater striking dagger",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". The dagger disappears and reappears as a link in the armor after you Strike with it, or at the end of this turn if you don't make a Strike. You can Activate the "
+          },
+          {
+            "type": "text",
+            "text": "blade byrnie",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " in place of an Interact action to draw a weapon for abilities such as the Quick Draw feat."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "ec44d7cc-96bd-5062-be83-b7bf576ff3df"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.fHkVbTtjhITsE2NJ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 35000
+        }
+      },
+      "bulk": 1,
+      "category": "light",
+      "group": "chain",
+      "baseItem": "chain-shirt",
+      "acBonus": 2,
+      "dexCap": 3,
+      "checkPenalty": 1,
+      "strength": 1,
+      "runes": {
+        "potency": 3,
+        "resilient": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "bb713f1f-4be0-5f8f-962b-9697fd049332",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:bone-dreadnought-plate",
+    "name": "Bone Dreadnought Plate",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["alchemical", "bulwark", "entrench-ranged", "ponderous"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This suit of bone-based fortress plate is a masterpiece of alchemical science. This armor has a receiver that can hold a single lodestone bomb, which takes 3 Interact actions to install."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A lodestone bomb is installed in the armor."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The bomb shifts numerous small plates and hinges, offering a wide variety of protections, granting you resistance to cold, electricity, fire, piercing, and slashing damage equal to the loaded lodestone bomb's splash damage. These effects last for 20 minutes, but each time you're hit by an attack that deals damage of one of these types, decrease the remaining duration by 1 minute. Once activated, the armor can't be deactivated. The activation uses up the lodestone bomb, and the armor can't be activated again until a new one is installed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.7qBpWdPZ0X8HoH9X"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": 5,
+      "category": "heavy",
+      "group": "plate",
+      "baseItem": "fortress-plate",
+      "acBonus": 6,
+      "dexCap": 0,
+      "checkPenalty": 3,
+      "speedPenalty": 10,
+      "strength": 4
+    }
+  },
+  {
+    "id": "eb3bd7db-ff33-51d5-9340-0aba6f343aaa",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:breastplate-of-the-mountain",
+    "name": "Breastplate of the Mountain",
+    "level": 20,
+    "rarity": "common",
+    "traits": ["apex", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Constructed of dull gray metal, this breastplate is decorated with the symbol of a craggy black mountaintop. This breastplate functions as a "
+          },
+          {
+            "type": "text",
+            "text": "+3 greater resilient breastplate",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". When you're Shoved or otherwise forced to move, you can reduce the amount you move by up to 10 feet. When you invest the breastplate, you either increase your Constitution modifier by 1 or increase it to +4, whichever would give you a higher value."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You pound a solid and constant rhythm on your breastplate and cast a 7th-rank Regeneration spell on yourself."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " With a single tap, you gain immunity to poison for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "a7f46ee1-8178-5526-86f7-7fb4b86fa911"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail or critically fail a Fortitude saving throw"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If you failed the saving throw, it becomes a success. If you critically failed, it becomes a failure instead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.JU6gJSmibl5Q3k6F"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 70000
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "breastplate-of-the-mountain",
+          "name": "Breastplate of the Mountain",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "medium",
+      "group": "plate",
+      "baseItem": "breastplate",
+      "acBonus": 4,
+      "dexCap": 1,
+      "checkPenalty": 2,
+      "speedPenalty": 5,
+      "strength": 3,
+      "runes": {
+        "potency": 3,
+        "resilient": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "c4cbc876-bf80-5356-92c6-f94924cbd20c",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:ceramic-plate",
+    "name": "Ceramic Plate",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["adjusted", "noisy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Traditional armor from Senghor, ceramic plate alleviates the need for metallurgy and smithing, instead relying on ceramic firing, glazing, and strong cord work with a backing of leather and thick canvas. Ceramic plate that follows Senghor's style is colorful and artistic, and is built with the armor latches armor adjustment."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Hg7btiITMu6Zf2EU"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6
+        }
+      },
+      "bulk": 2,
+      "category": "medium",
+      "group": "plate",
+      "baseItem": "ceramic-plate",
+      "acBonus": 3,
+      "dexCap": 2,
+      "checkPenalty": 2,
+      "speedPenalty": 5,
+      "strength": 2
+    }
+  },
+  {
+    "id": "069ea37c-6493-5c7e-aad8-73bd76eda867",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:cloister-robe-greater",
+    "name": "Cloister Robe (Greater)",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["divine", "focused", "invested"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The most devoted, cloistered clerics wear a "
+          },
+          {
+            "type": "text",
+            "text": "cloister robe",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". Decorations symbolic of a specific deity adorn the robe, and the robe's colors and the complexity of its construction fit the deity's outlook. The robe serves as a religious symbol of that deity, and it doesn't need to be wielded to provide that benefit."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The robe is "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater resilient explorer's clothing",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " and grants a +2 item bonus to Religion checks. The robe doesn't grant any benefits to a wearer who doesn't worship the deity tied to the robe. In addition, when you cast a domain spell from one of the deity's domains, you gain resistance to damage from divine spells until the end of your next turn. This resistance is equal to half the robe's level."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "47ac359a-7109-5fa1-8e24-7a6cdde395ce"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Domain Devotion",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Gain 1 Focus Point, which you can spend only to cast a cleric domain spell for a domain belonging to the deity the vestments are dedicated to. If you don't spend this point by the end of this turn, it is lost."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are a cleric who worships the deity tied to the robe."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:religion"],
+        "type": "item",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.XPIDpF7dP6VyGKOM"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "domain-devotion",
+          "name": "Domain Devotion",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "unarmored",
+      "group": "cloth",
+      "baseItem": "explorers-clothing",
+      "acBonus": 0,
+      "dexCap": 5,
+      "runes": {
+        "potency": 2,
+        "resilient": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "c8d605df-788b-5c9c-8165-9a7722f0eb58",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:cloister-robe-lesser",
+    "name": "Cloister Robe (Lesser)",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["divine", "invested"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The most devoted, cloistered clerics wear a "
+          },
+          {
+            "type": "text",
+            "text": "cloister robe",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". Decorations symbolic of a specific deity adorn the robe, and the robe's colors and the complexity of its construction fit the deity's outlook. The robe serves as a religious symbol of that deity, and it doesn't need to be wielded to provide that benefit."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The robe is "
+          },
+          {
+            "type": "text",
+            "text": "+1 resilient explorer's clothing",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " and grants a +1 item bonus to Religion checks. The robe doesn't grant any benefits to a wearer who doesn't worship the deity tied to the robe. In addition, when you cast a domain spell from one of the deity's domains, you gain resistance to damage from divine spells until the end of your next turn. This resistance is equal to half the robe's level."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "47ac359a-7109-5fa1-8e24-7a6cdde395ce"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are a cleric who worships the deity tied to the robe."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:religion"],
+        "type": "item",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.gawhJLVsVsUFAPd6"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 600
+        }
+      },
+      "bulk": "light",
+      "category": "unarmored",
+      "group": "cloth",
+      "baseItem": "explorers-clothing",
+      "acBonus": 0,
+      "dexCap": 5,
+      "runes": {
+        "potency": 1,
+        "resilient": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "b5a45b26-169d-593a-a2aa-105ac460b710",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:cloister-robe-major",
+    "name": "Cloister Robe (Major)",
+    "level": 19,
+    "rarity": "common",
+    "traits": ["divine", "focused", "invested"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The most devoted, cloistered clerics wear a "
+          },
+          {
+            "type": "text",
+            "text": "cloister robe",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". Decorations symbolic of a specific deity adorn the robe, and the robe's colors and the complexity of its construction fit the deity's outlook. The robe serves as a religious symbol of that deity, and it doesn't need to be wielded to provide that benefit."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The robe is "
+          },
+          {
+            "type": "text",
+            "text": "+3 greater resilient explorer's clothing",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " and grants a +2 item bonus to Religion checks. The robe doesn't grant any benefits to a wearer who doesn't worship the deity tied to the robe. In addition, when you cast a domain spell from one of the deity's domains, you gain resistance to damage from divine spells until the end of your next turn. This resistance is equal to half the robe's level."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "47ac359a-7109-5fa1-8e24-7a6cdde395ce"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Domain Devotion",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Gain 1 Focus Point, which you can spend only to cast a cleric domain spell for a domain belonging to the deity the vestments are dedicated to. If you don't spend this point by the end of this turn, it is lost."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are a cleric who worships the deity tied to the robe."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:religion"],
+        "type": "item",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.mhCLoihjfhoqpiVp"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 32000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "domain-devotion",
+          "name": "Domain Devotion",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "unarmored",
+      "group": "cloth",
+      "baseItem": "explorers-clothing",
+      "acBonus": 0,
+      "dexCap": 5,
+      "runes": {
+        "potency": 3,
+        "resilient": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "1e38e561-30eb-5eed-9aaf-348a51a98a26",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:cloister-robe-moderate",
+    "name": "Cloister Robe (Moderate)",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["divine", "invested"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The most devoted, cloistered clerics wear a "
+          },
+          {
+            "type": "text",
+            "text": "cloister robe",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". Decorations symbolic of a specific deity adorn the robe, and the robe's colors and the complexity of its construction fit the deity's outlook. The robe serves as a religious symbol of that deity, and it doesn't need to be wielded to provide that benefit."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The robe is "
+          },
+          {
+            "type": "text",
+            "text": "+2 resilient explorer's clothing",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " and grants a +2 item bonus to Religion checks. The robe doesn't grant any benefits to a wearer who doesn't worship the deity tied to the robe. In addition, when you cast a domain spell from one of the deity's domains, you gain resistance to damage from divine spells until the end of your next turn. This resistance is equal to half the robe's level."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "47ac359a-7109-5fa1-8e24-7a6cdde395ce"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are a cleric who worships the deity tied to the robe."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:religion"],
+        "type": "item",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.VMksM7bLAZW9LxH4"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1800
+        }
+      },
+      "bulk": "light",
+      "category": "unarmored",
+      "group": "cloth",
+      "baseItem": "explorers-clothing",
+      "acBonus": 0,
+      "dexCap": 5,
+      "runes": {
+        "potency": 2,
+        "resilient": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "daecb1b2-2561-5558-89d9-dd87f8a2785a",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:coral-armor",
+    "name": "Coral Armor",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["adjusted", "aquadynamic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A good option for undersea explorers and aquatic peoples alike, coral armor consists of panels of carved coral. If worn underwater, some of this coral can even be alive."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.bZHqPBdQjPS02Rd4"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": 2,
+      "category": "medium",
+      "group": "skeletal",
+      "baseItem": "coral-armor",
+      "acBonus": 3,
+      "dexCap": 2,
+      "checkPenalty": 2,
+      "speedPenalty": 5,
+      "strength": 2
+    }
+  },
+  {
+    "id": "28d24fa5-d6ee-5990-a312-b745760d2442",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:crushing-coils",
+    "name": "Crushing Coils",
+    "level": 5,
+    "rarity": "rare",
+    "traits": ["cursed", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Made from constrictor snakeskin, the strips of this "
+          },
+          {
+            "type": "text",
+            "text": "+1 leather armor",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " wrap around you like an anaconda might wrap around its victim. The first time you roll a 1 on any attack roll or check after donning the armor, it fuses with you and constricts. It constricts anytime you roll a 1 on any attack roll or check thereafter. When the armor constricts, you're Restrained for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The armor wraps around you, allowing you to don it by the time the activation finishes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.HsfoHX1B6ocflitz"
+    },
+    "data": {
+      "bulk": 1,
+      "category": "light",
+      "group": "leather",
+      "baseItem": "leather-armor",
+      "acBonus": 1,
+      "dexCap": 4,
+      "checkPenalty": 1,
+      "strength": 0,
+      "runes": {
+        "potency": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "7f3697c7-d3b7-5cd2-b446-1f3997fbfd95",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:devils-bargain",
+    "name": "Devil's Bargain",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["evil"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Those favored by Asmodeus can be found wearing this "
+          },
+          {
+            "type": "text",
+            "text": "+1 studded leather",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", which is lacquered in red and black."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, fortune)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You critically fail an attack roll, check, or saving throw"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You offer a prayer to Asmodeus, who accepts under a reciprocal condition. Reroll the triggering roll with a +2 circumstance bonus and use the higher result."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If this reroll improves your degree of success, the GM can later reroll one Strike against you, one saving throw against your abilities, or one secret check or saving throw you make. This is a fortune effect if used on a Strike or save against you, or a misfortune effect if used on your secret check or saving throw. The GM must use this reroll before the end of the last day you activated the armor."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:devils-bargain",
+        "toggleable": true
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-attack-roll", "skill-check", "perception", "saving-throw"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["option:devils-bargain"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.WOwVBsiwLQxnIJRV"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "devils-bargain",
+          "name": "Devil's Bargain",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "light",
+      "group": "leather",
+      "baseItem": "studded-leather-armor",
+      "acBonus": 2,
+      "dexCap": 3,
+      "checkPenalty": 1,
+      "strength": 1,
+      "runes": {
+        "potency": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "814788b6-e900-59f5-af60-1010d5b03c7c",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:dragon-turtle-plate",
+    "name": "Dragon Turtle Plate",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["aquadynamic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This harness of "
+          },
+          {
+            "type": "text",
+            "text": "+1 resilient half plate",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is made from the shell plates of a dragon turtle and has the aquadynamic trait. To those who can craft with them, the dense organic plates on the dragon turtle's body are as valuable as the creature's hoard of gold."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature adjacent to you targets you with a melee attack"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You roll the hefty plates of the "
+          },
+          {
+            "type": "text",
+            "text": "dragon turtle armor",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " toward the attacker to gain a +1 circumstance bonus to AC against the triggering attack."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include the shell of a dragon turtle."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:dragon-turtle-plate",
+        "toggleable": true
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["option:dragon-turtle-plate", "item:melee"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.u9BdrpYhJDUPQFCF"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 700
+        }
+      },
+      "bulk": 3,
+      "category": "heavy",
+      "group": "plate",
+      "baseItem": "half-plate",
+      "acBonus": 5,
+      "dexCap": 1,
+      "checkPenalty": 3,
+      "speedPenalty": 10,
+      "strength": 3,
+      "runes": {
+        "potency": 1,
+        "resilient": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "34e7b095-88b9-533d-af7f-fbba602a34e5",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:energizing-lattice",
+    "name": "Energizing Lattice",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["light"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This suit of "
+          },
+          {
+            "type": "text",
+            "text": "+2 resilient fortification lattice armor",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has latticework of fine golden wire. After negating a critical hit with its "
+          },
+          {
+            "type": "text",
+            "text": "fortification",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune, the latticework glows for 1 minute, shedding bright light in a 20-foot radius (and dim light for the next 20 feet). You can Dismiss this light."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "69dd5ce2-4c92-5b7e-a10d-82c9d3daf580"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, force)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "energizing lattice",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is glowing because it negated an enemy's critical hit"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You release the lattice's energy and make a weapon or unarmed attack Strike that deals 6d6 additional force damage. If your Strike fails, but doesn't critically fail, the target still takes half the force damage. The latticework ceases glowing after the Strike."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.AqVJOBjXbeao5An7"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": 2,
+      "category": "medium",
+      "group": "chain",
+      "baseItem": "lattice-armor",
+      "acBonus": 4,
+      "dexCap": 1,
+      "checkPenalty": 2,
+      "speedPenalty": 5,
+      "strength": 3,
+      "runes": {
+        "potency": 2,
+        "resilient": 1,
+        "property": ["1100f76c-d253-50b6-82c0-c70593e97e10"]
+      }
+    }
+  },
+  {
+    "id": "5c11a0d2-e66e-5521-92c0-d8e8ad2e52d1",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:faerie-queens-bower",
+    "name": "Faerie Queen's Bower",
+    "level": 13,
+    "rarity": "rare",
+    "traits": ["divine", "holy", "intelligent", "laminar"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Perception",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +23; precise vision (darkvision) 60 feet, imprecise hearing 30 feet"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Communication",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " telepathy (Celestial, Common)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Skills",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Diplomacy +25, Religion +25"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Int",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +4, "
+          },
+          {
+            "type": "text",
+            "text": "Wis",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +4, "
+          },
+          {
+            "type": "text",
+            "text": "Cha",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +6"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Will",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +25"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A suit of "
+          },
+          {
+            "type": "ref",
+            "id": "e460a4fd-07d3-594f-827f-42e9f3417343"
+          },
+          {
+            "type": "text",
+            "text": " armor can gain sapience when lovingly crafted by a fey monarch of sufficient power; a suit of faerie queen's bower is one such example. The armor is happy to give you and your companions counsel, hoping to guide you on a path of benevolence and aid you in battles against forces that seek to cause harm to the natural world. It refuses access to its magic to anyone who causes undue harm to plants or animals."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In addition to the features and activation of autumn's embrace, faerie queen's bower has the following activation."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (aura, concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You call forth a storm of leaves from "
+          },
+          {
+            "type": "text",
+            "text": "autumn's embrace",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". These leaves swirl in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 20
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute. Creatures within the area are Concealed, and creatures outside the area are concealed to creatures within the leaves. However, you can see through this concealment. You can Dismiss the activation."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The armor casts 4th-rank Safe Passage, with the protected area beginning from your square and extending to a place of relative safety."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.WgxgGLp3q9Et6BwC"
+    },
+    "data": {
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "faerie-queens-bower",
+          "name": "Faerie Queen's Bower",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "light",
+      "group": "wood",
+      "baseItem": "leaf-weave",
+      "acBonus": 1,
+      "dexCap": 4,
+      "checkPenalty": 1,
+      "strength": 0,
+      "runes": {
+        "potency": 2,
+        "resilient": 1,
+        "property": ["b845e180-6c72-501f-9c94-d32442d00eab"]
+      }
+    }
+  },
+  {
+    "id": "6b3c23cc-556c-5a25-be28-3f437ca7f4c9",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:fortress-plate",
+    "name": "Fortress Plate",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["bulwark", "entrench-ranged", "ponderous"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Dwarves of Dongun Hold developed fortress plate, which is still popular in Alkenstar and Dongun Hold. A trained wearer can adjust the articulated armor's overlapping layers of plates and panels to provide protection from missiles."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.FSDEuHDr1I4JVIJg"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 32
+        }
+      },
+      "bulk": 5,
+      "category": "heavy",
+      "group": "plate",
+      "baseItem": "fortress-plate",
+      "acBonus": 6,
+      "dexCap": 0,
+      "checkPenalty": 3,
+      "speedPenalty": 10,
+      "strength": 4
+    }
+  },
+  {
+    "id": "cedb8122-9e04-5a60-b499-691f8c04a73a",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:gi",
+    "name": "Gi",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["comfort"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Also called martial arts suits or practice clothes, gi are outfits of tough cloth built for comfort and unrestricted movement—ideal for practicing martial arts. They have reinforced stitching resistant to strenuous use."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.yiU4osCo6ql28r6M"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 2
+        }
+      },
+      "bulk": "light",
+      "category": "unarmored",
+      "group": "cloth",
+      "baseItem": "gi",
+      "acBonus": 0,
+      "dexCap": 5
+    }
+  },
+  {
+    "id": "73adfbb7-fd6b-5a0b-84dc-9b03f5171004",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:hellknight-breastplate",
+    "name": "Hellknight Breastplate",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Hellknights wear a variety of armors decorated with designs specific to the order. Hellknight breastplate serves those in the order who lack the training to wear heavy armor."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A character who is a member of the Hellknights has access to these uncommon armors."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.LF7HSNnlGxLJyDZS"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": 2,
+      "category": "medium",
+      "group": "plate",
+      "baseItem": "hellknight-breastplate",
+      "acBonus": 4,
+      "dexCap": 1,
+      "checkPenalty": 2,
+      "speedPenalty": 5,
+      "strength": 3
+    }
+  },
+  {
+    "id": "da993afa-b9c1-5da4-8379-fbac67e5ab20",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:hellknight-half-plate",
+    "name": "Hellknight Half Plate",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Hellknights wear a variety of armors decorated with designs specific to the order. Hellknight half plate is the armor of choice for Hellknight signifers."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A character who is a member of the Hellknights has access to these uncommon armors."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.U6XqhSFUUowHnnkk"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 20
+        }
+      },
+      "bulk": 3,
+      "category": "heavy",
+      "group": "plate",
+      "baseItem": "hellknight-half-plate",
+      "acBonus": 5,
+      "dexCap": 1,
+      "checkPenalty": 3,
+      "speedPenalty": 10,
+      "strength": 3
+    }
+  },
+  {
+    "id": "3fda838f-09bf-5cbc-aa7c-5daa8f20e240",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:hellknight-plate",
+    "name": "Hellknight Plate",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["bulwark"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Hellknights wear a variety of armors decorated with designs specific to the order. Hellknight half plate is the armor of choice for Hellknight signifiers, and Hellknight breastplate serves those in the order who lack the training to wear heavy armor."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A character who is a member of the Hellknights has access to these uncommon armors."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.lCgXeV52eYYl5cUX"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 35
+        }
+      },
+      "bulk": 4,
+      "category": "heavy",
+      "group": "plate",
+      "baseItem": "hellknight-plate",
+      "acBonus": 6,
+      "dexCap": 0,
+      "checkPenalty": 3,
+      "speedPenalty": 10,
+      "strength": 4
+    }
+  },
+  {
+    "id": "d957a6df-60d0-57f9-8304-38cd40ac4185",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:immortal-bastion",
+    "name": "Immortal Bastion",
+    "level": 20,
+    "rarity": "common",
+    "traits": ["bulwark", "entrench-melee", "hindering"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This impressive "
+          },
+          {
+            "type": "text",
+            "text": "+3 greater resilient greater fortification bastion plate",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is built like an impregnable castle, with multiple layers of defense and no weak points. When you activate the armor's deflect melee trait, you gain a +2 circumstance bonus to AC against melee attacks instead of +1, and you gain 10 temporary Hit Points that last until the start of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "59769062-d82e-5801-8069-55889c6e65f6"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are reduced to 0 Hit Points or would die from a death effect"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You drop to 1 Hit Point instead of being reduced to 0 HP or dying, and you gain 100 temporary Hit Points that last until the start of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You would gain or increase the Doomed or Wounded condition"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You avoid gaining or increasing the condition. If the triggering effect imposes both doomed and wounded, choose only one to prevent. This doesn't remove either of the conditions if you already have them, nor does it prevent the same triggering effect from giving or increasing the prevented condition later."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.qSqx72639EJTzBam"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 70000
+        }
+      },
+      "bulk": 5,
+      "activations": [
+        {
+          "slug": "immortal-bastion",
+          "name": "Immortal Bastion",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "heavy",
+      "group": "plate",
+      "baseItem": "bastion-plate",
+      "acBonus": 6,
+      "dexCap": 0,
+      "checkPenalty": 3,
+      "speedPenalty": 10,
+      "strength": 4,
+      "runes": {
+        "potency": 3,
+        "resilient": 2,
+        "property": ["cd04907f-f4ad-540b-8e85-80028195a121"]
+      }
+    }
+  },
+  {
+    "id": "6fc7d1ed-aefd-555d-be24-f2cdf6f183dc",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:lamellar-breastplate",
+    "name": "Lamellar Breastplate",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["hindering", "laminar"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Slats of lacquered steel or other metal held together with cord, whether leather or silk, make up most lamellar breastplates. The lacquering prevents the metal from corroding."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.3ZfGYXKfBjHOZO7d"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 7
+        }
+      },
+      "bulk": 2,
+      "category": "medium",
+      "group": "composite",
+      "baseItem": "lamellar-breastplate",
+      "acBonus": 4,
+      "dexCap": 1,
+      "checkPenalty": 2,
+      "speedPenalty": 5,
+      "strength": 3
+    }
+  },
+  {
+    "id": "44f6a89e-dc87-51f8-9f68-fe7dc1ce02d6",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:leaf-weave",
+    "name": "Leaf Weave",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["laminar"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Specialized crafters, often elves, create leaf weave out of sturdy leaves from ancient or magically enriched trees. Such leaves, when treated properly, have the strength of leather, and other tough plant materials hold the leaves together to form the armor. Such suits are popular among those who wish to avoid materials taken from slain beasts. As a material, leaf weave has the same statistics as thin wood."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.zVSBjb6o5RudKA9c"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": 1,
+      "category": "light",
+      "group": "wood",
+      "baseItem": "leaf-weave",
+      "acBonus": 1,
+      "dexCap": 4,
+      "checkPenalty": 1,
+      "strength": 0
+    }
+  },
+  {
+    "id": "dfcc34c9-0437-5496-8b28-64a20774ebdc",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:leather-lamellar",
+    "name": "Leather Lamellar",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["laminar"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Leather lamellar is a composite armor made of small rectangular pieces of lacquered leather laced together with high-quality cord. It's typically worn with an undershirt."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.wx7WY6YGvgMphDL1"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": 1,
+      "category": "light",
+      "group": "composite",
+      "baseItem": "leather-lamellar",
+      "acBonus": 1,
+      "dexCap": 4,
+      "checkPenalty": 1,
+      "strength": 0
+    }
+  },
+  {
+    "id": "85cf2cf8-0733-5858-8f71-7e218ff0c669",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:library-robes",
+    "name": "Library Robes",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["inscribed"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These "
+          },
+          {
+            "type": "text",
+            "text": "+1 resilient scroll robes",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " magically store a spell for you. During your daily preparations, choose one spell you know of 5th rank or lower. You inscribe that spell on the robes, as though you had done so using the robes' inscribed trait, but without needing to go through the normal scribing process. You must provide the minimum amount of materials to Craft one scroll of that spell (typically half the Price of a scroll of that rank plus any extra cost required for the spell). You don't need to be trained in Crafting, nor do you need the Magical Crafting feat. Using this ability erases any scroll already inscribed on the robe."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.SS1lwhzx0hne1Ljh"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 700
+        }
+      },
+      "bulk": "light",
+      "category": "unarmored",
+      "group": "cloth",
+      "baseItem": "scroll-robes",
+      "acBonus": 0,
+      "dexCap": 5,
+      "runes": {
+        "potency": 1,
+        "resilient": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "d9821aa3-1d4c-5b22-8f7d-50adb2d589d3",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:library-robes-greater",
+    "name": "Library Robes (Greater)",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["inscribed"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These "
+          },
+          {
+            "type": "text",
+            "text": "+2 resilient scroll robes",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " magically store a spell for you. During your daily preparations, choose one spell you know of 6th rank or lower. You inscribe that spell on the robes, as though you had done so using the robes' inscribed trait, but without needing to go through the normal scribing process. You must provide the minimum amount of materials to Craft one scroll of that spell (typically half the Price of a scroll of that rank plus any extra cost required for the spell). You don't need to be trained in Crafting, nor do you need the Magical Crafting feat. Using this ability erases any scroll already inscribed on the robe."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.HoL83ca2TqEnnErs"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2000
+        }
+      },
+      "bulk": "light",
+      "category": "unarmored",
+      "group": "cloth",
+      "baseItem": "scroll-robes",
+      "acBonus": 0,
+      "dexCap": 5,
+      "runes": {
+        "potency": 2,
+        "resilient": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "d02c189d-d075-5363-aa94-85b0c30f8b84",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:library-robes-major",
+    "name": "Library Robes (Major)",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["inscribed"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater resilient scroll robes",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " magically store a spell for you. During your daily preparations, choose one spell you know of 8th rank or lower. You inscribe that spell on the robes, as though you had done so using the robes' inscribed trait, but without needing to go through the normal scribing process. You must provide the minimum amount of materials to Craft one scroll of that spell (typically half the Price of a scroll of that rank plus any extra cost required for the spell). You don't need to be trained in Crafting, nor do you need the Magical Crafting feat. Using this ability erases any scroll already inscribed on the robe."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.RtJvTDFNPhJSPmWP"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6000
+        }
+      },
+      "bulk": "light",
+      "category": "unarmored",
+      "group": "cloth",
+      "baseItem": "scroll-robes",
+      "acBonus": 0,
+      "dexCap": 5,
+      "runes": {
+        "potency": 2,
+        "resilient": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "3ade80ae-a90e-54e7-931b-d5726ca37e30",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:library-robes-true",
+    "name": "Library Robes (True)",
+    "level": 19,
+    "rarity": "common",
+    "traits": ["inscribed"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These "
+          },
+          {
+            "type": "text",
+            "text": "+3 greater resilient scroll robes",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " magically store a spell for you. During your daily preparations, choose one spell you know of 9th rank or lower. You inscribe that spell on the robes, as though you had done so using the robes' inscribed trait, but without needing to go through the normal scribing process. You must provide the minimum amount of materials to Craft one scroll of that spell (typically half the Price of a scroll of that level plus any extra cost required for the spell). You don't need to be trained in Crafting, nor do you need the Magical Crafting feat. Using this ability erases any scroll already inscribed on the robe."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TBmDARyj67joVe4m"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 36000
+        }
+      },
+      "bulk": "light",
+      "category": "unarmored",
+      "group": "cloth",
+      "baseItem": "scroll-robes",
+      "acBonus": 0,
+      "dexCap": 5,
+      "runes": {
+        "potency": 3,
+        "resilient": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "a2b28987-fd2f-541a-812e-1559b2d72c17",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:linnorms-sankeit",
+    "name": "Linnorm's Sankeit",
+    "level": 18,
+    "rarity": "uncommon",
+    "traits": ["laminar"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The first suit of "
+          },
+          {
+            "type": "text",
+            "text": "+3 greater resilient antimagic sankeit",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " made in this fashion was crafted for the Varki linnorm king Nankou, after he claimed his title by slaying a taiga linnorm. By Varki tradition, the armor was crafted using some of the slain linnorm's body to decorate the breastplate and helm, which imbued the armor with several of the linnorm's natural abilities. Though the helm is shaped like the beast's head, a linnorm's actual head would be too large for a proper helmet."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You breathe a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": " of electrified vapor, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "17d6",
+                "damageType": "electricity"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to creatures in the area ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 38,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": "). The electrified mist persists in the area for 2 rounds, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "5d6",
+                "damageType": "electricity"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (DC 38 basic Reflex save) to each creature that ends its turn in the mist. If you slew the linnorm this armor is made from, you can use the higher of your "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": {
+              "against": "class-or-spell-dc"
+            },
+            "basic": true,
+            "label": "class DC or spell DC"
+          },
+          {
+            "type": "text",
+            "text": " instead of the listed DCs for this effect."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature adjacent to you targets you with a melee attack"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as previously invisible magical spines leap outwards from the armor to punish them for the attack."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include the hide and skull of a taiga linnorm."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.XKsPGGbPKLkrqHwM"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 22750
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "linnorms-sankeit",
+          "name": "Linnorm's Sankeit",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "category": "light",
+      "group": "wood",
+      "baseItem": "sankeit",
+      "acBonus": 2,
+      "dexCap": 3,
+      "checkPenalty": 1,
+      "strength": 1,
+      "runes": {
+        "potency": 3,
+        "resilient": 2,
+        "property": ["551c84b5-e785-5d8f-b2f8-8c9073b8ebc7"]
+      }
+    }
+  },
+  {
+    "id": "32bffad8-e666-5231-a301-4c224d610511",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:living-leaf-weave",
+    "name": "Living Leaf Weave",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["alchemical", "healing", "laminar", "plant"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This suit of leaf weave armor is specially modified to metabolize the alchemical accelerants in medicinal compounds. A special receptacle in the armor can hold an Elixir of Life, which takes 3 Interact actions to install."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An elixir of life is installed in the armor"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Slithering vines grow from the armor, granting an item bonus to Athletics checks to Grapple, to your Fortitude DC to resist Grapple, Disarm, or Shove attempts, and to your Reflex DC to resist Trip attempts. The bonus is equal to the elixir's item bonus, and lasts for 3 rounds. The activation uses up the elixir, and the armor can't be activated again until a new one is installed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.uPy4iagJMWRi1vNd"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 160
+        }
+      },
+      "bulk": 1,
+      "category": "light",
+      "group": "wood",
+      "baseItem": "leaf-weave",
+      "acBonus": 1,
+      "dexCap": 4,
+      "checkPenalty": 1,
+      "strength": 0
+    }
+  },
+  {
+    "id": "7b695b66-ea13-587d-b3b9-2c8b592faeb9",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:mantis-shell",
+    "name": "Mantis Shell",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["adjusted"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Construction of mantis shell armor originates with the Red Mantis assassins. Authentic mantis shell can be found in some dark markets, but wearing such armor can attract deadly attention from the armor's originators. Mantis shell comes with the weapon harness adjustment, though these special vambraces are meant to hold sawtooth sabers, and attaching anything else is an insult to the Red Mantis. A character who is a member of the Red Mantis assassins has access to this uncommon armor."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.8WVYOughRWLb7kGF"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": 1,
+      "category": "light",
+      "group": "skeletal",
+      "baseItem": "mantis-shell",
+      "acBonus": 2,
+      "dexCap": 3,
+      "checkPenalty": 1,
+      "strength": 1
+    }
+  },
+  {
+    "id": "1e642c57-f7f0-5812-b8f1-387036c745b6",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:niyahaat",
+    "name": "Niyaháat",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["laminar"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Erutaki communities deep in the Crown of the World, where wood is hard to come by, fashion armor from slats and strips of bone or horn, along with whole bones or horns. Wealthier wearers sometimes pay for decorative embellishments made of more precious materials. Niyaháat is usually woven together with strong cord, forming a suit like a breastplate. This suit is worn over heavy clothing or a surcoat like padded armor. Some suits incorporate parts of powerful creatures, creating a storied history for the suit and its wearers."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.I8b3oNLl5MIMrG4r"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": 2,
+      "category": "medium",
+      "group": "skeletal",
+      "baseItem": "niyahaat",
+      "acBonus": 3,
+      "dexCap": 2,
+      "checkPenalty": 2,
+      "speedPenalty": 5,
+      "strength": 2
+    }
+  },
+  {
+    "id": "01be1936-99a0-50c7-ad99-bd7abc447f87",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:o-yoroi",
+    "name": "O-Yoroi",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["bulwark", "laminar"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Larger plates coupled with lamellar pieces to make up a suit of heavy lamellar. The custom-fitted and often highly decorative suit covers most of the body. Rounding out the suit are a tiered helmet and fearsome mask, often depicting a fiendish or monstrous creature."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.U2liOd8kJasy0Ghd"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 35
+        }
+      },
+      "bulk": 5,
+      "category": "heavy",
+      "group": "composite",
+      "baseItem": "o-yoroi",
+      "acBonus": 6,
+      "dexCap": 0,
+      "checkPenalty": 3,
+      "speedPenalty": 10,
+      "strength": 4
+    }
+  },
+  {
+    "id": "21534094-1748-5ce5-8576-bd22eea1ced0",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:ooze-skin",
+    "name": "Ooze Skin",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["alchemical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This leather armor has been treated with extract from oozes, which can be reactivated in the presence of a strong acid. A receptacle in the armor can hold an Acid Flask, which takes 3 Interact actions to install."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An acid flask is installed in the armor"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The leather weeps slippery protoplasm, granting an item bonus to Escape and Squeeze checks equal to the acid flask's item bonus. The protoplasm also irritates the skin on prolonged contact, causing any creature that grapples or swallows you to take acid damage equal to the acid flask's splash damage. Ooze skin remains activated for a number of rounds equal to the level of the acid flask installed. The activation uses up the acid flask, and the armor can't be activated again until a new one is installed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.3ZBFkXQC7jgZ8kx9"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 150
+        }
+      },
+      "bulk": 1,
+      "category": "light",
+      "group": "leather",
+      "baseItem": "leather-armor",
+      "acBonus": 1,
+      "dexCap": 4,
+      "checkPenalty": 1,
+      "strength": 0
+    }
+  },
+  {
+    "id": "385a5a59-3f5b-5aad-9802-b2b0ab1a7238",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:ouroboros-buckles",
+    "name": "Ouroboros Buckles",
+    "level": 19,
+    "rarity": "rare",
+    "traits": ["adjusted", "comfort"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This ominous-looking "
+          },
+          {
+            "type": "text",
+            "text": "+3 greater resilient greater acid-resistant buckle armor",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is deep red in color, favored by assassins who worship Norgorber or Asmodeus, and if unfastened, the many belts and buckles writhe like living snakes. Its form and abilities were inspired by ouroboros, embodiments of eternity that continually consume and regenerate their bodies and appear to be formed from masses of snakes. "
+          },
+          {
+            "type": "text",
+            "text": "Ouroboros buckles",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " have the comfort trait. However, while wearing "
+          },
+          {
+            "type": "text",
+            "text": "ouroboros buckles",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", the unfathomable concept of infinity pulls at your mind, and each time you awaken, you'd swear the armor hissed into your ear while you were asleep. The hissing suggested secret wisdom to you in Aklo, though you only ever remember it vaguely, like a fading dream."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You call forth the cursed regenerative blood of an ouroboros to recover from your wounds. You gain regeneration 15 for 1 minute; fire damage deactivates this regeneration. Each time you regain Hit Points from this regeneration, if you're in your normal form, you collapse into a Large swarm of Tiny snakes. This is a polymorph effect that changes you into a battle form."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you're a swarm of snakes, you gain low-light vision, imprecise scent (30 feet), a Speed of 20 feet, a climb Speed of 20 feet, and a swim Speed of 20 feet. You have an AC of 16 + your level and ignore your armor's check penalty and Speed reduction. Also, you gain resistance 5 to physical damage and weakness 5 to area damage and splash damage. You can use none of your normal Strikes. Instead, you can use Swarming Bites, a single action that deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d4",
+                "damageType": "piercing"
+              },
+              {
+                "formula": "2d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to creatures in your space with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 41,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you're in this battle form and are already at full HP when your regeneration occurs, the snakes instantaneously slither together, and you transform into your original form."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "4069180e-3da0-51e9-81ee-c4000d6c3cfd"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "70b78bed-aeb3-5de6-928f-f71f7eb45a85"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per minute"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A foe within 15 feet hits you with a Strike that deals slashing or piercing damage"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your "
+          },
+          {
+            "type": "text",
+            "text": "ouroboros buckles",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " spray acidic blood in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": " toward the foe, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "5d6",
+                "damageType": "acid"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 41,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.o4U9Nt7ac7AlolNQ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 40000
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "ouroboros-buckles",
+          "name": "Ouroboros Buckles",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "light",
+      "group": "leather",
+      "baseItem": "buckle-armor",
+      "acBonus": 2,
+      "dexCap": 3,
+      "checkPenalty": 1,
+      "strength": 1,
+      "runes": {
+        "potency": 3,
+        "resilient": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "5e767125-76a4-5daa-b5d2-ac48f35a1d6f",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:powered-full-plate",
+    "name": "Powered Full Plate",
+    "level": 7,
+    "rarity": "rare",
+    "traits": ["alchemical", "bulwark"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stasian actuators help the limbs of this full plate move of their own accord, as long as they're supplied with power. A chamber in the chest plate can hold a single Bottled Lightning, which takes 3 Interact actions to install."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A bottled lightning is installed in the armor"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The armor powers up for 10 minutes. While it's powered up, add the bottled lightning's item bonus to your Athletics checks to Force Open, High Jump, Long Jump, and Shove. The armor's Strength requirement is lowered by 1, or by 2 if the loaded bottled lightning's item bonus to attack rolls is +3 or higher. The armor's normal penalties still apply, based on this altered Strength. The activation uses up the bottled lightning, and the armor can't be activated again until a new one is installed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.3mmS3Y291h6Ckgin"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 360
+        }
+      },
+      "bulk": 4,
+      "category": "heavy",
+      "group": "plate",
+      "baseItem": "full-plate",
+      "acBonus": 6,
+      "dexCap": 0,
+      "checkPenalty": 3,
+      "speedPenalty": 10,
+      "strength": 4
+    }
+  },
+  {
+    "id": "f5f7a1f3-f3db-5f05-b0c1-4cef87aaf14b",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:quilted-armor",
+    "name": "Quilted Armor",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["comfort"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Quilted armor is built in a long coat intended for defensive use without other armor. Quilted armor protects the upper body and legs, differentiating it further from the typical padded undercoat. This armor is frequently made in stylish colors or patterns to facilitate use as protective outerwear or a military uniform."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.7xcLPvLDqOcnj0qs"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": 1,
+      "category": "light",
+      "group": "cloth",
+      "baseItem": "quilted-armor",
+      "acBonus": 2,
+      "dexCap": 2,
+      "checkPenalty": 1,
+      "strength": 1
+    }
+  },
+  {
+    "id": "9b0117b6-244a-5373-ad21-c3f60bd0cf1a",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:reef-heart",
+    "name": "Reef Heart",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["aquadynamic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+2 resilient coral armor",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", often favored by allies of merfolk and aquatic elves, is made of living coral carefully harvested from the ocean depths. Legends speak of a variety of similar coral armors with distinct powers, but surface-dwellers know of "
+          },
+          {
+            "type": "text",
+            "text": "reef heart",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " as a magic armor that makes it easier for them to travel under the sea. "
+          },
+          {
+            "type": "text",
+            "text": "Reef heart",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " enables you to breathe underwater and gives you a swim Speed equal to half your land Speed."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast Coral Eruption. If you conjure the coral underwater, it ceases dealing damage after 1 minute, but its duration is unlimited. If the magical coral remains in place for 1 year, it becomes non-magical coral from which a reef might grow."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:swim",
+        "mode": "upgrade",
+        "value": "floor(@stat.speed.land / 2)"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.uuBhzN6xrplrwKyI"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2000
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "reef-heart",
+          "name": "Reef Heart",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "medium",
+      "group": "skeletal",
+      "baseItem": "coral-armor",
+      "acBonus": 3,
+      "dexCap": 2,
+      "checkPenalty": 2,
+      "speedPenalty": 5,
+      "strength": 2,
+      "runes": {
+        "potency": 2,
+        "resilient": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "1d45e812-5fa7-5dc9-9c67-5cd49415a8d3",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:reef-heart-greater",
+    "name": "Reef Heart (Greater)",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["aquadynamic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater resilient coral armor",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", often favored by allies of merfolk and aquatic elves, is made of living coral carefully harvested from the ocean depths. Legends speak of a variety of similar coral armors with distinct powers, but surface-dwellers know of "
+          },
+          {
+            "type": "text",
+            "text": "reef heart",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " as a magic armor that makes it easier for them to travel under the sea. "
+          },
+          {
+            "type": "text",
+            "text": "Reef heart",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " enables you to breathe underwater and gives you a swim Speed equal to your land Speed."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast a 7th rank Coral Eruption. If you conjure the coral underwater, it ceases dealing damage after 1 minute, but its duration is unlimited. If the magical coral remains in place for 1 year, it becomes non-magical coral from which a reef might grow."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:swim",
+        "mode": "upgrade",
+        "value": "@stat.speed.land"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.RODC2TYO4cUg6fXu"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6500
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "reef-heart-greater",
+          "name": "Reef Heart (Greater)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "medium",
+      "group": "skeletal",
+      "baseItem": "coral-armor",
+      "acBonus": 3,
+      "dexCap": 2,
+      "checkPenalty": 2,
+      "speedPenalty": 5,
+      "strength": 2,
+      "runes": {
+        "potency": 2,
+        "resilient": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "4d5c86c7-b323-51e6-80b7-f751c82f1b67",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:rusting-carapace",
+    "name": "Rusting Carapace",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["laminar"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 leather lamellar armor",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " incorporates the plates of an ore louse's hide, woven together with the creature's own sinew into a functional set of armor. While wearing the rusting carapace, you gain a +1 circumstance bonus to AC and saving throws against any effect that would rust you or your items, such as the ore louse's Strikes that have the rust ability or the Rust Cloud spell."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Oxidizing liquid seeps from between the segments of the rusting hide onto a nearby metal creature, non-magical metal hazard, or non-magical metal item of up to 1 Bulk. A targeted creature or hazard gets a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 24,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save; a targeted item automatically gets a critical failure if unattended, but a creature holding or wearing it can attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 24,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save. The rust deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "8d6"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to a creature or hazard, plus "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "category": "persistent"
+              }
+            ],
+            "label": "2d6 persistent"
+          },
+          {
+            "type": "text",
+            "text": " damage on a failed save; it deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to an item, plus "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "category": "persistent"
+              }
+            ],
+            "label": "1d6 persistent"
+          },
+          {
+            "type": "text",
+            "text": " damage on a failed save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include the hide of an ore louse."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:reflex"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["action:antenna-disarm"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Wfu6R7y4w9iTZcDs"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 476
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "rusting-carapace",
+          "name": "Rusting Carapace",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "light",
+      "group": "composite",
+      "baseItem": "leather-lamellar",
+      "acBonus": 1,
+      "dexCap": 4,
+      "checkPenalty": 1,
+      "strength": 0,
+      "runes": {
+        "potency": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "a53d8a00-78fe-5963-b138-a6bd59d5ef4e",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:scroll-robes",
+    "name": "Scroll Robes",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["inscribed"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Scroll robes are composed of paper alchemically treated for strength and flexibility. A layered structure prevents cutting and tearing, and for the purpose of calculating damage, the robes are considered to be cloth. The paper accepts all sorts of decoration, including magical writing, as detailed in the inscribed trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.VJ4s6ABlkimSyjjZ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 15
+        }
+      },
+      "bulk": "light",
+      "category": "unarmored",
+      "group": "cloth",
+      "baseItem": "scroll-robes",
+      "acBonus": 0,
+      "dexCap": 5
+    }
+  },
+  {
+    "id": "ff258b3f-ac72-5cbc-ad7e-8107d91b6313",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:shared-pain-sankeit",
+    "name": "Shared-Pain Sankeit",
+    "level": 14,
+    "rarity": "rare",
+    "traits": ["cursed", "invested", "laminar", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "shared-pain sankeit",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " seems to be an impressive suit of "
+          },
+          {
+            "type": "text",
+            "text": "+2 resilient fortification duskwood sankeit",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " shaped to resemble a mighty linnorm. However, it protects you by drawing on the health of your nearby allies. When you roll the flat check for the armor's fortification rune, it protects you normally when you roll a 20. When you roll a 17, 18, or 19, though, the GM determines damage for the critical hit normally, then distributes half to you and the other half evenly among allies within 30 feet of you. If no ally is within range to take the distributed damage, the fortification rune fails to function. This effect manifests the first time an attacker scores a critical hit on you, after which the armor fuses with you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.bu4IrYBeE68KeEOW"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": 3,
+      "material": {
+        "type": "duskwood",
+        "grade": "standard"
+      },
+      "category": "light",
+      "group": "wood",
+      "baseItem": "sankeit",
+      "acBonus": 2,
+      "dexCap": 3,
+      "checkPenalty": 1,
+      "strength": 1,
+      "runes": {
+        "potency": 1,
+        "resilient": 1,
+        "property": ["1100f76c-d253-50b6-82c0-c70593e97e10"]
+      }
+    }
+  },
+  {
+    "id": "b44c5fda-bf9b-5051-9858-bde0ee7854bf",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:smoldering-armor",
+    "name": "Smoldering Armor",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["fire", "laminar"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 resilient fire-resistant niyaháat",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is often created to mark the passage of an Erutaki warrior into adulthood, formed from plates salvaged from the exploded remains of a firewyrm elemental, with larger pieces protecting the chest, shoulders, and head. As you fight, the armor glows red hot."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The armor is sheathed in a Fire Shield."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're dealt 30 or more fire damage, before any reduction from your fire resistance"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You've used the "
+          },
+          {
+            "type": "text",
+            "text": "fire shield",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " activation already today"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "fire shield",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " activation recharges."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include the carapace of a firewyrm."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.oE6tZBBbP59DOWFM"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 975
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "smoldering-armor",
+          "name": "Smoldering Armor",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "medium",
+      "group": "skeletal",
+      "baseItem": "niyahaat",
+      "acBonus": 3,
+      "dexCap": 2,
+      "checkPenalty": 2,
+      "speedPenalty": 5,
+      "strength": 2,
+      "runes": {
+        "potency": 1,
+        "resilient": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "0643d478-2e15-5ccd-93f0-0ce3fee30c4a",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:troll-hide",
+    "name": "Troll Hide",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["alchemical", "healing"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Tissue from a living forest troll has been integrated through this hide armor. This armor has two organic receptacles on its back that can each hold a single Elixir of Life. One elixir takes 3 Interact actions to install. For the armor to function properly, each elixir must be the same level."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Two elixirs of life are installed in the armor"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Regenerating tissue from the armor fills your wounds for 8 rounds. At the start of each of your turns, you regain Hit Points equal to the level of the loaded elixirs. Each time you regain at least 13 Hit Points from the armor, you regrow one damaged or ruined organ. During a round that you regain 9 or more Hit Points from the armor, you can reattach severed body parts by spending an Interact action to hold the body part to the area it was severed from. If you take electricity or fire damage, the armor deactivates until the end of your next turn. (Similar armor from other types of trolls might be deactivated by different damage types.) In the event the armor itself is damaged, it will restore its own Hit Points before it resumes healing you. The activation uses up the elixirs, and the armor can't be activated again until two new ones are installed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.1X0E707FWf9jJgPK"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6000
+        }
+      },
+      "bulk": 2,
+      "category": "medium",
+      "group": "leather",
+      "baseItem": "hide-armor",
+      "acBonus": 3,
+      "dexCap": 2,
+      "checkPenalty": 2,
+      "speedPenalty": 5,
+      "strength": 2
+    }
+  },
+  {
+    "id": "86b465e5-e5cb-5256-9866-4f35de126feb",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:trollhound-vest",
+    "name": "Trollhound Vest",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This suit of "
+          },
+          {
+            "type": "text",
+            "text": "+1 hide armor",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is sickly green and covered in thick warts and nodules, fashioned from the hide of a trollhound and imbued with some of the beast's vitality. Wearing this armor gives you a –1 circumstance penalty to all checks made using Diplomacy to interact with trolls and a +1 circumstance bonus to Diplomacy checks used to Make an Impression in communities traditionally plagued by troll attacks."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take damage from a melee attack while you have half or fewer of your normal maximum Hit Points"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your body knits itself back together, healing you for "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d8"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include the hides of at least two trollhounds."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "circumstance",
+        "value": -1,
+        "slug": "trollhound-vest-penalty",
+        "predicate": ["target:trait:troll"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["action:make-an-impression", "option:troll-plagued-community"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.tzFMetc4VK6goDm2"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 230
+        }
+      },
+      "bulk": 2,
+      "category": "medium",
+      "group": "leather",
+      "baseItem": "hide-armor",
+      "acBonus": 3,
+      "dexCap": 2,
+      "checkPenalty": 2,
+      "speedPenalty": 5,
+      "strength": 2,
+      "runes": {
+        "potency": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "309050ed-e96f-574f-9eb4-06ba4749d496",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:wasp-guard",
+    "name": "Wasp Guard",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Druids and Calistria's faithful alike value this vindictive armor for its ability to turn away pests and exact revenge on foes in a manner that can easily turn coordinated enemies into a chaotic mass. "
+          },
+          {
+            "type": "text",
+            "text": "Wasp guard",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "text",
+            "text": "+1 studded leather",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " studded with the carapaces of wasps, subtly diverting swarms away and granting a +1 status bonus to Reflex saving throws against Swarming Bites, Swarming Stings, and similar abilities from swarms."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An enemy within 30 feet Strikes you with an attack"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You animate the exoskeletons of the "
+          },
+          {
+            "type": "text",
+            "text": "wasp guard",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " armor into a spectral swarm of wasps that seeks revenge for the slight. The swarm flies to the triggering enemy's space and swarms about them, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d8",
+                "damageType": "poison",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. If the affected enemy has any allies within 30 feet, the enemy can spend a single action, which has the manipulate trait, to shoo the swarm away. This ends the persistent damage on that enemy automatically, but the swarm instead moves to affect the enemy's ally."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include 1 Bulk of wasp exoskeletons."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:reflex"],
+        "type": "status",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["action:swarming-bites", "action:swarming-stings"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.uV8fEVUuSyMsh1xF"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 487
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "wasp-guard",
+          "name": "Wasp Guard",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "light",
+      "group": "leather",
+      "baseItem": "studded-leather-armor",
+      "acBonus": 2,
+      "dexCap": 3,
+      "checkPenalty": 1,
+      "strength": 1,
+      "runes": {
+        "potency": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "f8696658-749f-5760-a732-3bf27236f9b4",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:wolfjaw-armor",
+    "name": "Wolfjaw Armor",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["primal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Barbarians, druids and other outlanders are often forced to spend the harsh winter months protecting their communities from one of the deadliest predators to stalk the forests and taiga of the northern reaches, the fearsome witchwarg. This "
+          },
+          {
+            "type": "text",
+            "text": "+1 hide armor",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is assembled from the hide and fur of a trio of witchwargs, and it conveys on the wearer both an attack akin to the witchwargs' deadly jaws and the ability to channel the frigid cold of the witchwarg's Winter Breath."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (cold, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You breathe a cloud of frost in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": " that deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "5d8",
+                "damageType": "cold"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 23,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": ")."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain a jaws unarmed attack that you make using your hands. This attack deals 1d8 piercing damage plus 1 cold damage, is in the brawling group, and has the trip and unarmed traits."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "a8cc36ab-624b-5d83-bee7-386e099f0d0c"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include the hides of at least three witchwargs."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Note: A duration for the activation effect was not included in the statblock by Paizo. We have assumed a 1 minute duration for the effect",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.tBGhH7AHyvJQZC5d"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 355
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "wolfjaw-armor",
+          "name": "Wolfjaw Armor",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "medium",
+      "group": "leather",
+      "baseItem": "hide-armor",
+      "acBonus": 3,
+      "dexCap": 2,
+      "checkPenalty": 2,
+      "speedPenalty": 5,
+      "strength": 2,
+      "runes": {
+        "potency": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "5e5b02f5-ebfc-592d-99fb-d0968184e872",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:wooden-breastplate",
+    "name": "Wooden Breastplate",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A suit of carved and tempered wood, a wooden breastplate resembles a metal breastplate in shape and function. Such suits can be carved from large pieces of wood, but they most often come from wood coaxed magically from special trees, whether by druids, elves, fey, or plant creatures such as arboreals or leshies."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.QPgkjNm2uIV5tsRd"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6
+        }
+      },
+      "bulk": 2,
+      "category": "medium",
+      "group": "wood",
+      "baseItem": "wooden-breastplate",
+      "acBonus": 3,
+      "dexCap": 2,
+      "checkPenalty": 2,
+      "speedPenalty": 5,
+      "strength": 2
+    }
+  }
+]
