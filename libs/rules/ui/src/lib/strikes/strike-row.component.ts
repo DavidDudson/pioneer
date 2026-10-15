@@ -105,6 +105,9 @@ export class StrikeRow {
   protected readonly bonusKind = StatisticKind.Value;
 
   /** The attack when the engine derived it. */
+  /** The lines under the damage: its extra lines, then those of the thrown attack. */
+  protected readonly lines = computed((): readonly string[] => [...this.row().extras, ...this.row().thrown]);
+
   protected readonly derived = computed((): DerivedAttack | undefined => {
     const { attack } = this.row();
     return attack.ok ? attack : undefined;
