@@ -1,5 +1,25 @@
 [
   {
+    "id": "c46b73e0-50a1-523c-a265-c4037861c84e",
+    "pack": "core-rules",
+    "kind": "variant-rule",
+    "slug": "variant-rule:dual-class",
+    "name": "Dual Class",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "structure": ["secondClass"]
+    }
+  },
+  {
     "id": "a8e09e01-8dbe-5055-920b-453ebd93493d",
     "pack": "core-rules",
     "kind": "variant-rule",

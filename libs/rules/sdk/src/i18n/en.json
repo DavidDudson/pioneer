@@ -652,6 +652,7 @@
         "ancestry": "Ancestry boost",
         "background": "Background boost",
         "class": "Class key attribute",
+        "secondClass": "Second class key attribute",
         "free": "Level {level} boost",
         "freeNumbered": "Level {level} boost {number}"
       }

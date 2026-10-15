@@ -1,10 +1,10 @@
 <fr-grid [columns]="3">
-  <fr-inline-field [label]="'character.sheet.class' | transloco" [edit]="classField()">
+  <fr-inline-field [label]="labels().class | transloco" [edit]="classField()">
     <pio-class-picker
       frInlineEditor
       [rows]="rows.classes()"
       [loading]="rows.loading()"
-      [ariaLabel]="'character.sheet.class' | transloco"
+      [ariaLabel]="labels().class | transloco"
       [placeholder]="'character.sheet.classPlaceholder' | transloco"
       [value]="classField().draft()"
       (valueChange)="classField().change($event)"
@@ -12,13 +12,13 @@
       (cancelled)="classField().cancel()"
     />
   </fr-inline-field>
-  @if (picks().subclassField(); as subclassField) {
-    <fr-inline-field [label]="'character.sheet.subclass' | transloco" [edit]="subclassField">
+  @if (classPicks().subclassField(); as subclassField) {
+    <fr-inline-field [label]="labels().subclass | transloco" [edit]="subclassField">
       <pio-subclass-picker
         frInlineEditor
         [rows]="rows.subclasses()"
         [loading]="rows.loading()"
-        [ariaLabel]="'character.sheet.subclass' | transloco"
+        [ariaLabel]="labels().subclass | transloco"
         [placeholder]="'character.sheet.subclassPlaceholder' | transloco"
         [value]="subclassField.draft()"
         (valueChange)="subclassField.change($event)"
@@ -27,13 +27,13 @@
       />
     </fr-inline-field>
   }
-  @if (picks().keyAttributeField(); as keyAttributeField) {
-    <fr-inline-field [label]="'character.sheet.keyAttribute' | transloco" [edit]="keyAttributeField">
+  @if (classPicks().keyAttributeField(); as keyAttributeField) {
+    <fr-inline-field [label]="labels().keyAttribute | transloco" [edit]="keyAttributeField">
       <pio-key-attribute-picker
         frInlineEditor
         [rows]="rows.keyAttributes()"
         [loading]="rows.loading()"
-        [ariaLabel]="'character.sheet.keyAttribute' | transloco"
+        [ariaLabel]="labels().keyAttribute | transloco"
         [placeholder]="'character.sheet.keyAttributePlaceholder' | transloco"
         [value]="keyAttributeField.draft()"
         (valueChange)="keyAttributeField.change($event)"

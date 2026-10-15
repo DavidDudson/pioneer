@@ -61,15 +61,15 @@ Each kind's `data` follows what Foundry pf2e stores for it, in Pioneer's words. 
 in its `rules`, not repeated in `data`; a condition's `implies` is the one exception, below. Schemas live in
 `libs/rules/sdk`, registered in `kind-data.ts`.
 
-| Kind           | `data`                                                                                                                                            |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `condition`    | `valued`; `group?`, Foundry's sheet grouping, which says nothing about stacking; `overrides`; `implies`                                           |
-| `action`       | `cost?`; `upTo?`; `skills?`; `category?`; `requirements?` and `trigger?` as rich text; `triggerEvent?`; `autoApply?`; `frequency?`; `selfEffect?` |
-| `damage-type`  | none yet; a type's group stays in `DAMAGE_GROUP_TYPES`, as Foundry keeps it in code                                                               |
-| `sense`        | `acuity?`, the acuity the sense always has; `unlimitedRange?` (darkvision)                                                                        |
-| `trait`        | `appliesTo`: each kind that carries it once, from the Foundry trait list it sits in                                                               |
-| `language`     | none yet; rarity is the envelope's                                                                                                                |
-| `variant-rule` | `structure?`, the structural changes it needs beyond `rules` (`extraSlots`, `secondClass`); `rules` apply to every character it is enabled for    |
+| Kind           | `data`                                                                                                                                                        |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `condition`    | `valued`; `group?`, Foundry's sheet grouping, which says nothing about stacking; `overrides`; `implies`                                                       |
+| `action`       | `cost?`; `upTo?`; `skills?`; `category?`; `requirements?` and `trigger?` as rich text; `triggerEvent?`; `autoApply?`; `frequency?`; `selfEffect?`             |
+| `damage-type`  | none yet; a type's group stays in `DAMAGE_GROUP_TYPES`, as Foundry keeps it in code                                                                           |
+| `sense`        | `acuity?`, the acuity the sense always has; `unlimitedRange?` (darkvision)                                                                                    |
+| `trait`        | `appliesTo`: each kind that carries it once, from the Foundry trait list it sits in                                                                           |
+| `language`     | none yet; rarity is the envelope's                                                                                                                            |
+| `variant-rule` | `structure?`, the structural changes it needs beyond `rules` (`extraSlots`, `secondClass` for Dual Class); `rules` apply to every character it is enabled for |
 
 - `condition`: `valued` says whether it takes a value (Frightened 2) or not (Blinded). `group` is one of
   `abilities`, `attitudes`, `death`, `detection`, `senses`. `overrides` lists the conditions it replaces

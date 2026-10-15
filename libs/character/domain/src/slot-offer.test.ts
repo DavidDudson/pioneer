@@ -5,7 +5,7 @@ import { AncestryId, ChoiceValue, ContentKind, SlotKey } from '@pioneer/rules/sd
 import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 
 import type { CharacterDocument } from './character-document';
-import { ANCESTRY_SLOT } from './character-slots';
+import { ANCESTRY_SLOT, CHARACTER_ROOT_SLOTS } from './character-slots';
 import { SlotRefusalField, slotRefusal } from './slot-offer';
 import type { SlotContent, SlotRefusal } from './slot-offer';
 import {
@@ -44,6 +44,7 @@ const human = { ...entry('human'), kind: ContentKind.Ancestry };
 const content: SlotContent = {
   lookup: lookupOf([elf, human]),
   namespaces: CORE_NAMESPACES,
+  rootSlots: CHARACTER_ROOT_SLOTS,
   boosts: BOOST_FIXTURES,
   skills: NO_SKILLS,
   languages: NO_LANGUAGES,

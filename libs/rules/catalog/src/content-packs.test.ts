@@ -27,6 +27,7 @@ const PINNED_IDS: Readonly<Record<string, string>> = {
   'core-rules/statistic:occultism': 'be4749d6-c4e0-5f2d-8282-5966cc2cbc94',
   'core-rules/statistic:perception': 'd7d3a54b-f54a-5756-8341-4ad40b1444ba',
   'core-rules/statistic:performance': '23d62123-d33e-5440-be8b-c957a6f06f37',
+  'core-rules/variant-rule:dual-class': 'c46b73e0-50a1-523c-a265-c4037861c84e',
   'core-rules/variant-rule:proficiency-without-level': 'a8e09e01-8dbe-5055-920b-453ebd93493d',
   'core-rules/statistic:reflex': '1e0faae5-d668-5df4-ae46-9612aa44a84d',
   'core-rules/statistic:religion': '958254ce-39e2-5550-93b4-751248304054',

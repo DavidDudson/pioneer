@@ -24,7 +24,7 @@ import type {
 
 import { boostSets, BoostSource } from './attribute-boosts';
 import type { CharacterDocument } from './character-document';
-import { CLASS_SLOT } from './character-slots';
+import { CLASS_SLOT, SECOND_CLASS_SLOT } from './character-slots';
 import { grantedRules } from './granted-rules';
 import { pickedSkillRanks, withSkillPicks } from './skill-training';
 import { resolveSlotsAt, skillReads } from './slot-offer';
@@ -83,9 +83,9 @@ export function characterRanks(resolution: GrantResolution): ReadonlyMap<Selecto
   return ranks;
 }
 
-/** The class's id, when the class slot holds a class the content has. */
-function classOf(resolution: GrantResolution): ContentId | undefined {
-  return resolution.rootSlots.find((slot) => slot.key === CLASS_SLOT)?.pick;
+/** The class's id, when `slot` (the class slot, or the second class's) holds a class the content has. */
+function classOf(resolution: GrantResolution, slot: SlotKey): ContentId | undefined {
+  return resolution.rootSlots.find((each) => each.key === slot)?.pick;
 }
 
 /**
@@ -98,7 +98,7 @@ export function classInputs(
   classes: ClassContent,
 ): ClassInputs | undefined {
   const picked = characterGrants(document, content);
-  const id = classOf(picked);
+  const id = classOf(picked, CLASS_SLOT);
   const data = id === undefined ? undefined : classes.data(id);
   const set = boostSets(document, content.boosts).find((each) => each.source === BoostSource.Class);
   const keyAttribute = set?.fixed[0] ?? set?.slots[0]?.pick;
@@ -142,10 +142,14 @@ function classRule(item: GrantedItem, classId: ContentId): RuleIndex | undefined
 /**
  * The class features the character has at its level, each with the class level its grant opens at: "from Cleric,
  * level 1". A subclass's feature (a doctrine) reads the level of the class feature that offered it. In class level,
- * then name order.
+ * then name order. Those of `slot`'s class: the first class's unless the second's is asked for.
  */
-export function classFeatures(resolution: GrantResolution, lookup: ContentLookup): readonly ClassFeature[] {
-  const classId = classOf(resolution);
+export function classFeatures(
+  resolution: GrantResolution,
+  lookup: ContentLookup,
+  slot: SlotKey = CLASS_SLOT,
+): readonly ClassFeature[] {
+  const classId = classOf(resolution, slot);
   const characterClass = classId === undefined ? undefined : lookup.entry(classId);
   if (classId === undefined || characterClass === undefined) {
     return [];
@@ -170,6 +174,25 @@ function queriesTag(element: RuleElement | undefined, tag: Slug): boolean {
   return element.choices.kind === ContentKind.ClassFeature && element.choices.filter.some((term) => term === wanted);
 }
 
+/** The `ChoiceSet` of `resolution` that queries class features tagged `subclass`; undefined without a tag. */
+function subclassChoice(
+  resolution: GrantResolution,
+  lookup: ContentLookup,
+  subclass: Slug | undefined,
+): ChoiceSlot | undefined {
+  if (subclass === undefined) {
+    return undefined;
+  }
+  const slots: readonly ChoiceSlot[] = [...resolution.answered, ...resolution.open];
+  return slots.find((each) => queriesTag(lookup.entry(each.origin.entry)?.rules[each.rule], subclass));
+}
+
+/** The `subclass` tag of the class picked for `slot`, if any. */
+function subclassTag(resolution: GrantResolution, classes: ClassContent, slot: SlotKey): Slug | undefined {
+  const classId = classOf(resolution, slot);
+  return classId === undefined ? undefined : classes.data(classId)?.subclass;
+}
+
 /**
  * The class's subclass slot (a doctrine, muse, order or school): the `ChoiceSet` on the character that queries the
  * class features tagged with the class's `subclass`. Undefined for a class without one, or before a class is picked.
@@ -179,13 +202,16 @@ export function subclassSlot(
   lookup: ContentLookup,
   classes: ClassContent,
 ): ChoiceSlot | undefined {
-  const classId = classOf(resolution);
-  const tag = classId === undefined ? undefined : classes.data(classId)?.subclass;
-  if (tag === undefined) {
-    return undefined;
-  }
-  const slots: readonly ChoiceSlot[] = [...resolution.answered, ...resolution.open];
-  return slots.find((slot) => queriesTag(lookup.entry(slot.origin.entry)?.rules[slot.rule], tag));
+  return subclassChoice(resolution, lookup, subclassTag(resolution, classes, CLASS_SLOT));
+}
+
+/** The subclass slot of the second class, read as `subclassSlot` reads the first's. */
+export function secondSubclassSlot(
+  resolution: GrantResolution,
+  lookup: ContentLookup,
+  classes: ClassContent,
+): ChoiceSlot | undefined {
+  return subclassChoice(resolution, lookup, subclassTag(resolution, classes, SECOND_CLASS_SLOT));
 }
 
 /**

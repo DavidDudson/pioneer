@@ -1,5 +1,4 @@
-import { grantLookup, resolveGrants } from '@pioneer/rules/grants';
-import type { ContentLookup } from '@pioneer/rules/grants';
+import type { RootSlotDefinition } from '@pioneer/rules/grants';
 import {
   AncestryId,
   Attribute,
@@ -12,18 +11,28 @@ import {
   Level,
   SlotKey,
 } from '@pioneer/rules/sdk';
-import type { ChoiceValue, ContentEntry, ContentRegistry } from '@pioneer/rules/sdk';
+import type { ChoiceValue, ContentRegistry } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 
 import type { CharacterDocument } from './character-document';
 import { CHARACTER_LEVEL_MAX, CHARACTER_LEVEL_MIN } from './character-fields';
-import { ANCESTRY_SLOT, BACKGROUND_SLOT, CHARACTER_ROOT_SLOTS, CLASS_SLOT } from './character-slots';
+import {
+  ANCESTRY_SLOT,
+  BACKGROUND_SLOT,
+  CHARACTER_ROOT_SLOTS,
+  CLASS_SLOT,
+  hasSecondClass,
+  SECOND_CLASS_SLOT,
+} from './character-slots';
+import { grantedKeyOptions } from './granted-key-options';
 
-/** Where a set of boosts comes from: the character's ancestry, background or class, or its level. */
+/** Where a set of boosts comes from: the character's ancestry, background, class or second class, or its level. */
 export const BoostSource = {
   Ancestry: 'ancestry',
   Background: 'background',
   Class: 'class',
+  /** The key attribute of a Dual Class character's second class. */
+  SecondClass: 'second-class',
   Free: 'free',
 } as const;
 export type BoostSource = ValueOf<typeof BoostSource>;
@@ -42,6 +51,8 @@ export interface BoostContent {
   readonly ancestry: (id: ContentId) => AncestryBoosts | undefined;
   readonly background: (id: ContentId) => readonly Boost[] | undefined;
   readonly keyAttribute: (id: ContentId) => Boost | undefined;
+  /** Whether the character has a second class slot (Dual Class), so its key attribute is a boost of its own. */
+  readonly secondClass: boolean;
   /** What the character's 1st-level class features add to its key attribute options: Strength for a ruffian rogue. */
   readonly keyAttributeOptions: (document: CharacterDocument) => readonly Attribute[];
 }
@@ -95,49 +106,13 @@ const FREE_BOOSTS: readonly Boost[] = Array.from({ length: FREE_BOOSTS_PER_LEVEL
 const PARTIAL_BOOST_FROM = 4;
 
 /**
- * What the character's class features add to its key attribute options, read from its grants at 1st level, when the
- * class picks its key attribute: a racket a rogue picks there widens it. Each document is read once.
+ * The boosts of the registry's ancestries, and of the backgrounds and classes its packs hold as entries, for a
+ * character with `rootSlots`.
  */
-function grantedKeyOptions(
+export function boostContent(
   registry: ContentRegistry,
-  entries: readonly ContentEntry[],
-): (document: CharacterDocument) => readonly Attribute[] {
-  const options = new Map(
-    entries.flatMap((entry) =>
-      entry.kind === ContentKind.ClassFeature && entry.data.keyAttributeOptions !== undefined
-        ? [[entry.id, entry.data.keyAttributeOptions] as const]
-        : [],
-    ),
-  );
-  if (options.size === 0) {
-    return () => [];
-  }
-  let lookup: ContentLookup | undefined = undefined;
-  const read = new WeakMap<CharacterDocument, readonly Attribute[]>();
-  return (document) => {
-    const known = read.get(document);
-    if (known !== undefined) {
-      return known;
-    }
-    lookup ??= grantLookup(registry);
-    const { items } = resolveGrants({
-      roots: [],
-      lookup,
-      level: FIRST_LEVEL,
-      situation: [],
-      picks: new Map(Object.entries(document.build.choices).map(([key, value]) => [SlotKey.parse(key), value])),
-      rootSlots: CHARACTER_ROOT_SLOTS,
-      toggles: new Map(),
-      namespaces: registry.rollOptionNamespaces(),
-    });
-    const added = items.flatMap(({ entry }) => options.get(entry.id) ?? []);
-    read.set(document, added);
-    return added;
-  };
-}
-
-/** The boosts of the registry's ancestries, and of the backgrounds and classes its packs hold as entries. */
-export function boostContent(registry: ContentRegistry): BoostContent {
+  rootSlots: readonly RootSlotDefinition[] = CHARACTER_ROOT_SLOTS,
+): BoostContent {
   const entries = registry.packs.flatMap((pack) => pack.otherEntries);
   const backgrounds = new Map(
     entries.flatMap((entry) => (entry.kind === ContentKind.Background ? [[entry.id, entry.data.boosts] as const] : [])),
@@ -154,7 +129,8 @@ export function boostContent(registry: ContentRegistry): BoostContent {
     },
     background: (id: ContentId): readonly Boost[] | undefined => backgrounds.get(id),
     keyAttribute: (id: ContentId): Boost | undefined => classes.get(id),
-    keyAttributeOptions: grantedKeyOptions(registry, entries),
+    secondClass: hasSecondClass(rootSlots),
+    keyAttributeOptions: grantedKeyOptions(registry, entries, rootSlots),
   };
 }
 
@@ -210,10 +186,15 @@ export function boostSets(document: CharacterDocument, content: BoostContent): r
   const classKey = characterClass === undefined ? undefined : content.keyAttribute(characterClass);
   const keyAttribute =
     classKey === undefined ? undefined : [...new Set([...classKey, ...content.keyAttributeOptions(document)])];
+  const secondClass = content.secondClass ? pickedId(document, SECOND_CLASS_SLOT) : undefined;
+  const secondKey = secondClass === undefined ? undefined : content.keyAttribute(secondClass);
+  const secondAttribute =
+    secondKey === undefined ? undefined : [...new Set([...secondKey, ...content.keyAttributeOptions(document)])];
   const origins: [BoostSource, readonly Boost[] | undefined][] = [
     [BoostSource.Ancestry, ancestryBoosts],
     [BoostSource.Background, backgroundBoosts],
     [BoostSource.Class, keyAttribute === undefined ? undefined : [keyAttribute]],
+    [BoostSource.SecondClass, secondAttribute === undefined ? undefined : [secondAttribute]],
   ];
   return [
     ...origins.flatMap(([source, boosts]) =>

@@ -8,6 +8,7 @@ export const AttributesMessage = {
   AncestryBoost: 'rules.attributes.boost.ancestry',
   BackgroundBoost: 'rules.attributes.boost.background',
   ClassBoost: 'rules.attributes.boost.class',
+  SecondClassBoost: 'rules.attributes.boost.secondClass',
   FreeBoost: 'rules.attributes.boost.free',
 } as const;
 

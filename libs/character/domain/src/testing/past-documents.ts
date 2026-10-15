@@ -66,6 +66,12 @@ const VERSION_5 = {
   schemaVersion: 5,
 };
 
+/** Version 6, before a second class (#705): `build.choices` held no `second-class` pick. */
+const VERSION_6 = {
+  ...VERSION_5,
+  schemaVersion: 6,
+};
+
 /**
  * One stored document of every past schema version, in the shape that version wrote. A new upgrade step adds the
  * shape it upgrades from; `character-document.test.ts` fails until it does.
@@ -76,4 +82,5 @@ export const PAST_DOCUMENTS: ReadonlyMap<CharacterSchemaVersion, unknown> = new 
   [CharacterSchemaVersion.parse(VERSION_3.schemaVersion), VERSION_3],
   [CharacterSchemaVersion.parse(VERSION_4.schemaVersion), VERSION_4],
   [CharacterSchemaVersion.parse(VERSION_5.schemaVersion), VERSION_5],
+  [CharacterSchemaVersion.parse(VERSION_6.schemaVersion), VERSION_6],
 ]);

@@ -91,6 +91,9 @@
         </fr-inline-field>
       </fr-grid>
       <pio-sheet-class-fields [picks]="picks" [classField]="characterClass" />
+      @if (picks.hasSecondClass()) {
+        <pio-sheet-class-fields [picks]="picks" [classField]="secondClass" [second]="true" />
+      }
     </fr-stack>
   </fr-section>
 

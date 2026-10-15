@@ -1,4 +1,4 @@
-import { attributeModifiers, boostContent, boostSlots, BoostSource } from '@pioneer/character/domain';
+import { attributeModifiers, boostSlots, BoostSource } from '@pioneer/character/domain';
 import type { BoostSlot, Character } from '@pioneer/character/domain';
 import { ATTRIBUTE_MODIFIER_MAX } from '@pioneer/rules/sdk';
 import type { Attribute, AttributeModifiers, ContentRegistry, SlotKey } from '@pioneer/rules/sdk';
@@ -6,6 +6,8 @@ import { ATTRIBUTE_MESSAGES } from '@pioneer/rules/ui';
 import type { AttributePickerRow, OpenBoostLine } from '@pioneer/rules/ui';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
+
+import { sheetSlotContent } from './sheet-slot-content';
 
 /** What the sheet's attributes section shows: the modifiers the boosts give, then the boosts not placed yet. */
 export interface SheetAttributes {
@@ -18,6 +20,7 @@ export const BOOST_LABEL_KEYS: Readonly<Record<BoostSource, string>> = {
   [BoostSource.Ancestry]: 'rules.attributes.boost.ancestry',
   [BoostSource.Background]: 'rules.attributes.boost.background',
   [BoostSource.Class]: 'rules.attributes.boost.class',
+  [BoostSource.SecondClass]: 'rules.attributes.boost.secondClass',
   [BoostSource.Free]: 'rules.attributes.boost.free',
 };
 
@@ -26,7 +29,7 @@ export const BOOST_LABEL_KEYS: Readonly<Record<BoostSource, string>> = {
  * Slots above it are the plan, not yet missing.
  */
 export function sheetAttributes(registry: ContentRegistry, character: Character): SheetAttributes {
-  const content = boostContent(registry);
+  const content = sheetSlotContent(registry).boosts;
   const open = boostSlots(character.document, content).flatMap((slot): OpenBoostLine[] =>
     slot.pick === undefined && slot.level <= character.level
       ? [{ key: slot.key, label: message(BOOST_LABEL_KEYS[slot.source], { level: slot.level }) }]
@@ -71,7 +74,7 @@ export function sheetPlannedBoosts(
   character: Character,
   translate: (key: string) => string,
 ): readonly SheetPlannedBoost[] {
-  const content = boostContent(registry);
+  const content = sheetSlotContent(registry).boosts;
   const planned = boostSlots(character.document, content).filter((slot) => slot.level > character.level);
   const modifiers = attributeModifiers(character.document, content);
   return planned.map((slot) => ({

@@ -98,6 +98,7 @@ describe('placeBoosts', () => {
         [STR, CON],
       ],
       keyAttribute: () => undefined,
+      secondClass: false,
       keyAttributeOptions: () => [],
     };
     const { choices, unplaced } = placeBoosts(dwarf(1), narrow, [boosts(BoostSource.Background, 1, [CON, WIS])]);

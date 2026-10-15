@@ -1,17 +1,11 @@
-import {
-  characterGrants,
-  deityContent,
-  DEITY_SLOT,
-  needsDeity,
-  rootSlotOptions,
-  slotContent,
-} from '@pioneer/character/domain';
+import { characterGrants, deityContent, DEITY_SLOT, needsDeity, rootSlotOptions } from '@pioneer/character/domain';
 import type { Character, SheetDeity } from '@pioneer/character/domain';
 import { RichText, Selector } from '@pioneer/rules/sdk';
 import type { ContentRegistry, DeityData } from '@pioneer/rules/sdk';
 import type { DeityLine, DeityPickerRow } from '@pioneer/rules/ui';
 
 import { NOT_CHOSEN } from './sheet-build';
+import { sheetSlotContent } from './sheet-slot-content';
 
 /** What the deity line reads besides the deity: skill names from the registry, and a message for an unlisted weapon. */
 export interface DeityLineSources {
@@ -63,7 +57,7 @@ export function sheetDeityRows(
   character: Character,
   { translate, unlistedWeapon }: DeityRowReads,
 ): readonly DeityPickerRow[] {
-  const content = slotContent(registry);
+  const content = sheetSlotContent(registry);
   const offered = new Set(rootSlotOptions(character.document, content, DEITY_SLOT).map((option) => option.value));
   const cleric = needsDeity(characterGrants(character.document, content).rollOptions);
   const deities = deityContent(registry);

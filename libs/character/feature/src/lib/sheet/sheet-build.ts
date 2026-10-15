@@ -1,7 +1,6 @@
 import {
   ANCESTRY_SLOT,
   BACKGROUND_SLOT,
-  boostContent,
   boostSets,
   BoostSource,
   characterGrants,
@@ -12,8 +11,10 @@ import {
   classFeatures,
   HERITAGE_SLOT,
   rootSlotOptions,
-  slotContent,
+  hasSecondClass,
+  SECOND_CLASS_SLOT,
   SlotStatus,
+  secondSubclassSlot,
   subclassSlot,
 } from '@pioneer/character/domain';
 import type { Character, CharacterSlot } from '@pioneer/character/domain';
@@ -42,7 +43,9 @@ function picked(slots: readonly CharacterSlot[], slot: SlotKey): BuildValue | un
 
 /** The class's key attribute: the one it allows, or the one picked from those it allows. */
 function keyAttribute(registry: ContentRegistry, character: Character): BuildValue | undefined {
-  const set = boostSets(character.document, boostContent(registry)).find((each) => each.source === BoostSource.Class);
+  const set = boostSets(character.document, sheetSlotContent(registry).boosts).find(
+    (each) => each.source === BoostSource.Class,
+  );
   const attribute: Attribute | undefined = set?.fixed[0] ?? set?.slots[0]?.pick;
   return attribute === undefined ? undefined : { attribute };
 }
@@ -112,7 +115,7 @@ export function sheetRootOptions(
   character: Character,
   slot: SlotKey,
 ): readonly SelectOption<string>[] {
-  const options = rootSlotOptions(character.document, slotContent(registry), slot);
+  const options = rootSlotOptions(character.document, sheetSlotContent(registry), slot);
   return options.map((option) => ({ value: option.value, label: option.label }));
 }
 
@@ -122,10 +125,18 @@ export interface SheetSubclass {
   readonly options: readonly SelectOption<string>[];
 }
 
-/** The subclass slot of the character's class; undefined before a class is picked, or for a class without one. */
-export function sheetSubclass(registry: ContentRegistry, character: Character): SheetSubclass | undefined {
-  const content = slotContent(registry);
-  const slot = subclassSlot(characterGrants(character.document, content), content.lookup, classContent(registry));
+/**
+ * The subclass slot of the character's class, or its second class's when `classSlot` is the second class slot;
+ * undefined before a class is picked, or for a class without one.
+ */
+export function sheetSubclass(
+  registry: ContentRegistry,
+  character: Character,
+  classSlot: SlotKey = CLASS_SLOT,
+): SheetSubclass | undefined {
+  const content = sheetSlotContent(registry);
+  const find = classSlot === SECOND_CLASS_SLOT ? secondSubclassSlot : subclassSlot;
+  const slot = find(characterGrants(character.document, content), content.lookup, classContent(registry));
   return slot === undefined
     ? undefined
     : { key: slot.key, options: slot.options.map((option) => ({ value: option.value, label: option.label })) };
@@ -137,20 +148,36 @@ export interface SheetKeyAttribute {
   readonly options: readonly Attribute[];
 }
 
-/** The class's key attribute slot; undefined when the class allows only one attribute. */
-export function sheetKeyAttribute(registry: ContentRegistry, character: Character): SheetKeyAttribute | undefined {
-  const set = boostSets(character.document, boostContent(registry)).find((each) => each.source === BoostSource.Class);
+/** The class's key attribute slot (the second class's for `BoostSource.SecondClass`); undefined when it allows one. */
+export function sheetKeyAttribute(
+  registry: ContentRegistry,
+  character: Character,
+  source: BoostSource = BoostSource.Class,
+): SheetKeyAttribute | undefined {
+  const set = boostSets(character.document, sheetSlotContent(registry).boosts).find((each) => each.source === source);
   const slot = set?.slots[0];
   return slot === undefined ? undefined : { key: slot.key, options: slot.options };
 }
 
-/** The class features the character has at its level, with the class and level each came from. */
+/** Whether the character has a second class slot: the Dual Class variant is in force for it. */
+export function sheetHasSecondClass(registry: ContentRegistry): boolean {
+  return hasSecondClass(sheetSlotContent(registry).rootSlots);
+}
+
+/**
+ * The class features the character has at its level, with the class and level each came from: its class's, then its
+ * second class's when it has one.
+ */
 export function sheetClassFeatures(registry: ContentRegistry, character: Character): readonly ClassFeatureLine[] {
-  const content = slotContent(registry);
-  return classFeatures(characterGrants(character.document, content), content.lookup).map((feature) => ({
-    key: feature.id,
-    name: feature.name,
-    className: feature.className,
-    level: feature.level,
-  }));
+  const content = sheetSlotContent(registry);
+  const grants = characterGrants(character.document, content);
+  const slots = sheetHasSecondClass(registry) ? [CLASS_SLOT, SECOND_CLASS_SLOT] : [CLASS_SLOT];
+  return slots.flatMap((slot) =>
+    classFeatures(grants, content.lookup, slot).map((feature) => ({
+      key: feature.id,
+      name: feature.name,
+      className: feature.className,
+      level: feature.level,
+    })),
+  );
 }

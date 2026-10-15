@@ -125,7 +125,11 @@ describe('core rules pack', () => {
     }
     expect(registry.statistics()).toHaveLength(selectors.length);
     const withoutLevel = contentId(coreRules.id, EntrySlug.parse('variant-rule:proficiency-without-level'));
-    expect(registry.variantRules().map(({ id }) => id)).toStrictEqual([VariantRuleId.parse(withoutLevel)]);
+    const dualClass = contentId(coreRules.id, EntrySlug.parse('variant-rule:dual-class'));
+    expect(registry.variantRules().map(({ id }) => id)).toStrictEqual([
+      VariantRuleId.parse(dualClass),
+      VariantRuleId.parse(withoutLevel),
+    ]);
   });
 
   test('derives AC, the saves and Perception for a level 3 fighter', () => {

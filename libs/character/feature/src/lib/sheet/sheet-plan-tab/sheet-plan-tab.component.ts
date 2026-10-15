@@ -18,6 +18,7 @@ import {
   CHARACTER_LEVEL_MIN,
   CharacterPatchField,
   CLASS_SLOT,
+  SECOND_CLASS_SLOT,
   HERITAGE_SLOT,
   SheetMode,
 } from '@pioneer/character/domain';
@@ -149,6 +150,8 @@ export class SheetPlanTab {
   protected readonly background = this.picks.rootField(BACKGROUND_SLOT, this.backgroundOptions);
   protected readonly classOptions = this.picks.rootOptions(CLASS_SLOT);
   protected readonly characterClass = this.picks.rootField(CLASS_SLOT, this.classOptions);
+  protected readonly secondClassOptions = this.picks.rootOptions(SECOND_CLASS_SLOT);
+  protected readonly secondClass = this.picks.rootField(SECOND_CLASS_SLOT, this.secondClassOptions);
   protected readonly level = sheetField<number>(this.sheet.character, {
     read: (character) => character.level,
     empty: CHARACTER_LEVEL_MIN,

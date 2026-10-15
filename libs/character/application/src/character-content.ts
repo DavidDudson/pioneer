@@ -11,8 +11,11 @@ import type { EffectiveVariants } from './effective-variants';
 export interface CharacterContentSource extends ContentSource {
   /** The content as `character` sees it: the official packs and the homebrew packs it uses. */
   readonly forCharacter?: (character: Character) => ContentSource;
-  /** The variant rules in force for `character`: enabled, and defined by a pack it uses. */
-  readonly variantRules?: (character: Character) => Promise<readonly VariantRuleEntry[]>;
+  /**
+   * The variant rules in force for `character`: enabled, and defined by a pack it uses. `registry` is the one already
+   * loaded for it, read instead of loading again.
+   */
+  readonly variantRules?: (character: Character, registry?: ContentRegistry) => Promise<readonly VariantRuleEntry[]>;
 }
 
 /** The content `character` is worked out over. */
@@ -24,8 +27,9 @@ export function contentOfCharacter(content: CharacterContentSource, character: C
 export async function variantRulesOfCharacter(
   content: CharacterContentSource,
   character: Character,
+  registry?: ContentRegistry,
 ): Promise<readonly VariantRuleEntry[]> {
-  return (await content.variantRules?.(character)) ?? [];
+  return (await content.variantRules?.(character, registry)) ?? [];
 }
 
 /**
@@ -55,8 +59,11 @@ export class CharacterContent implements CharacterContentSource {
    * The enabled variant rules the character's registry holds. One whose pack is no longer in force has no entry there,
    * so it is dropped, and comes back with its pack (ADR-0061).
    */
-  public async variantRules(character: Character): Promise<readonly VariantRuleEntry[]> {
-    const [registry, ids] = await Promise.all([this.forCharacter(character).registry(), this.#variants.of(character)]);
+  public async variantRules(character: Character, loaded?: ContentRegistry): Promise<readonly VariantRuleEntry[]> {
+    const [registry, ids] = await Promise.all([
+      loaded ?? this.forCharacter(character).registry(),
+      this.#variants.of(character),
+    ]);
     return ids.flatMap((id): VariantRuleEntry[] => {
       const entry = registry.variantRule(id);
       return entry === undefined ? [] : [entry];

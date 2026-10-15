@@ -24,7 +24,6 @@ import type { BaseWeapon, ContentId, Hardness, ItemState, OriginHop } from '@pio
 import { attributeModifiers } from './attribute-boosts';
 import { Encumbrance, inventoryBulk } from './bulk';
 import type { CharacterDocument } from './character-document';
-import { CHARACTER_ROOT_SLOTS } from './character-slots';
 import { conditionRoots } from './conditions';
 import type { Inventory, InventoryItem } from './inventory';
 import { activeState, equippedState } from './inventory-content';
@@ -241,7 +240,7 @@ export interface EquippedRules extends ModifierInputs {
  * predicate sees its ancestry and class. Rule elements of the build itself arrive with the builder (Epic 3.3).
  */
 export function equippedRules(document: CharacterDocument, content: ItemContent, slots: SlotContent): EquippedRules {
-  const { lookup, namespaces } = slots;
+  const { lookup, namespaces, rootSlots } = slots;
   const active = activeItems(document.inventory, content);
   const roots: GrantRoot[] = [
     ...active.flatMap((each) => {
@@ -258,7 +257,7 @@ export function equippedRules(document: CharacterDocument, content: ItemContent,
     situation: [],
     picks: new Map(Object.entries(document.build.choices).map(([key, value]) => [SlotKey.parse(key), value])),
     toggles: toggleStates(document.play.toggles),
-    rootSlots: CHARACTER_ROOT_SLOTS,
+    rootSlots,
     namespaces,
   });
   const rules = resolution.items
