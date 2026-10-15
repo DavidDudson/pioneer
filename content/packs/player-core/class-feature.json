@@ -12932,6 +12932,14 @@
       {
         "key": "SignatureSpells",
         "entry": "bard"
+      },
+      {
+        "key": "SignatureSpells",
+        "entry": "oracle"
+      },
+      {
+        "key": "SignatureSpells",
+        "entry": "sorcerer"
       }
     ],
     "externalIds": {

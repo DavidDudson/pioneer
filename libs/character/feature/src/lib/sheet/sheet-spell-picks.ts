@@ -29,13 +29,15 @@ export interface SpellPickSources {
 }
 
 /** A prepared slot as an inline pick: the spells it offers as table rows, and why its pick counts for nothing. */
-interface PreparedField {
+export interface PreparedField {
   readonly key: SlotKey;
   readonly label: MessageDescriptor;
   readonly rows: Signal<readonly SpellPickerRow[]>;
   readonly reason: Signal<MessageDescriptor | undefined>;
   /** The spell the slot holds, with what casting it takes and does at the rank it is cast; undefined while the slot is empty. */
   readonly detail: Signal<SpellDetailLine | undefined>;
+  /** The spell a gift fills the slot with, which can't be changed; undefined for a slot the player picks. */
+  readonly grantedSpell: Signal<string | undefined>;
   readonly field: InlineEdit<string | undefined>;
 }
 
@@ -88,7 +90,7 @@ function takenElsewhere(
   const picks = entry.ranks
     .flatMap((rank) => rank.slots)
     .filter((slot) => !slot.signature && slot.key !== key)
-    .map((slot) => ContentId.safeParse(character.document.build.choices[slot.key]));
+    .map((slot) => ContentId.safeParse(slot.granted ? slot.spell?.id : character.document.build.choices[slot.key]));
   return new Set(picks.flatMap((pick) => (pick.success ? [pick.data] : [])));
 }
 
@@ -130,6 +132,7 @@ function preparedField(
       });
     }),
     reason: computed(() => slot()?.reason),
+    grantedSpell: computed(() => (slot()?.granted === true ? slot()?.spell?.name : undefined)),
     detail: computed(() => {
       const registry = sources.registry();
       const spell = slot()?.spell;

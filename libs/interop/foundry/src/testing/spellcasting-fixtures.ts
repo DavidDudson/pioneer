@@ -217,3 +217,41 @@ export const LESSON_OF_LIFE = classFeature({
 });
 
 export const CACKLE = classFeat({ id: 'sPeLlCaStInG0023', name: 'Cackle', level: 1, traits: ['witch'] });
+
+/** Player Core 2's sorcerer and oracle features, shaped as `pf2e-8.6.0` has them: no spellcasting rule elements. */
+export const SORCERER_SPELLCASTING = classFeature({
+  id: 'sPeLlCaStInG0020',
+  name: 'Sorcerer Spellcasting',
+  level: 1,
+  traits: ['sorcerer'],
+});
+export const ORACLE_SPELLCASTING = classFeature({
+  id: 'sPeLlCaStInG0021',
+  name: 'Oracle Spellcasting',
+  level: 1,
+  traits: ['oracle'],
+});
+export const BLOODLINE_DEMONIC = classFeature({
+  id: 'sPeLlCaStInG0022',
+  name: 'Bloodline: Demonic',
+  level: 1,
+  traits: ['sorcerer'],
+});
+export const BLOODLINE_DRACONIC = classFeature({
+  id: 'sPeLlCaStInG0023',
+  name: 'Bloodline: Draconic',
+  level: 1,
+  traits: ['sorcerer'],
+});
+export const BLOODLINE_ELEMENTAL = classFeature({
+  id: 'sPeLlCaStInG0024',
+  name: 'Bloodline: Elemental',
+  level: 1,
+  traits: ['sorcerer'],
+});
+export const MYSTERY_FLAMES = classFeature({
+  id: 'sPeLlCaStInG0025',
+  name: 'Flames',
+  level: 1,
+  traits: ['oracle'],
+});

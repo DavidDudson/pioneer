@@ -42,6 +42,8 @@ export interface SheetPreparedSlot {
   readonly castRank: SpellRank | undefined;
   /** Whether it picks a signature spell from the entry's repertoire: never one the repertoire already holds twice. */
   readonly signature: boolean;
+  /** Whether a `RepertoireSpells` element fills the slot, a bloodline's gift: it holds that spell and takes no pick. */
+  readonly granted: boolean;
   /** The stored pick's name, so a pick the slot no longer offers still reads by name. */
   readonly storedName: string | undefined;
   /** The spell the slot holds, at the rank it is cast; undefined while the slot is empty or holds something it no longer offers. */
@@ -176,6 +178,26 @@ function cantripTags(rank: PreparedSlot['rank']): readonly string[] {
   return rank === SlotRank.Cantrip ? [SpellListMessage.TagCantrip] : [];
 }
 
+/** A signature slot as the sheet lists it: the repertoire spells of its rank it offers, and where its pick is cast. */
+function signatureField(
+  signature: SignatureSlot,
+  slots: readonly CharacterSlot[],
+  content: SlotContent,
+): SheetPreparedSlot {
+  return {
+    key: signature.key,
+    label: signatureLabel(signature),
+    options: signature.options.map((spell) => optionOf(spell)),
+    spells: signature.options,
+    castRank: undefined,
+    signature: true,
+    granted: false,
+    storedName: signature.stored === undefined ? undefined : content.spells.spell(signature.stored)?.name,
+    reason: reasonOf(slots, signature.key),
+    spell: spellOf(signature.pick, signature.castRanks.at(-1) ?? signature.rank, [SpellListMessage.TagSignature]),
+  };
+}
+
 /**
  * Each prepared entry's slots at the character's level (#478), rank by rank, cantrips first, then each of its pools'
  * (#581) the same way, under the name of the entry that gave the pool; and each spontaneous entry's repertoire the same
@@ -196,20 +218,10 @@ export function sheetPreparedSlots(
     spells: named.slot.options,
     castRank: named.slot.castRank,
     signature: false,
+    granted: named.slot.granted,
     storedName: named.slot.stored === undefined ? undefined : content.spells.spell(named.slot.stored)?.name,
     reason: reasonOf(slots, named.slot.key),
     spell: spellOf(named.slot.pick, named.slot.castRank, cantripTags(named.slot.rank)),
-  });
-  const signatureSlot = (signature: SignatureSlot): SheetPreparedSlot => ({
-    key: signature.key,
-    label: signatureLabel(signature),
-    options: signature.options.map((spell) => optionOf(spell)),
-    spells: signature.options,
-    castRank: undefined,
-    signature: true,
-    storedName: signature.stored === undefined ? undefined : content.spells.spell(signature.stored)?.name,
-    reason: reasonOf(slots, signature.key),
-    spell: spellOf(signature.pick, signature.castRanks.at(-1) ?? signature.rank, [SpellListMessage.TagSignature]),
   });
   const reads = preparedReads(character.document, content);
   const signatures = signatureSlots(character.document, reads);
@@ -226,7 +238,7 @@ export function sheetPreparedSlots(
         note: rankNote(rankFirst) ?? signatureNote(signature),
         slots: [
           ...rankSlots.map((slot, index) => sheetSlot(slot, index)),
-          ...(signature === undefined ? [] : [signatureSlot(signature)]),
+          ...(signature === undefined ? [] : [signatureField(signature, slots, content)]),
         ],
       };
     }),

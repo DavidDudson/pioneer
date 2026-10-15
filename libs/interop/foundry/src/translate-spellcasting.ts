@@ -4,6 +4,7 @@ import { addRule, KindDataGapReason, report } from './kind-data-gaps';
 import type { KindInput } from './kind-data-gaps';
 import { focusSpellRules } from './translate-focus-spells';
 import { poolSpellRules } from './translate-pool-spells';
+import { repertoireSpellRules } from './translate-repertoire-spells';
 import { SPELL_SLOTS } from './translate-spell-slots';
 
 /**
@@ -95,9 +96,17 @@ const SPELLCASTING: ReadonlyMap<string, readonly object[]> = new Map([
     classEntry({ slug: 'wizard', tradition: 'arcane', attribute: 'int', preparation: 'prepared' }),
   ],
   ['class-feature:cleric-spellcasting', CLERIC],
-  // Signature Spells is shared by every spontaneous class; the bard is Player Core's only one (ADR-0047). A later
-  // Book's spontaneous casters add their entry here with its import (#593).
-  ['class-feature:signature-spells', [{ key: RuleElementKey.SignatureSpells, entry: 'bard' }]],
+  // Sorcerer and oracle: the bloodline gives the sorcerer's entry, its tradition being the bloodline's (ADR-0062).
+  [
+    'class-feature:oracle-spellcasting',
+    classEntry({ slug: 'oracle', tradition: DIVINE, attribute: 'cha', preparation: 'spontaneous' }),
+  ],
+  // Signature Spells is shared by every spontaneous class (ADR-0047): the bard, and the oracle and sorcerer of Player
+  // Core 2. A later book's spontaneous casters add their entry here with its import.
+  [
+    'class-feature:signature-spells',
+    ['bard', 'oracle', 'sorcerer'].map((caster) => ({ key: RuleElementKey.SignatureSpells, entry: caster })),
+  ],
   // Witch Spellcasting names no tradition: the patron the witch picks does.
   ['class-feature:faiths-flamekeeper', patron(DIVINE)],
   ['class-feature:silence-in-snow', patron('primal')],
@@ -150,6 +159,7 @@ export function spellcastingRules(input: KindInput): void {
     ...(SPELL_SLOTS.get(slug) ?? []),
     ...poolSpellRules(slug, pack),
     ...focusSpellRules(slug, pack),
+    ...repertoireSpellRules(input),
   ];
   for (const element of elements) {
     addRule(input, FIELD, element);

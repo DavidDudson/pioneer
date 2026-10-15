@@ -16,8 +16,12 @@ function signatures(name: string, fixture: DocumentFixture): unknown[] {
 }
 
 describe('translateKindData: signature spells', () => {
-  test("Signature Spells gives the bard's entry signature spells", () => {
-    expect(signatures('signature-spells', SIGNATURE_SPELLS)).toEqual([{ key: SignatureSpells, entry: 'bard' }]);
+  test('Signature Spells gives the bard, oracle and sorcerer entries signature spells', () => {
+    expect(signatures('signature-spells', SIGNATURE_SPELLS)).toEqual([
+      { key: SignatureSpells, entry: 'bard' },
+      { key: SignatureSpells, entry: 'oracle' },
+      { key: SignatureSpells, entry: 'sorcerer' },
+    ]);
   });
 
   test('no other feature gives any', () => {

@@ -802,7 +802,11 @@ FlatModifier` appends the import's rules of the keys named to the committed entr
     picks (translated with both fonts offered, since the deity predicates would hide them), and each school's
     curriculum by slug.
   - Signature Spells gets a `SignatureSpells` naming the bard's entry, Player Core's only spontaneous class
-    ([ADR-0047](../adr/0047-signature-spells-are-rule-elements.md)); later books add their classes' entries (#593).
+    ([ADR-0047](../adr/0047-signature-spells-are-rule-elements.md)); Player Core 2's oracle and sorcerer add theirs, and later books add their classes' entries.
+  - Player Core 2's sorcerer and oracle get a spontaneous entry and the same slot table with a slot more of each rank, and
+    their bloodlines and mysteries a `RepertoireSpells` of the sorcerous gifts and granted spells
+    ([ADR-0062](../adr/0062-repertoire-spells-are-a-rule-element.md)): the bloodline gives the sorcerer's tradition, a
+    draconic exemplar and an elemental influence are a `ChoiceSet` whose pick gates the entry and the gifts it adds.
   - Player Core's focus spells get a focus entry and `FocusSpells` per feature or feat that grants them, from their text
     ([ADR-0050](../adr/0050-focus-spells-are-rule-elements.md)); a choice of focus spells (Domain Initiate's domain,
     a warden spell, Hex Spells' hex) is a `ChoiceSet` with a `FocusSpells` per option. Domains' spells come from the

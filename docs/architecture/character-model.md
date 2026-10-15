@@ -251,6 +251,12 @@ signature pick the repertoire no longer knows at its rank reads invalid (`rules.
 The sheet lists a spontaneous entry's repertoire rank by rank as "Spell repertoire", each rank's signature picker
 after its spells and a note saying where the signature spell is cast, or that the rank's spells come first.
 
+A `RepertoireSpells` element ([ADR-0062](../adr/0062-repertoire-spells-are-a-rule-element.md)) fills the first
+repertoire slot of a rank with a spell the entry must know: a sorcerer's bloodline gift, an oracle's granted
+spell. The slot reads filled and `granted` in the character read, offers that spell alone, and shows on the
+sheet as read-only text; a signature slot offers it like any repertoire spell. A gift of a rank the entry has no
+slots of yet is not in the repertoire.
+
 A focus entry has the focus spells its `FocusSpells` elements name
 ([ADR-0050](../adr/0050-focus-spells-are-rule-elements.md)), cast heightened to half the level rounded up, focus
 cantrips too. The focus pool holds one Focus Point per focus spell that isn't a cantrip, at most 3, worked out from
