@@ -27,3 +27,21 @@ describe('RepertoireCount element', () => {
     expect(issues({ key: 'RepertoireCount', entry: 'bard', rank: 10, value: 0 })).toMatchObject([{ path: ['value'] }]);
   });
 });
+
+describe('RepertoireDeitySpells element', () => {
+  test('accepts a count of deity spells from the deity a choice stored', () => {
+    expect(
+      issues({ key: 'RepertoireDeitySpells', entry: 'oracle', choice: 'divine-access-deity', value: 3 }),
+    ).toStrictEqual([]);
+  });
+
+  test('needs an entry, a choice and a count of at least one', () => {
+    expect(issues({ key: 'RepertoireDeitySpells', choice: 'divine-access-deity', value: 3 })).toMatchObject([
+      { path: ['entry'] },
+    ]);
+    expect(issues({ key: 'RepertoireDeitySpells', entry: 'oracle', value: 3 })).toMatchObject([{ path: ['choice'] }]);
+    expect(
+      issues({ key: 'RepertoireDeitySpells', entry: 'oracle', choice: 'divine-access-deity', value: 0 }),
+    ).toMatchObject([{ path: ['value'] }]);
+  });
+});

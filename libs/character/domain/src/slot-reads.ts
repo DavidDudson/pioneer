@@ -119,5 +119,5 @@ export function preparedReads(
   const resolved = resolvedFor(document, content);
   const resolution = resolved.get(at) ?? resolveSlotsAt(at, { ...content, picks: picksOf(document) });
   resolved.set(at, resolution);
-  return { spells: content.spells, resolution };
+  return { spells: content.spells, resolution, lookup: content.lookup };
 }

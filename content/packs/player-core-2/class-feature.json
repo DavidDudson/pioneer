@@ -1023,6 +1023,32 @@
             "spell": "d75cb7fc-4eee-5db4-aa60-c68fdd54d855"
           }
         ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "divine-access-deity",
+        "choices": {
+          "kind": "deity",
+          "filter": [
+            {
+              "or": [
+                "item:domain:death",
+                "item:alternate-domain:death",
+                "item:domain:duty",
+                "item:alternate-domain:duty",
+                "item:domain:family",
+                "item:alternate-domain:family",
+                "item:domain:soul",
+                "item:alternate-domain:soul"
+              ]
+            }
+          ]
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -3181,6 +3207,32 @@
           {
             "rank": 4,
             "spell": "b0ec9594-b2b6-5d97-99b8-41cc7ffab5d0"
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "divine-access-deity",
+        "choices": {
+          "kind": "deity",
+          "filter": [
+            {
+              "or": [
+                "item:domain:destruction",
+                "item:alternate-domain:destruction",
+                "item:domain:might",
+                "item:alternate-domain:might",
+                "item:domain:protection",
+                "item:alternate-domain:protection",
+                "item:domain:zeal",
+                "item:alternate-domain:zeal"
+              ]
+            }
+          ]
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
           }
         ]
       }
@@ -8297,6 +8349,32 @@
             "spell": "0474b135-7232-52c1-beff-221dccc82e78"
           }
         ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "divine-access-deity",
+        "choices": {
+          "kind": "deity",
+          "filter": [
+            {
+              "or": [
+                "item:domain:death",
+                "item:alternate-domain:death",
+                "item:domain:decay",
+                "item:alternate-domain:decay",
+                "item:domain:undeath",
+                "item:alternate-domain:undeath",
+                "item:domain:vigil",
+                "item:alternate-domain:vigil"
+              ]
+            }
+          ]
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -9365,6 +9443,32 @@
           {
             "rank": 5,
             "spell": "c6cea9c6-25dd-5c7c-8056-4c7bac1dceba"
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "divine-access-deity",
+        "choices": {
+          "kind": "deity",
+          "filter": [
+            {
+              "or": [
+                "item:domain:darkness",
+                "item:alternate-domain:darkness",
+                "item:domain:moon",
+                "item:alternate-domain:moon",
+                "item:domain:void",
+                "item:alternate-domain:void",
+                "item:domain:star",
+                "item:alternate-domain:star"
+              ]
+            }
+          ]
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
           }
         ]
       }
@@ -10516,7 +10620,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RepertoireDeitySpells",
+        "entry": "oracle",
+        "choice": "divine-access-deity",
+        "value": 3
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.iwAzV1IlQ2pMHQoB"
     },
@@ -12884,6 +12995,32 @@
           {
             "rank": 3,
             "spell": "989ec875-261d-5d4f-a181-fedf889f9d4b"
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "divine-access-deity",
+        "choices": {
+          "kind": "deity",
+          "filter": [
+            {
+              "or": [
+                "item:domain:dust",
+                "item:alternate-domain:dust",
+                "item:domain:fire",
+                "item:alternate-domain:fire",
+                "item:domain:star",
+                "item:alternate-domain:star",
+                "item:domain:sun",
+                "item:alternate-domain:sun"
+              ]
+            }
+          ]
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
           }
         ]
       }
@@ -15427,6 +15564,32 @@
             "spell": "6680332a-1cdd-5960-bf8d-fa9bac34fc35"
           }
         ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "divine-access-deity",
+        "choices": {
+          "kind": "deity",
+          "filter": [
+            {
+              "or": [
+                "item:domain:death",
+                "item:alternate-domain:death",
+                "item:domain:healing",
+                "item:alternate-domain:healing",
+                "item:domain:pain",
+                "item:alternate-domain:pain",
+                "item:domain:soul",
+                "item:alternate-domain:soul"
+              ]
+            }
+          ]
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -15723,6 +15886,32 @@
           {
             "rank": 6,
             "spell": "1ca1f242-df46-5466-a3e1-3ae1e1069c1f"
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "divine-access-deity",
+        "choices": {
+          "kind": "deity",
+          "filter": [
+            {
+              "or": [
+                "item:domain:knowledge",
+                "item:alternate-domain:knowledge",
+                "item:domain:magic",
+                "item:alternate-domain:magic",
+                "item:domain:secrecy",
+                "item:alternate-domain:secrecy",
+                "item:domain:truth",
+                "item:alternate-domain:truth"
+              ]
+            }
+          ]
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
           }
         ]
       }
@@ -19932,6 +20121,32 @@
           {
             "rank": 6,
             "spell": "088c1f48-de0f-5b8a-83b3-24ce61a928bc"
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "divine-access-deity",
+        "choices": {
+          "kind": "deity",
+          "filter": [
+            {
+              "or": [
+                "item:domain:air",
+                "item:alternate-domain:air",
+                "item:domain:cold",
+                "item:alternate-domain:cold",
+                "item:domain:lightning",
+                "item:alternate-domain:lightning",
+                "item:domain:water",
+                "item:alternate-domain:water"
+              ]
+            }
+          ]
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
           }
         ]
       }

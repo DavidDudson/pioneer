@@ -2,7 +2,8 @@ import type { SlotKey } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 
 import type { CharacterDocument } from './character-document';
-import { isSpellSlotKey, PreparedRefusal, preparedRefusal } from './prepared-spells';
+import { PreparedRefusal, preparedRefusal } from './prepared-refusal';
+import { isSpellSlotKey } from './prepared-spells';
 import type { PreparedReads } from './prepared-spells';
 import { isSignatureKey, SignatureRefusal, signatureRefusal } from './signature-spells';
 import type { SlotPick } from './slot-offer';

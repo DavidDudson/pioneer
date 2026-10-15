@@ -44,12 +44,21 @@ Alternatives:
 - The importer adds a `RepertoireCount` of two at the 10th rank to Magnum Opus, Bloodline Paragon and Oracular Clarity,
   and a `SpellSlots` element alone to the feat that adds the second slot (Perfect Encore, Bloodline Perfection and
   Oracular Providence).
-- Divine Access is not a rank-bound count and isn't part of this element. It needs a pick of a deity (a `ChoiceSet`),
-  extra repertoire slots with no rank of their own (the pick's rank is the slot's), and options drawn from that
-  deity's spells instead of a tradition. It is decided in a follow-up to this ADR when it is built (#599).
+- A second element, `RepertoireDeitySpells { entry, choice, value }`, is Divine Access: the `ChoiceSet` stored under
+  `choice` picks a deity, and the entry adds up to `value` spells of that deity's granted spells to its repertoire. Each
+  is a repertoire slot of its own, keyed `repertoire:<entry>:<choice>:<n>`, apart from the entry's slots and counts. It
+  offers the picked deity's spells up to the highest rank below 10th the entry has slots of, and reads at the spell's
+  own rank once filled, since the feature learns each at its own rank. None while the deity is unpicked or the entry
+  has no slots yet.
+- A deity is a candidate for a `ChoiceSet` query with `domain:<d>` for each primary domain and `alternate-domain:<d>`
+  for each alternate one among its own roll options, so a query reads `item:domain:fire`. Each oracle mystery carries
+  the `ChoiceSet` for Divine Access from 11th level, offering the deities that grant one of its related domains,
+  primary or alternate. Foundry words the rule as the deity "granting" a domain without saying whether an alternate
+  domain counts; the importer includes them, as Domain Initiate does (ADR-0050).
 
 ## Consequences
 
-- Homebrew adds `RepertoireCount` to any feature that learns spells beyond its slots, at any rank.
+- Homebrew adds `RepertoireCount` to any feature that learns spells beyond its slots, at any rank, and
+  `RepertoireDeitySpells` to one that adds a deity's spells.
 - The sheet reads a 10th-rank repertoire slot like any other; only what it offers differs.
 - The Foundry export (roadmap) writes no count; Foundry players add the spells by hand.

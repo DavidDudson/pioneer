@@ -270,7 +270,8 @@
       [1, "ill-omen"],
       [2, "ghostly-carrier"],
       [5, "dreaming-potential"]
-    ]
+    ],
+    "domains": ["death", "duty", "family", "soul"]
   },
   "class-feature:battle": {
     "entry": "oracle",
@@ -279,7 +280,8 @@
       [1, "sure-strike"],
       [2, "telekinetic-maneuver"],
       [4, "weapon-storm"]
-    ]
+    ],
+    "domains": ["destruction", "might", "protection", "zeal"]
   },
   "class-feature:bones": {
     "entry": "oracle",
@@ -288,7 +290,8 @@
       [1, "grim-tendrils"],
       [2, "false-vitality"],
       [3, "ghostly-weapon"]
-    ]
+    ],
+    "domains": ["death", "decay", "undeath", "vigil"]
   },
   "class-feature:cosmos": {
     "entry": "oracle",
@@ -297,7 +300,8 @@
       [1, "dizzying-colors"],
       [2, "darkness"],
       [5, "moon-frenzy"]
-    ]
+    ],
+    "domains": ["darkness", "moon", "void", "star"]
   },
   "class-feature:flames": {
     "entry": "oracle",
@@ -306,7 +310,8 @@
       [1, "breathe-fire"],
       [2, "blazing-bolt"],
       [3, "fireball"]
-    ]
+    ],
+    "domains": ["dust", "fire", "star", "sun"]
   },
   "class-feature:life": {
     "entry": "oracle",
@@ -315,7 +320,8 @@
       [1, "soothe"],
       [2, "false-vitality"],
       [5, "grisly-growths"]
-    ]
+    ],
+    "domains": ["death", "healing", "pain", "soul"]
   },
   "class-feature:lore": {
     "entry": "oracle",
@@ -324,7 +330,8 @@
       [1, "mindlink"],
       [3, "hypercognition"],
       [6, "never-mind"]
-    ]
+    ],
+    "domains": ["knowledge", "magic", "secrecy", "truth"]
   },
   "class-feature:tempest": {
     "entry": "oracle",
@@ -333,6 +340,7 @@
       [1, "thunderstrike"],
       [4, "hydraulic-torrent"],
       [6, "chain-lightning"]
-    ]
+    ],
+    "domains": ["air", "cold", "lightning", "water"]
   }
 }

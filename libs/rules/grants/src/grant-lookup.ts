@@ -83,6 +83,21 @@ function deityFields(entry: ContentEntry): Pick<GrantEntry, 'characterOptions' |
   return { characterOptions, deitySpells: spells };
 }
 
+/**
+ * A deity's domains as a query reads its candidate: `domain:fire` for a primary one and `alternate-domain:sun` for an
+ * alternate, under `item:`, so a `ChoiceSet` can offer the deities that grant a domain (Divine Access).
+ */
+function domainOptions(entry: ContentEntry): RollOption[] {
+  if (entry.kind !== ContentKind.Deity) {
+    return [];
+  }
+  const { primary, alternate } = entry.data.domains;
+  return [
+    ...primary.map((domain) => RollOption.parse(`domain:${domain}`)),
+    ...alternate.map((domain) => RollOption.parse(`alternate-domain:${domain}`)),
+  ];
+}
+
 function traitOptions(traits: readonly Trait[]): RollOption[] {
   return traits.map((trait) => RollOption.parse(`trait:${trait}`));
 }
@@ -144,7 +159,7 @@ function envelopeEntry(entry: ContentEntry): GrantEntry | undefined {
     name: entry.name,
     rules: entry.rules,
     sources: [source, ...sources],
-    rollOptions: [...traitOptions(entry.traits), ...tagOptions(entry), ...levelOptions(entry)],
+    rollOptions: [...traitOptions(entry.traits), ...tagOptions(entry), ...levelOptions(entry), ...domainOptions(entry)],
     facts: factsOf(entry),
     ...belongsTo(entry),
     ...valued(entry),

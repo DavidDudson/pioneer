@@ -9,7 +9,8 @@ import type {
   Slug,
 } from '@pioneer/rules/sdk';
 
-import { addGrantedSpells, addRepertoireCount } from './spellcasting-granted-spells';
+import { addDeityRepertoire, addGrantedSpells, addRepertoireCount } from './spellcasting-granted-spells';
+import type { DeityRepertoire } from './spellcasting-granted-spells';
 import type { EntryInPlay, PlacedSlots, RankSlots } from './spellcasting-in-play';
 
 /** What the rules in play give, by entry slug, as `spellcastingInPlay` reads them. */
@@ -27,6 +28,8 @@ export interface Gathered {
   readonly grantedSpells: Map<Slug, GrantedSpell[]>;
   /** The counts the `RepertoireCount` elements give, by the entry they name. */
   readonly repertoireCounts: Map<Slug, RankSlots[]>;
+  /** The deity spells the `RepertoireDeitySpells` elements let an entry add, by the entry they name. */
+  readonly deityRepertoire: Map<Slug, DeityRepertoire[]>;
 }
 
 /** Adds `spells` to what `pool` of `entry` takes, each spell once. */
@@ -44,12 +47,15 @@ function addFocusSpells({ focusSpells }: Gathered, { entry, spells }: FocusSpell
 }
 
 /** Adds the repertoire spells and counts an element gives an entry (ADR-0062, ADR-0063). */
-function gatherRepertoire({ grantedSpells, repertoireCounts }: Gathered, element: RuleElement): void {
+function gatherRepertoire({ grantedSpells, repertoireCounts, deityRepertoire }: Gathered, element: RuleElement): void {
   if (element.key === RuleElementKey.RepertoireSpells) {
     addGrantedSpells(grantedSpells, element);
   }
   if (element.key === RuleElementKey.RepertoireCount) {
     addRepertoireCount(repertoireCounts, element);
+  }
+  if (element.key === RuleElementKey.RepertoireDeitySpells) {
+    addDeityRepertoire(deityRepertoire, element);
   }
 }
 

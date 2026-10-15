@@ -165,6 +165,22 @@ export const RepertoireCountElement = z.strictObject({
 });
 export type RepertoireCountElement = z.infer<typeof RepertoireCountElement>;
 
+/**
+ * Lets a spontaneous entry add up to `value` spells to its repertoire from the spells the deity a `ChoiceSet` stored
+ * under `choice` grants (ADR-0063): an oracle's Divine Access adds up to three cleric spells a chosen deity grants. Each
+ * is learned at its own rank, once the entry has slots of it, apart from the entry's slots. Those of every element in
+ * play for an entry add up. One for an entry not in play, or a prepared, innate or focus one, or whose choice is
+ * unanswered, adds none. A Pioneer element with no Foundry counterpart, like `SpellSlots`.
+ */
+export const RepertoireDeitySpellsElement = z.strictObject({
+  key: z.literal(RuleElementKey.RepertoireDeitySpells),
+  entry: EntrySourceSlug,
+  choice: RuleSlug,
+  value: SlotCount,
+  ...ruleElementBase,
+});
+export type RepertoireDeitySpellsElement = z.infer<typeof RepertoireDeitySpellsElement>;
+
 /** The most spells a `FocusSpells` element names: a feature grants one or two. */
 const FOCUS_SPELLS_MAX = 8;
 

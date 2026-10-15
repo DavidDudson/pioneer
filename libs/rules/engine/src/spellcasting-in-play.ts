@@ -16,6 +16,7 @@ import { truthOf } from './rule-value';
 import type { SpellcastingInputs } from './source-inputs';
 import { gatherSpells } from './spellcasting-gathered';
 import type { Gathered } from './spellcasting-gathered';
+import type { DeityRepertoire } from './spellcasting-granted-spells';
 
 /** How many slots an entry or pool has of one rank. */
 export interface RankSlots {
@@ -67,6 +68,11 @@ interface EntryRepertoireCounts {
   readonly repertoireCounts: readonly RankSlots[];
 }
 
+/** The deity spells the `RepertoireDeitySpells` elements in play let a spontaneous entry add; none for another (ADR-0063). */
+interface EntryDeityRepertoire {
+  readonly deityRepertoire: readonly DeityRepertoire[];
+}
+
 /** An entry as its `SpellcastingEntry` element gives it, before its slots are counted. */
 export interface EntryInPlay extends SpellcastingInputs {
   readonly preparation: SpellPreparation;
@@ -79,7 +85,14 @@ export interface EntryInPlay extends SpellcastingInputs {
  * slots.
  */
 export interface SpellcastingInPlay
-  extends EntryInPlay, EntrySlots, EntrySignatures, EntryFocusSpells, EntryGrantedSpells, EntryRepertoireCounts {
+  extends
+    EntryInPlay,
+    EntrySlots,
+    EntrySignatures,
+    EntryFocusSpells,
+    EntryGrantedSpells,
+    EntryRepertoireCounts,
+    EntryDeityRepertoire {
   /** Whether a `DeitySpells` element in play adds the character's deity's spells to its list (ADR-0048). */
   readonly deitySpells: boolean;
 }
@@ -223,12 +236,22 @@ export function spellcastingInPlay({ rules, facts }: ModifierInputs): readonly S
     focusSpells: new Map(),
     grantedSpells: new Map(),
     repertoireCounts: new Map(),
+    deityRepertoire: new Map(),
   };
   for (const rule of rules) {
     gather(gathered, rule, facts);
   }
-  const { entries, slots, poolSpells, deitySpells, signatures, focusSpells, grantedSpells, repertoireCounts } =
-    gathered;
+  const {
+    entries,
+    slots,
+    poolSpells,
+    deitySpells,
+    signatures,
+    focusSpells,
+    grantedSpells,
+    repertoireCounts,
+    deityRepertoire,
+  } = gathered;
   return bySlug(
     [...entries.values()].map((entry): SpellcastingInPlay => {
       const spontaneous = entry.preparation === SpellPreparation.Spontaneous;
@@ -240,6 +263,7 @@ export function spellcastingInPlay({ rules, facts }: ModifierInputs): readonly S
         focusSpells: focus,
         grantedSpells: spontaneous ? (grantedSpells.get(entry.slug) ?? []) : [],
         repertoireCounts: spontaneous ? (repertoireCounts.get(entry.slug) ?? []) : [],
+        deityRepertoire: spontaneous ? (deityRepertoire.get(entry.slug) ?? []) : [],
       });
     }),
     ({ slug }) => slug,
