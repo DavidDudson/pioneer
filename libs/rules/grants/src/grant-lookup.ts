@@ -20,6 +20,7 @@ const ENVELOPE_KINDS: ReadonlySet<ContentKind> = new Set([
   ContentKind.Condition,
   ContentKind.Consumable,
   ContentKind.Deity,
+  ContentKind.Effect,
   ContentKind.Equipment,
   ContentKind.Feat,
   ContentKind.Heritage,

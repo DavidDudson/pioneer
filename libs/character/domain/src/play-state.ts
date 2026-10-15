@@ -21,6 +21,9 @@ import {
   Wounded,
 } from './death-track';
 import type { DeathTrack } from './death-track';
+import { EffectCommandField, EffectCommandSchema } from './effect-commands';
+import { ActiveEffectsSchema } from './effects';
+import type { EffectContent } from './effects';
 import { ResourceCommandField, ResourceCommandSchema } from './resource-commands';
 import { ResourcesSpentSchema } from './resources';
 import { RestCommandField, RestCommandSchema } from './rest-types';
@@ -56,6 +59,7 @@ export const PlayStateSchema = z.strictObject({
   hp: HitPointsStateSchema.default({ damage: NONE, temp: NONE }),
   resources: ResourcesSpentSchema.default(ResourcesSpentSchema.parse({})),
   conditions: ActiveConditionsSchema,
+  effects: ActiveEffectsSchema,
   toggles: TogglesSchema,
   ...DeathTrackSchema.shape,
 });
@@ -83,6 +87,8 @@ export const PlayCommandField = {
   ...ResourceCommandField,
   /** Conditions added, changed and removed (`conditions.ts`). */
   ...ConditionCommandField,
+  /** Effects applied, changed and removed (`effects.ts`). */
+  ...EffectCommandField,
   /** Rest, daily preparations, Refocus and start of session (`rest-actions.ts`). */
   ...RestCommandField,
   /** A `RollOption` toggle set on or off (`toggle-commands.ts`). */
@@ -107,6 +113,7 @@ export const PlayCommandSchema = z.discriminatedUnion('field', [
   z.object({ field: z.literal(PlayCommandField.SetDoomed), doomed: Doomed }),
   ...ResourceCommandSchema.options,
   ...ConditionCommandSchema.options,
+  ...EffectCommandSchema.options,
   ...RestCommandSchema.options,
   ...ToggleCommandSchema.options,
 ]);
@@ -130,6 +137,8 @@ export type CharacterPlay = z.infer<typeof CharacterPlay>;
 export interface PlayLimits extends RestLimits {
   /** Whether each condition the content has carries a value. */
   readonly valued: ConditionValued;
+  /** The effects the content has, with the clock and badge each starts from. */
+  readonly effects: EffectContent;
 }
 
 /** `value`, or `max` when it is more. */

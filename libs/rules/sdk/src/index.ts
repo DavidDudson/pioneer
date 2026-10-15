@@ -29,7 +29,7 @@ export {
   Sanctification,
   SanctificationModal,
 } from './deity';
-export { EffectBadgeType, EffectCategory, EffectData, EffectDurationType } from './effect';
+export { EffectBadgeType, EffectCategory, EffectData, EffectDurationType, EffectExpiry } from './effect';
 export { RitualCheckPick, RitualData } from './ritual';
 export { ArmorData, CheckPenalty, ArmorGroup, ArmorItemCategory, ShieldData } from './armor';
 export { ConsumableCategory, ConsumableData } from './consumable';
@@ -74,7 +74,7 @@ export {
 } from './weapon';
 export { DamageKind, HeighteningType, SpellData } from './spell';
 export type { Heightening, SpellDamage, SpellVariant } from './spell';
-export { SpellDamageFormula } from './damage-formula';
+export { DamageFormula, SpellDamageFormula } from './damage-formula';
 export { CastTimeType, SpellDurationEnd, SpellDurationType, SpellRangeType, SpellTimeUnit } from './spell-casting';
 export { TurnOwner } from './spell-casting';
 export { TargetCountWord, TargetKind, TargetQualifier, TargetWithin, TargetYou } from './spell-targets';

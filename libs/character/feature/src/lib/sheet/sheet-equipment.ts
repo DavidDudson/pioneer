@@ -14,6 +14,7 @@ export const EQUIPMENT_CONTENT_KINDS: readonly ContentKind[] = [
   ...INVENTORY_KINDS,
   ContentKind.Rune,
   ContentKind.Condition,
+  ContentKind.Effect,
 ];
 
 /**
@@ -27,10 +28,14 @@ export function carriesAnything(character: Character | undefined): boolean {
 
 /**
  * Whether the engine reads the item and condition kinds for `character`: it carries anything (`carriesAnything`), or
- * has a condition active, whose rule elements the engine puts in play.
+ * has a condition or effect active, whose rule elements the engine puts in play.
  */
 export function readsEquipment(character: Character | undefined): boolean {
-  return carriesAnything(character) || (character?.document.play.conditions.length ?? 0) > 0;
+  return (
+    carriesAnything(character) ||
+    (character?.document.play.conditions.length ?? 0) > 0 ||
+    (character?.document.play.effects.length ?? 0) > 0
+  );
 }
 
 /** The lines `item` adds to the statistics, each with its statistic's name. */

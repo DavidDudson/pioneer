@@ -1,0 +1,57 @@
+<fr-async-region>
+  <ng-template frAsyncPending><fr-skeleton width="lg" /></ng-template>
+  <ng-template [frAsyncData]="registry">
+    <fr-async-region>
+      <ng-template frAsyncPending><fr-skeleton width="lg" /></ng-template>
+      <ng-template [frAsyncData]="playQuery">
+        <fr-stack gap="xs">
+          <fr-text weight="semibold">{{ 'character.sheet.effects.label' | transloco }}</fr-text>
+          @for (view of views(); track view.id) {
+            <fr-stack direction="horizontal" align="center" gap="sm" wrap>
+              <fr-text weight="semibold">{{ view.name }}</fr-text>
+              @if (view.badge !== undefined) {
+                <fr-badge>{{ view.badge }}</fr-badge>
+              }
+              @if (view.source.kind === allySource) {
+                <fr-text tone="muted">{{
+                  'character.sheet.effects.fromAlly' | transloco: { name: view.source.name }
+                }}</fr-text>
+              } @else if (view.source.kind === gmSource) {
+                <fr-text tone="muted">{{ 'character.sheet.effects.fromGm' | transloco }}</fr-text>
+              }
+              @if (view.remaining !== undefined) {
+                <fr-text tone="muted">{{
+                  'character.sheet.effects.remaining' | transloco: { count: view.remaining }
+                }}</fr-text>
+              }
+              @if (view.counter) {
+                <fr-async-button
+                  size="sm"
+                  [action]="raise(view)"
+                  [disabled]="busy() || !view.canRaise"
+                  [describeError]="describeError"
+                >
+                  {{ 'character.sheet.effects.raise' | transloco }}
+                </fr-async-button>
+                <fr-async-button
+                  size="sm"
+                  [action]="lower(view)"
+                  [disabled]="busy() || !view.canLower"
+                  [describeError]="describeError"
+                >
+                  {{ 'character.sheet.effects.lower' | transloco }}
+                </fr-async-button>
+              }
+              <fr-async-button size="sm" [action]="remove(view)" [disabled]="busy()" [describeError]="describeError">
+                {{ 'character.sheet.effects.remove' | transloco }}
+              </fr-async-button>
+            </fr-stack>
+          } @empty {
+            <fr-text tone="muted">{{ 'character.sheet.effects.none' | transloco }}</fr-text>
+          }
+          <pio-sheet-effect-add [options]="options()" [busy]="busy()" [send]="send" [describeError]="describeError" />
+        </fr-stack>
+      </ng-template>
+    </fr-async-region>
+  </ng-template>
+</fr-async-region>

@@ -1,0 +1,156 @@
+import { HttpTestingController } from '@angular/common/http/testing';
+import { ApplicationRef } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
+import { ContentKind } from '@pioneer/rules/sdk';
+import { beforeAll, describe, expect, it, vi } from 'vitest';
+
+import { CHARACTER_CONTENT_KINDS } from '../../data/content-registry-query';
+import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
+import { id, openSheet, present } from '../../testing/sheet-page-harness';
+import { textOf } from '../../testing/sheet-tabs-testing';
+import { cutTo } from '../../testing/test-packs';
+
+const PLAY_URL = `/api/characters/${id}/play`;
+
+/** Player Core's character kinds and the effects of Divine Mysteries. */
+const PACKS = cutTo([...CHARACTER_CONTENT_KINDS, ContentKind.Effect]);
+
+const EMPOWERED_ONSLAUGHT = '963ae779-6771-5e53-a0a5-668aa2ee79ca';
+const CONSULT_THE_SPIRITS = '129b46b6-7a1e-5ab5-a7a6-dc34edcdcb5f';
+const FIRST = '00000000-0000-4000-8000-000000000001';
+
+/** The play state of a full-health character with `effects` on it, at `revision`. */
+function playWith(effects: readonly object[], revision = 1): object {
+  return { revision, play: { hp: { damage: 0, temp: 0 }, effects } };
+}
+
+const onslaught = (badge: number): object => ({
+  id: FIRST,
+  effect: EMPOWERED_ONSLAUGHT,
+  source: { kind: 'self' },
+  badge,
+});
+
+function effectsOf(root: HTMLElement): HTMLElement {
+  return present(root.querySelector<HTMLElement>('pio-sheet-effects'));
+}
+
+function buttonOf(root: HTMLElement, name: string): HTMLButtonElement {
+  return present([...effectsOf(root).querySelectorAll('button')].find((button) => textOf(button) === name));
+}
+
+/** Picks the option named `name` in the select with `index` among the effects' selects. */
+async function pick(root: HTMLElement, index: number, name: string): Promise<void> {
+  present(effectsOf(root).querySelectorAll<HTMLElement>('fr-select button')[index]).click();
+  await TestBed.inject(ApplicationRef).whenStable();
+  const option = await vi.waitFor(() =>
+    present(
+      [...document.querySelectorAll<HTMLElement>('[role="option"]')].find((each) => each.textContent.trim() === name),
+    ),
+  );
+  option.click();
+  await TestBed.inject(ApplicationRef).whenStable();
+}
+
+describe('CharacterSheetPage effects', () => {
+  beforeAll(async () => {
+    await prebuildServerStateTesting([], PACKS);
+  }, PREBUILD_TIMEOUT);
+
+  it('says so when the character has no effects', async () => {
+    const { root } = await openSheet(undefined, { play: playWith([]), packs: PACKS });
+
+    await vi.waitFor(() => {
+      expect(textOf(effectsOf(root))).toContain('No effects');
+    });
+  });
+
+  it('shows each effect with its badge and who it came from', async () => {
+    const ally = { id: FIRST, effect: EMPOWERED_ONSLAUGHT, source: { kind: 'ally', name: 'Seoni' }, badge: 2 };
+    const { root } = await openSheet(undefined, { play: playWith([ally]), packs: PACKS });
+
+    await vi.waitFor(() => {
+      expect(textOf(effectsOf(root))).toMatch(/Empowered Onslaught\s*2/u);
+    });
+    expect(textOf(effectsOf(root))).toContain('From Seoni');
+  });
+
+  it('shows the rounds an effect has left', async () => {
+    const lasting = { id: FIRST, effect: CONSULT_THE_SPIRITS, source: { kind: 'self' }, remaining: 14_400 };
+    const { root } = await openSheet(undefined, { play: playWith([lasting]), packs: PACKS });
+
+    await vi.waitFor(() => {
+      expect(textOf(effectsOf(root))).toContain('14,400 rounds left');
+    });
+  });
+
+  it('steps a counter badge within its bounds, at the revision last read', async () => {
+    const { root } = await openSheet(undefined, { play: playWith([onslaught(1)]), packs: PACKS });
+    await vi.waitFor(() => {
+      expect(textOf(effectsOf(root))).toMatch(/Empowered Onslaught\s*1/u);
+    });
+    expect(buttonOf(root, 'Lower').disabled).toBe(true);
+
+    buttonOf(root, 'Raise').click();
+
+    await vi.waitFor(() => {
+      const request = TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: PLAY_URL });
+      expect(request.request.body).toMatchObject({
+        expectedRevision: 1,
+        command: { field: 'setEffectBadge', id: FIRST, value: 2 },
+      });
+      request.flush(playWith([onslaught(2)], 2));
+    });
+    await vi.waitFor(() => {
+      expect(textOf(effectsOf(root))).toMatch(/Empowered Onslaught\s*2/u);
+    });
+  });
+
+  it('removes an effect', async () => {
+    const { root } = await openSheet(undefined, { play: playWith([onslaught(1)]), packs: PACKS });
+    await vi.waitFor(() => {
+      expect(textOf(effectsOf(root))).toMatch(/Empowered Onslaught\s*1/u);
+    });
+
+    buttonOf(root, 'Remove').click();
+
+    await vi.waitFor(() => {
+      const request = TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: PLAY_URL });
+      expect(request.request.body).toMatchObject({ command: { field: 'removeEffect', id: FIRST } });
+      request.flush(playWith([], 2));
+    });
+    await vi.waitFor(() => {
+      expect(textOf(effectsOf(root))).toContain('No effects');
+    });
+  });
+
+  it('applies the effect picked from an ally, who needs a name', async () => {
+    const { root } = await openSheet(undefined, { play: playWith([]), packs: PACKS });
+    await vi.waitFor(() => {
+      expect(textOf(effectsOf(root))).toContain('No effects');
+    });
+    expect(buttonOf(root, 'Apply').disabled).toBe(true);
+
+    await pick(root, 0, 'Effect: Consult the Spirits');
+    expect(buttonOf(root, 'Apply').disabled).toBe(false);
+    await pick(root, 1, 'An ally');
+    expect(buttonOf(root, 'Apply').disabled).toBe(true);
+    const name = present(effectsOf(root).querySelector<HTMLInputElement>('input'));
+    name.value = 'Seoni';
+    name.dispatchEvent(new Event('input', { bubbles: true }));
+    await TestBed.inject(ApplicationRef).whenStable();
+    buttonOf(root, 'Apply').click();
+
+    await vi.waitFor(() => {
+      const request = TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: PLAY_URL });
+      expect(request.request.body).toMatchObject({
+        command: {
+          field: 'applyEffect',
+          effect: CONSULT_THE_SPIRITS,
+          source: { kind: 'ally', name: 'Seoni' },
+        },
+      });
+      request.flush(playWith([], 2));
+    });
+  });
+});

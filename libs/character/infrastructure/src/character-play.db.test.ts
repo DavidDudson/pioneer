@@ -7,6 +7,10 @@ import {
   ConditionRounds,
   Doomed,
   Dying,
+  EffectAllyName,
+  EffectBadgeValue,
+  EffectInstanceId,
+  EffectRounds,
   FRESH_PLAY,
   Resource,
   ResourceCount,
@@ -42,6 +46,16 @@ const WOUNDED: PlayState = {
       condition: ContentId.parse('00000000-0000-4000-8000-0000000000f1'),
       value: ConditionValue.parse(2),
       duration: { kind: 'rounds', rounds: ConditionRounds.parse(3) },
+    },
+  ],
+  effects: [
+    {
+      id: EffectInstanceId.parse('00000000-0000-4000-8000-000000000011'),
+      effect: ContentId.parse('00000000-0000-4000-8000-0000000000e1'),
+      source: { kind: 'ally', name: EffectAllyName.parse('Seoni') },
+      remaining: EffectRounds.parse(60),
+      expiry: 'turn-start',
+      badge: EffectBadgeValue.parse(2),
     },
   ],
 };

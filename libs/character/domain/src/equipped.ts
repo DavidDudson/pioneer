@@ -26,6 +26,7 @@ import { activeItems, inventoryHop, itemsIn, originOf } from './active-items';
 import type { ActiveItem } from './active-items';
 import type { CharacterDocument } from './character-document';
 import { conditionRoots } from './conditions';
+import { effectRoots } from './effects';
 import { encumberedRoots } from './encumbered-roots';
 import type { Inventory } from './inventory';
 import { activeState, equippedState } from './inventory-content';
@@ -193,7 +194,7 @@ export function heldShields(
 /** Whether a resolved entry is in play through the inventory: an active item, or the condition its Bulk brings. */
 function fromInventory(origin: Origin): boolean {
   const kind = origin.hops[0]?.kind;
-  return kind === OriginHopKind.Inventory || kind === OriginHopKind.Condition;
+  return kind === OriginHopKind.Inventory || kind === OriginHopKind.Condition || kind === OriginHopKind.Effect;
 }
 
 /** The rules in play and the facts they read, with the `RollOption` toggles the character's items offer. */
@@ -217,6 +218,7 @@ function equippedResolution(document: CharacterDocument, content: ItemContent, s
     }),
     ...encumberedRoots(document, content, slots),
     ...conditionRoots(document.play.conditions),
+    ...effectRoots(document.play.effects),
   ];
   return resolveGrants({
     roots,

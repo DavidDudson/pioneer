@@ -11,6 +11,7 @@ import { injectContentRegistry } from '../../data/content-registry-query';
 import { PlayStore } from '../../data/play-store';
 import { CONDITION_CONTENT_KINDS, CONDITION_VALUE_MAX, conditionOptions, conditionViews } from '../sheet-conditions';
 import type { ConditionOption, ConditionView } from '../sheet-conditions';
+import { SheetEffects } from '../sheet-effects/sheet-effects.component';
 import { describeSaveError } from '../sheet-field';
 import { SheetState } from '../sheet-state';
 import { SheetConditionAdd } from './sheet-condition-add.component';
@@ -27,6 +28,7 @@ const FIRST_VALUE = 1;
   selector: 'pio-sheet-conditions',
   imports: [
     SheetConditionAdd,
+    SheetEffects,
     AsyncButton,
     AsyncData,
     AsyncPending,

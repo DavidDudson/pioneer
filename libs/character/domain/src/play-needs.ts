@@ -1,3 +1,4 @@
+import { isEffectCommand } from './effect-commands';
 import { PlayCommandField } from './play-state';
 import type { PlayCommand } from './play-state';
 import { isRestCommand } from './rest-types';
@@ -9,7 +10,7 @@ export function needsMaxHitPoints(command: PlayCommand): boolean {
   if (isRestCommand(command)) {
     return command.field === PlayCommandField.Rest;
   }
-  if (isToggleCommand(command)) {
+  if (isToggleCommand(command) || isEffectCommand(command)) {
     return false;
   }
   switch (command.field) {
@@ -47,7 +48,7 @@ export function needsResourceMaxima(command: PlayCommand): boolean {
   if (isRestCommand(command)) {
     return true;
   }
-  if (isToggleCommand(command)) {
+  if (isToggleCommand(command) || isEffectCommand(command)) {
     return false;
   }
   switch (command.field) {
@@ -82,7 +83,7 @@ export function needsResourceMaxima(command: PlayCommand): boolean {
 /** Whether `command` adds or changes a condition, and so needs to know which conditions the content has and which carry a value. */
 // oxlint-disable-next-line complexity -- a case for each play command, with the toggle edit told apart first
 export function needsConditionContent(command: PlayCommand): boolean {
-  if (isRestCommand(command) || isToggleCommand(command)) {
+  if (isRestCommand(command) || isToggleCommand(command) || isEffectCommand(command)) {
     return false;
   }
   switch (command.field) {
@@ -117,4 +118,12 @@ export function needsConditionContent(command: PlayCommand): boolean {
 /** Whether `command` is Rest, and so needs the healing and the conditions it eases from the build and the content. */
 export function needsRestContent(command: PlayCommand): boolean {
   return command.field === PlayCommandField.Rest;
+}
+
+/** Whether `command` applies an effect, or changes the badge of one, and so needs the effects the content has. */
+export function needsEffectContent(command: PlayCommand): boolean {
+  return (
+    isEffectCommand(command) &&
+    (command.field === PlayCommandField.ApplyEffect || command.field === PlayCommandField.SetEffectBadge)
+  );
 }

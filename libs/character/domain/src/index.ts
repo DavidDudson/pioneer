@@ -51,6 +51,38 @@ export {
   UNLIMITED,
 } from './conditions';
 export {
+  applyEffectCommand,
+  type EffectCommand,
+  EffectCommandField,
+  EffectCommandSchema,
+  EffectProblem,
+  effectProblem,
+  isEffectCommand,
+} from './effect-commands';
+export {
+  ActiveEffectSchema,
+  ActiveEffectsSchema,
+  type ActiveEffect,
+  type CounterTerms,
+  durationRounds,
+  type EffectBadgeTerms,
+  EffectBadgeValue,
+  type EffectContent,
+  effectContent,
+  EffectAllyName,
+  EffectInstanceId,
+  EffectRounds,
+  effectRoots,
+  EffectSourceKind,
+  EffectSourceSchema,
+  type EffectSource,
+  type EffectTerms,
+  effectTerms,
+  NO_EFFECTS,
+  SELF,
+  steppedBadge,
+} from './effects';
+export {
   applyResourceCommand,
   type ResourceCommand,
   ResourceCommandField,
@@ -391,7 +423,13 @@ export { costCoins, type CostCoins, payCost, purchaseCost } from './purse';
 export { type ArchetypeRead, type FeatContent, featContent, type FeatRead } from './feat-content';
 export { type FeatOption, type FeatSlot, featSlots, PrerequisiteStatus } from './feat-slots';
 export { CHARACTER_PROSE_MAX_LENGTH, CharacterProseInput, withProse } from './character-prose';
-export { needsConditionContent, needsMaxHitPoints, needsResourceMaxima, needsRestContent } from './play-needs';
+export {
+  needsConditionContent,
+  needsEffectContent,
+  needsMaxHitPoints,
+  needsResourceMaxima,
+  needsRestContent,
+} from './play-needs';
 export { applyRestCommand, preparedDaily, refocused, rested, sessionStarted } from './rest-actions';
 
 export { RECOVERY_CONDITIONS, restHealing } from './rest-limits';
