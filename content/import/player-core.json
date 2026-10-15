@@ -7224,57 +7224,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.SpecificRule.SpellEffectAnimalFeature.CatEyes",
-                "value": "cat-eyes"
-              },
-              {
-                "label": "PF2E.BattleForm.Attack.Claw",
-                "value": "claw"
-              },
-              {
-                "label": "PF2E.BattleForm.Attack.Jaws",
-                "value": "jaws"
-              },
-              {
-                "label": "PF2E.SpecificRule.SpellEffectAnimalFeature.FishTail",
-                "predicate": [
-                  {
-                    "gte": ["{item|level}", 4]
-                  }
-                ],
-                "value": "fish-tail"
-              },
-              {
-                "label": "PF2E.SpecificRule.SpellEffectAnimalFeature.OwlEyes",
-                "predicate": [
-                  {
-                    "gte": ["{item|level}", 4]
-                  }
-                ],
-                "value": "owl-eyes"
-              },
-              {
-                "label": "PF2E.SpecificRule.SpellEffectAnimalFeature.Wings",
-                "predicate": [
-                  {
-                    "gte": ["{item|level}", 4]
-                  }
-                ],
-                "value": "wings"
-              }
-            ],
-            "flag": "animalFeature",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Feature",
-            "rollOption": "animal-feature"
-          }
-        },
-        {
-          "type": "rule",
           "key": "BaseSpeed",
           "raw": {
             "key": "BaseSpeed",
@@ -13320,59 +13269,6 @@
       "slug": "effect:spell-effect-precious-metals",
       "foundry": "Compendium.pf2e.spell-effects.Item.vf2KJ4oGJY4efnKE",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.PreciousMaterialAdamantine",
-                "predicate": [
-                  {
-                    "gte": ["{item|level}", 8]
-                  }
-                ],
-                "value": "adamantine"
-              },
-              {
-                "label": "PF2E.PreciousMaterialColdIron",
-                "value": "cold-iron"
-              },
-              {
-                "label": "PF2E.SpecificRule.SpellEffectPreciousMetals.Copper",
-                "value": "copper"
-              },
-              {
-                "label": "PF2E.PreciousMaterialDawnsilver",
-                "predicate": [
-                  {
-                    "gte": ["{item|level}", 8]
-                  }
-                ],
-                "value": "dawnsilver"
-              },
-              {
-                "label": "PF2E.SpecificRule.SpellEffectPreciousMetals.Gold",
-                "value": "gold"
-              },
-              {
-                "label": "PF2E.SpecificRule.SpellEffectPreciousMetals.Iron",
-                "value": "iron"
-              },
-              {
-                "label": "PF2E.PreciousMaterialSilver",
-                "value": "silver"
-              },
-              {
-                "label": "PF2E.SpecificRule.SpellEffectPreciousMetals.Steel",
-                "value": "steel"
-              }
-            ],
-            "flag": "material",
-            "key": "ChoiceSet",
-            "rollOption": "precious-metals:material"
-          }
-        },
         {
           "type": "rule",
           "key": "ChoiceSet",

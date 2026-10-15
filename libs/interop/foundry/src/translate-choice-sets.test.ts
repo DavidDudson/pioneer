@@ -69,6 +69,24 @@ describe('ChoiceSet from Foundry', () => {
     ]);
   });
 
+  test('a choice gated on the level of its item reads item:level', () => {
+    const { rules, untranslated } = translated({
+      choices: [
+        { label: 'PF2E.Yes', value: 'claw' },
+        { label: 'PF2E.No', predicate: [{ gte: ['{item|level}', 4] }], value: 'wings' },
+      ],
+      flag: 'animalFeature',
+      key: RuleElementKey.ChoiceSet,
+      rollOption: 'animal-feature',
+    });
+
+    expect(untranslated).toEqual([]);
+    expect((rules[0] as { choices: unknown }).choices).toEqual([
+      { label: 'Yes', value: 'claw' },
+      { label: 'No', predicate: [{ gte: ['item:level', 4] }], value: 'wings' },
+    ]);
+  });
+
   test('a roll option may be a namespace of its own', () => {
     const { rules, untranslated } = translated({
       choices: YES_NO,

@@ -38,12 +38,32 @@ function asText(value: unknown): unknown {
   return typeof value === 'number' ? String(value) : value;
 }
 
-/** A choice with its value as text and its predicate's roll options namespaced. */
+/** Foundry's injection of the level of the item holding the `ChoiceSet`, which Pioneer reads as `item:level`. */
+const ITEM_LEVEL = '{item|level}';
+const ITEM_LEVEL_OPTION = 'item:level';
+
+/** A predicate with each read of the item's level as Pioneer spells it; anything else is as it was. */
+function withItemLevel(node: unknown): unknown {
+  if (node === ITEM_LEVEL) {
+    return ITEM_LEVEL_OPTION;
+  }
+  if (Array.isArray(node)) {
+    return node.map((each: unknown) => withItemLevel(each));
+  }
+  if (typeof node === 'object' && node !== null) {
+    return Object.fromEntries(Object.entries(node).map(([field, value]) => [field, withItemLevel(value)]));
+  }
+  return node;
+}
+
+/** A choice with its value as text and its predicate's roll options namespaced, and `{item|level}` read as `item:level`. */
 function choiceOf(choice: unknown): unknown {
   if (typeof choice !== 'object' || choice === null || !('value' in choice)) {
     return choice;
   }
-  const kept = Object.entries(choice).filter(([field]) => !CHOICE_DISPLAY_ONLY_FIELDS.has(field));
+  const kept = Object.entries(choice)
+    .filter(([field]) => !CHOICE_DISPLAY_ONLY_FIELDS.has(field))
+    .map(([field, value]) => [field, field === 'predicate' ? withItemLevel(value) : value]);
   return withNamespacedOptions({ ...Object.fromEntries(kept), value: asText(choice.value) });
 }
 

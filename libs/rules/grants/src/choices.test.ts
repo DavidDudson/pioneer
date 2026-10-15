@@ -208,3 +208,41 @@ describe('resolveGrants choices', () => {
     expect(names(result.duplicates)).toEqual(['ruffian']);
   });
 });
+
+const offered = (result: GrantResolution): string[] => result.open[0]?.options.map((each) => String(each.value)) ?? [];
+
+const feature = (level: number): GrantEntry => ({
+  ...entry('animal-feature', [
+    {
+      key: 'ChoiceSet',
+      flag: 'animal-feature',
+      rollOption: 'animal-feature',
+      choices: [
+        { value: 'claw', label: 'Claw' },
+        { value: 'wings', label: 'Wings', predicate: [{ gte: ['item:level', 4] }] },
+      ],
+    },
+  ]),
+  rollOptions: [RollOption.parse(`level:${level}`)],
+});
+
+describe('resolveGrants choices gated on the level of their entry', () => {
+  const FEATURE = slotOf('animal-feature', 0);
+
+  test('offers a choice behind item:level only to an entry of that level', () => {
+    const low = resolve([feature(3)], [picked('animal-feature')]);
+    const high = resolve([feature(4)], [picked('animal-feature')]);
+
+    expect(offered(low)).toEqual(['claw']);
+    expect(offered(high)).toEqual(['claw', 'wings']);
+  });
+
+  test('sets the roll option of a pick the level allows, and refuses one it does not', () => {
+    const allowed = resolve([feature(4)], [picked('animal-feature')], { picks: [[FEATURE, 'wings']] });
+    const refused = resolve([feature(3)], [picked('animal-feature')], { picks: [[FEATURE, 'wings']] });
+
+    expect(allowed.answered.map((slot) => String(slot.option))).toEqual(['animal-feature:wings']);
+    expect(refused.answered).toEqual([]);
+    expect(refused.errors).toHaveLength(1);
+  });
+});

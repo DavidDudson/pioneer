@@ -4,6 +4,7 @@ import { ContentId, RollOptionNamespace } from '@pioneer/rules/sdk';
 import type { ChoiceOption, ChoiceQuery, ChoiceSetElement, ChoiceValue, ContentText } from '@pioneer/rules/sdk';
 
 import type { ChoiceContext } from './choices';
+import type { GrantEntry } from './grant-entry';
 import { byCodeUnit } from './order';
 
 /** An option the player may pick. `summary` says when it applies, for one whose predicate is unknown. */
@@ -24,8 +25,16 @@ function listedOptions(choices: readonly ChoiceOption[], facts: PredicateFacts):
   });
 }
 
-/** Where a query reads a candidate entry's own roll options, apart from the character's: `item:trait:fighter`. */
+/**
+ * Where a predicate reads an entry's own roll options, apart from the character's: a query's candidate
+ * (`item:trait:fighter`), or the entry that lists a choice (`item:level`).
+ */
 const CANDIDATE_NAMESPACE = RollOptionNamespace.parse('item');
+
+/** `context` read for the choices of `owner`: its own roll options under `item:`, so a choice can gate on its level. */
+export function contextOf(context: ChoiceContext, owner: GrantEntry): ChoiceContext {
+  return { ...context, facts: context.facts.withNamespace(CANDIDATE_NAMESPACE, owner.rollOptions) };
+}
 
 /** By name, then id, so the list a builder shows keeps its order. */
 function byLabel(left: OfferedOption, right: OfferedOption): number {

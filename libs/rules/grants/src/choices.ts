@@ -15,7 +15,7 @@ import { message } from '@pioneer/shared/kernel';
 
 import type { ContentLookup, GrantEntry, GrantError } from './grant-entry';
 import { GrantsMessage } from './messages';
-import { isOffered, Offer, offeredOptions } from './offers';
+import { contextOf, isOffered, Offer, offeredOptions } from './offers';
 import type { OfferedOption } from './offers';
 import { optionOf } from './option-of';
 
@@ -139,7 +139,7 @@ class ChoiceReader {
 
   public constructor(at: EntryAt, context: ChoiceContext) {
     this.#at = at;
-    this.#context = context;
+    this.#context = contextOf(context, at.entry);
   }
 
   public get choices(): EntryChoices {
