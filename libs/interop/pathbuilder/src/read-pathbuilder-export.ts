@@ -186,13 +186,14 @@ function toImport(build: PathbuilderBuild): PathbuilderReadResult {
     };
     return failure(PathbuilderProblem.Malformed, [issue]);
   }
+  const classes = identity(build, ancestry);
   const value: PathbuilderImport = {
     name: name.data,
     level: CharacterLevel.parse(build.level),
     attributes: attributeModifiers(build),
-    boosts: readBoosts(build),
+    boosts: readBoosts(build, classes.classes.length > 1),
     flaws: readFlaws(build),
-    identity: identity(build, ancestry),
+    identity: classes,
     names: contentNames(build),
     lores: lores(build),
     reported: {

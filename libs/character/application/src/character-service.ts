@@ -1,5 +1,4 @@
 import {
-  attributeModifiers,
   Character,
   CharacterCommand,
   CharacterId,
@@ -28,8 +27,6 @@ import type {
   SlotContent,
   SlotPick,
 } from '@pioneer/character/domain';
-import { characterImportReport, modifierDifferences, registryLookup } from '@pioneer/interop/pathbuilder';
-import type { BoostChoices, PathbuilderImportResponse } from '@pioneer/interop/pathbuilder';
 import type { AncestryId, ContentId, ContentRegistry, ContentSource } from '@pioneer/rules/sdk';
 import { message, newId, NotFoundError, ValidationError, VersionConflictError } from '@pioneer/shared/kernel';
 import type { Clock, UserId, Version } from '@pioneer/shared/kernel';
@@ -40,7 +37,6 @@ import { mayAccessCharacter } from './character-policy';
 import type { CharacterRepository } from './character-repository';
 import { editInputs } from './edit-inputs';
 import { assertInventoryAllows } from './inventory-guard';
-import { importedCharacter, matchedAncestry, readExport } from './pathbuilder-import';
 
 /** Why access to a spell is refused, by the problem. */
 const SPELL_ACCESS_REFUSALS: Readonly<Record<SpellAccessProblem, string>> = {
@@ -118,33 +114,6 @@ export class CharacterService {
       now: this.#clock.now(),
     });
     return this.#repository.insert(character, { actor, command: CharacterCommand.CreateCharacter });
-  }
-
-  /**
-   * A new character from a Pathbuilder export, written in one insert: name, level, ancestry, the background and class
-   * when loaded, the heritage when its ancestry offers it (#555), each boost in its slot (#420) and the voluntary flaws
-   * (#550). No modifier is stored; the report lists any the picks don't reproduce, and a loaded heritage left out as
-   * not offered. The export is read again here, never taken from the client's preview. Refused, with nothing saved,
-   * when it can't be read or its ancestry isn't loaded.
-   */
-  public async importPathbuilder(actor: UserId, raw: unknown): Promise<PathbuilderImportResponse> {
-    const value = readExport(raw);
-    const content = await this.#content.registry();
-    const lookup = registryLookup(content);
-    const ancestry = matchedAncestry(value, lookup);
-    const id = CharacterId.parse(newId());
-    const now = this.#clock.now();
-    const create = (choices: BoostChoices): Character =>
-      Character.create({ id, ownerId: actor, name: value.name, ancestry, level: value.level, choices, now });
-    const slots = slotContent(content);
-    const { character, unplaced, notOffered } = importedCharacter(value, { lookup, slots }, create);
-    const saved = await this.#repository.insert(character, { actor, command: CharacterCommand.ImportPathbuilder });
-    const report = characterImportReport(value, lookup, {
-      notOffered,
-      unplacedBoosts: unplaced,
-      modifierDifferences: modifierDifferences(value.attributes, attributeModifiers(character.document, slots.boosts)),
-    });
-    return { character: saved, report };
   }
 
   /** `patched` as its sheet, with the picks its edit cleared. */

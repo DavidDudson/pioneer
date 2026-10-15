@@ -29,6 +29,8 @@ import { rejection } from '@pioneer/shared/kernel/testing';
 
 import { CharacterService } from './character-service';
 import { InMemoryCharacterRepository } from './in-memory-character-repository';
+import { InMemoryCharacterVariantRepository } from './in-memory-character-variant-repository';
+import { PathbuilderImportService } from './pathbuilder-import-service';
 
 const amiri = UserId.parse(newId());
 const byName = { sort: CharacterSort.Name, direction: SortDirection.Asc } as const;
@@ -54,14 +56,25 @@ function unmatchedHeritage(report: CharacterImportReport): readonly UnmatchedNam
   return report.unmatched.find((group) => group.kind === ImportKind.Heritage)?.names;
 }
 
-describe('CharacterService.importPathbuilder', () => {
-  let service: CharacterService;
+/** The service that imports into `repository` over `content`, enabling variant rules in `variants`. */
+function importerOver(
+  content: ContentSource,
+  repository: InMemoryCharacterRepository,
+  variants = new InMemoryCharacterVariantRepository(),
+): PathbuilderImportService {
+  return new PathbuilderImportService({ characters: repository, content, variants }, clock);
+}
+
+describe('PathbuilderImportService.importPathbuilder', () => {
+  let service: PathbuilderImportService;
+  let characters: CharacterService;
   let repository: InMemoryCharacterRepository;
 
   beforeEach(() => {
     const content = fixedContent(new ContentPackBuilder().withId('player-core').withAncestry('human').build());
     repository = new InMemoryCharacterRepository();
-    service = new CharacterService(repository, content, fixedClock('2026-10-07T10:00:00Z'));
+    service = importerOver(content, repository);
+    characters = new CharacterService(repository, content, clock);
   });
 
   test('creates the character with name, ancestry and level, owned by the actor, its free boosts placed', async () => {
@@ -76,7 +89,7 @@ describe('CharacterService.importPathbuilder', () => {
       'boost:1:free:3': 'wis',
       'boost:15:free:0': 'cha',
     });
-    expect(await service.get(amiri, character.id)).toStrictEqual(character);
+    expect(await characters.get(amiri, character.id)).toStrictEqual(character);
   });
 
   test('reports the boosts with no set to go to, and each modifier that then differs from Pathbuilder', async () => {
@@ -117,7 +130,7 @@ describe('CharacterService.importPathbuilder', () => {
       .withHeritage('changeling', 'human');
     const versatile = new ContentPackBuilder().withId('player-core').withAncestry('human').withHeritage('changeling');
     for (const pack of [own, versatile]) {
-      const heritages = new CharacterService(repository, fixedContent(pack.build()), clock);
+      const heritages = importerOver(fixedContent(pack.build()), repository);
       // oxlint-disable-next-line no-await-in-loop -- two cases, one after the other
       const { character, report } = await heritages.importPathbuilder(amiri, mordredExport);
       const changelingId = ChoiceValue.parse(pack.idOf(ContentKind.Heritage, 'changeling'));
@@ -133,7 +146,7 @@ describe('CharacterService.importPathbuilder', () => {
       .withAncestry('elf')
       .withHeritage('changeling', 'elf')
       .build();
-    const elsewhere = new CharacterService(repository, fixedContent(pack), clock);
+    const elsewhere = importerOver(fixedContent(pack), repository);
     const { character, report } = await elsewhere.importPathbuilder(amiri, mordredExport);
     expect(Object.keys(character.document.build.choices)).not.toContain(HERITAGE_SLOT);
     expect(unmatchedHeritage(report)).toStrictEqual([
@@ -143,7 +156,7 @@ describe('CharacterService.importPathbuilder', () => {
   });
 
   test('fills the heritage, background, class and every boost; the modifiers come out as Pathbuilder scored them', async () => {
-    const briar = new CharacterService(repository, briarContent(), clock);
+    const briar = importerOver(briarContent(), repository);
     const { character, report } = await briar.importPathbuilder(amiri, briarRoseExport);
     const { choices } = character.document.build;
     const slots = [HERITAGE_SLOT, BACKGROUND_SLOT, CLASS_SLOT];
@@ -175,7 +188,7 @@ describe('CharacterService.importPathbuilder', () => {
         },
       },
     };
-    const briar = new CharacterService(repository, briarContent(), clock);
+    const briar = importerOver(briarContent(), repository);
     const { character, report } = await briar.importPathbuilder(amiri, flawed);
     expect<Readonly<Record<string, string>>>(character.document.build.choices).toMatchObject({
       'flaw:1:ancestry:0': 'str',
@@ -193,7 +206,7 @@ describe('CharacterService.importPathbuilder', () => {
         message: { key: 'character.validation.unmatchedAncestry', params: { ancestry: 'Goloma' } },
       },
     ]);
-    expect(await service.list(amiri, byName)).toStrictEqual([]);
+    expect(await characters.list(amiri, byName)).toStrictEqual([]);
     expect(repository.audits).toStrictEqual([]);
   });
 

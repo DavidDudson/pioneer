@@ -47,16 +47,23 @@ function freeBoosts(levelled: Readonly<Record<string, readonly string[]>>): Impo
   return [...bySet].map(([level, attributes]) => ({ source: BoostSource.Free, level, attributes }));
 }
 
-/** The boosts Pathbuilder recorded, by set; none for an export without a breakdown. */
-export function readBoosts(build: PathbuilderBuild): ImportedBoosts[] {
+/**
+ * The boosts Pathbuilder recorded, by set; none for an export without a breakdown. A dual class build records one
+ * class boost for each class in `classBoosts`, the first class's then the second's, which are two sets here.
+ */
+export function readBoosts(build: PathbuilderBuild, dualClass: boolean): ImportedBoosts[] {
   const { breakdown } = build.abilities;
   if (breakdown === undefined) {
     return [];
   }
+  const [firstClass = [], secondClass = []] = dualClass
+    ? breakdown.classBoosts.map((name) => [name])
+    : [breakdown.classBoosts];
   const firstLevel: [BoostSource, readonly string[]][] = [
     [BoostSource.Ancestry, [...breakdown.ancestryBoosts, ...breakdown.ancestryFree]],
     [BoostSource.Background, breakdown.backgroundBoosts],
-    [BoostSource.Class, breakdown.classBoosts],
+    [BoostSource.Class, firstClass],
+    [BoostSource.SecondClass, secondClass],
   ];
   return [
     ...firstLevel.flatMap(([source, names]): ImportedBoosts[] => {

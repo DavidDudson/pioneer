@@ -1,6 +1,6 @@
 import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
 
-import { CharacterService } from '@pioneer/character/application';
+import { CharacterService, PathbuilderImportService } from '@pioneer/character/application';
 import { CharacterCommand, HERITAGE_SLOT } from '@pioneer/character/domain';
 import { fixtureOwnerId } from '@pioneer/character/domain/testing';
 import { briarRoseExport } from '@pioneer/interop/pathbuilder/testing';
@@ -14,6 +14,7 @@ import type { TestDatabase } from '@pioneer/shared/server/testing';
 import { eq, sql } from 'drizzle-orm';
 
 import { DrizzleCharacterRepository } from './drizzle-character-repository';
+import { DrizzleCharacterVariantRepository } from './drizzle-character-variant-repository';
 
 /** A Pathbuilder import against a throwaway Postgres database; skipped when TEST_DATABASE_URL is unset. */
 const adminUrl = testDatabaseUrl();
@@ -29,8 +30,9 @@ const briarPack = new ContentPackBuilder()
 
 describe.skipIf(adminUrl === undefined)('Pathbuilder import (postgres)', () => {
   let database: TestDatabase;
-  let service: CharacterService;
-  let briarService: CharacterService;
+  let service: PathbuilderImportService;
+  let briarService: PathbuilderImportService;
+  let briarCharacters: CharacterService;
 
   beforeAll(async () => {
     database = await createTestDatabase(adminUrl ?? '');
@@ -39,9 +41,12 @@ describe.skipIf(adminUrl === undefined)('Pathbuilder import (postgres)', () => {
       sql`insert into users (id, display_name, email_verified, created_at, updated_at) values (${fixtureOwnerId}, 'Owner', false, ${at}, ${at})`,
     );
     const content = fixedContent(new ContentPackBuilder().withId('player-core').withAncestry('human').build());
-    service = new CharacterService(new DrizzleCharacterRepository(database.db), content, clock);
+    const characters = new DrizzleCharacterRepository(database.db);
+    const variants = new DrizzleCharacterVariantRepository(database.db);
+    service = new PathbuilderImportService({ characters, content, variants }, clock);
     const briarContent = fixedContent(briarPack.build());
-    briarService = new CharacterService(new DrizzleCharacterRepository(database.db), briarContent, clock);
+    briarService = new PathbuilderImportService({ characters, content: briarContent, variants }, clock);
+    briarCharacters = new CharacterService(characters, briarContent, clock);
   });
 
   afterAll(async () => {
@@ -55,7 +60,7 @@ describe.skipIf(adminUrl === undefined)('Pathbuilder import (postgres)', () => {
       ['insert', 1, fixtureOwnerId, CharacterCommand.ImportPathbuilder],
     ]);
     expect(entries[0]?.after).toMatchObject({ name: 'Briar Rose', level: 11 });
-    const stored = await briarService.get(fixtureOwnerId, character.id);
+    const stored = await briarCharacters.get(fixtureOwnerId, character.id);
     expect(stored.document.build.choices).toStrictEqual(character.document.build.choices);
     expect<Readonly<Record<string, string>>>(stored.document.build.choices).toMatchObject({
       [HERITAGE_SLOT]: briarPack.idOf(ContentKind.Heritage, 'vigilant-goloma'),
@@ -70,7 +75,7 @@ describe.skipIf(adminUrl === undefined)('Pathbuilder import (postgres)', () => {
     const breakdown = { ...abilities.breakdown, ancestryFlaws: ['Str'] };
     const flawed = { ...briarRoseExport, build: { ...build, abilities: { ...abilities, str: 8, breakdown } } };
     const { character, report } = await briarService.importPathbuilder(fixtureOwnerId, flawed);
-    const stored = await briarService.get(fixtureOwnerId, character.id);
+    const stored = await briarCharacters.get(fixtureOwnerId, character.id);
     expect<Readonly<Record<string, string>>>(stored.document.build.choices).toMatchObject({
       'flaw:1:ancestry:0': 'str',
     });

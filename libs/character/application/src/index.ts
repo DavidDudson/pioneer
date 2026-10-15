@@ -1,5 +1,6 @@
 export { type CharacterAudit, CharacterRepository, type PlayWrite } from './character-repository';
 export { CharacterService, type PatchedCharacter } from './character-service';
+export { PathbuilderImportService, type PathbuilderImportPorts } from './pathbuilder-import-service';
 export { InMemoryCharacterRepository } from './in-memory-character-repository';
 export { InMemorySheetModeRepository } from './in-memory-sheet-mode-repository';
 export { type SheetModeKey, SheetModeRepository } from './sheet-mode-repository';

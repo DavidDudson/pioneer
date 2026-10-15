@@ -1,6 +1,11 @@
 import { describe, expect, test } from 'bun:test';
 
-import { CharacterService, InMemoryCharacterRepository } from '@pioneer/character/application';
+import {
+  CharacterService,
+  InMemoryCharacterRepository,
+  InMemoryCharacterVariantRepository,
+  PathbuilderImportService,
+} from '@pioneer/character/application';
 import { CharacterSheet, ClearedPick, PatchedCharacterSheet } from '@pioneer/character/domain';
 import { humanAncestryId } from '@pioneer/character/domain/testing';
 import { briarRoseExport, mordredExport } from '@pioneer/interop/pathbuilder/testing';
@@ -14,6 +19,7 @@ import { Elysia } from 'elysia';
 import type { AnyElysia } from 'elysia';
 
 import { characterRoutes } from './character-routes';
+import { pathbuilderImportRoutes } from './pathbuilder-import-routes';
 
 const amiri = UserId.parse(newId());
 const ezren = UserId.parse(newId());
@@ -26,8 +32,16 @@ function app(): AnyElysia {
       .withItem(ContentKind.Equipment, 'rope', { bulk: 'light', price: { coins: { sp: 5 } } })
       .build(),
   );
-  const service = new CharacterService(new InMemoryCharacterRepository(), content, fixedClock('2026-10-07T10:00:00Z'));
-  return new Elysia().use(problemHandler).use(characterRoutes(service, new FakeAuthenticator()));
+  const clock = fixedClock('2026-10-07T10:00:00Z');
+  const repository = new InMemoryCharacterRepository();
+  const service = new CharacterService(repository, content, clock);
+  const variants = new InMemoryCharacterVariantRepository();
+  const importer = new PathbuilderImportService({ characters: repository, content, variants }, clock);
+  const auth = new FakeAuthenticator();
+  return new Elysia()
+    .use(problemHandler)
+    .use(characterRoutes(service, auth))
+    .use(pathbuilderImportRoutes(importer, auth));
 }
 
 /** No signed-in user. */

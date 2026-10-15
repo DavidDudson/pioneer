@@ -571,7 +571,11 @@ characters; the player sees them.
   Pathbuilder's scores are only a check. The import report (unmatched names by kind, the filled fields the character
   can't hold yet, the boosts no slot took, and each attribute whose derived modifier differs from Pathbuilder's) is
   returned, not stored: the sheet shows it until dismissed or reloaded. A dual class
-  ([#549](https://github.com/DavidDudson/pioneer/issues/549)) isn't carried yet.
+  ([#549](https://github.com/DavidDudson/pioneer/issues/549)) is carried when the second class matches loaded content
+  and a pack defines the Dual Class variant rule: the second class goes in its slot, the second entry of
+  `classBoosts` in its `secondClass` boost set, and the variant rule is enabled for the character (a
+  `character_variant_rules` row, as the owner enabling it would write). Otherwise the report lists the second class as
+  unmatched, or as not offered when the content matches but the variant isn't there, and nothing is enabled.
 - **Pioneer JSON:** the `CharacterDocument` without its id and owner, with content named by pack and slug
   ([ADR-0056](../adr/0056-pioneer-character-file-format.md)). Homebrew entries referenced by the character are
   embedded so the file is portable; an import makes them for the importer or reuses identical ones, and reports a
