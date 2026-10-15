@@ -8,6 +8,8 @@ import * as z from 'zod';
 export const ContentLicense = {
   /** ORC License: remastered game mechanics (Player Core, Monster Core, ...). */
   Orc: 'ORC',
+  /** Open Game License 1.0a: pre-remaster books imported for the content remaster books still point at. */
+  Ogl: 'OGL',
   /** Paizo Community Use Policy: Paizo IP that is not ORC (setting, names, art). */
   PaizoCommunityUse: 'Paizo-CUP',
   /** Original homebrew content owned by its author. */

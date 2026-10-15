@@ -4,10 +4,11 @@ import { Heading, Link, List, ListItem, Page, Stack, Surface, Text } from '@pion
 
 import { LEGAL_BOOKS } from './legal-books';
 import { LEGAL_IMPORTS } from './legal-imports';
+import { OGL_ATTRIBUTION } from './ogl-attribution';
 import { ORC_ATTRIBUTION } from './orc-attribution';
 
 /**
- * Licensing notices for the Pathfinder content Pioneer serves (Paizo Community Use, ORC and Foundry pf2e) and the
+ * Licensing notices for the Pathfinder content Pioneer serves (Paizo Community Use, ORC, OGL and Foundry pf2e) and the
  * books that content cites.
  */
 @Component({
@@ -18,6 +19,7 @@ import { ORC_ATTRIBUTION } from './orc-attribution';
 })
 export class LegalPage {
   protected readonly attribution = ORC_ATTRIBUTION;
+  protected readonly oglAttribution = OGL_ATTRIBUTION;
   protected readonly books = LEGAL_BOOKS;
   protected readonly imports = LEGAL_IMPORTS;
 }

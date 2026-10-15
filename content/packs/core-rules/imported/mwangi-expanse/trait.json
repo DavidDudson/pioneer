@@ -1,0 +1,162 @@
+[
+  {
+    "id": "1357490f-bf19-575b-a801-779c7b023b8b",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:aeon",
+    "name": "Aeon",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["ancestry", "armor", "creature", "heritage", "weapon"]
+    }
+  },
+  {
+    "id": "6eaab20a-712e-5dc1-8c74-41a24a0e6ed5",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:anadi",
+    "name": "Anadi",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "d1482e02-8cc9-5d52-9d7e-efd28a0a6446",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:conrasu",
+    "name": "Conrasu",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "26aa3e59-7a12-556e-8f89-b9fa56b67484",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:contract",
+    "name": "Contract",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["equipment"]
+    }
+  },
+  {
+    "id": "080c19dd-e03b-5830-a013-b4566a6f83a1",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:goloma",
+    "name": "Goloma",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "47f74264-e289-5e16-8975-0afce668fa68",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:shisk",
+    "name": "Shisk",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  }
+]

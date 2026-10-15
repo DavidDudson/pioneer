@@ -1,0 +1,3389 @@
+[
+  {
+    "id": "1db0414f-fd05-58ac-a174-74cf3493d503",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:ambush-awareness",
+    "name": "Ambush Awareness",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["goloma"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to Perception checks attempted as initiative rolls. Additionally, if your initiative roll result is tied with that of an opponent, you go first, regardless of whether you rolled Perception or not."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["initiative"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["check:statistic:base:perception"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.7w8O3g3KM1HCDBSL"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "210aa267-7a24-5971-bc04-e3ce07af95bb",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:anadi-lore",
+    "name": "Anadi Lore",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["anadi"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've learned how to provide for your community, be it through hard-earned sustenance or useful crafts. You gain the trained proficiency rank in Crafting and Survival. If you would automatically become trained in one of those skills (from your background or class, for example), you become trained in a skill of your choice. You also become trained in Anadi Lore."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:crafting",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:survival",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.j54VJmwwAQZBlS6J"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "6999b0f9-5686-5c6d-bd72-e43c54a4a627",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:arcane-sight",
+    "name": "Arcane Sight",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["goloma"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've trained yourself to constantly be on the lookout for magical effects, even when focusing on looking out for other things. When you are Searching, you also gain the benefits of "
+          },
+          {
+            "type": "ref",
+            "id": "f2f41cca-1b56-54a6-ad85-dffb2ce07786"
+          },
+          {
+            "type": "text",
+            "text": " unless you choose not to."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.EIyazsXwM7Zc2XGO"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "ability to cast the detect magic cantrip"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "88701c0a-7b59-5fcf-9149-b3b4d76e3e41",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:bristle",
+    "name": "Bristle",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["shisk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You curl into a posture that splays out your bone spines. You gain a +1 circumstance to AC until the start of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "9e5c4a3c-41fe-5a65-acc9-6c368781f20a"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If you have the "
+          },
+          {
+            "type": "ref",
+            "id": "8c898454-0aae-590b-ad4e-9d602641ae98"
+          },
+          {
+            "type": "text",
+            "text": " reaction or a quills unarmed attack, each gains a +1 circumstance bonus to damage rolls until the start of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.1gAehVvstGY885kJ"
+    },
+    "data": {
+      "category": "ancestry",
+      "action": {
+        "cost": "one"
+      }
+    }
+  },
+  {
+    "id": "8a4baf6b-504c-51ba-83fd-b5b899a6556e",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:catch-the-details",
+    "name": "Catch the Details",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["goloma"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are quick at recognizing broad details about people and things around you. You are trained in Society and gain the Eye for Numbers skill feat. If you would automatically become trained in Society (from your background or class, for example), you instead become trained in a skill of your choice."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:society",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.9eDA2RLnrBBlCvce"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "3d5a067f-ad86-5e4d-b15f-0c7bb8b34541",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:ceremony-of-aeons-guidance",
+    "name": "Ceremony of Aeon's Guidance",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["conrasu"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your patron aeon has allowed you to call upon their gifts to serve their ends. You can cast "
+          },
+          {
+            "type": "ref",
+            "id": "dfab75a2-997b-5597-b7d7-3b9ad9e935dc"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "1e8fd2ab-ffb3-5b91-af85-43e5911b8652"
+          },
+          {
+            "type": "text",
+            "text": " each once per day as 2nd-rank divine innate spells."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.nYSSdczKdRj7pdW6"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "a19e75a6-bd3b-5ca1-9eb0-8663de6fdb17",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:ceremony-of-aeons-shield",
+    "name": "Ceremony of Aeon's Shield",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["conrasu"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your patron aeon graced you with powers of protection. You can cast "
+          },
+          {
+            "type": "ref",
+            "id": "d54ee3a3-6742-53c8-9070-17edcb0cae19"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "aa5b234d-3e28-5766-9bc0-bcf048cc797d"
+          },
+          {
+            "type": "text",
+            "text": " each once per day as 2nd-rank divine innate spells."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.qAdlJvAHkWBisDJ0"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "9da3bf84-01ca-5a4e-9925-07809d1ad3a9",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:ceremony-of-fortification",
+    "name": "Ceremony of Fortification",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["conrasu"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your exoskeleton arranges itself into an optimal defensive shape. When you use your "
+          },
+          {
+            "type": "ref",
+            "id": "c78b7955-debc-5248-904b-f42c50c77828"
+          },
+          {
+            "type": "text",
+            "text": ", you also gain resistance to either bludgeoning, piercing, or slashing damage equal to half your level against the next Strike that hits you and deals one of those types of damage until the start of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.rzBC5bHAWWpjHMEw"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Ceremony of Protection"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "792af11c-a6e1-5159-82df-4d7c02207ed7",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:ceremony-of-growth",
+    "name": "Ceremony of Growth",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["conrasu"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can alter your exoskeleton's size. You constantly gain the effects of "
+          },
+          {
+            "type": "ref",
+            "id": "b76d119e-0d8d-52ad-8cca-1a224c3077ae"
+          },
+          {
+            "type": "text",
+            "text": ". You can dismiss or resume these effects as an action, which has the concentrate trait."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:ceremony-of-growth",
+        "toggleable": true
+      },
+      {
+        "key": "GrantItem",
+        "item": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+        "predicate": ["option:ceremony-of-growth"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["melee-strike-damage"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["option:ceremony-of-growth"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.JAl4t2KINE8nI8KY"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "25df8311-ccb3-5a90-8e55-ff120eb97d16",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:ceremony-of-knowledge",
+    "name": "Ceremony of Knowledge",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["conrasu"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You tap into aeon knowledge. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "a2c40362-546b-54d4-a205-c27c70743654"
+          },
+          {
+            "type": "text",
+            "text": " general feat. In addition, you can attempt skill actions that normally require you to be trained, even if you are untrained."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "a2c40362-546b-54d4-a205-c27c70743654"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.73JyUrJnH3nOQJM5"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "c78b7955-debc-5248-904b-f42c50c77828",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:ceremony-of-protection",
+    "name": "Ceremony of Protection",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["conrasu", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You manipulate your exoskeleton to overlap itself. You gain a +1 circumstance bonus to AC until the start of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "488689da-f069-5446-9be1-f10e47d4598e"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.VSINzKESKAw2zA20"
+    },
+    "data": {
+      "category": "ancestry",
+      "action": {
+        "cost": "one"
+      }
+    }
+  },
+  {
+    "id": "0be688c2-a03f-52eb-ae2c-0d97154334f0",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:ceremony-of-strengthened-hand",
+    "name": "Ceremony of Strengthened Hand",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["conrasu"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your exoskeleton's weapons are even more potent. If you have a claws unarmed attack, it gains the deadly d8 trait. If you have a branch unarmed attack, it gains the shove and trip traits."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon", "item:branch"],
+        "property": "traits",
+        "mode": "add",
+        "value": "shove"
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon", "item:branch"],
+        "property": "traits",
+        "mode": "add",
+        "value": "trip"
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon", "item:claw"],
+        "property": "traits",
+        "mode": "add",
+        "value": "deadly-d8"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.bpNpqxtsBJIPYSX9"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Ceremony of the Evened Hand"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "b46c5c0b-11e8-515f-918a-92c95116aeea",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:ceremony-of-sunlight",
+    "name": "Ceremony of Sunlight",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["conrasu"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have learned how to master the power contained within sunlight, just like the trees that form your body. Your "
+          },
+          {
+            "type": "ref",
+            "id": "1fcc9ad1-5982-5001-b789-fac83d49a89a"
+          },
+          {
+            "type": "text",
+            "text": " recovers 1d8 Hit Points per level."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageAlteration",
+        "selectors": ["inline-healing"],
+        "property": "dice-number",
+        "mode": "upgrade",
+        "value": "@level",
+        "predicate": ["item:slug:sunlight-healing"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.ZwvSiuFFsyNGJiB3"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "6a0c6479-4c9f-50c6-837d-2d766fe8686e",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:ceremony-of-suns-gift",
+    "name": "Ceremony of Sun's Gift",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["conrasu"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your connection to the sun has become an unbreakable bond. You don't become temporarily immune to the effects of your "
+          },
+          {
+            "type": "ref",
+            "id": "1fcc9ad1-5982-5001-b789-fac83d49a89a"
+          },
+          {
+            "type": "text",
+            "text": ", and instead of rolling to recover Hit Points, you gain the maximum number of HP possible (for example, 64 HP instead of 8d8)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageAlteration",
+        "selectors": ["inline-healing"],
+        "property": "dice-number",
+        "mode": "override",
+        "value": 0,
+        "predicate": ["item:slug:sunlight-healing"],
+        "priority": 150
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["inline-healing"],
+        "type": "untyped",
+        "value": "ceil(@level / 2) * 8",
+        "predicate": [
+          "item:slug:sunlight-healing",
+          {
+            "not": "feat:ceremony-of-sunlight"
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["inline-healing"],
+        "type": "untyped",
+        "value": "@level * 8",
+        "slug": "ceremony-of-suns-gift-ceremony-of-sunlight",
+        "predicate": ["item:slug:sunlight-healing", "feat:ceremony-of-sunlight"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.hZUFP1NPwdGMzs1y"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "c8764600-84f2-5f26-b659-e1b17eae4c1b",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:ceremony-of-the-evened-hand",
+    "name": "Ceremony of the Evened Hand",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["conrasu"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have cultivated your exoskeleton's form for close combat, using knots, whorls, and reinforced branches. When you select this feat, you gain a claws unarmed attack that deals 1d4 slashing damage and has the agile and finesse traits or a branch unarmed attack that deals 1d6 bludgeoning damage and has the backswing trait. Each of these unarmed attacks is in the brawling weapon group and uses one of your hands."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can select this feat twice, choosing the other unarmed attack the second time you take it."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "ceremony-of-the-evened-hand",
+        "choices": [
+          {
+            "value": "claw",
+            "label": "Claw"
+          },
+          {
+            "value": "branch",
+            "label": "Branch"
+          }
+        ],
+        "prompt": "Select an unarmed attack.",
+        "rollOption": "evened-hand"
+      },
+      {
+        "key": "Strike",
+        "slug": "claw",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["agile", "finesse", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d4",
+          "damageType": "slashing"
+        },
+        "predicate": ["evened-hand:claw"],
+        "display": {
+          "label": "Claw"
+        }
+      },
+      {
+        "key": "Strike",
+        "slug": "branch",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["backswing", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "bludgeoning"
+        },
+        "predicate": ["evened-hand:branch"],
+        "display": {
+          "label": "Branch"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.Cb44J1g1nO43DEBd"
+    },
+    "data": {
+      "category": "ancestry",
+      "maxTakable": 2
+    }
+  },
+  {
+    "id": "7b304020-3fb9-5647-97c3-ffb27607cac2",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:conrasu-lore",
+    "name": "Conrasu Lore",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["conrasu"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have learned about your history and your people from shapers. You gain the trained proficiency rank in Crafting and Occultism. If you would automatically become trained in one of those skills (from your background or class, for example), you instead become trained in a skill of your choice. You also become trained in Conrasu Lore."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:crafting",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:occultism",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.kBxgo589ctJsBwJj"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "158eb297-7331-5e54-b60c-8cc46e2dc85b",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:conrasu-weapon-expertise",
+    "name": "Conrasu Weapon Expertise",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["conrasu"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whenever you gain a class feature that grants you expert or greater proficiency in certain weapons, you also gain that proficiency for "
+          },
+          {
+            "type": "ref",
+            "id": "b6e9e0c1-942f-5339-8af5-61531664e411"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "6b3496fb-d934-53f4-a613-17be4c607bd0"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "42e09772-4c36-5b7d-9a92-b8ed4cbe2021"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "e38c39d9-c59f-5dd5-9739-8a3b9b5a3eba"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "22033d3f-8f51-58ca-9fc4-4eccb68055dd"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "349aff85-baf7-56af-b98b-59f5576e979c"
+          },
+          {
+            "type": "text",
+            "text": ", and all conrasu weapons (Buugeng) in which you are trained."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.Gh0rJNsdxBacK9b8"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "91c51995-d070-585a-b059-cff29e5cb770",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:conrasu-weapon-familiarity",
+    "name": "Conrasu Weapon Familiarity",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["conrasu"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have taken it upon yourself to learn the ways of combat to aid with your tasks, perhaps in a role as a corrector. You are trained with the "
+          },
+          {
+            "type": "ref",
+            "id": "b6e9e0c1-942f-5339-8af5-61531664e411"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "6b3496fb-d934-53f4-a613-17be4c607bd0"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "42e09772-4c36-5b7d-9a92-b8ed4cbe2021"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "e38c39d9-c59f-5dd5-9739-8a3b9b5a3eba"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "22033d3f-8f51-58ca-9fc4-4eccb68055dd"
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "ref",
+            "id": "349aff85-baf7-56af-b98b-59f5576e979c"
+          },
+          {
+            "type": "text",
+            "text": ". You also gain access to all uncommon conrasu weapons (Buugeng). For the purpose of determining your proficiency, martial conrasu weapons are simple weapons and advanced conrasu weapons are martial weapons."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "MartialProficiency",
+        "slug": "advanced-conrasu-weapons",
+        "definition": ["item:trait:conrasu", "item:category:advanced"],
+        "sameAs": "martial",
+        "display": {
+          "label": "Advanced Conrasu Weapons"
+        }
+      },
+      {
+        "key": "MartialProficiency",
+        "slug": "martial-conrasu-weapons",
+        "definition": [
+          "item:trait:conrasu",
+          "item:category:martial",
+          {
+            "not": "item:category:advanced"
+          }
+        ],
+        "sameAs": "simple",
+        "display": {
+          "label": "Martial Conrasu Weapons"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.1xDMyQ8IHuhDHSXy"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "9647129b-c4d6-54cd-bfb8-c6cec0c6f352",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:conrasu-weapon-understanding",
+    "name": "Conrasu Weapon Understanding",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["conrasu"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have come to know conrasu weapons as you know yourself. Whenever you critically hit using a "
+          },
+          {
+            "type": "ref",
+            "id": "b6e9e0c1-942f-5339-8af5-61531664e411"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "6b3496fb-d934-53f4-a613-17be4c607bd0"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "42e09772-4c36-5b7d-9a92-b8ed4cbe2021"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "e38c39d9-c59f-5dd5-9739-8a3b9b5a3eba"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "22033d3f-8f51-58ca-9fc4-4eccb68055dd"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "349aff85-baf7-56af-b98b-59f5576e979c"
+          },
+          {
+            "type": "text",
+            "text": ", or a conrasu weapon (Buugeng), you apply the weapon's critical specialization effect."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.NPATYCDg2cryH0Ya"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "2e318b83-ed4f-5385-bbcd-b55b146b54c9",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:constant-gaze",
+    "name": "Constant Gaze",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["goloma"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eyes keep a continual watch for dangers from all sides. You can't be flanked by creatures of your level or lower, even when you haven't used Watchful Gaze."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "ac",
+        "option": "self:condition:off-guard:ignore:flanking",
+        "predicate": [
+          {
+            "lte": ["origin:level", "self:level"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.kPyyZGD5L6b2Kl8C"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Watchful Gaze"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "fc970fb9-fe18-5001-8bbe-b6e08036eb12",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:defensive-instincts",
+    "name": "Defensive Instincts",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["goloma"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " you are adjacent to at least two enemies"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your body tenses up when surrounded, putting you on edge just enough to anticipate an attack. You gain a +1 circumstance bonus to AC until the beginning of your next turn and Step."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.RxA1PdgGbijkieJD"
+    },
+    "data": {
+      "category": "ancestry",
+      "action": {
+        "cost": "one",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "you are adjacent to at least two enemies"
+              }
+            ]
+          }
+        ],
+        "selfEffect": "d9f7e95a-76b4-5157-8aa9-4d0351f3eea7"
+      }
+    }
+  },
+  {
+    "id": "ec146b47-83cf-566c-a47d-f6e01b2ff697",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:delver",
+    "name": "Delver",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["shisk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Subterranean life taught you to swim through the ground like water. You gain a burrow Speed of 10 feet through loose soil or dirt."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:burrow",
+        "mode": "upgrade",
+        "value": 10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.LxAEF9VPwUVttA0F"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "47c7e2c2-b783-5984-9d57-34b0364e5764",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:demonbane-warrior",
+    "name": "Demonbane Warrior",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["elf"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to damage with weapons and unarmed attacks against demons. If your attack would deal more than one weapon die of damage (as is common at higher levels than 1st), the bonus is equal to the number of weapon dice or unarmed attack dice. If your actions force a demon to take damage from its sin vulnerability, increase that damage by 2."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["strike-damage"],
+        "title": "Demonbane Warrior",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "If your actions force a demon to take damage from its sin vulnerability, increase that damage by "
+              },
+              {
+                "type": "damage",
+                "instances": [
+                  {
+                    "formula": "2"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "predicate": ["target:trait:demon"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.ng9H9flz4H6agiiV"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "0b9e3f6b-43bc-5554-9b69-fad71e2d2b95",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:demonblood-frenzy",
+    "name": "Demonblood Frenzy",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["orc"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Matanji ethnicity"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per minute"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You successfully Strike a living creature that has the fiend trait with your tusks unarmed attack."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Just the taste of fiendish blood is enough to send blood rushing through your veins in a supernatural fury. You become "
+          },
+          {
+            "type": "ref",
+            "id": "6517bbf2-8085-534b-be6a-187d52739fa0"
+          },
+          {
+            "type": "text",
+            "text": " until the end of your next turn and you can use the extra action to make a tusks Strike, Stride, or Step."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.ehPnY1PuPK7EXkYc"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "tusks unarmed attack"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You successfully Strike a living creature that has the fiend trait with your tusks unarmed attack."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "minute"
+        }
+      }
+    }
+  },
+  {
+    "id": "881cad57-3655-50eb-9583-5e6a174a8fdb",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:dig-up-secrets",
+    "name": "Dig up Secrets",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["shisk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are an endless well of knowledge and can remember several vital pieces of information at once. You can cast "
+          },
+          {
+            "type": "ref",
+            "id": "22b62dab-5ef5-5d09-8c09-2f7bcfc88be1"
+          },
+          {
+            "type": "text",
+            "text": " as an innate occult spell once per day."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.Zr1sspa9Q16V8uZV"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "3d779aca-a508-5d9a-a67c-928a4ad0d5d6",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:disorienting-venom",
+    "name": "Disorienting Venom",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["anadi"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The venom injected by your fangs disorients your foes. A creature damaged by your "
+          },
+          {
+            "type": "ref",
+            "id": "87308352-8f49-526a-8bf9-85a508c7a21e"
+          },
+          {
+            "type": "text",
+            "text": " must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": {
+              "against": "class-or-spell-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save against your class or spell DC, whichever is higher, or become "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.DLE2rr5I1TBAk0I3"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Venomous Anadi"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "bf24189f-dd04-53ca-b5f5-f0d147baa9c9",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:eidetic-ear",
+    "name": "Eidetic Ear",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["shisk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have an amazing memory for sound. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "161d1c8a-4304-59c5-bd4b-e0f21e3afa13",
+            "label": "Assurance (Performance)"
+          },
+          {
+            "type": "text",
+            "text": " feat. With a successful "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 8
+          },
+          {
+            "type": "text",
+            "text": ", you can accurately recall a sound or a snippet of conversation you heard within the last week. You are memorizing by rote rather than content, and can't use this to cram facts, so this doesn't grant you any extra ability to Recall Knowledge."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "161d1c8a-4304-59c5-bd4b-e0f21e3afa13",
+        "choices": {
+          "assurance": "performance"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.5lZBacKOZOgIx4Pi"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "63a5af6e-9596-571d-8603-dcfa38cdacd1",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:fountain-of-secrets",
+    "name": "Fountain of Secrets",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["shisk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per round"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You constantly remember details about the world. You attempt a check to Recall Knowledge. If you succeed, you gain additional information or context. If you critically succeed, at the GM's discretion you might gain even more additional information or context than normal."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.MzdoJWpqyMmMDI1F"
+    },
+    "data": {
+      "category": "ancestry",
+      "action": {
+        "cost": "free",
+        "frequency": {
+          "max": 1,
+          "per": "round"
+        }
+      }
+    }
+  },
+  {
+    "id": "7cc52e46-c4f6-5b4b-944d-b4785d781d04",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:friendform",
+    "name": "Friendform",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["anadi"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The shared bond between you and your allies allows you to act on their behalf."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "During your daily preparations, you can perform a simple ritual with up to five willing Small or Medium humanoids, where participants exchange minor tokens of personal significance."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As long as you hold onto a participant's token, you can assume their form with your Change Shape ability, gaining a +4 status bonus to Deception checks to pass as that person and adding your level to the check even if you're untrained. You lose access to a participant's form if they're not carrying your token or if you use the ritual again."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:non-humanoid-change-shape",
+        "value": false,
+        "priority": 41
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "status",
+        "value": 4,
+        "predicate": ["option:friendform"],
+        "display": {
+          "label": "To Impersonate Friendform participant"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.qkXRucQCLLS3VoMa"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "f5aa49df-9635-5723-a8e3-666e6e0f91bd",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:goloma-courage",
+    "name": "Goloma Courage",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["goloma"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The most important thing you've learned living with fear is how to overcome it. When you roll a success on a saving throw against a fear effect, you get a critical success instead. In addition, you gain a +1 circumstance bonus to Will saves against fear effects and a +2 circumstance bonus to your Will DC against attempts to Demoralize you."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["saving-throw"],
+        "adjustment": {
+          "success": "to-critical-success"
+        },
+        "predicate": ["item:trait:fear"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:will"],
+        "type": "circumstance",
+        "value": 1,
+        "slug": "goloma-courage-fear",
+        "predicate": ["item:trait:fear"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["will-dc"],
+        "type": "circumstance",
+        "value": 2,
+        "slug": "goloma-courage-demoralize",
+        "predicate": ["action:demoralize"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.Hey5rucsel7apOOi"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "680aac32-cc46-55d7-a1a9-b01cdde96c83",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:goloma-lore",
+    "name": "Goloma Lore",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["goloma"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You lived an insulated life focused on avoiding danger. You gain the trained proficiency rank in Stealth and Survival. If you would automatically become trained in one of those skills (from your background or class, for example), you instead become trained in a skill of your choice. You also become trained in Goloma Lore."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:survival",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:stealth",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.vNDCXpumBONpk5JO"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "ab9e9f58-16ac-5383-a328-bd536aec4b91",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:hunters-fangs",
+    "name": "Hunter's Fangs",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["anadi"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your fangs are exceptionally painful. Whenever you score a critical hit with your fangs unarmed attack, you apply the unarmed attack's critical specialization effect."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.PWKFdaNghx1YMKlA"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "868bc835-20ae-5da9-8d16-dc01d3c35a19",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:hybrid-shape",
+    "name": "Hybrid Shape",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["anadi"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Mastery of your shapeshifting lets you combine the best features of your humanoid and spider forms. When using your "
+          },
+          {
+            "type": "ref",
+            "id": "e114f41a-9129-5b91-b7d2-f88e152b9c0c"
+          },
+          {
+            "type": "text",
+            "text": " ability, you can assume a bipedal hybrid shape."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This form gains all the benefits of your spider shape as well as the ability to use items and take manipulate actions just as easily as your human shape."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.M0B0rt6rk5MkHiBN"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "8efdafaa-bfa4-5f26-afcb-d8404c3cc1c5",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:inured-to-the-heat",
+    "name": "Inured to the Heat",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["shisk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your have a love for extreme heat. You gain resistance 4 to fire. You treat environmental heat effects as if they were one step less extreme (incredible heat becomes extreme, extreme heat becomes severe, and so on)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": 4
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.qKNo7Sr1dtVqhhAa"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "a0c7f5ca-04af-5861-8b8c-b111ea84f21b",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:none-shall-know",
+    "name": "None Shall Know",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["shisk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Even magical means have a hard time prying information from you. You gain "
+          },
+          {
+            "type": "ref",
+            "id": "3c7ef298-5d47-58c4-a650-2bec5d4bda5d"
+          },
+          {
+            "type": "text",
+            "text": " as an innate occult spell once per day, which can only be cast on yourself and is automatically heightened to half your level rounded up."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.cpsyKarYRHiOF0Nd"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "60e0c1a9-8203-5cbb-aad1-8e383cd7e10b",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:pierce-the-darkness",
+    "name": "Pierce the Darkness",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["goloma"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eyes have adapted to see in all circumstances, even without the assistance of light. You gain darkvision, allowing you to see in darkness and dim light just as well as you can in bright light. However, in darkness you see in black and white only."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can take this feat only at 1st level, and you can't retrain out of this feat or into this feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.NN1U8ifiURc0h4Fx"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "low-light vision"
+            }
+          ]
+        }
+      ],
+      "onlyLevel1": true
+    }
+  },
+  {
+    "id": "8146e6c4-51a4-5873-a56e-b77a5266e308",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:piercing-quills",
+    "name": "Piercing Quills",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["shisk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your quills can dig particularly deep into the flesh of your opponents. Your quills unarmed attack deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d4",
+                "damageType": "bleed"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " on a critical hit."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["quills-damage"],
+        "diceNumber": 1,
+        "dieSize": "d4",
+        "damageType": "bleed",
+        "critical": true,
+        "predicate": ["option:shisk-quills"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.YfjuRHzqLFhLLgCc"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Spine Stabber"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "15f3e5b5-68b5-56b5-a784-813cf07ce89a",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:protective-claws",
+    "name": "Protective Claws",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["goloma"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The chitin on your claws is so hard you can defend against attacks with them. Your claw unarmed attack from the vicious goloma heritage gains the parry weapon trait."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon", "item:tag:vicious-goloma-claw"],
+        "property": "traits",
+        "mode": "add",
+        "value": "parry"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.f9YlMYWMjd0zoyy0"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "vicious goloma heritage"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "c4fc3daf-a600-5acb-bf27-13567f34e8f2",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:quill-spray",
+    "name": "Quill Spray",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["shisk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can launch a mass of quills at opponents. You spray quills in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": ", dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(ceil(@level/2))d8",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. Each creature in the area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": {
+              "against": "class-or-spell-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " saving throw against the higher of your class DC or spell DC. On a critical failure, a creature also takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "ceil(@level/2)",
+                "damageType": "bleed"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. At 11th level and every even level thereafter, the piercing damage increases by 1d8 and the persistent bleed damage increases by 1."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Note",
+            "marks": ["emphasis", "strong"]
+          },
+          {
+            "type": "text",
+            "text": " The feat does not specify the type of saving throw required. A reflex saving throw has been added, in line with Barbed Quills.",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.ux6kbsqRMsu9VHtn"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "quillcoat shisk or quill unarmed attack"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two",
+        "frequency": {
+          "max": 1,
+          "per": "day"
+        }
+      }
+    }
+  },
+  {
+    "id": "9da2b9c9-364c-5091-806b-37f8a31d34bd",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:reassuring-presence",
+    "name": "Reassuring Presence",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["anadi", "auditory", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An ally within 30 feet gains the "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62"
+          },
+          {
+            "type": "text",
+            "text": " condition."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You serve as an anchor to your close companions, calming them in times of stress. Decrease the value of the triggering ally's frightened condition by 1. The ally is then temporarily immune to your Reassuring Presence for 1 hour."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.95PmHIS041KiYIks"
+    },
+    "data": {
+      "category": "ancestry",
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "An ally within 30 feet gains the Frightened condition."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "af2c1ae3-5048-5b2e-a722-8d7bc3c0d58a",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:renewing-quills",
+    "name": "Renewing Quills",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["shisk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your spines grow back much faster than other shisks. You can use the "
+          },
+          {
+            "type": "ref",
+            "id": "8c898454-0aae-590b-ad4e-9d602641ae98"
+          },
+          {
+            "type": "text",
+            "text": " reaction once every 10 minutes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.FAUqvzfZDpRG44q0"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "quillcoat shisk heritage"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "402813e8-7851-5ca4-9ef5-f836c0b8d4c8",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:secret-eyes",
+    "name": "Secret Eyes",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["shisk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can call forth an invisible eye to let you peek on secrets. Once per day, you can cast "
+          },
+          {
+            "type": "ref",
+            "id": "2897020f-b34e-5315-9369-d501cd903968"
+          },
+          {
+            "type": "text",
+            "text": " as an innate occult spell."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.M8pDuRo6tO0Kok9z"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "6b03232b-7679-5dd4-87ed-c4a803e54e60",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:see-the-unseen",
+    "name": "See the Unseen",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["goloma"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You notice things that others can't see at all. While you're adjacent to an "
+          },
+          {
+            "type": "ref",
+            "id": "61f1fec4-1bb4-585d-9c12-6059d15dd74b"
+          },
+          {
+            "type": "text",
+            "text": " creature of your level or lower, it is instead only "
+          },
+          {
+            "type": "ref",
+            "id": "d851e3ca-be0d-55a7-a4d1-d7ed8b7ecafa"
+          },
+          {
+            "type": "text",
+            "text": " from you. You only need a successful "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 5
+          },
+          {
+            "type": "text",
+            "text": " to target a hidden creature."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.CAfrSLaDM0OBaNtp"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "aab4ddcd-3d65-52df-a254-15f455e34194",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:shisk-lore",
+    "name": "Shisk Lore",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["shisk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You hoard knowledge like a dragon hoards gold. You gain the trained proficiency rank in three Lore skills of your choice. You also become trained in Shisk Lore."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.MqDLaBypDyp1VQKg"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "472284a2-112a-565c-a980-0231b60e3b02",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:skittertalk",
+    "name": "Skittertalk",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["anadi"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can ask questions of, receive answers from, and use the Diplomacy skill with spiders and other arachnids. The GM determines which creatures count for this ability."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.yaacOmfmBuGDcNOs"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "c6be8db9-e429-5df0-ab84-2dfff0431ab8",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:spelunker",
+    "name": "Spelunker",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["shisk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Living underground, you have learned to find your way without landmarks or even solid ground. If you roll a success on an Survival check to "
+          },
+          {
+            "type": "ref",
+            "id": "d0498569-a787-5708-8a5f-39c521dd3df4"
+          },
+          {
+            "type": "text",
+            "text": " or an Athletics check to "
+          },
+          {
+            "type": "ref",
+            "id": "d26ec2df-83bd-5f2f-988e-e922681de6ba"
+          },
+          {
+            "type": "text",
+            "text": ", you get a critical success instead. You're not "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " when you attempt to Climb."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["skill:survival"],
+        "title": "Spelunker",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "If you roll a success on an Survival check to Sense Direction you get a critical success instead."
+              }
+            ]
+          }
+        ],
+        "outcome": ["success"],
+        "predicate": ["action:sense-direction"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["skill:athletics"],
+        "title": "Spelunker",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "If you roll a success on an Athletics check to Climb you get a critical success instead."
+              }
+            ]
+          }
+        ],
+        "outcome": ["success"],
+        "predicate": ["action:climb"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill:survival"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "predicate": ["action:sense-direction"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill:athletics"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "predicate": ["action:climb"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.6ZNSMR0lRSLwBJBe"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "e4a0fa2c-1a13-5c8a-a8ee-e818a577538d",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:spine-stabber",
+    "name": "Spine Stabber",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["shisk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The quills on your arms are particularly sharp and sturdy. You gain a quills unarmed attack that deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. Your quills are in the knife weapon group and have the finesse and unarmed traits."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.Bn9yK3FBndHkbVsu"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "608784e2-6884-5ce3-838a-526b964ffeae",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:strand-strider",
+    "name": "Strand Strider",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["anadi"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eight legs serve you well when climbing walls and webs alike. You gain a climb speed of 25 feet in your spider shape."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:climb",
+        "mode": "upgrade",
+        "value": 25,
+        "predicate": [
+          {
+            "or": ["change-shape:spider", "change-shape:hybrid"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.ZGnmky2B3v1pbPDA"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "c88f33a9-d3bb-5c47-9e94-d89ceb02b575",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:studious-adept",
+    "name": "Studious Adept",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["anadi"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You achieve a breakthrough in your exploration of magic. You gain "
+          },
+          {
+            "type": "ref",
+            "id": "6a92fc43-23d9-559f-a7fd-f25a6735ef9a"
+          },
+          {
+            "type": "text",
+            "text": " and Mirror Image as 2nd-rank arcane innate spells. You can cast each of these arcane innate spells once per day."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.C2PmqTxQgWGTHluf"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Studious Magic"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "019dfedd-6271-5714-bfac-3f452c49da4b",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:studious-magic",
+    "name": "Studious Magic",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["anadi"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've taken an interest in anadi arcane traditions. Choose one cantrip from the arcane spell list. You can cast this spell as an arcane innate spell at will. A cantrip is heightened to a spell rank equal to half your level rounded up."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.jNDjLsqpq13RqzD4"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "27d56960-586d-5d43-953c-0861b1e7fb50",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:true-gaze",
+    "name": "True Gaze",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["arcane", "concentrate", "goloma"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you focus your eyes carefully, your gaze can pierce through all obfuscations, even magical ones. When you use True Gaze, you gain the effects of a 6th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "ec6df711-1ab8-5f9d-8e01-6827c947eeff"
+          },
+          {
+            "type": "text",
+            "text": " spell, using your "
+          },
+          {
+            "type": "check",
+            "statistic": "perception"
+          },
+          {
+            "type": "text",
+            "text": " modifier for the counteract check."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.kr537ZL3f8tCSgDK"
+    },
+    "data": {
+      "category": "ancestry",
+      "action": {
+        "cost": "one",
+        "frequency": {
+          "max": 1,
+          "per": "hour"
+        }
+      }
+    }
+  },
+  {
+    "id": "fdfad6d3-3ccb-50ce-967f-3e4d3db1df1a",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:watchful-gaze",
+    "name": "Watchful Gaze",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["concentrate", "goloma"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You use your many eyes to look in all directions at once, making you extremely observant for a short period of time. You gain All-Around Vision until the start of your next turn. This lets you see in all directions and prevents you from being flanked."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.KKUDZUbX3nDdME4K"
+    },
+    "data": {
+      "category": "ancestry",
+      "action": {
+        "cost": "one",
+        "selfEffect": "b9a5aa9c-1acc-5688-9be8-5ae9e50e603d"
+      }
+    }
+  },
+  {
+    "id": "33a66b9a-3482-5c4c-91f4-e86f45387e59",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:web-hunter",
+    "name": "Web Hunter",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["anadi"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Through the careful cultivation of highly sensitive hairs, you've developed the ability to sense creatures without seeing them. You gain imprecise tremorsense at a range of 15 feet. When you and a creature are both touching the same anchored, threadlike object (such as a rope, webbing, or wire), your imprecise tremorsense can sense that creature at a range of 60 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:web-hunter-same-object",
+        "toggleable": true,
+        "display": {
+          "label": "Web Hunter — Increase tremorsense range"
+        }
+      },
+      {
+        "key": "Sense",
+        "sense": "367b9fa7-8944-5208-9949-9457984b7c59",
+        "acuity": "imprecise",
+        "range": 15
+      },
+      {
+        "key": "Sense",
+        "sense": "367b9fa7-8944-5208-9949-9457984b7c59",
+        "acuity": "imprecise",
+        "range": 60,
+        "predicate": ["option:web-hunter-same-object"]
+      },
+      {
+        "key": "Sense",
+        "sense": "367b9fa7-8944-5208-9949-9457984b7c59",
+        "acuity": "imprecise",
+        "range": 15
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.InTchkd50pzQok3f"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "8f5ffb7f-ab10-5e70-a7d1-6a41026ca8a8",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:web-walker",
+    "name": "Web Walker",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["anadi"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have plenty of practice navigating webs. You gain a +2 circumstance bonus to saves and AC against the "
+          },
+          {
+            "type": "ref",
+            "id": "9e63871b-e287-5e26-8383-f5c4c9fe2bc7"
+          },
+          {
+            "type": "text",
+            "text": " spell, natural webbing, and effects that entrap you in webbing, as well as a +1 circumstance bonus against other effects that snare and entangle you, like the "
+          },
+          {
+            "type": "ref",
+            "id": "72db3961-ed8d-5546-8104-1f7aad2fb3e9"
+          },
+          {
+            "type": "text",
+            "text": " spell. Whenever you roll a success on a saving throw against an effect involving a web, you get a critical success instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:web-walker",
+        "toggleable": true,
+        "suboptions": [
+          {
+            "value": "other-snaring",
+            "label": "Against other snaring"
+          },
+          {
+            "value": "webbing",
+            "label": "Against webbing"
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "slug": "web-walker",
+        "predicate": ["option:web-walker"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["saving-throw"],
+        "adjustment": {
+          "success": "to-critical-success"
+        },
+        "predicate": ["web-walker:webbing"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["ac", "saving-throw"],
+        "slug": "web-walker",
+        "mode": "upgrade",
+        "value": 2,
+        "predicate": ["web-walker:webbing"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.KXUVAI6SDtxwjO7t"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "774a137e-4fd8-5842-b76b-dc4cc8e6751c",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:web-weaver",
+    "name": "Web Weaver",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["anadi"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can produce a soft silk to weave into useful items. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "cf2fb4e9-9adb-5092-9f78-5dd9b3192301"
+          },
+          {
+            "type": "text",
+            "text": " feat with a specialty in weaving."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can use your webbing to "
+          },
+          {
+            "type": "ref",
+            "id": "cffa6a55-a0d3-5be2-8169-ba9cf4745e57"
+          },
+          {
+            "type": "text",
+            "text": " simple, nonconsumable threaded items, such as clothing and rope, at zero cost as long as their base Price is 1 sp or less. These items have no resale value, and they naturally degrade after 24 hours without regular (if minor) maintenance. You can maintain up to 10 such items at a time; if you create a new one, your oldest creation breaks down from neglect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These temporary items take you only 1 day to Craft instead of 4. If you're an expert in Crafting, you can Craft these items in 1 hour; if you're a master, you can Craft them in 10 minutes; if you're legendary, you can Craft them in 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "cf2fb4e9-9adb-5092-9f78-5dd9b3192301",
+        "choices": {
+          "specialty-crafting": "weaving"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.CUrxG9CzT1hSfuhP"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "1c22dceb-367e-5841-b12c-16ae89e672dc",
+    "pack": "mwangi-expanse",
+    "kind": "feat",
+    "slug": "feat:webslinger",
+    "name": "Webslinger",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["anadi"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your natural ability to create silken webs blends with your magical powers, allowing you to create impossibly large webs with great frequency. This has the effects of a 2nd-rank "
+          },
+          {
+            "type": "ref",
+            "id": "9e63871b-e287-5e26-8383-f5c4c9fe2bc7"
+          },
+          {
+            "type": "text",
+            "text": " spell using your class or spell DC, whichever is higher."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.VXAIElMlMnVvz3x5"
+    },
+    "data": {
+      "category": "ancestry",
+      "action": {
+        "cost": "three",
+        "frequency": {
+          "max": 1,
+          "per": "ten-minutes"
+        }
+      }
+    }
+  }
+]

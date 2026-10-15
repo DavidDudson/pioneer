@@ -34,7 +34,7 @@ async function renderLegalPage(): Promise<HTMLElement> {
 }
 
 describe('LegalPage', () => {
-  it('shows the Paizo, ORC, books and Foundry notices without an account', async () => {
+  it('shows the Paizo, ORC, OGL, books and Foundry notices without an account', async () => {
     const root = await renderLegalPage();
     // Text comes from the route's `legal` message scope, loaded with the page's code.
     const headings = [...root.querySelectorAll('h1, h2')].map((heading) => heading.textContent.trim());
@@ -42,6 +42,7 @@ describe('LegalPage', () => {
       'Legal',
       'Paizo Community Use Policy',
       'ORC License',
+      'Open Game License',
       'Books',
       'Foundry VTT pf2e system',
     ]);
@@ -71,6 +72,8 @@ describe('LegalPage', () => {
       'https://paizo.com/licenses/communityuse',
       'https://paizo.com',
       'https://paizo.com/orclicense',
+      'https://github.com/foundryvtt/pf2e/blob/pf2e-8.6.0/static/licenses/OpenGameLicense.md',
+      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
@@ -94,10 +97,12 @@ describe('LegalPage', () => {
       'Treasure Vault (Remastered)',
       'Howl of the Wild',
       'War of Immortals',
+      'Lost Omens The Mwangi Expanse',
     ]);
-    for (const book of books) {
+    for (const book of books.slice(0, -1)) {
       expect(book.textContent).toContain('Paizo · ORC License');
     }
+    expect(books.at(-1)?.textContent).toContain('Paizo · Open Game License 1.0a');
   });
 
   it('names the Foundry release each official pack was imported from, and that it has been edited since', async () => {
@@ -112,6 +117,7 @@ describe('LegalPage', () => {
       expect.stringMatching(/^GM Core\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^Howl of the Wild\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^War of Immortals\s*Foundry release pf2e-8\.6\.0$/u),
+      expect.stringMatching(/^Lost Omens The Mwangi Expanse\s*Foundry release pf2e-8\.6\.0$/u),
     ]);
     expect(foundry.textContent).toContain('then corrected and enriched by Pioneer contributors');
   });

@@ -34,6 +34,8 @@ export async function coreRulesPack(): Promise<PackContents> {
     import('@pioneer/content/packs/core-rules/imported/war-of-immortals/sense.json'),
     import('@pioneer/content/packs/core-rules/imported/war-of-immortals/statistic.json'),
     import('@pioneer/content/packs/core-rules/imported/war-of-immortals/trait.json'),
+    import('@pioneer/content/packs/core-rules/imported/mwangi-expanse/language.json'),
+    import('@pioneer/content/packs/core-rules/imported/mwangi-expanse/trait.json'),
     import('@pioneer/content/packs/core-rules/imported/howl-of-the-wild/language.json'),
     import('@pioneer/content/packs/core-rules/imported/howl-of-the-wild/trait.json'),
     import('@pioneer/content/packs/core-rules/imported/gm-core/trait.json'),
@@ -149,6 +151,21 @@ export async function warOfImmortalsPack(): Promise<PackContents> {
     import('@pioneer/content/packs/war-of-immortals/rune.json'),
     import('@pioneer/content/packs/war-of-immortals/spell.json'),
     import('@pioneer/content/packs/war-of-immortals/weapon.json'),
+  ]);
+}
+
+export async function mwangiExpansePack(): Promise<PackContents> {
+  return pack(import('@pioneer/content/packs/mwangi-expanse/pack.json'), [
+    import('@pioneer/content/packs/mwangi-expanse/action.json'),
+    import('@pioneer/content/packs/mwangi-expanse/ancestry-feature.json'),
+    import('@pioneer/content/packs/mwangi-expanse/ancestry.json'),
+    import('@pioneer/content/packs/mwangi-expanse/armor.json'),
+    import('@pioneer/content/packs/mwangi-expanse/class-feature.json'),
+    import('@pioneer/content/packs/mwangi-expanse/effect.json'),
+    import('@pioneer/content/packs/mwangi-expanse/equipment.json'),
+    import('@pioneer/content/packs/mwangi-expanse/feat.json'),
+    import('@pioneer/content/packs/mwangi-expanse/heritage.json'),
+    import('@pioneer/content/packs/mwangi-expanse/weapon.json'),
   ]);
 }
 

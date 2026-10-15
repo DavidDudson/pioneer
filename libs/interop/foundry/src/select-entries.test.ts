@@ -10,6 +10,7 @@ import { selectEntries, SkipReason } from './select-entries';
 const ROOT = 'pf2e-pf2e-8.6.0';
 const playerCore = BookId.parse('player-core');
 const gmCore = BookId.parse('gm-core');
+const mwangiExpanse = BookId.parse('mwangi-expanse');
 
 const manifest = {
   packs: [
@@ -98,6 +99,11 @@ describe('readFoundryRelease', () => {
   });
 });
 
+const mwangi = (license: string): string =>
+  JSON.stringify(
+    item('Goloma', 'feat', { title: 'Pathfinder Lost Omens The Mwangi Expanse', license, remaster: false }),
+  );
+
 describe('selectEntries', () => {
   test('keeps remaster entries of supported types from the target books', () => {
     const { selected } = selectEntries(release(), new Set([playerCore]));
@@ -133,6 +139,56 @@ describe('selectEntries', () => {
     expect(skipped.find(({ path }) => path.endsWith('cup.json'))).toMatchObject({
       reason: SkipReason.NotOrc,
       detail: 'Paizo CUP',
+    });
+  });
+
+  describe('an OGL book', () => {
+    test('keeps its legacy OGL entries', () => {
+      const { selected } = selectEntries(
+        release({ 'packs/pf2e/feats/goloma.json': mwangi('OGL') }),
+        new Set([mwangiExpanse]),
+      );
+
+      expect(selected.map(({ book }) => book)).toEqual([mwangiExpanse]);
+    });
+
+    test('skips an entry under any other licence', () => {
+      const { skipped } = selectEntries(
+        release({ 'packs/pf2e/feats/goloma.json': mwangi('ORC') }),
+        new Set([mwangiExpanse]),
+      );
+
+      expect(skipped.find(({ path }) => path.endsWith('goloma.json'))).toMatchObject({
+        reason: SkipReason.NotOrc,
+        detail: 'ORC',
+      });
+    });
+
+    test('is not selected unless targeted', () => {
+      const { selected, skipped } = selectEntries(
+        release({ 'packs/pf2e/feats/goloma.json': mwangi('OGL') }),
+        new Set([playerCore]),
+      );
+
+      expect(names(selected)).not.toContain('goloma.json');
+      expect(skipped.find(({ path }) => path.endsWith('goloma.json'))).toMatchObject({
+        reason: SkipReason.NotTargeted,
+        detail: 'mwangi-expanse',
+      });
+    });
+
+    test('leaves other legacy OGL books skipped', () => {
+      const legacy = item('Old Ancestry', 'feat', {
+        title: 'Pathfinder Lost Omens Ancestry Guide',
+        license: 'OGL',
+        remaster: false,
+      });
+      const { skipped } = selectEntries(
+        release({ 'packs/pf2e/feats/old.json': JSON.stringify(legacy) }),
+        new Set([mwangiExpanse]),
+      );
+
+      expect(skipped.find(({ path }) => path.endsWith('old.json'))?.reason).toBe(SkipReason.Legacy);
     });
   });
 

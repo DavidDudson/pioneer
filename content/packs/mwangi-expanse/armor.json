@@ -1,0 +1,60 @@
+[
+  {
+    "id": "e5fd8276-0d52-564b-a8e0-e82afbc29875",
+    "pack": "mwangi-expanse",
+    "kind": "armor",
+    "slug": "armor:rite-of-reinforcement-exoskeleton",
+    "name": "Rite of Reinforcement Exoskeleton",
+    "level": 1,
+    "rarity": "rare",
+    "traits": ["comfort"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Note",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Conrasu Rite of Reinforcement Heritage Only"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your woven exoskeleton rivals the hardest armors that can be found. Your exoskeleton is medium armor in the plate armor group that grants a +4 item bonus to AC, a Dex cap of +1, a check penalty of -2, a speed penalty of -5 feet, and a Strength value of +3, and has the comfort trait. You can never wear other armor or remove your exoskeleton. You can etch armor runes onto your exoskeleton as normal."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.0KHgAaDi3tmu32Hq"
+    },
+    "data": {
+      "bulk": "negligible",
+      "category": "medium",
+      "group": "plate",
+      "acBonus": 4,
+      "dexCap": 1,
+      "checkPenalty": 2,
+      "speedPenalty": 5,
+      "strength": 3
+    }
+  }
+]

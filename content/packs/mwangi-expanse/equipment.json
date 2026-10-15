@@ -1,0 +1,399 @@
+[
+  {
+    "id": "b0453a86-1529-5eb6-b854-6715256d7960",
+    "pack": "mwangi-expanse",
+    "kind": "equipment",
+    "slug": "equipment:genealogy-mask",
+    "name": "Genealogy Mask",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["invested"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Alijae ethnicity"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These large masks are forged of precious metals or carved of wood and tasked with guarding the history of a family. Most Alijae are granted a genealogy mask when they come of age, which they bequeath to their next of kin upon death. When a member of the family recounted in the genealogy mask performs a particularly significant event while wearing the mask, its eyes and ears animate, allowing the item to witness and record the deeds for posterity. Different families have different standards for their genealogy masks-some may value accuracy and objective, clinical facts, while others may relish embellishing their stories to the very brink of believability in the name of a good story."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " command"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You ask the mask about the deeds of a particular ancestor, and the mask speaks for 10 minutes, recalling the tales it knows about that ancestor. The mask is limited by what information a particular ancestor shared with it."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of "
+          },
+          {
+            "type": "ref",
+            "id": "8d5216bd-ffc0-5d10-accf-153abc93fd34"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "80b48120-353b-5f69-b1bb-3e35afc9066a"
+          },
+          {
+            "type": "text",
+            "text": ". You must be an Alijae elf."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.wTYxAWrdsQ6SLVr9"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "genealogy-mask",
+          "name": "Genealogy Mask",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "735b3279-9357-51ef-b385-1621dd5cfce3",
+    "pack": "mwangi-expanse",
+    "kind": "equipment",
+    "slug": "equipment:jahan-waystone",
+    "name": "Jahan Waystone",
+    "level": 21,
+    "rarity": "rare",
+    "traits": ["artifact", "magical", "teleportation"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This enormous stone glows with a pale light and emits a quiet hum. Each "
+          },
+          {
+            "type": "text",
+            "text": "Jahan waystone",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is part of a paired link. The paired stones correspond in the color of the light they emit, as well as the specific tone at which they hum."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (1 minute) envision, Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You place your hand on the stone and focus on the stone's light. The stone's glow envelopes all creatures in a 10-foot radius with its light and attempts to teleport the creatures to its paired stone. If there is no open space within 30 feet of the target waystone, the teleportation attempt fails. A creature can resist the teleportation with a successful "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 45
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.JM5qwlv2bi7Zgm7n"
+    },
+    "data": {
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "1878c269-653f-5751-a3e9-53c7c000427b",
+    "pack": "mwangi-expanse",
+    "kind": "equipment",
+    "slug": "equipment:oath-of-the-devoted",
+    "name": "Oath of the Devoted",
+    "level": 9,
+    "rarity": "rare",
+    "traits": ["contract", "divine", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain fire and mental resistance 5. When you die, you rise as an undead creature with the zombie trait on the next round; if you are a PC, you become an NPC under Walkena's control. Your stats remain the same, except that your alignment changes to evil. If you reach 0 Hit Points as a zombie, you are destroyed and do not rise again."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " command"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain a +1 status bonus to Will saves. Choose a weapon or an unarmed Strike; your chosen attack deals an extra "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage for the next 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "13163e3c-9ec3-5ed6-8b34-d4f4d43298c5"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If you are a zombie at a time when Mzali is entirely purged of foreigners, your duty is fulfilled and you are immediately destroyed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["fire", "mental"],
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.PDEhZSibXvQdVsSq"
+    },
+    "data": {
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "oath-of-the-devoted",
+          "name": "Oath of the Devoted",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

@@ -1,0 +1,159 @@
+[
+  {
+    "id": "0713c5a1-e69e-5364-b28e-013fd2a1eb09",
+    "pack": "mwangi-expanse",
+    "kind": "ancestry-feature",
+    "slug": "ancestry-feature:eyes-in-back",
+    "name": "Eyes in Back",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["goloma"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have eyes that point in several different directions and instinctively notice movement in the peripheries of your vision. When you use the Seek basic action, you can look for creatures in two areas instead of one. If precision is necessary, you can select two "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": "s or "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": "s within line of sight instead of one."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.AUlPRySCqE6o6LHH"
+    },
+    "data": {}
+  },
+  {
+    "id": "22cb6937-30f5-5e1b-a0db-924e80c2a0e4",
+    "pack": "mwangi-expanse",
+    "kind": "ancestry-feature",
+    "slug": "ancestry-feature:fangs",
+    "name": "Fangs",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["anadi"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You were born with a natural means for hunting and self-defense. You gain a fangs unarmed attack that deals 1d6 piercing damage. Your fangs are in the brawling group and have the finesse and unarmed traits."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "fangs",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["finesse", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "piercing"
+        },
+        "predicate": [
+          {
+            "or": ["change-shape:hybrid", "change-shape:spider"]
+          }
+        ],
+        "display": {
+          "label": "Fangs"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.dCp517IUFJk8JvQc"
+    },
+    "data": {}
+  },
+  {
+    "id": "1fcc9ad1-5982-5001-b789-fac83d49a89a",
+    "pack": "mwangi-expanse",
+    "kind": "ancestry-feature",
+    "slug": "ancestry-feature:sunlight-healing",
+    "name": "Sunlight Healing",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["conrasu"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A conrasu can enter a meditative, healing state as a 10-minute activity when exposed to direct sunlight, in which case they recover "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(max(1,(ceil(@level/2))))d8"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points. At 3rd level, and every 2 levels thereafter, this healing increases by 1d8."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Once a conrasu has recovered Hit Points in this way, they are temporarily immune to further uses of Sunlight Healing for 1 day."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.BgHrucbZ9TH92RDv"
+    },
+    "data": {}
+  }
+]

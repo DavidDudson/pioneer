@@ -41,6 +41,14 @@ ORC packs include rules text, shown with attribution to the source book. Every
 entry carries a source reference: book and page, an Archives of Nethys URL, or
 both.
 
+## Open Game License (pre-remaster books)
+
+A few things the remastered books still point at, such as the Goloma ancestry, exist only in pre-remaster books
+published under the [Open Game License 1.0a](https://github.com/foundryvtt/pf2e/blob/pf2e-8.6.0/static/licenses/OpenGameLicense.md).
+Pioneer imports those books whole (`mwangi-expanse`) and declares them `OGL` in the book registry and pack manifest.
+Only Open Game Content is used; Product Identity is not. Section 15 of the licence is reproduced on the Legal page
+for each such book. Adding a book to `OGL_BOOKS` means adding its Section 15 notice there too.
+
 ## Foundry pf2e system data
 
 Official content packs are imported once from the data in the
@@ -69,12 +77,15 @@ from, and offers the content caches for download without an account.
 | `war-of-immortals` | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
 | `gm-core`          | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
 | `treasure-vault`   | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
+| `mwangi-expanse`   | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
 
 The vocabulary each import adds to `core-rules` (traits, senses, damage types,
 Lore statistics), under `content/packs/core-rules/imported/<pack>/`, comes from
 the same release; the rest of `core-rules` is written by hand.
 
-Only remastered, ORC-licensed entries are imported. Pioneer is not affiliated
+Only remastered, ORC-licensed entries are imported, except from the books listed in `OGL_BOOKS`
+(`libs/interop/foundry/src/select-entries.ts`): pre-remaster books under the Open Game License that the remaster
+books still point at (see below). Pioneer is not affiliated
 with Foundry Gaming LLC or the pf2e system maintainers.
 
 ## Contributor checklist for content packs

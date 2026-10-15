@@ -62,5 +62,13 @@
     "remaster": true,
     "released": "2024-10-30",
     "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=232"
+  },
+  {
+    "id": "mwangi-expanse",
+    "publisher": "paizo",
+    "license": "OGL",
+    "remaster": false,
+    "released": "2021-07-07",
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=89"
   }
 ]

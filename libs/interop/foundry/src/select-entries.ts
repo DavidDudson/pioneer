@@ -23,7 +23,15 @@ export const FOUNDRY_BOOK_TITLES: ReadonlyMap<string, BookId> = new Map([
   ['Pathfinder Treasure Vault', BookId.parse('treasure-vault')],
   ['Pathfinder Howl of the Wild', BookId.parse('howl-of-the-wild')],
   ['Pathfinder War of Immortals', BookId.parse('war-of-immortals')],
+  ['Pathfinder Lost Omens The Mwangi Expanse', BookId.parse('mwangi-expanse')],
 ]);
+
+/**
+ * Pre-remaster books imported under the Open Game License, for content the remaster books still point at (Goloma,
+ * which Pathbuilder exports name). Their entries are legacy and OGL, which selection otherwise skips. Adding a book
+ * here is a licensing decision: NOTICE.md and the Legal page must carry its notice.
+ */
+export const OGL_BOOKS: ReadonlySet<BookId> = new Set([BookId.parse('mwangi-expanse')]);
 
 /** Why a document in an item pack is not imported, in the order selection checks. */
 export const SkipReason = {
@@ -70,13 +78,14 @@ function targetBook(publication: FoundryPublication | undefined, targets: Readon
   if (publication === undefined) {
     return { reason: SkipReason.UnknownBook, detail: '' };
   }
-  if (!publication.remaster) {
+  const book = FOUNDRY_BOOK_TITLES.get(publication.title);
+  const ogl = book !== undefined && OGL_BOOKS.has(book);
+  if (!ogl && !publication.remaster) {
     return { reason: SkipReason.Legacy, detail: publication.title };
   }
-  if (publication.license !== ContentLicense.Orc) {
+  if (publication.license !== (ogl ? ContentLicense.Ogl : ContentLicense.Orc)) {
     return { reason: SkipReason.NotOrc, detail: publication.license ?? '' };
   }
-  const book = FOUNDRY_BOOK_TITLES.get(publication.title);
   if (book === undefined) {
     return { reason: SkipReason.UnknownBook, detail: publication.title };
   }

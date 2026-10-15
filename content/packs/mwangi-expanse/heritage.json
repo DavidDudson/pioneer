@@ -1,0 +1,868 @@
+[
+  {
+    "id": "c57e88c2-5588-5604-a396-03ab06188dfd",
+    "pack": "mwangi-expanse",
+    "kind": "heritage",
+    "slug": "heritage:adaptive-anadi",
+    "name": "Adaptive Anadi",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You descend from a line of anadi who worked to perfect their transformation magic, allowing them to integrate into a wider variety of cultures. Choose a common, Medium humanoid ancestry. Your human form is replaced with a form that matches this choice. You also gain the "
+          },
+          {
+            "type": "ref",
+            "id": "987ee9a8-10f0-5f57-be12-a01786ecc575"
+          },
+          {
+            "type": "text",
+            "text": " feat for your chosen humanoid ancestry."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "987ee9a8-10f0-5f57-be12-a01786ecc575"
+      },
+      {
+        "key": "RollOption",
+        "option": "option:non-humanoid-change-shape",
+        "value": false,
+        "priority": 41
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.7gGcpQMqnZhBDZLI"
+    },
+    "data": {
+      "ancestry": "f689acc7-0e9f-56df-912a-3b3d88944198"
+    }
+  },
+  {
+    "id": "b4642909-e28d-5c88-90fb-9371fe81d3e8",
+    "pack": "mwangi-expanse",
+    "kind": "heritage",
+    "slug": "heritage:farsight-goloma",
+    "name": "Farsight Goloma",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eyes have adapted to see more in less than favorable conditions. You gain low-light vision."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.6JKdAZGa8odFzleS"
+    },
+    "data": {
+      "ancestry": "87aff6c9-c031-502f-a863-f912631d799c"
+    }
+  },
+  {
+    "id": "8cd2db0a-9232-5954-b794-4ab9976a35db",
+    "pack": "mwangi-expanse",
+    "kind": "heritage",
+    "slug": "heritage:frightful-goloma",
+    "name": "Frightful Goloma",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your face has a particularly off-putting appearance. You are trained in Intimidation (or another skill of your choice if you were already trained in Intimidation) and gain the "
+          },
+          {
+            "type": "ref",
+            "id": "83871ce2-c4f9-5a77-af0a-7d7f0708b5f0"
+          },
+          {
+            "type": "text",
+            "text": " skill feat as a bonus feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:intimidation",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "83871ce2-c4f9-5a77-af0a-7d7f0708b5f0"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.KJ2dSDXP9d5hJHzd"
+    },
+    "data": {
+      "ancestry": "87aff6c9-c031-502f-a863-f912631d799c"
+    }
+  },
+  {
+    "id": "19ab3fb6-3717-52e4-a751-71fbd895b1ca",
+    "pack": "mwangi-expanse",
+    "kind": "heritage",
+    "slug": "heritage:insightful-goloma",
+    "name": "Insightful Goloma",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've learned to watch for telltale signs of dangerous sentiments to help you avoid trouble. You gain a +1 circumstance bonus to your Perception DC against attempts to Lie to you and your Perception checks to Sense Motive."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "circumstance",
+        "value": 1,
+        "slug": "insightful-goloma-sense-motive",
+        "predicate": ["action:sense-motive"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception-dc"],
+        "type": "circumstance",
+        "value": 1,
+        "slug": "insightful-goloma-lie",
+        "predicate": ["action:lie"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.cnbwtbDmlD0KoLqY"
+    },
+    "data": {
+      "ancestry": "87aff6c9-c031-502f-a863-f912631d799c"
+    }
+  },
+  {
+    "id": "f50dad69-1561-5e24-b611-718494ed6990",
+    "pack": "mwangi-expanse",
+    "kind": "heritage",
+    "slug": "heritage:lorekeeper-shisk",
+    "name": "Lorekeeper Shisk",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You grew up surrounded by knowledge and secrets. You become trained in one Lore skill and one other Intelligence- or Wisdom-based skill of your choice. At 5th level, you become expert in the chosen skills."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.Fgysc0A1pFQE8PMA"
+    },
+    "data": {
+      "ancestry": "7e5d4c54-42d3-51cb-a490-8e8912d2eb30"
+    }
+  },
+  {
+    "id": "a8deb63e-cade-59b4-92d3-a759d8ebe376",
+    "pack": "mwangi-expanse",
+    "kind": "heritage",
+    "slug": "heritage:polychromatic-anadi",
+    "name": "Polychromatic Anadi",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your body is covered with exceptionally colorful hairs that create vibrant, eye-catching patterns, some of which might even show in your human form. You become trained in Performance (or another skill if you were already trained in Performance), and you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "73f460e2-feec-5d78-983c-ecf0c7a4b1e8"
+          },
+          {
+            "type": "text",
+            "text": " feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:performance",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "73f460e2-feec-5d78-983c-ecf0c7a4b1e8"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.daaXga11ov9YQVNq"
+    },
+    "data": {
+      "ancestry": "f689acc7-0e9f-56df-912a-3b3d88944198"
+    }
+  },
+  {
+    "id": "319d51e7-8185-5add-890e-d0bcee781d52",
+    "pack": "mwangi-expanse",
+    "kind": "heritage",
+    "slug": "heritage:quillcoat-shisk",
+    "name": "Quillcoat Shisk",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your body has adapted a defensive mechanism to break off your quills in an attacker, allowing you to defend yourself against aggressive predators, though it takes a while for the quills to grow back. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "8c898454-0aae-590b-ad4e-9d602641ae98"
+          },
+          {
+            "type": "text",
+            "text": " reaction."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "8c898454-0aae-590b-ad4e-9d602641ae98"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.vDEfNzjLpGJU54cz"
+    },
+    "data": {
+      "ancestry": "7e5d4c54-42d3-51cb-a490-8e8912d2eb30"
+    }
+  },
+  {
+    "id": "54e592e0-31ae-5f2f-9e2b-254a14dfeb2a",
+    "pack": "mwangi-expanse",
+    "kind": "heritage",
+    "slug": "heritage:rite-of-invocation",
+    "name": "Rite of Invocation",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You augmented your exoskeleton with magic. You gain one cantrip from the arcane or occult spell list. You can cast this spell as an innate spell at will. A cantrip is heightened to a spell rank equal to half your level rounded up."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.GpnHIonrLN8TFZci"
+    },
+    "data": {
+      "ancestry": "e01664f0-df1c-534e-8aef-7bc908ba7317"
+    }
+  },
+  {
+    "id": "62c4aa74-4aa8-5807-957d-bdfb4e922ea1",
+    "pack": "mwangi-expanse",
+    "kind": "heritage",
+    "slug": "heritage:rite-of-knowing",
+    "name": "Rite of Knowing",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You enhanced your exoskeleton with a connection to Axis, allowing you to tap into the infinite knowledge of the plane. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "59c9d0ce-f435-59ba-a203-2fcc1b02f2cd"
+          },
+          {
+            "type": "text",
+            "text": " action."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "59c9d0ce-f435-59ba-a203-2fcc1b02f2cd"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.faLb2rczsrxAuOTt"
+    },
+    "data": {
+      "ancestry": "e01664f0-df1c-534e-8aef-7bc908ba7317"
+    }
+  },
+  {
+    "id": "0eeda821-8456-587d-baa0-1fec70f637af",
+    "pack": "mwangi-expanse",
+    "kind": "heritage",
+    "slug": "heritage:rite-of-light",
+    "name": "Rite of Light",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your exoskeleton bears small shoots that can share life. When using your "
+          },
+          {
+            "type": "ref",
+            "id": "1fcc9ad1-5982-5001-b789-fac83d49a89a"
+          },
+          {
+            "type": "text",
+            "text": ", you can restore the Hit Points of an adjacent ally instead of yourself. That ally becomes temporarily immune to all uses of Sunlight Healing for 1 day."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.EoWwvDdoMqN5x0c9"
+    },
+    "data": {
+      "ancestry": "e01664f0-df1c-534e-8aef-7bc908ba7317"
+    }
+  },
+  {
+    "id": "3050d2a0-8cee-5251-98b5-dc87e5215ead",
+    "pack": "mwangi-expanse",
+    "kind": "heritage",
+    "slug": "heritage:rite-of-passage",
+    "name": "Rite of Passage",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your exoskeleton remains connected with the plants that created it. You can ignore difficult terrain and uneven ground caused by undergrowth. In addition, when you use the Acrobatics skill to Balance on narrow surfaces or uneven ground within forests, you aren't off-guard. When you roll a success attempting one of these Acrobatics checks, you get a critical success instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill:acrobatics"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "checkType": "skill",
+        "predicate": ["action:balance", "terrain:forest"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["skill:acrobatics"],
+        "title": "Rite of Passage",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "When you use the Acrobatics skill to Balance on narrow surfaces or uneven ground within forests, and you roll a success, you get a critical success instead."
+              }
+            ]
+          }
+        ],
+        "predicate": ["action:balance"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.yVtcyAbLmWCIHHZi"
+    },
+    "data": {
+      "ancestry": "e01664f0-df1c-534e-8aef-7bc908ba7317"
+    }
+  },
+  {
+    "id": "62604ea5-2ecc-57d8-9bad-75ac2d1de41c",
+    "pack": "mwangi-expanse",
+    "kind": "heritage",
+    "slug": "heritage:rite-of-reinforcement",
+    "name": "Rite of Reinforcement",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your woven exoskeleton rivals the hardest armors that can be found. Your exoskeleton is medium armor in the plate armor group that grants a +4 item bonus to AC, a Dex cap of +1, a check penalty of -2, a speed penalty of -5 feet, and a Strength value of +3, and has the comfort trait. You can never wear other armor or remove your exoskeleton. You can etch armor runes onto your exoskeleton as normal."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "e5fd8276-0d52-564b-a8e0-e82afbc29875"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.q2omqJ9t0skGTYki"
+    },
+    "data": {
+      "ancestry": "e01664f0-df1c-534e-8aef-7bc908ba7317"
+    }
+  },
+  {
+    "id": "32509e38-24e8-514d-8a2a-7357d5dc17ef",
+    "pack": "mwangi-expanse",
+    "kind": "heritage",
+    "slug": "heritage:snaring-anadi",
+    "name": "Snaring Anadi",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You were hatched with hooked fangs that give you an edge when hunting in your true form. Your fangs attack gains the grapple and trip traits."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon", "item:tag:anadi-fangs"],
+        "property": "traits",
+        "mode": "add",
+        "value": "grapple"
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon", "item:tag:anadi-fangs"],
+        "property": "traits",
+        "mode": "add",
+        "value": "trip"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.cwOUw7kofcAiY01I"
+    },
+    "data": {
+      "ancestry": "f689acc7-0e9f-56df-912a-3b3d88944198"
+    }
+  },
+  {
+    "id": "fb28bc65-ec5e-575e-a0f6-f04de0ce873e",
+    "pack": "mwangi-expanse",
+    "kind": "heritage",
+    "slug": "heritage:spellkeeper-shisk",
+    "name": "Spellkeeper Shisk",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your magical knowledge allows you to cast simple spells. Choose occult or primal. You gain one cantrip from that magical tradition's spell list. You can cast this spell as an innate spell at will, as a spell of your chosen tradition. A cantrip is heightened to a spell rank equal to half your level rounded up."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.0TFf82gcfxXG9A54"
+    },
+    "data": {
+      "ancestry": "7e5d4c54-42d3-51cb-a490-8e8912d2eb30"
+    }
+  },
+  {
+    "id": "37ee8d93-ebe6-5411-8dc7-fd3d4db2ff76",
+    "pack": "mwangi-expanse",
+    "kind": "heritage",
+    "slug": "heritage:spindly-anadi",
+    "name": "Spindly Anadi",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your limbs are exceptionally long in both forms, allowing you to skitter about with surprising agility. Your Speed increases from 25 to 30 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "untyped",
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.WxcbLvufI6JBpLt0"
+    },
+    "data": {
+      "ancestry": "f689acc7-0e9f-56df-912a-3b3d88944198"
+    }
+  },
+  {
+    "id": "6908cd9f-f915-5cb7-a340-63964acf9110",
+    "pack": "mwangi-expanse",
+    "kind": "heritage",
+    "slug": "heritage:stonestep-shisk",
+    "name": "Stonestep Shisk",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Navigating mountains and other rocky terrain is second nature to you. You can ignore non-magical difficult terrain caused by rubble and uneven ground made of stone and earth."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.lDT5h3f5GXRj42Ir"
+    },
+    "data": {
+      "ancestry": "7e5d4c54-42d3-51cb-a490-8e8912d2eb30"
+    }
+  },
+  {
+    "id": "9b4dd88b-ee1f-5ff8-a18f-5795c494ce60",
+    "pack": "mwangi-expanse",
+    "kind": "heritage",
+    "slug": "heritage:stronggut-shisk",
+    "name": "Stronggut Shisk",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your metabolism is slow, allowing you to go for days without food and process maladies at a slower rate. You can go for 1 week without food before you begin to starve Additionally, the onset times and lengths of stages for all diseases and poisons that affect you are increased by 50%. If the onset time or stage is instant or lasts only 1 round, this ability has no effect."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.KcozzlkFAqShDEzo"
+    },
+    "data": {
+      "ancestry": "7e5d4c54-42d3-51cb-a490-8e8912d2eb30"
+    }
+  },
+  {
+    "id": "44a8360f-bb74-5ca1-b229-96ecef95e5ff",
+    "pack": "mwangi-expanse",
+    "kind": "heritage",
+    "slug": "heritage:venomous-anadi",
+    "name": "Venomous Anadi",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your natural form's fangs are capable of injecting foes with venom. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "87308352-8f49-526a-8bf9-85a508c7a21e"
+          },
+          {
+            "type": "text",
+            "text": " ability."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "87308352-8f49-526a-8bf9-85a508c7a21e"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.kTlJqhC7ZSE8P8lu"
+    },
+    "data": {
+      "ancestry": "f689acc7-0e9f-56df-912a-3b3d88944198"
+    }
+  },
+  {
+    "id": "759aa55e-b4a8-5412-b05c-f637f59d683f",
+    "pack": "mwangi-expanse",
+    "kind": "heritage",
+    "slug": "heritage:vicious-goloma",
+    "name": "Vicious Goloma",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The chitin on your hands forms powerful claws that allow you to defend yourself. You gain a claw unarmed attack that deals 1d6 slashing damage. Your claws are in the brawling group and have the agile, finesse, and unarmed traits."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "claw",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["agile", "finesse", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "slashing"
+        },
+        "display": {
+          "label": "Claw"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.x5S4MNQ0aqUmgHcC"
+    },
+    "data": {
+      "ancestry": "87aff6c9-c031-502f-a863-f912631d799c"
+    }
+  },
+  {
+    "id": "cfeb0555-5482-5e79-978b-f516e3f07669",
+    "pack": "mwangi-expanse",
+    "kind": "heritage",
+    "slug": "heritage:vigilant-goloma",
+    "name": "Vigilant Goloma",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've learned to be aware of not just obvious physical dangers, but also noticeable magical threats. You can cast the "
+          },
+          {
+            "type": "ref",
+            "id": "c91ac947-a9ec-5f07-b5f9-a054617eb571"
+          },
+          {
+            "type": "text",
+            "text": " cantrip as an arcane innate spell at will. A cantrip is heightened to a spell rank equal to half your level rounded up. In addition, your awareness allows you to notice magical traps easier than others. Your proficiency rank in Perception is considered one step better when attempting to detect magical traps. (Trained is considered expert, expert is considered master, and master is considered legendary)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.sGzhnQpgWErX1bmx"
+    },
+    "data": {
+      "ancestry": "87aff6c9-c031-502f-a863-f912631d799c"
+    }
+  }
+]

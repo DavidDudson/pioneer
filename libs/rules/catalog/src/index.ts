@@ -8,6 +8,7 @@ import {
   gmCorePack,
   howlOfTheWildPack,
   monsterCorePack,
+  mwangiExpansePack,
   playerCore2Pack,
   playerCorePack,
   treasureVaultPack,
@@ -68,6 +69,7 @@ export const officialPacks: readonly PackContentsLoader[] = [
   checkedLoader('treasure-vault', treasureVaultPack),
   checkedLoader('howl-of-the-wild', howlOfTheWildPack),
   checkedLoader('war-of-immortals', warOfImmortalsPack),
+  checkedLoader('mwangi-expanse', mwangiExpansePack),
   checkedLoader('gm-core', gmCorePack),
 ];
 

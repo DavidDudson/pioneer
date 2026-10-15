@@ -1,0 +1,53 @@
+[
+  {
+    "id": "efa0951c-d9aa-5d0c-b827-6465653a3137",
+    "pack": "mwangi-expanse",
+    "kind": "weapon",
+    "slug": "weapon:fighting-stick",
+    "name": "Fighting Stick",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["backswing", "halfling", "nonlethal", "shove"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This hard but flexible longsword-length piece of wood looks more like a pole than a weapon, but can be deadly in the right hands. While generally not used for combat outside of Song'o culture, some halflings have become so proficient as to make it just as effective as a blade in a fight. Many halflings will even sing to maintain a certain tempo and rhythm during combat. It deals 1d6 bludgeoning damage. A fighting stick is a martial one-handed melee weapon in the club weapon group."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.17MQKaMIHQAJNtuu"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 5
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "club",
+      "baseItem": "fighting-stick",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]
