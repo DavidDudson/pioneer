@@ -464,7 +464,15 @@
           },
           {
             "type": "text",
-            "text": " The rune casts a DC 20 Earthbind spell on the flying creature."
+            "text": " The rune casts a DC 20 "
+          },
+          {
+            "type": "ref",
+            "id": "3cddd734-8a89-5de8-9c13-65748a0c7c32"
+          },
+          {
+            "type": "text",
+            "text": " spell on the flying creature."
           }
         ]
       }
@@ -769,7 +777,15 @@
           },
           {
             "type": "text",
-            "text": " Your armor anchors you in place, even defying gravity, rendering you Immobilized until you Dismiss the Activation. While you're immobilized in this way, you can be moved only if a creature succeeds at a "
+            "text": " Your armor anchors you in place, even defying gravity, rendering you "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": " until you Dismiss the Activation. While you're immobilized in this way, you can be moved only if a creature succeeds at a "
           },
           {
             "type": "check",
@@ -778,7 +794,15 @@
           },
           {
             "type": "text",
-            "text": " check to Force Open your armor. You can also be moved if 8,000 pounds of pressure are placed upon you, though this is likely fatal."
+            "text": " check to "
+          },
+          {
+            "type": "ref",
+            "id": "26c3977f-44da-54f1-aaac-9dde108ba609"
+          },
+          {
+            "type": "text",
+            "text": " your armor. You can also be moved if 8,000 pounds of pressure are placed upon you, though this is likely fatal."
           }
         ]
       }
@@ -831,7 +855,15 @@
         "content": [
           {
             "type": "text",
-            "text": "This rune makes a weapon capable of impossible offense and defense. The etched weapon is immune to Dispel Magic and similar effects that could counteract its magic. If it's a ranged weapon or thrown weapon, its range increment is doubled."
+            "text": "This rune makes a weapon capable of impossible offense and defense. The etched weapon is immune to "
+          },
+          {
+            "type": "ref",
+            "id": "b434b2d9-47e5-519e-a542-6dae12c51157"
+          },
+          {
+            "type": "text",
+            "text": " and similar effects that could counteract its magic. If it's a ranged weapon or thrown weapon, its range increment is doubled."
           }
         ]
       },
@@ -1000,7 +1032,15 @@
           },
           {
             "type": "text",
-            "text": " You magnetize your armor. If you or the target attempt to move away from one another, treat each square as difficult terrain. This doesn't affect movement that keeps you the same distance from one another, so you could still Step if you remained adjacent to the target. This effect ends once either of you is no longer adjacent to the other at the end of an action."
+            "text": " You magnetize your armor. If you or the target attempt to move away from one another, treat each square as difficult terrain. This doesn't affect movement that keeps you the same distance from one another, so you could still "
+          },
+          {
+            "type": "ref",
+            "id": "ac5eeb13-9962-5be8-83e0-b5fd6270e3d6"
+          },
+          {
+            "type": "text",
+            "text": " if you remained adjacent to the target. This effect ends once either of you is no longer adjacent to the other at the end of an action."
           }
         ]
       },
@@ -1090,7 +1130,15 @@
           },
           {
             "type": "text",
-            "text": " weapon causes the target to become Fascinated with the weapon's wielder for 1 minute, as the target is bombarded with feelings of guilt and remorse. This is a mental effect. If you have access to the weapon's critical specialization effect, you choose whether to use it or the "
+            "text": " weapon causes the target to become "
+          },
+          {
+            "type": "ref",
+            "id": "88ca1b7b-d5de-5978-9ff4-258c9aadef1a"
+          },
+          {
+            "type": "text",
+            "text": " with the weapon's wielder for 1 minute, as the target is bombarded with feelings of guilt and remorse. This is a mental effect. If you have access to the weapon's critical specialization effect, you choose whether to use it or the "
           },
           {
             "type": "text",
@@ -1142,7 +1190,15 @@
         "content": [
           {
             "type": "text",
-            "text": "This rune attempts to obfuscate your location through illusory trickery. When you're Concealed, the DC of the flat check to target you with an effect is 6 instead of 5."
+            "text": "This rune attempts to obfuscate your location through illusory trickery. When you're "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": ", the DC of the flat check to target you with an effect is 6 instead of 5."
           }
         ]
       },
@@ -1679,7 +1735,31 @@
           },
           {
             "type": "text",
-            "text": " You become Grabbed, Restrained, or otherwise held Immobilized in a creature's grasp, such as by being engulfed or swallowed"
+            "text": " You become "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071"
+          },
+          {
+            "type": "text",
+            "text": ", or otherwise held "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": " in a creature's grasp, such as by being engulfed or swallowed"
           }
         ]
       },
@@ -1757,7 +1837,15 @@
           },
           {
             "type": "text",
-            "text": " You're being held Immobilized as described in the rune's other activation"
+            "text": " You're being held "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": " as described in the rune's other activation"
           }
         ]
       },
@@ -1853,7 +1941,31 @@
           },
           {
             "type": "text",
-            "text": " You become Grabbed, Restrained, or otherwise held Immobilized in a creature's grasp, such as by being engulfed or swallowed"
+            "text": " You become "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071"
+          },
+          {
+            "type": "text",
+            "text": ", or otherwise held "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": " in a creature's grasp, such as by being engulfed or swallowed"
           }
         ]
       },
@@ -1931,7 +2043,15 @@
           },
           {
             "type": "text",
-            "text": " You're being held Immobilized as described in the rune's other activation"
+            "text": " You're being held "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": " as described in the rune's other activation"
           }
         ]
       },
@@ -2027,7 +2147,31 @@
           },
           {
             "type": "text",
-            "text": " You become Grabbed, Restrained, or otherwise held Immobilized in a creature's grasp, such as by being engulfed or swallowed"
+            "text": " You become "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071"
+          },
+          {
+            "type": "text",
+            "text": ", or otherwise held "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": " in a creature's grasp, such as by being engulfed or swallowed"
           }
         ]
       },
@@ -2105,7 +2249,15 @@
           },
           {
             "type": "text",
-            "text": " You're being held Immobilized as described in the rune's other activation"
+            "text": " You're being held "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": " as described in the rune's other activation"
           }
         ]
       },

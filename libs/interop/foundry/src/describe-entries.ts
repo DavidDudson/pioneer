@@ -35,16 +35,22 @@ export interface EntryDescriptions {
   readonly unresolvedText: readonly UnresolvedText[];
 }
 
+/** What descriptions are translated with: the `lang` for `@Localize`, and the `known` entries of other packs by UUID. */
+export interface DescriptionContext {
+  readonly lang: FoundryLang;
+  readonly known?: ReadonlyMap<string, ContentId> | undefined;
+}
+
 /**
  * Each entry's description as rich text, with `@Localize` inlined from `lang` and links resolved against the
- * entries and the release's `documents`.
+ * entries, the release's `documents` and the `known` entries of the other official packs by UUID.
  */
 export function describeEntries(
   entries: readonly LinkedEntry[],
   documents: readonly PackDocument[],
-  lang: FoundryLang,
+  { lang, known }: DescriptionContext,
 ): EntryDescriptions {
-  const links = foundryLinks(documents, entries);
+  const links = foundryLinks(documents, entries, known);
   const described = entries.map(({ source: { document }, id }) => {
     const html = expandLocalize(document.system.description?.value ?? '', lang, { item: document.name });
     return { id, translation: htmlToRichText(html.text, links), unresolved: html.unresolved };

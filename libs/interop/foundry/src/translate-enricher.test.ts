@@ -19,6 +19,7 @@ const links: FoundryLinks = {
     [OFF_GUARD_UUID, 'Off-Guard'],
     ['Compendium.pf2e.spell-effects.Item.5MI4YKeDSBGLtqKM', 'Spell Effect: Bless'],
   ]),
+  books: new Map(),
   actions: new Map([['trip', trip]]),
   actionNames: new Map([
     ['trip', 'Trip'],

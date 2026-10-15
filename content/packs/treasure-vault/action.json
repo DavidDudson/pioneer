@@ -289,7 +289,15 @@
           },
           {
             "type": "text",
-            "text": " You speak briefly about your craft or enact a short performance. The relic casts Charm at a rank equal to half its own."
+            "text": " You speak briefly about your craft or enact a short performance. The relic casts "
+          },
+          {
+            "type": "ref",
+            "id": "a3738cb8-aa5d-5084-b250-86fe19b7498d"
+          },
+          {
+            "type": "text",
+            "text": " at a rank equal to half its own."
           }
         ]
       }
@@ -828,7 +836,11 @@
           },
           {
             "type": "text",
-            "text": " Checks to Recall Knowledge"
+            "text": " Checks to "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
           }
         ]
       },
@@ -1022,7 +1034,15 @@
           },
           {
             "type": "text",
-            "text": " You speak at length about or demonstrate your craft, or you enact a performance. The relic casts Enthrall at a level equal to half its own. If you have legendary proficiency in Crafting or Performance, creatures can't critically succeed on their saves against this spell. You can Sustain the activation to sustain the effect as you would the spell."
+            "text": " You speak at length about or demonstrate your craft, or you enact a performance. The relic casts "
+          },
+          {
+            "type": "ref",
+            "id": "ed8ad89d-b5e6-5f93-9e80-1368a1e0b8dc"
+          },
+          {
+            "type": "text",
+            "text": " at a level equal to half its own. If you have legendary proficiency in Crafting or Performance, creatures can't critically succeed on their saves against this spell. You can Sustain the activation to sustain the effect as you would the spell."
           }
         ]
       }
@@ -1303,7 +1323,15 @@
               "content": [
                 {
                   "type": "text",
-                  "text": "You must supply special fertilizers or other magical nutrients worth at least half the item's Price. You always expend at least that quantity of fertilizers and magical nutrients when you Grow successfully. If you're in a settlement, you can usually spend currency to get the amount of magical nutrients you need, except in the case of rarer precious materials. You can also bring them with you in advance or forage for them with a skill like Herbalism Lore, gaining an amount of value based on the rules for Earn Income."
+                  "text": "You must supply special fertilizers or other magical nutrients worth at least half the item's Price. You always expend at least that quantity of fertilizers and magical nutrients when you Grow successfully. If you're in a settlement, you can usually spend currency to get the amount of magical nutrients you need, except in the case of rarer precious materials. You can also bring them with you in advance or forage for them with a skill like Herbalism Lore, gaining an amount of value based on the rules for "
+                },
+                {
+                  "type": "ref",
+                  "id": "b03a543f-4d12-5c6b-a4f9-6afe141aa651"
+                },
+                {
+                  "type": "text",
+                  "text": "."
                 }
               ]
             }
@@ -1324,7 +1352,16 @@
         "content": [
           {
             "type": "text",
-            "text": "If your attempt to create the item is successful, you expend the fertilizers and other magical nutrients you supplied. You can pay the remaining portion of the item's Price in additional growth accelerants to complete the item immediately, or you can spend additional downtime days cultivating the item. For each additional day taken, reduce the value of the accelerants you need to complete the item. This amount is determined using the Income Earned table, based on your proficiency rank in Crafting and using your own level instead of a task level. After any of these downtime days, you can complete the item by spending the remaining portion of its Price in accelerants. If the downtime days you spend are interrupted, you can return to finish the item later, continuing where you left off."
+            "text": "If your attempt to create the item is successful, you expend the fertilizers and other magical nutrients you supplied. You can pay the remaining portion of the item's Price in additional growth accelerants to complete the item immediately, or you can spend additional downtime days cultivating the item. For each additional day taken, reduce the value of the accelerants you need to complete the item. This amount is determined using the "
+          },
+          {
+            "type": "ref",
+            "id": "b03a543f-4d12-5c6b-a4f9-6afe141aa651",
+            "label": "Income Earned"
+          },
+          {
+            "type": "text",
+            "text": " table, based on your proficiency rank in Crafting and using your own level instead of a task level. After any of these downtime days, you can complete the item by spending the remaining portion of its Price in accelerants. If the downtime days you spend are interrupted, you can return to finish the item later, continuing where you left off."
           }
         ]
       },
@@ -1640,7 +1677,23 @@
           },
           {
             "type": "text",
-            "text": " save. The Clumsy and Enfeebled conditions last 1 minute."
+            "text": " save. The "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd"
+          },
+          {
+            "type": "text",
+            "text": " conditions last 1 minute."
           }
         ]
       },
@@ -1668,7 +1721,25 @@
           },
           {
             "type": "text",
-            "text": " The target becomes Clumsy 1 and Enfeebled 1."
+            "text": " The target becomes "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 1"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       },
@@ -1682,7 +1753,34 @@
           },
           {
             "type": "text",
-            "text": " The target becomes Clumsy 2, Enfeebled 2, and Drained 1."
+            "text": " The target becomes "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 2"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 2"
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 1"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       },
@@ -1696,7 +1794,34 @@
           },
           {
             "type": "text",
-            "text": " The target becomes Clumsy 3, Enfeebled 3, and Drained 2."
+            "text": " The target becomes "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 3"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 3"
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 2"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       }
@@ -1803,7 +1928,23 @@
           },
           {
             "type": "text",
-            "text": " save. For each creature you render Slowed with this gift, you can render one ally within 30 feet, including you, Quickened for 1 round."
+            "text": " save. For each creature you render "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e"
+          },
+          {
+            "type": "text",
+            "text": " with this gift, you can render one ally within 30 feet, including you, "
+          },
+          {
+            "type": "ref",
+            "id": "6517bbf2-8085-534b-be6a-187d52739fa0"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
           }
         ]
       },
@@ -1831,7 +1972,16 @@
           },
           {
             "type": "text",
-            "text": " The creature is Slowed 1."
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       },
@@ -1845,7 +1995,16 @@
           },
           {
             "type": "text",
-            "text": " The creature is Slowed 2."
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 2"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       }

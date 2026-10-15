@@ -276,7 +276,7 @@ export function translateEnvelopes(selected: readonly SelectedEntry[], context: 
   const { descriptions, unknownMarkup, untranslatedEnrichers, unresolvedText } = describeEntries(
     done.map(({ source, envelope }) => ({ source, id: envelope.id })),
     context.documents ?? [],
-    context.lang,
+    { lang: context.lang, known: context.references?.byUuid },
   );
   return {
     entries: done.map(({ source, envelope }) => ({

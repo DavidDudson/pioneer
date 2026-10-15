@@ -71,7 +71,15 @@
         "content": [
           {
             "type": "text",
-            "text": "You snatch at your opponent with your claws, pulling them close in a ferocious bear hug. You make another claw Strike against the same target. If this Strike hits, the target is also Grabbed."
+            "text": "You snatch at your opponent with your claws, pulling them close in a ferocious bear hug. You make another claw Strike against the same target. If this Strike hits, the target is also "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       }
@@ -136,7 +144,15 @@
         "content": [
           {
             "type": "text",
-            "text": "You can cast a 3rd-rank Summon Animal as an innate spell, but only to summon a Black Bear. At 10th level, the "
+            "text": "You can cast a 3rd-rank "
+          },
+          {
+            "type": "ref",
+            "id": "c7eb6251-286a-5188-a071-eabce4497407"
+          },
+          {
+            "type": "text",
+            "text": " as an innate spell, but only to summon a Black Bear. At 10th level, the "
           },
           {
             "type": "text",
@@ -268,7 +284,15 @@
         "content": [
           {
             "type": "text",
-            "text": "The gelid shard within your heart may sap your ability to feel and experience emotion, but it also lets you create and manipulate cold. You learn to cast arcane spontaneous spells, and you gain a spell repertoire with the Frostbite and "
+            "text": "The gelid shard within your heart may sap your ability to feel and experience emotion, but it also lets you create and manipulate cold. You learn to cast arcane spontaneous spells, and you gain a spell repertoire with the "
+          },
+          {
+            "type": "ref",
+            "id": "4564025d-51b0-541a-a554-662ea3883cda"
+          },
+          {
+            "type": "text",
+            "text": " and "
           },
           {
             "type": "ref",
@@ -385,7 +409,15 @@
         "content": [
           {
             "type": "text",
-            "text": "When you transform, you can take on a bear's bulk and size. You can spend an additional action when using Ursine Avenger Form to gain the effects of a 1st-rank Enlarge spell, which lasts for the spell's normal duration or until you leave your Ursine Avenger Form, whichever comes first."
+            "text": "When you transform, you can take on a bear's bulk and size. You can spend an additional action when using Ursine Avenger Form to gain the effects of a 1st-rank "
+          },
+          {
+            "type": "ref",
+            "id": "b76d119e-0d8d-52ad-8cca-1a224c3077ae"
+          },
+          {
+            "type": "text",
+            "text": " spell, which lasts for the spell's normal duration or until you leave your Ursine Avenger Form, whichever comes first."
           }
         ]
       }
@@ -674,7 +706,15 @@
         "content": [
           {
             "type": "text",
-            "text": "The power of the bear within you can expand your physical presence even further. The Enlarge spell you cast with your Great Bear feat is heightened to 4th level."
+            "text": "The power of the bear within you can expand your physical presence even further. The "
+          },
+          {
+            "type": "ref",
+            "id": "b76d119e-0d8d-52ad-8cca-1a224c3077ae"
+          },
+          {
+            "type": "text",
+            "text": " spell you cast with your Great Bear feat is heightened to 4th level."
           }
         ]
       }
@@ -884,7 +924,15 @@
         "content": [
           {
             "type": "text",
-            "text": "You let out a mighty roar as part of your transformation. When you use Ursine Avenger Form, you can make an Intimidation check to Demoralize against each enemy within 30 feet that can see you, and you don't take a penalty to your Demoralize check if the creature doesn't understand your language."
+            "text": "You let out a mighty roar as part of your transformation. When you use Ursine Avenger Form, you can make an Intimidation check to "
+          },
+          {
+            "type": "ref",
+            "id": "2a3671d0-7d0b-53db-8648-861d457f0175"
+          },
+          {
+            "type": "text",
+            "text": " against each enemy within 30 feet that can see you, and you don't take a penalty to your Demoralize check if the creature doesn't understand your language."
           }
         ]
       }
@@ -976,7 +1024,15 @@
         "content": [
           {
             "type": "text",
-            "text": "Your eyes are accustomed to the harsh glare of the sun on snow and ice. You gain a +1 status bonus to saving throws against effects that inflict the Dazzled condition. Snow doesn't impair your vision; you ignore concealment from snowfall. Your skin becomes cold to the touch, and sometimes frost forms on you. You are protected from severe cold and heat."
+            "text": "Your eyes are accustomed to the harsh glare of the sun on snow and ice. You gain a +1 status bonus to saving throws against effects that inflict the "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " condition. Snow doesn't impair your vision; you ignore concealment from snowfall. Your skin becomes cold to the touch, and sometimes frost forms on you. You are protected from severe cold and heat."
           }
         ]
       }

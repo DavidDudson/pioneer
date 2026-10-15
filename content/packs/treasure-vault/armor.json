@@ -347,7 +347,15 @@
           },
           {
             "type": "text",
-            "text": ". Leaves shed from the armor as they might fall in autumn. When activating the armor's Invisibility property rune, you disappear in a swirl of colorful leaves."
+            "text": ". Leaves shed from the armor as they might fall in autumn. When activating the armor's "
+          },
+          {
+            "type": "ref",
+            "id": "b845e180-6c72-501f-9c94-d32442d00eab"
+          },
+          {
+            "type": "text",
+            "text": " property rune, you disappear in a swirl of colorful leaves."
           }
         ]
       },
@@ -418,7 +426,15 @@
           },
           {
             "type": "text",
-            "text": " for 1 minute. Creatures within the area are Concealed, and creatures outside the area are concealed to creatures within the leaves. However, you can see through this concealment. You can Dismiss the activation."
+            "text": " for 1 minute. Creatures within the area are "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": ", and creatures outside the area are concealed to creatures within the leaves. However, you can see through this concealment. You can Dismiss the activation."
           }
         ]
       }
@@ -488,7 +504,15 @@
           },
           {
             "type": "text",
-            "text": " is emblazoned with the Inheritor's religious symbol and sports a white cloak. While the cloak is white, this armor grants you a +2 item bonus to Diplomacy checks to Make an Impression, provided your target has no enmity toward Iomedae."
+            "text": " is emblazoned with the Inheritor's religious symbol and sports a white cloak. While the cloak is white, this armor grants you a +2 item bonus to Diplomacy checks to "
+          },
+          {
+            "type": "ref",
+            "id": "722e5346-27c0-5157-b5a9-e6018df94150"
+          },
+          {
+            "type": "text",
+            "text": ", provided your target has no enmity toward Iomedae."
           }
         ]
       },
@@ -954,7 +978,15 @@
           },
           {
             "type": "text",
-            "text": " in place of an Interact action to draw a weapon for abilities such as the Quick Draw feat."
+            "text": " in place of an Interact action to draw a weapon for abilities such as the "
+          },
+          {
+            "type": "ref",
+            "id": "89bf9d93-93b0-5e2d-a6e5-db2627b74b44"
+          },
+          {
+            "type": "text",
+            "text": " feat."
           }
         ]
       },
@@ -1133,7 +1165,15 @@
           },
           {
             "type": "text",
-            "text": " in place of an Interact action to draw a weapon for abilities such as the Quick Draw feat."
+            "text": " in place of an Interact action to draw a weapon for abilities such as the "
+          },
+          {
+            "type": "ref",
+            "id": "89bf9d93-93b0-5e2d-a6e5-db2627b74b44"
+          },
+          {
+            "type": "text",
+            "text": " feat."
           }
         ]
       },
@@ -1295,7 +1335,15 @@
           },
           {
             "type": "text",
-            "text": " in place of an Interact action to draw a weapon for abilities such as the Quick Draw feat."
+            "text": " in place of an Interact action to draw a weapon for abilities such as the "
+          },
+          {
+            "type": "ref",
+            "id": "89bf9d93-93b0-5e2d-a6e5-db2627b74b44"
+          },
+          {
+            "type": "text",
+            "text": " feat."
           }
         ]
       },
@@ -1464,7 +1512,16 @@
           },
           {
             "type": "text",
-            "text": ". When you're Shoved or otherwise forced to move, you can reduce the amount you move by up to 10 feet. When you invest the breastplate, you either increase your Constitution modifier by 1 or increase it to +4, whichever would give you a higher value."
+            "text": ". When you're "
+          },
+          {
+            "type": "ref",
+            "id": "082b982f-3ed4-5d9c-9722-9ab10198523a",
+            "label": "Shoved"
+          },
+          {
+            "type": "text",
+            "text": " or otherwise forced to move, you can reduce the amount you move by up to 10 feet. When you invest the breastplate, you either increase your Constitution modifier by 1 or increase it to +4, whichever would give you a higher value."
           }
         ]
       },
@@ -1517,7 +1574,16 @@
           },
           {
             "type": "text",
-            "text": " You pound a solid and constant rhythm on your breastplate and cast a 7th-rank Regeneration spell on yourself."
+            "text": " You pound a solid and constant rhythm on your breastplate and cast a 7th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "21dc4e33-5894-59e4-8d54-29e69dbc4ae3",
+            "label": "Regeneration"
+          },
+          {
+            "type": "text",
+            "text": " spell on yourself."
           }
         ]
       },
@@ -2373,7 +2439,15 @@
           },
           {
             "type": "text",
-            "text": " wrap around you like an anaconda might wrap around its victim. The first time you roll a 1 on any attack roll or check after donning the armor, it fuses with you and constricts. It constricts anytime you roll a 1 on any attack roll or check thereafter. When the armor constricts, you're Restrained for 1 round."
+            "text": " wrap around you like an anaconda might wrap around its victim. The first time you roll a 1 on any attack roll or check after donning the armor, it fuses with you and constricts. It constricts anytime you roll a 1 on any attack roll or check thereafter. When the armor constricts, you're "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
           }
         ]
       },
@@ -3088,7 +3162,15 @@
           },
           {
             "type": "text",
-            "text": " for 1 minute. Creatures within the area are Concealed, and creatures outside the area are concealed to creatures within the leaves. However, you can see through this concealment. You can Dismiss the activation."
+            "text": " for 1 minute. Creatures within the area are "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": ", and creatures outside the area are concealed to creatures within the leaves. However, you can see through this concealment. You can Dismiss the activation."
           }
         ]
       },
@@ -3141,7 +3223,15 @@
           },
           {
             "type": "text",
-            "text": " The armor casts 4th-rank Safe Passage, with the protected area beginning from your square and extending to a place of relative safety."
+            "text": " The armor casts 4th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "30234e3f-a8be-5813-adf9-a56c58ee261c"
+          },
+          {
+            "type": "text",
+            "text": ", with the protected area beginning from your square and extending to a place of relative safety."
           }
         ]
       }
@@ -3591,7 +3681,23 @@
           },
           {
             "type": "text",
-            "text": " You would gain or increase the Doomed or Wounded condition"
+            "text": " You would gain or increase the "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "6c4e09a7-469d-5668-8c1b-92f87de94d27"
+          },
+          {
+            "type": "text",
+            "text": " condition"
           }
         ]
       },
@@ -3815,7 +3921,15 @@
           },
           {
             "type": "text",
-            "text": " magically store a spell for you. During your daily preparations, choose one spell you know of 5th rank or lower. You inscribe that spell on the robes, as though you had done so using the robes' inscribed trait, but without needing to go through the normal scribing process. You must provide the minimum amount of materials to Craft one scroll of that spell (typically half the Price of a scroll of that rank plus any extra cost required for the spell). You don't need to be trained in Crafting, nor do you need the Magical Crafting feat. Using this ability erases any scroll already inscribed on the robe."
+            "text": " magically store a spell for you. During your daily preparations, choose one spell you know of 5th rank or lower. You inscribe that spell on the robes, as though you had done so using the robes' inscribed trait, but without needing to go through the normal scribing process. You must provide the minimum amount of materials to Craft one scroll of that spell (typically half the Price of a scroll of that rank plus any extra cost required for the spell). You don't need to be trained in Crafting, nor do you need the "
+          },
+          {
+            "type": "ref",
+            "id": "087c0ff6-c414-5266-9167-62768b89e476"
+          },
+          {
+            "type": "text",
+            "text": " feat. Using this ability erases any scroll already inscribed on the robe."
           }
         ]
       }
@@ -3873,7 +3987,15 @@
           },
           {
             "type": "text",
-            "text": " magically store a spell for you. During your daily preparations, choose one spell you know of 6th rank or lower. You inscribe that spell on the robes, as though you had done so using the robes' inscribed trait, but without needing to go through the normal scribing process. You must provide the minimum amount of materials to Craft one scroll of that spell (typically half the Price of a scroll of that rank plus any extra cost required for the spell). You don't need to be trained in Crafting, nor do you need the Magical Crafting feat. Using this ability erases any scroll already inscribed on the robe."
+            "text": " magically store a spell for you. During your daily preparations, choose one spell you know of 6th rank or lower. You inscribe that spell on the robes, as though you had done so using the robes' inscribed trait, but without needing to go through the normal scribing process. You must provide the minimum amount of materials to Craft one scroll of that spell (typically half the Price of a scroll of that rank plus any extra cost required for the spell). You don't need to be trained in Crafting, nor do you need the "
+          },
+          {
+            "type": "ref",
+            "id": "087c0ff6-c414-5266-9167-62768b89e476"
+          },
+          {
+            "type": "text",
+            "text": " feat. Using this ability erases any scroll already inscribed on the robe."
           }
         ]
       }
@@ -3931,7 +4053,15 @@
           },
           {
             "type": "text",
-            "text": " magically store a spell for you. During your daily preparations, choose one spell you know of 8th rank or lower. You inscribe that spell on the robes, as though you had done so using the robes' inscribed trait, but without needing to go through the normal scribing process. You must provide the minimum amount of materials to Craft one scroll of that spell (typically half the Price of a scroll of that rank plus any extra cost required for the spell). You don't need to be trained in Crafting, nor do you need the Magical Crafting feat. Using this ability erases any scroll already inscribed on the robe."
+            "text": " magically store a spell for you. During your daily preparations, choose one spell you know of 8th rank or lower. You inscribe that spell on the robes, as though you had done so using the robes' inscribed trait, but without needing to go through the normal scribing process. You must provide the minimum amount of materials to Craft one scroll of that spell (typically half the Price of a scroll of that rank plus any extra cost required for the spell). You don't need to be trained in Crafting, nor do you need the "
+          },
+          {
+            "type": "ref",
+            "id": "087c0ff6-c414-5266-9167-62768b89e476"
+          },
+          {
+            "type": "text",
+            "text": " feat. Using this ability erases any scroll already inscribed on the robe."
           }
         ]
       }
@@ -3989,7 +4119,15 @@
           },
           {
             "type": "text",
-            "text": " magically store a spell for you. During your daily preparations, choose one spell you know of 9th rank or lower. You inscribe that spell on the robes, as though you had done so using the robes' inscribed trait, but without needing to go through the normal scribing process. You must provide the minimum amount of materials to Craft one scroll of that spell (typically half the Price of a scroll of that level plus any extra cost required for the spell). You don't need to be trained in Crafting, nor do you need the Magical Crafting feat. Using this ability erases any scroll already inscribed on the robe."
+            "text": " magically store a spell for you. During your daily preparations, choose one spell you know of 9th rank or lower. You inscribe that spell on the robes, as though you had done so using the robes' inscribed trait, but without needing to go through the normal scribing process. You must provide the minimum amount of materials to Craft one scroll of that spell (typically half the Price of a scroll of that level plus any extra cost required for the spell). You don't need to be trained in Crafting, nor do you need the "
+          },
+          {
+            "type": "ref",
+            "id": "087c0ff6-c414-5266-9167-62768b89e476"
+          },
+          {
+            "type": "text",
+            "text": " feat. Using this ability erases any scroll already inscribed on the robe."
           }
         ]
       }
@@ -4302,7 +4440,16 @@
         "content": [
           {
             "type": "text",
-            "text": "This suit of leaf weave armor is specially modified to metabolize the alchemical accelerants in medicinal compounds. A special receptacle in the armor can hold an Elixir of Life, which takes 3 Interact actions to install."
+            "text": "This suit of leaf weave armor is specially modified to metabolize the alchemical accelerants in medicinal compounds. A special receptacle in the armor can hold an "
+          },
+          {
+            "type": "ref",
+            "id": "931bc474-090d-57e4-b070-4fbe92058f6a",
+            "label": "Elixir of Life"
+          },
+          {
+            "type": "text",
+            "text": ", which takes 3 Interact actions to install."
           }
         ]
       },
@@ -4355,7 +4502,39 @@
           },
           {
             "type": "text",
-            "text": " Slithering vines grow from the armor, granting an item bonus to Athletics checks to Grapple, to your Fortitude DC to resist Grapple, Disarm, or Shove attempts, and to your Reflex DC to resist Trip attempts. The bonus is equal to the elixir's item bonus, and lasts for 3 rounds. The activation uses up the elixir, and the armor can't be activated again until a new one is installed."
+            "text": " Slithering vines grow from the armor, granting an item bonus to Athletics checks to "
+          },
+          {
+            "type": "ref",
+            "id": "380d34f1-f6f6-5820-b9dd-c01ee4e19fd5"
+          },
+          {
+            "type": "text",
+            "text": ", to your Fortitude DC to resist Grapple, "
+          },
+          {
+            "type": "ref",
+            "id": "ef57a555-f9e9-53cc-b09b-b7432156cbf1"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "082b982f-3ed4-5d9c-9722-9ab10198523a"
+          },
+          {
+            "type": "text",
+            "text": " attempts, and to your Reflex DC to resist "
+          },
+          {
+            "type": "ref",
+            "id": "6257c7f0-f483-53d3-a791-d73a616cbce4"
+          },
+          {
+            "type": "text",
+            "text": " attempts. The bonus is equal to the elixir's item bonus, and lasts for 3 rounds. The activation uses up the elixir, and the armor can't be activated again until a new one is installed."
           }
         ]
       }
@@ -4541,7 +4720,16 @@
         "content": [
           {
             "type": "text",
-            "text": "This leather armor has been treated with extract from oozes, which can be reactivated in the presence of a strong acid. A receptacle in the armor can hold an Acid Flask, which takes 3 Interact actions to install."
+            "text": "This leather armor has been treated with extract from oozes, which can be reactivated in the presence of a strong acid. A receptacle in the armor can hold an "
+          },
+          {
+            "type": "ref",
+            "id": "3a3ec53c-853f-5b9b-a5dc-040a44cced51",
+            "label": "Acid Flask"
+          },
+          {
+            "type": "text",
+            "text": ", which takes 3 Interact actions to install."
           }
         ]
       },
@@ -4594,7 +4782,23 @@
           },
           {
             "type": "text",
-            "text": " The leather weeps slippery protoplasm, granting an item bonus to Escape and Squeeze checks equal to the acid flask's item bonus. The protoplasm also irritates the skin on prolonged contact, causing any creature that grapples or swallows you to take acid damage equal to the acid flask's splash damage. Ooze skin remains activated for a number of rounds equal to the level of the acid flask installed. The activation uses up the acid flask, and the armor can't be activated again until a new one is installed."
+            "text": " The leather weeps slippery protoplasm, granting an item bonus to "
+          },
+          {
+            "type": "ref",
+            "id": "2ae74030-e87a-55ee-955c-fb9870392d44"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "c677e3a9-1109-541c-8888-d97a6129acda"
+          },
+          {
+            "type": "text",
+            "text": " checks equal to the acid flask's item bonus. The protoplasm also irritates the skin on prolonged contact, causing any creature that grapples or swallows you to take acid damage equal to the acid flask's splash damage. Ooze skin remains activated for a number of rounds equal to the level of the acid flask installed. The activation uses up the acid flask, and the armor can't be activated again until a new one is installed."
           }
         ]
       }
@@ -5008,7 +5212,39 @@
           },
           {
             "type": "text",
-            "text": " The armor powers up for 10 minutes. While it's powered up, add the bottled lightning's item bonus to your Athletics checks to Force Open, High Jump, Long Jump, and Shove. The armor's Strength requirement is lowered by 1, or by 2 if the loaded bottled lightning's item bonus to attack rolls is +3 or higher. The armor's normal penalties still apply, based on this altered Strength. The activation uses up the bottled lightning, and the armor can't be activated again until a new one is installed."
+            "text": " The armor powers up for 10 minutes. While it's powered up, add the bottled lightning's item bonus to your Athletics checks to "
+          },
+          {
+            "type": "ref",
+            "id": "26c3977f-44da-54f1-aaac-9dde108ba609"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "9b3d9121-5da3-57fe-a5d0-e0ff20210c41"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "a76317a3-de3d-58c2-8b3e-5a73b09657be"
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "ref",
+            "id": "082b982f-3ed4-5d9c-9722-9ab10198523a"
+          },
+          {
+            "type": "text",
+            "text": ". The armor's Strength requirement is lowered by 1, or by 2 if the loaded bottled lightning's item bonus to attack rolls is +3 or higher. The armor's normal penalties still apply, based on this altered Strength. The activation uses up the bottled lightning, and the armor can't be activated again until a new one is installed."
           }
         ]
       }
@@ -5797,7 +6033,15 @@
           },
           {
             "type": "text",
-            "text": " The armor is sheathed in a Fire Shield."
+            "text": " The armor is sheathed in a "
+          },
+          {
+            "type": "ref",
+            "id": "19a34df3-2235-5e84-8597-17cc1cc9f505"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       },
@@ -5978,7 +6222,16 @@
         "content": [
           {
             "type": "text",
-            "text": "Tissue from a living forest troll has been integrated through this hide armor. This armor has two organic receptacles on its back that can each hold a single Elixir of Life. One elixir takes 3 Interact actions to install. For the armor to function properly, each elixir must be the same level."
+            "text": "Tissue from a living forest troll has been integrated through this hide armor. This armor has two organic receptacles on its back that can each hold a single "
+          },
+          {
+            "type": "ref",
+            "id": "50a741e0-2b1b-5a07-89be-6b6e9e70049a",
+            "label": "Elixir of Life"
+          },
+          {
+            "type": "text",
+            "text": ". One elixir takes 3 Interact actions to install. For the armor to function properly, each elixir must be the same level."
           }
         ]
       },
@@ -6087,7 +6340,15 @@
           },
           {
             "type": "text",
-            "text": " is sickly green and covered in thick warts and nodules, fashioned from the hide of a trollhound and imbued with some of the beast's vitality. Wearing this armor gives you a –1 circumstance penalty to all checks made using Diplomacy to interact with trolls and a +1 circumstance bonus to Diplomacy checks used to Make an Impression in communities traditionally plagued by troll attacks."
+            "text": " is sickly green and covered in thick warts and nodules, fashioned from the hide of a trollhound and imbued with some of the beast's vitality. Wearing this armor gives you a –1 circumstance penalty to all checks made using Diplomacy to interact with trolls and a +1 circumstance bonus to Diplomacy checks used to "
+          },
+          {
+            "type": "ref",
+            "id": "722e5346-27c0-5157-b5a9-e6018df94150"
+          },
+          {
+            "type": "text",
+            "text": " in communities traditionally plagued by troll attacks."
           }
         ]
       },
