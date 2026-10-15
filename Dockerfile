@@ -3,7 +3,7 @@
 
 # Build on the runner's own platform: `bun build --compile` cross-compiles the API and the web app is
 # platform-independent, so a multi-arch build needs no emulation.
-FROM --platform=$BUILDPLATFORM docker.io/oven/bun:1.4.2@sha256:9114c058aeae42162ee16dd5084b95fe9473970bb6bcb5b232ab1630f0546895 AS build
+FROM --platform=$BUILDPLATFORM docker.io/oven/bun:1.4.3@sha256:ec06c3b6cea04192ae6770c434f668ca41d343ad19fa6472216c7b48be39c598 AS build
 WORKDIR /src
 ENV NX_DAEMON=false NX_NO_CLOUD=true NX_SKIP_NX_CACHE=true
 

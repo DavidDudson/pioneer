@@ -4,7 +4,7 @@
  * the API's compile step).
  *
  * - `typecheck`: `ngc` for Angular projects (template type-checking),
- *   `tsc` for everything else.
+ *   `bun --check` for everything else (run from the project dir: `bun check` would run the root `check` script).
  * - `lint-templates`: ESLint (angular-eslint) on Angular projects' templates.
  * - `test`: `bun test` for projects with `*.test.ts` files (Bun-run code).
  *   Angular projects use `*.spec.ts` with the Angular Vitest builder instead.
@@ -35,7 +35,7 @@ function inferTargets(root: string, absoluteRoot: string): Record<string, Target
       cache: true,
       // Dependencies are compiled from their sources only: their specs and stories cannot change this result.
       inputs: ['default', '^production'],
-      command: angular ? `ngc -p ${root}/${angularConfig} --noEmit` : `tsc -p ${root}/tsconfig.json`,
+      command: angular ? `ngc -p ${root}/${angularConfig} --noEmit` : `cd ${root} && bun --check`,
     },
   };
   if (angular && hasMatchingFile(absoluteRoot, (file) => file.endsWith('.html'))) {
