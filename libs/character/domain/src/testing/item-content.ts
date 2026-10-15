@@ -19,6 +19,7 @@ import { CLUMSY, ENCUMBERED, ITEM_PACK } from './condition-fixture-ids';
 import { EMBER_BLADE, TROLL_CHARM } from './effect-items';
 import { HUNTERS_BLADE } from './hunters-blade';
 import { HUNTERS_CLOAK } from './hunters-cloak';
+import { MOVEMENT_CHARM } from './movement-charm';
 import { RUNES, RuneFixture } from './rune-fixtures';
 
 /** Player Core numbers (Foundry pf2e) for the items the inventory tests carry. */
@@ -28,13 +29,12 @@ const ARROWS_PER_BULK = 10;
 /** Arrows are sold 10 to a batch: 1 sp for 10. */
 const ARROWS_PER_BATCH = 10;
 const BAG_OF_HOLDING_CAPACITY = 25;
+const FLAME_TONGUE_LEVEL = 8;
 
 /** The id of the fixture rune `name`. */
 export function runeFixtureId(name: RuneFixture): ContentId {
   return ContentId.parse(contentId(PackId.parse(ITEM_PACK), EntrySlug.parse(`rune:${name}`)));
 }
-
-const FLAME_TONGUE_LEVEL = 8;
 
 /** The items `ITEM_FIXTURES` holds, by name. */
 export const ItemFixture = {
@@ -76,6 +76,7 @@ export const ItemFixture = {
   TrollCharm: 'troll-charm',
   /** A held sword whose Strikes add 1d6 fire precision damage and a note on a critical success. */
   EmberBlade: 'ember-blade',
+  MovementCharm: 'movement-charm',
 } as const;
 export type ItemFixture = (typeof ItemFixture)[keyof typeof ItemFixture];
 
@@ -227,6 +228,7 @@ const ITEMS: Readonly<Record<ItemFixture, ItemFixtureFields>> = {
   },
   [ItemFixture.EmberBlade]: EMBER_BLADE,
   [ItemFixture.TrollCharm]: TROLL_CHARM,
+  [ItemFixture.MovementCharm]: MOVEMENT_CHARM,
   [ItemFixture.RuneArmor]: {
     kind: ContentKind.Armor,
     data: { bulk: 1, category: 'light', group: 'leather', acBonus: 2, dexCap: 3 },

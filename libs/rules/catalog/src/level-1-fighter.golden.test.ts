@@ -153,6 +153,13 @@ function golden({ bonus, mark }: ProficiencyTable): Record<string, Checked> {
     'hp:max': statistic([term('@ancestry.hp', 8), term('(@class.hp + @attr.con) * @level', 12)]),
     // Scale mail's Speed penalty is inactive too.
     'speed:land': statistic([term('@ancestry.speed', 25)], [`item ${SCALE_MAIL_SPEED_PENALTY} inactive (scale-mail)`]),
+    // No other movement type: base 0, and the Speed penalty is inactive on them as well.
+    ...Object.fromEntries(
+      ['fly', 'swim', 'climb', 'burrow'].map((type) => [
+        `speed:${type}`,
+        statistic([term('0', 0)], [`item ${SCALE_MAIL_SPEED_PENALTY} inactive (scale-mail)`]),
+      ]),
+    ),
     'class-dc': statistic([ten, attribute('str', '@attr.key'), prof('@prof.class-dc', Trained)]),
     // Melee with Strength; the javelin has a range increment, so it attacks with Dexterity.
     'strike:longsword': statistic([attribute('str', '@weapon.attr'), prof('@weapon.prof', Expert)]),
@@ -208,6 +215,10 @@ describe('Level 1 Fighter (golden)', () => {
       perception: 6,
       'hp:max': 20,
       'speed:land': 25,
+      'speed:fly': 0,
+      'speed:swim': 0,
+      'speed:climb': 0,
+      'speed:burrow': 0,
       'class-dc': 17,
       'strike:longsword': 9,
       'strike:javelin': 6,

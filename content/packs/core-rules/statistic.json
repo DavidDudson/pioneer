@@ -180,6 +180,106 @@
     }
   },
   {
+    "id": "e60b51a4-7c54-53ea-8f0a-878c3baff996",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:fly-speed",
+    "name": "Fly Speed",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 420,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2347"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "speed:fly",
+      "domains": ["speed", "all-speeds", "fly-speed"],
+      "base": "0",
+      "kind": "value"
+    }
+  },
+  {
+    "id": "05787cf6-3b05-5762-9ab8-d3776b824fbb",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:swim-speed",
+    "name": "Swim Speed",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 420,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2347"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "speed:swim",
+      "domains": ["speed", "all-speeds", "swim-speed"],
+      "base": "0",
+      "kind": "value"
+    }
+  },
+  {
+    "id": "f1e2f803-858f-5077-808e-82ab2744d6be",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:climb-speed",
+    "name": "Climb Speed",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 420,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2347"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "speed:climb",
+      "domains": ["speed", "all-speeds", "climb-speed"],
+      "base": "0",
+      "kind": "value"
+    }
+  },
+  {
+    "id": "9b0c66a4-0d9d-5b21-bc2b-57ed5001cc1b",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:burrow-speed",
+    "name": "Burrow Speed",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 420,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2347"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "speed:burrow",
+      "domains": ["speed", "all-speeds", "burrow-speed"],
+      "base": "0",
+      "kind": "value"
+    }
+  },
+  {
     "id": "e329ba71-6879-5ab9-be72-cb8f4324b343",
     "pack": "core-rules",
     "kind": "statistic",

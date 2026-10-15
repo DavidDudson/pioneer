@@ -107,7 +107,8 @@ export const LORE_SELECTORS: readonly string[] = coreRules.statistics
   .toSorted();
 /** The statistics whose base ends in a proficiency bonus, `@prof`. */
 export const PROFICIENCY_SELECTORS = [...DEFENCES, ...SKILL_SELECTORS, 'class-dc'];
-export const SELECTORS = [...PROFICIENCY_SELECTORS, 'hp:max', 'speed:land'];
+export const SPEEDS = ['speed:land', 'speed:fly', 'speed:swim', 'speed:climb', 'speed:burrow'];
+export const SELECTORS = [...PROFICIENCY_SELECTORS, 'hp:max', ...SPEEDS];
 /** The statistics derived once per weapon or spellcasting entry, by family selector. */
 export const PER_SOURCE_SELECTORS = ['strike', 'strike-damage', 'spell-attack', 'spell-dc'];
 /** The fighter's Strikes. */
