@@ -1,0 +1,162 @@
+[
+  {
+    "id": "172e3b8d-003c-5d4b-aa22-75f858142e41",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:apparition",
+    "name": "Apparition",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "condition", "effect", "feat"]
+    }
+  },
+  {
+    "id": "79b1d1c7-77ad-55d9-bba6-7f0afe4d6b3c",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:calling",
+    "name": "Calling",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "condition", "effect", "feat"]
+    }
+  },
+  {
+    "id": "5f02a942-1e93-5326-9074-8d312f9a4ab7",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:destiny",
+    "name": "Destiny",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "condition", "effect", "feat"]
+    }
+  },
+  {
+    "id": "eb96cd36-9bb3-5346-8b45-ae3fb6e5e550",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:ikon",
+    "name": "Ikon",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "condition", "effect", "feat"]
+    }
+  },
+  {
+    "id": "81fa50aa-cf2f-5880-b3ca-31871144f6c0",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:tearing",
+    "name": "Tearing",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "54b45460-f6a6-5eb7-bf07-aa7d326a537b",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:thrown-30",
+    "name": "Thrown 30 ft.",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "114230fb-a16a-5f54-884e-36d9c8750489",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:transcendence",
+    "name": "Transcendence",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "condition", "effect", "feat"]
+    }
+  },
+  {
+    "id": "0bb36220-7962-5cbb-bfe7-21ebdc4e8b1b",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:wandering",
+    "name": "Wandering",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "condition", "effect", "feat"]
+    }
+  }
+]

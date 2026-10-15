@@ -1,0 +1,4779 @@
+[
+  {
+    "id": "5fccc283-e272-5222-839f-14fce8462ff3",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:a-challenge-for-heroes",
+    "name": "A Challenge for Heroes",
+    "rarity": "common",
+    "traits": ["concentrate", "mental", "spirit", "transcendence"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You declare an enemy within 60 feet to be a heroic test. For 1 minute, that enemy deals an additional 10 spirit damage to you with each successful Strike or spell it targets you with."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "fb182954-52d2-5a53-866e-c64fb9656e02"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whenever that enemy deals spirit damage to you, each ally who has the enemy in melee reach can attempt a "
+          },
+          {
+            "type": "ref",
+            "id": "0f9a6a64-991e-5aa5-ac14-08a063bb01c2"
+          },
+          {
+            "type": "text",
+            "text": " against it, even if the ally doesn't normally have that reaction. If an ally successfully slays the enemy with a Reactive Strike due to this effect, that ally immediately gains temporary Hit Points equal to your level, which persist for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "40351dd5-9d9a-58a9-94db-4a89ff03da49"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.c40APnn4a7bWhtcZ"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "2f45d978-eb17-56fa-9fcd-d95488d3f965",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:a-moment-unending",
+    "name": "A Moment Unending",
+    "rarity": "common",
+    "traits": ["concentrate", "prediction", "transcendence"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take in every movement around you, affording you unparalleled accuracy. Your next successful Strike against an enemy before the end of your next turn deals an additional 1d6 precision damage. This damage increases to 2d6 at 10th level and 3d6 at 18th level."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:a-moment-unending",
+        "toggleable": true
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": "ternary(gte(@level, 18), 3, ternary(gte(@level, 10), 2, 1))",
+        "dieSize": "d6",
+        "category": "precision",
+        "predicate": ["option:a-moment-unending"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.kAwE9YqU6GH1cD7W"
+    },
+    "data": {
+      "cost": "one"
+    }
+  },
+  {
+    "id": "d0e5a871-a422-5f49-a8de-bd865bcf4603",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:amassed-assault",
+    "name": "Amassed Assault",
+    "rarity": "common",
+    "traits": ["attack"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each enemy in your united companion's space takes damage equal to one of its unarmed Strikes plus your level ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": {
+              "against": "class-or-spell-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC or spell DC, whichever is higher)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.ZJ8KJp5mZYgzPJYN"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "81447404-bf19-54e1-8e40-17fbeffddcd2",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:arrow-splits-arrow",
+    "name": "Arrow Splits Arrow",
+    "rarity": "common",
+    "traits": ["transcendence"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your previous action was to Strike with the "
+          },
+          {
+            "type": "ref",
+            "id": "c2acf65c-d723-5dd8-ae7f-71e831667e5e"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You repeat your motions exactly, your attack landing in the same location as your previous shot. You make a Strike against the same target. The result of your d20 roll is the same as the result of the required shot, though any penalties (such as your multiple attack penalty) apply normally to this shot and you don't automatically adjust the degree of success if the initial roll was a natural 1 or 20."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.cCCOjU9ihfrn0spp"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your previous action was to Strike with the "
+            },
+            {
+              "type": "ref",
+              "id": "c2acf65c-d723-5dd8-ae7f-71e831667e5e"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "7b30fa2c-f832-599e-8392-d55124067f3e",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:bear-allies-burdens",
+    "name": "Bear Allies' Burdens",
+    "rarity": "common",
+    "traits": ["transcendence"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You move with a speed belying your strength, carrying your allies as easily as straw dolls. You Stride. At any point you are adjacent to a willing ally during the Stride, you can pick that ally up, and you can deposit them into a space adjacent to you at any other point during your movement. You ignore the ally's Bulk while carrying them during your Stride. You can Climb, Fly, or Swim instead of Striding if you have the corresponding movement type."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.ukt9Dr4qmj9pUQII"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "6fefce78-2c22-553e-86d8-b8a4db931caa",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:bless-ally",
+    "name": "Bless Ally",
+    "rarity": "common",
+    "traits": ["concentrate", "divine", "fortune", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your nimbus is active"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Target",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " a willing ally within the bright light of your nimbus"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your radiance grants an ally some of your celestial grace. That ally can roll twice and use the higher result for the next Will save they attempt before the beginning of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "d8721cfa-ae92-5edb-9118-9cfe35724c02"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.scCEnY6IhU59uekX"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your nimbus is active"
+            }
+          ]
+        }
+      ],
+      "frequency": {
+        "max": 1,
+        "per": "ten-minutes"
+      }
+    }
+  },
+  {
+    "id": "c012069e-13d1-5cfa-be46-9f9449958f72",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:blinding-of-the-needle",
+    "name": "Blinding of the Needle",
+    "rarity": "common",
+    "traits": ["transcendence"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You aim your weapon in a superficial cut above your opponent's eye. Make a Strike with the imbued ikon. If that Strike is successful, the target must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": {
+              "against": "class-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC or become "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round or until it uses an Interact action to clear the blood from its vision."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.Y6ee2ZvIE2fzzvAY"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "af3159a1-8a6b-5ca4-b312-078e2a44f4c6",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:break-free",
+    "name": "Break Free",
+    "rarity": "common",
+    "traits": ["transcendence"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "2ae74030-e87a-55ee-955c-fb9870392d44"
+          },
+          {
+            "type": "text",
+            "text": " with a +2 status bonus on your check, then Stride up to twice your Speed in a straight line, and finally make a melee Strike. If you don't need to Escape or you can't move or choose not to, you still take the other actions listed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics", "skill:acrobatics", "unarmed-attack-roll"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["action:escape", "option:break-free"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.ZL5o9c4jV5fRwTGR"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "1ef277c9-3c02-5c9a-a162-d750412e4bac",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:break-the-suns-legs",
+    "name": "Break the Sun's Legs",
+    "rarity": "common",
+    "traits": ["cold", "concentrate", "darkness", "transcendence"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You make a slashing motion over the brightest source of light, whether it's a torch or the sun in the sky. A gash appears over the light source, visible to all, and devours the light. The entire area within a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 120
+          },
+          {
+            "type": "text",
+            "text": " around you is affected by a 9th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "d7720a54-bc70-5d59-bdb1-d50d8eb0dac9"
+          },
+          {
+            "type": "text",
+            "text": " spell for 1 minute. The stolen light is channeled to your eyes, granting you greater darkvision for the duration of the effect."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.Y9XUwC8ihxZCfndG"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "4956c44d-4bad-5c2f-a45e-6ee7c5f829ad",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:burn-out-of-time",
+    "name": "Burn out of Time",
+    "rarity": "common",
+    "traits": ["spirit", "transcendence", "void"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An impossible amount of energy blazes in a sphere above you before compressing itself into your weapon. Strike one creature. The Strike deals an additional 3d8 spirit damage and 3d8 void damage. If the creature is reduced to 0 Hit Points, it's immediately killed and reduced to ash, not in the present, but in the recent past, erasing the consequences of their recent actions."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If a creature died within the last round as a result of the incinerated target's actions, that creature is returned to life with "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "5d8"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points at the location that it died as its death is retroactively undone."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.ZhVJ7EUTJngrIO2Z"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "b2954aef-257f-5aa9-9c79-21d8ad3a03a5",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:captivating-charm",
+    "name": "Captivating Charm",
+    "rarity": "common",
+    "traits": ["concentrate", "emotion", "mental", "transcendence", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You focus your attention on a creature within 30 feet, overwhelming its senses. The creature must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC or be "
+          },
+          {
+            "type": "ref",
+            "id": "88ca1b7b-d5de-5978-9ff4-258c9aadef1a"
+          },
+          {
+            "type": "text",
+            "text": " by you until the start of your next turn. The condition ends if you use a hostile action against the target, but not if you use a hostile action against its allies."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.jTfJzj1yfmPLsxmj"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "7a56daf8-b66d-53d1-9fff-89008aaf3b7f",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:coiling-serpents",
+    "name": "Coiling Serpents",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Make a ranged Strike with your ikon. If the Strike hits, the target must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": {
+              "against": "class-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC or the arrow transforms into a multitude of ethereal snakes that coil around the target, "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd",
+            "label": "Immobilizing"
+          },
+          {
+            "type": "text",
+            "text": " it until it succeeds at an "
+          },
+          {
+            "type": "ref",
+            "id": "2ae74030-e87a-55ee-955c-fb9870392d44"
+          },
+          {
+            "type": "text",
+            "text": " attempt against your class DC."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.mbOa48mQCqj86lVw"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "f27129ea-cf5c-5475-93cb-507554fcb747",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:crash-against-me",
+    "name": "Crash Against Me",
+    "rarity": "common",
+    "traits": ["transcendence"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your skin becomes virtually unbreakable. Until the start of your next turn, you have resistance equal to your level to the chosen damage type."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "During this time, if a creature attacking you using a weapon dealing the same damage type as your resistance misses you or hits you but deals no damage due to your resistance, the weapon clangs wildly off your skin. This painful reverberation makes the attacking enemy "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " and gives it a –2 circumstance penalty to attacks with that weapon until the start of the enemy's next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.Cu7P7NB3XH67mi1N"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "selfEffect": "e6cee487-e5f9-5a75-bc88-d9c1185709ac"
+    }
+  },
+  {
+    "id": "914080e4-61d3-5887-94f2-f7344dd15b0c",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:drain-realm",
+    "name": "Drain Realm",
+    "rarity": "common",
+    "traits": ["concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your previous action was to Sustain your manifested realm"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your manifested realm has a radius of at least 10 feet"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You siphon power from your manifested realm to bolster your physical form. Decrease your manifested realm's radius by 10 feet. You regain a number of "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "@level"
+              }
+            ],
+            "healing": true,
+            "label": "Hit Points equal to your level"
+          },
+          {
+            "type": "text",
+            "text": " and each of your Strikes made before the end of your turn deal an additional 1d8 damage of your realm's damage type."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.JxuXTJIKRwmYn08D"
+    },
+    "data": {
+      "cost": "free",
+      "category": "interaction",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your manifested realm has a radius of at least 10 feet"
+            }
+          ]
+        }
+      ],
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your previous action was to Sustain your manifested realm"
+            }
+          ]
+        }
+      ],
+      "selfEffect": "43e9157c-d8f0-5548-be53-f93b3da12b02"
+    }
+  },
+  {
+    "id": "cb660c5a-c264-58b3-bfb2-b3db3ec0062d",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:drink-of-my-foes",
+    "name": "Drink of my Foes",
+    "rarity": "common",
+    "traits": ["healing", "transcendence", "vitality"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your last action was a successful Strike with the "
+          },
+          {
+            "type": "ref",
+            "id": "38ca5b90-708f-5d41-955b-a32a8c0355ef"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your blade glows as it absorbs your foe's vitality. You regain Hit Points equal to half the damage dealt."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.vZwa0PZLQvm3X5ME"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your last action was a successful Strike with the "
+            },
+            {
+              "type": "ref",
+              "id": "38ca5b90-708f-5d41-955b-a32a8c0355ef"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "98d78467-07bf-5835-8a3e-89010b3b1018",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:embrace-of-destiny",
+    "name": "Embrace of Destiny",
+    "rarity": "common",
+    "traits": ["mental", "spirit", "transcendence"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose an enemy within 20 feet of you. It must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC or be pulled directly toward you into a square adjacent to you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.V4HToYPQlkw8AW50"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "7ba16c40-cb56-5e7c-8394-1ebbad481ff6",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:enter-seat-of-power",
+    "name": "Enter Seat Of Power",
+    "rarity": "common",
+    "traits": ["concentrate", "exploration", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You focus your mind on your seat of power, then tap into this connection to transport yourself to its demiplane. This process takes 10 minutes. You can bring up to 10 willing creatures with you when you Enter Seat of Power; these creatures must remain within 30 feet of you for the duration of the activity."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can remain in your seat of power for as long as you desire. Any creature that you bring to your seat of power in this way (including you) can depart the demiplane as a three-action activity that has the concentrate trait. They return to the location they were in when they Entered your Seat of Power, or the nearest unoccupied space if that location is occupied."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.QWAWf8NDKpo1mzLE"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "0d8ad2ad-05ba-5093-b56e-9f38a72edebe",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:feed-the-masses",
+    "name": "Feed the Masses",
+    "rarity": "common",
+    "traits": ["transcendence"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The "
+          },
+          {
+            "type": "ref",
+            "id": "b6ac3527-6d3c-5452-8bc0-8596768eb159"
+          },
+          {
+            "type": "text",
+            "text": " allows you to transfer the effects of potions and elixirs to your allies. You Interact to draw a consumable from the horn and then Interact to drink it. Rather than nourishing yourself, the item's effects are transferred to a willing ally within 60 feet, as if they had consumed it themself."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the consumable restores Hit Points, you can choose to divide the amount it restores between you and the ally freely (after rolling dice to determine the amount)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.PdEJEiPUP0FDaBki"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "bd161370-bf0f-537a-a35f-b4b26a674790",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:feral-swing",
+    "name": "Feral Swing",
+    "rarity": "common",
+    "traits": ["spirit", "transcendence"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You lash out with both arms, rending all before you. Each creature in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": " must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": {
+              "against": "class-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC or take spirit damage equal to your normal Strike damage with your "
+          },
+          {
+            "type": "ref",
+            "id": "5fa2361a-2474-512c-9c9d-65c6b1df4e73"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can choose to swing with abandon, which imposes a –2 circumstance bonus to enemies' saving throws, but causes you to become "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " until the start of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "0234d299-7e8d-5792-a8a6-7a96c8371c5c"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.K3hd3w20M707t6Iq"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "584de164-b6be-5833-b063-d97555cb82b0",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:find-fault",
+    "name": "Find Fault",
+    "rarity": "common",
+    "traits": ["concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You attempt a saving throw against a spell or magic effect but haven't rolled yet"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You find some kind of fault with the magic, using that flaw to protect yourself from the effect. You gain a +1 circumstance bonus to your saving throw against the triggering effect, which increases to a +2 circumstance bonus if the effect is divine and originates from a worshipper of the deity you chose for your grudge."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.e5JscXqvBUC867oo"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You attempt a saving throw against a spell or magic effect but haven't rolled yet"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "88845d5d-4f8a-57e8-b3ac-d532b909d3bc",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:fleeting-arc-through-heaven-and-earth",
+    "name": "Fleeting Arc through Heaven and Earth",
+    "rarity": "common",
+    "traits": ["light", "spirit", "teleportation", "transcendence"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You swing your weapon in a wide arc, releasing a blazing rainbow that deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "9d6",
+                "damageType": "spirit"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "9d6"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage of the same type as your weapon to all enemies in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": ", with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": {
+              "against": "class-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC. As the rainbow ripples out, you use it as a bridge to teleport to any location within the effect's area."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.ObFY26oKlreyVIUm"
+    },
+    "data": {
+      "cost": "three",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "da52658f-9b51-5f62-a359-213f1c7217dd",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:flowing-spirit-strike",
+    "name": "Flowing Spirit Strike",
+    "rarity": "common",
+    "traits": ["spirit", "transcendence"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Make two Strikes with the gleaming blade, each against the same target and using your current multiple attack penalty. If the "
+          },
+          {
+            "type": "ref",
+            "id": "d82e9024-70e9-56e4-9296-2a147228d1f0"
+          },
+          {
+            "type": "text",
+            "text": " doesn't have the agile trait, the second Strike takes a –2 penalty. If both attacks hit, you combine their damage, which is all dealt as spirit damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You add any precision damage only once. Combine the damage from both Strikes and apply resistances and weaknesses only once. This counts as two attacks when calculating your multiple attack penalty."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageAlteration",
+        "selectors": ["strike-damage"],
+        "property": "damage-type",
+        "mode": "override",
+        "value": "spirit",
+        "predicate": ["option:flowing-spirit-strike", "item:tag:physical-ikon:gleaming-blade"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack"],
+        "type": "untyped",
+        "value": -2,
+        "predicate": [
+          "flowing-spirit-strike:second-strike",
+          "item:tag:physical-ikon:gleaming-blade",
+          {
+            "not": "option:agile"
+          }
+        ]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:exemplar-spirit-damage",
+        "predicate": ["option:flowing-spirit-strike"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.6xWX8Ey5ShAyj1HO"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "c41d3d92-a6ef-5f29-9fea-5dd1237be086",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:flyby-attack",
+    "name": "Flyby Attack",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Fly and can make a Strike at any point along the way."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.dypCcXb9mwVbg6xD"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "a29d2490-5764-5152-8796-9e5f8aefaaf3",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:fracture-mountains",
+    "name": "Fracture Mountains",
+    "rarity": "common",
+    "traits": ["spirit", "transcendence"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your spirit is so dense it takes on tangible force. Make a melee Strike with the "
+          },
+          {
+            "type": "ref",
+            "id": "3b1ab6f6-92b0-5922-afc1-87c069f1c376"
+          },
+          {
+            "type": "text",
+            "text": ". This counts as two attacks when calculating your multiple attack penalty. If this Strike hits, your additional spirit damage from the ikon's immanence increases to 4 plus an extra die of weapon damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you're at least 10th level, it's increased to 6 spirit damage and two extra dice, and if you're at least 18th level, it's increased to 8 spirit damage and three extra dice."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.Ei4T4aQx0a5EdBhm"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "60fddb8a-1223-532a-8fd5-09154dd18def",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:giant-felling-comet",
+    "name": "Giant-Felling Comet",
+    "rarity": "common",
+    "traits": ["spirit", "transcendence"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You shoot the "
+          },
+          {
+            "type": "ref",
+            "id": "f05ad0d4-9e21-561e-a448-fd58d8f02935"
+          },
+          {
+            "type": "text",
+            "text": ", causing a detonation in a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 5
+          },
+          {
+            "type": "text",
+            "text": " within 60 feet. Each creature in the area must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": {
+              "against": "class-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC or take spirit damage equal to your normal Strike damage with the starshot. Creatures larger than you take a –2 circumstance penalty to their saving throws. This shot requires any ammunition that would normally be required for the weapon."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.tzuYnmYCvA3zrj6w"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "b317eb9a-a61c-51af-a076-762d7eafeec2",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:harvest-blood",
+    "name": "Harvest Blood",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your last action was a successful piercing or slashing melee Strike against a creature that is not immune to bleed"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You consume the blood lingering upon your weapon. You reduce the value of your drained condition by 1, gain temporary Hit Points equal to your Constitution modifier, and gain a +1 circumstance bonus to saving throws against that creature's spells for 1 minute, or until you Harvest Blood from another creature."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.GrzbczH9S3SHPiIQ"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your last action was a successful piercing or slashing melee Strike against a creature that is not immune to bleed"
+            }
+          ]
+        }
+      ],
+      "selfEffect": "519b43d9-8d45-51ed-bb73-5e2f7d32abdf"
+    }
+  },
+  {
+    "id": "ba9c38cd-54b9-5ed4-a572-744d39ac31b7",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:heaven-rains-an-ending",
+    "name": "Heaven Rains an Ending",
+    "rarity": "common",
+    "traits": ["transcendence"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You shoot an arrow that multiplies into a dense cloud of weapons. Make one ranged Strike with a –2 penalty against each enemy you are aware of within a cone as long as your weapon's first range increment. Roll the damage only once for all targets, and all the Strike's damage is spirit damage instead of its normal type. Each attack counts toward your multiple attack penalty, the penalty doesn't increase until you have made all your attacks."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.JtEzSceixS0WA8wn"
+    },
+    "data": {
+      "cost": "three",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "e2f3bef7-b21f-52d0-b225-63d1f210fd00",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:heavy-is-the-crown",
+    "name": "Heavy is the Crown",
+    "rarity": "common",
+    "traits": ["concentrate", "mental", "spirit", "transcendence"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The weight of authority falls heavily upon you, as well as nearby creatures. All enemies in a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": " within 60 feet take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "@level",
+                "damageType": "spirit"
+              }
+            ],
+            "label": "spirit damage damage equal to your level"
+          },
+          {
+            "type": "text",
+            "text": " with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC. Any enemy that fails its save must immediately kneel, dropping "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": " as a free action."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.CJnA1wEg2kA5BXfe"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "aae3d581-9c04-5aa5-90d7-ef958e2fc897",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:intercession-spell",
+    "name": "Intercession Spell",
+    "rarity": "common",
+    "traits": ["concentrate", "divine", "spellshape"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your hierophant Casts a Spell"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Interceding directly in your hierophant's affairs, you grant them additional magic. They do not expend the spell slot, usage, or Focus Point."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.0MZ5tFUYKGMq21NV"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your hierophant Casts a Spell"
+            }
+          ]
+        }
+      ],
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "af19e73f-f1d4-58b1-a90b-918da1c086f4",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:liars-hidden-blade",
+    "name": "Liar's Hidden Blade",
+    "rarity": "common",
+    "traits": ["spirit", "transcendence"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your previous action was an unsuccessful Strike with the weapon from the "
+          },
+          {
+            "type": "ref",
+            "id": "1022045a-a173-50e2-b6fa-ce33329f5fc5"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The shadow weapon you threw fades, the distraction covering your true intention all along—a second strike in hidden in the blind spot of the first! Interact to draw another weapon from the shadow sheath, then Strike with it at the same multiple attack penalty as the unsuccessful attack. The opponent is "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " to this attack."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This Strike counts toward your multiple attack penalty as normal. After the Strike resolves, you can Interact to draw another weapon from the shadow sheath."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.egXlMyYLBthoQSgh"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your previous action was an unsuccessful Strike with the weapon from the "
+            },
+            {
+              "type": "ref",
+              "id": "1022045a-a173-50e2-b6fa-ce33329f5fc5"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "9f43cfd0-de39-5c7e-8203-6e9ac6454e94",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:manifest-realm",
+    "name": "Manifest Realm",
+    "rarity": "common",
+    "traits": ["concentrate", "divine", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You corrupt the surrounding area into a manifestation of your realm in a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 20
+          },
+          {
+            "type": "text",
+            "text": " centered on you. Your manifested realm counts as difficult terrain for your enemies, and your enemies take a –1 penalty to Fortitude saving throws while in your manifested realm."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "4f8ffb93-4162-50b6-b5d4-458b99e975d5"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can Sustain your manifested realm once per round on subsequent rounds, and if you do not, the radius of your manifested realm is reduced by 5 feet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your realm remains manifested for a maximum of 1 minute, and you can Dismiss your manifested realm. If your manifested realm's radius is ever reduced to 0 feet or if you move beyond 100 feet from the borders of your manifested realm, your manifested realm is automatically Dismissed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.IfWF56KiSFQbNmHj"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "hour"
+      }
+    }
+  },
+  {
+    "id": "45974bd3-a7f4-5904-bcd5-cd64f72428bb",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:marathon-dash",
+    "name": "Marathon Dash",
+    "rarity": "common",
+    "traits": ["transcendence"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your feet carry you so quickly they leave a slipstream that speeds your allies on. You Stride. Each ally within 10 feet of you at the start of your movement can Stride as a reaction."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.AZt0m0EHRmtDCd5s"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "5700da7c-3fa6-5e77-bb9f-56dffd622953",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:mark-the-center",
+    "name": "Mark the Center",
+    "rarity": "common",
+    "traits": ["transcendence"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You hold a hand to your lips and exhale, releasing enchanted red ash in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": ". The ash clings to the vital areas of each enemy in the area for 1 minute. When a creature marked by the ash is hit and dealt damage by a Strike, it takes an additional 4d6 precision or vitality damage, then its mark ends. The damage type is whichever is worse for the creature, as determined by the GM. At 13th level and every 3 levels thereafter, the damage increases by 1d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.jD8RW5PdLI6snlsO"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "317451ae-8d5b-5e38-8e4b-3c62ddd3b7c3",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:mythic-ambush-excellence",
+    "name": "(Mythic) Ambush Excellence",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A mythic ambusher is exceptional at hiding itself. It uses the extreme skill value for a creature of its level as its Stealth modifier."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.gBVe0BJNScPePlMj"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "7c5bb9f0-a004-550c-8999-c029e2b3b5bf",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:mythic-brutish-athleticism",
+    "name": "(Mythic) Brutish Athleticism",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A mythic brute excels at rough-and-tumble activities. It always uses the extreme skill value for a creature of its level as its Athletics modifier"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.7CREET2Z24B7pulA"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "70efabce-ea6b-5f42-be78-13ee20c0899c",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:mythic-deadly-striker",
+    "name": "(Mythic) Deadly Striker",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A mythic striker deals an additional 1d6 precision damage on its next Strike whenever it uses an action to Stride 10 or more feet (or to Burrow, Climb, or Fly 10 or more feet)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:mythic-deadly-striker",
+        "toggleable": true
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "category": "precision",
+        "predicate": ["option:mythic-deadly-striker"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.ByHEY3s7piqH1rJD"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "d42fcaa1-a1b1-5bef-8855-6937dea38164",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:mythic-devastating-magic",
+    "name": "(Mythic) Devastating Magic",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A mythic caster uses the high spell DC and spell attack modifier for a creature of its level."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If it's 11th level or higher, it instead uses the extreme spell DC and spell attack modifier."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.xhOSLp4nJXUDX4q3"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "c74169a4-514c-57ff-9306-17836aca31b7",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:mythic-hazard-immunity",
+    "name": "(Mythic) Hazard Immunity",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A mythic ambusher never triggers the reactions of hazards in its own lair and is immune to the negative consequences of damaging area effects created by hazards in its lair."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.YwglzjZ7wQCyOYrw"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "85a2b188-43b9-5468-bcbe-984667335ded",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:mythic-mythic-defenses",
+    "name": "(Mythic) Mythic Defenses",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whenever an attacker rolls a critical hit against a creature with mythic defenses, the attacker must reroll the attack roll and take the new result."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.exNN1xhUYQXMRN7x"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "cc611cc9-b029-525e-8a66-5bb90cd21993",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:mythic-mythic-ferocity",
+    "name": "(Mythic) Mythic Ferocity",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cost",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 Mythic Point"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The monster is reduced to 0 HP"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The monster avoids being knocked out and remains at half its maximum HP, but its wounded value increases by 1. When it is "
+          },
+          {
+            "type": "ref",
+            "id": "6c4e09a7-469d-5668-8c1b-92f87de94d27",
+            "label": "Wounded 3"
+          },
+          {
+            "type": "text",
+            "text": ", it can no longer use this ability."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.MDxvZazutX6i95mF"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The monster is reduced to 0 HP"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "f352a6b5-99cf-5ab5-b661-4e3d44ee39aa",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:mythic-mythic-immunity",
+    "name": "(Mythic) Mythic Immunity",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature is immune to either harmful spells cast by non-mythic creatures, or Strikes made with non-mythic weapons and unarmed Strikes from non-mythic characters. Only the most powerful creatures (typically level 25) should be immune to both."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.CvKc38D8oaZEq0Xu"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "bac3cb85-2892-59ba-a40e-254671f80d72",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:mythic-mythic-knowledge",
+    "name": "(Mythic) Mythic Knowledge",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A mythic caster uses the extreme skill modifier for a creature of its level for the skill linked to its spellcasting tradition: Arcana for arcane, Nature for primal, Occultism for occult, or Religion for divine."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.0NncsizpKo4wrEGa"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "6c612b51-76cc-598c-87dd-0905713d8524",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:mythic-mythic-mobility",
+    "name": "(Mythic) Mythic Mobility",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A mythic striker benefits from high mobility and is difficult to pin down. It always uses the extreme skill value for a creature of its level as its Acrobatics modifier."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.ZKrCKzH0ievnVBmw"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "67034793-ad8d-53e1-bf35-3045b67d29e3",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:mythic-mythic-power",
+    "name": "(Mythic) Mythic Power",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature has a pool of 3 Mythic Points, and can spend those Mythic Points for any of the actions it has."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.jNW79frpM2miwJvD"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "4e6fe4be-dfe0-5eb8-9e8f-87f8f4c97a9b",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:mythic-mythic-resilience",
+    "name": "(Mythic) Mythic Resilience",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature treats its saving throws with the associated save as one degree of success better than it rolled. This is not cumulative with other effects that change their degree of success, like the incapacitation trait (except for rolling a natural 1 or 20). Each time the monster gains mythic resilience, choose one save. The ability should apply to the creature's highest saves first."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["save:fortitude"],
+        "adjustment": {
+          "all": "one-degree-better"
+        }
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["save:reflex"],
+        "adjustment": {
+          "all": "one-degree-better"
+        }
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["save:will"],
+        "adjustment": {
+          "all": "one-degree-better"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.0zvUNv8hRTdwXmhF"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "855d0bd7-3a3e-5a14-a3ab-f7ea6328500a",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:mythic-mythic-resilience-mythic-ambusher",
+    "name": "(Mythic) Mythic Resilience (Mythic Ambusher)",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A mythic ambusher of any level gains mythic resilience for Reflex saving throws. It gains mythic resilience for its other saves at 7th and 13th level as normal."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.neS9sqernQewAuPZ"
+    },
+    "data": {
+      "cost": "one",
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "24645bcd-2e4f-528a-a466-f4d3724e30de",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:mythic-mythic-resistance",
+    "name": "(Mythic) Mythic Resistance",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains resistance to all Strikes made by non-mythic creatures equal to half its level. If it gains mythic resistance a second time, increase the resistance to its full level. Mythic weapons bypass this resistance even if the creature wielding them is not mythic."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.anjtXUW6krim20UM"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "2ade3bde-e572-521a-8a69-7258a347a1b2",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:mythic-mythic-skill",
+    "name": "(Mythic) Mythic Skill",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cost",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 Mythic Point"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature attempts its next skill check with a +4 bonus and is considered to have mythic proficiency for that check. This applies to one skill when this ability is gained and a second skill if the creature is 12th level or higher."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:mythic-skill",
+        "toggleable": true
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "untyped",
+        "value": 4,
+        "slug": "mythic-skill-bonus",
+        "predicate": ["option:mythic-skill"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.gNxphcYARRn2bZ1i"
+    },
+    "data": {
+      "cost": "free",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "74372d34-915c-549a-95a7-9dd19943730a",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:mythic-mythic-weakness-extreme-frailty",
+    "name": "(Mythic) Mythic Weakness (Extreme Frailty)",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A mythic caster relies on magic in combat and never develops the durability of other mythic creatures. It can't gain mythic resilience in Fortitude, mythic immunity to Strikes, or mythic resistance."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.bWO8ScQpiFtoGi93"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "abc11525-015a-5dca-8062-fc8b0ebeb698",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:mythic-mythic-weakness-frailty",
+    "name": "(Mythic) Mythic Weakness (Frailty)",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A mythic ambusher relies on stealth and subterfuge. It can't gain mythic immunity to Strikes or mythic resistance."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.AQLgA4LnpmcWEkP6"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "2f6b12d6-6c5c-5919-845e-6fbafb020cbb",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:mythic-mythic-weakness-weak-willed",
+    "name": "(Mythic) Mythic Weakness (Weak-Willed)",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A mythic brute is physically potent but not as mentally tough. It can't gain mythic resilience to Will saves."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.mg5fmA9Dnu0Z88nJ"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "d669b164-c96d-5bb4-b7fa-b0209be998e7",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:mythic-recharge",
+    "name": "(Mythic) Recharge",
+    "rarity": "common",
+    "traits": ["concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cost",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 Mythic Point"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature gains one additional use of a spell or ability that is normally only available a limited number of times. For example, a spellcaster can regain an expended slot or use an ability with a frequency of once per day again."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.Amur69xCgfyCsY34"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "bbc8a200-8117-5b77-9efe-e55bb888b608",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:mythic-recharge-spell",
+    "name": "(Mythic) Recharge Spell",
+    "rarity": "common",
+    "traits": ["concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cost",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 Mythic Point"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A mythic caster of any level gains the Recharge mythic power action for spells."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.HhD6EWTdYOyH6Rbr"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "01d5adea-75f2-54b5-964f-7c41ccd271c7",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:mythic-remove-a-condition",
+    "name": "(Mythic) Remove a Condition",
+    "rarity": "common",
+    "traits": ["concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cost",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 Mythic Point"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature ends one condition affecting it."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.ta5reS33mtwBHWzX"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "2c643fa4-e4c2-5e37-b0ae-5ca5da66753b",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:mythic-reroll",
+    "name": "(Mythic) Reroll",
+    "rarity": "common",
+    "traits": ["fortune"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cost",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 Mythic Point"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature fails a check"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature rerolls the check."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.MFADnbvNMY9AQNzG"
+    },
+    "data": {
+      "cost": "free",
+      "category": "offensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The creature fails a check"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "8ea8328e-9a6d-5a39-9a32-6e761189542f",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:mythic-titanic-might",
+    "name": "(Mythic) Titanic Might",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A mythic brute ignores size limitations when performing actions like "
+          },
+          {
+            "type": "ref",
+            "id": "380d34f1-f6f6-5820-b9dd-c01ee4e19fd5"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "6257c7f0-f483-53d3-a791-d73a616cbce4"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.kDe93M70RBcImRlG"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "ca300a29-7fea-511c-80f2-33b7a4bd22cb",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:mythic-undying-myth",
+    "name": "(Mythic) Undying Myth",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cost",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " all the creature's Mythic Points"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature would die and has at least 1 Mythic Point"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature remains standing and conscious, and recovers 50% of its maximum Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.fnwTADEGOKtTxDPu"
+    },
+    "data": {
+      "cost": "free",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The creature would die and has at least 1 Mythic Point"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "775b8567-2169-56b4-9abb-19995bc65f8c",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:mythic-unimpeded",
+    "name": "(Mythic) Unimpeded",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cost",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 Mythic Point"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The mythic striker automatically ends one effect that would give it a circumstance penalty to Speed. When it attempts to "
+          },
+          {
+            "type": "ref",
+            "id": "2ae74030-e87a-55ee-955c-fb9870392d44"
+          },
+          {
+            "type": "text",
+            "text": " an effect that has it "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071"
+          },
+          {
+            "type": "text",
+            "text": ", it automatically succeeds."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.pC1w0DC8tcgfhiRv"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "13f84dba-56fc-50a2-b725-adc76bd0d234",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:no-scar-but-this",
+    "name": "No Scar but This",
+    "rarity": "common",
+    "traits": ["concentrate", "healing", "transcendence", "vitality"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your wounds knit shut with hardly a scratch. You regain "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(ceil(@level/2))d8",
+                "damageType": "vitality"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points. At 3rd level and every 2 levels thereafter, the healing increases by 1d8."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.JdpUaQeNwoVr2VHL"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "af5ee715-9563-5e16-a0b2-4acc568d810c",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:one-moment-till-glory",
+    "name": "One Moment till Glory",
+    "rarity": "common",
+    "traits": ["concentrate", "emotion", "mental", "transcendence"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You rally your allies, carrying them from the brink of disaster to the verge of victory. Each ally in your aura can immediately attempt a new saving throw with a +2 status bonus against one ongoing negative effect or condition currently affecting it that required a save. Use the result of the new save to determine the outcome of the effect, unless the new save would have a worse result than the original save, in which case nothing happens. Each ally can gain this benefit against a given effect only once."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "5dd1e32a-c752-55dd-b24b-fefb835a3cec"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.IEBBHnI7wWRt44KG"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "a8deb5c4-299e-549a-82a7-8daacc266bb9",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:only-you-and-i",
+    "name": "Only You and I",
+    "rarity": "common",
+    "traits": ["concentrate", "transcendence"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You draw your foe into a fated conflict—one you know you'll win. Choose an enemy within your reach. Until the end of your next turn, that enemy gains a +2 circumstance bonus to attack rolls it makes against you, but it must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC whenever it tries to move away from you, Strike a target other than you, or Cast a Spell that doesn't include you as a target. On a failure, the action or actions related to the failed attempt is disrupted. Whenever the enemy misses you with a Strike while this effect is active, you heal "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d8+5"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "c4dfe637-f9a1-529b-944f-88f30595ab18"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.8r9ePG6BnrnO6YE1"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "2bd89bf4-7522-51fd-85df-d128ffd4aa75",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:overawe-crowd",
+    "name": "Overawe Crowd",
+    "rarity": "common",
+    "traits": ["concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are sharing the same space as a swarm or are adjacent to a troop"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Spend 1 Mythic Point and attempt an Intimidation check at mythic proficiency against the Will DC of the required swarm or troop. On a failure, the target Strides in a direction of your choosing and you move along with it. On a success, the target Strides twice in a direction of your choosing and you can decide whether or not to move along with it. No matter the result, the target is "
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+            "label": "Stunned 1"
+          },
+          {
+            "type": "text",
+            "text": " and temporarily immune to your Overawe Crowd for 24 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.QGeA2sPtDdryTpWw"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You are sharing the same space as a swarm or are adjacent to a troop"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "fae8e67e-8712-5125-93dc-b61fe7bbf166",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:plant-thirty-barbs",
+    "name": "Plant Thirty Barbs",
+    "rarity": "common",
+    "traits": ["death", "transcendence"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You snap off a fragment of your ikon within your opponent's body, which threatens to burst into numerous barbs. Make a Strike with your ikon. If successful, barbs fill the target, dealing two die of weapon damage the first time the creature uses a move action on each of its turns; the barbs are made out of the same material as your weapon ikon and bypass resistances and such accordingly (for instance, a cold iron spear would create cold iron barbs). The barbs last for 1d4 rounds. If the target dies while the barbs are still in their body, the barbs burst forth in a forest of thorns covering the creature's space, which are greater difficult terrain and deal piercing damage equal to half your level for each square that is moved into."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.cfQb0mBbyrjhyGf5"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "7862797c-2647-5ac2-b81f-8e738a430308",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:race-the-skies",
+    "name": "Race the Skies",
+    "rarity": "common",
+    "traits": ["concentrate", "transcendence"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take your place among the heavens. For 1 minute, you gain a fly Speed equal to your Speed or 20 feet, whichever is greater."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.MrTULCUsE9naPxXg"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "selfEffect": "769db02e-b3ae-508f-b6ab-217680b1204b"
+    }
+  },
+  {
+    "id": "8470b755-a76c-56fc-9f27-9595defc8099",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:raise-the-walls",
+    "name": "Raise the Walls",
+    "rarity": "common",
+    "traits": ["force", "transcendence"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You Raise the mirrored aegis, which summons ethereal shields that surround you and one ally of your choice within 15 feet in a tortoise shield formation. You and the ally gain a +1 status bonus to AC, Reflex saves, and any save against a force, spirit, vitality, or void effect for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "5a9155cb-4117-5ea5-856c-892e00763bd5"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.IBEbFlMmDbGsrN4G"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "5ceb3822-27cb-5c2d-949b-3b37e53f077d",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:reap-the-field",
+    "name": "Reap the Field",
+    "rarity": "common",
+    "traits": ["transcendence"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your previous action was a successful Strike with the "
+          },
+          {
+            "type": "ref",
+            "id": "c6078273-50a2-5b60-953c-2c94819b919d"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Time seems to lag as you blur across the battlefield, deciding the fate of many in a moment. Stride up to half your Speed and make another melee Strike with the mortal harvest against a different creature."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This Strike uses the same multiple attack penalty as your previous Strike, but counts toward your multiple attack penalty as normal."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.24k7qCV8S95yYK3y"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your previous action was a successful Strike with the "
+            },
+            {
+              "type": "ref",
+              "id": "c6078273-50a2-5b60-953c-2c94819b919d"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "3297fa0f-c7d3-529d-922f-cbdf8caf49b6",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:rejoin-in-flight",
+    "name": "Rejoin in Flight",
+    "rarity": "common",
+    "traits": ["transcendence"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You throw your weapon ikons to either side of a creature, and they seek each other out, converging on the target. Make two thrown Strikes against a target within the first range increment of both your weapon ikons. This counts as two attacks toward your multiple attack penalty, but the penalty doesn't increase until after you've made both attacks. The target is flanked for both attacks (typically making it "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " against both attacks). If both Strikes hit, the target also takes an additional die of weapon damage. The weapons then return to your hand."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.I08t3hnpMZSRX5Ug"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "bd9c6ece-e891-5dd9-8e17-2ccbb1a76e18",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:rewrite-fate",
+    "name": "Rewrite Fate",
+    "rarity": "common",
+    "traits": ["fortune", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You roll a skill check or saving throw and don't like the result."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destiny, fate, or some other force bends around you as your mythic power swells, manifesting in a flash of light or visible surge of energy emanating from your body as you cast aside the chains of fate. You expend a Mythic Point and reroll the check or save with mythic proficiency, taking the new result."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.SNjmjFw30KQxIP4A"
+    },
+    "data": {
+      "cost": "free",
+      "category": "interaction",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You roll a skill check or saving throw and don't like the result."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "d013cbcb-cc38-5735-9efb-a7c8582f63ca",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:ringing-challenge",
+    "name": "Ringing Challenge",
+    "rarity": "common",
+    "traits": ["sonic", "spirit", "transcendence"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You clang your ikon against a weapon, shield, or the ground, emitting a shock wave that deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(max(1,(floor((@level - 2)/2))))d4",
+                "damageType": "spirit"
+              },
+              {
+                "formula": "(max(1,(floor((@level - 2)/2))))d4",
+                "damageType": "sonic"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to all creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": {
+              "against": "class-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save). A creature that critically fails its saving throw is "
+          },
+          {
+            "type": "ref",
+            "id": "4271da2e-7225-5aa7-9807-c499d8af6a5a"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At 6th level and every 2 levels thereafter, the damage increases by 1d4 spirit damage and 1d4 sonic damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.mBqZ2IahMT9Jvo7k"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "819dce4b-a20d-5971-b759-60ab05877551",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:royal-grace",
+    "name": "Royal Grace",
+    "rarity": "common",
+    "traits": ["concentrate", "exploration", "linguistic", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You spend 10 minutes conferring with one of your knights who has the doomed condition. By discussing plans for your future kingdom with them and describing the benefits of your rule, you can attempt to soothe their spirits. Attempt a Diplomacy or Society check against a hard DC of your knight's level. Regardless of the result, that knight gains the benefits of the Refocus activity (if they have a focus pool) but is temporarily immune to Royal Grace for 24 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The knight's doomed condition is reduced by 2 (minimum 0)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The knight's doomed condition is reduced by 1 (minimum 0)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The knight's doomed condition isn't reduced."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.SowCo0BXngrpatgn"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "f1d158a0-1347-573e-9885-48f53edd6d1a",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:sever-four-dragonfly-wings",
+    "name": "Sever Four Dragonfly Wings",
+    "rarity": "common",
+    "traits": ["transcendence"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Make a Strike that deals slashing damage with your weapon ikon. If that Strike is successful, you can immediately make an additional Strike against a different target within your reach. You can continue making Strikes in this manner, each against a different target, until you have made a total of four Strikes or you miss with a Strike, whichever comes first. Each attack counts toward your multiple attack penalty, but you do not increase your penalty until you have made all your attacks."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.XFdTDDAPO7U0r4Et"
+    },
+    "data": {
+      "cost": "three",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "c7ed3db4-aa4f-5b77-abfa-eaba255fa745",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:shed-the-mortal-skin",
+    "name": "Shed the Mortal Skin",
+    "rarity": "common",
+    "traits": ["healing", "light", "transcendence", "vitality"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Like the serpent, that most ancient of immortals, you shed your skin, revealing a glowing divine form. If you are currently taking persistent fire or acid damage, you immediately end the effect. Until the beginning of your next turn, you shed bright light in a 20-foot radius (and dim light for the next 20 feet) like a torch. The next time you are dealt damage by an enemy before the beginning of your next turn, you shed glowing ichor in a square adjacent to you, and where it hits the earth, a glowing, thorned herb grows. A creature other than you can pluck and consume the herb with an Interact action to regain a number of Hit Points equal to half of the damage you were dealt by the attack that sprouted the herb."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.rU3CE5niG8vHc5x4"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "bf608f35-85a2-53fd-a322-2605170d7e68",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:shift-immanence",
+    "name": "Shift Immanence",
+    "rarity": "common",
+    "traits": ["divine", "exemplar"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per round"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You shift your power, filling one of your ikons with your divine spark. That ikon softly glows with radiant light, emits subtle chimes as it moves, or is otherwise obviously empowered in a way that matches your growing divinity, granting the ikon the divine trait and granting you that ikon's immanence effects for as long as your divine spark is empowering it. Your spark is indivisible, so it can empower only one ikon at a time. You can also Shift Immanence to return your spark to the depths of your soul, leaving none of your ikons empowered."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " In addition to the above usage, you can also Shift Immanence as a free action triggered when you roll initiative."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["initiative"],
+        "title": "Shift Immanence",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You can also Shift Immanence as a free action triggered when you roll initiative."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.9cGJBXSJW6EpgibP"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "round"
+      }
+    }
+  },
+  {
+    "id": "48207ae9-d8fe-5807-89e6-65d282d460a0",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:skirt-the-underworld",
+    "name": "Skirt the Underworld",
+    "rarity": "common",
+    "traits": ["concentrate", "illusion", "incapacitation", "transcendence"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You skirt into the world of the dead, becoming "
+          },
+          {
+            "type": "ref",
+            "id": "53cf375b-c3fa-5d92-afde-135a3c001674"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round, then Fly up to your Speed. Each enemy adjacent to you at any point during this movement must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": {
+              "against": "class-dc"
+            },
+            "options": ["inflicts:blinded"]
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC or become "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute (or permanently on a critical failure)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For each creature blinded by this effect, the duration of the granted invisibility extends by 1 round. Undead and other creatures with strong ties to the world of the dead, such as psychopomps, are immune to this effect."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.exuTl8tvVlewxVGJ"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "6d02b33f-4680-53c4-be52-5ae4c3e6bbf0",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:spasm-of-the-berserker",
+    "name": "Spasm of the Berserker",
+    "rarity": "common",
+    "traits": ["transcendence"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your body warps beyond recognition into a powerful, one-eyed form. You're affected by a 4th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "b76d119e-0d8d-52ad-8cca-1a224c3077ae"
+          },
+          {
+            "type": "text",
+            "text": " spell and a 6th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "c6cea9c6-25dd-5c7c-8056-4c7bac1dceba"
+          },
+          {
+            "type": "text",
+            "text": " spell, which both last until the end of your next turn. You can't attempt to end the moon frenzy early."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If this ikon becomes empowered again, you can extend Spasm of the Berserker's duration until the end of your next turn. While you're already affected by Spasm of the Berserker, the transcend action becomes a free action to extend its duration until the end of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.tHHpBREXDaafK3TF"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "368dfe9b-2dfe-5102-8279-57df1d2db41c",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:speed-of-arms",
+    "name": "Speed of Arms",
+    "rarity": "common",
+    "traits": ["mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your turn begins"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You make a Strike against one opponent within your reach, or Stride directly towards an opponent. If this is the first time you've struck that opponent during this encounter, the Strike is made at mythic proficiency."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.plLX3yDcKo2YiJ0j"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your turn begins"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "75c2aa59-71fc-5584-83c7-fc060d6284e6",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:spread-realm",
+    "name": "Spread Realm",
+    "rarity": "common",
+    "traits": ["concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your previous action was to Sustain your manifested realm"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your manifested realm further corrupts more of your surroundings. Increase your manifested realm's radius by 10 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.Ssp7CCGMJhcAfeYw"
+    },
+    "data": {
+      "cost": "free",
+      "category": "interaction",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your previous action was to Sustain your manifested realm"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "0b2e76e0-15da-5ebb-8897-1686ab0dd125",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:strike-breathe-rend",
+    "name": "Strike, Breathe, Rend",
+    "rarity": "common",
+    "traits": ["spirit", "transcendence"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your last action this turn was a successful Strike with the "
+          },
+          {
+            "type": "ref",
+            "id": "69813190-39d7-5db3-836d-03832b4598ce"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You channel a rending pulse of energy down your weapon in the moment of contact. The target of the Strike takes spirit damage equal to the noble branch's weapon damage dice. This includes any extra dice from striking runes, but not from special abilities, property runes, or the like."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.oaJeGdGPmHiNT5mP"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your last action this turn was a successful Strike with the "
+            },
+            {
+              "type": "ref",
+              "id": "69813190-39d7-5db3-836d-03832b4598ce"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "8d1208a7-ef68-5e46-9fba-e83bef4cb253",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:survive-the-wilds",
+    "name": "Survive the Wilds",
+    "rarity": "common",
+    "traits": ["aura", "manipulate", "transcendence"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You wrap the pelt around yourself. You can choose to change the damage type the pelt is attuned to. The pelt shines gold, drawing the offending energies into itself."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Until the start of your next turn, this shine creates an aura in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": ". You and all allies in the emanation gain a +2 circumstance bonus to AC and saving throws against effects with that trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.NdMSHDtV9G7MbdP2"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "selfEffect": "a4031ea2-56ce-511c-bb0b-2f5f49ce634e"
+    }
+  },
+  {
+    "id": "db04f251-5c50-5c24-bcb5-1fbac6d5d0b1",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:topple-the-pillar-of-heaven",
+    "name": "Topple the Pillar of Heaven",
+    "rarity": "common",
+    "traits": ["transcendence"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your ikon extends to an impossible length, striking all in its way. You deal "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(max(6,floor(@level / 2)))d8"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to all creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "line",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": ", with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": {
+              "against": "class-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC. The damage type matches that of your weapon. At 14th level and every two levels thereafter, the damage increases by 1d8."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.Ypwa9HIw7uXdt25D"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "18da4162-fb70-5eb6-afc0-3fbc6949671f",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:ultimatum-of-liberation",
+    "name": "Ultimatum of Liberation",
+    "rarity": "common",
+    "traits": ["auditory", "linguistic", "mental", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You proclaim an ultimatum against a creature you believe is oppressing others and all who follow their orders. All other creatures (including you) who hear your ultimatum, or learn about it later on, are emboldened by your words for 1 day, and gain a +2 status bonus to their Will saving throws against effects produced by the oppressing creature and their allies, which increases to +3 if they are within 30 feet of you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "a0a4c695-9096-5999-b6ce-db3e9b1ee67a"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additionally, the first time each day that creature and each of its allies comes within 30 feet of you, they must succeed on a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-or-spell-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC or spell DC (whichever is higher) or become "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 1"
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": " on a critical failure). This second effect has the emotion, fear, and mental traits. The oppressing creature may end all the effects as a free action by truthfully agreeing to permanently end their oppression. Otherwise, your Ultimatum of Liberation has no duration, though you can have only one Ultimatum of Liberation active at a time. If you pronounce a second Ultimatum of Liberation, the effects of the first one end."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.cwBsPU24715fUCub"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction",
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "97c82924-cbde-5796-a288-b04456971525",
+    "pack": "war-of-immortals",
+    "kind": "action",
+    "slug": "action:unleash-realm",
+    "name": "Unleash Realm",
+    "rarity": "common",
+    "traits": ["concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your previous action was to Sustain your manifested realm"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You punish those who transgress upon your realm. An enemy within your realm takes 4d8[@actor.flags.system.realmDamage] damage of your realm's damage type with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": {
+              "against": "class-or-spell-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC or spell DC, whichever is higher."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.mpFTlTGmPBKXMq2C"
+    },
+    "data": {
+      "cost": "free",
+      "category": "offensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your previous action was to Sustain your manifested realm"
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

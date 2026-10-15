@@ -1,0 +1,1453 @@
+[
+  {
+    "id": "db90039d-44f0-5a1b-9cff-43e8bc187644",
+    "pack": "war-of-immortals",
+    "kind": "weapon",
+    "slug": "weapon:combat-fishing-pole",
+    "name": "Combat Fishing Pole",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["ranged-trip", "tethered", "thrown-20", "versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The combat fishing pole is a sturdy and flexible pole that can be used as a weapon in melee. When a lure is attached to a combat fishing pole, it can be used to make thrown weapon attacks with a range increment of 20 feet, though the lure must then be reeled back in with an Interact action before the weapon can be used at range again (see the tethered trait). The ranged trip, tethered, thrown, and versatile P traits of the combat fishing pole only apply to thrown attacks made with a lure; throwing the pole itself leaves you with no practical way to retrieve it other than moving to its location and picking it up. A combat fishing pole can be used alongside fishing tackle to fish, and it adds its item bonus from weapon potency runes (if any) as an item bonus on checks to fish when used in this manner."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.d11vAXNTniXKWXIx"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 4
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "flail",
+      "baseItem": "combat-fishing-pole",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "ab89c94c-59fc-59a2-a28c-45e5c1b5ed14",
+    "pack": "war-of-immortals",
+    "kind": "weapon",
+    "slug": "weapon:fighting-oar",
+    "name": "Fighting Oar",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["sweep", "versatile-s"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A fighting oar is a sturdy boat oar, typically made of wood, whose haft and blades are reinforced for use in combat. A fighting oar adds its item bonus from weapon potency runes (if any) as an item bonus on Piloting Lore and Sailing Lore checks made to pilot a rowed vehicle."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.edlvRl3zCceS7MSo"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 5
+        }
+      },
+      "bulk": 2,
+      "category": "simple",
+      "group": "polearm",
+      "baseItem": "fighting-oar",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "57fdd483-d5fa-54ea-8204-e980c49d9be7",
+    "pack": "war-of-immortals",
+    "kind": "weapon",
+    "slug": "weapon:freedoms-flame",
+    "name": "Freedom's Flame",
+    "level": 21,
+    "rarity": "unique",
+    "traits": ["artifact", "magical", "mythic", "razing", "versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+4 major striking holy morningstar",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is made of wood and adorned with golden flames traced along its haft and head. It has the razing trait, and it ignores the Hardness of structures used to hold those you feel are being unjustly imprisoned (subject to the GM's discretion)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Break Free",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Spend a Mythic Point; "
+          },
+          {
+            "type": "text",
+            "text": "Freedom's Flame",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " blazes with a rose-red light, creating a beacon of spiritual strength. Any creature within "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 120
+          },
+          {
+            "type": "text",
+            "text": " that's currently under a compulsion or control effect can immediately attempt a new saving throw to break free of the effect, with a +3 status bonus."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Holy Retribution",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, divine)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your previous action was to use "
+          },
+          {
+            "type": "text",
+            "text": "Freedom's Flame",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to Strike a foe you have witnessed use a compulsion or control effect on an ally within the past hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Spend a Mythic Point; your blow is empowered by the righteousness of "
+          },
+          {
+            "type": "ref",
+            "id": "2fc04d72-6fde-587e-b378-383233dc8089"
+          },
+          {
+            "type": "text",
+            "text": ". The target's holy weakness is triggered again or, if the target doesn't have a holy weakness, it takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "15",
+                "damageType": "spirit"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destruction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Freedom's Flame",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is sliced in two if struck by a Final Blade that has been anointed with "
+          },
+          {
+            "type": "ref",
+            "id": "525ee798-01a4-5f5d-bf02-d51bab04b9c5"
+          },
+          {
+            "type": "text",
+            "text": " created by a level 20 unholy creature."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.B4sqJnFnucXloCOu"
+    },
+    "data": {
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "holy-retribution",
+          "name": "Holy Retribution",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "simple",
+      "group": "club",
+      "baseItem": "morningstar",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 4,
+        "striking": 3,
+        "property": ["1c942139-39ff-5ab6-bccc-88a68a1ec2e6"]
+      }
+    }
+  },
+  {
+    "id": "5d4e8dac-484a-5894-913a-79742955d860",
+    "pack": "war-of-immortals",
+    "kind": "weapon",
+    "slug": "weapon:gladius",
+    "name": "Gladius",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["deadly-d10", "versatile-s"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Similar to a shortsword, a gladius is designed to inflict deadly stabbing wounds while still being useful as a slashing weapon."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.wGT3VAQ8NXleUsx3"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "gladius",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "74cb4f99-af47-5475-b77d-4aedb01d7618",
+    "pack": "war-of-immortals",
+    "kind": "weapon",
+    "slug": "weapon:gut-ripper",
+    "name": "Gut-Ripper",
+    "level": 7,
+    "rarity": "unique",
+    "traits": ["deadly-d10", "magical", "mythic", "trip"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking ogre hook",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " causes its owner to dream of past murders conducted with the weapon. "
+          },
+          {
+            "type": "text",
+            "text": "Gut-Ripper",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "'s mythic magic is tied to the bloodlust of the ogre boss who was holding it upon becoming mythic. If "
+          },
+          {
+            "type": "text",
+            "text": "Gut-Ripper",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " doesn't kill a creature each day by midnight, it becomes a non-magical ogre hook."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Rip Guts! Rip Guts!",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Cost",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 Mythic Point"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You throw "
+          },
+          {
+            "type": "text",
+            "text": "Gut-Ripper",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " in a line of any length up to 60 feet, then it returns to your hands. Each creature in the line takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d10",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 25,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save. If there's a creature at the end of the line, you instead make a melee Strike against it with the hook that deals an additional "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d10",
+                "damageType": "bleed",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. Each time a creature takes this bleed damage, you regain that many HP; this is a healing vitality effect. This activation can't be used again for 1d4 rounds."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.u5VXHAmxYqp0H54F"
+    },
+    "data": {
+      "bulk": 2,
+      "category": "martial",
+      "group": "pick",
+      "baseItem": "ogre-hook",
+      "damage": {
+        "dice": 1,
+        "die": "d10",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "e31ece6c-1659-5f83-be40-e0de2093e2cc",
+    "pack": "war-of-immortals",
+    "kind": "weapon",
+    "slug": "weapon:kestros",
+    "name": "Kestros",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["concussive", "propulsive"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The kestros is a type of sling that fires special ammunition with wing-shaped fins and a pointed end. The thongs of the sling are of uneven length, one shorter and one several inches longer, around an open loop to cradle the ammunition as the sling is spun."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.OrzHZJzDpTCgGT4i"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "sling",
+      "baseItem": "kestros",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "range": 40,
+      "reload": 1,
+      "ammunition": {
+        "type": "sling-bullets",
+        "capacity": 1
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "b6336b8d-6326-57e2-9a16-344e93ce6afa",
+    "pack": "war-of-immortals",
+    "kind": "weapon",
+    "slug": "weapon:macuahuitl",
+    "name": "Macuahuitl",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["backswing", "tearing", "versatile-b"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This wooden club is embedded with razor-sharp blades, typically made of obsidian. The blades are inserted vertically around two sides of the weapon, leaving a central bludgeoning surface available for bashing."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.BjSx9EkQNnuHZbvg"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "club",
+      "baseItem": "macuahuitl",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "c65a7c53-19bb-5ca5-b55b-723c0182b0f1",
+    "pack": "war-of-immortals",
+    "kind": "weapon",
+    "slug": "weapon:palstave",
+    "name": "Palstave",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["sweep"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This simple axe is created by inserting a weighted metal wedge into a curved wooden handle with a Y-shaped groove at the top, and then binding the splitting wedge in place with leather thongs."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.G58Tx1lQqa8n6m5c"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 4
+        }
+      },
+      "bulk": 1,
+      "category": "simple",
+      "group": "axe",
+      "baseItem": "palstave",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "c132ebb5-aa22-5f55-9aa4-7d2871836727",
+    "pack": "war-of-immortals",
+    "kind": "weapon",
+    "slug": "weapon:shadowpiercer",
+    "name": "Shadowpiercer",
+    "level": 23,
+    "rarity": "unique",
+    "traits": ["artifact", "magical", "monk", "mythic", "thrown-20"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Muted, silvery moonlight gleams along the curved blade of this "
+          },
+          {
+            "type": "text",
+            "text": "+4 major striking ghost touch spear",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". Braided tassels of horsehair dangle from its sturdy haft, and archaic runes in Nidalese script shimmer along the weapon in the presence of shadow magic."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Shadowpiercer",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " ignores immunity and resistance to precision damage of creatures with the incorporeal or shadow trait, and deals an additional 2d6 precision damage to such creatures. While wielding "
+          },
+          {
+            "type": "text",
+            "text": "Shadowpiercer",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you gain a +2 status bonus to saving throws against darkness and shadow effects; this bonus also applies to allies within 60 feet of you while you wield the spear. If you are a worshipper of "
+          },
+          {
+            "type": "ref",
+            "id": "47aae0d3-181c-535a-9242-9625acd33814"
+          },
+          {
+            "type": "text",
+            "text": ", you are "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 4"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 4"
+          },
+          {
+            "type": "text",
+            "text": " while carrying or wielding "
+          },
+          {
+            "type": "text",
+            "text": "Shadowpiercer",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". If you use a darkness or shadow effect while carrying or wielding "
+          },
+          {
+            "type": "text",
+            "text": "Shadowpiercer",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you become enfeebled 4; this condition's value reduces by 1 at the start of each day you do not have physical contact with "
+          },
+          {
+            "type": "text",
+            "text": "Shadowpiercer",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Absorb Shadows",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, healing, manipulate, occult)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You touch "
+          },
+          {
+            "type": "text",
+            "text": "Shadowpiercer",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to a darkness or shadow effect to siphon its energy and bolster yourself. You gain a number of temporary Hit Points equal to four times the effect's counteract rank. These temporary Hit Points last for 1 hour. In addition, if the effect is causing darkness, that darkness is automatically counteracted within 15 feet of you for as long as you have those temporary Hit Points. This doesn't provide light—it merely restores the area to its natural illumination level."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Rebuff Gloom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, occult)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You or an ally within 60 feet is targeted by a darkness or shadow effect"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You don't currently have the drained condition"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Spend a Mythic Point; the spear drains your vitality to counteract the effect. You can attempt to counteract the effect (+46 modifier level, counteract rank 10). You can activate this effect without having a Mythic Point available but doing so makes you "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destruction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Shadowpiercer",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " simply disappears if a worshipper of Zon-Kuthon casts a 10th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "d7720a54-bc70-5d59-bdb1-d50d8eb0dac9"
+          },
+          {
+            "type": "text",
+            "text": " spell on it once a day for an entire month while it is unattended."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Aura",
+        "radius": 60,
+        "effects": [
+          {
+            "effect": "5958cb85-6526-5f10-ab66-892ca2e96a6c",
+            "affects": "allies"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ehvsr3D5tgdyUF4E"
+    },
+    "data": {
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "absorb-shadows",
+          "name": "Absorb Shadows",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "simple",
+      "group": "spear",
+      "baseItem": "spear",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 4,
+        "striking": 3,
+        "property": ["3e294082-c3ff-58be-ab80-1608b9c6229a"]
+      }
+    }
+  },
+  {
+    "id": "a788e483-c598-568c-ad4f-6dd68a29868c",
+    "pack": "war-of-immortals",
+    "kind": "weapon",
+    "slug": "weapon:shard-of-self-destruction",
+    "name": "Shard of Self-Destruction",
+    "level": 5,
+    "rarity": "rare",
+    "traits": ["cursed", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This jagged shard of bone appears to be and functions as a "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking dagger",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " with a sharp edge that is perpetually stained with blood. Whenever you critically hit with the weapon, you deal an additional 1d6 persistent bleed damage, but you also take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "bleed",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. You take a –2 penalty to the flat check to remove this bleed damage, and when you succeed at this flat check, you are exposed to Verex's ruin (see below) as the site of the injury grows red and inflamed, your blood vessels discoloring and swelling as if serrated knives were trying to push their way out."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Once the curse has activated for the first time, the weapon fuses to you; while you can sheathe the dagger outside of combat, it appears in your hand when a fight begins and you can't sheathe it as long as there is an enemy you can perceive."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Verex's Ruin",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (disease, unholy)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Saving Throw",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 22
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Onset",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 1"
+          },
+          {
+            "type": "text",
+            "text": " (1 day)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 2"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "5e3582c3-701c-5169-9c69-4221096722c2"
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "spirit"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage each time you would take persistent bleed damage (1 week)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " as stage 2, but the spirit damage increases to "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "spirit"
+              }
+            ],
+            "label": "2d6"
+          },
+          {
+            "type": "text",
+            "text": " (1 week)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 4",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 3"
+          },
+          {
+            "type": "text",
+            "text": ", fatigued, and "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "spirit"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage each time you would take persistent bleed damage (1 week)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 5",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " death"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.bL0FbIMucp28oocF"
+    },
+    "data": {
+      "bulk": "light",
+      "category": "simple",
+      "group": "knife",
+      "baseItem": "dagger",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "8e85b585-4855-5cfd-9e0a-23a2c0f6bba0",
+    "pack": "war-of-immortals",
+    "kind": "weapon",
+    "slug": "weapon:war-gavel",
+    "name": "War Gavel",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A war gavel is similar in construction to a palstave axe, but instead of inserting a metal wedge, it uses a heavier wooden head that is either carved into several points or inset with pointed objects like the teeth of large mammals."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.vpdZp46v9PoUt8z2"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 2
+        }
+      },
+      "bulk": 1,
+      "category": "simple",
+      "group": "club",
+      "baseItem": "war-gavel",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "3d1319b4-67e2-5852-8f37-1d60c9985473",
+    "pack": "war-of-immortals",
+    "kind": "weapon",
+    "slug": "weapon:war-javelin",
+    "name": "War Javelin",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["tethered", "thrown-30"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A war javelin is similar to a standard javelin, but made of sturdier woods with additional leather grips to make it suitable as a melee weapon and a leather thong to retrieve it after it's thrown."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.DhaxHGxXL4Om7bqp"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "dart",
+      "baseItem": "war-javelin",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

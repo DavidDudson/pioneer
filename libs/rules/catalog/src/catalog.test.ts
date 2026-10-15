@@ -22,6 +22,7 @@ const monsterCore = PackId.parse('monster-core');
 const divineMysteries = PackId.parse('divine-mysteries');
 const treasureVault = PackId.parse('treasure-vault');
 const howlOfTheWild = PackId.parse('howl-of-the-wild');
+const warOfImmortals = PackId.parse('war-of-immortals');
 const gmCore = PackId.parse('gm-core');
 const humanId = AncestryId.parse(contentId(playerCore, EntrySlug.parse('ancestry:human')));
 const zombieId = CreatureId.parse(contentId(monsterCore, EntrySlug.parse('creature:zombie-shambler')));
@@ -38,6 +39,7 @@ describe('content catalog', () => {
       monsterCore,
       playerCore,
       treasureVault,
+      warOfImmortals,
     ]);
     const human = registry.ancestry(humanId);
     expect(human?.definition.hitPoints).toBe(HitPoints.parse(8));

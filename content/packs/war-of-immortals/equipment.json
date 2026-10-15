@@ -1,0 +1,1304 @@
+[
+  {
+    "id": "550f0ecb-4049-5657-901d-5dd8ff4fe04f",
+    "pack": "war-of-immortals",
+    "kind": "equipment",
+    "slug": "equipment:bands-of-imprisonment",
+    "name": "Bands of Imprisonment",
+    "level": 0,
+    "rarity": "rare",
+    "traits": ["divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.G72UFwPRKBdfqib9"
+    },
+    "data": {
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn",
+        "slot": "anklets"
+      }
+    }
+  },
+  {
+    "id": "30542fec-420f-5fc2-8a9b-bbb908ef40eb",
+    "pack": "war-of-immortals",
+    "kind": "equipment",
+    "slug": "equipment:cursed-immaculate-instrument",
+    "name": "Cursed Immaculate Instrument",
+    "level": 12,
+    "rarity": "rare",
+    "traits": ["artifact", "cursed", "divine", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "ref",
+            "id": "7e4a6877-b3b0-5d9e-a4c5-318545abc96b"
+          },
+          {
+            "type": "text",
+            "text": " has been cursed by the sublime breath it was taken from, causing it to warp, rust, or tarnish, though the holder of the instrument cannot perceive this and rationalizes away any attempt to explain the instrument's obviously cursed nature. Whenever the "
+          },
+          {
+            "type": "text",
+            "text": "cursed immaculate instrument",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is used to produce a work, the holder must succeed on a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 16
+          },
+          {
+            "type": "text",
+            "text": " or the work fails, leaving the holder frustrated and raising the DC of subsequent flat checks by 1. When the DC reaches 20, the work fails as normal, but the holder continues to attempt it fruitlessly to the exclusion of all other activities, including eating, drinking, and sleep, until they expire or the curse is broken."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.iVlNLbLCT3KKjBsW"
+    },
+    "data": {
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "6dbf3aa7-e4c4-5fce-88d9-15a847fcfaf5",
+    "pack": "war-of-immortals",
+    "kind": "equipment",
+    "slug": "equipment:dragon-lotus-drum",
+    "name": "Dragon-Lotus Drum",
+    "level": 24,
+    "rarity": "unique",
+    "traits": ["artifact", "magical", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This traditional barrel drum has tacked heads in the old military style of Hwanggot and is painted with a many-colored imperial dragon twined around white and pink lotuses, a symbol of long memory. The dragon holds a scroll in its two front claws that bears the inscription \"So that the memory of war may be truthfully recalled.\""
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A creature who activates the drum is bound to join its army after death. Once their spirit has fought in a hundred and one battles, they are freed to face whatever fate their soul has earned. However, until this duty is discharged, the dead creature cannot be resurrected, nor can their soul be captured by any other means."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Summon Dragon-Lotus Army",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, incarnate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once every 20 years"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Spend a Mythic Point; beating the drum summons a spectral army to an area you designate within 500 feet. The army takes its Arrive action when you finish playing. At the end of your next turn, the army Strides up to 60 feet and then takes its Depart action. The Dragon-Lotus Army follows your orders and attempts to not harm you and your allies when possible. The spectral force isn't fully a creature. It can't take any other actions, nor can it be targeted or harmed by Strikes, spells, or other effects unless they would be able to target or end a spell effect (such as "
+          },
+          {
+            "type": "ref",
+            "id": "b434b2d9-47e5-519e-a542-6dae12c51157"
+          },
+          {
+            "type": "text",
+            "text": "). The army is Gargantuan, but it doesn't block movement."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Arrive",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (emotion, fear, mental, sonic) "
+          },
+          {
+            "type": "text",
+            "text": "The Sound of Thunder",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " The beating of the drum amplifies to become like the stomping of hundreds of booted feet. The Dragon- Lotus Army appears in perfect formation and gives a brief, staccato battle cry. All enemies in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": " around the army take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "16d10",
+                "damageType": "sonic"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 48,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save); each creature who fails its save is also "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 3"
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 4"
+          },
+          {
+            "type": "text",
+            "text": " on a critical failure)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Depart",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Devastating Charge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " The army readies their motley collection of weapons and Strides forward up to 100 feet in a straight line. Each creature it moves through takes 20d8 "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "20d8",
+                "damageType": "bludgeoning"
+              }
+            ],
+            "label": "bludgeoning"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "20d8",
+                "damageType": "piercing"
+              }
+            ],
+            "label": "piercing"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "20d8",
+                "damageType": "slashing"
+              }
+            ],
+            "label": "slashing"
+          },
+          {
+            "type": "text",
+            "text": " damage (whichever would be most harmful at the GM's discretion) with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 48,
+            "basic": true,
+            "options": ["inflicts:prone"]
+          },
+          {
+            "type": "text",
+            "text": " save. A creature who critically fails its save is also knocked "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destruction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If the "
+          },
+          {
+            "type": "text",
+            "text": "Dragon-Lotus Drum",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is captured by an enemy of Hwanggot (such as a warring rival nation) and then played continually for 1 week while singing anthems that disparage Hwanggot and its leaders, the drum falls to pieces and the souls bound to it are obliterated."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.USk8AnnokXPrV1Ui"
+    },
+    "data": {
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "80036d88-e257-597c-9cef-fc187c61fd8d",
+    "pack": "war-of-immortals",
+    "kind": "equipment",
+    "slug": "equipment:fetching-bangles",
+    "name": "Fetching Bangles",
+    "level": 0,
+    "rarity": "rare",
+    "traits": ["divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.wyodEqz1v4PjQFCr"
+    },
+    "data": {
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn",
+        "slot": "bracers"
+      }
+    }
+  },
+  {
+    "id": "7c0c19b7-6d9f-55a1-bae0-e976865c945d",
+    "pack": "war-of-immortals",
+    "kind": "equipment",
+    "slug": "equipment:final-scalecloak",
+    "name": "Final Scalecloak",
+    "level": 20,
+    "rarity": "unique",
+    "traits": ["artifact", "invested", "magical", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Fashioned from a swath of Mogaru's red-and-black hide and trimmed with Agyra's rough scales in green, blue, and white, this cloak draws upon the power of both kaiju, but at considerable cost. Any kaiju within a 5-mile radius of the "
+          },
+          {
+            "type": "text",
+            "text": "Final Scalecloak",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can sense the presence and nature of the item, and can also determine whether it's being worn by a mortal. This sense grows stronger as the item and kaiju near one another, until the kaiju can pinpoint exactly where the cloak is and who currently possesses it."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When worn, the "
+          },
+          {
+            "type": "text",
+            "text": "Final Scalecloak",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " grants you resistance 15 to physical and precision damage, immunity to electricity, and a Fly speed of 60 feet. You are unaffected by strong winds while flying."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Commune with Kaiju",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate, primal)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Spend a Mythic Point; you gain the effects of a 6th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "b9c6ff5d-7757-5750-8536-1486fd82c8a7"
+          },
+          {
+            "type": "text",
+            "text": " spell but can use it only to communicate with Gargantuan animals and beasts. Most kaiju are hostile toward you for wearing the "
+          },
+          {
+            "type": "text",
+            "text": "Final Scalecloak",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", however, requiring great effort to calm them enough to have a conversation."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Embody the Storm",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate, primal)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Spend a Mythic Point; a nimbus of crackling electricity surrounds you for 1 minute. You gain a +4 status bonus to AC against ranged projectiles that are at least partly made of metal. If a foe attempts to Strike you with an unarmed attack or melee attack with a weapon at least partly made of metal, that creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d10",
+                "damageType": "electricity"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 40,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "3a625e82-9fd7-5921-88a5-28353b541701"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destruction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "Final Scalecloak",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is torn to shreds if the wearer is struck by an attack or effect from both Agyra and Mogaru within the same round."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["physical", "precision"],
+        "value": 15
+      },
+      {
+        "key": "Immunity",
+        "type": ["electricity"]
+      },
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": 60
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.6EVDEQmvDnaaKQhR"
+    },
+    "data": {
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "commune-with-kaiju",
+          "name": "Commune with Kaiju",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        },
+        {
+          "slug": "embody-the-storm",
+          "name": "Embody the Storm",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "cloak"
+      }
+    }
+  },
+  {
+    "id": "0c345408-aeea-5c9b-84b5-b33099c86c5d",
+    "pack": "war-of-immortals",
+    "kind": "equipment",
+    "slug": "equipment:horn-of-plenty",
+    "name": "Horn of Plenty",
+    "level": 0,
+    "rarity": "rare",
+    "traits": ["divine", "extradimensional"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.kF6oa9xUGAz4zF11"
+    },
+    "data": {
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      },
+      "container": {
+        "capacity": 1
+      }
+    }
+  },
+  {
+    "id": "7e4a6877-b3b0-5d9e-a4c5-318545abc96b",
+    "pack": "war-of-immortals",
+    "kind": "equipment",
+    "slug": "equipment:immaculate-instrument",
+    "name": "Immaculate Instrument",
+    "level": 12,
+    "rarity": "rare",
+    "traits": ["artifact", "divine", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This object, made of silver light, takes the form of a small musical instrument, prop, or other tool associated with a specific art form. The holder of the "
+          },
+          {
+            "type": "text",
+            "text": "immaculate instrument",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " never suffers from creative blocks of any kind and their work is always insightful and skilled. A character who uses the "
+          },
+          {
+            "type": "text",
+            "text": "immaculate instrument",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to "
+          },
+          {
+            "type": "ref",
+            "id": "56d1e4d6-9708-5d3c-b2ac-5fe9f0cfb544"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "cffa6a55-a0d3-5be2-8169-ba9cf4745e57"
+          },
+          {
+            "type": "text",
+            "text": " can attempt the check at mythic proficiency once per month, and as long as they possess their "
+          },
+          {
+            "type": "text",
+            "text": "immaculate instrument",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", they treat any critical failures with these skills as failures."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destruction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If the holder uses the "
+          },
+          {
+            "type": "text",
+            "text": "immaculate instrument",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to intentionally produce a work that is not just mediocre or crass, but one that devalues the public opinion of the art form itself in a showing of at least 100 spectators, the instrument fades away in shame."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.LeKkgh335aJTQr8T"
+    },
+    "data": {
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "4282fe31-bfa1-55de-bf5c-90bcec336ea8",
+    "pack": "war-of-immortals",
+    "kind": "equipment",
+    "slug": "equipment:pelt-of-the-beast",
+    "name": "Pelt of the Beast",
+    "level": 0,
+    "rarity": "rare",
+    "traits": ["divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.huzq73aQUEAlAXiu"
+    },
+    "data": {
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn",
+        "slot": "cloak"
+      }
+    }
+  },
+  {
+    "id": "7137fdb7-3a1a-58c8-a1e4-d1feba9cbd5b",
+    "pack": "war-of-immortals",
+    "kind": "equipment",
+    "slug": "equipment:skybearers-belt",
+    "name": "Skybearer's Belt",
+    "level": 0,
+    "rarity": "rare",
+    "traits": ["divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.mQTRsxgl7ST3GaRL"
+    },
+    "data": {
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn",
+        "slot": "belt"
+      }
+    }
+  },
+  {
+    "id": "b20ab6d3-e871-5444-a8ba-6902cd3f12a3",
+    "pack": "war-of-immortals",
+    "kind": "equipment",
+    "slug": "equipment:thousand-league-sandals",
+    "name": "Thousand-League Sandals",
+    "level": 0,
+    "rarity": "rare",
+    "traits": ["divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Qp3FW0dmSed1iBxA"
+    },
+    "data": {
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn",
+        "slot": "shoes"
+      }
+    }
+  },
+  {
+    "id": "8d6800a9-8970-5418-ba17-3b96a0a08e36",
+    "pack": "war-of-immortals",
+    "kind": "equipment",
+    "slug": "equipment:victors-wreath",
+    "name": "Victor's Wreath",
+    "level": 0,
+    "rarity": "rare",
+    "traits": ["divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.1gmWdViYy3zgaW5c"
+    },
+    "data": {
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn",
+        "slot": "headwear"
+      }
+    }
+  },
+  {
+    "id": "74cc5bf4-5af4-5cfa-9c20-80a32f7b8a1b",
+    "pack": "war-of-immortals",
+    "kind": "equipment",
+    "slug": "equipment:wandering-pipe",
+    "name": "Wandering Pipe",
+    "level": 11,
+    "rarity": "unique",
+    "traits": ["artifact", "invested", "magical", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This long-stemmed pipe always emits a thin plume of smoke, even when not lit or in active use. The exact material the pipe is made of varies in every accounting; sometimes made of polished oak, other times ebony, sometimes stone, and in one Erutaki legend the pipe is made of pure ice that somehow holds a flame. Though the "
+          },
+          {
+            "type": "text",
+            "text": "wandering pipe",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is not intelligent, it is rumored to possess a certain capriciousness, leaving the possession of mortals whose lives are not exciting enough but inevitably finding its way back to its one true owner."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When held in one hand, the pipe grants its holder a +2 circumstance bonus to Deception checks but imposes a -1 circumstance penalty to Stealth checks made to Hide or "
+          },
+          {
+            "type": "ref",
+            "id": "7e4e48de-b626-5513-9518-73261c58b5f4"
+          },
+          {
+            "type": "text",
+            "text": ", as its telltale plume of smoke gives away the bearer's position."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Smoky Protections",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate, primal)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour; "
+          },
+          {
+            "type": "text",
+            "text": "Cost",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 Mythic Point"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " For the next 10 minutes, smoke gathers around you buoying your steps and protecting you. For the duration of this effect, you gain a fly Speed equal to your land Speed and automatically hover in place, and you have concealment from ranged attacks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "d1223d06-3950-584b-b8c5-ad53b206f69f"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destruction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "wandering pipe",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can be broken as easily as any other wooden pipe, but it always reforms afterward in the hands of the Immortal Trickster or one of his bonded mortals. It can only be broken by the hands of one of the Trickster's bonded mortals who is an honest person acting with good intent; it is said that if this occurs, the Trickster would also be significantly weakened as a result."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "circumstance",
+        "value": 2
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "circumstance",
+        "value": -1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.5BzfYgmQ4m39R4wz"
+    },
+    "data": {
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "65f0a9bb-a088-532b-a192-d8750ebf8c31",
+    "pack": "war-of-immortals",
+    "kind": "equipment",
+    "slug": "equipment:worldforge",
+    "name": "Worldforge",
+    "level": 25,
+    "rarity": "unique",
+    "traits": ["artifact", "invested", "magical", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Mounted upon a base of iron, inscribed with innumerable runes, this immense anvil can be used to forge nearly anything into reality. Stories claim that even metaphorical and abstract concepts, including \"a graveknight's mercy\" and \"the tears of a living wildfire\" have been hammered into solid shape upon "
+          },
+          {
+            "type": "text",
+            "text": "Worldforge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", though the tales disagree about what form those objects took."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The cost of using "
+          },
+          {
+            "type": "text",
+            "text": "Worldforge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", however, is prohibitive for mere mortals. In addition to the fuel and metal it consumes, "
+          },
+          {
+            "type": "text",
+            "text": "Worldforge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " draws upon the user's physical and spiritual strength to sustain the act of creation. The demand of its magic is such that no one save gods, or those who are nearly gods, can use it and survive."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Wondrous Forge",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (downtime, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have the ability to make a Crafting check at mythic proficiency (such as that granted by the Artisan's Calling)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " After spending 2 days setting up the work (or 1 if you have the desired item's formula) and supplying "
+          },
+          {
+            "type": "text",
+            "text": "Worldforge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " with adequate raw materials (as determined by the GM), you attempt to Craft something upon it. The DC and final cost of the item is also determined by the GM. For each day you spend Crafting, you must expend a Mythic Point or your "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b"
+          },
+          {
+            "type": "text",
+            "text": " condition increases by 1; this condition can't be reduced until you have finished Crafting the item or you abandon the project. Each day spent Crafting upon the "
+          },
+          {
+            "type": "text",
+            "text": "Worldforge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " counts as 10 days of normal Crafting time. If the value of your drained condition reaches 4, you must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 46
+          },
+          {
+            "type": "text",
+            "text": " save or die. If you fail this save or if you abandon the activity, what remains of your project shatters irrecoverably into a multitude of useless fragments."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destruction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Worldforge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can't be destroyed as long as "
+          },
+          {
+            "type": "ref",
+            "id": "353363db-a5c9-5093-a83d-5091fea2308d"
+          },
+          {
+            "type": "text",
+            "text": " maintains his divinity."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Im3tgXhR9W1CGaHo"
+    },
+    "data": {
+      "bulk": 15,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

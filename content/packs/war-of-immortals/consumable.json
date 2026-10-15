@@ -1,0 +1,88 @@
+[
+  {
+    "id": "16621dfc-40ca-5c6b-9565-ed131e66d8b6",
+    "pack": "war-of-immortals",
+    "kind": "consumable",
+    "slug": "consumable:fishing-lure",
+    "name": "Fishing Lure",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["consumable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When a lure is attached to a combat fishing pole, it can be used to make thrown weapon attacks with a range increment of 20 feet, though the lure must then be reeled back in with an Interact action before the weapon can be used at range again (see the tethered trait). The ranged trip, tethered, thrown, and versatile P traits of the combat fishing pole only apply to thrown attacks made with a lure."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.x6raxwPPL4Y8Zynr"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 2
+        }
+      },
+      "bulk": "negligible",
+      "category": "ammunition",
+      "ammunition": ["arrows"]
+    }
+  },
+  {
+    "id": "96348a00-3a21-5dcd-a406-447bac3fd7c3",
+    "pack": "war-of-immortals",
+    "kind": "consumable",
+    "slug": "consumable:sling-darts",
+    "name": "Sling Darts",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["consumable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These are special ammunition with wing-shaped fins and a pointed end."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.fW6Wd9egnYdfwQw4"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 1
+        },
+        "per": 10
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

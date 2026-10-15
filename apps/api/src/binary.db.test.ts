@@ -1,5 +1,6 @@
 import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
 
+import { officialPacks } from '@pioneer/rules/catalog';
 import { testDatabaseUrl } from '@pioneer/shared/server/testing';
 import { $ } from 'bun';
 import * as z from 'zod';
@@ -21,15 +22,7 @@ const CONCURRENT_MIGRATIONS = 3;
 const MIGRATION_DELAY = 2;
 const LISTENING = /listening on :(?<port>\d+)/u;
 /** The official packs, as the content seed stores them. */
-const OFFICIAL_PACKS = [
-  'core-rules',
-  'divine-mysteries',
-  'gm-core',
-  'howl-of-the-wild',
-  'monster-core',
-  'player-core',
-  'treasure-vault',
-];
+const OFFICIAL_PACKS = officialPacks.map(({ id }) => String(id)).toSorted();
 
 const JournalEntry = z.object({ tag: z.string() });
 const Journal = z.object({ entries: z.array(JournalEntry) });

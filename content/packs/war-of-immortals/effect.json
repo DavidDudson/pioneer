@@ -1,0 +1,6291 @@
+[
+  {
+    "id": "0cf3fe00-0814-5e89-be1d-62c6cbef945d",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:aura-manifest-will",
+    "name": "Aura: Manifest Will",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "8669631e-e3fe-50be-865e-06e41a822d68"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You emanate a 10-ft aura. If you have the Multifaceted Will feat, you can choose any tradition. You and your allies gain a +1 status bonus to saves against spells with that tradition trait."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:manifest-will-tradition",
+        "toggleable": true,
+        "suboptions": [
+          {
+            "value": "arcane",
+            "label": "Arcane",
+            "predicate": [
+              {
+                "or": [
+                  {
+                    "not": "parent:origin:item"
+                  },
+                  "parent:origin:item:tag:multifaceted-will",
+                  "parent:spellcasting:tradition:arcane"
+                ]
+              }
+            ]
+          },
+          {
+            "value": "divine",
+            "label": "Divine",
+            "predicate": [
+              {
+                "or": [
+                  {
+                    "not": "parent:origin:item"
+                  },
+                  "parent:origin:item:tag:multifaceted-will",
+                  "parent:spellcasting:tradition:divine"
+                ]
+              }
+            ]
+          },
+          {
+            "value": "occult",
+            "label": "Occult",
+            "predicate": [
+              {
+                "or": [
+                  {
+                    "not": "parent:origin:item"
+                  },
+                  "parent:origin:item:tag:multifaceted-will",
+                  "parent:spellcasting:tradition:occult"
+                ]
+              }
+            ]
+          },
+          {
+            "value": "primal",
+            "label": "Primal",
+            "predicate": [
+              {
+                "or": [
+                  {
+                    "not": "parent:origin:item"
+                  },
+                  "parent:origin:item:tag:multifaceted-will",
+                  "parent:spellcasting:tradition:primal"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.WtuhkNCNAW1JaGSe"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start",
+        "sustained": true
+      }
+    }
+  },
+  {
+    "id": "40351dd5-9d9a-58a9-94db-4a89ff03da49",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-a-challenge-for-heroes-ally",
+    "name": "Effect: A Challenge for Heroes (Ally)",
+    "level": 16,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "5fccc283-e272-5222-839f-14fce8462ff3"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points equal to the origin's level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.Fky50BHCHmRTnHas"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "fb182954-52d2-5a53-866e-c64fb9656e02",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-a-challenge-for-heroes-enemy",
+    "name": "Effect: A Challenge for Heroes (Enemy)",
+    "level": 16,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "5fccc283-e272-5222-839f-14fce8462ff3"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You deal an additional 10 spirit damage to the exemplar with each successful Strike."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.pUXV4sks4p9Jc8Wb"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "f9395b0f-d5a2-52d1-aa25-3e9fa5a63800",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-abjure-harm",
+    "name": "Effect: Abjure Harm",
+    "level": 16,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "e81742f8-38d4-5a19-b93d-bb4bb8271f03"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance to physical damage equal to your level."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["physical"],
+        "value": "@level"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.1FIje7Y5zIbf9V0p"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "35d4d4e3-8049-589d-9927-5a487f472a99",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-absolve-sins",
+    "name": "Effect: Absolve Sins",
+    "level": 16,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "b8709e8c-8e1b-512c-8979-475d48afabfa"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You use the outcome one degree of success worse than the result of your saving throw against Absolve Sins."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["save:will"],
+        "adjustment": {
+          "all": "one-degree-worse"
+        },
+        "predicate": ["item:slug:absolve-sins"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.9DXdG20VAIGnFweU"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "b41681c4-d8cb-52d5-9abe-3f07a3ee97f5",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-aegis-for-the-innocent",
+    "name": "Effect: Aegis for the Innocent",
+    "level": 14,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c962af0c-0f82-5d81-a877-f64d75a2fa60"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "status",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.dFNh66uyI5yxVKbt"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "35b26c2c-016b-5b89-abfc-f51777137669",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-apparitions-enhancement",
+    "name": "Effect: Apparition's Enhancement",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "2d81be9d-60f0-5cb8-887f-2548500b1e03"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "One wielded weapon or unarmed attack you have deals an extra 1d6 spirit damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.C1SVTVEwhKpqSs6B"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "1da4b404-a835-54e8-8787-5a4f5978549e",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-ascend",
+    "name": "Effect: Ascend",
+    "level": 14,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "30bf24b3-4945-5d4d-8cb6-925d3d67d120"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your fly speed becomes equal to double your Speed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": "2 * @stat.speed.land"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.5rypwpGjbu4aCAHh"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 5,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "1dcf5b3e-5808-5a16-a360-e039222f5a6f",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-ascended-celestial-nimbus",
+    "name": "Effect: Ascended Celestial Nimbus",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "33a3140f-365e-5f71-96d3-eef9bfa3d714"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to saves against fear."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["item:trait:fear"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.7UWKpTquSpP6Pgzh"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "d8721cfa-ae92-5edb-9118-9cfe35724c02",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-bless-ally",
+    "name": "Effect: Bless Ally",
+    "level": 14,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "6fefce78-2c22-553e-86d8-b8a4db931caa"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can roll twice and use the higher result for your next Will save."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollTwice",
+        "selectors": ["save:will"],
+        "keep": "higher"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.niYOLA6l44U2NMM3"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "4a5a522a-d136-532e-8869-3cdfd54ace4e",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-bloc-tactics",
+    "name": "Effect: Bloc Tactics",
+    "level": 14,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "0ee9f3ce-4d7f-5d65-8b7b-29d2fb7e5c79"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +4 status bonus to Deception checks to prevent others from seeing through your disguise, and you can add your level even if untrained. Additionally, you also gain a +3 status bonus to saving throws against smoke, fumes, and inhaled substances."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "check",
+        "option": "option:bloc-tactics",
+        "toggleable": true
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "status",
+        "value": 4,
+        "slug": "bloc-tactics-status",
+        "predicate": ["option:bloc-tactics"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "proficiency",
+        "value": "@level",
+        "slug": "bloc-tactics-proficiency",
+        "predicate": ["option:bloc-tactics", "proficiency:untrained"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 3,
+        "predicate": [
+          {
+            "or": ["option:bloc-tactics", "item:trait:inhaled"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.Eu3hA5BrHX9u9Bjc"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "02c80ef7-95ce-5194-bd47-0645d84775b2",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-celestial-armaments",
+    "name": "Effect: Celestial Armaments",
+    "level": 16,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "e65bd20e-fda7-5b42-8e75-651ceddadd26"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your weapon sheds light like a torch, deals an additional 1d8 spirit damage, and you gain the weapon's critical specialization."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you critically hit a target with the weapon, the target must succeed at a Fortitude save against your class DC or spell DC (whichever is higher) or be blinded for 1d4 rounds."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.h8BLaHUFnzCDJf5I"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "day",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "3b54a6ad-3fe6-5b1e-b505-db9f49f8dba9",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-celestial-armaments-allies",
+    "name": "Effect: Celestial Armaments (Allies)",
+    "level": 16,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "e65bd20e-fda7-5b42-8e75-651ceddadd26"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your weapon sheds light like a torch, deals an additional 1d6 spirit damage, and you gain the weapon's critical specialization."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.ORbgwLZpFFHsaJxm"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "10dce4ec-ea6b-5e60-8d28-6cda6caa2e8b",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-channel-divine-spark",
+    "name": "Effect: Channel Divine Spark",
+    "level": 14,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "fe7b3135-87f1-5533-8c47-1872fd9e04e8"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points equal to your level, resistance to physical damage equal to half your level, and the quickened condition."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each time that you damage a creature with a melee Strike, you can attempt to Shove or Trip that creature as a free action."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@level"
+      },
+      {
+        "key": "Resistance",
+        "type": ["physical"],
+        "value": "floor(@level / 2)"
+      },
+      {
+        "key": "GrantItem",
+        "item": "6517bbf2-8085-534b-be6a-187d52739fa0"
+      },
+      {
+        "key": "Note",
+        "selectors": ["melee-strike-damage"],
+        "title": "Effect: Channel Divine Spark",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Each time that you damage a creature with a melee Strike, you can attempt to Shove or Trip that creature as a free action."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.kyX0DvZEXR4Xrbdp"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "f1b9c27d-9d44-5f56-ab75-7df33f46457a",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-channel-the-godmind",
+    "name": "Effect: Channel the Godmind",
+    "level": 17,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "65b60983-24b9-5368-b766-43a99f007353"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain precise motion sense out to 60 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "922de711-b9d9-502d-91b0-237d146a011d",
+        "acuity": "precise",
+        "range": 60
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.7hQnwwsixZmXzdIT"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "c3b82198-80e6-5e68-a506-bc1f9e207d14",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-channeled-protection",
+    "name": "Effect: Channeled Protection",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "d6b4113c-f647-5a80-b3c7-4ef40de7df61"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a status bonus to your AC and to your Reflex saving throws."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.UookwOq46zEokGOM"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "2a7f5898-e48e-5805-8e81-5fdb23bf021f",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-channelers-stance",
+    "name": "Effect: Channeler's Stance",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "bc6a0753-b6b0-5d4f-9f73-43cb28ed8c77"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whenever you cast or Sustain an apparition spell or vessel spell that deals energy damage, you gain a status bonus to the spell's damage equal to the spell's rank."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each time you Cast a Spell that has the vitality or void traits and that restores Hit Points while in this stance, the spells' targets gain a status bonus to the initial amount of healing received equal to the spell's rank. This bonus healing does not apply to healing over time effects (such as fast healing or regeneration)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:channelers-stance",
+        "toggleable": true
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.BZPPcHtYugsNKz4Z"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  },
+  {
+    "id": "25924fb1-8778-5865-9750-346d3e607a9b",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-chosen-ward",
+    "name": "Effect: Chosen Ward",
+    "level": 14,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "698286da-b6f8-5df6-b034-b1cec3333154"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While either the origin or their united companion are adjacent to you, you gain a +1 circumstance bonus to your AC and Reflex saves."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:chosen-ward",
+        "toggleable": true,
+        "display": {
+          "label": "Chosen Ward — Apply bonus to AC and Reflex saves"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "save:reflex"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["option:chosen-ward"]
+      },
+      {
+        "key": "RollTwice",
+        "selectors": ["save:reflex"],
+        "keep": "higher",
+        "predicate": ["option:chosen-ward-fortune"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.VlBozDEaEaKE1A3O"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "day",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "e6cee487-e5f9-5a75-bc88-d9c1185709ac",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-crash-against-me",
+    "name": "Effect: Crash Against Me",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f27129ea-cf5c-5475-93cb-507554fcb747"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have resistance equal to your level to the chosen damage type."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "resistance",
+        "choices": [
+          {
+            "value": "bludgeoning",
+            "label": "Bludgeoning",
+            "predicate": ["skin-hard-as-horn:bludgeoning"]
+          },
+          {
+            "value": "piercing",
+            "label": "Piercing",
+            "predicate": ["skin-hard-as-horn:piercing"]
+          },
+          {
+            "value": "slashing",
+            "label": "Slashing",
+            "predicate": ["skin-hard-as-horn:slashing"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.ogzkGtUR9vMt47ts"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "873f4892-eb54-51fb-a857-515e23dc8503",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-crash-against-me-clang",
+    "name": "Effect: Crash Against Me (Clang)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f27129ea-cf5c-5475-93cb-507554fcb747"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are off-guard and take a –2 circumstance penalty to attacks with the clanging weapon."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.sEWwGSuXxcTl020D"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "b10b26cf-67df-5022-887d-d4c552f87131",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-crash-against-me-note",
+    "name": "Effect: Crash Against Me (Note)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f27129ea-cf5c-5475-93cb-507554fcb747"
+          },
+          {
+            "type": "text",
+            "text": " via Ephemeral Effect"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["strike-attack-roll"],
+        "title": "Crash Against Me",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "If a creature attacking you using a weapon dealing the same damage type as your resistance misses you or hits you but deals no damage due to your resistance, the weapon clangs wildly off your skin. This painful reverberation makes the attacking enemy off-guard and gives it a –2 circumstance penalty to attacks with that weapon until the start of the enemy's next turn. Effect: Crash Against Me (Clang)"
+              }
+            ]
+          }
+        ],
+        "outcome": ["criticalFailure", "failure"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["strike-damage"],
+        "title": "Crash Against Me",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "If a creature attacking you using a weapon dealing the same damage type as your resistance misses you or hits you but deals no damage due to your resistance, the weapon clangs wildly off your skin. This painful reverberation makes the attacking enemy off-guard and gives it a –2 circumstance penalty to attacks with that weapon until the start of the enemy's next turn. Effect: Crash Against Me (Clang)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.5dxWxTDjPPT79xpn"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "6d6306ef-66f6-53e0-87ef-efde4a5e38ac",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-creature-of-myth-energy-aegis",
+    "name": "Effect: Creature of Myth (Energy Aegis)",
+    "level": 18,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "847caadf-6209-5d19-b955-f0da66544850"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You become immune to the chosen damage type, and you gain a +1 status bonus to AC and saves that originate from creatures with the chosen trait and to effects and spells with the chosen trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.dZxFehDfiKu3M8GT"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "17d29c2e-f0f6-5c99-a1ce-0169de50a4e6",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-cry-of-rebellion",
+    "name": "Effect: Cry of Rebellion",
+    "level": 16,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "b7508c2f-3153-52ad-9702-3dfd90841fb6"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus to attack rolls, Perception checks, saving throws, and skill checks."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll", "perception", "saving-throw", "skill-check"],
+        "type": "status",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.AsYHSc1sNEXYELj7"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "c21a4e4d-1be5-5d07-8ebb-24cbd5db3876",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-dancer-in-the-seasons",
+    "name": "Effect: Dancer in the Seasons",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1993d9a5-075e-5722-8f99-af7204a3a10d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points equal to half your level."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "floor(@level / 2)"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.FL24cTM3EDqWLgHA"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "a8f88e18-8609-57eb-9d8f-fdba2197091e",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-destined-victory-note",
+    "name": "Effect: Destined Victory (Note)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "b2874cf8-850e-5fc6-bb29-7100e907c087"
+          },
+          {
+            "type": "text",
+            "text": " via Ephemeral Effect"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["melee-strike-attack-roll"],
+        "title": "Destined Victory",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Whenever an enemy successfully Strikes you with a melee weapon, you gain a +2 status bonus to your AC against the next attack from that enemy before the start of your next turn."
+              }
+            ]
+          }
+        ],
+        "outcome": ["success", "criticalSuccess"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.3PmBgt8SkkHqhRh1"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "b932c702-9dc7-5e38-9c4c-b9ffd54b7fc3",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-divine-invulnerability",
+    "name": "Effect: Divine Invulnerability",
+    "level": 14,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "ddd43fe6-bba1-5dd9-a555-c01ffac05921"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance to all damage equal to half your level."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["all"],
+        "value": "floor(@level / 2)"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.OWFMglWgeCjRhqLK"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "ee49e402-963a-5fe3-9c00-9885348e4c9a",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-divine-invulnerability-domain-spell",
+    "name": "Effect: Divine Invulnerability (Domain Spell)",
+    "level": 14,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "ddd43fe6-bba1-5dd9-a555-c01ffac05921"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance to all damage equal to your level."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["all"],
+        "value": "@level"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.WdxPp1pTQTUYRTA3"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "0ecd9f9b-fc42-58f5-8dba-02c1e1ad0565",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-don-thy-fervor",
+    "name": "Effect: Don Thy Fervor",
+    "level": 14,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "dfeaab64-e157-5679-a701-b16151f7a0fe"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a circumstance bonus to Deception, Diplomacy, and Intimidation skill checks, and to counteract checks."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception", "skill:diplomacy", "skill:intimidation", "counteract-check"],
+        "type": "circumstance",
+        "value": "ternary(gte(@level, 18), 3, 2)"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.ooX6QMPFfah5Yk5t"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "43e9157c-d8f0-5548-be53-f93b3da12b02",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-drain-realm",
+    "name": "Effect: Drain Realm",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "914080e4-61d3-5887-94f2-f7344dd15b0c"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your Strikes deal an additional 1d8 damage of your realm's damage type."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.cSH9aXM0hQlF5pgp"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "3a625e82-9fd7-5921-88a5-28353b541701",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-embody-the-storm",
+    "name": "Effect: Embody the Storm",
+    "level": 20,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "7c0c19b7-6d9f-55a1-bae0-e976865c945d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +4 status bonus to AC against ranged projectiles that are at least partly made of metal."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "ac",
+        "option": "option:embody-the-storm",
+        "toggleable": true,
+        "display": {
+          "label": "Final Scalecloak — Embody the Storm"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "status",
+        "value": 4,
+        "predicate": ["option:embody-the-storm", "item:ranged"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.VGSHg5UEqgp5WhjV"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "6531f24a-eeff-5589-a16b-ada1741d4dea",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-eye-catching-spot",
+    "name": "Effect: Eye-Catching Spot",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "979f1f5d-97b1-5a2d-942a-ddbbdab1d608"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have a –1 circumstance penalty to melee attack rolls against the exemplar."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["melee-attack-roll"],
+        "type": "circumstance",
+        "value": -1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.N8d1R833ojGFj1Mt"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "0234d299-7e8d-5792-a8a6-7a96c8371c5c",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-feral-swing",
+    "name": "Effect: Feral Swing",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "bd161370-bf0f-537a-a35f-b4b26a674790"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –2 circumstance penalty to your Reflex save."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.raZ8SIBYyFux8L3U"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "c11ee826-e293-5eee-96b5-c0672feb078c",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-fish-from-the-falls-edge",
+    "name": "Effect: Fish From the Falls' Edge",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "15a3360a-d658-502e-8980-7d88bbe0b82c"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to your saving throws and AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "saving-throw"],
+        "type": "status",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.UNq3f2ALPG1b67ar"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "86f1a8e6-8c66-5b11-bc8a-c97aaa2ccf33",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-fly-on-shadowed-wings",
+    "name": "Effect: Fly on Shadowed Wings",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c85c1bfd-e5ea-54ac-b46b-040c7047ba4e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a fly Speed equal to your land Speed and resistance to precision damage equal to your level."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": "@stat.speed.land"
+      },
+      {
+        "key": "Resistance",
+        "type": ["precision"],
+        "value": "@level"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.LhHJkfS5VhfJss6p"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "9d8a4d72-1dd5-5c1f-9a96-6aab63b07d2f",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-gird-champion-hierophant",
+    "name": "Effect: Gird Champion (Hierophant)",
+    "level": 16,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "421449f2-cfee-50bc-b12f-df0c6f405225"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You treat the origin's favored weapon as a simple weapon for the purposes of proficiency, you gain the critical specialization effect of that weapon and deal 1d6 additional damage with Strikes made with it."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.3K8fNQKjmrHU8dzi"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "46ee39b5-7e13-580c-9a04-2d5b0084b004",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-godspeed",
+    "name": "Effect: Godspeed",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "589b860b-2fd6-5eb6-b765-a8a3fd54c5c2"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +10-foot status bonus to all your Speeds and are Quickened."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "status",
+        "value": 10
+      },
+      {
+        "key": "GrantItem",
+        "item": "6517bbf2-8085-534b-be6a-187d52739fa0"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.ePvCQNEIhq1iQkuq"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "519b43d9-8d45-51ed-bb73-5e2f7d32abdf",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-harvest-blood",
+    "name": "Effect: Harvest Blood",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "b317eb9a-a61c-51af-a076-762d7eafeec2"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points equal to your Constitution modifier, and gain a +1 circumstance bonus to saving throws against that creature's spells."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@attr.con"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["item:type:spell", "origin:mark:harvest-blood"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.jp1oRa3wEHT7hKBX"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "f643060c-596c-5ffb-92f1-46cf4d370873",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-healer-of-the-world",
+    "name": "Effect: Healer of the World",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "0cfba672-4000-56aa-8fb8-d0aaaf4a7be9"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain 10 temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.NuCwsyydiaBQpwiL"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "c59efffd-a8a5-5dd9-b26d-0c1ad617b3c5",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-heroic-defiance",
+    "name": "Effect: Heroic Defiance",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "91a744db-7b97-5e89-b3fb-267168b91bf2"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points equal to your level and a +1 status bonus to all saving throws."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@level"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.6OFJhFsw78w7ogW5"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "85c95724-a0e8-56ae-8cf3-284ceead791a",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-invigorating-surge",
+    "name": "Effect: Invigorating Surge",
+    "level": 14,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "b210424d-e334-5104-8beb-dae870101e2a"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.iGJ6C4AUQZcSEx1W"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "861b3b61-6f13-532a-93ad-f8368602a9bc",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-living-epic",
+    "name": "Effect: Living Epic",
+    "level": 20,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "61c7c18f-07a4-5e37-a50c-3f9ff7227639"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to attack rolls, Perception, saving throws, and skill checks."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll", "perception", "saving-throw", "skill-check"],
+        "type": "status",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.UE312nw1ihsc0stp"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 7,
+        "unit": "day",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "1404f80c-05f8-53ed-acf6-6b5f310c3387",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-lord-of-the-fiends",
+    "name": "Effect: Lord of the Fiends",
+    "level": 14,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "eec82b67-8533-562a-aa61-28d4f1d97ab0"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whenever you roll a success on a Deception, Diplomacy, or Intimidation check against a fiend, you get a critical success instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill:deception"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "predicate": ["target:trait:fiend"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill:diplomacy"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "predicate": ["target:trait:fiend"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill:intimidation"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "predicate": ["target:trait:fiend"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.iYHNKt2eailYxNXc"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "4f8ffb93-4162-50b6-b5d4-458b99e975d5",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-manifest-realm",
+    "name": "Effect: Manifest Realm",
+    "level": 12,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "9f43cfd0-de39-5c7e-8203-6e9ac6454e94"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –1 penalty to Fortitude saving throws."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:fortitude"],
+        "type": "untyped",
+        "value": -1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.VrTaP6BcXo6sizn6"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "f29c3194-1080-5952-b54f-797713021b9e",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-mirrored-aegis",
+    "name": "Effect: Mirrored Aegis",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "6304f0b8-2e47-5e8d-a5bb-a3b3d4caaf18"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "status",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.ubHYfNIf0pAwzAum"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "f9655bcf-9443-5901-a557-38bdc77398aa",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-multifaceted-will",
+    "name": "Effect: Multifaceted Will",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "56259a5a-b0c6-5910-a5b0-1389ebde4649"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to saves against spells with the chosen tradition trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.VM3A4YSG72JCpWMg"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "82a32133-019a-5f0a-8d69-1cf4cb31a3cd",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-mythic-allies",
+    "name": "Effect: Mythic Allies",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "6e05d151-1019-5b7a-9add-a12e7a587f98"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus to your attack rolls, defenses, and a number of additional Hit Points equal to the origin's level. The next Strike you make gains a +4 circumstance bonus to the attack roll."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "saving-throw", "attack-roll"],
+        "type": "status",
+        "value": 2,
+        "slug": "mythic-allies-status"
+      },
+      {
+        "key": "GrantItem",
+        "item": "e63dd6b5-bb40-5e54-bbf0-2682eebbdf47"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.X22o74v8rk7ySnzX"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "e63dd6b5-bb40-5e54-bbf0-2682eebbdf47",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-mythic-allies-circumstance-bonus",
+    "name": "Effect: Mythic Allies (Circumstance Bonus)",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "6e05d151-1019-5b7a-9add-a12e7a587f98"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +4 circumstance bonus to your next attack roll."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.SX5csPb38vTBjHOb"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "5dd1e32a-c752-55dd-b24b-fefb835a3cec",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-one-moment-till-glory",
+    "name": "Effect: One Moment till Glory",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "af5ee715-9563-5e16-a0b2-4acc568d810c"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus to your saving throw."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.xHbMPpYEPwI0tmcV"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "c4dfe637-f9a1-529b-944f-88f30595ab18",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-only-you-and-i",
+    "name": "Effect: Only You and I",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "a8deb5c4-299e-549a-82a7-8daacc266bb9"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to attack rolls made against the exemplar. Whenever you miss the exemplar with a Strike, they heal 1d8+5 Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.ZdPLjPFwp9JuVRFf"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "592a8104-9ed1-521a-8eae-5521df812976",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-pass-vengeful-judgment",
+    "name": "Effect: Pass Vengeful Judgment",
+    "level": 18,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "b908599a-f889-5b74-97dc-46b2df5e172c"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus to Intimidation checks against creatures in the area within a 10-mile radius of where Pass Vengeful Judgment was used."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "skill:intimidation",
+        "option": "option:pass-vengeful-judgment",
+        "toggleable": true
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:intimidation"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["option:pass-vengeful-judgment"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.0nkzRcjN9iOSFUf9"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 30,
+        "unit": "day",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "f7327397-a5f4-50a8-8554-0f31a1353285",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-pierce-the-eye",
+    "name": "Effect: Pierce the Eye",
+    "level": 16,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "033f703e-88ba-563b-bd56-7f9be088a1f2"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –2 circumstance penalty to Medicine checks to Administer First Aid to stop the bleeding."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:medicine"],
+        "type": "circumstance",
+        "value": -2,
+        "predicate": ["action:administer-first-aid:stop-bleeding"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.QjIiY4ofmhCspUJb"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "4edb62be-f1a3-58ae-8834-57c1f45edbe1",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-prescience",
+    "name": "Effect: Prescience",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "539c8c1e-05cc-5e02-b6d1-7eb13cc5bf24"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to AC and all saves."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "saving-throw"],
+        "type": "status",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.4efZ33Gx1kqqTysd"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "769db02e-b3ae-508f-b6ab-217680b1204b",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-race-the-skies",
+    "name": "Effect: Race the Skies",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "7862797c-2647-5ac2-b81f-8e738a430308"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a fly Speed equal to your Speed or 20 feet, whichever is greater."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": "max(20, @stat.speed.land)"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.RLA7eqF2wjUPS2mf"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "5a9155cb-4117-5ea5-856c-892e00763bd5",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-raise-the-walls",
+    "name": "Effect: Raise the Walls",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "8470b755-a76c-56fc-9f27-9595defc8099"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to AC, Reflex saves, and any save against force, spirit, vitality, or void effect."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "status",
+        "value": 1,
+        "slug": "raise-the-walls-ac"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 1,
+        "slug": "raise-the-walls-saves",
+        "predicate": [
+          {
+            "or": [
+              "check:statistic:reflex",
+              "item:trait:force",
+              "item:trait:spirit",
+              "item:trait:vitality",
+              "item:trait:void"
+            ]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.dn7P5RzMZugxiWri"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "637a6261-8aab-59ea-a5c8-a7cc0506449d",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-relinquish-control",
+    "name": "Effect: Relinquish Control",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "a15fe417-eab2-514c-a1e3-32a33e542281"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +4 status bonus on saves against spells and effects that give you the controlled condition or attempt to influence your actions."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus on all Recall Knowledge checks made using Lore skills granted by your attuned apparitions."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 4,
+        "predicate": ["inflicts:controlled"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["action:recall-knowledge", "option:attuned-apparition-lore"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.6M6JRjWjJy0rwtX2"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "16282d7d-4903-5bd9-8058-720e5b4e5b38",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-roaring-heart",
+    "name": "Effect: Roaring Heart",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "aaef1f8f-ce63-5a44-acda-7243a60c4f27"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.K2hqRFjGMX0GCIUi"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "cea665c6-64d7-51b0-a3d0-74168f70d7be",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-shadow-sheath-weapon",
+    "name": "Effect: Shadow Sheath Weapon",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1022045a-a173-50e2-b6fa-ce33329f5fc5"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You load a weapon into the sheath."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Immanence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your Strikes with the weapon deal 2 additional spirit damage per weapon damage die, which increases to 3 per die if the target is off-guard."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "self:effect:shadow-sheath-weapon"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.je3lgJso1WmyC81w"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "5958cb85-6526-5f10-ab66-892ca2e96a6c",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-shadowpiercer",
+    "name": "Effect: Shadowpiercer",
+    "level": 23,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c132ebb5-aa22-5f55-9aa4-7d2871836727"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus to saving throws against darkness and shadow effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["item:trait:darkness", "item:trait:shadow"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.UWm7dYJvAz9fCGXT"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "dd3cc310-89a1-5c75-9194-351975de9531",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-share-hunters-edge-vindication",
+    "name": "Effect: Share Hunter's Edge (Vindication)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "2741f2ce-e935-5dbb-8d8c-c8d692b1d92a"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "ef24988a-8ac1-51ec-9477-265df6893c70"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "5f12c7fa-4eb3-5cdf-9dd6-a52297a1eea6"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "36b3de22-4c74-513a-a74a-78c11ef35b1b"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to your spell attack rolls against the marked creature, and they take a –1 status penalty to their saving throws against divine spells you cast."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["action:seek", "target:mark:share-hunters-edge"],
+        "display": {
+          "label": "To Seek Hunted Prey"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:survival"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["action:track", "target:mark:share-hunters-edge"],
+        "display": {
+          "label": "To Track Hunted Prey"
+        }
+      },
+      {
+        "key": "RollOption",
+        "domain": "ranged-attack-roll",
+        "option": "ignore-range-penalty:2",
+        "predicate": ["target:mark:share-hunters-edge"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["spell-attack"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["target:mark:share-hunters-edge", "spellcasting:tradition:divine"],
+        "display": {
+          "label": "Vindication Edge"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.LpudOmKE8bHZgYeL"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "34eddd98-2dff-5a5d-9ad0-08db26a45e15",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-shining-glory",
+    "name": "Effect: Shining Glory",
+    "level": 18,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "40369e39-0941-5a76-b714-42d09c5346e5"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +3 status bonus to attack rolls and skill checks, and the status bonus you receive to saving throws against fear increases to +3."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll", "skill-check"],
+        "type": "status",
+        "value": 3
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["saving-throw"],
+        "slug": "ascended-celestial-nimbus",
+        "mode": "upgrade",
+        "value": 3
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.aLrFDxT2dhIEwcQr"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "d1223d06-3950-584b-b8c5-ad53b206f69f",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-smoky-protections",
+    "name": "Effect: Smoky Protections",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "74cc5bf4-5af4-5cfa-9c20-80a32f7b8a1b"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a fly Speed equal to your land Speed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": "@stat.speed.land"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.z480XhE3nft1TQDj"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "c2992753-fdc5-55ef-91df-4aca606a63c9",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-soul-vessel-mount",
+    "name": "Effect: Soul Vessel Mount",
+    "level": 18,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "ba5d1a42-2990-5398-acd0-33e30ce59c71"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +20-foot status bonus to your Speed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "status",
+        "value": 20
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.jeBDJW383w5jv1BG"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "89340d97-0a1e-5080-9484-e06eea673932",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-steal-death",
+    "name": "Effect: Steal Death",
+    "level": 16,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "fe91636a-e2bc-5358-852d-df99ae181b9f"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain fast healing as long as you and your apocalypse mount are within 10 feet of each other. If you use Steal Death again, your fast healing increases by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:steal-death",
+        "toggleable": true,
+        "display": {
+          "label": "Steal Death — You and your mount are within 10 feet."
+        }
+      },
+      {
+        "key": "FastHealing",
+        "value": "@item.value",
+        "predicate": ["option:steal-death"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.d0TYadetRJvNb2Au"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      },
+      "badge": {
+        "type": "counter",
+        "value": 5,
+        "min": 5
+      }
+    }
+  },
+  {
+    "id": "f2910d96-6f76-5bbb-bc92-e8242f12007a",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-storied-companion",
+    "name": "Effect: Storied Companion",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "9b9be4a2-e793-534e-91d9-d104a73a8d97"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points equal to twice the origin's level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.zmow6d0PswEqLcrM"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "23eb3af3-781f-5de4-b5ee-d2b2688595a6",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-stymie-the-gods",
+    "name": "Effect: Stymie the Gods",
+    "level": 18,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "ab79a81a-1b4e-54ab-8394-d1ef1ba5b302"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a status bonus to AC and to saving throws against divine spells, as well as the spells, Strikes, and abilities of extraplanar creatures."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "stymie-the-gods:extraplanar-creature",
+        "toggleable": true,
+        "display": {
+          "label": "Stymie the Gods — Defending against an extraplanar creature"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.1bnJJb4hsnMOw9cQ"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 3,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "a4031ea2-56ce-511c-bb0b-2f5f49ce634e",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-survive-the-wilds",
+    "name": "Effect: Survive the Wilds",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "8d1208a7-ef68-5e46-9fba-e83bef4cb253"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You and all allies in a 15-foot emanation gain a +2 circumstance bonus to AC and saving throws against effects with the trait the pelt is attuned to."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.KR391Ltqp0d3EWg1"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "00230266-6178-5b5b-a716-a361399a5e49",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-terrifying-mien",
+    "name": "Effect: Terrifying Mien",
+    "level": 16,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "414eab35-f4a6-5f83-8639-3fefb356cacd"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance against bludgeoning, piercing, and slashing damage against Strikes made by creatures with the frightened condition. This resistance is equal to four times the value of that creature's frightened condition."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.9p4Ieqw6qAkhc4m3"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      },
+      "badge": {
+        "type": "counter",
+        "value": 1
+      }
+    }
+  },
+  {
+    "id": "3cc144f1-a2b6-5c19-9fbb-2714c9eed636",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-the-proud",
+    "name": "Effect: The Proud",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1d27c715-1f28-5d11-ad54-3266bb000ddb"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –1 status penalty to attack rolls, damage rolls, and skill checks against creatures other than the exemplar, and a +1 status bonus to these rolls when targeting the exemplar."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.2JnREGOAqZCZPfdK"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "a1897bb0-11a0-52d9-8f96-d01f88427ccb",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-to-war",
+    "name": "Effect: To War!",
+    "level": 16,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "eb229977-0b50-589f-bb5c-1af5eec5318f"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a number of temporary Hit Points equal to the origin's level and a +2 status bonus to damage against any foe damaged by the origin's apocalypse mount."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:to-war-damage",
+        "toggleable": true,
+        "display": {
+          "label": "To War! — Foe was damaged by the apocalypse mount."
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["damage"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["option:to-war-damage"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.3zNPch2pttYW2n1j"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "4c32b3be-4305-5be7-a83f-ea6d25574a73",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-towering-presence",
+    "name": "Effect: Towering Presence",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "4ddb3fb0-aa22-50d6-8ae9-6c8efe757152"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You increase your size your size to Large. Your reach increases by 5 feet (or by 10 feet if you started out Tiny), and you gain a +2 status bonus to melee damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "CreatureSize",
+        "value": "large"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["melee-damage"],
+        "type": "status",
+        "value": 2
+      },
+      {
+        "key": "GrantItem",
+        "item": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+        "allowDuplicate": false
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.XJtlvaqAHseq1yoz"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "a0a4c695-9096-5999-b6ce-db3e9b1ee67a",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-ultimatum-of-liberation",
+    "name": "Effect: Ultimatum of Liberation",
+    "level": 12,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "18da4162-fb70-5eb6-afc0-3fbc6949671f"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus to Will saving throws against effects produced by the oppressing creature and their allies, which increases to +3 if they are within 30 feet of the origin."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:ultimatum-of-liberation",
+        "toggleable": true
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:will"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["option:ultimatum-of-liberation"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["save:will"],
+        "slug": "ultimatum-of-liberation",
+        "mode": "upgrade",
+        "value": 3,
+        "predicate": ["option:ultimatum-of-liberation-increase"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.RPfpy4WzUzdwTeo0"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "day",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "ad9323d6-7990-5c9a-83cb-b1ce23c51d63",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-unbreaking-castle",
+    "name": "Effect: Unbreaking Castle",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "ba487f24-f28c-5a1d-8ca7-954a7ceeb2d5"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a circumstance bonus to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.FMfcQ2EvQT8QV3V0"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "d7b3bf02-2a3f-5a54-b417-9620cb7a9fd9",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-unending-subsistence",
+    "name": "Effect: Unending Subsistence",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "2f1e09b7-b7fa-58e2-b896-5c421e14ca9e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to Fortitude saving throws."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:fortitude"],
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.ACnP67mu97ZZMEz0"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "day",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "8f8b9f9e-85c5-54c4-b4ab-58d519f31fb2",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-victors-wreath",
+    "name": "Effect: Victor's Wreath",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c41a05f9-dd55-5a25-9c16-fa5f61699caa"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to attack rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll"],
+        "type": "status",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.N82KSgJMeMse7uPW"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "f381a1f7-7df3-52f8-9865-b465548aeb51",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-vindication-edge",
+    "name": "Effect: Vindication Edge",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "dcf002b2-bec9-5e9a-a007-2f8734a3beef"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –1 status penalty to their saving throws against divine spells."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["saving-throw"],
+        "mode": "downgrade",
+        "value": -2,
+        "predicate": ["parent:origin:item:tag:vindicator-masterful-hunter"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.3wA2IOyZXjFssheT"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "65470415-198c-59a0-b4a1-ab523d85f51f",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-virulent-strike",
+    "name": "Effect: Virulent Strike",
+    "level": 16,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "6e687572-6022-5d38-b061-73a8c217eb60"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –4 circumstance penalty to the save against a disease or poison."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.Eh0uLxzYfheAWDpG"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "bc743a0f-a834-541d-92ae-329d12df9b64",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-whose-cry-is-thunder",
+    "name": "Effect: Whose Cry is Thunder",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "71327468-f6a7-5215-83ff-507c7d32840d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Any creature that touches you or damages you with an unarmed attack or non-reach melee weapon while you're charged takes 1d6 electricity damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["damage-received"],
+        "title": "Effect: Whose Cry is Thunder",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The attacker takes "
+              },
+              {
+                "type": "damage",
+                "instances": [
+                  {
+                    "formula": "1d6",
+                    "damageType": "electricity"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " damage"
+              }
+            ]
+          }
+        ],
+        "predicate": [
+          "item:melee",
+          {
+            "not": "item:trait:reach"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.nP3k4N52NzrR3KKf"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "c81c7e15-af85-5b3d-9f8e-e7a3b7b15bf9",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-wither-away",
+    "name": "Effect: Wither Away",
+    "level": 16,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "2acd5c02-cf05-5216-86da-c55e4c13ab07"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take the following penalties depending on the result"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Arms",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You become enfeebled 1."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Head",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You become stupefied 1."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Legs",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You take a –10-foot status penalty to your Speeds."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Torso",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You gain weakness 10 to slashing damage."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-wither-away",
+        "choices": [
+          {
+            "value": "critical-failure",
+            "label": "Critical Failure"
+          },
+          {
+            "value": "failure",
+            "label": "Failure"
+          }
+        ],
+        "prompt": "Select the degree of success.",
+        "rollOption": "wither-away"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-wither-away",
+        "choices": [
+          {
+            "value": "arms",
+            "label": "Arms"
+          },
+          {
+            "value": "head",
+            "label": "Head"
+          },
+          {
+            "value": "legs",
+            "label": "Legs"
+          },
+          {
+            "value": "torso",
+            "label": "Torso"
+          }
+        ],
+        "rollOption": "wither-away-body-part"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-wither-away",
+        "choices": [
+          {
+            "value": "arms",
+            "label": "Arms",
+            "predicate": [
+              {
+                "not": "wither-away-body-part:arms"
+              }
+            ]
+          },
+          {
+            "value": "head",
+            "label": "Head",
+            "predicate": [
+              {
+                "not": "wither-away-body-part:head"
+              }
+            ]
+          },
+          {
+            "value": "legs",
+            "label": "Legs",
+            "predicate": [
+              {
+                "not": "wither-away-body-part:legs"
+              }
+            ]
+          },
+          {
+            "value": "torso",
+            "label": "Torso",
+            "predicate": [
+              {
+                "not": "wither-away-body-part:torso"
+              }
+            ]
+          }
+        ],
+        "rollOption": "wither-away-body-part",
+        "predicate": ["wither-away:critical-failure"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+        "predicate": ["wither-away-body-part:arms"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+        "predicate": ["wither-away-body-part:head"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "status",
+        "value": -10,
+        "predicate": ["wither-away-body-part:legs"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["slashing"],
+        "value": 10,
+        "predicate": ["wither-away-body-part:torso"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.ICUcmwY504WHCs3N"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "f920ca1b-a4d9-56e3-98a4-f6e7618839ed",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-you-cant-kill-an-idea",
+    "name": "Effect: You Can't Kill an Idea",
+    "level": 20,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "d57baf71-18fc-529c-87a3-ff0dc2eb6376"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your Aid circumstance bonus increases by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["attack-roll", "skill-check"],
+        "slug": "aid",
+        "mode": "add",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.Q2qCKyL63QzXsdGq"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "27e2dacb-5cbb-527e-a8af-e8e2c64f953d",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:effect-zealous-inevitability",
+    "name": "Effect: Zealous Inevitability",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "4f1520e8-e042-585d-8eb7-2433b8fc1f1f"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a status penalty to your saving throws against divine spells equal to your doomed value."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.NDCeLFdp5eJ1VYjm"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "1e0c5a08-3b01-502b-9b11-5a78d170d614",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:spell-effect-arcane-explosion",
+    "name": "Spell Effect: Arcane Explosion",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f59437fc-b010-54cb-a5ad-4260dd26342e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the incorporeal trait, are immune to disease, poison, and precision damage, and gain resistance to all damage equal to your level (except force damage, spirit damage, and damage from Strikes with the "
+          },
+          {
+            "type": "text",
+            "text": "ghost touch",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " property rune), with double the resistance against non-magical damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ActorTraits",
+        "add": ["incorporeal"]
+      },
+      {
+        "key": "Immunity",
+        "type": ["disease", "poison", "precision"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.T0eQfYKgejJqZiBA"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "f6006082-4121-592f-9762-9e7866cddc64",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:spell-effect-devouring-dark-form",
+    "name": "Spell Effect: Devouring Dark Form",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "6d3d1548-42ce-5932-ac9b-deb80c87b27f"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a tentacle unarmed attack with 10-foot reach that deals 1d8 bludgeoning damage and has the grapple trait."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (2nd)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can choose to take on the shark battle form from "
+          },
+          {
+            "type": "text",
+            "text": "animal form",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " instead of gaining a tentacle unarmed attack."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (5th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can choose to take on the water elemental battle form from "
+          },
+          {
+            "type": "text",
+            "text": "elemental form",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " instead of gaining a tentacle unarmed attack."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "spell-effect-devouring-dark-form",
+        "choices": [
+          {
+            "value": "tentacle",
+            "label": "Tentacle"
+          },
+          {
+            "value": "shark",
+            "label": "Shark",
+            "predicate": [
+              {
+                "gte": ["parent:level", 2]
+              }
+            ]
+          },
+          {
+            "value": "water-elemental",
+            "label": "Water Elemental",
+            "predicate": [
+              {
+                "gte": ["parent:level", 5]
+              }
+            ]
+          },
+          {
+            "value": "cave-worm",
+            "label": "Cave Worm",
+            "predicate": [
+              "feat:monstrous-inclinations",
+              "feature:lurker-in-devouring-dark",
+              {
+                "gte": ["parent:level", 8]
+              }
+            ]
+          },
+          {
+            "value": "sea-serpent",
+            "label": "Sea Serpent",
+            "predicate": [
+              "feat:monstrous-inclinations",
+              "feature:lurker-in-devouring-dark",
+              {
+                "gte": ["parent:level", 8]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select a form.",
+        "rollOption": "devouring-dark-form"
+      },
+      {
+        "key": "Strike",
+        "slug": "tentacle",
+        "category": "unarmed",
+        "traits": ["grapple", "reach-10", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d8",
+          "damageType": "bludgeoning"
+        },
+        "predicate": ["devouring-dark-form:tentacle"],
+        "display": {
+          "label": "Tentacle"
+        }
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["stinger-damage"],
+        "diceNumber": 2,
+        "dieSize": "d6",
+        "damageType": "poison",
+        "category": "persistent",
+        "predicate": ["devouring-dark-form:cave-worm"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.Le5Sewk43o7V60nO"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start",
+        "sustained": true
+      }
+    }
+  },
+  {
+    "id": "4f1dc95c-d409-52d9-8223-71ed133acec8",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:spell-effect-diadem-of-divine-radiance",
+    "name": "Spell Effect: Diadem of Divine Radiance",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "444b44f5-2fc8-52ed-a6ef-54a455c9e90b"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You shed bright light to a range of 60 feet and dim light to a further 60 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.Hc8e3aU9yLKPSw8o"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "df60cfe1-e0da-5ed0-839e-de38d2609530",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:spell-effect-discomfiting-whispers",
+    "name": "Spell Effect: Discomfiting Whispers",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "b1fbcc1b-7d1c-576c-976c-d2c9f4e2fcc1"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You must roll twice on your first attack roll and take the lower result."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.JfvVyMWuD8yvSrIe"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "c02bd741-67c7-504e-a7e8-dad99d680ace",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:spell-effect-embodiment-of-battle",
+    "name": "Spell Effect: Embodiment of Battle",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "84fc8ce9-c6e4-55c2-a3c2-154e0da2784b"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a status bonus to attack and damage rolls made with weapon or unarmed attacks, and you gain the Reactive Strike reaction; this reaction gains the apparition trait. You take a –2 status penalty to your spell attack modifiers and your spell DCs."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["weapon-attack-roll", "unarmed-attack-roll", "weapon-damage", "unarmed-damage"],
+        "type": "status",
+        "value": "ternary(gte(@item.level, 7), 3, ternary(gte(@item.level, 4), 2, 1))",
+        "slug": "embodiment-of-battle-bonus"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["spell-attack", "spell-dc"],
+        "type": "status",
+        "value": -2,
+        "slug": "embodiment-of-battle-penalty"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.uiXWJVwWuMS3KvkV"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start",
+        "sustained": true
+      }
+    }
+  },
+  {
+    "id": "a72ab819-dd71-59eb-ac31-27fffbef6a3b",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:spell-effect-garden-of-healing",
+    "name": "Spell Effect: Garden of Healing",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c283c239-c8a7-59ad-bc26-993217a1ec89"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to saves against emotion effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["item:trait:emotion"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.JhxAUu3JEyERedMd"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "04a4e2a2-6148-5215-a181-809bf258ccf4",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:spell-effect-manifest-will",
+    "name": "Spell Effect: Manifest Will",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "8669631e-e3fe-50be-865e-06e41a822d68"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain an effect depending on the spell's tradition, or the tradition selected with Multifaceted Will."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Arcane",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You gain weakness to spell damage equal to the spell's rank."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Divine",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You gain temporary Hit Points equal to twice the spell's rank."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Occult",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You gain lesser cover."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Primal",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You have a –10-foot status penalty to all your Speeds."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "spell-effect-manifest-will",
+        "choices": [
+          {
+            "value": "arcane",
+            "label": "Arcane",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:tag:manifest-will:arcane",
+                  {
+                    "and": [
+                      "parent:spellcasting:tradition:arcane",
+                      {
+                        "nor": [
+                          "parent:origin:item:tag:manifest-will:divine",
+                          "parent:origin:item:tag:manifest-will:occult",
+                          "parent:origin:item:tag:manifest-will:primal"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "divine",
+            "label": "Divine",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:tag:manifest-will:divine",
+                  {
+                    "and": [
+                      "parent:spellcasting:tradition:divine",
+                      {
+                        "nor": [
+                          "parent:origin:item:tag:manifest-will:arcane",
+                          "parent:origin:item:tag:manifest-will:occult",
+                          "parent:origin:item:tag:manifest-will:primal"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "occult",
+            "label": "Occult",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:tag:manifest-will:occult",
+                  {
+                    "and": [
+                      "parent:spellcasting:tradition:occult",
+                      {
+                        "nor": [
+                          "parent:origin:item:tag:manifest-will:arcane",
+                          "parent:origin:item:tag:manifest-will:divine",
+                          "parent:origin:item:tag:manifest-will:primal"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "primal",
+            "label": "Primal",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:tag:manifest-will:primal",
+                  {
+                    "and": [
+                      "parent:spellcasting:tradition:primal",
+                      {
+                        "nor": [
+                          "parent:origin:item:tag:manifest-will:arcane",
+                          "parent:origin:item:tag:manifest-will:divine",
+                          "parent:origin:item:tag:manifest-will:occult"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select a tradition.",
+        "rollOption": "manifest-will"
+      },
+      {
+        "key": "TempHP",
+        "value": "2 * @item.level",
+        "predicate": ["manifest-will:divine"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "status",
+        "value": -10,
+        "predicate": ["manifest-will:primal"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.Vd72sGiTl7Pq8iQv"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "5d99c6ec-28d0-5a03-825a-27003ca58644",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:spell-effect-river-carving-mountains",
+    "name": "Spell Effect: River Carving Mountains",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "7a7c25c1-1627-58e5-9db6-0657fcebbd3e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +10-foot status bonus to each Speed you have."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "status",
+        "value": 10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.aaA6cgroFMRMsisy"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "eec4382f-a4cd-5342-a46f-fcced18c38af",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:spell-effect-traveling-workshop",
+    "name": "Spell Effect: Traveling Workshop",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "99db87e7-176c-5890-aef3-e317338ca39d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are trained in Crafting and Thievery."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (3rd)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your proficiency in Crafting and Thievery is expert."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (5th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your proficiency in Crafting and Thievery is master."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (9th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your proficiency in Crafting and Thievery is legendary."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.qXWCvqt24iczeN8V"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start",
+        "sustained": true
+      }
+    }
+  },
+  {
+    "id": "4fc45875-0418-504b-af51-a0b6fe3e3d9a",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:spell-effect-vindicators-mark",
+    "name": "Spell Effect: Vindicator's Mark",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "7ed2543c-a37d-569b-b8af-0de4aace4d37"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your marked target takes additional damage from all your weapon or unarmed attacks."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-damage"],
+        "type": "untyped",
+        "value": "ceil(@item.level / 2) + 1",
+        "predicate": ["target:mark:vindicators-mark"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.zdyelSV3S2ZFHsT4"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "26c71541-98be-5279-96a5-7c695674cd25",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:stance-immovable-object",
+    "name": "Stance: Immovable Object",
+    "level": 14,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "eac942e8-0d13-5645-829a-61b0c55e809f"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While in this stance and on the ground, you are immune to forced movement and if an effect would knock you prone, you aren't knocked prone and can Step as a free action."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.sgRIIdKNXbBAv4dk"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  },
+  {
+    "id": "ae09afeb-f631-5f94-810c-107415d29e9b",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:stance-spear-of-doom",
+    "name": "Stance: Spear of Doom",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "2658dbef-e928-5be5-b1a5-4b0b9ebfee58"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your cursed weakness is equal to your level instead of half your level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.VfXwZXZaVq9u4GHo"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  },
+  {
+    "id": "77b86098-0020-5f01-9e9f-8ed68090a797",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:stance-unified-stance",
+    "name": "Stance: Unified Stance",
+    "level": 16,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "180cf6d1-ce32-580c-b61a-1c56ca2eca83"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you enter this stance, your united companion gains the quickened condition and, when Commanded, can use the extra action to Stride or Strike."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.wxVHqB06oB9yRIhT"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  }
+]

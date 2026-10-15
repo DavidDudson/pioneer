@@ -27,6 +27,9 @@ export async function coreRulesPack(): Promise<PackContents> {
     import('@pioneer/content/packs/core-rules/imported/player-core/trait.json'),
     import('@pioneer/content/packs/core-rules/imported/divine-mysteries/trait.json'),
     import('@pioneer/content/packs/core-rules/imported/treasure-vault/trait.json'),
+    import('@pioneer/content/packs/core-rules/imported/war-of-immortals/sense.json'),
+    import('@pioneer/content/packs/core-rules/imported/war-of-immortals/statistic.json'),
+    import('@pioneer/content/packs/core-rules/imported/war-of-immortals/trait.json'),
     import('@pioneer/content/packs/core-rules/imported/howl-of-the-wild/language.json'),
     import('@pioneer/content/packs/core-rules/imported/howl-of-the-wild/trait.json'),
     import('@pioneer/content/packs/core-rules/imported/gm-core/trait.json'),
@@ -102,6 +105,23 @@ export async function howlOfTheWildPack(): Promise<PackContents> {
     import('@pioneer/content/packs/howl-of-the-wild/shield.json'),
     import('@pioneer/content/packs/howl-of-the-wild/spell.json'),
     import('@pioneer/content/packs/howl-of-the-wild/weapon.json'),
+  ]);
+}
+
+export async function warOfImmortalsPack(): Promise<PackContents> {
+  return pack(import('@pioneer/content/packs/war-of-immortals/pack.json'), [
+    import('@pioneer/content/packs/war-of-immortals/action.json'),
+    import('@pioneer/content/packs/war-of-immortals/archetype.json'),
+    import('@pioneer/content/packs/war-of-immortals/armor.json'),
+    import('@pioneer/content/packs/war-of-immortals/class-feature.json'),
+    import('@pioneer/content/packs/war-of-immortals/class.json'),
+    import('@pioneer/content/packs/war-of-immortals/consumable.json'),
+    import('@pioneer/content/packs/war-of-immortals/effect.json'),
+    import('@pioneer/content/packs/war-of-immortals/equipment.json'),
+    import('@pioneer/content/packs/war-of-immortals/feat.json'),
+    import('@pioneer/content/packs/war-of-immortals/rune.json'),
+    import('@pioneer/content/packs/war-of-immortals/spell.json'),
+    import('@pioneer/content/packs/war-of-immortals/weapon.json'),
   ]);
 }
 
