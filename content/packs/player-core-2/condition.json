@@ -1,0 +1,38 @@
+[
+  {
+    "id": "6831f01d-67bd-52cc-a505-07137fac3abb",
+    "pack": "player-core-2",
+    "kind": "condition",
+    "slug": "condition:cursebound",
+    "name": "Cursebound",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your oracular curse is constricting around you as you receive divine punishment after drawing too deeply on your mystery's powers. Cursebound is a condition that affects only creatures with an oracular curse, and cursebound always includes a value. Your specific oracular curse imposes unique negative effects depending on your cursebound value. You can remove the cursebound condition only by Refocusing."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.conditionitems.Item.zXZjC8HLaRoLR17U"
+    },
+    "data": {
+      "valued": true,
+      "group": "abilities",
+      "overrides": [],
+      "implies": []
+    }
+  }
+]

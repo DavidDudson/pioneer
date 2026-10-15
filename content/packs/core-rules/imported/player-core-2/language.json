@@ -1,0 +1,164 @@
+[
+  {
+    "id": "f9a100aa-5ebc-5394-9f54-fd97a217a7e8",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:amurrun",
+    "name": "Amurrun",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "7fa580d2-17bf-5551-94d7-6ef8d731167b",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:boggard",
+    "name": "Boggard",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "ae9c727a-c819-5c5f-9329-c79ac7b4b03d",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:chthonian",
+    "name": "Chthonian",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "85a9a212-540b-5211-96ce-ffce82640b25",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:diabolic",
+    "name": "Diabolic",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "721dd516-a92c-5e07-89f5-55096378a186",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:iruxi",
+    "name": "Iruxi",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "4e394236-976f-5501-bdb1-f8e938fcb241",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:necril",
+    "name": "Necril",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "cd4a558a-c679-5063-8c6c-749d2d47e501",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:tengu",
+    "name": "Tengu",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "b5ffd5ce-7e6d-5873-884d-d95aedea292a",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:tripkee",
+    "name": "Tripkee",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "0138f3af-66e3-51ad-8b55-8a7644fa94d5",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:ysoki",
+    "name": "Ysoki",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  }
+]

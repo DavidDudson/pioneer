@@ -1,0 +1,3564 @@
+[
+  {
+    "id": "1b50b0ed-a941-5da3-8f4d-f20dc2775025",
+    "pack": "player-core-2",
+    "kind": "action",
+    "slug": "action:basic-finisher",
+    "name": "Basic Finisher",
+    "rarity": "common",
+    "traits": ["finisher"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You make a graceful, deadly attack. Make a Strike; if you hit and your weapon qualifies for "
+          },
+          {
+            "type": "ref",
+            "id": "fd752ef0-7894-5d19-acce-c3f5bcf71268"
+          },
+          {
+            "type": "text",
+            "text": ", you deal the full 1d6 damage from precise strike."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.dCuvfq3r2K9wXY9g"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "7247972c-23a2-59c5-a181-6b62726831e8",
+    "pack": "player-core-2",
+    "kind": "action",
+    "slug": "action:boarding-assault",
+    "name": "Boarding Assault",
+    "rarity": "common",
+    "traits": ["flourish"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Either Stride twice or attempt an "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:acrobatics"
+          },
+          {
+            "type": "text",
+            "text": " check (DC determined by the GM, but usually DC 20) to swing up to twice your Speed on a rope or similar object, then Strike."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you boarded or disembarked from a boat or similar vehicle during this movement, the Strike deals one additional weapon damage die."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.vZltxwRNvF5khf9a"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "2b6cf5fe-630b-5a54-b263-baaf009f2f04",
+    "pack": "player-core-2",
+    "kind": "action",
+    "slug": "action:call-companion",
+    "name": "Call Companion",
+    "rarity": "common",
+    "traits": ["exploration"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You spend 1 minute calling for a different animal companion, switching your active companion for another of your animal companions."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.8kGpUUUSX1sB2OqQ"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "b2409221-610f-5ff8-8952-991b51445e48",
+    "pack": "player-core-2",
+    "kind": "action",
+    "slug": "action:clue-in",
+    "name": "Clue In",
+    "rarity": "common",
+    "traits": ["concentrate", "investigator"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Another creature attempts a check that could help get you closer to answering the question at the heart of one of your active investigations."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You share information with the triggering creature. They gain a circumstance bonus to their check equal to your investigation bonus from Pursue a Lead. The GM can add any relevant traits to this reaction depending on the situation, such as auditory and linguistic if you're conveying information verbally."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "f1f44070-8efb-5bae-9056-54393103bf2b"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.25WDi1cVUrW92sUj"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "interaction",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Another creature attempts a check that could help get you closer to answering the question at the heart of one of your active investigations."
+            }
+          ]
+        }
+      ],
+      "frequency": {
+        "max": 1,
+        "per": "ten-minutes"
+      }
+    }
+  },
+  {
+    "id": "a543f207-70a7-5bf8-ad3a-9648c23e368a",
+    "pack": "player-core-2",
+    "kind": "action",
+    "slug": "action:cobble-together",
+    "name": "Cobble Together",
+    "rarity": "common",
+    "traits": ["exploration"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You "
+          },
+          {
+            "type": "ref",
+            "id": "cffa6a55-a0d3-5be2-8169-ba9cf4745e57"
+          },
+          {
+            "type": "text",
+            "text": " a temporary item out of anything, anywhere, with whatever materials happen to be on hand, spending only 10 minutes to perform the initial Crafting check."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The temporary item must be one you've memorized or have the formula for, and must be common, non-magical, half your level or lower, and must be a weapon, armor, or a non-consumable piece of adventuring gear (non-consumable adventuring gear appears on page 291 of Player Core). Instead of a single item, you can create 10 pieces of a single type of ammunition. You can create only the physical item, not any information or magic, so for example, while you could create a blank journal or one with random pages, you couldn't use it as a scholarly journal or a religious text"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.PE1jm9lBveujj2md"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "ba6c924f-1219-51e5-95c6-1db71ca726b2",
+    "pack": "player-core-2",
+    "kind": "action",
+    "slug": "action:confident-finisher",
+    "name": "Confident Finisher",
+    "rarity": "common",
+    "traits": ["finisher"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You make an incredibly graceful attack, piercing your foe's defenses. Make a Strike with the following failure effect."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You deal half your "
+          },
+          {
+            "type": "ref",
+            "id": "fd752ef0-7894-5d19-acce-c3f5bcf71268"
+          },
+          {
+            "type": "text",
+            "text": " damage to the target. This damage type is that of the weapon or unarmed attack you used for the Strike."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["strike-attack-roll"],
+        "title": "Confident Finisher",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You deal half your Precise Strike damage to the target. This damage type is that of the weapon or unarmed attack you used for the Strike."
+              }
+            ]
+          }
+        ],
+        "outcome": ["failure"],
+        "predicate": [
+          {
+            "or": ["finisher:confident", "option:eternal-confidence"]
+          },
+          {
+            "or": [
+              "item:melee",
+              {
+                "and": [
+                  "feat:flying-blade",
+                  "item:thrown",
+                  {
+                    "or": [
+                      "target:range-increment:1",
+                      {
+                        "and": [
+                          "finisher:twirling-throw",
+                          {
+                            "lte": ["target:range-increment", 3]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "or": ["item:trait:agile", "item:trait:finesse"]
+          },
+          {
+            "not": "feat:precise-finisher"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.K878asDgf1EF0B9S"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "8a161f93-b449-5575-8dd1-dbcd449eaf80",
+    "pack": "player-core-2",
+    "kind": "action",
+    "slug": "action:destructive-vengeance",
+    "name": "Destructive Vengeance",
+    "rarity": "common",
+    "traits": ["champion", "divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An enemy in your champion's aura damages you"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Bloodshed begets bloodshed as you drag your enemy toward oblivion. You increase the amount of damage you take by "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(ternary(gte(@level,19),6,ternary(gte(@level,16),5,ternary(gte(@level,12),4,ternary(gte(@level,9),3,ternary(gte(@level,5),2,1))))))d6"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and you deal "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(ternary(gte(@level,19),6,ternary(gte(@level,16),5,ternary(gte(@level,12),4,ternary(gte(@level,9),3,ternary(gte(@level,5),2,1))))))d6",
+                "damageType": "spirit"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to the triggering enemy. The damage you take and deal when you use this reaction increases to 2d6 at 5th level, 3d6 at 9th level, 4d6 at 12th level, 5d6 at 16th level, and 6d6 at 19th level."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In addition, until the end of your next turn, your Strikes against the triggering creature deal 2 extra spirit damage. This extra damage increases to 4 at 9th level and 6 at 16th level."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "7f7c030d-7e9a-554a-9394-b1c94403f0b3"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.r5Uth6yvCoE4tr9z"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "offensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "An enemy in your champion's aura damages you"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "5ac07788-c8ee-564f-ab8e-cd6c1a52e6c8",
+    "pack": "player-core-2",
+    "kind": "action",
+    "slug": "action:devise-a-stratagem",
+    "name": "Devise a Stratagem",
+    "rarity": "common",
+    "traits": ["concentrate", "investigator"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per round"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You assess a foe's weaknesses in combat and use them to formulate a plan of attack. Choose a creature you can see. You can Devise a Stratagem as a free action if you're aware that creature could help answer the question at the heart of one of your active investigations. Roll a d20, then decide on an attack stratagem or skill stratagem."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Attack Stratagem",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If you Strike the chosen creature before the start of your next turn, your Strike gains the fortune trait and you must use the result of the d20 roll for your Strike's attack roll instead of rolling. You make this substitution only for the first Strike you make against the creature this round, not any subsequent ones. When you make this substitution, you can add your Intelligence modifier to your attack roll instead of your Strength or Dexterity modifier. If you Strike with a melee weapon, melee unarmed attack, or thrown weapon, it must have the agile or finesse trait to benefit from the substitution."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Skill Stratagem",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can't attempt to Strike the target until the start of your next turn. You gain a +1 circumstance bonus to your next Intelligence-, Wisdom-, or Charisma-based skill check or Perception check involving the target before the start of your next turn. If you would gain your Pursue a Lead investigation bonus to such a check, that bonus increases by 1 instead of you gaining the +1 bonus listed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.m0f2B7G9eaaTmhFL"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "round"
+      },
+      "selfEffect": "5969619e-a7bc-54b5-862f-b90d2da1b0a1"
+    }
+  },
+  {
+    "id": "a379f7f5-169d-534c-ac01-c81216671879",
+    "pack": "player-core-2",
+    "kind": "action",
+    "slug": "action:eldritch-shot",
+    "name": "Eldritch Shot",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are wielding a bow or a loaded crossbow"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Cast a Spell that takes 1 or 2 actions to cast and requires a spell attack roll. The effects of the spell do not occur immediately but are imbued into the bow you're wielding. Make a Strike with that bow. Your spell flies with the ammunition, using your attack roll result to determine the effects of both the Strike and the spell. This counts as two attacks for your multiple attack penalty, but you don't apply the penalty until after you've completed the Eldritch Shot. Combine the Strike and spell's damage for the purpose of resistances and weaknesses."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.DS9sDOWkXrz2xmHi"
+    },
+    "data": {
+      "cost": "three",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You are wielding a bow or a loaded crossbow"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "cbe0eaf1-f09a-54c9-aef5-97a490aca76f",
+    "pack": "player-core-2",
+    "kind": "action",
+    "slug": "action:expeditious-inspection",
+    "name": "Expeditious Inspection",
+    "rarity": "common",
+    "traits": ["investigator"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You observe and assess your surroundings with great speed. You "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "d45207be-e539-50ce-9463-f4edc3671076"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "775b68f2-1542-5f47-bc0d-87d5884d7baa"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.jftNJjBNxp2cleoi"
+    },
+    "data": {
+      "cost": "free",
+      "category": "interaction",
+      "frequency": {
+        "max": 1,
+        "per": "ten-minutes"
+      }
+    }
+  },
+  {
+    "id": "b51687a0-c8c7-5868-90e0-fd8baccc148b",
+    "pack": "player-core-2",
+    "kind": "action",
+    "slug": "action:extra-alchemy",
+    "name": "Extra Alchemy",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your familiar helps you brew items at the start of the day. You can create one additional item with "
+          },
+          {
+            "type": "ref",
+            "id": "b1b670e6-2c1c-549c-a3a0-58456ed8ecb8"
+          },
+          {
+            "type": "text",
+            "text": " during your daily preparations. You must have the Advanced Alchemy ability to select this ability."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "3d3d7afd-8015-5842-b19f-4f93c4093e22"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.ModT5b0jvnaitzJH"
+    },
+    "data": {
+      "category": "familiar"
+    }
+  },
+  {
+    "id": "2d703e69-b59b-5dd4-b718-676a00732125",
+    "pack": "player-core-2",
+    "kind": "action",
+    "slug": "action:extra-vial",
+    "name": "Extra Vial",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your familiar accretes alchemical liquids in its body. Once per day, you can Interact when your familiar is adjacent to you to gain a versatile vial. You must have the "
+          },
+          {
+            "type": "ref",
+            "id": "07ceea7e-a534-547a-a3e9-842a37273008"
+          },
+          {
+            "type": "text",
+            "text": " ability to select this ability."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.ZtKb89o1PPhwJ3Lx"
+    },
+    "data": {
+      "category": "familiar"
+    }
+  },
+  {
+    "id": "a111860c-feda-5a59-9675-2ab66f0e0072",
+    "pack": "player-core-2",
+    "kind": "action",
+    "slug": "action:feys-fortune",
+    "name": "Fey's Fortune",
+    "rarity": "common",
+    "traits": ["concentrate", "fortune"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You attempt a skill check and haven't yet rolled"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Roll the skill check twice and use the better result"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.TMBXArwICQRJdwT6"
+    },
+    "data": {
+      "cost": "free",
+      "category": "interaction",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You attempt a skill check and haven't yet rolled"
+            }
+          ]
+        }
+      ],
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "4bb8e110-5a92-56a4-bdb5-df0bc9f3d583",
+    "pack": "player-core-2",
+    "kind": "action",
+    "slug": "action:final-surge",
+    "name": "Final Surge",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You Stride twice. The "
+          },
+          {
+            "type": "ref",
+            "id": "192c6eb2-1783-55f1-b14d-464fbdbdb4a8",
+            "label": "Drakeheart Mutagen"
+          },
+          {
+            "type": "text",
+            "text": "'s duration ends."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.EHa0owz6mccnmSBf"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "15c75599-c101-559f-93dd-bfd2c928f25f",
+    "pack": "player-core-2",
+    "kind": "action",
+    "slug": "action:flash-of-grandeur",
+    "name": "Flash of Grandeur",
+    "rarity": "common",
+    "traits": ["champion", "divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An enemy damages your ally, and both are in your champion's aura"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Imperious divine light flashes out from you to surround your foe. The ally gains resistance to all damage against the triggering damage equal to 2 + your level. Until the end of your next turn, the attacker is affected by "
+          },
+          {
+            "type": "ref",
+            "id": "3597aeb0-883c-562a-82ca-37e92210633d"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "8a1e98c1-9157-5f46-a430-9975c6c23467"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.ITWUi1r8Z7EtChkB"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "An enemy damages your ally, and both are in your champion's aura"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "3871772f-71c6-5f33-9fd6-563570c82834",
+    "pack": "player-core-2",
+    "kind": "action",
+    "slug": "action:glimpse-of-redemption",
+    "name": "Glimpse of Redemption",
+    "rarity": "common",
+    "traits": ["champion", "divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An enemy damages your ally, and both are in your champion's aura"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your enemy hesitates under the weight of sin as visions of redemption play in their mind's eye. The enemy must choose to repent or refuse, with the following effects. If the enemy is mindless or otherwise unable to repent, use the refuse result."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Repent",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The ally is unharmed by the triggering damage."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Refuse",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The ally gains resistance to all damage against the triggering damage equal to 2 + your level. After the damaging effect is applied, the enemy becomes "
+                },
+                {
+                  "type": "ref",
+                  "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+                  "label": "Enfeebled 2"
+                },
+                {
+                  "type": "text",
+                  "text": " until the end of its next turn."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "8a1e98c1-9157-5f46-a430-9975c6c23467"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.tuZnRWHixLArvaIf"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "An enemy damages your ally, and both are in your champion's aura"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "5aabcd1a-30fa-5f02-a733-d14d3dc65ee5",
+    "pack": "player-core-2",
+    "kind": "action",
+    "slug": "action:influence-rumor",
+    "name": "Influence Rumor",
+    "rarity": "common",
+    "traits": ["downtime"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You spend at least 1 day of downtime attempting to manipulate the course, tone, or content of a rumor to your benefit. You need to succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:diplomacy"
+          },
+          {
+            "type": "text",
+            "text": " check to shift the rumor as you intend. The difficulty is determined by the GM based on the size of the community, the relative perceptiveness of the inhabitants, and the agency of other rumormongers, but it typically is no lower than DC 15 for a small village, DC 20 for a town, DC 30 for a city, or DC 40 for a metropolis."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.HFv62jIK98S2xw4x"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "43d00f4a-60ca-5ca3-a7ca-5d7f939e1bde",
+    "pack": "player-core-2",
+    "kind": "action",
+    "slug": "action:iron-command",
+    "name": "Iron Command",
+    "rarity": "common",
+    "traits": ["champion", "divine", "emotion", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An enemy in your champion's aura damages you"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You put an impertinent foe who dared harm you in their proper place. You command your enemy to kneel before you in obedience. If they dare to refuse, they must pay the price in pain and anguish. The enemy must choose one of the following options."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Kneel",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The enemy drops "
+                },
+                {
+                  "type": "ref",
+                  "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+                },
+                {
+                  "type": "text",
+                  "text": " as a free action."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Refuse",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You deal "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "(ternary(gte(@level,19),6,ternary(gte(@level,16),5,ternary(gte(@level,12),4,ternary(gte(@level,9),3,ternary(gte(@level,5),2,1))))))d6",
+                      "damageType": "mental"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage to the enemy. This damage increases to 2d6 at 5th level, 3d6 at 9th level, 4d6 at 12th level, 5d6 at 16th level, and 6d6 at 19th level."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Regardless of which option the enemy chose, your Strikes against it deal 1 extra spirit damage until the end of your next turn. This extra damage increases to 2 at 9th level and 3 at 16th level."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "7f7c030d-7e9a-554a-9394-b1c94403f0b3"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.M8RCbthRhB4bxO9t"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "offensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "An enemy in your champion's aura damages you"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "4ec6b6b0-2178-5567-9f35-d1e6027471f6",
+    "pack": "player-core-2",
+    "kind": "action",
+    "slug": "action:item-delivery",
+    "name": "Item Delivery",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If your familiar is adjacent to you, you can Command it to deliver an item. Instead of its normal 2 actions, your familiar Interacts to take an item you're holding of light Bulk or less, then takes one move action, then finally Interacts to pass off the item to another willing creature."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "It can instead administer the item to the creature if it can do so with 1 action and has an appropriate type of item (such as alchemical elixir). If your familiar doesn't reach the target this turn, it holds the item until commanded otherwise. Your familiar must have the manual dexterity ability to select this."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.Ms8EVO2mNbr4Zp1i"
+    },
+    "data": {
+      "category": "familiar"
+    }
+  },
+  {
+    "id": "ba3a7521-4de2-50d3-8141-fb398774967d",
+    "pack": "player-core-2",
+    "kind": "action",
+    "slug": "action:liberating-step",
+    "name": "Liberating Step",
+    "rarity": "common",
+    "traits": ["champion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An enemy damages, "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146",
+            "label": "grabs"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071",
+            "label": "restrains"
+          },
+          {
+            "type": "text",
+            "text": " your ally, and both are in your champion's aura"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You free an ally from restraint."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the trigger was an ally taking damage, the ally gains resistance to all damage against the triggering damage equal to 2 + your level."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The ally can attempt to break free of effects grabbing, "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071",
+            "label": "Restraining"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd",
+            "label": "Immobilizing"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "7802f1d9-5ced-5b9b-8a08-98ec0adb9947",
+            "label": "Paralyzing"
+          },
+          {
+            "type": "text",
+            "text": " them. They either attempt a new save against one such effect that allows a save, or attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "2ae74030-e87a-55ee-955c-fb9870392d44"
+          },
+          {
+            "type": "text",
+            "text": " from one effect as a free action."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If they can move, the ally can Step as a free action, even if they didn't need to escape."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "8a1e98c1-9157-5f46-a430-9975c6c23467"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.IX1VlVCL5sFTptEE"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "An enemy damages, grabs, or restrains your ally, and both are in your champion's aura"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "1d79a50a-18a8-5276-9e1c-f23d2cd4b1b2",
+    "pack": "player-core-2",
+    "kind": "action",
+    "slug": "action:mark-for-death",
+    "name": "Mark for Death",
+    "rarity": "common",
+    "traits": ["concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature you intend to mark is observed by you"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You designate a single creature as your mark. Using Mark for Death while "
+          },
+          {
+            "type": "ref",
+            "id": "d851e3ca-be0d-55a7-a4d1-d7ed8b7ecafa"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "61f1fec4-1bb4-585d-9c12-6059d15dd74b"
+          },
+          {
+            "type": "text",
+            "text": " doesn't make you "
+          },
+          {
+            "type": "ref",
+            "id": "a861c051-d5ee-5a52-9334-b7289778180f"
+          },
+          {
+            "type": "text",
+            "text": ". Mark for Death lasts until the mark dies or you use Mark for Death again. You gain a +2 circumstance bonus to Perception checks to "
+          },
+          {
+            "type": "ref",
+            "id": "d45207be-e539-50ce-9463-f4edc3671076"
+          },
+          {
+            "type": "text",
+            "text": " your mark, as well as to Deception checks to "
+          },
+          {
+            "type": "ref",
+            "id": "8b950c56-7b5d-5063-9439-adb52a323cd9"
+          },
+          {
+            "type": "text",
+            "text": " against your mark. Your mark takes a –2 circumstance penalty to all Perception checks to Seek you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In addition, when attacking your mark, you have the "
+          },
+          {
+            "type": "ref",
+            "id": "4002ee58-c0ce-505b-a450-26505397453f"
+          },
+          {
+            "type": "text",
+            "text": " class feature, except it deals 1d4 precision damage and you don't increase the number of dice as you gain levels. At 6th level, the damage increases to 1d6. If you already have the sneak attack class feature, you instead deal an additional 1 precision damage with your sneak attacks made against your mark, increasing to 2 precision damage at 6th level."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:marked-for-death",
+        "toggleable": true,
+        "display": {
+          "label": "Target is Marked for Death"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception", "skill:deception"],
+        "type": "circumstance",
+        "value": 2,
+        "slug": "mark-for-death-skill",
+        "predicate": [
+          "option:marked-for-death",
+          {
+            "or": ["action:feint", "action:seek"]
+          }
+        ],
+        "display": {
+          "label": "Target is Marked for Death"
+        }
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "slug": "sneak-attack",
+        "diceNumber": "1",
+        "dieSize": "d4",
+        "category": "precision",
+        "predicate": [
+          {
+            "not": "feature:sneak-attack"
+          },
+          "option:marked-for-death",
+          "target:condition:off-guard",
+          {
+            "or": [
+              "item:trait:agile",
+              "item:trait:finesse",
+              {
+                "and": [
+                  "item:ranged",
+                  {
+                    "not": "item:thrown-melee"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.orjJjLdm4XNAcFi8"
+    },
+    "data": {
+      "cost": "three",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The creature you intend to mark is observed by you"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "961ddce2-0a73-5e04-96f5-e6c0a35fa496",
+    "pack": "player-core-2",
+    "kind": "action",
+    "slug": "action:once-bitten",
+    "name": "Once Bitten",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature adjacent to you hits you with a melee unarmed Strike"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have prepared your clothing to poison attackers"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The triggering creature is exposed to the suffused poison, and the poison becomes inert."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.2r4BY90F9PLFai3c"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You have prepared your clothing to poison attackers"
+            }
+          ]
+        }
+      ],
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A creature adjacent to you hits you with a melee unarmed Strike"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "7065d0f0-2182-5c35-ba2b-aef4a4846657",
+    "pack": "player-core-2",
+    "kind": "action",
+    "slug": "action:opportune-riposte",
+    "name": "Opportune Riposte",
+    "rarity": "common",
+    "traits": ["bravado", "swashbuckler"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A foe within your reach critically fails a Strike against you"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take advantage of an opening from your enemy's fumbled attack. You either make a melee Strike against the triggering foe or attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "ef57a555-f9e9-53cc-b09b-b7432156cbf1"
+          },
+          {
+            "type": "text",
+            "text": " it of the weapon it used for the Strike."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:opportune-riposte",
+        "toggleable": true
+      },
+      {
+        "key": "RollOption",
+        "option": "item:trait:bravado",
+        "predicate": ["option:opportune-riposte", "action:disarm"],
+        "priority": 51
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:melee"],
+        "predicate": ["option:opportune-riposte"],
+        "property": "traits",
+        "mode": "add",
+        "value": "bravado"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.EfjoIuDmtUn4yiow"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "offensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A foe within your reach critically fails a Strike against you"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "1ba606a2-a8b2-57f4-9e86-e6aed4426e2b",
+    "pack": "player-core-2",
+    "kind": "action",
+    "slug": "action:plummeting-roll",
+    "name": "Plummeting Roll",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fall at least 10 feet and take no damage from the fall"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You tuck and roll with the motion. You land on your feet and Stride up to half your Speed"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.XiiR6WwfTcwIUvHG"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You fall at least 10 feet and take no damage from the fall"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "5cecfc9b-1fd4-5214-8ddd-0a05ba0f4ac0",
+    "pack": "player-core-2",
+    "kind": "action",
+    "slug": "action:pointed-question",
+    "name": "Pointed Question",
+    "rarity": "common",
+    "traits": ["auditory", "concentrate", "investigator", "linguistic", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You ask a question that charms or needles someone in just the right way. Ask a question of a non-allied creature that you can see. Attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:diplomacy"
+          },
+          {
+            "type": "text",
+            "text": " check against the creature's Will DC. The creature is then temporarily immune for 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target must directly answer your question. It doesn't have to answer truthfully, but you gain a +4 circumstance bonus to your Perception DC if the creature attempts to "
+          },
+          {
+            "type": "ref",
+            "id": "1ee7b671-dd18-5950-a4db-fbd4f8dae832"
+          },
+          {
+            "type": "text",
+            "text": " to you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whether it answers truthfully or not, you glean something from its body language, and it is "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " to the Strike you make using "
+          },
+          {
+            "type": "ref",
+            "id": "5ac07788-c8ee-564f-ab8e-cd6c1a52e6c8"
+          },
+          {
+            "type": "text",
+            "text": " against it before the end of your turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As critical success, but the circumstance bonus to your Perception DC is +2."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "7451c9cf-97e4-5598-b280-01b6d1e3b76c"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target can refuse to answer you as normal."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target can refuse to answer you as normal, and its attitude toward you decreases by one step due to your aggravating attention."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.xccOiNL2W1EtfUYl"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "6e146686-7506-514d-9ff2-30696de341da",
+    "pack": "player-core-2",
+    "kind": "action",
+    "slug": "action:poison-reservoir",
+    "name": "Poison Reservoir",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your familiar has a reservoir for poison, allowing it to apply an injury poison to an adjacent ally's exposed weapon with a single Interact action. You must supply the poison and instill it into this reservoir using two consecutive Interact actions. You must have a homunculus familiar to select this ability"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.8Z1UkLEWkFWIjOF8"
+    },
+    "data": {
+      "category": "familiar"
+    }
+  },
+  {
+    "id": "c3e8808d-49ed-5855-90ec-9b753ba89635",
+    "pack": "player-core-2",
+    "kind": "action",
+    "slug": "action:pursue-a-lead",
+    "name": "Pursue a Lead",
+    "rarity": "common",
+    "traits": ["concentrate", "exploration", "investigator"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You name one detail you've identified that you think is part of a larger mystery, then spend 1 minute examining it. The detail is typically either obvious or something you've already discovered using "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "775b68f2-1542-5f47-bc0d-87d5884d7baa"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "5a415628-89cf-53d6-bd53-fd8ff05718fb"
+          },
+          {
+            "type": "text",
+            "text": ", or a similar action. After the minute passes, the GM either confirms there's a larger mystery or tells you there's nothing more to learn (the detail is inconsequential or you know all the information already). If there is in fact a larger mystery at play, you can't Pursue a Lead again for 10 minutes, but you can choose to open an investigation. To do so, define the question at the heart of the mystery, such as \"Where has the priceless work of art that was supposed to hang here been taken?\" or \"Who or what killed this priest?\" Work with your GM to refine the question if need be. You can also give your investigation a name to better keep track of it (such as \"The Case of the Cheated Goblin\" or \"The Skinsaw Murders\")."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Investigation Bonus",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Whenever you attempt a Perception check or skill check to attempt to get closer to answering the question at the heart of an active investigation, you gain a +1 circumstance bonus to the check. The exact checks this applies to depend on the actions you use to investigate and are determined by the GM, but checks to investigate are typically Perception checks or skill checks that use Intelligence, Wisdom, or Charisma."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Active Investigations",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can maintain two active investigations at a time. If you Pursue another Lead after that, the case must be different from any of your current investigations (as far as you are aware), and you give up on a current investigation of your choice. Once you've given up pursuit of an investigation, you can't Pursue a Lead into it again until after the next time you make your daily preparations."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Solving an Investigation",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If you answer the question at the heart of your investigation, the GM tells you that you've done so. You don't lose the bonus or other benefits until you choose to close the investigation by Pursuing a Lead again or voluntarily Dismissing it. If what you discover points to an even larger mystery, you can work with the GM to adapt the question and name of the investigation to the new information."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:pursue-a-lead",
+        "toggleable": true,
+        "display": {
+          "label": "Pursue a Lead — Investigation Bonus"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception", "skill-check"],
+        "type": "circumstance",
+        "value": 1,
+        "slug": "pursue-a-lead",
+        "predicate": ["option:pursue-a-lead"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.xTK2zsWFyxSJvYbX"
+    },
+    "data": {
+      "category": "interaction",
+      "frequency": {
+        "max": 1,
+        "per": "ten-minutes"
+      }
+    }
+  },
+  {
+    "id": "f062a8dd-04bd-5b48-8a69-2bbdfd1e5cb2",
+    "pack": "player-core-2",
+    "kind": "action",
+    "slug": "action:quick-alchemy",
+    "name": "Quick Alchemy",
+    "rarity": "common",
+    "traits": ["alchemist", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're either holding or wearing an "
+          },
+          {
+            "type": "ref",
+            "id": "fa6fa403-567c-5444-b0a7-92dc8bbedbd2"
+          },
+          {
+            "type": "text",
+            "text": ". and you have a free hand."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can either use up a versatile vial to make another alchemical consumable at a moment's notice or create an especially short-lived versatile vial. Any effect created by an item made with Quick Alchemy that would have a duration longer than 10 minutes lasts for 10 minutes instead."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Create Consumable",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You expend one of your versatile vials to create a single alchemical consumable item of your level or lower that's in your formula book. You don't have to spend the normal monetary cost in alchemical raw materials or need to attempt a Crafting check. This item has the infused trait, but it remains potent only until the start of your next turn. (As normal, you need only one formula for an item to create any level of that item.)"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Quick Vial",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You create a versatile vial that can be used only as a bomb or for the versatile vial option from your research field (it can't be used to create a consumable, for example). This item has the infused trait, but it remains potent only until the end of your current turn."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.yzNJgwzV9XqEhKc6"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You're either holding or wearing an Alchemist's Toolkit. and you have a free hand."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "72f8bfea-4d71-53cb-bfdb-620059f1ed61",
+    "pack": "player-core-2",
+    "kind": "action",
+    "slug": "action:quick-tempered",
+    "name": "Quick-Tempered",
+    "rarity": "common",
+    "traits": ["barbarian"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You roll initiative."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are not "
+          },
+          {
+            "type": "ref",
+            "id": "c7876f7b-3d87-55d8-af48-a396b2676415"
+          },
+          {
+            "type": "text",
+            "text": " or wearing heavy armor."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "So long as you are able to move freely, your fury is instinctive and instantaneous. You "
+          },
+          {
+            "type": "ref",
+            "id": "6018ad4a-3bf1-50f0-9452-3c633fe443e0"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.a9PzINjFTO5GvAJN"
+    },
+    "data": {
+      "cost": "free",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You are not Encumbered or wearing heavy armor."
+            }
+          ]
+        }
+      ],
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You roll initiative."
+            }
+          ]
+        }
+      ],
+      "selfEffect": "f0c49c52-a253-5166-a6e2-098726374286"
+    }
+  },
+  {
+    "id": "a5eb6e01-e645-53f4-ae05-a55d2b3a96cd",
+    "pack": "player-core-2",
+    "kind": "action",
+    "slug": "action:quick-tincture",
+    "name": "Quick Tincture",
+    "rarity": "common",
+    "traits": ["investigator", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cost",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 versatile vial"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You know the formula for the alchemical item you're creating, you are holding or wearing alchemist's toolkit, and you have a free hand."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You quickly brew up a short-lived tincture. You create a single alchemical elixir or tool of your level or lower without having to spend the normal monetary cost in alchemical reagents or needing to attempt a Crafting check. This item has the infused trait, but it remains potent only until the end of the current turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.QHFMeJGzFWj2QczA"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You know the formula for the alchemical item you're creating, you are holding or wearing alchemist's toolkit, and you have a free hand."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "6018ad4a-3bf1-50f0-9452-3c633fe443e0",
+    "pack": "player-core-2",
+    "kind": "action",
+    "slug": "action:rage",
+    "name": "Rage",
+    "rarity": "common",
+    "traits": ["barbarian", "concentrate", "emotion", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You aren't "
+          },
+          {
+            "type": "ref",
+            "id": "5e3582c3-701c-5169-9c69-4221096722c2"
+          },
+          {
+            "type": "text",
+            "text": " or raging."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You tap into your inner fury and begin raging. You gain a number of temporary Hit Points equal to your level plus your Constitution modifier. While you are raging:"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You deal 2 additional damage on melee Strikes. This additional damage is halved if your weapon or unarmed attack is agile."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You can't use actions with the concentrate trait unless they also have the rage trait. You can "
+                },
+                {
+                  "type": "ref",
+                  "id": "d45207be-e539-50ce-9463-f4edc3671076"
+                },
+                {
+                  "type": "text",
+                  "text": " while raging."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Rage lasts for 1 minute, until you fall "
+          },
+          {
+            "type": "ref",
+            "id": "e1a78dad-4887-518e-9120-e58b7009ebfd"
+          },
+          {
+            "type": "text",
+            "text": ", or until the encounter ends, whichever comes first. You can't voluntarily stop raging. When you stop raging, you lose any remaining temporary Hit Points from Rage, and can't gain temporary Hit Points from using the Rage action again for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "3adb1c49-c411-5375-9d5a-abaa05ac799e"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-damage"],
+        "type": "untyped",
+        "value": 2,
+        "slug": "rage",
+        "predicate": [
+          "self:effect:rage",
+          {
+            "or": [
+              {
+                "not": "item:ranged"
+              },
+              {
+                "and": ["feat:raging-thrower", "item:thrown"]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["strike-damage"],
+        "slug": "rage",
+        "mode": "multiply",
+        "value": 0.5,
+        "predicate": ["item:trait:agile"],
+        "priority": 95
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.Ah5g9pDwWF9b9VW9"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You aren't Fatigued or raging."
+            }
+          ]
+        }
+      ],
+      "selfEffect": "f0c49c52-a253-5166-a6e2-098726374286"
+    }
+  },
+  {
+    "id": "fba0f58a-6aa0-5b82-ab99-426cb2bf220b",
+    "pack": "player-core-2",
+    "kind": "action",
+    "slug": "action:resist-elf-magic",
+    "name": "Resist Elf Magic",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You attempt a saving throw against a magical effect but haven't rolled yet"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your ancestral resistance to magic protects you. You gain a +1 circumstance bonus to the triggering saving throw. If the triggering effect is arcane, you gain a +2 circumstance bonus instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "slug": "resist-elf-magic",
+        "predicate": [
+          "option:resist-elf-magic",
+          {
+            "or": ["option:magical", "option:divine", "option:primal", "option:occult"]
+          }
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["saving-throw"],
+        "slug": "resist-elf-magic",
+        "mode": "add",
+        "value": 1,
+        "predicate": ["item:trait:arcane"]
+      },
+      {
+        "key": "RollOption",
+        "domain": "saving-throw",
+        "option": "option:resist-elf-magic",
+        "toggleable": true
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.On5CQjX4euWqToly"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You attempt a saving throw against a magical effect but haven't rolled yet"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "17aa8796-8085-5e51-a96f-5bd6a9308f47",
+    "pack": "player-core-2",
+    "kind": "action",
+    "slug": "action:retributive-strike",
+    "name": "Retributive Strike",
+    "rarity": "common",
+    "traits": ["champion", "divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An enemy damages your ally, and both are in your champion's aura"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You protect your ally and strike your enemy. The ally gains resistance to all damage against the triggering damage equal to 2 + your level. If the enemy is within reach, make a melee Strike against it."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "8a1e98c1-9157-5f46-a430-9975c6c23467"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:retributive-strike",
+        "toggleable": true,
+        "predicate": [
+          {
+            "or": [
+              "feature:relentless-reaction",
+              "feat:shining-oath",
+              "feat:fiendsbane-oath",
+              "feat:dragonslayer-oath",
+              "feat:esoteric-oath"
+            ]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.EAP98XaChJEbgKcK"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "offensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "An enemy damages your ally, and both are in your champion's aura"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "bc7c0e76-a05f-5608-9d3b-386ef0c82c71",
+    "pack": "player-core-2",
+    "kind": "action",
+    "slug": "action:second-opinion",
+    "name": "Second Opinion",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your familiar is your academic confidant. Despite being a minion, your familiar gains 1 reaction at the start of its turns, which it can use only to "
+          },
+          {
+            "type": "ref",
+            "id": "75d39cda-442b-5171-bf18-4645b8813fd3"
+          },
+          {
+            "type": "text",
+            "text": " you on a Recall Knowledge skill check for a skill in which it has the "
+          },
+          {
+            "type": "ref",
+            "id": "26d9310e-aee0-57fa-beba-d1f1a0c9ba4b"
+          },
+          {
+            "type": "text",
+            "text": " familiar ability (it still has to prepare to help you as normal for the Aid reaction)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "It automatically succeeds at its check to Aid you with those skills or automatically critically succeeds if you're a master of the skill in question. Your familiar must have the skilled ability to select this."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.j9vOSbF9kLibhSIf"
+    },
+    "data": {
+      "category": "familiar"
+    }
+  },
+  {
+    "id": "4bebacb0-6b63-5bf6-8727-a26ba05c36ab",
+    "pack": "player-core-2",
+    "kind": "action",
+    "slug": "action:selfish-shield",
+    "name": "Selfish Shield",
+    "rarity": "common",
+    "traits": ["champion", "divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An enemy in your champion's aura damages you"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your self-interest keeps you safe. You gain resistance against the triggering damage equal to 2 + half your level, regardless of damage type."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect: Selfish Shield"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In addition, your Strikes against the triggering creature deal 1 extra spirit damage until the end of your next turn. This extra damage increases to 2 at 9th level and 3 at 16th level."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "7f7c030d-7e9a-554a-9394-b1c94403f0b3"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.enQieRrITuEQZxx2"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "An enemy in your champion's aura damages you"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "a6278516-eae1-58fe-b671-3f44c279a45b",
+    "pack": "player-core-2",
+    "kind": "action",
+    "slug": "action:tail-toxin",
+    "name": "Tail Toxin",
+    "rarity": "common",
+    "traits": ["kobold", "poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are wielding a piercing or slashing weapon"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You apply your tail's venom to a piercing or slashing weapon. If your next Strike with that weapon before the end of your next turn hits and deals damage, you deal persistent poison damage equal to your level to the target."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.ev8OHpBO3xq3Zt08"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You are wielding a piercing or slashing weapon"
+            }
+          ]
+        }
+      ],
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      },
+      "selfEffect": "f36ac2df-bbe5-55b1-a7ab-2ffe76e240eb"
+    }
+  },
+  {
+    "id": "f4c2ba5b-49ac-568d-932c-1466b3c04246",
+    "pack": "player-core-2",
+    "kind": "action",
+    "slug": "action:threatening-approach",
+    "name": "Threatening Approach",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You Stride to be adjacent to a foe and Demoralize that foe. If you succeed, the foe is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": " instead of frightened 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.W4M8L9WepGLamlHs"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "03f4bb41-25c4-52f6-8c3c-648dc99bd393",
+    "pack": "player-core-2",
+    "kind": "action",
+    "slug": "action:toxic-skin",
+    "name": "Toxic Skin",
+    "rarity": "common",
+    "traits": ["poison", "tripkee"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature touches you, such as by "
+          },
+          {
+            "type": "ref",
+            "id": "380d34f1-f6f6-5820-b9dd-c01ee4e19fd5",
+            "label": "Grappling"
+          },
+          {
+            "type": "text",
+            "text": " you, successfully hitting you with an unarmed attack, or using a touch-range spell against you"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You exude a deadly toxin. The triggering creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(ceil(@level/2))d4",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": {
+              "against": "class-or-spell-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save using your class DC or spell DC, whichever is higher). At 3rd level and every 2 levels thereafter, the damage increases by 1d4."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.kKKHwVUnroKuAnOt"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A creature touches you, such as by Grappling you, successfully hitting you with an unarmed attack, or using a touch-range spell against you"
+            }
+          ]
+        }
+      ],
+      "frequency": {
+        "max": 1,
+        "per": "hour"
+      }
+    }
+  },
+  {
+    "id": "0a908d18-5ee1-5edc-a213-87ac8008cc59",
+    "pack": "player-core-2",
+    "kind": "action",
+    "slug": "action:transform-ammunition",
+    "name": "Transform Ammunition",
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per round"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You transform a non-magical arrow or bolt on your person into a piece of magical ammunition of one type you chose for the "
+          },
+          {
+            "type": "ref",
+            "id": "e7af7e46-6235-5c6d-a3a4-b4953155f977"
+          },
+          {
+            "type": "text",
+            "text": " feat. You must shoot the ammunition before the end of your turn or the magic dissipates. If the ammunition has an Activate entry, you still need to spend the required actions to activate the ammunition before shooting it."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can choose a type of magical ammunition that is typically not available to the type of ammunition you're using—for example, you can use "
+          },
+          {
+            "type": "ref",
+            "id": "5b270c5d-4a81-50e5-9914-3d7cc7be7c8e"
+          },
+          {
+            "type": "text",
+            "text": " on an arrow, even though that magical ammunition is normally only found on bolts."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.97jWk4XbIrGQK4Cp"
+    },
+    "data": {
+      "cost": "free",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "round"
+      }
+    }
+  },
+  {
+    "id": "03a1682e-453a-599e-860c-877ac7fcefa0",
+    "pack": "player-core-2",
+    "kind": "action",
+    "slug": "action:upstage",
+    "name": "Upstage",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An enemy attempts a skill check and doesn't get a critical success"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After your foe has tried their best, you show everyone how it's really done. Attempt a check using the same skill that triggered this reaction."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain a +1 status bonus to attack rolls, Perception checks, saving throws, and skill checks until the end of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As critical success, except you gain the benefits only if the triggering creature failed their skill check."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "67e5a918-6268-516d-852d-3cc2e933f509"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.F0JgJR2rXKOg9k1z"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "An enemy attempts a skill check and doesn't get a critical success"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "564e1a2c-c9c6-5a2b-a786-64b6d2131f31",
+    "pack": "player-core-2",
+    "kind": "action",
+    "slug": "action:warding-sign",
+    "name": "Warding Sign",
+    "rarity": "common",
+    "traits": ["concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per minute"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You attempt a saving throw against a magical effect, but you haven't rolled yet"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You call on the power of a personal, eldritch sign of protection, which flares brightly before slowly fading. You gain a +2 circumstance bonus to the triggering saving throw, or a +3 circumstance bonus if the effect is a curse."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.7pdG8l9POMK76Lf2"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You attempt a saving throw against a magical effect, but you haven't rolled yet"
+            }
+          ]
+        }
+      ],
+      "frequency": {
+        "max": 1,
+        "per": "minute"
+      }
+    }
+  }
+]

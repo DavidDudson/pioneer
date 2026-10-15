@@ -86,7 +86,10 @@ describe('CharacterSheetPage options that train a skill again', () => {
 
     expect(
       rows.filter((row) => row.note !== undefined).map((row) => [row.name, row.note, row.disabledReason]),
-    ).toStrictEqual([['Acolyte', MARK, undefined]]);
+    ).toStrictEqual([
+      ['Acolyte', MARK, undefined],
+      ['Pilgrim', MARK, undefined],
+    ]);
   });
 
   it('marks the class that trains a skill the background trains', async () => {

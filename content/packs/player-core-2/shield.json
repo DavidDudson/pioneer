@@ -1,0 +1,734 @@
+[
+  {
+    "id": "4f145b00-82fb-59b7-9a30-73c293b54bb4",
+    "pack": "player-core-2",
+    "kind": "shield",
+    "slug": "shield:exploding-shield",
+    "name": "Exploding Shield",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The magic within this wooden shield (Hardness 3, HP 12, BT 6) lashes out at your foes as the shield is destroyed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Splintering Boom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The exploding shield is destroyed"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The shield explodes outward, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to each creature in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 19,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save)."
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Hardness"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "HP"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "BT"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "3"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "12"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "6"
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.slQRh4FVDzP8h1wj"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": 1,
+      "hardness": 3,
+      "hitPoints": 12,
+      "baseItem": "wooden-shield",
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "ba062b5e-c621-5409-9e62-c61571323eba",
+    "pack": "player-core-2",
+    "kind": "shield",
+    "slug": "shield:glamorous-buckler",
+    "name": "Glamorous Buckler",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A glamorous buckler (Hardness 3, HP 6, BT 3) is lavishly decorated with gilding and inset gemstones that glitter in the light. While you have it raised, the glamorous buckler grants you a +1 item bonus to Deception checks to Feint."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Dazzling Feint",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Feint"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have the glamorous buckler raised"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As you Feint, the glamorous buckler sparkles mightily. On a successful Feint, the target is "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Hardness"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "HP"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "BT"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "3"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "6"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3"
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["action:feint", "self:shield:raised"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.IxuDS3POB6EH8TVN"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 35
+        }
+      },
+      "bulk": "light",
+      "hardness": 3,
+      "hitPoints": 6,
+      "activations": [
+        {
+          "slug": "dazzling-feint",
+          "name": "Dazzling Feint",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "baseItem": "buckler",
+      "acBonus": 1
+    }
+  },
+  {
+    "id": "ba147718-a9ab-5eb9-89c2-86a634cd9dbd",
+    "pack": "player-core-2",
+    "kind": "shield",
+    "slug": "shield:medusas-scream",
+    "name": "Medusa's Scream",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The ghastly visage of a slain medusa's head stares out from this steel shield (Hardness 13, HP 52, BT 26). The shield comes with a thick leather cover to conceal the head."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Petrifying Gaze",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate, visual)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You reveal the medusa's face, focusing its gaze on one creature within 30 feet. The shield casts a DC 30 "
+          },
+          {
+            "type": "ref",
+            "id": "86c529b1-5a2f-5bac-9c74-674544b5bd32"
+          },
+          {
+            "type": "text",
+            "text": " spell with a range of 30 feet."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include the head of a medusa."
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Hardness"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "HP"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "BT"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "13"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "52"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "26"
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.nzQKwdUxzmmwWtzT"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": 1,
+      "hardness": 13,
+      "hitPoints": 52,
+      "activations": [
+        {
+          "slug": "petrifying-gaze",
+          "name": "Petrifying Gaze",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "baseItem": "steel-shield",
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "7c9d4d17-a06d-5a64-9577-d9ca98366961",
+    "pack": "player-core-2",
+    "kind": "shield",
+    "slug": "shield:medusas-scream-greater",
+    "name": "Medusa's Scream (Greater)",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The ghastly visage of a slain medusa's head stares out from this steel shield (Hardness 15, HP 60, BT 30). The shield comes with a thick leather cover to conceal the head."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Petrifying Gaze",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate, visual)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You reveal the medusa's face, focusing its gaze on one creature within 30 feet. The shield casts a DC 35 "
+          },
+          {
+            "type": "ref",
+            "id": "86c529b1-5a2f-5bac-9c74-674544b5bd32"
+          },
+          {
+            "type": "text",
+            "text": " spell with a range of 30 feet."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include the head of a medusa."
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Hardness"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "HP"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "BT"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "15"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "60"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "30"
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TyW1XOWYMM2xHGaI"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 9000
+        }
+      },
+      "bulk": 1,
+      "hardness": 15,
+      "hitPoints": 60,
+      "activations": [
+        {
+          "slug": "petrifying-gaze",
+          "name": "Petrifying Gaze",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "baseItem": "steel-shield",
+      "acBonus": 2
+    }
+  }
+]

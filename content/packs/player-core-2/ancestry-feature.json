@@ -1,0 +1,319 @@
+[
+  {
+    "id": "8da62032-f127-55bc-94fb-e66e0d69f67b",
+    "pack": "player-core-2",
+    "kind": "ancestry-feature",
+    "slug": "ancestry-feature:aquatic-adaptation",
+    "name": "Aquatic Adaptation",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["lizardfolk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your reptilian biology allows you to hold your breath for a long time. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "366d7d91-ea99-540a-bbcc-8d2a0c525005"
+          },
+          {
+            "type": "text",
+            "text": " general feat as a bonus feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "366d7d91-ea99-540a-bbcc-8d2a0c525005"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.AzGJN1wwLFaLJIeo"
+    },
+    "data": {}
+  },
+  {
+    "id": "ad5af9c9-5231-5ff0-abbc-0a92f6d75d4f",
+    "pack": "player-core-2",
+    "kind": "ancestry-feature",
+    "slug": "ancestry-feature:bite",
+    "name": "Bite",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["kholo"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your sharp teeth and powerful jaws are fearsome weapons. You have a jaws unarmed attack that deals 1d6 piercing damage. Your jaws are in the brawling group."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "jaws",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "piercing"
+        },
+        "display": {
+          "label": "Jaws"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.jatezR4bENwhC6GL"
+    },
+    "data": {}
+  },
+  {
+    "id": "c6d1fc10-d1fd-57f5-a957-153b432f562f",
+    "pack": "player-core-2",
+    "kind": "ancestry-feature",
+    "slug": "ancestry-feature:claws",
+    "name": "Claws",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["lizardfolk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your sharp claws offer an alternative to the fists other humanoids bring to a fight. You have a claw unarmed attack that deals 1d4 slashing damage and has the agile and finesse traits."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "claw",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["finesse", "agile", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d4",
+          "damageType": "slashing"
+        },
+        "display": {
+          "label": "Claw"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.NfkxFWUeG6g41e8w"
+    },
+    "data": {}
+  },
+  {
+    "id": "6a16937c-ff0d-57dd-aab9-adc60c4f7a94",
+    "pack": "player-core-2",
+    "kind": "ancestry-feature",
+    "slug": "ancestry-feature:land-on-your-feet",
+    "name": "Land on Your Feet",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["catfolk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you fall, you take only half the normal damage and don't land "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.sL1hHxrHdMNIZVAd"
+    },
+    "data": {}
+  },
+  {
+    "id": "53b315b9-b5b5-56f3-ba64-2aa722987b4c",
+    "pack": "player-core-2",
+    "kind": "ancestry-feature",
+    "slug": "ancestry-feature:natural-climber",
+    "name": "Natural Climber",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to Athletics checks to Climb."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["action:climb"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.gZvgt5n5OYO3av2V"
+    },
+    "data": {}
+  },
+  {
+    "id": "75709f71-dc14-5fbe-a101-21d12d5897a3",
+    "pack": "player-core-2",
+    "kind": "ancestry-feature",
+    "slug": "ancestry-feature:sharp-beak",
+    "name": "Sharp Beak",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "With your sharp beak, you are never without a weapon. You have a beak unarmed attack that deals 1d6 piercing damage. Your beak is in the brawling weapon group and has the finesse and unarmed traits."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "beak",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["finesse", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "piercing"
+        },
+        "display": {
+          "label": "Beak"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.qJD3PJdoSXFrZEwr"
+    },
+    "data": {}
+  },
+  {
+    "id": "eb0b5958-4b79-5fbf-a41a-549dbe218500",
+    "pack": "player-core-2",
+    "kind": "ancestry-feature",
+    "slug": "ancestry-feature:sharp-teeth",
+    "name": "Sharp Teeth",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["ratfolk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your prominent incisors offer an alternative to the fists other humanoids bring to a fight. You have a jaws unarmed attack that deals 1d4 piercing damage, is in the brawling group, and has the agile and finesse traits."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "jaws",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["unarmed", "agile", "finesse"],
+        "damage": {
+          "dice": 1,
+          "die": "d4",
+          "damageType": "piercing"
+        },
+        "display": {
+          "label": "Jaws"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.sW4ObB8wyLPPYvGj"
+    },
+    "data": {}
+  }
+]

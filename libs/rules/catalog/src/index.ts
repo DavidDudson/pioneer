@@ -8,6 +8,7 @@ import {
   gmCorePack,
   howlOfTheWildPack,
   monsterCorePack,
+  playerCore2Pack,
   playerCorePack,
   treasureVaultPack,
   warOfImmortalsPack,
@@ -61,6 +62,7 @@ export function checkedLoader(id: string, load: () => Promise<PackContents>): Pa
 export const officialPacks: readonly PackContentsLoader[] = [
   checkedLoader('core-rules', coreRulesPack),
   checkedLoader('player-core', playerCorePack),
+  checkedLoader('player-core-2', playerCore2Pack),
   checkedLoader('monster-core', monsterCorePack),
   checkedLoader('divine-mysteries', divineMysteriesPack),
   checkedLoader('treasure-vault', treasureVaultPack),

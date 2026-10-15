@@ -1,0 +1,482 @@
+[
+  {
+    "id": "ac81a135-31b3-51d0-ae4c-1d3298555654",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:additive",
+    "name": "Additive",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "equipment", "feat"]
+    }
+  },
+  {
+    "id": "52a07923-0cff-50c0-a28c-bce4fe07f108",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:bravado",
+    "name": "Bravado",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "condition", "effect", "feat"]
+    }
+  },
+  {
+    "id": "4a5e9f21-f05b-5b7a-872f-e3bb1e4a5205",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:catfolk",
+    "name": "Catfolk",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "6f04b7e1-6488-53a6-8737-2b6df866f379",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:cursebound",
+    "name": "Cursebound",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry-feature",
+        "class-feature",
+        "condition",
+        "consumable",
+        "effect",
+        "feat",
+        "ritual",
+        "spell"
+      ]
+    }
+  },
+  {
+    "id": "da23add1-1393-5514-8e4c-5eb220c86aa0",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:dhampir",
+    "name": "Dhampir",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "2da66ced-72b3-5089-a8e3-43e51f443a20",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:dragonblood",
+    "name": "Dragonblood",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "9f48ddd3-bc27-5cdf-bd3c-4af238946128",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:duskwalker",
+    "name": "Duskwalker",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "0cad6e40-e714-5235-821b-8bc1eb84e606",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:finisher",
+    "name": "Finisher",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "feat"]
+    }
+  },
+  {
+    "id": "b4f5c7b3-bd93-53d6-8f9d-e73e0ff10ee2",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:hampering",
+    "name": "Hampering",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "f6962855-f07a-51fa-a557-4ead0602dd82",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:infused",
+    "name": "Infused",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "consumable", "equipment", "weapon"]
+    }
+  },
+  {
+    "id": "653993d1-5806-517d-9c42-9c69f5df145f",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:kholo",
+    "name": "Kholo",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "8a0654ed-56d5-5c1e-a23d-f51c5e35c411",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:lizardfolk",
+    "name": "Lizardfolk",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "477da1bb-e68a-57b0-93c9-5f8db8d02613",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:ratfolk",
+    "name": "Ratfolk",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "ed205ac2-29cd-558b-90ef-5822a5d6b955",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:snare",
+    "name": "Snare",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "consumable"]
+    }
+  },
+  {
+    "id": "57e88847-4ef3-5d5e-bf24-5bc3fe412e35",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:social",
+    "name": "Social",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "condition", "effect", "feat"]
+    }
+  },
+  {
+    "id": "61fcbcc9-1cc9-5798-9225-3aa27a803f84",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:tengu",
+    "name": "Tengu",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "a7369087-6bca-5890-a587-b2eb1fa166d0",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:trap",
+    "name": "Trap",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "consumable"]
+    }
+  },
+  {
+    "id": "2832641d-fe46-594a-bcf0-24f3bd521aa1",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:tripkee",
+    "name": "Tripkee",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "f15b3211-f062-50fd-bc3b-ccd3ad77a80e",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:vigilante",
+    "name": "Vigilante",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "feat"]
+    }
+  }
+]

@@ -1,0 +1,4111 @@
+[
+  {
+    "id": "9b2b82f6-fee1-5d61-b02a-cde70004c9ee",
+    "pack": "player-core-2",
+    "kind": "equipment",
+    "slug": "equipment:alchemist-goggles",
+    "name": "Alchemist Goggles",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These brass goggles are engraved with flame patterns and have thick, heavy lenses."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While worn, they give you a +1 item bonus to Crafting checks to "
+          },
+          {
+            "type": "ref",
+            "id": "cffa6a55-a0d3-5be2-8169-ba9cf4745e57"
+          },
+          {
+            "type": "text",
+            "text": " alchemical items. When making Strikes with alchemical bombs, you ignore lesser cover."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If your Strike with an alchemical bomb fails (but doesn't critically fail), you gain a +1 item bonus to the splash damage the target of the Strike takes."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:crafting"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["item:trait:alchemical", "action:craft"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:alchemist-goggles-failure",
+        "toggleable": true,
+        "display": {
+          "label": "Failed Strike with an alchemical bomb"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.7JVgLiNTAs4clEW8"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 100
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn",
+        "slot": "eyepiece"
+      }
+    }
+  },
+  {
+    "id": "6bd90110-fe7c-5e7e-9f88-19b886676c9d",
+    "pack": "player-core-2",
+    "kind": "equipment",
+    "slug": "equipment:alchemist-goggles-greater",
+    "name": "Alchemist Goggles (Greater)",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These brass goggles are engraved with flame patterns and have thick, heavy lenses."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While worn, they give you a +2 item bonus to Crafting checks to "
+          },
+          {
+            "type": "ref",
+            "id": "cffa6a55-a0d3-5be2-8169-ba9cf4745e57"
+          },
+          {
+            "type": "text",
+            "text": " alchemical items. When making Strikes with alchemical bombs, you ignore lesser cover."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If your Strike with an alchemical bomb fails (but doesn't critically fail), you gain a +2 item bonus to the splash damage the target of the Strike takes."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:crafting"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["item:trait:alchemical", "action:craft"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:alchemist-goggles-failure",
+        "toggleable": true,
+        "display": {
+          "label": "Failed Strike with an alchemical bomb"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.8XZqdeZStFAM4XnH"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1400
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn",
+        "slot": "eyepiece"
+      }
+    }
+  },
+  {
+    "id": "33a55b90-46e1-5271-af8f-5c7a76c73521",
+    "pack": "player-core-2",
+    "kind": "equipment",
+    "slug": "equipment:alchemist-goggles-major",
+    "name": "Alchemist Goggles (Major)",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These brass goggles are engraved with flame patterns and have thick, heavy lenses."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While worn, they give you a +3 item bonus to Crafting checks to "
+          },
+          {
+            "type": "ref",
+            "id": "cffa6a55-a0d3-5be2-8169-ba9cf4745e57"
+          },
+          {
+            "type": "text",
+            "text": " alchemical items. When making Strikes with alchemical bombs, you ignore lesser cover."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If your Strike with an alchemical bomb fails (but doesn't critically fail), you gain a +3 item bonus to the splash damage the target of the Strike takes."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:crafting"],
+        "type": "item",
+        "value": 3,
+        "predicate": ["item:trait:alchemical", "action:craft"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:alchemist-goggles-failure",
+        "toggleable": true,
+        "display": {
+          "label": "Failed Strike with an alchemical bomb"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.bnmfBLXOBd3ah6GK"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15000
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn",
+        "slot": "eyepiece"
+      }
+    }
+  },
+  {
+    "id": "5c2319dd-ed18-5376-93ee-17ede9e155f1",
+    "pack": "player-core-2",
+    "kind": "equipment",
+    "slug": "equipment:berserkers-cloak",
+    "name": "Berserker's Cloak",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["invested", "primal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This bearskin includes the head and bared teeth of the mighty creature from which it was taken. When worn, the cloak drapes over your head and around your shoulders, imbuing you with a bear's ferocity."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you have the "
+          },
+          {
+            "type": "ref",
+            "id": "6018ad4a-3bf1-50f0-9452-3c633fe443e0"
+          },
+          {
+            "type": "text",
+            "text": " action, while raging you grow jaws that deal 1d10 piercing damage and claws that deal 1d6 slashing damage and have the agile trait. This transformation is a morph effect, and both the jaws and claws are unarmed attacks in the brawling weapon group. You gain the benefits of a "
+          },
+          {
+            "type": "text",
+            "text": "+1 weapon potency",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune and a "
+          },
+          {
+            "type": "text",
+            "text": "striking",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune with these attacks (gaining a +1 item bonus to attack rolls and increasing the weapon damage dice by one)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you have an animal instinct and the bestial rage instinct ability, instead of gaining these unarmed attacks, your unarmed attacks from the bestial rage instinct ability gain the benefits of a "
+          },
+          {
+            "type": "text",
+            "text": "+2 weapon potency",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune and a "
+          },
+          {
+            "type": "text",
+            "text": "greater striking",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune (granting a +2 item bonus to attack rolls and increasing the weapon damage dice by two)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "jaws",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d10",
+          "damageType": "piercing"
+        },
+        "predicate": [
+          "self:effect:rage",
+          {
+            "not": "feature:animal-instinct"
+          }
+        ],
+        "display": {
+          "label": "Jaws"
+        }
+      },
+      {
+        "key": "Strike",
+        "slug": "claw",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["unarmed", "agile"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "slashing"
+        },
+        "predicate": [
+          "self:effect:rage",
+          {
+            "not": "feature:animal-instinct"
+          }
+        ],
+        "display": {
+          "label": "Claw"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.DwLaGtbBdCh2NFbT"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2000
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "worn",
+        "slot": "cloak"
+      }
+    }
+  },
+  {
+    "id": "90ae3a1b-19b4-5833-a222-e9b079c16c28",
+    "pack": "player-core-2",
+    "kind": "equipment",
+    "slug": "equipment:berserkers-cloak-greater",
+    "name": "Berserker's Cloak (Greater)",
+    "level": 19,
+    "rarity": "common",
+    "traits": ["invested", "primal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This bearskin includes the head and bared teeth of the mighty creature from which it was taken. When worn, the cloak drapes over your head and around your shoulders, imbuing you with a bear's ferocity."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you have the "
+          },
+          {
+            "type": "ref",
+            "id": "6018ad4a-3bf1-50f0-9452-3c633fe443e0"
+          },
+          {
+            "type": "text",
+            "text": " action, while raging you grow jaws that deal 1d10 piercing damage and claws that deal 1d6 slashing damage and have the agile trait. This transformation is a morph effect, and both the jaws and claws are unarmed attacks in the brawling weapon group. You gain the benefits of a "
+          },
+          {
+            "type": "text",
+            "text": "+2 weapon potency",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune and a greater "
+          },
+          {
+            "type": "text",
+            "text": "striking",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune with these attacks (gaining a +2 item bonus to attack rolls and increasing the weapon damage dice by two)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you have an animal instinct and the bestial rage instinct ability, instead of gaining these unarmed attacks, your unarmed attacks from the bestial rage instinct ability gain the benefits of a "
+          },
+          {
+            "type": "text",
+            "text": "+3 weapon potency",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune and a "
+          },
+          {
+            "type": "text",
+            "text": "major striking",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune (granting a +3 item bonus to attack rolls and increasing the weapon damage dice by three)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "jaws",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d10",
+          "damageType": "piercing"
+        },
+        "predicate": [
+          "self:effect:rage",
+          {
+            "not": "feature:animal-instinct"
+          }
+        ],
+        "display": {
+          "label": "Jaws"
+        }
+      },
+      {
+        "key": "Strike",
+        "slug": "claw",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["unarmed", "agile"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "slashing"
+        },
+        "predicate": [
+          "self:effect:rage",
+          {
+            "not": "feature:animal-instinct"
+          }
+        ],
+        "display": {
+          "label": "Claw"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.OGKI8NS8Er3qumJS"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 40000
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "worn",
+        "slot": "cloak"
+      }
+    }
+  },
+  {
+    "id": "22f896ee-ad25-55af-b6b3-a888f2097368",
+    "pack": "player-core-2",
+    "kind": "equipment",
+    "slug": "equipment:cloth-of-nullification",
+    "name": "Cloth of Nullification",
+    "level": 20,
+    "rarity": "rare",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This small piece of embroidered cloth is inimical to all magic."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Nullify Magic",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cover a magic item with the cloth or wave the cloth near a magic effect and attempt to counteract the effect or item. The cloth's counteract check modifier is +32, and its counteract rank is 10. Regardless of the result, the cloth of nullification can't be activated again for 2d6 hours. On a success, the effect or item is deactivated for the same amount of time, and its duration, if any, continues to expire during that time. With a successful counteract check, you can instead choose to completely absorb the magic from the effect or item into the cloth of nullification. If you do, both become completely non-magical and their magic can't be recovered, even by the remake spell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The cloth of nullification automatically fails to counteract most artifacts and similarly powerful items"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.W8Vh7KTl3Ux7VYVU"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 75000
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "59427528-38b4-57e9-9527-3afcdc396de9",
+    "pack": "player-core-2",
+    "kind": "equipment",
+    "slug": "equipment:earthsight-box",
+    "name": "Earthsight Box",
+    "level": 9,
+    "rarity": "uncommon",
+    "traits": ["magical", "scrying"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This fine wooden box is inlaid with Dwarven runes, with hinges and a clasp of forged iron. The box contains a few handfuls of fine sand."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Replicate Earth",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You hold the box closed and, while envisioning the terrain, turn the box clockwise three times. When you open the box, the sand reveals, in miniature, the stone terrain surrounding you, to a range of 60 feet. This shows details of paths, hills, embankments, boulders, and even artificial structures like walls and ditches, as long as they're made of stone and earth. If you're underground, it reveals tunnels and voids in the earth within 60 feet at your current depth. The sand maintains its shape until you close the box."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.kZKK4Va3e7n3p3tv"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 575
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "replicate-earth",
+          "name": "Replicate Earth",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "f3e3a98f-5b55-5ab2-8d2f-4bb413f2f451",
+    "pack": "player-core-2",
+    "kind": "equipment",
+    "slug": "equipment:fire-jump-ring",
+    "name": "Fire-Jump Ring",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["fire", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This black, metal ring is inset with rubies that occasionally give off wisps of smoke. It grants you a +2 item bonus to Athletics checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Fire Jump",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate, teleportation)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Stride (or Burrow or Fly, if you have the corresponding Speed) into any fire large enough to contain you, including magical fires. You vanish into the fire and take no damage from it. You can sense all sufficiently large fires within 100 feet of where you vanish, and you reemerge from any of those fires, either within the fire or adjacent to it. If you end your movement in the fire, it affects you as normal."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "item",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.64mxKuxc9k98FkUi"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 940
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "fire-jump",
+          "name": "Fire Jump",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "4c5f905a-3901-573c-b08b-c9ccb69d1df7",
+    "pack": "player-core-2",
+    "kind": "equipment",
+    "slug": "equipment:guise-of-the-smirking-devil",
+    "name": "Guise of the Smirking Devil",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["auditory", "invested", "magical", "void"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This ice-blue half-mask is adorned with a wicked silver grin that covers the wearer's mouth, leaving the rest of the face uncovered. You gain a +2 item bonus to Intimidation checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Hideous Wail",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The mask emits a soul-chilling scream that deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d10",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to each living creature in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 20
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 25,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of "
+          },
+          {
+            "type": "ref",
+            "id": "c23eeb10-88b1-58d0-9b0e-326d9538d589"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:intimidation"],
+        "type": "item",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.tr2eOlJMmBKBZtI9"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 700
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "hideous-wail",
+          "name": "Hideous Wail",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "mask"
+      }
+    }
+  },
+  {
+    "id": "6d1d1457-71e3-561e-a8f7-bed8b2e17725",
+    "pack": "player-core-2",
+    "kind": "equipment",
+    "slug": "equipment:guise-of-the-smirking-devil-greater",
+    "name": "Guise of the Smirking Devil (Greater)",
+    "level": 19,
+    "rarity": "common",
+    "traits": ["auditory", "invested", "magical", "void"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This ice-blue half-mask is adorned with a wicked silver grin that covers the wearer's mouth, leaving the rest of the face uncovered. You gain a +3 item bonus to Intimidation checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Hideous Wail",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The mask casts a 9th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "c23eeb10-88b1-58d0-9b0e-326d9538d589"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each living creature in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 40
+          },
+          {
+            "type": "text",
+            "text": " takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "8d10",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 41
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes full damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes full damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b"
+          },
+          {
+            "type": "text",
+            "text": " 1d4."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes double damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 4"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:intimidation"],
+        "type": "item",
+        "value": 3
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.b2shhButUcNimET9"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 35000
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "hideous-wail",
+          "name": "Hideous Wail",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "mask"
+      }
+    }
+  },
+  {
+    "id": "5ab76843-9ae9-57c0-bb0f-34e303b442cb",
+    "pack": "player-core-2",
+    "kind": "equipment",
+    "slug": "equipment:helm-of-zeal",
+    "name": "Helm Of Zeal",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["divine", "focused", "invested"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This elaborate helmet is emblazoned with the divine symbols of a deity chosen when the helmet was crafted. You gain a +2 item bonus to that deity's Divine Skill."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Rally to the Cause",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain 1 Focus Point, which you can spend only to cast a devotion spell. If you don't spend this Focus Point by the end of this turn, it's lost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Divine Fervor",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You've just used your champion's reaction"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain an additional reaction you can use only for your champion's reaction. You lose this reaction if you don't use it by the start of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're a champion of the deity represented by the helmet."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "skill",
+        "choices": [
+          {
+            "value": "acrobatics",
+            "label": "Acrobatics"
+          },
+          {
+            "value": "arcana",
+            "label": "Arcana"
+          },
+          {
+            "value": "athletics",
+            "label": "Athletics"
+          },
+          {
+            "value": "crafting",
+            "label": "Crafting"
+          },
+          {
+            "value": "deception",
+            "label": "Deception"
+          },
+          {
+            "value": "diplomacy",
+            "label": "Diplomacy"
+          },
+          {
+            "value": "intimidation",
+            "label": "Intimidation"
+          },
+          {
+            "value": "medicine",
+            "label": "Medicine"
+          },
+          {
+            "value": "nature",
+            "label": "Nature"
+          },
+          {
+            "value": "occultism",
+            "label": "Occultism"
+          },
+          {
+            "value": "performance",
+            "label": "Performance"
+          },
+          {
+            "value": "religion",
+            "label": "Religion"
+          },
+          {
+            "value": "society",
+            "label": "Society"
+          },
+          {
+            "value": "stealth",
+            "label": "Stealth"
+          },
+          {
+            "value": "survival",
+            "label": "Survival"
+          },
+          {
+            "value": "thievery",
+            "label": "Thievery"
+          }
+        ],
+        "prompt": "Select your deity's divine skill"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.h2gpUvHN3hTRS7jv"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1250
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "rally-to-the-cause",
+          "name": "Rally to the Cause",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        },
+        {
+          "slug": "divine-fervor",
+          "name": "Divine Fervor",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "headwear"
+      }
+    }
+  },
+  {
+    "id": "fa271cb6-000e-5bb8-b250-327ca8b9ac28",
+    "pack": "player-core-2",
+    "kind": "equipment",
+    "slug": "equipment:helm-of-zeal-greater",
+    "name": "Helm Of Zeal (Greater)",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["divine", "focused", "invested"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This elaborate helmet is emblazoned with the divine symbols of a deity chosen when the helmet was crafted. You gain a +3 item bonus to that deity's Divine Skill."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Rally to the Cause",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain 1 Focus Point, which you can spend only to cast a devotion spell. If you don't spend this Focus Point by the end of this turn, it's lost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Divine Fervor",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You've just used your champion's reaction"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain an additional reaction you can use only for your champion's reaction. You lose this reaction if you don't use it by the start of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're a champion of the deity represented by the helmet."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "skill",
+        "choices": [
+          {
+            "value": "acrobatics",
+            "label": "Acrobatics"
+          },
+          {
+            "value": "arcana",
+            "label": "Arcana"
+          },
+          {
+            "value": "athletics",
+            "label": "Athletics"
+          },
+          {
+            "value": "crafting",
+            "label": "Crafting"
+          },
+          {
+            "value": "deception",
+            "label": "Deception"
+          },
+          {
+            "value": "diplomacy",
+            "label": "Diplomacy"
+          },
+          {
+            "value": "intimidation",
+            "label": "Intimidation"
+          },
+          {
+            "value": "medicine",
+            "label": "Medicine"
+          },
+          {
+            "value": "nature",
+            "label": "Nature"
+          },
+          {
+            "value": "occultism",
+            "label": "Occultism"
+          },
+          {
+            "value": "performance",
+            "label": "Performance"
+          },
+          {
+            "value": "religion",
+            "label": "Religion"
+          },
+          {
+            "value": "society",
+            "label": "Society"
+          },
+          {
+            "value": "stealth",
+            "label": "Stealth"
+          },
+          {
+            "value": "survival",
+            "label": "Survival"
+          },
+          {
+            "value": "thievery",
+            "label": "Thievery"
+          }
+        ],
+        "prompt": "Select your deity's divine skill"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.FKf6eELtbFhbK69W"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 21000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "rally-to-the-cause",
+          "name": "Rally to the Cause",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        },
+        {
+          "slug": "divine-fervor",
+          "name": "Divine Fervor",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "headwear"
+      }
+    }
+  },
+  {
+    "id": "1c2147a2-2c9e-5f63-b0e9-b4b64ff73ed0",
+    "pack": "player-core-2",
+    "kind": "equipment",
+    "slug": "equipment:pilgrims-token",
+    "name": "Pilgrim's Token",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This wooden religious symbol is a small token of protection from a site holy to your faith. As long as this religious symbol is in your possession, when you tie an adversary's initiative roll, you go first."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you lose this religious symbol, you must purchase or Craft a replacement and attune it. Such a token usually costs at least 1 sp, and the attunement takes 10 minutes of prayer. You can also attune a different religious symbol with the same amount of time, but you lose the benefit of the previous religious symbol."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.gwP3Uums2ApH6o9K"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 1
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "other"
+      }
+    }
+  },
+  {
+    "id": "95b93218-ba8a-56e3-8eb6-3da83ce0efb8",
+    "pack": "player-core-2",
+    "kind": "equipment",
+    "slug": "equipment:predictable-silver-piece",
+    "name": "Predictable Silver Piece",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This seemingly unremarkable, weathered silver coin bears the bust of an unnamed monarch on the face and a majestic bird on the tail. You can toss the coin without activating it, in which case it follows the normal laws of probability."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Cheat Fate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You rub your thumb on one side of the coin with the intent of slightly tweaking the strands of fate, then flip the coin into the air in a coin toss. No matter how the toss is resolved- letting the coin fall to the ground, slapping it down on the back of your hand, or catching it on your open palm-it always lands with the side you rubbed face up."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ZIQAzOavTXJCcCMD"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "e4f23758-1e21-54af-ae18-e8db6f097f0f",
+    "pack": "player-core-2",
+    "kind": "equipment",
+    "slug": "equipment:prognostic-veil",
+    "name": "Prognostic Veil",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["focused", "invested"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This gauzy purple veil is embroidered with symbols of divinatory significance. As your curse worsens, the veil ripples in an ever-increasing unseen wind. You gain a +2 item bonus to Religion checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Remember the Future",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain 1 Focus Point, which you can spend only to cast a revelation spell. If you don't spend this Focus Point by the end of this turn, it's lost."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Twist the Skeins of Fate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An ally within 30 feet is about to attempt a saving throw"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have the "
+          },
+          {
+            "type": "ref",
+            "id": "6831f01d-67bd-52cc-a505-07137fac3abb"
+          },
+          {
+            "type": "text",
+            "text": " condition"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ally gains a status bonus to the saving throw equal to the value of your cursebound condition."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "c27f695c-e73f-5177-96e9-26671c4ef3df"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're an oracle."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:religion"],
+        "type": "item",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.7wuDdrF6HKPXyxqj"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "remember-the-future",
+          "name": "Remember the Future",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        },
+        {
+          "slug": "twist-the-skeins-of-fate",
+          "name": "Twist the Skeins of Fate",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "mask"
+      }
+    }
+  },
+  {
+    "id": "1802af38-35b3-5d87-9922-35b08d5e15ff",
+    "pack": "player-core-2",
+    "kind": "equipment",
+    "slug": "equipment:prognostic-veil-greater",
+    "name": "Prognostic Veil (Greater)",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["focused", "invested"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This gauzy purple veil is embroidered with symbols of divinatory significance. As your curse worsens, the veil ripples in an ever-increasing unseen wind. You gain a +3 item bonus to Religion checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Remember the Future",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain 1 Focus Point, which you can spend only to cast a revelation spell. If you don't spend this Focus Point by the end of this turn, it's lost."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Twist the Skeins of Fate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An ally within 30 feet is about to attempt a saving throw or an attack roll"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have the "
+          },
+          {
+            "type": "ref",
+            "id": "6831f01d-67bd-52cc-a505-07137fac3abb"
+          },
+          {
+            "type": "text",
+            "text": " condition"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ally gains a status bonus to the saving throw or attack roll equal to the value of your cursebound condition."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "c27f695c-e73f-5177-96e9-26671c4ef3df"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're an oracle."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:religion"],
+        "type": "item",
+        "value": 3
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.2FlazfdJE2XPRba8"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 21000
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "remember-the-future",
+          "name": "Remember the Future",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        },
+        {
+          "slug": "twist-the-skeins-of-fate",
+          "name": "Twist the Skeins of Fate",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "mask"
+      }
+    }
+  },
+  {
+    "id": "73d6fd56-13b9-50d6-9610-2d74bc12588c",
+    "pack": "player-core-2",
+    "kind": "equipment",
+    "slug": "equipment:ring-of-maniacal-devices",
+    "name": "Ring of Maniacal Devices",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This magic ring seems like simple tarnished brass, but it enhances your curiosity about traps and devices of all kinds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can use an Interact action to pull a "
+          },
+          {
+            "type": "ref",
+            "id": "297ef808-c89f-52c9-be6e-f1b1fb2cef8d"
+          },
+          {
+            "type": "text",
+            "text": " from the ring. This toolkit appears in your hand and any part of it folds back into the ring if they would leave your possession."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "They grant you a +2 item bonus to Thievery checks to "
+          },
+          {
+            "type": "ref",
+            "id": "b2ba8e49-aecf-574a-882d-bef04a43b74f"
+          },
+          {
+            "type": "text",
+            "text": " and to "
+          },
+          {
+            "type": "ref",
+            "id": "b5e569b6-685e-5957-96ef-b148bd98fab6"
+          },
+          {
+            "type": "text",
+            "text": ", and the ring's insights grant you the same bonus to Crafting checks to "
+          },
+          {
+            "type": "ref",
+            "id": "cffa6a55-a0d3-5be2-8169-ba9cf4745e57"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "0c62b450-d8c6-5051-b961-b7ce1aeb349a"
+          },
+          {
+            "type": "text",
+            "text": " snares and traps."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Fireball Trap",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You create the effects of a Rune Trap trap ritual containing "
+          },
+          {
+            "type": "ref",
+            "id": "989ec875-261d-5d4f-a181-fedf889f9d4b"
+          },
+          {
+            "type": "text",
+            "text": ". You can have only one trapped rune from a "
+          },
+          {
+            "type": "text",
+            "text": "ring of maniacal devices",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " active at a time, even if you have multiple rings, and the rune disappears if you lose your investiture in the ring."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:thievery"],
+        "type": "item",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["action:disable-a-device", "action:pick-a-lock"]
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:crafting"],
+        "type": "item",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["action:craft", "action:repair"]
+          },
+          {
+            "or": ["option:snare", "option:trap"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.nLvP7U50hLqz26Uy"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1175
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "fireball-trap",
+          "name": "Fireball Trap",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "90e02dff-5f5e-5704-ad72-a38234a39c5a",
+    "pack": "player-core-2",
+    "kind": "equipment",
+    "slug": "equipment:ring-of-maniacal-devices-greater",
+    "name": "Ring of Maniacal Devices (Greater)",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This magic ring seems like simple tarnished brass, but it enhances your curiosity about traps and devices of all kinds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can use an Interact action to pull a "
+          },
+          {
+            "type": "ref",
+            "id": "297ef808-c89f-52c9-be6e-f1b1fb2cef8d"
+          },
+          {
+            "type": "text",
+            "text": " from the ring. This toolkit appears in your hand and any part of it folds back into the ring if they would leave your possession."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "They grant you a +3 item bonus to Thievery checks to "
+          },
+          {
+            "type": "ref",
+            "id": "b2ba8e49-aecf-574a-882d-bef04a43b74f"
+          },
+          {
+            "type": "text",
+            "text": " and to "
+          },
+          {
+            "type": "ref",
+            "id": "b5e569b6-685e-5957-96ef-b148bd98fab6"
+          },
+          {
+            "type": "text",
+            "text": ", and the ring's insights grant you the same bonus to Crafting checks to "
+          },
+          {
+            "type": "ref",
+            "id": "cffa6a55-a0d3-5be2-8169-ba9cf4745e57"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "0c62b450-d8c6-5051-b961-b7ce1aeb349a"
+          },
+          {
+            "type": "text",
+            "text": " snares and traps."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Fireball Trap",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You create the effects of a Rune Trap ritual containing your choice of either a 7th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "03bdda38-13a1-546c-a4e9-871558602823"
+          },
+          {
+            "type": "text",
+            "text": " or 7th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "989ec875-261d-5d4f-a181-fedf889f9d4b"
+          },
+          {
+            "type": "text",
+            "text": ". You can have only one trapped rune from a "
+          },
+          {
+            "type": "text",
+            "text": "ring of maniacal devices",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " active at a time, even if you have multiple rings, and the rune disappears if you lose your investiture in the ring."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:thievery"],
+        "type": "item",
+        "value": 3,
+        "predicate": [
+          {
+            "or": ["action:disable-a-device", "action:pick-a-lock"]
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:crafting"],
+        "type": "item",
+        "value": 3,
+        "predicate": [
+          {
+            "or": ["action:craft", "action:repair"]
+          },
+          {
+            "or": ["option:snare", "option:trap"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Wkm2VYPsfGjWBtQe"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 21000
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "fireball-trap",
+          "name": "Fireball Trap",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "3d402e30-278a-5f0f-944a-da674f9f9ac8",
+    "pack": "player-core-2",
+    "kind": "equipment",
+    "slug": "equipment:sanguine-pendant",
+    "name": "Sanguine Pendant",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This clear crystal pendant contains a drop of blood from a sorcerer that expands and contracts as you cast spells. A sanguine pendant is associated with a specific sorcerer bloodline, and only sorcerers with that bloodline can invest this item. This item gains the trait matching the tradition of that bloodline. The pendant grants a +2 item bonus to both of your bloodline skills."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Blood's Call",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain 1 Focus Point, which you can spend only to cast a bloodline spell. If you don't spend this Focus Point by the end of this turn, it's lost."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're a sorcerer with the associated bloodline."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.xyTF5YznEskKIXpp"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "bloods-call",
+          "name": "Blood's Call",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "82745aa6-4d10-5be8-b6a6-0c512b4012d1",
+    "pack": "player-core-2",
+    "kind": "equipment",
+    "slug": "equipment:sanguine-pendant-greater",
+    "name": "Sanguine Pendant (Greater)",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This clear crystal pendant contains a drop of blood from a sorcerer that expands and contracts as you cast spells. A sanguine pendant is associated with a specific sorcerer bloodline, and only sorcerers with that bloodline can invest this item. This item gains the trait matching the tradition of that bloodline. The pendant grants a +3 item bonus to both of your bloodline skills."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Blood's Call",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain 1 Focus Point, which you can spend only to cast a bloodline spell. If you don't spend this Focus Point by the end of this turn, it's lost."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're a sorcerer with the associated bloodline."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.6fnjxb9sjrKm0N2r"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 17000
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "bloods-call",
+          "name": "Blood's Call",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "b3ce61ac-79d0-560a-ac12-9861afbdb42e",
+    "pack": "player-core-2",
+    "kind": "equipment",
+    "slug": "equipment:sash-of-prowess",
+    "name": "Sash of Prowess",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["focused", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This humble sash can be worn around the waist or across the chest. A sash of prowess often bears a coloration or a pattern that represents the monastery in which you trained but can also sport religious symbology, such as the open hand of Irori. You gain a +2 item bonus to Acrobatics and Athletics skill checks."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Effortless Mastery",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You succeed at an Acrobatics or Athletics skill check"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You critically succeed instead."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Reserves of Inner Strength",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain 1 Focus Point, which you can spend only to cast a qi spell. If you don't spend this Focus Point by the end of this turn, it's lost."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're a monk who can cast qi spells."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics", "skill:acrobatics"],
+        "type": "item",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Rr7dAVnfpnnQPAWh"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "effortless-mastery",
+          "name": "Effortless Mastery",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        },
+        {
+          "slug": "reserves-of-inner-strength",
+          "name": "Reserves of Inner Strength",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "c09fd6da-63bd-5124-ab2f-604b3f325c88",
+    "pack": "player-core-2",
+    "kind": "equipment",
+    "slug": "equipment:sash-of-prowess-greater",
+    "name": "Sash of Prowess (Greater)",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["focused", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This humble sash can be worn around the waist or across the chest. A sash of prowess often bears a coloration or a pattern that represents the monastery in which you trained but can also sport religious symbology, such as the open hand of Irori. You gain a +3 item bonus to Acrobatics and Athletics skill checks."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Effortless Mastery",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You succeed at an Acrobatics or Athletics skill check"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You critically succeed instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Reserves of Inner Strength",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain 1 Focus Point, which you can spend only to cast a qi spell. If you don't spend this Focus Point by the end of this turn, it's lost."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're a monk who can cast qi spells."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics", "skill:acrobatics"],
+        "type": "item",
+        "value": 3
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.uj09q6x8wPAZcMs9"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 13000
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "effortless-mastery",
+          "name": "Effortless Mastery",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        },
+        {
+          "slug": "reserves-of-inner-strength",
+          "name": "Reserves of Inner Strength",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "82e11ac8-2545-5757-bdc3-1ebc6b2a64bb",
+    "pack": "player-core-2",
+    "kind": "equipment",
+    "slug": "equipment:tengu-feather-fan",
+    "name": "Tengu Feather Fan",
+    "level": 5,
+    "rarity": "unique",
+    "traits": ["primal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Wave Fan",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast your choice of one spell contained in your "
+          },
+          {
+            "type": "text",
+            "text": "tengu feather fan",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". You can instead cast a cantrip you've gained from a heritage or an ancestry feat; this doesn't use up one of the fan's daily activations. This activation takes the spell's normal number of actions."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The spell's DC is your class DC or spell DC, whichever is higher."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.KekfZ6eRzoZVRemw"
+    },
+    "data": {
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "wave-fan",
+          "name": "Wave Fan",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "75548170-32e8-5137-9945-c29672d8915a",
+    "pack": "player-core-2",
+    "kind": "equipment",
+    "slug": "equipment:twisting-twine-greater",
+    "name": "Twisting Twine (Greater)",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This ball of hempen twine resists efforts to unravel it by hand."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Unravel Twine",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You toss the ball of twine into a square within 20 feet. The twine then unravels and animates, attempting to "
+          },
+          {
+            "type": "ref",
+            "id": "ef57a555-f9e9-53cc-b09b-b7432156cbf1"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "6257c7f0-f483-53d3-a791-d73a616cbce4"
+          },
+          {
+            "type": "text",
+            "text": " (your choice) a creature in the square with a total of +15 to the Athletics check. At the end of your turn, the twine winds itself back into a ball and returns to your hand; if you don't have a free hand, it returns to your space instead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ULHYQIoVL2gKN7TM"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 300
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "a9384738-c2fa-5433-8389-0bc941b273f5",
+    "pack": "player-core-2",
+    "kind": "equipment",
+    "slug": "equipment:twisting-twine-lesser",
+    "name": "Twisting Twine (Lesser)",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This ball of hempen twine resists efforts to unravel it by hand."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Unravel Twine",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You toss the ball of twine into a square within 20 feet. The twine then unravels and animates, attempting to "
+          },
+          {
+            "type": "ref",
+            "id": "ef57a555-f9e9-53cc-b09b-b7432156cbf1"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "6257c7f0-f483-53d3-a791-d73a616cbce4"
+          },
+          {
+            "type": "text",
+            "text": " (your choice) a creature in the square with a total of +9 to the Athletics check. At the end of your turn, the twine winds itself back into a ball and returns to your hand; if you don't have a free hand, it returns to your space instead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.wJTpzqL8EJ0xVW0y"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 45
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "unravel-twine",
+          "name": "Unravel Twine",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "d093a0d4-2f46-56fb-bb2c-8a8dba5735f5",
+    "pack": "player-core-2",
+    "kind": "equipment",
+    "slug": "equipment:twisting-twine-moderate",
+    "name": "Twisting Twine (Moderate)",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This ball of hempen twine resists efforts to unravel it by hand."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Unravel Twine",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You toss the ball of twine into a square within 20 feet. The twine then unravels and animates, attempting to "
+          },
+          {
+            "type": "ref",
+            "id": "ef57a555-f9e9-53cc-b09b-b7432156cbf1"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "6257c7f0-f483-53d3-a791-d73a616cbce4"
+          },
+          {
+            "type": "text",
+            "text": " (your choice) a creature in the square with a total of +12 to the Athletics check. At the end of your turn, the twine winds itself back into a ball and returns to your hand; if you don't have a free hand, it returns to your space instead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.5QbocabfxRZjb3qn"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 125
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "unravel-twine",
+          "name": "Unravel Twine",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "79ee6e61-5b9a-50d7-a468-2109dfe25ca2",
+    "pack": "player-core-2",
+    "kind": "equipment",
+    "slug": "equipment:urn-of-ashes",
+    "name": "Urn of Ashes",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["magical", "void"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This sealed pewter urn contains the ashes of a benevolent ancestor, with a sliver of lingering spirit that strives to protect you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Doom the Urn",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You would become "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7"
+          },
+          {
+            "type": "text",
+            "text": ", or your doomed value would increase"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ashes aren't doomed"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ashes in the urn intervene, taking the doomed condition in your place, and you don't gain or increase the value of your doomed condition. Each night when you get a full night's rest, you can reduce your own doomed condition or that of the urn, but not both."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Spirit's Wrath",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (attack, concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per round"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The urn shoots a bolt of void energy at a foe within 30 feet. Attempt a spell attack roll against the target's AC, using a modifier of +15 or your own spell attack modifier, whichever is higher. On a success, the bolt deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d4",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage (doubled on a critical success)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.3G2No6QaU1wSPTh6"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 700
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "spirits-wrath",
+          "name": "Spirit's Wrath",
+          "frequency": {
+            "max": 1,
+            "per": "round"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

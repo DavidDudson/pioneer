@@ -18,6 +18,7 @@ import { SourceCheckError } from './source-check';
 
 const coreRules = PackId.parse('core-rules');
 const playerCore = PackId.parse('player-core');
+const playerCore2 = PackId.parse('player-core-2');
 const monsterCore = PackId.parse('monster-core');
 const divineMysteries = PackId.parse('divine-mysteries');
 const treasureVault = PackId.parse('treasure-vault');
@@ -38,6 +39,7 @@ describe('content catalog', () => {
       howlOfTheWild,
       monsterCore,
       playerCore,
+      playerCore2,
       treasureVault,
       warOfImmortals,
     ]);

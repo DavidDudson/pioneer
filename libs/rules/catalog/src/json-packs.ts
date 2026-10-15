@@ -25,6 +25,10 @@ export async function coreRulesPack(): Promise<PackContents> {
     import('@pioneer/content/packs/core-rules/imported/player-core/sense.json'),
     import('@pioneer/content/packs/core-rules/imported/player-core/statistic.json'),
     import('@pioneer/content/packs/core-rules/imported/player-core/trait.json'),
+    import('@pioneer/content/packs/core-rules/imported/player-core-2/language.json'),
+    import('@pioneer/content/packs/core-rules/imported/player-core-2/sense.json'),
+    import('@pioneer/content/packs/core-rules/imported/player-core-2/statistic.json'),
+    import('@pioneer/content/packs/core-rules/imported/player-core-2/trait.json'),
     import('@pioneer/content/packs/core-rules/imported/divine-mysteries/trait.json'),
     import('@pioneer/content/packs/core-rules/imported/treasure-vault/trait.json'),
     import('@pioneer/content/packs/core-rules/imported/war-of-immortals/sense.json'),
@@ -58,6 +62,29 @@ export async function playerCorePack(): Promise<PackContents> {
     import('@pioneer/content/packs/player-core/spell.json'),
     import('@pioneer/content/packs/player-core/treasure.json'),
     import('@pioneer/content/packs/player-core/weapon.json'),
+  ]);
+}
+
+export async function playerCore2Pack(): Promise<PackContents> {
+  return pack(import('@pioneer/content/packs/player-core-2/pack.json'), [
+    import('@pioneer/content/packs/player-core-2/action.json'),
+    import('@pioneer/content/packs/player-core-2/ancestry.json'),
+    import('@pioneer/content/packs/player-core-2/ancestry-feature.json'),
+    import('@pioneer/content/packs/player-core-2/archetype.json'),
+    import('@pioneer/content/packs/player-core-2/armor.json'),
+    import('@pioneer/content/packs/player-core-2/background.json'),
+    import('@pioneer/content/packs/player-core-2/class.json'),
+    import('@pioneer/content/packs/player-core-2/class-feature.json'),
+    import('@pioneer/content/packs/player-core-2/condition.json'),
+    import('@pioneer/content/packs/player-core-2/consumable.json'),
+    import('@pioneer/content/packs/player-core-2/effect.json'),
+    import('@pioneer/content/packs/player-core-2/equipment.json'),
+    import('@pioneer/content/packs/player-core-2/feat.json'),
+    import('@pioneer/content/packs/player-core-2/heritage.json'),
+    import('@pioneer/content/packs/player-core-2/ritual.json'),
+    import('@pioneer/content/packs/player-core-2/shield.json'),
+    import('@pioneer/content/packs/player-core-2/spell.json'),
+    import('@pioneer/content/packs/player-core-2/weapon.json'),
   ]);
 }
 

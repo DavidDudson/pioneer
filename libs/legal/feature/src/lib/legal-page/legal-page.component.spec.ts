@@ -77,6 +77,7 @@ describe('LegalPage', () => {
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
+      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e',
     ]);
   });
@@ -105,6 +106,7 @@ describe('LegalPage', () => {
     const packs = [...foundry.querySelectorAll('[role="listitem"]')].map((item) => item.textContent.trim());
     expect(packs).toStrictEqual([
       expect.stringMatching(/^Player Core\s*Foundry release pf2e-8\.6\.0$/u),
+      expect.stringMatching(/^Player Core 2\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^Lost Omens Divine Mysteries\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^Treasure Vault \(Remastered\)\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^GM Core\s*Foundry release pf2e-8\.6\.0$/u),
