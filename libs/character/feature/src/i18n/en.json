@@ -421,6 +421,13 @@
     "wandUseLeft": "The wand can be overcharged only after its cast for today is spent.",
     "wandRollMissing": "Overcharging a wand needs the DC 10 flat check rolled first."
   },
+  "turn": {
+    "started": "Your turn begins.",
+    "fastHealing": "Fast healing restores {amount} Hit Points.",
+    "regeneration": "Regeneration restores {amount} Hit Points.",
+    "effectExpired": "An effect ended.",
+    "conditionEnded": "A condition ended."
+  },
   "import": {
     "title": "Import from Pathbuilder",
     "description": "Paste a Pathbuilder 2e JSON export to see what Pioneer can read from it, then create a character from it.",

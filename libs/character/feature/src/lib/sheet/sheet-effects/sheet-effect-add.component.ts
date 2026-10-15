@@ -1,11 +1,13 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input, signal } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import {
+  canRollBadge,
   EffectAllyName,
   EffectBadgeValue,
   EffectCommandField,
   EffectInstanceId,
   EffectSourceKind,
+  rollBadge,
   SELF,
 } from '@pioneer/character/domain';
 import type { CampaignAlly, EffectSource, PlayCommand } from '@pioneer/character/domain';
@@ -16,7 +18,6 @@ import { ContentId } from '@pioneer/rules/sdk';
 import { newId } from '@pioneer/shared/kernel';
 
 import { injectCharacterAllies } from '../../data/character-allies-query';
-import { canRollBadge, rollBadge } from '../sheet-effects';
 import type { EffectOption } from '../sheet-effects';
 
 /** The message each source of an effect is worded with. */

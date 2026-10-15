@@ -1,7 +1,11 @@
-import { effectContent, EffectBadgeValue, EffectSourceKind, steppedBadge } from '@pioneer/character/domain';
-import type { ActiveEffect, CounterTerms, EffectInstanceId, EffectTerms } from '@pioneer/character/domain';
-import { DiceExpressionText, parseDiceExpression, rollDice } from '@pioneer/rules/dice';
-import type { RandomSource } from '@pioneer/rules/dice';
+import { effectContent, EffectSourceKind, steppedBadge } from '@pioneer/character/domain';
+import type {
+  ActiveEffect,
+  EffectBadgeValue,
+  CounterTerms,
+  EffectInstanceId,
+  EffectTerms,
+} from '@pioneer/character/domain';
 import { ContentKind, EffectBadgeType } from '@pioneer/rules/sdk';
 import type { ContentEntry, ContentId, ContentRegistry, DamageFormula } from '@pioneer/rules/sdk';
 
@@ -115,18 +119,4 @@ export function steppedView(view: EffectView, up: boolean): EffectBadgeValue | u
   return view.counter === undefined || view.badge === undefined
     ? undefined
     : steppedBadge(view.counter, view.badge, up);
-}
-
-/** Whether `formula` is a plain dice expression that `rollBadge` can roll. */
-export function canRollBadge(formula: DamageFormula): boolean {
-  return parseDiceExpression(DiceExpressionText.parse(formula)).ok;
-}
-
-/**
- * What a formula badge rolls when the effect is applied. A formula that reads the character (`@attr.str`) is not a
- * plain dice expression, so it is not rolled here and the effect cannot be applied yet.
- */
-export function rollBadge(formula: DamageFormula, random: RandomSource): EffectBadgeValue | undefined {
-  const parsed = parseDiceExpression(DiceExpressionText.parse(formula));
-  return parsed.ok ? EffectBadgeValue.safeParse(rollDice(parsed.expression, random).total).data : undefined;
 }
