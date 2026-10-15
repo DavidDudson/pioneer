@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1792099931053,
+  "lastUpdate": 1792100337709,
   "repoUrl": "https://github.com/DavidDudson/pioneer",
   "entries": {
     "Pioneer benchmarks": [
@@ -3024,6 +3024,168 @@ window.BENCHMARK_DATA = {
             "value": 0.558,
             "unit": "ms",
             "extra": "median 1.094 ms, 51 runs after 20 warm-up, budget 3 ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "DavidDudson@users.noreply.github.com",
+            "name": "David Dudson",
+            "username": "DavidDudson"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "eaeb7410de1bdff2f3ac91a3fa2e07ea619a19a2",
+          "message": "feat(play): cast a wand and overcharge it (#914)\n\n* feat(play): cast a wand and overcharge it\n\nA held wand casts its spell once a day at the wand's rank, with the entry\nwhose list has the spell. Once that is spent it can be overcharged: a DC 10\nflat check rolled through the dice library. A pass casts the spell and\nbreaks the wand; a failure, or an overcharge already made today, destroys\nit. Broken is inventory state that outlasts daily preparations until the\nplayer marks the wand repaired.\n\nThe cast and the overcharge are counted uses that reset on the day. A\nbreaking or destroying overcharge writes the play state and the inventory\nin one transaction.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* feat(sheet): cast and overcharge a held wand\n\nThe Encounter tab lists each held wand with its cast for the day, and\nrolls the DC 10 flat check of an overcharge on the sheet. The d20, the DC\nand what the overcharge would come to show before the player confirms.\nA broken wand offers to be marked repaired. Daily preparations name the\nwand casts and overcharged casts that come back.\n\nThe wand's cast counts, the broken inventory state and the one-write\novercharge are covered by domain, service, repository, route and sheet\ntests. Docs describe the combined write and the broken state.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* refactor(play): move the play edit checks out of the service\n\nThe merge with main pushed play-service.ts over the file line limit.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Sonnet 5.5 <noreply@anthropic.com>",
+          "timestamp": "2026-10-16T07:36:49+10:00",
+          "tree_id": "37272c57f44f9d62958e0ffeb4b6b81b10e73a9d",
+          "url": "https://github.com/DavidDudson/pioneer/commit/eaeb7410de1bdff2f3ac91a3fa2e07ea619a19a2"
+        },
+        "date": 1792100336743,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "character: level 20 Bard with every slot and its gear filled",
+            "value": 24.669,
+            "unit": "ms",
+            "extra": "median 29.261 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Cleric with every slot and its gear filled",
+            "value": 32.112,
+            "unit": "ms",
+            "extra": "median 35.355 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Druid with every slot and its gear filled",
+            "value": 23.108,
+            "unit": "ms",
+            "extra": "median 25.395 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Fighter with every slot and its gear filled",
+            "value": 20.942,
+            "unit": "ms",
+            "extra": "median 23.378 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Ranger with every slot and its gear filled",
+            "value": 27.967,
+            "unit": "ms",
+            "extra": "median 30.932 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Rogue with every slot and its gear filled",
+            "value": 24.882,
+            "unit": "ms",
+            "extra": "median 29.891 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Witch with every slot and its gear filled",
+            "value": 24.37,
+            "unit": "ms",
+            "extra": "median 25.931 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Wizard with every slot and its gear filled",
+            "value": 22.049,
+            "unit": "ms",
+            "extra": "median 25.518 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Alchemist with every slot and its gear filled",
+            "value": 23.499,
+            "unit": "ms",
+            "extra": "median 25.517 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Barbarian with every slot and its gear filled",
+            "value": 27.493,
+            "unit": "ms",
+            "extra": "median 30.402 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Champion with every slot and its gear filled",
+            "value": 27.981,
+            "unit": "ms",
+            "extra": "median 30.146 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Investigator with every slot and its gear filled",
+            "value": 26.949,
+            "unit": "ms",
+            "extra": "median 29.289 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Monk with every slot and its gear filled",
+            "value": 22.9,
+            "unit": "ms",
+            "extra": "median 24.484 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Oracle with every slot and its gear filled",
+            "value": 26.558,
+            "unit": "ms",
+            "extra": "median 29.452 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Sorcerer with every slot and its gear filled",
+            "value": 24.58,
+            "unit": "ms",
+            "extra": "median 26.328 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Swashbuckler with every slot and its gear filled",
+            "value": 29.537,
+            "unit": "ms",
+            "extra": "median 32.431 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Animist with every slot and its gear filled",
+            "value": 21.647,
+            "unit": "ms",
+            "extra": "median 23.748 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Exemplar with every slot and its gear filled",
+            "value": 30.509,
+            "unit": "ms",
+            "extra": "median 32.621 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "catalog: level 20 Fighter derives grants and every statistic",
+            "value": 5.675,
+            "unit": "ms",
+            "extra": "median 6.484 ms, 51 runs after 20 warm-up, budget 10 ms"
+          },
+          {
+            "name": "catalog: level 20 Fighter with Proficiency Without Level and a homebrew pack restating Perception",
+            "value": 5.768,
+            "unit": "ms",
+            "extra": "median 6.644 ms, 51 runs after 20 warm-up, budget 10 ms"
+          },
+          {
+            "name": "grants: a query over 1000 entries",
+            "value": 0.818,
+            "unit": "ms",
+            "extra": "median 1.044 ms, 51 runs after 20 warm-up, budget 2 ms"
+          },
+          {
+            "name": "grants: level 20 character with every slot picked over 1000 more feats",
+            "value": 0.969,
+            "unit": "ms",
+            "extra": "median 1.199 ms, 51 runs after 20 warm-up, budget 3 ms"
+          },
+          {
+            "name": "grants: level 20 Fighter resolves to a fixpoint",
+            "value": 0.476,
+            "unit": "ms",
+            "extra": "median 0.968 ms, 51 runs after 20 warm-up, budget 3 ms"
           }
         ]
       }
