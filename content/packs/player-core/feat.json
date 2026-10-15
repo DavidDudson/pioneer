@@ -36033,7 +36033,78 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "order",
+        "rollOption": "feat:order-explorer",
+        "prompt": "Select a druidic order.",
+        "choices": [
+          {
+            "value": "567a2b38-46d0-50ae-8e95-4b3ef421239f",
+            "label": "Animal Order",
+            "predicate": [
+              {
+                "or": [
+                  {
+                    "not": "feature:animal-order"
+                  },
+                  "feat:order-explorer:animal-order"
+                ]
+              }
+            ]
+          },
+          {
+            "value": "a789d72d-bbd5-5d23-a3f4-fcd3c7904199",
+            "label": "Leaf Order",
+            "predicate": [
+              {
+                "or": [
+                  {
+                    "not": "feature:leaf-order"
+                  },
+                  "feat:order-explorer:leaf-order"
+                ]
+              }
+            ]
+          },
+          {
+            "value": "aab3afac-b9a3-539c-a0f9-bfd9b355e046",
+            "label": "Storm Order",
+            "predicate": [
+              {
+                "or": [
+                  {
+                    "not": "feature:storm-order"
+                  },
+                  "feat:order-explorer:storm-order"
+                ]
+              }
+            ]
+          },
+          {
+            "value": "66b406b8-2953-5ec3-a2f7-98a5515db289",
+            "label": "Untamed Order",
+            "predicate": [
+              {
+                "or": [
+                  {
+                    "not": "feature:untamed-order"
+                  },
+                  "feat:order-explorer:untamed-order"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "order"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.9onf3uGvZRnNLPR6"
     },
@@ -36093,7 +36164,67 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellcastingEntry",
+        "slug": "druid-focus",
+        "tradition": "primal",
+        "attribute": "wis",
+        "preparation": "focus"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "order-magic",
+        "rollOption": "order-magic",
+        "prompt": "Select a druidic order.",
+        "choices": [
+          {
+            "value": "animal-order",
+            "label": "Animal Order",
+            "predicate": ["feat:order-explorer:animal-order"]
+          },
+          {
+            "value": "leaf-order",
+            "label": "Leaf Order",
+            "predicate": ["feat:order-explorer:leaf-order"]
+          },
+          {
+            "value": "storm-order",
+            "label": "Storm Order",
+            "predicate": ["feat:order-explorer:storm-order"]
+          },
+          {
+            "value": "untamed-order",
+            "label": "Untamed Order",
+            "predicate": ["feat:order-explorer:untamed-order"]
+          }
+        ]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "druid-focus",
+        "spells": ["cec5d01b-a4d4-5eb5-9d47-20069a964fac"],
+        "predicate": ["order-magic:animal-order"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "druid-focus",
+        "spells": ["3a58c6de-a5f2-5276-9f44-4ccb246152c5"],
+        "predicate": ["order-magic:leaf-order"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "druid-focus",
+        "spells": ["61f84b31-8da0-5b2f-89a8-9ae353d08524"],
+        "predicate": ["order-magic:storm-order"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "druid-focus",
+        "spells": ["a57b5d2f-8af8-51d0-8819-828f863e14f3"],
+        "predicate": ["order-magic:untamed-order"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.oHdUwzUUblg3neCT"
     },

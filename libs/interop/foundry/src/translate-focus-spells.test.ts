@@ -14,6 +14,8 @@ import {
   HEX_SPELLS,
   INITIATE_WARDEN,
   LESSON_OF_LIFE,
+  ORDER_EXPLORER,
+  ORDER_MAGIC,
   SCHOOL_OF_BATTLE_MAGIC,
   THE_RESENTMENT,
   UNTAMED_ORDER,
@@ -167,6 +169,42 @@ describe('translateKindData: focus spells', () => {
     expect(keyed(FocusSpells, 'untamed-order', UNTAMED_ORDER)).toEqual([
       { key: FocusSpells, entry: 'druid-focus', spells: [spell('untamed-shift')], predicate },
     ]);
+  });
+
+  test("Order Explorer offers the druidic orders the druid doesn't have, or joined through it, and grants the pick", () => {
+    const [choice] = keyed(ChoiceSet, 'order-explorer', ORDER_EXPLORER);
+    const orders = ['animal', 'leaf', 'storm', 'untamed'].map((name) => `${name}-order`);
+
+    expect(choice).toMatchObject({ flag: 'order', rollOption: 'feat:order-explorer' });
+    expect(valuesOf(choice)).toEqual(orders.map((order) => idOf(`class-feature:${order}`)));
+    expect(choice?.['choices']).toContainEqual({
+      value: idOf('class-feature:leaf-order'),
+      label: 'Leaf Order',
+      predicate: [{ or: [{ not: 'feature:leaf-order' }, 'feat:order-explorer:leaf-order'] }],
+    });
+    expect(keyed(RuleElementKey.GrantItem, 'order-explorer', ORDER_EXPLORER)).toEqual([
+      { key: RuleElementKey.GrantItem, item: { choice: 'order' } },
+    ]);
+  });
+
+  test("Order Magic gives the order spell of an order Order Explorer joined, in the druid's focus entry", () => {
+    const [choice] = keyed(ChoiceSet, 'order-magic', ORDER_MAGIC);
+
+    expect(choice).toMatchObject({ flag: 'order-magic', rollOption: 'order-magic' });
+    expect(choice?.['choices']).toContainEqual({
+      value: 'storm-order',
+      label: 'Storm Order',
+      predicate: ['feat:order-explorer:storm-order'],
+    });
+    expect(keyed(SpellcastingEntry, 'order-magic', ORDER_MAGIC)).toEqual([
+      { key: SpellcastingEntry, slug: 'druid-focus', tradition: 'primal', attribute: 'wis', preparation: 'focus' },
+    ]);
+    expect(keyed(FocusSpells, 'order-magic', ORDER_MAGIC)).toContainEqual({
+      key: FocusSpells,
+      entry: 'druid-focus',
+      spells: [spell('tempest-surge')],
+      predicate: ['order-magic:storm-order'],
+    });
   });
 
   test("a witch's patron gives a focus entry in its tradition and its hex cantrip", () => {

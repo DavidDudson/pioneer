@@ -255,3 +255,10 @@ export const MYSTERY_FLAMES = classFeature({
   level: 1,
   traits: ['oracle'],
 });
+export const ORDER_EXPLORER = classFeat({
+  id: 'sPeLlCaStInG0040',
+  name: 'Order Explorer',
+  level: 2,
+  traits: ['druid'],
+});
+export const ORDER_MAGIC = classFeat({ id: 'sPeLlCaStInG0041', name: 'Order Magic', level: 4, traits: ['druid'] });

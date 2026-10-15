@@ -1,7 +1,25 @@
-import { contentId, EntrySlug, RuleElementKey } from '@pioneer/rules/sdk';
 import type { PackId } from '@pioneer/rules/sdk';
 
 import { DOMAIN_SPELLS } from './domain-spells';
+import {
+  BARD,
+  BARD_ENTRY,
+  CLERIC,
+  CLERIC_ENTRY,
+  DRUID,
+  focusChoice,
+  focusEntry,
+  focusSpells,
+  isGrant,
+  isNamed,
+  RANGER,
+  RANGER_ENTRY,
+  WITCH,
+  WIZARD,
+  WIZARD_ENTRY,
+} from './focus-plan';
+import type { Planned } from './focus-plan';
+import { ORDER_EXPLORER, ORDER_EXPLORER_RULES, ORDER_MAGIC_RULES, ORDERS, order } from './translate-druid-orders';
 
 /**
  * The focus entries and focus spells of Player Core's class features and feats, as `SpellcastingEntry` elements with
@@ -11,91 +29,6 @@ import { DOMAIN_SPELLS } from './domain-spells';
  * domains journal, at `pf2e-8.6.0`. Spells are named by slug, in the pack being imported; a later book's focus spells
  * are added with its import (#606 for archetypes).
  */
-
-interface FocusEntryFields {
-  readonly slug: string;
-  readonly tradition: string;
-  readonly attribute: string;
-}
-
-/** A focus entry: where its focus spells' spell attack and DC come from. */
-function focusEntry(fields: FocusEntryFields): object {
-  return { key: RuleElementKey.SpellcastingEntry, ...fields, preparation: 'focus' };
-}
-
-const BARD = 'bard-focus';
-const CLERIC = 'cleric-focus';
-const DRUID = 'druid-focus';
-const RANGER = 'ranger-focus';
-const WITCH = 'witch-focus';
-const WIZARD = 'wizard-focus';
-
-const BARD_ENTRY = focusEntry({ slug: BARD, tradition: 'occult', attribute: 'cha' });
-const CLERIC_ENTRY = focusEntry({ slug: CLERIC, tradition: 'divine', attribute: 'wis' });
-const DRUID_ENTRY = focusEntry({ slug: DRUID, tradition: 'primal', attribute: 'wis' });
-const RANGER_ENTRY = focusEntry({ slug: RANGER, tradition: 'primal', attribute: 'wis' });
-
-const WIZARD_ENTRY = focusEntry({ slug: WIZARD, tradition: 'arcane', attribute: 'int' });
-
-/** A focus spells element's entry, its spells by slug, and the predicate it holds on, if any. */
-interface Grant {
-  readonly entry: string;
-  readonly spells: readonly string[];
-  readonly predicate?: readonly unknown[];
-}
-
-/** The rule elements of one entry, before its spells are named in the pack being imported. */
-type Planned = readonly (object | Grant)[];
-
-function isGrant(element: object | Grant): element is Grant {
-  return 'spells' in element && !('key' in element);
-}
-
-function focusSpells(pack: PackId, { entry, spells, predicate }: Grant): object {
-  return {
-    key: RuleElementKey.FocusSpells,
-    entry,
-    spells: spells.map((spell) => contentId(pack, EntrySlug.parse(`spell:${spell}`))),
-    ...(predicate === undefined ? {} : { predicate }),
-  };
-}
-
-/** One option of a choice that grants a focus spell: its value, its label, and the spells it grants. */
-interface FocusOption {
-  readonly value: string;
-  readonly label: string;
-  readonly spells: readonly string[];
-  readonly predicate?: readonly unknown[];
-}
-
-/** A choice of focus spells: the flag its pick is stored under, its prompt, the focus entry, and its options. */
-interface FocusChoice {
-  readonly flag: string;
-  readonly prompt: string;
-  readonly entry: string;
-  readonly options: readonly FocusOption[];
-}
-
-/**
- * A `ChoiceSet` under `flag` whose pick becomes the roll option `<flag>:<value>`, and a focus spells element per
- * option, holding while it is picked: an Initiate Warden's warden spell, a domain.
- */
-function focusChoice({ flag, prompt, entry, options }: FocusChoice): Planned {
-  return [
-    {
-      key: RuleElementKey.ChoiceSet,
-      flag,
-      rollOption: flag,
-      prompt,
-      choices: options.map(({ value, label, predicate }) => ({
-        value,
-        label,
-        ...(predicate === undefined ? {} : { predicate }),
-      })),
-    },
-    ...options.map(({ value, spells }): Grant => ({ entry, spells, predicate: [`${flag}:${value}`] })),
-  ];
-}
 
 function titleOf(domain: string): string {
   return `${domain.charAt(0).toUpperCase()}${domain.slice(1)}`;
@@ -154,18 +87,6 @@ function school(initial: string, advanced: string): Planned {
   ];
 }
 
-/**
- * A druid's order: its order spell, unless the order was joined through Order Explorer, which grants none of its other
- * benefits (Order Magic grants its spell, #604). Guarded as Foundry guards an order's own benefits.
- */
-function order(slug: string, spell: string): Planned {
-  const predicate = [{ not: `feat:order-explorer:${slug}` }];
-  return [
-    { ...DRUID_ENTRY, predicate },
-    { entry: DRUID, spells: [spell], predicate },
-  ];
-}
-
 /** A witch's patron: the witch's focus entry in the patron's tradition, as its own entry is, and its hex cantrip. */
 function patron(tradition: string, cantrip: string): Planned {
   return [focusEntry({ slug: WITCH, tradition, attribute: 'int' }), { entry: WITCH, spells: [cantrip] }];
@@ -210,10 +131,9 @@ const FOCUS: ReadonlyMap<string, Planned> = new Map([
   ['feat:domain-initiate', DOMAIN_INITIATE_RULES],
   ['feat:advanced-domain', ADVANCED_DOMAIN_RULES],
   // Druid: each order's order spell, and the feats that teach another.
-  ['class-feature:animal-order', order('animal-order', 'heal-animal')],
-  ['class-feature:leaf-order', order('leaf-order', 'cornucopia')],
-  ['class-feature:storm-order', order('storm-order', 'tempest-surge')],
-  ['class-feature:untamed-order', order('untamed-order', 'untamed-shift')],
+  ...ORDERS.map(([slug, , spell]): [string, Planned] => [`class-feature:${slug}`, order(slug, spell)]),
+  [ORDER_EXPLORER, ORDER_EXPLORER_RULES],
+  ['feat:order-magic', ORDER_MAGIC_RULES],
   ['feat:impaling-briars', learn(DRUID, 'impaling-briars')],
   ['feat:invoke-disaster', learn(DRUID, 'storm-lord')],
   ['feat:primal-summons', learn(DRUID, 'primal-summons')],
@@ -294,5 +214,10 @@ const FOCUS: ReadonlyMap<string, Planned> = new Map([
 
 /** The focus entry, choices and `FocusSpells` elements the entry with `slug` gains in `pack`, if any. */
 export function focusSpellRules(slug: string, pack: PackId): readonly object[] {
-  return (FOCUS.get(slug) ?? []).map((element) => (isGrant(element) ? focusSpells(pack, element) : element));
+  return (FOCUS.get(slug) ?? []).map((element) => {
+    if (isNamed(element)) {
+      return element(pack);
+    }
+    return isGrant(element) ? focusSpells(pack, element) : element;
+  });
 }
