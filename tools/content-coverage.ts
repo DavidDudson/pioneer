@@ -18,9 +18,10 @@ import {
   packEntries,
   prerequisiteCoverage,
   sourceCoverage,
+  staffCoverage,
   triggerCoverage,
 } from '@pioneer/rules/catalog';
-import type { BookCoverage, PrerequisiteCoverage, TriggerCoverage } from '@pioneer/rules/catalog';
+import type { BookCoverage, PrerequisiteCoverage, StaffCoverage, TriggerCoverage } from '@pioneer/rules/catalog';
 import { ContentRegistry } from '@pioneer/rules/sdk';
 import { Glob } from 'bun';
 
@@ -51,6 +52,11 @@ function formatTriggers({ triggered, withoutEvent }: TriggerCoverage): string {
   return [heading, ...formatList(withoutEvent)].join('\n');
 }
 
+function formatStaves({ staves, withoutSpells }: StaffCoverage): string {
+  const heading = `staves: ${staves} staves, ${withoutSpells.length} without typed spells`;
+  return [heading, ...formatList(withoutSpells)].join('\n');
+}
+
 async function backlogs(): Promise<readonly BacklogItem[]> {
   const files = await Array.fromAsync(new Glob('*.json').scan({ cwd: IMPORTS, absolute: true }));
   const imports = await Promise.all(files.map(async (file) => ImportFile.parse(await Bun.file(file).json())));
@@ -78,3 +84,4 @@ const coverage = sourceCoverage(
 console.log(coverage.map((book) => formatBook(book)).join('\n'));
 console.log(formatTriggers(triggerCoverage(entries)));
 console.log(formatPrerequisites(prerequisiteCoverage(entries)));
+console.log(formatStaves(staffCoverage(entries)));

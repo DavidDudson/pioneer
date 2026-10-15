@@ -4,6 +4,7 @@ import * as z from 'zod';
 import { AttributeSchema } from './attribute';
 import { ContentId } from './content-id';
 import { Bulk, BulkCount, ItemCount, physicalFields, Price, Usage } from './physical-item';
+import { StaffSpells } from './staff';
 
 /**
  * What a container holds, with no limit when `capacity` is absent; how much of it doesn't count, however the
@@ -27,6 +28,8 @@ export const EquipmentData = z.strictObject({
   container: Container.optional(),
   /** The attribute an apex item raises. */
   apex: AttributeSchema.optional(),
+  /** The spells a staff holds, when the item is one. */
+  staff: StaffSpells.optional(),
 });
 export type EquipmentData = z.infer<typeof EquipmentData>;
 

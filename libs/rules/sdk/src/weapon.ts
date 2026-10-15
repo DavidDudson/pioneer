@@ -8,6 +8,7 @@ import { DamageFormula } from './damage-formula';
 import { ItemCount, physicalFields, Usage } from './physical-item';
 import { WeaponCategory } from './rule-element-proficiency';
 import { PropertyRuneEnergies, PropertyRunes, RuneGrade } from './rune';
+import { StaffSpells } from './staff';
 import { DamageAmount, Feet } from './units';
 
 /** Remaster weapon groups, Foundry pf2e's less Starfinder's. */
@@ -109,5 +110,7 @@ export const WeaponData = z.strictObject({
   ammunition: WeaponAmmunition.optional(),
   usage: Usage,
   runes: WeaponRunes.optional(),
+  /** The spells a staff holds, when the weapon is one. */
+  staff: StaffSpells.optional(),
 });
 export type WeaponData = z.infer<typeof WeaponData>;

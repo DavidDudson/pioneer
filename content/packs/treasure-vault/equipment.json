@@ -2968,7 +2968,17 @@
       "usage": {
         "type": "held",
         "hands": "two"
-      }
+      },
+      "staff": [
+        {
+          "rank": "cantrip",
+          "spells": ["0964edfe-0384-5444-908b-fe24653c28f5"]
+        },
+        {
+          "rank": 1,
+          "spells": ["42ecad5f-026b-577a-9b47-b97ae76568c9"]
+        }
+      ]
     }
   },
   {
@@ -13146,7 +13156,21 @@
       "usage": {
         "type": "held",
         "hands": "two"
-      }
+      },
+      "staff": [
+        {
+          "rank": "cantrip",
+          "spells": ["6dee4f5d-f584-5402-af2a-d3738ec685b3"]
+        },
+        {
+          "rank": 1,
+          "spells": [
+            "1c97409b-bd67-5df2-a7d3-a49aff4d3896",
+            "7c5ef7d9-d7ac-5654-b88c-5504257ec3f7",
+            "566a10d1-097c-5ee1-b473-4e0ab1475228"
+          ]
+        }
+      ]
     }
   },
   {
@@ -13386,7 +13410,33 @@
       "usage": {
         "type": "held",
         "hands": "two"
-      }
+      },
+      "staff": [
+        {
+          "rank": "cantrip",
+          "spells": ["6dee4f5d-f584-5402-af2a-d3738ec685b3"]
+        },
+        {
+          "rank": 1,
+          "spells": [
+            "1c97409b-bd67-5df2-a7d3-a49aff4d3896",
+            "7c5ef7d9-d7ac-5654-b88c-5504257ec3f7",
+            "566a10d1-097c-5ee1-b473-4e0ab1475228"
+          ]
+        },
+        {
+          "rank": 2,
+          "spells": [
+            "18377ab1-5227-575a-9895-fa1920850f0d",
+            "51b9baac-1f99-5c5a-a902-ed642a3849ef",
+            "e0681ca0-8a1d-5d21-a033-813e782d04b5"
+          ]
+        },
+        {
+          "rank": 3,
+          "spells": ["2b79f5bd-e9d5-59cd-81f8-b1362ed0b59a", "749d15ad-5bf7-53bd-a646-cbbec6452867"]
+        }
+      ]
     }
   },
   {
@@ -31917,7 +31967,21 @@
       "usage": {
         "type": "held",
         "hands": "two"
-      }
+      },
+      "staff": [
+        {
+          "rank": "cantrip",
+          "spells": ["0964edfe-0384-5444-908b-fe24653c28f5"]
+        },
+        {
+          "rank": 1,
+          "spells": [
+            "a3738cb8-aa5d-5084-b250-86fe19b7498d",
+            "15904512-5f17-5bba-b1a0-1f892989912c",
+            "a8b9cc60-f471-559b-a07c-6ad022c23b56"
+          ]
+        }
+      ]
     }
   },
   {
@@ -32159,7 +32223,34 @@
       "usage": {
         "type": "held",
         "hands": "two"
-      }
+      },
+      "staff": [
+        {
+          "rank": "cantrip",
+          "spells": ["0964edfe-0384-5444-908b-fe24653c28f5"]
+        },
+        {
+          "rank": 1,
+          "spells": [
+            "a3738cb8-aa5d-5084-b250-86fe19b7498d",
+            "15904512-5f17-5bba-b1a0-1f892989912c",
+            "a8b9cc60-f471-559b-a07c-6ad022c23b56"
+          ]
+        },
+        {
+          "rank": 2,
+          "spells": ["14ef4b6a-5640-523d-ae50-9e3f4fbf860b", "8a83becc-07c0-52c9-92ce-77546175cc07"]
+        },
+        {
+          "rank": 3,
+          "spells": [
+            "a3738cb8-aa5d-5084-b250-86fe19b7498d",
+            "bd03779f-21b9-55bd-8656-887b25c8f8dd",
+            "9aed7b61-843a-5ec7-b205-94e5369630f3",
+            "f27c5853-2de7-5506-a02e-1dcf562fb4b6"
+          ]
+        }
+      ]
     }
   },
   {
@@ -44947,7 +45038,21 @@
       "usage": {
         "type": "held",
         "hands": "two"
-      }
+      },
+      "staff": [
+        {
+          "rank": "cantrip",
+          "spells": ["bb73ff19-7c70-5f9f-8c0e-dbd71c099926"]
+        },
+        {
+          "rank": 1,
+          "spells": [
+            "adcc4c8f-05ae-5440-83d0-9e88ad22209b",
+            "b1ebbfda-a31b-56b3-95d3-ee7a4b4bc8c8",
+            "600c3684-32bc-5dbc-8b49-99924728c1cd"
+          ]
+        }
+      ]
     }
   },
   {
