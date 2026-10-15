@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import {
   AncestryId,
   contentId,
+  ContentEntry,
   ContentKind,
   ContentText,
   EntrySlug,
@@ -53,6 +54,11 @@ const ancestry = entry('ancestry', 'lizardfolk', {
 const common = entry('language', 'common', {});
 const contents: PackContents = packContentsFromFiles(packFile, [[ancestry, common]]);
 const packs: readonly PackContentsLoader[] = [{ id: PACK, load: async (): Promise<PackContents> => contents }];
+const spoken = [{ type: 'paragraph', content: [{ type: 'text', text: 'Spoken everywhere.' }] }];
+const described: PackContents = packContentsFromFiles(packFile, [[ancestry, { ...common, description: spoken }]]);
+const describedPacks: readonly PackContentsLoader[] = [
+  { id: PACK, load: async (): Promise<PackContents> => described },
+];
 const renamed: PackContents = packContentsFromFiles(packFile, [[ancestry, { ...common, name: 'Common (Taldane)' }]]);
 const reseeded: readonly PackContentsLoader[] = [{ id: PACK, load: async (): Promise<PackContents> => renamed }];
 
@@ -64,8 +70,12 @@ interface Loaded {
 }
 
 /** A loader over `store`, building into `packCache`: a fresh one unless a test shares it, so each test parses anew. */
-function load(store: BundleStore = new MemoryBundleStore(), packCache: ContentPackCache = new Map()): Loaded {
-  const delivery = new TestContentDelivery(packs);
+function load(
+  store: BundleStore = new MemoryBundleStore(),
+  packCache: ContentPackCache = new Map(),
+  served: readonly PackContentsLoader[] = packs,
+): Loaded {
+  const delivery = new TestContentDelivery(served);
   const waiting: (() => void)[] = [];
   TestBed.configureTestingModule({
     providers: [
@@ -85,6 +95,11 @@ function load(store: BundleStore = new MemoryBundleStore(), packCache: ContentPa
     }
   };
   return { loader: TestBed.inject(ContentLoader), delivery, idle };
+}
+
+/** The description shards `requests` fetched. */
+function descriptionRequests(requests: readonly string[]): readonly string[] {
+  return requests.filter((request) => request.includes('.desc.'));
 }
 
 /** The kinds `requests` fetched bundles of, in order. */
@@ -188,5 +203,58 @@ describe(ContentLoader, () => {
     // Other kinds are other bundles: a pack of its own.
     await loader.registry([ContentKind.Ancestry, ContentKind.Language]);
     expect(packCache.size).toBe(2);
+  });
+
+  describe('description', () => {
+    const language = ContentEntry.parse({ ...common, description: spoken });
+
+    it('fetches the entry’s shard, and only that, once it is opened', async () => {
+      const { loader, delivery } = load(new MemoryBundleStore(), new Map(), describedPacks);
+
+      const description = await loader.description(language);
+
+      expect(description).toStrictEqual(spoken);
+      expect(descriptionRequests(delivery.requests)).toHaveLength(1);
+      expect(descriptionRequests(delivery.requests)[0]).toMatch(/^homebrew\/language\.desc\.en\.[\da-f]\./u);
+    });
+
+    it('serves a shard already read without another request, and from the store on a later visit', async () => {
+      const store = new MemoryBundleStore();
+      const first = load(store, new Map(), describedPacks);
+      await first.loader.description(language);
+      await first.loader.description(language);
+      expect(descriptionRequests(first.delivery.requests)).toHaveLength(1);
+      TestBed.resetTestingModule();
+      const { loader, delivery } = load(store, new Map(), describedPacks);
+
+      const description = await loader.description(language);
+
+      expect(description).toStrictEqual(spoken);
+      expect(delivery.requests).toStrictEqual(['manifest']);
+    });
+
+    it('is undefined, without a request, for an entry with no description', async () => {
+      const { loader, delivery } = load();
+
+      const description = await loader.description(ContentEntry.parse(common));
+
+      expect(description).toBeUndefined();
+      expect(descriptionRequests(delivery.requests)).toStrictEqual([]);
+    });
+
+    it('fetches a kept shard that no longer reads again', async () => {
+      const store = new MemoryBundleStore();
+      const first = load(store, new Map(), describedPacks);
+      await first.loader.description(language);
+      const kept = await store.keys();
+      const shards = kept.filter((key) => key.includes('.desc.'));
+      await Promise.all(shards.map(async (key) => store.write(key, { [language.id]: 'truncated' })));
+      TestBed.resetTestingModule();
+      const { loader } = load(store, new Map(), describedPacks);
+
+      const description = await loader.description(language);
+
+      expect(description).toStrictEqual(spoken);
+    });
   });
 });

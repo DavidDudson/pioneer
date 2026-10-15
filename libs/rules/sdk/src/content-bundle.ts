@@ -9,6 +9,7 @@ import type { ContentPack } from './content-pack';
 import { contentPackFromContents, packContentsFromFiles } from './content-pack-file';
 import type { PackContents } from './content-pack-file';
 import { ContentText } from './content-text';
+import { RichText } from './rich-text';
 
 /** JSON text written so equal values give equal text, whatever order their keys were written in. */
 export const CanonicalJson = z.string().brand<'CanonicalJson'>();
@@ -43,12 +44,12 @@ export type BundleHash = z.infer<typeof BundleHash>;
 
 /**
  * A bundle's file name within its pack (content-model.md, "Delivery to the browser"): `pack.<hash>.json` for the
- * pack's `pack.json`, `<kind>.mech.<hash>.json` for a kind's mechanics and `<kind>.names.<locale>.<hash>.json` for
- * its names.
+ * pack's `pack.json`, `<kind>.mech.<hash>.json` for a kind's mechanics, `<kind>.names.<locale>.<hash>.json` for its
+ * names and `<kind>.desc.<locale>.<shard>.<hash>.json` for one shard of its descriptions.
  */
 export const BundleFile = z
   .string()
-  .regex(/^(?:pack|[a-z-]+\.(?:mech|names\.[a-z]{2}))\.[\da-f]{16}\.json$/u)
+  .regex(/^(?:pack|[a-z-]+\.(?:mech|names\.[a-z]{2}|desc\.[a-z]{2}\.[\da-f]))\.[\da-f]{16}\.json$/u)
   .brand<'BundleFile'>();
 export type BundleFile = z.infer<typeof BundleFile>;
 
@@ -64,11 +65,34 @@ export function bundlePath(pack: PackId, file: BundleFile): BundlePath {
 export const BundleBody = z.json();
 export type BundleBody = z.infer<typeof BundleBody>;
 
-/** The bundles of one kind in a pack. Mechanics never depend on locale; names are in the source locale until Epic 2.4. */
+/**
+ * Which descriptions of a kind a bundle holds: the first hex digit of the entry's id. A kind's descriptions are many
+ * and long, so they are fetched a shard at a time, when an entry is opened.
+ */
+export const DescriptionShard = z
+  .string()
+  .regex(/^[\da-f]$/u)
+  .brand<'DescriptionShard'>();
+export type DescriptionShard = z.infer<typeof DescriptionShard>;
+
+/** The shard that holds `id`'s description. */
+export function descriptionShard(id: ContentId): DescriptionShard {
+  return DescriptionShard.parse(id.slice(0, 1).toLowerCase());
+}
+
+/** One shard of a kind's descriptions, in the source locale until other locales ship (#693). */
+export const DescriptionBundle = z.strictObject({ shard: DescriptionShard, file: BundleFile });
+export type DescriptionBundle = z.infer<typeof DescriptionBundle>;
+
+/**
+ * The bundles of one kind in a pack. Mechanics never depend on locale; names and descriptions are in the source
+ * locale. `descriptions` has a shard for each id prefix that has an entry with a description.
+ */
 export const KindBundles = z.strictObject({
   kind: ContentKindSchema,
   mechanics: BundleFile,
   names: BundleFile,
+  descriptions: z.array(DescriptionBundle).readonly(),
 });
 export type KindBundles = z.infer<typeof KindBundles>;
 
@@ -87,6 +111,9 @@ export type ContentManifest = z.infer<typeof ContentManifest>;
 /** Names of a kind's entries, by id. Short summaries join them when entries have them. */
 const NamesBundle = z.record(ContentId, z.strictObject({ name: ContentText }));
 type NamesBundle = z.infer<typeof NamesBundle>;
+
+/** The descriptions of one shard of a kind, by id. An entry without a description is not in it. */
+const DescriptionsBundle = z.record(ContentId, RichText);
 
 /** A kind's mechanics: its entries without names or descriptions, each read once its name is added back. */
 const MechanicsBundle = z.array(z.looseObject({ id: ContentId })).readonly();
@@ -195,10 +222,30 @@ function byKind(entries: readonly ContentEntry[]): ReadonlyMap<ContentKind, read
   return new Map([...kinds].toSorted(([left], [right]) => (left < right ? -1 : 1)));
 }
 
+/** A kind's descriptions by shard, in shard order. Entries without a description are left out, so some shards may be missing. */
+function descriptionShards(
+  entries: readonly ContentEntry[],
+): ReadonlyMap<DescriptionShard, Record<ContentId, RichText>> {
+  const shards = new Map<DescriptionShard, Record<ContentId, RichText>>();
+  for (const entry of entries) {
+    if (entry.description.length > 0) {
+      const shard = descriptionShard(entry.id);
+      shards.set(shard, { ...shards.get(shard), [entry.id]: entry.description });
+    }
+  }
+  return new Map([...shards].toSorted(([left], [right]) => (left < right ? -1 : 1)));
+}
+
 function packBundles(writer: BundleWriter, { file, entries }: PackContents): PackBundles {
   const pack = file.id;
   const kinds = [...byKind(entries)].map(([kind, ofKind]): KindBundles => ({
     kind,
+    descriptions: [...descriptionShards(ofKind)].map(([shard, descriptions]): DescriptionBundle => ({
+      shard,
+      file: writer.write(pack, descriptions, (hash) =>
+        BundleFile.parse(`${kind}.desc.${SOURCE_LOCALE}.${shard}.${hash}.json`),
+      ),
+    })),
     mechanics: writer.write(
       pack,
       ofKind.map((entry) => mechanics(entry)),
@@ -226,7 +273,7 @@ export interface FetchedKind {
   readonly names: unknown;
 }
 
-/** An entry put back together from its kind's bundles. Descriptions come with their own bundles (Epic 2.4). */
+/** An entry put back together from its kind's bundles. Descriptions come with their own bundles (`descriptionFromBundle`). */
 function entryFromBundles(mechanicsEntry: { readonly id: ContentId }, entryNames: NamesBundle): unknown {
   const named = entryNames[mechanicsEntry.id];
   if (named === undefined) {
@@ -245,4 +292,9 @@ export function contentPackFromBundles(packFile: unknown, kinds: readonly Fetche
     return MechanicsBundle.parse(kind.mechanics).map((entry) => entryFromBundles(entry, kindNames));
   });
   return contentPackFromContents(packContentsFromFiles(packFile, [entries]));
+}
+
+/** `id`'s description in a fetched description shard, or undefined when the entry has none. */
+export function descriptionFromBundle(shard: unknown, id: ContentId): RichText | undefined {
+  return DescriptionsBundle.parse(shard)[id];
 }

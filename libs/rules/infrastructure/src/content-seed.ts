@@ -1,4 +1,4 @@
-import { contentPackId, PackVisibility } from '@pioneer/rules/sdk';
+import { contentPackId, EntryTextField, PackVisibility } from '@pioneer/rules/sdk';
 import type {
   ContentEntry,
   ContentLevel,
@@ -8,19 +8,20 @@ import type {
   PackContentsLoader,
   PackId,
 } from '@pioneer/rules/sdk';
-import { FIRST_VERSION, nextVersion } from '@pioneer/shared/kernel';
+import { FIRST_VERSION, newId, nextVersion, SOURCE_LOCALE } from '@pioneer/shared/kernel';
 import type { Clock, ValueOf, Version } from '@pioneer/shared/kernel';
-import { and, eq, isNull, sql } from 'drizzle-orm';
+import { and, eq, inArray, isNull, sql } from 'drizzle-orm';
 import type { BunSQLDatabase, BunSQLQueryResultHKT } from 'drizzle-orm/bun-sql';
 import type { PgDatabase } from 'drizzle-orm/pg-core';
 
 import { contentHash } from './content-hash';
-import { contentEntries, contentPacks } from './content.table';
+import { contentEntries, contentEntryTexts, contentPacks } from './content.table';
 
 type Database = BunSQLDatabase<Record<string, unknown>>;
 /** The database or a transaction on it: what the seed's writes run on. */
 type Executor = PgDatabase<BunSQLQueryResultHKT, Record<string, unknown>>;
 type EntryRow = typeof contentEntries.$inferInsert;
+type TextRow = typeof contentEntryTexts.$inferInsert;
 
 /** First key of the advisory lock a pack's seed holds; the second is the pack. Every seeder must use the same one. */
 const SEED_LOCK = 109_002;
@@ -151,6 +152,59 @@ async function removeStale(write: PackWrite): Promise<number> {
   return removed.length;
 }
 
+/** The entries of the pack that have a description: only they have a text row. */
+function described(write: PackWrite): readonly ContentEntry[] {
+  return write.contents.entries.filter((entry) => entry.description.length > 0);
+}
+
+/** Writes the source-locale description of each entry that has one, rewriting those that changed. */
+async function upsertTexts(write: PackWrite): Promise<void> {
+  const set = { text: sql`excluded.text`, updatedAt: sql`excluded.updated_at` };
+  const setWhere = sql`${contentEntryTexts.text} is distinct from excluded.text`;
+  await Promise.all(
+    batches(described(write)).map(async (batch) =>
+      write.tx
+        .insert(contentEntryTexts)
+        .values(
+          batch.map((entry): TextRow => ({
+            id: newId(),
+            entryId: entry.id,
+            locale: SOURCE_LOCALE,
+            field: EntryTextField.Description,
+            text: entry.description,
+            updatedAt: write.at,
+          })),
+        )
+        .onConflictDoUpdate({
+          target: [contentEntryTexts.entryId, contentEntryTexts.locale, contentEntryTexts.field],
+          set,
+          setWhere,
+        }),
+    ),
+  );
+}
+
+/**
+ * Deletes the pack's source-locale descriptions of entries that no longer have one. Translations are not the seed's:
+ * it neither writes nor deletes them.
+ */
+async function removeStaleTexts(write: PackWrite): Promise<void> {
+  const kept = `{${described(write)
+    .map((entry) => entry.id)
+    .join(',')}}`;
+  const packEntries = write.tx
+    .select({ id: contentEntries.id })
+    .from(contentEntries)
+    .where(eq(contentEntries.packId, contentPackId(write.contents.file.id)));
+  const stale = and(
+    inArray(contentEntryTexts.entryId, packEntries),
+    eq(contentEntryTexts.locale, SOURCE_LOCALE),
+    eq(contentEntryTexts.field, EntryTextField.Description),
+    sql`${contentEntryTexts.entryId} <> all(${kept}::uuid[])`,
+  );
+  await write.tx.delete(contentEntryTexts).where(stale);
+}
+
 async function seedPack(db: Database, contents: PackContents, at: string): Promise<PackSeed> {
   const pack = contents.file.id;
   const hash = contentHash(contents);
@@ -168,7 +222,9 @@ async function seedPack(db: Database, contents: PackContents, at: string): Promi
     const write: PackWrite = { tx, contents, hash, at };
     const version = await upsertPack(write, stored);
     await upsertEntries(write);
+    await upsertTexts(write);
     const removed = await removeStale(write);
+    await removeStaleTexts(write);
     return { pack, outcome: SeedOutcome.Seeded, version, removed };
   });
 }

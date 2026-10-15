@@ -12,7 +12,10 @@ const NO_PACKS: ContentManifest = { packs: [] };
 /** Every key a manifest keeps in the store: itself and each bundle it names. */
 function currentKeys(manifest: ContentManifest): ReadonlySet<StoredKey> {
   const paths = manifest.packs.flatMap((pack) =>
-    [pack.file, ...pack.kinds.flatMap((kind) => [kind.mechanics, kind.names])].map((file) => bundlePath(pack.id, file)),
+    [
+      pack.file,
+      ...pack.kinds.flatMap((kind) => [kind.mechanics, kind.names, ...kind.descriptions.map(({ file }) => file)]),
+    ].map((file) => bundlePath(pack.id, file)),
   );
   return new Set<StoredKey>([MANIFEST_KEY, ...paths]);
 }

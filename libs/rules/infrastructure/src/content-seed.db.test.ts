@@ -1,14 +1,6 @@
 import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
 
-import {
-  ContentEntry,
-  contentId,
-  contentPackId,
-  EntrySlug,
-  packContentsFromFiles,
-  PackId,
-  PackVisibility,
-} from '@pioneer/rules/sdk';
+import { ContentEntry, contentPackId, PackId, PackVisibility } from '@pioneer/rules/sdk';
 import type { PackContents, PackContentsLoader } from '@pioneer/rules/sdk';
 import { fixedClock, FIRST_VERSION, newId, nextVersion } from '@pioneer/shared/kernel';
 import type { Clock } from '@pioneer/shared/kernel';
@@ -20,6 +12,7 @@ import { and, asc, eq, sql } from 'drizzle-orm';
 import { contentHash } from './content-hash';
 import { SeedOutcome, seedContentPacks } from './content-seed';
 import { contentEntries, contentPacks } from './content.table';
+import { COMMON, DRACONIC, ELVEN, languagePack, loader } from './testing/language-packs';
 
 /**
  * Runs against a throwaway Postgres database (see createTestDatabase). Skipped when TEST_DATABASE_URL is unset; CI
@@ -35,37 +28,6 @@ const LARGE_PACK = 2500;
 const KEPT = 1200;
 const WRITE = /^\s*(?:insert|update|delete)\b/iu;
 
-interface Language {
-  readonly slug: string;
-  readonly name: string;
-}
-
-const COMMON: Language = { slug: 'common', name: 'Common' };
-const DRACONIC: Language = { slug: 'draconic', name: 'Draconic' };
-const ELVEN: Language = { slug: 'elven', name: 'Elven' };
-
-function languageEntry(pack: string, { slug, name }: Language): object {
-  return {
-    id: contentId(PackId.parse(pack), EntrySlug.parse(`language:${slug}`)),
-    pack,
-    kind: 'language',
-    slug: `language:${slug}`,
-    name,
-    rarity: 'common',
-    traits: ['humanoid'],
-    sources: [{ kind: 'book', book: 'player-core', page: 89 }],
-    description: [],
-    rules: [],
-    data: {},
-  };
-}
-
-/** A pack of languages, as its JSON files would hold it. */
-function languagePack(pack: string, languages: readonly Language[]): PackContents {
-  const packFile = { id: pack, title: 'Test Pack', publisher: 'Pioneer', license: 'homebrew' };
-  return packContentsFromFiles(packFile, [languages.map((language) => languageEntry(pack, language))]);
-}
-
 function messageOf(error: Error): string {
   return error.cause instanceof Error ? error.cause.message : error.message;
 }
@@ -78,10 +40,6 @@ async function causeOf(promise: Promise<unknown>): Promise<string> {
     return error instanceof Error ? messageOf(error) : String(error);
   }
   throw new Error('expected a failure');
-}
-
-function loader(contents: PackContents): PackContentsLoader {
-  return { id: contents.file.id, load: async () => contents };
 }
 
 describe.skipIf(adminUrl === undefined)('seedContentPacks (postgres)', () => {

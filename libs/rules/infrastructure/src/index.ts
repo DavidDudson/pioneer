@@ -1,4 +1,4 @@
-export { contentEntries, contentPackDeps, contentPacks } from './content.table';
+export { contentEntries, contentEntryTexts, contentPackDeps, contentPacks } from './content.table';
 export { contentHash } from './content-hash';
 export { contentEntryRow, SeedOutcome, seedContentPacks } from './content-seed';
 export type { PackSeed } from './content-seed';
