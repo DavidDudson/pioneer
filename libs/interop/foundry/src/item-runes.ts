@@ -36,6 +36,13 @@ export function itemRunes(runes: FoundryRunes, keys: readonly GradeKey[], input:
     const grade = runes[key] ?? 0;
     return grade > 0 ? [[key, grade] as const] : [];
   });
-  const property = propertyRunes(runes.property, 'runes.property', input);
-  return grades.length === 0 && runes.property.length === 0 ? undefined : { ...Object.fromEntries(grades), property };
+  const { property, energy } = propertyRunes(runes.property, 'runes.property', input);
+  if (grades.length === 0 && runes.property.length === 0) {
+    return undefined;
+  }
+  return {
+    ...Object.fromEntries(grades),
+    property,
+    ...(Object.keys(energy).length === 0 ? {} : { propertyEnergy: energy }),
+  };
 }
