@@ -1,11 +1,13 @@
 import { describe, expect, test } from 'bun:test';
 
 import { DieFace } from '@pioneer/rules/dice';
+import { Dc } from '@pioneer/rules/sdk';
 
 import { Boundary, wandOverchargeKey, wandUseKey } from './counted-resources';
 import { removeItem } from './inventory';
 import type { Inventory } from './inventory';
 import { FRESH_PLAY } from './play-state';
+import { ResourceCount } from './resource-count';
 import {
   afterWandCommand,
   CAST_WAND,
@@ -29,6 +31,7 @@ import {
 } from './wand-commands';
 
 const WAND = fireballWand();
+const ONE = ResourceCount.parse(1);
 const COINS: Inventory['coins'] = {
   pp: 0,
   gp: 0,
@@ -78,7 +81,7 @@ describe('wandProblem', () => {
 
 describe('overcharging', () => {
   test('passes the flat check at DC 10 or more', () => {
-    expect(OVERCHARGE_DC).toBe(10);
+    expect(OVERCHARGE_DC).toBe(Dc.parse(10));
     expect(overchargePasses(FLAT(10))).toBe(true);
     expect(overchargePasses(FLAT(20))).toBe(true);
     expect(overchargePasses(FLAT(9))).toBe(false);
@@ -96,7 +99,7 @@ describe('overcharging', () => {
   test('a wand already overcharged today is destroyed without a roll, even once repaired', () => {
     const overcharged = afterWandCommand(SPENT, [WAND], overchargeWand(15));
     const repaired = heldWandSource([WAND], overcharged);
-    expect(repaired.overcharge.left).toBe(0);
+    expect(repaired.overcharge.left).toBe(ResourceCount.parse(0));
     expect(wandProblem(overchargeWand(), repaired)).toBeUndefined();
     expect(wandOutcome(overchargeWand(), repaired)).toBe(WandOutcome.Destroyed);
     expect(wandOutcome(overchargeWand(20), repaired)).toBe(WandOutcome.Destroyed);
@@ -121,18 +124,18 @@ describe('the wand counts spent', () => {
   test('are one a day for the cast and one for the overcharge, back at daily preparations', () => {
     const { uses } = wandCounted([WAND]);
     expect(uses.get(wandUseKey(WAND_ID))).toEqual({
-      max: 1,
+      max: ONE,
       boundary: Boundary.Day,
     });
     expect(uses.get(wandOverchargeKey(WAND_ID))).toEqual({
-      max: 1,
+      max: ONE,
       boundary: Boundary.Day,
     });
   });
 
   test('take one from the cast, or from the overcharge', () => {
     const counted = wandCounted([WAND]);
-    expect(wandUsesAfter({}, counted, CAST_WAND)[wandUseKey(WAND_ID)]).toBe(1);
-    expect(wandUsesAfter({}, counted, overchargeWand(12))[wandOverchargeKey(WAND_ID)]).toBe(1);
+    expect(wandUsesAfter({}, counted, CAST_WAND)[wandUseKey(WAND_ID)]).toBe(ONE);
+    expect(wandUsesAfter({}, counted, overchargeWand(12))[wandOverchargeKey(WAND_ID)]).toBe(ONE);
   });
 });

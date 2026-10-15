@@ -3,6 +3,7 @@ import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
 import {
   CharacterCommand,
   CharacterName,
+  CharacterPatchField,
   ConditionInstanceId,
   ConditionRounds,
   Doomed,
@@ -173,6 +174,59 @@ describe.skipIf(adminUrl === undefined)('character play state (postgres)', () =>
     expect(stale).toBeInstanceOf(VersionConflictError);
     const kept = await repository.findPlay(kyra.id);
     expect(kept?.play).toStrictEqual(WOUNDED);
+  });
+
+  test('a play write with a build write changes both rows under one audit stamp', async () => {
+    const amiri = await newUser();
+    const kyra = await newCharacter(amiri);
+    const renamed = kyra.apply({ field: CharacterPatchField.Name, value: CharacterName.parse('Kyra, renamed') }, NOW);
+    const write = {
+      id: kyra.id,
+      play: WOUNDED,
+      expectedRevision: FIRST_VERSION,
+      audit: { actor: amiri, command: CharacterCommand.OverchargeWand },
+      now: NOW,
+    };
+    const saved = await repository.updatePlayAndCharacter(write, renamed, kyra.version);
+    expect(saved).toStrictEqual({ revision: nextVersion(FIRST_VERSION), play: WOUNDED });
+    const read = await repository.findById(kyra.id);
+    expect(read?.name).toBe(renamed.name);
+    expect(read?.version).toBe(nextVersion(kyra.version));
+    expect(read?.document.play).toStrictEqual(WOUNDED);
+  });
+
+  test('a stale build version refuses a combined write, and the play state is not written', async () => {
+    const amiri = await newUser();
+    const kyra = await newCharacter(amiri);
+    const write = {
+      id: kyra.id,
+      play: WOUNDED,
+      expectedRevision: FIRST_VERSION,
+      audit: { actor: amiri, command: CharacterCommand.OverchargeWand },
+      now: NOW,
+    };
+    const stale = await rejection(repository.updatePlayAndCharacter(write, kyra, nextVersion(kyra.version)));
+    expect(stale).toBeInstanceOf(VersionConflictError);
+    const kept = await repository.findPlay(kyra.id);
+    expect(kept?.play).toStrictEqual(FRESH_PLAY);
+  });
+
+  test('a stale play revision refuses a combined write, and the build is not written', async () => {
+    const amiri = await newUser();
+    const kyra = await newCharacter(amiri);
+    const renamed = kyra.apply({ field: CharacterPatchField.Name, value: CharacterName.parse('Kyra, stale') }, NOW);
+    const write = {
+      id: kyra.id,
+      play: WOUNDED,
+      expectedRevision: nextVersion(FIRST_VERSION),
+      audit: { actor: amiri, command: CharacterCommand.OverchargeWand },
+      now: NOW,
+    };
+    const stale = await rejection(repository.updatePlayAndCharacter(write, renamed, kyra.version));
+    expect(stale).toBeInstanceOf(VersionConflictError);
+    const read = await repository.findById(kyra.id);
+    expect(read?.name).toBe(kyra.name);
+    expect(read?.version).toBe(kyra.version);
   });
 
   test('a character cannot be deleted, so its play row stays', async () => {

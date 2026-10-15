@@ -1,0 +1,34 @@
+@if (error(); as failure) {
+  <fr-text element="p" variant="caption" tone="danger">{{ failure }}</fr-text>
+}
+@for (wand of wands(); track wand.key) {
+  <fr-stack gap="sm">
+    <fr-stack direction="horizontal" gap="xs" align="center" wrap>
+      <fr-heading [level]="3">{{ wand.name }}</fr-heading>
+      <fr-badge>{{ Message.Casts | transloco: { left: wand.use.left, max: wand.use.max } }}</fr-badge>
+      @if (wand.broken) {
+        <fr-badge>{{ Message.Broken | transloco }}</fr-badge>
+      }
+    </fr-stack>
+    <fr-stack gap="3xs">
+      <fr-stack direction="horizontal" gap="xs" align="center" wrap>
+        <pio-entry-hover [entry]="wand.id">
+          <fr-text tabindex="0" [tone]="wand.blocked || wand.broken ? 'subtle' : 'default'">{{ wand.spell }}</fr-text>
+        </pio-entry-hover>
+        <fr-badge>{{ Message.Rank | transloco: { rank: wand.rank } }}</fr-badge>
+      </fr-stack>
+      @if (wand.blocked; as blocked) {
+        <fr-text variant="caption" tone="subtle">{{ blocks[blocked] | transloco: { rank: wand.rank } }}</fr-text>
+      }
+    </fr-stack>
+    <pio-wand-controls
+      [line]="wand"
+      [busy]="busy()"
+      (cast)="cast.emit($event)"
+      (overcharge)="overcharge.emit($event)"
+      (confirm)="confirm.emit($event)"
+      (decline)="decline.emit($event)"
+      (repair)="repair.emit($event)"
+    />
+  </fr-stack>
+}

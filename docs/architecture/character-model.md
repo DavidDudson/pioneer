@@ -88,6 +88,10 @@ count within 0 and the maximum, and leave a key the build does not give as it wa
 many uses of each activation, since each item is used up on its own; an activation on a rune etched onto an item is
 not counted yet.
 
+A held wand has a cast and an overcharged cast, counted apart from activations under `wand:<item>` and
+`wand:<item>:overcharge`, both on the `day` boundary. The cast has the consumable's `uses` per item (once when absent);
+the overcharge has one per item.
+
 `resources.staff` holds the charges of the one staff prepared for the day ([#366](https://github.com/DavidDudson/pioneer/issues/366)),
 keyed by inventory item: `{ max, spent }`. Unlike a slot or a use, the maximum is stored, since daily preparations set it
 from the character's highest spell rank (plus the rank of a slot expended) and the content does not give it. Held
@@ -449,6 +453,10 @@ version 3, #472). `inventory.coins` holds platinum, gold, silver and copper, eac
   (`notInvestable` otherwise), while it is worn or held as it is used (`investNotWorn`), at most 10
   (`investmentFull`). An invested item taken off stays invested and counts against the limit, but does nothing until
   it is worn or held again.
+- **Broken.** `setItemBroken { id, broken }` marks an item broken, or repaired. It is inventory state, not play
+  state, so a broken item stays broken through daily preparations until the player marks it repaired. A broken
+  wand can't be cast or overcharged. A wand broken or destroyed by an overcharge is changed by the play command
+  that overcharged it (see "Staves and charged items" in [play-and-campaigns.md](./play-and-campaigns.md)).
 - **In play.** An item works on the character while it is carried as it is used: armour worn, a shield or weapon
   held (a two-handed one in both hands), anything on the body (worn, tattooed, implanted, affixed) worn, and an item
   with no usage either way (`equippedState`). Its physical benefits need only that. Its magic, with the `invested`

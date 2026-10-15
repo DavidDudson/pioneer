@@ -230,6 +230,15 @@ export class CharacterStore {
     this.#cleared.set([]);
   }
 
+  /** Reads the open character again, after a play edit changed its inventory on the server. */
+  public async reload(): Promise<void> {
+    const id = this.#selectedId();
+    if (id !== undefined) {
+      await this.#client.invalidateQueries({ queryKey: characterKeys.detail(id) });
+      this.#current.set(this.#client.getQueryData<CharacterSheet>(characterKeys.detail(id)));
+    }
+  }
+
   /**
    * One edit. On success the cached sheet becomes the server's new version, slots read again. Counted while in flight,
    * and kept when it fails, for the header's save state and Retry.

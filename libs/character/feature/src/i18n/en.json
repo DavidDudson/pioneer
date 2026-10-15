@@ -336,6 +336,7 @@
       "slots": "{amount, plural, one {# {source} rank {rank} slot} other {# {source} rank {rank} slots}}",
       "poolSlots": "{amount, plural, one {# {source} {pool} rank {rank} slot} other {# {source} {pool} rank {rank} slots}}",
       "uses": "{amount, plural, one {# use of {name}} other {# uses of {name}}}",
+      "overchargedUses": "{amount, plural, one {# overcharged use of {name}} other {# overcharged uses of {name}}}",
       "staffCharges": "{name} gets {charges, plural, one {# charge} other {# charges}}",
       "slotExpended": "One {source} rank {rank} slot is expended",
       "staffPick": "Staff to prepare",

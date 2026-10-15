@@ -107,6 +107,41 @@ describe('CharacterSheetPage rest actions', () => {
     });
   });
 
+  it("lists a wand's cast and overcharge among what daily preparations gives back", async () => {
+    const wand = '66666666-6666-4666-8666-666666666666';
+    const bardWithWand = {
+      ...BARD,
+      inventory: {
+        items: [{ id: wand, item: itemFixtureId(ItemFixture.FireballWand), quantity: 1 }],
+        coins: { pp: 0, gp: 0, sp: 0, cp: 0 },
+      },
+    };
+    const spent = {
+      revision: 1,
+      play: {
+        hp: { damage: 0, temp: 0 },
+        resources: { uses: { [`wand:${wand}`]: 1, [`wand:${wand}:overcharge`]: 1 } },
+      },
+    };
+    const { root } = await openSheet(bardWithWand, {
+      tab: SheetMode.Downtime,
+      play: spent,
+      packs: [...PACKS, ITEM_FIXTURE_FILES],
+    });
+    await vi.waitFor(() => {
+      expect(restOf(root).querySelectorAll('button')).toHaveLength(4);
+    });
+
+    buttonOf(root, 'Daily preparations').click();
+
+    await vi.waitFor(() => {
+      const text = textOf(restOf(root));
+      expect(text).toContain('1 use of Fireball-wand');
+      expect(text).toContain('1 overcharged use of Fireball-wand');
+    });
+    TestBed.inject(HttpTestingController).expectNone({ method: 'PATCH', url: PLAY_URL });
+  });
+
   it('prepares a staff at daily preparations, previewing its charges before they apply', async () => {
     const staff = '55555555-5555-4555-8555-555555555555';
     const bardWithStaff = {

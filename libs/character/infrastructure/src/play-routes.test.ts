@@ -121,6 +121,21 @@ describe('play routes', () => {
     expect(refused.map((response) => response.status)).toStrictEqual([422, 422]);
   });
 
+  test('a wand cast for a wand the character does not hold is refused, as is a roll that is not a d20 face', async () => {
+    const { api, path } = await setUp();
+    const item = newId();
+    const absent = { field: PlayCommandField.CastWand, item };
+    const refusedCast = await api.handle(
+      request('PATCH', path, { as: amiri, body: { expectedRevision: 1, command: absent } }),
+    );
+    expect(refusedCast.status).toBe(422);
+    const bad = { field: PlayCommandField.OverchargeWand, item, roll: 21 };
+    const refusedRoll = await api.handle(
+      request('PATCH', path, { as: amiri, body: { expectedRevision: 1, command: bad } }),
+    );
+    expect(refusedRoll.status).toBe(422);
+  });
+
   test("signed out is 401; someone else's character is 404", async () => {
     const { api, path } = await setUp();
     const signedOut = await api.handle(request('GET', path, { as: undefined }));

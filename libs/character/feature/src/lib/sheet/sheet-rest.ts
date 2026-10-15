@@ -7,6 +7,7 @@ import type {
   RestChange,
   RestCommand,
   SlotCountKey,
+  UseCountKey,
 } from '@pioneer/character/domain';
 import type { ContentRegistry, HitPoints } from '@pioneer/rules/sdk';
 
@@ -58,6 +59,13 @@ function staffLine(
   return { key: 'character.sheet.rest.slotExpended', params: { source: view?.source, rank: view?.rank } };
 }
 
+/** The words for uses regained, naming the feat, action or item and saying so when they are the overcharged ones. */
+function usesLine(use: UseCountKey, amount: ResourceCount, views: CountedViews): RestLine {
+  const view = views.uses.find(({ key }) => key === use);
+  const key = view?.overcharge === true ? 'character.sheet.rest.overchargedUses' : 'character.sheet.rest.uses';
+  return { key, params: { amount, name: view?.name } };
+}
+
 /** What names the things a change mentions. */
 interface RestNames {
   readonly views: CountedViews;
@@ -97,8 +105,7 @@ function lineOf(change: RestChange, { views, staves, registry }: RestNames): Res
       return staffLine(change, views, staves);
     }
     case RestChangeKind.Uses: {
-      const use = views.uses.find(({ key }) => key === change.key);
-      return { key: 'character.sheet.rest.uses', params: { amount: change.amount, name: use?.name } };
+      return usesLine(change.key, change.amount, views);
     }
     default: {
       return change satisfies never;

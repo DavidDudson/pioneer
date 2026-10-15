@@ -61,6 +61,14 @@ export {
   StaffSpellBlock,
 } from './lib/staff-spells/staff-spells-line';
 export { StaffSpellsView } from './lib/staff-spells/staff-spells.component';
+export {
+  type WandCheckLine,
+  WandBlock,
+  WandCheckOutcome,
+  type WandCountLine,
+  type WandLine,
+} from './lib/wand-spells/wand-spells-line';
+export { WandSpellsView } from './lib/wand-spells/wand-spells.component';
 export { type SpellAccessLine } from './lib/spell-access/spell-access-line';
 export { type RemoveSpellAccess, SpellAccessListView } from './lib/spell-access/spell-access-list.component';
 export { type InventoryGroup, type InventoryLine, InventoryPlacement } from './lib/inventory/inventory-line';

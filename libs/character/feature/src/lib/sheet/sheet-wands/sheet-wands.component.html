@@ -1,0 +1,14 @@
+@if (wands().length > 0) {
+  <fr-stack gap="md">
+    <pio-wand-spells
+      [wands]="wands()"
+      [busy]="busy()"
+      [error]="error()"
+      (cast)="cast($event)"
+      (overcharge)="overcharge($event)"
+      (confirm)="confirm($event)"
+      (decline)="decline($event)"
+      (repair)="repair($event)"
+    />
+  </fr-stack>
+}
