@@ -106,12 +106,14 @@ describe('buildImportReport: golden fixture against loaded packs', () => {
     });
   });
 
-  test('heritages, backgrounds and classes are looked up; every other kind is not loaded yet', () => {
+  test('heritages, backgrounds, classes, feats and class features are looked up; every other kind is not loaded yet', () => {
     const indexed = new Set<ImportKind>([
       ImportKind.Ancestry,
       ImportKind.Heritage,
       ImportKind.Background,
       ImportKind.Class,
+      ImportKind.Feat,
+      ImportKind.ClassFeature,
     ]);
     const others = report.groups.filter((group) => !indexed.has(group.kind));
     expect(others.flatMap((group) => group.rows).every((row) => row.status === MatchStatus.KindNotLoaded)).toBe(true);
@@ -127,7 +129,7 @@ describe('buildImportReport: golden fixture against loaded packs', () => {
     expect(human.groups[0]?.rows[0]?.status).toBe(MatchStatus.Matched);
   });
 
-  test('a heritage, background or class the packs hold as an entry matches', () => {
+  test('a heritage, background, class, feat or class feature the packs hold as an entry matches', () => {
     const packs = new ContentRegistry();
     packs.register(
       new ContentPackBuilder()
@@ -136,15 +138,21 @@ describe('buildImportReport: golden fixture against loaded packs', () => {
         .withHeritage('vigilant-goloma', 'goloma')
         .withBackground('dendrologist', [])
         .withClass('animist', ['wis'])
+        .withFeat('fey-influence')
+        .withClassFeature('spirit-medium')
         .build(),
     );
     const names = [
       imported(ImportKind.Heritage, 'Vigilant Goloma'),
       imported(ImportKind.Background, 'Dendrologist'),
       imported(ImportKind.Class, 'Animist'),
+      imported(ImportKind.Feat, 'Fey Influence'),
+      imported(ImportKind.ClassFeature, 'Spirit Medium'),
     ];
     const matched = buildImportReport(names, registryLookup(packs));
     expect(matched.groups.flatMap((group) => group.rows.map((row) => row.status))).toStrictEqual([
+      MatchStatus.Matched,
+      MatchStatus.Matched,
       MatchStatus.Matched,
       MatchStatus.Matched,
       MatchStatus.Matched,
