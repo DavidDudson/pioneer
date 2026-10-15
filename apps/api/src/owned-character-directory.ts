@@ -3,17 +3,24 @@ import type { CharacterSummary } from '@pioneer/campaign/application';
 import { CharacterId, PartyCharacterLevel, PartyCharacterName } from '@pioneer/campaign/domain';
 import { characters } from '@pioneer/character/infrastructure';
 import type { UserId } from '@pioneer/shared/kernel';
-import { asc, eq, inArray } from 'drizzle-orm';
+import { and, asc, eq, inArray, isNull } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 
 /** The columns a summary is read from. */
-const SUMMARY = { id: characters.id, ownerId: characters.ownerId, name: characters.name, level: characters.level };
+const SUMMARY = {
+  id: characters.id,
+  ownerId: characters.ownerId,
+  name: characters.name,
+  level: characters.level,
+  archivedAt: characters.archivedAt,
+};
 
 interface SummaryRow {
   readonly id: string;
   readonly ownerId: UserId;
   readonly name: string;
   readonly level: number;
+  readonly archivedAt: string | null;
 }
 
 function toSummary(row: SummaryRow): CharacterSummary {
@@ -22,6 +29,7 @@ function toSummary(row: SummaryRow): CharacterSummary {
     ownerId: row.ownerId,
     name: PartyCharacterName.parse(row.name),
     level: PartyCharacterLevel.parse(row.level),
+    archived: row.archivedAt !== null,
   };
 }
 
@@ -41,7 +49,7 @@ export class OwnedCharacterDirectory extends CharacterDirectory {
     const rows = await this.#db
       .select(SUMMARY)
       .from(characters)
-      .where(eq(characters.ownerId, userId))
+      .where(and(eq(characters.ownerId, userId), isNull(characters.archivedAt)))
       .orderBy(asc(characters.name), asc(characters.id));
     return rows.map((row) => toSummary(row));
   }

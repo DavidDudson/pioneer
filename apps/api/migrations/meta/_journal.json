@@ -169,6 +169,13 @@
       "when": 1792073211974,
       "tag": "0023_archive_guard",
       "breakpoints": true
+    },
+    {
+      "idx": 24,
+      "version": "7",
+      "when": 1792073234736,
+      "tag": "0024_archive_characters",
+      "breakpoints": true
     }
   ]
 }

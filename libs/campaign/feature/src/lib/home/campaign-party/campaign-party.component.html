@@ -28,9 +28,15 @@
               @for (character of party.characters; track character.characterId) {
                 <fr-list-item>
                   <fr-stack direction="horizontal" gap="sm" align="center" wrap>
-                    <fr-avatar size="sm" decorative [name]="character.name" />
+                    <fr-avatar
+                      size="sm"
+                      decorative
+                      [name]="character.archived ? ('campaign.party.archivedName' | transloco) : character.name"
+                    />
                     <fr-stack gap="3xs" grow>
-                      <fr-text weight="medium">{{ character.name }}</fr-text>
+                      <fr-text weight="medium">{{
+                        character.archived ? ('campaign.party.archivedName' | transloco) : character.name
+                      }}</fr-text>
                       <fr-text variant="caption" tone="subtle">{{
                         'campaign.party.byline' | transloco: { level: character.level, owner: character.ownerName }
                       }}</fr-text>

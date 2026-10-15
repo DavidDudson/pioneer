@@ -55,6 +55,9 @@ export const characters = pgTable(
     // Strings, not Date: Date is banned; rows are converted to Temporal.Instant.
     createdAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
     updatedAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
+    // Set when the owner archives the character (ADR-0062); null is live. A row is never deleted.
+    // The owner's foreign key to users (migration 0023) is restrict. Never written by a build save.
+    archivedAt: timestamp({ withTimezone: true, mode: 'string' }),
   },
   (table) => [
     // One index per CharacterSort option within an owner's characters, ending in id (the tie-breaker).

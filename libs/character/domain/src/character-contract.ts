@@ -85,6 +85,33 @@ export const CharacterContract = {
     body: PatchCharacterBody,
     response: PatchedCharacterSheet,
   }),
+  /** The signed-in user's archived characters (ADR-0062), in the same orders as the list. */
+  archived: new Endpoint({
+    method: HttpMethod.Get,
+    path: '/characters/archived',
+    params: NoParams,
+    query: CharacterListQuery,
+    body: NoBody,
+    response: z.array(Character.codec),
+  }),
+  /** Owner only: archives the character, which then reads as missing everywhere but the archived list. Archiving twice is harmless. */
+  archive: new Endpoint({
+    method: HttpMethod.Post,
+    path: '/characters/:id/archive',
+    params: ById,
+    query: NoQuery,
+    body: NoBody,
+    response: Character.codec,
+  }),
+  /** Owner only: brings an archived character back as it was. Restoring a live one is harmless. */
+  restore: new Endpoint({
+    method: HttpMethod.Post,
+    path: '/characters/:id/restore',
+    params: ById,
+    query: NoQuery,
+    body: NoBody,
+    response: Character.codec,
+  }),
   /** Play state, apart from the build: its own revision, so build saves and play edits never conflict (#343). */
   play: new Endpoint({
     method: HttpMethod.Get,

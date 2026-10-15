@@ -82,6 +82,7 @@ interface PartyCharacterJson extends CharacterJson {
   readonly ownerName: string;
   readonly attachedAt: string;
   readonly detachable: boolean;
+  readonly archived: boolean;
 }
 
 interface PartyJson {
@@ -135,6 +136,7 @@ describe('party routes', () => {
           ownerName: 'Ezren',
           attachedAt: '2026-10-10T10:00:00.000Z',
           detachable: true,
+          archived: false,
         },
       ],
       attachable: [{ characterId: merisiel, name: 'Merisiel', level: 1 }],

@@ -21,6 +21,7 @@ import {
 } from '@pioneer/rules/sdk';
 import type { ContentPackId, ContentSource } from '@pioneer/rules/sdk';
 import { fixedClock, ForbiddenError, newId, UserId } from '@pioneer/shared/kernel';
+import { rejection } from '@pioneer/shared/kernel/testing';
 import { createTestDatabase, QueryRecorder, testDatabaseUrl, unindexedQueries } from '@pioneer/shared/server/testing';
 import type { TestDatabase } from '@pioneer/shared/server/testing';
 import { sql } from 'drizzle-orm';
@@ -220,8 +221,9 @@ describe.skipIf(adminUrl === undefined)('variant rules over postgres', () => {
     const [campaignRow] = await campaignVariants.listForCampaign(campaignId);
     expect(campaignRow?.enabledBy).toBeUndefined();
 
-    await database.db.execute(sql`delete from characters where id = ${kyra}`);
-    expect(await stored()).toStrictEqual([]);
+    const refused = await rejection(database.db.execute(sql`delete from characters where id = ${kyra}`));
+    expect(refused).toBeInstanceOf(Error);
+    expect(await stored()).not.toStrictEqual([]);
     await database.db.execute(sql`delete from campaigns where id = ${campaignId}`);
     expect(await campaignVariants.listForCampaign(campaignId)).toStrictEqual([]);
   });

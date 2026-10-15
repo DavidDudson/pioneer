@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, test } from 'bun:test';
 
-import { CharacterId } from '@pioneer/campaign/domain';
+import { CampaignCharacterId, CharacterId } from '@pioneer/campaign/domain';
 import type { Campaign, CampaignMember, CampaignParty } from '@pioneer/campaign/domain';
 import { CampaignBuilder } from '@pioneer/campaign/domain/testing';
 import { ConflictError, ForbiddenError, newId, NotFoundError, Temporal, UserId } from '@pioneer/shared/kernel';
@@ -94,6 +94,52 @@ describe('CampaignPartyService', () => {
     expect(party.characters[0]?.attachedAt.toString()).toBe('2026-10-10T10:00:00Z');
     expect(party.characters[0]?.detachable).toBe(true);
     expect(attachable(party)).toStrictEqual(['Merisiel']);
+  });
+
+  test('an archived character stays in the party, flagged, and is not offered for attaching', async () => {
+    const characters = new InMemoryCharacterDirectory()
+      .character({ id: valeros, ownerId: ezren, name: 'Valeros', archived: true })
+      .character({ id: merisiel, ownerId: ezren, name: 'Merisiel' });
+    const party = new InMemoryCampaignPartyRepository(campaigns);
+    const archivedService = new CampaignPartyService(
+      {
+        campaigns,
+        party,
+        characters,
+        directory: new InMemoryMemberDirectory().name(amiri, 'Amiri').name(ezren, 'Ezren'),
+      },
+      ticking('2026-10-10T10:00:00Z'),
+    );
+    await party.attach(vaults.id, {
+      id: CampaignCharacterId.parse(newId()),
+      characterId: valeros,
+      memberId: memberOf(vaults, ezren).id,
+      attachedAt: Temporal.Instant.from('2026-10-09T10:00:00Z'),
+    });
+    const seen = await archivedService.party(ezren, vaults.id);
+    expect(seen.characters.map((character) => character.archived)).toStrictEqual([true]);
+    expect(attachable(seen)).toStrictEqual(['Merisiel']);
+  });
+
+  test('an archived character cannot be attached: 404', async () => {
+    const characters = new InMemoryCharacterDirectory().character({
+      id: valeros,
+      ownerId: ezren,
+      name: 'Valeros',
+      archived: true,
+    });
+    const archivedService = new CampaignPartyService(
+      {
+        campaigns,
+        party: new InMemoryCampaignPartyRepository(campaigns),
+        characters,
+        directory: new InMemoryMemberDirectory().name(ezren, 'Ezren'),
+      },
+      ticking('2026-10-10T10:00:00Z'),
+    );
+    expect(await rejection(archivedService.attach(ezren, vaults.id, { characterId: valeros }))).toBeInstanceOf(
+      NotFoundError,
+    );
   });
 
   test('every member sees the party; only the owner and the GM may detach', async () => {

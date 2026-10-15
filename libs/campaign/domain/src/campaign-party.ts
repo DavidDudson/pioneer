@@ -32,6 +32,8 @@ export const PartyCharacter = OwnedCharacter.extend({
   attachedAt: InstantCodec,
   /** Whether the viewer may detach it: its owner or the GM. */
   detachable: z.boolean(),
+  /** Whether its owner has archived it (ADR-0062). It stays in the party, shown as a placeholder, and comes back when restored. */
+  archived: z.boolean(),
 });
 export type PartyCharacter = z.output<typeof PartyCharacter>;
 

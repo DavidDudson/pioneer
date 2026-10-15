@@ -11,11 +11,17 @@ import type { RequestAuthenticator } from '@pioneer/shared/server';
 export function characterRoutes(service: CharacterService, auth: RequestAuthenticator): ContractRouter['app'] {
   return new ContractRouter('character-routes')
     .handleSignedIn(CharacterContract.list, auth, async ({ actor, query }) => [...(await service.list(actor, query))])
+    .handleSignedIn(CharacterContract.archived, auth, async ({ actor, query }) => [
+      ...(await service.listArchived(actor, query)),
+    ])
     .handleSignedIn(CharacterContract.get, auth, async ({ actor, params }) =>
       service.sheet(await service.get(actor, params.id)),
     )
     .handleSignedIn(CharacterContract.create, auth, async ({ actor, body }) => service.create(actor, body))
     .handleSignedIn(CharacterContract.patch, auth, async ({ actor, params, body }) =>
       service.patchedSheet(await service.patch(actor, params.id, body)),
-    ).app;
+    )
+    .handleSignedIn(CharacterContract.archive, auth, async ({ actor, params }) => service.archive(actor, params.id))
+    .handleSignedIn(CharacterContract.restore, auth, async ({ actor, params }) => service.restore(actor, params.id))
+    .app;
 }

@@ -53,11 +53,35 @@ describe.skipIf(adminUrl === undefined)('OwnedCharacterDirectory (postgres)', ()
     const directory = new OwnedCharacterDirectory(database.db);
     const owned = await directory.ownedBy(ezren);
     expect(owned).toStrictEqual([
-      { id: merisiel, ownerId: ezren, name: PartyCharacterName.parse('Merisiel'), level: PartyCharacterLevel.parse(1) },
-      { id: valeros, ownerId: ezren, name: PartyCharacterName.parse('Valeros'), level: PartyCharacterLevel.parse(3) },
+      {
+        id: merisiel,
+        ownerId: ezren,
+        name: PartyCharacterName.parse('Merisiel'),
+        level: PartyCharacterLevel.parse(1),
+        archived: false,
+      },
+      {
+        id: valeros,
+        ownerId: ezren,
+        name: PartyCharacterName.parse('Valeros'),
+        level: PartyCharacterLevel.parse(3),
+        archived: false,
+      },
     ]);
     const nobody = UserId.parse(newId());
     expect(await directory.ownedBy(nobody)).toStrictEqual([]);
+  });
+
+  test('an archived character is not listed as owned but is found by id, flagged', async () => {
+    const archived = CharacterId.parse(newId());
+    await insertCharacter({ id: archived, ownerId: seelah, name: 'Old Kyra', level: 5 });
+    await database.db.execute(sql`update characters set archived_at = ${at} where id = ${archived}`);
+    const directory = new OwnedCharacterDirectory(database.db);
+    const owned = await directory.ownedBy(seelah);
+    expect(owned.map((character) => character.id)).not.toContain(archived);
+    const found = await directory.byIds([archived, kyra]);
+    expect(found.get(archived)?.archived).toBe(true);
+    expect(found.get(kyra)?.archived).toBe(false);
   });
 
   test('finds characters by id whoever owns them and leaves out the rest', async () => {

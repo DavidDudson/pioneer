@@ -172,15 +172,16 @@ describe.skipIf(adminUrl === undefined)('DrizzleCampaignPartyRepository (postgre
     expect(await repository.attach(vaults.id, elsewhere)).toBeUndefined();
   });
 
-  test('deleting a character or its campaign takes it out of the party', async () => {
+  test('deleting its campaign takes a character out of the party; archiving the character does not', async () => {
     const [vaults, kingmaker] = await Promise.all([newCampaign('Deleted character'), newCampaign('Deleted campaign')]);
     const [valeros, kyra] = await Promise.all([insertCharacter(database, ezren), insertCharacter(database, seelah)]);
     await attachAs(vaults, ezren, valeros);
     await attachAs(kingmaker, seelah, kyra);
 
-    await database.db.execute(sql`delete from characters where id = ${valeros}`);
+    await database.db.execute(sql`update characters set archived_at = now() where id = ${valeros}`);
     await database.db.execute(sql`delete from campaigns where id = ${kingmaker.id}`);
-    expect(await repository.listForCampaign(vaults.id)).toStrictEqual([]);
+    const kept = await repository.listForCampaign(vaults.id);
+    expect(kept.map((attached) => attached.characterId)).toStrictEqual([valeros]);
     expect(await repository.campaignsOf([kyra])).toStrictEqual(new Map());
   });
 
