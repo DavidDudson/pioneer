@@ -29,6 +29,16 @@
       "blog": "Paizo blog"
     }
   },
+  "ogl": {
+    "heading": "Open Game License",
+    "scope": "Some content the remastered books still point at, such as the Goloma ancestry, is only published pre-remaster, under the Open Game License 1.0a. Pioneer imports those books for that content and shows their Open Game Content with attribution.",
+    "notice": "Open Game Content from these books is used under the Open Game License Version 1.0a, Copyright 2000, Wizards of the Coast, Inc. Product Identity, including trademarks, proper nouns, artwork and trade dress, is not Open Game Content.",
+    "licenseLink": "Read the Open Game License",
+    "attribution": {
+      "heading": "Section 15: Copyright Notice",
+      "intro": "This product contains Open Game Content from the following works:"
+    }
+  },
   "books": {
     "heading": "Books",
     "intro": "Every rule Pioneer shows names the book it comes from. These are the books it cites.",

@@ -83,7 +83,8 @@ describe('PathbuilderImportPage', () => {
       harness.detectChanges();
       expect(root.textContent).toContain('names match content you have loaded');
     });
-    expect(root.textContent).toContain('Ancestry · 0 of 1 matched');
+    expect(root.textContent).toContain('Ancestry · 1 of 1 matched');
+    expect(root.textContent).toContain('Heritage · 1 of 1 matched');
     expect(root.textContent).toContain('Feats · 0 of 32 matched');
   });
 

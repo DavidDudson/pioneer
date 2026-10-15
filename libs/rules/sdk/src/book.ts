@@ -27,6 +27,7 @@ export const BOOK_TITLES: ReadonlyMap<BookId, BookLabel> = new Map([
   [BookId.parse('treasure-vault'), BookLabel.parse('rules.book.title.treasureVault')],
   [BookId.parse('howl-of-the-wild'), BookLabel.parse('rules.book.title.howlOfTheWild')],
   [BookId.parse('war-of-immortals'), BookLabel.parse('rules.book.title.warOfImmortals')],
+  [BookId.parse('mwangi-expanse'), BookLabel.parse('rules.book.title.mwangiExpanse')],
 ]);
 
 export const PUBLISHER_LABELS: Readonly<Record<Publisher, BookLabel>> = {
@@ -35,6 +36,7 @@ export const PUBLISHER_LABELS: Readonly<Record<Publisher, BookLabel>> = {
 
 export const LICENSE_LABELS: Readonly<Record<ContentLicense, BookLabel>> = {
   [ContentLicense.Orc]: BookLabel.parse('rules.book.license.orc'),
+  [ContentLicense.Ogl]: BookLabel.parse('rules.book.license.ogl'),
   [ContentLicense.PaizoCommunityUse]: BookLabel.parse('rules.book.license.paizoCup'),
   [ContentLicense.Homebrew]: BookLabel.parse('rules.book.license.homebrew'),
 };

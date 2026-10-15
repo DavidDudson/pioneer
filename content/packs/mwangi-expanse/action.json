@@ -1,0 +1,287 @@
+[
+  {
+    "id": "87308352-8f49-526a-8bf9-85a508c7a21e",
+    "pack": "mwangi-expanse",
+    "kind": "action",
+    "slug": "action:anadi-venom",
+    "name": "Anadi Venom",
+    "rarity": "common",
+    "traits": ["anadi"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " a number of times per day equal to your level"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You envenom your fangs. If the next fangs Strike you make before the end of your turn hits and deals damage, the Strike deals an additional 1d6 poison damage. On a critical failure, the poison is wasted as normal. At 12th level, this poison damage increases to 2d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.8aIe57gXJ94mPpW4"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      },
+      "selfEffect": "e8df877b-5a36-5ee9-9aa3-f64f9b820036"
+    }
+  },
+  {
+    "id": "8c898454-0aae-590b-ad4e-9d602641ae98",
+    "pack": "mwangi-expanse",
+    "kind": "action",
+    "slug": "action:barbed-quills",
+    "name": "Barbed Quills",
+    "rarity": "common",
+    "traits": ["shisk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are hit with an unarmed strike or a strike with a non-reach melee weapon."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You break off quills in your attacker's flesh. You deal "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "ceil(@level/2)d8",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to the triggering creature ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": {
+              "against": "class-or-spell-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save using your class DC or spell DC, whichever is higher.) On a critical failure, the creature also takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d4+ceil(@level/2)-1",
+                "damageType": "bleed"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as your quills hook into its flesh. At 3rd level, and every 2 levels thereafter, this damage increases by 1d8 and the persistent piercing damage increases by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.oAWNluJaMlaGysXA"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "offensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You are hit with an unarmed strike or a strike with a non-reach melee weapon."
+            }
+          ]
+        }
+      ],
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "59c9d0ce-f435-59ba-a203-2fcc1b02f2cd",
+    "pack": "mwangi-expanse",
+    "kind": "action",
+    "slug": "action:call-to-axis",
+    "name": "Call to Axis",
+    "rarity": "common",
+    "traits": ["fortune"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Given by Rite of Knowing"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are about to attempt a check to Recall Knowledge. You call upon the knowledge of Axis to ensure the accuracy of your information. You roll a second time and use the higher result. If you roll a critical failure, you get a failure instead. If you roll a success, you get a critical success instead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.k5TASjIxghvGCy7g"
+    },
+    "data": {
+      "cost": "free",
+      "category": "interaction",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You are about to attempt a check to Recall Knowledge. You call upon the knowledge of Axis to ensure the accuracy of your information. You roll a second time and use the higher result. If you roll a critical failure, you get a failure instead. If you roll a success, you get a critical success instead."
+            }
+          ]
+        }
+      ],
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "e114f41a-9129-5b91-b7d2-f88e152b9c0c",
+    "pack": "mwangi-expanse",
+    "kind": "action",
+    "slug": "action:change-shape",
+    "name": "Change Shape",
+    "rarity": "common",
+    "traits": ["concentrate", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You return to your natural shape or adopt a new shape as described by the source of this action."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.34E7k2YRcsOU5uyl"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction"
+    }
+  }
+]

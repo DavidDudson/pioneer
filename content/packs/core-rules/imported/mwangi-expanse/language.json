@@ -1,0 +1,110 @@
+[
+  {
+    "id": "720a5b86-1c12-58a6-956c-01992fe0570c",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:anadi",
+    "name": "Anadi",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "e4540c12-4cbd-58e4-aa46-b723af64de90",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:goloma",
+    "name": "Goloma",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "b745db88-1954-5388-877c-38be8fa7f922",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:mwangi",
+    "name": "Mwangi",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "2f6e35e6-944d-50cb-9462-484896aaeadc",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:rasu",
+    "name": "Rasu",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "b90be099-f02f-52cc-944e-8c29d297ab44",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:shisk",
+    "name": "Shisk",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "276f9100-0ab7-552f-9522-ac588f13c106",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:utopian",
+    "name": "Utopian",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  }
+]

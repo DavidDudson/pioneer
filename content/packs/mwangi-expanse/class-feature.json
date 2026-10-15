@@ -1,0 +1,342 @@
+[
+  {
+    "id": "7235d2e9-2fdf-5404-bfd1-f11c4fe944aa",
+    "pack": "mwangi-expanse",
+    "kind": "class-feature",
+    "slug": "class-feature:bloodline-wyrmblessed",
+    "name": "Bloodline: Wyrmblessed",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["sorcerer"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You lay claim to the might of dragons, but your powers are sacred instead of arcane-born from a worship of draconic might so powerful it infused your blood or, perhaps, from a celestial or draconic power blessing one of your ancestors received."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Spell List",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " divine"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Bloodline Skills",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Intimidation, Religion"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted Spells",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " cantrip: "
+          },
+          {
+            "type": "ref",
+            "id": "02c769dd-dba8-5437-8189-28b9800afaac"
+          },
+          {
+            "type": "text",
+            "text": "; 1st: "
+          },
+          {
+            "type": "ref",
+            "id": "7c5ef7d9-d7ac-5654-b88c-5504257ec3f7"
+          },
+          {
+            "type": "text",
+            "text": "; 2nd: "
+          },
+          {
+            "type": "ref",
+            "id": "d54ee3a3-6742-53c8-9070-17edcb0cae19"
+          },
+          {
+            "type": "text",
+            "text": "; 3rd: "
+          },
+          {
+            "type": "ref",
+            "id": "2b79f5bd-e9d5-59cd-81f8-b1362ed0b59a"
+          },
+          {
+            "type": "text",
+            "text": "; 4th: "
+          },
+          {
+            "type": "ref",
+            "id": "e3806b57-09e6-5cdc-962f-f30e20f43104"
+          },
+          {
+            "type": "text",
+            "text": "; 5th: "
+          },
+          {
+            "type": "ref",
+            "id": "f3e628e3-df4c-5e25-bf18-8feb9e7d8d25"
+          },
+          {
+            "type": "text",
+            "text": "; 6th: "
+          },
+          {
+            "type": "ref",
+            "id": "fcd3c0c1-a3b8-5747-bbad-0ca5e7f7c495"
+          },
+          {
+            "type": "text",
+            "text": "; 7th: "
+          },
+          {
+            "type": "ref",
+            "id": "c4f7f267-8526-5dd9-9ff8-2ef5d29ac387"
+          },
+          {
+            "type": "text",
+            "text": "; 8th: "
+          },
+          {
+            "type": "ref",
+            "id": "35abf662-f81d-5277-8d0b-c80d65dc8538"
+          },
+          {
+            "type": "text",
+            "text": ", 9th: "
+          },
+          {
+            "type": "ref",
+            "id": "b6dff26a-ff68-54a5-bdeb-8ac98bea8879"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Bloodline Spells",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " initial: "
+          },
+          {
+            "type": "ref",
+            "id": "980b15bd-35e0-5599-8b31-547fc30635dc"
+          },
+          {
+            "type": "text",
+            "text": "; advanced: "
+          },
+          {
+            "type": "ref",
+            "id": "46e30c8e-85f6-547a-a779-8d059ef67d3d"
+          },
+          {
+            "type": "text",
+            "text": "; greater: "
+          },
+          {
+            "type": "ref",
+            "id": "c39b2362-3615-59be-915d-ef624506077e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Blood Magic",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Draconic might carries in your voice. Either you gain a +1 status bonus to Intimidation checks for 1 round, or a target takes a -1 status penalty to Will saves for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "67de1e42-35a5-59a1-bd69-36323ba96f28"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Dragon Type"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At 1st level, choose the type of dragon that influenced your bloodline. You can't change your dragon type later. This choice affects how some of your bloodline spells function. The good metallic dragons and their damage types are brass (fire), bronze (electricity), copper (acid), gold (fire), and silver (cold)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The evil chromatic dragons and their damage types are black (acid), blue (electricity), green (poison), red (fire), and white (cold)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The primal dragons of planar origin and their damage types are brine (acid), cloud (electricity), crystal (piercing), magma (fire), and umbral (negative)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The imperial dragons and their damage types are forest (piercing), sea (bludgeoning), sky (electricity), sovereign (mental), and underworld (fire)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For the dragon breath focus spell, the area is a "
+          },
+          {
+            "type": "template",
+            "shape": "line",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": " for a brine dragon; a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " for a cloud, crystal, forest, magma, sovereign, or umbral dragon; and a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " within 30 feet for a sea, sky, or underworld dragon."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Related bloodline"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Because the wyrmblessed and draconic bloodlines have similar origins, they count the same as each other for the purposes of prerequisites and access requirements."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:intimidation",
+        "rank": "trained",
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          }
+        ]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:religion",
+        "rank": "trained",
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          }
+        ]
+      },
+      {
+        "key": "RollOption",
+        "option": "feature:bloodline:tradition:divine",
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.dKTb959aCQIzSIXj"
+    },
+    "data": {
+      "tags": ["sorcerer-bloodline"]
+    }
+  }
+]

@@ -43,6 +43,26 @@
 
     <fr-surface>
       <fr-stack gap="md">
+        <fr-heading variant="subheading" [level]="2">{{ 'legal.ogl.heading' | transloco }}</fr-heading>
+        <fr-text element="p">{{ 'legal.ogl.scope' | transloco }}</fr-text>
+        <fr-text element="p">{{ 'legal.ogl.notice' | transloco }}</fr-text>
+        <fr-link href="https://github.com/foundryvtt/pf2e/blob/pf2e-8.6.0/static/licenses/OpenGameLicense.md">{{
+          'legal.ogl.licenseLink' | transloco
+        }}</fr-link>
+        <fr-heading [level]="3">{{ 'legal.ogl.attribution.heading' | transloco }}</fr-heading>
+        <fr-text element="p">{{ 'legal.ogl.attribution.intro' | transloco }}</fr-text>
+        <fr-list>
+          @for (work of oglAttribution; track work) {
+            <fr-list-item>
+              <fr-text variant="caption" tone="muted">{{ work }}</fr-text>
+            </fr-list-item>
+          }
+        </fr-list>
+      </fr-stack>
+    </fr-surface>
+
+    <fr-surface>
+      <fr-stack gap="md">
         <fr-heading variant="subheading" [level]="2">{{ 'legal.books.heading' | transloco }}</fr-heading>
         <fr-text element="p">{{ 'legal.books.intro' | transloco }}</fr-text>
         <fr-list>
