@@ -85,7 +85,7 @@ describe('PathbuilderImportPage', () => {
     });
     expect(root.textContent).toContain('Ancestry · 1 of 1 matched');
     expect(root.textContent).toContain('Heritage · 1 of 1 matched');
-    expect(root.textContent).toContain('Feats · 0 of 32 matched');
+    expect(root.textContent).toContain('Feats · 1 of 32 matched');
   });
 
   it('matches against content kept from an earlier visit while offline', async () => {
@@ -153,7 +153,7 @@ describe('PathbuilderImportPage create', () => {
       character,
       report: {
         unmatched: [{ kind: 'heritage', names: [{ name: 'Changeling', occurrences: 1, reason: 'not-offered' }] }],
-        notCarried: ['feat', 'lore'],
+        notCarried: ['class-feature', 'lore'],
         unplacedBoosts: [],
         modifierDifferences: [],
       },
@@ -179,7 +179,7 @@ describe('PathbuilderImportPage create', () => {
       expect(sheet.textContent).toContain('Imported from Pathbuilder');
       expect(sheet.querySelector('fr-inline-field button')).not.toBeNull();
     });
-    expect(sheet.textContent).toContain('Feats and Lores');
+    expect(sheet.textContent).toContain('Class features and Lores');
     expect(sheet.textContent).toContain('Heritage · 1 not carried over');
     expect(sheet.textContent).toContain('Changeling');
 

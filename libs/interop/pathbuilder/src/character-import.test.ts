@@ -47,7 +47,7 @@ describe('characterImportReport', () => {
   });
 
   test('lists the filled fields the character cannot hold yet, ancestry and heritage never among them', () => {
-    expect(report.notCarried).toContain(UncarriedField.Feat);
+    expect(report.notCarried).toContain(UncarriedField.ClassFeature);
     expect(report.notCarried).not.toContain(ImportKind.Ancestry);
     expect(report.notCarried).not.toContain(ImportKind.Heritage);
   });
