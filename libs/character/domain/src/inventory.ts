@@ -43,8 +43,9 @@ export type Coins = z.infer<typeof CoinsSchema>;
 
 /**
  * An item the character has: the content it is, how many, the item it is stowed in (none when carried loose), the
- * player's name for it, how it is carried, whether it is invested, and the runes etched onto it. An invested item
- * stays invested while it is off, but only works while it is worn or held as it is used (`activeState`).
+ * player's name for it, how it is carried, whether it is invested, whether it is broken, and the runes etched onto it.
+ * An invested item stays invested while it is off, but only works while it is worn or held as it is used
+ * (`activeState`). A broken item stays broken, through daily preparations too, until the player marks it repaired.
  */
 export const InventoryItemSchema = z.strictObject({
   id: InventoryItemId,
@@ -54,6 +55,7 @@ export const InventoryItemSchema = z.strictObject({
   name: InventoryItemName.optional(),
   carry: CarrySchema.default(STOWED),
   invested: z.literal(true).optional(),
+  broken: z.literal(true).optional(),
   runes: ItemRunesSchema.optional(),
 });
 export type InventoryItem = z.infer<typeof InventoryItemSchema>;

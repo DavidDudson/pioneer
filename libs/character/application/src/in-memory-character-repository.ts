@@ -96,6 +96,19 @@ export class InMemoryCharacterRepository extends CharacterRepository {
     return saved;
   }
 
+  public override async updatePlayAndCharacter(
+    write: PlayWrite,
+    character: Character,
+    expectedVersion: Version,
+  ): Promise<CharacterPlay> {
+    if (this.#rows.get(character.id)?.version !== expectedVersion) {
+      throw new VersionConflictError('Character', character.id);
+    }
+    const saved = await this.updatePlay(write);
+    this.#rows.set(character.id, character.withVersion(nextVersion(expectedVersion)));
+    return saved;
+  }
+
   /** `character` with the play state stored apart from it, as a read gives it: a build save never writes play state. */
   #withPlay(character: Character): Character {
     const stored = this.#plays.get(character.id);

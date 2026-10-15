@@ -78,15 +78,38 @@ function problemOf(
   return listing.length === 0 ? StaffSpellProblem.NotOnList : StaffSpellProblem.RankTooHigh;
 }
 
+/** A spell an item holds as the holder sees it: its content, the entry that casts it, and why none does. */
+export interface CastingEntry {
+  readonly spell: SpellOption | undefined;
+  readonly entry: SpellcastingInPlay | undefined;
+  readonly problem: StaffSpellProblem | undefined;
+}
+
+/** The spell an item holds, the rank it is listed at, and the content and entries that say who can cast it. */
+export interface CastingQuery {
+  readonly id: ContentId;
+  readonly rank: StaffRank;
+  readonly content: SpellContent;
+  readonly entries: readonly SpellcastingInPlay[];
+}
+
+/**
+ * The entry among `entries` that casts spell `id` listed at `rank`: one whose tradition lists the spell and that casts
+ * spells of the rank, or why none does. Focus entries have no spell list and are left out by the callers.
+ */
+export function castingEntry({ id, rank, content, entries }: CastingQuery): CastingEntry {
+  const spell = content.anySpell(id);
+  const listing = spell === undefined ? [] : entries.filter(({ tradition }) => spell.traditions.includes(tradition));
+  const entry = listing.find((each) => castsRank(each, rank));
+  return { spell, entry, problem: problemOf(entry, listing) };
+}
+
 function sourceSpell(
   { spell: id, rank, charges }: StaffSpell,
   content: SpellContent,
   entries: readonly SpellcastingInPlay[],
 ): StaffSourceSpell {
-  const spell = content.anySpell(id);
-  const listing = spell === undefined ? [] : entries.filter(({ tradition }) => spell.traditions.includes(tradition));
-  const entry = listing.find((each) => castsRank(each, rank));
-  return { id, spell, rank, charges, entry, problem: problemOf(entry, listing) };
+  return { id, rank, charges, ...castingEntry({ id, rank, content, entries }) };
 }
 
 /** What the staves are read from: the inventory and its content, the spells, the spellcasting entries and the charges. */

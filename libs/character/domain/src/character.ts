@@ -13,25 +13,19 @@ import { CharacterPatchField, isInventoryPatch } from './character-patch';
 import type { CharacterPatch, InventoryPatch, SpellAccessPatch } from './character-patch';
 import { withProse } from './character-prose';
 import { ANCESTRY_SLOT } from './character-slots';
-import {
-  carryItem,
-  inventoryRefusal,
-  investItem,
-  moveItem,
-  removeItem,
-  renameItem,
-  setItemQuantity,
-} from './inventory';
+import { equipmentChange } from './equipment-change';
+import { inventoryRefusal, moveItem, removeItem, renameItem, setItemQuantity } from './inventory';
 import type { Inventory, InventoryEdit } from './inventory';
 import { withAddedItem, withAddedKit } from './item-purchase';
 import type { EditInputs } from './item-purchase';
-import { eraseRune, etchRune, transferRune } from './rune-edits';
 
 /**
  * JSON shape of a character on the wire: its document at the current schema version, plus the row's version and
  * timestamps. Nothing derived is in it: attribute modifiers are worked out from the boost picks (`attributeModifiers`).
  */
-export const CharacterWire = CharacterDocumentSchema.omit({ schemaVersion: true }).extend({
+export const CharacterWire = CharacterDocumentSchema.omit({
+  schemaVersion: true,
+}).extend({
   version: Version,
   createdAt: InstantCodec,
   updatedAt: InstantCodec,
@@ -49,43 +43,6 @@ interface CharacterProps {
 function ancestryOf(document: CharacterDocument): AncestryId | undefined {
   const picked = AncestryId.safeParse(document.build.choices[ANCESTRY_SLOT]);
   return picked.success ? picked.data : undefined;
-}
-
-/** The edits that change how an item is equipped: how it is carried, whether it is invested, and its runes. */
-type EquipmentPatch = Extract<
-  CharacterPatch,
-  {
-    readonly field:
-      | typeof CharacterPatchField.CarryItem
-      | typeof CharacterPatchField.InvestItem
-      | typeof CharacterPatchField.EtchRune
-      | typeof CharacterPatchField.EraseRune
-      | typeof CharacterPatchField.TransferRune;
-  }
->;
-
-/** `inventory` with an equipment edit made. */
-function equipmentChange(inventory: Inventory, patch: EquipmentPatch): Inventory {
-  switch (patch.field) {
-    case CharacterPatchField.CarryItem: {
-      return carryItem(inventory, patch.id, patch.carry);
-    }
-    case CharacterPatchField.InvestItem: {
-      return investItem(inventory, patch.id, patch.invested);
-    }
-    case CharacterPatchField.EtchRune: {
-      return etchRune(inventory, patch.id, patch.rune);
-    }
-    case CharacterPatchField.EraseRune: {
-      return eraseRune(inventory, patch.id, patch.rune);
-    }
-    case CharacterPatchField.TransferRune: {
-      return transferRune(inventory, { from: patch.id, to: patch.to, rune: patch.rune });
-    }
-    default: {
-      return patch satisfies never;
-    }
-  }
 }
 
 /**
@@ -199,6 +156,7 @@ export class Character {
       }
       case CharacterPatchField.CarryItem:
       case CharacterPatchField.InvestItem:
+      case CharacterPatchField.SetItemBroken:
       case CharacterPatchField.EtchRune:
       case CharacterPatchField.EraseRune:
       case CharacterPatchField.TransferRune: {
@@ -243,7 +201,12 @@ export class Character {
         return this.#stock(patch, (inventory) => renameItem(inventory, patch.id, patch.name));
       }
       case CharacterPatchField.SetCoins: {
-        return { document: { ...this.document, inventory: { ...this.document.inventory, coins: patch.coins } } };
+        return {
+          document: {
+            ...this.document,
+            inventory: { ...this.document.inventory, coins: patch.coins },
+          },
+        };
       }
       default: {
         const unreachable: never = patch;
@@ -258,7 +221,12 @@ export class Character {
     if (refusal !== undefined) {
       throw new TypeError(`Refused inventory edit: ${refusal.message.key}`);
     }
-    return { document: { ...this.document, inventory: change(this.document.inventory) } };
+    return {
+      document: {
+        ...this.document,
+        inventory: change(this.document.inventory),
+      },
+    };
   }
 
   /** The build's spell access with `patch.spell` added at the end unless listed, or taken out; a pick of a spell taken out stays (#478). */
@@ -275,7 +243,10 @@ export class Character {
 
   #choose(slot: SlotKey, value: ChoiceValue): CharacterDocument {
     const { build } = this.document;
-    return { ...this.document, build: { ...build, choices: { ...build.choices, [slot]: value } } };
+    return {
+      ...this.document,
+      build: { ...build, choices: { ...build.choices, [slot]: value } },
+    };
   }
 
   /** The document without a selection for `slot`; every other pick, shown or hidden, stays. */
@@ -287,6 +258,15 @@ export class Character {
 
   public withVersion(version: Version): Character {
     return new Character({ ...this.toProps(), version });
+  }
+
+  /** This character with `inventory` in place of its own, as a play edit that breaks or destroys an item leaves it. */
+  public withInventory(inventory: Inventory, now: Temporal.Instant): Character {
+    return new Character({
+      ...this.toProps(),
+      document: { ...this.document, inventory },
+      updatedAt: now,
+    });
   }
 
   private toProps(): CharacterProps {

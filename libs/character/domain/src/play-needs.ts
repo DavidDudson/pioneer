@@ -33,7 +33,9 @@ export function needsMaxHitPoints(command: PlayCommand): boolean {
     case PlayCommandField.SetConditionValue:
     case PlayCommandField.RemoveCondition:
     case PlayCommandField.SpendUse:
-    case PlayCommandField.RefundUse: {
+    case PlayCommandField.RefundUse:
+    case PlayCommandField.CastWand:
+    case PlayCommandField.OverchargeWand: {
       return false;
     }
     default: {
@@ -58,7 +60,9 @@ export function needsResourceMaxima(command: PlayCommand): boolean {
     case PlayCommandField.SpendSlot:
     case PlayCommandField.RefundSlot:
     case PlayCommandField.SpendUse:
-    case PlayCommandField.RefundUse: {
+    case PlayCommandField.RefundUse:
+    case PlayCommandField.CastWand:
+    case PlayCommandField.OverchargeWand: {
       return true;
     }
     case PlayCommandField.Damage:
@@ -106,7 +110,9 @@ export function needsConditionContent(command: PlayCommand): boolean {
     case PlayCommandField.SpendSlot:
     case PlayCommandField.RefundSlot:
     case PlayCommandField.SpendUse:
-    case PlayCommandField.RefundUse: {
+    case PlayCommandField.RefundUse:
+    case PlayCommandField.CastWand:
+    case PlayCommandField.OverchargeWand: {
       return false;
     }
     default: {

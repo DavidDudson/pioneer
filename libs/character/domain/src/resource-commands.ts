@@ -7,6 +7,7 @@ import { stabilised } from './death-track';
 import type { DeathTrack } from './death-track';
 import { heldIn, regainPoints, Resource, ResourceCount, ResourceSchema, setPoints, spendPoints } from './resources';
 import type { Pools, ResourceMaxima, ResourcesSpent } from './resources';
+import { WandCommandField, WandCommandSchema, wandUsesAfter } from './wand-commands';
 
 const NO_POINTS = ResourceCount.parse(0);
 
@@ -23,6 +24,8 @@ export const ResourceCommandField = {
   /** One use of a feat or action with a frequency spent or refunded. */
   SpendUse: 'spendUse',
   RefundUse: 'refundUse',
+  /** A held wand cast, or overcharged after the day's cast (`wand-commands.ts`). */
+  ...WandCommandField,
 } as const;
 export type ResourceCommandField = ValueOf<typeof ResourceCommandField>;
 
@@ -34,6 +37,7 @@ export const ResourceCommandSchema = z.discriminatedUnion('field', [
   z.object({ field: z.literal(ResourceCommandField.RefundSlot), slot: SlotCountKey }),
   z.object({ field: z.literal(ResourceCommandField.SpendUse), use: UseCountKey }),
   z.object({ field: z.literal(ResourceCommandField.RefundUse), use: UseCountKey }),
+  ...WandCommandSchema.options,
 ]);
 export type ResourceCommand = z.infer<typeof ResourceCommandSchema>;
 
@@ -107,6 +111,10 @@ export function applyResourceCommand(
       return withCounts(play, {
         uses: spentAfter({ spent: play.resources.uses, maxima: counted.uses, key: command.use }, REFUND),
       });
+    }
+    case ResourceCommandField.CastWand:
+    case ResourceCommandField.OverchargeWand: {
+      return withCounts(play, { uses: wandUsesAfter(play.resources.uses, counted, command) });
     }
     default: {
       return command satisfies never;

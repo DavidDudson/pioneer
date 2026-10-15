@@ -17,7 +17,7 @@ import { runeContent } from '../item-runes';
 import type { RuneContent } from '../item-runes';
 import { CLUMSY, ENCUMBERED, ITEM_PACK } from './condition-fixture-ids';
 import { BULWARK_CHARM, EMBER_BLADE, TROLL_CHARM } from './effect-items';
-import { FIRE_STAFF, FIRE_STAFF_SPELLS } from './fire-staff';
+import { FIRE_STAFF, FIRE_STAFF_SPELLS, FIREBALL_WAND } from './fire-staff';
 import { HUNTERS_BLADE } from './hunters-blade';
 import { HUNTERS_CLOAK } from './hunters-cloak';
 import { MOVEMENT_CHARM } from './movement-charm';
@@ -83,6 +83,8 @@ export const ItemFixture = {
   BulwarkCharm: 'bulwark-charm',
   /** A magic staff: Ignition, Breathe Fire at 1st rank, Floating Flame and Fireball at 3rd. */
   FireStaff: 'fire-staff',
+  /** A wand of Fireball: cast once a day at 3rd rank, kept when spent. */
+  FireballWand: 'fireball-wand',
 } as const;
 export type ItemFixture = (typeof ItemFixture)[keyof typeof ItemFixture];
 
@@ -93,6 +95,7 @@ interface ItemFixtureFields extends MagicItemFields {
 
 const ITEMS: Readonly<Record<ItemFixture, ItemFixtureFields>> = {
   [ItemFixture.FireStaff]: FIRE_STAFF,
+  [ItemFixture.FireballWand]: FIREBALL_WAND,
   [ItemFixture.Backpack]: {
     kind: ContentKind.Equipment,
     data: {

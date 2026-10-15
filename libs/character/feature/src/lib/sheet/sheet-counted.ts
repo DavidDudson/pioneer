@@ -5,6 +5,7 @@ import {
   characterSpellcasting,
   heldCount,
   itemActivations,
+  itemWands,
   itemContent,
   slotCountKey,
   activationUseKey,
@@ -109,7 +110,11 @@ function activationViews(registry: ContentRegistry, character: Character, used: 
 export function sheetCounted(registry: ContentRegistry, character: Character): CountedMaxima {
   const grants = characterGrants(character.document, sheetSlotContent(registry));
   const { items } = character.document.inventory;
-  return characterCounted(grants, abilityFrequencies(registry), { items, activations: itemActivations(registry) });
+  return characterCounted(grants, abilityFrequencies(registry), {
+    items,
+    activations: itemActivations(registry),
+    wands: itemWands(registry),
+  });
 }
 
 /** The slots by entry, pool and rank and the uses by ability, each with what is held after `spent`. */

@@ -7,6 +7,7 @@ import * as z from 'zod';
 import type { InventoryItem, InventoryItemId } from './inventory';
 import { ResourceCount } from './resource-count';
 import { StaffChargesSchema } from './staff-charges';
+import type { WandSpell } from './wand-items';
 
 /** The longest key a spent count is stored under: a slot's `<entry>:<pool>:<rank>`, an activation's `<item>:<slug>`. */
 const COUNT_KEY_MAX_LENGTH = 200;
@@ -87,6 +88,43 @@ export function overchargeUseKey(item: InventoryItemId, activation: Slug): UseCo
   return UseCountKey.parse(`${item}:${activation}:overcharge`);
 }
 
+/** The key the daily casts of a wand are counted under; `wand:` cannot start an activation's key, which starts with an item id. */
+export function wandUseKey(item: InventoryItemId): UseCountKey {
+  return UseCountKey.parse(`wand:${item}`);
+}
+
+/** The key the overcharged cast of a wand is counted under, apart from its daily casts. */
+export function wandOverchargeKey(item: InventoryItemId): UseCountKey {
+  return UseCountKey.parse(`wand:${item}:overcharge`);
+}
+
+/**
+ * The daily casts of each wand among the character's items, and one overcharged cast apart from them. A line of
+ * several wands has that many casts, since each one is used up on its own. Both come back at daily preparations.
+ */
+export function wandMaxima(
+  items: readonly InventoryItem[],
+  wandOf: (id: ContentId) => WandSpell | undefined,
+): ReadonlyMap<UseCountKey, CountedMaximum> {
+  return new Map(
+    items.flatMap(({ id, item, quantity }): [UseCountKey, CountedMaximum][] => {
+      const wand = wandOf(item);
+      return wand === undefined
+        ? []
+        : [
+            [
+              wandUseKey(id),
+              {
+                max: ResourceCount.parse(wand.uses * quantity),
+                boundary: Boundary.Day,
+              },
+            ],
+            [wandOverchargeKey(id), { max: ResourceCount.parse(quantity), boundary: Boundary.Day }],
+          ];
+    }),
+  );
+}
+
 /** The key of the slots of `rank` in an entry, or in one of its pools. */
 export function slotCountKey(entry: Slug, pool: RuleSlug | undefined, rank: SpellRank): SlotCountKey {
   return SlotCountKey.parse(pool === undefined ? `${entry}:${rank}` : `${entry}:${pool}:${rank}`);
@@ -138,7 +176,15 @@ export function useMaxima(
       const frequency = frequencyOf(id);
       return frequency === undefined
         ? []
-        : [[abilityUseKey(id), { max: ResourceCount.parse(frequency.max), boundary: frequencyBoundary(frequency) }]];
+        : [
+            [
+              abilityUseKey(id),
+              {
+                max: ResourceCount.parse(frequency.max),
+                boundary: frequencyBoundary(frequency),
+              },
+            ],
+          ];
     }),
   );
 }

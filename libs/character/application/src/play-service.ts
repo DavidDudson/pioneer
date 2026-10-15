@@ -22,6 +22,7 @@ import {
   isConditionCommand,
   conditionValued,
   itemActivations,
+  itemWands,
   maxHitPoints,
   needsConditionContent,
   needsMaxHitPoints,
@@ -36,6 +37,13 @@ import {
   restHealing,
   restRecovery,
   slotContent,
+  isWandCommand,
+  wandInventoryAfter,
+  wandOutcome,
+  WandOutcome,
+  WandProblem,
+  wandProblem,
+  wandSources,
 } from '@pioneer/character/domain';
 import type {
   Character,
@@ -52,6 +60,7 @@ import type {
   ResourceMaxima,
   CountedMaxima,
   StaffLimits,
+  WandCommand,
 } from '@pioneer/character/domain';
 import { HitPoints } from '@pioneer/rules/sdk';
 import type { ContentRegistry, ContentSource } from '@pioneer/rules/sdk';
@@ -61,7 +70,7 @@ import type { Clock, UserId } from '@pioneer/shared/kernel';
 import { contentOfCharacter, variantRulesOfCharacter } from './character-content';
 import type { CharacterContentSource } from './character-content';
 import { mayAccessCharacter } from './character-policy';
-import type { CharacterRepository } from './character-repository';
+import type { CharacterRepository, PlayWrite } from './character-repository';
 
 /** The maximum handed to edits that don't read it, so none has to be derived for them. */
 const NO_MAX_HIT_POINTS = HitPoints.parse(0);
@@ -93,6 +102,16 @@ const CONDITION_MESSAGES = {
   [ConditionProblem.Missing]: 'character.validation.conditionMissing',
   [ConditionProblem.Full]: 'character.validation.conditionFull',
 } as const satisfies Record<ConditionProblem, string>;
+
+/** The message each refused wand cast answers with. */
+const WAND_MESSAGES = {
+  [WandProblem.NotHeld]: 'character.validation.wandNotHeld',
+  [WandProblem.Broken]: 'character.validation.wandBroken',
+  [WandProblem.NotCastable]: 'character.validation.wandNotCastable',
+  [WandProblem.UseSpent]: 'character.validation.wandUseSpent',
+  [WandProblem.UseLeft]: 'character.validation.wandUseLeft',
+  [WandProblem.RollMissing]: 'character.validation.wandRollMissing',
+} as const satisfies Record<WandProblem, string>;
 
 /**
  * A character's play state (#343): read and edited apart from its build, with its own revision, so a play edit never
@@ -133,14 +152,47 @@ export class PlayService {
     if (current.revision !== expectedRevision) {
       throw new VersionConflictError('CharacterPlay', id);
     }
+    const wanded = isWandCommand(command) ? await this.#wanded(character, current.play, command) : undefined;
     const play = await this.#applied(character, current.play, command);
-    return this.#characters.updatePlay({
+    const write: PlayWrite = {
       id,
       play,
       expectedRevision,
       audit: { actor, command: PLAY_COMMANDS[command.field] },
       now: this.#clock.now(),
+    };
+    return wanded === undefined
+      ? this.#characters.updatePlay(write)
+      : this.#characters.updatePlayAndCharacter(write, wanded, character.version);
+  }
+
+  /**
+   * A wand cast or overcharge, checked against the wands the character holds. The character with the wand marked broken
+   * or removed when the cast breaks or destroys it, or undefined when the inventory stays as it is.
+   */
+  async #wanded(character: Character, play: PlayState, command: WandCommand): Promise<Character | undefined> {
+    const registry = await this.#contentOf(character).registry();
+    const slots = await this.#slotContent(character, registry);
+    const { inventory } = character.document;
+    const sources = wandSources({
+      inventory: inventory.items,
+      items: itemContent(registry),
+      spells: slots.spells,
+      entries: characterSpellcasting(characterGrants(character.document, slots)),
+      uses: play.resources.uses,
+      counted: await this.#counted(character),
     });
+    const source = sources.find(({ item }) => item.id === command.item);
+    const problem = wandProblem(command, source);
+    if (problem !== undefined || source === undefined) {
+      throw new ValidationError([
+        { path: ['command'], message: message(WAND_MESSAGES[problem ?? WandProblem.NotHeld]) },
+      ]);
+    }
+    const outcome = wandOutcome(command, source);
+    return outcome === WandOutcome.Cast
+      ? undefined
+      : character.withInventory(wandInventoryAfter(inventory, command.item, outcome), this.#clock.now());
   }
 
   /**
@@ -191,6 +243,7 @@ export class PlayService {
     return characterCounted(grants, abilityFrequencies(registry), {
       items: character.document.inventory.items,
       activations: itemActivations(registry),
+      wands: itemWands(registry),
     });
   }
 

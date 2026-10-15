@@ -119,6 +119,9 @@ export {
   type SpentCounts,
   UseCountKey,
   useMaxima,
+  wandMaxima,
+  wandOverchargeKey,
+  wandUseKey,
 } from './counted-resources';
 export {
   type AncestryBoosts,
@@ -256,13 +259,13 @@ export {
   CharacterPatchField,
   CharacterPatchSchema,
   type InventoryPatch,
-  type InventoryTarget,
-  inventoryTarget,
   isInventoryPatch,
   isKitPatch,
   type KitPatch,
   PatchCharacterBody,
 } from './character-patch';
+export { type InventoryTarget, inventoryTarget } from './inventory-target';
+export { breakItem } from './inventory-broken';
 export {
   type Build,
   BuildSchema,
@@ -482,8 +485,27 @@ export {
   type StaffSlot,
   StaffSlotSchema,
 } from './staff-charges';
+export { isWand, itemWands, type WandSpell, wandSpell, wandSpellOf } from './wand-items';
+export {
+  isWandCommand,
+  OVERCHARGE_DC,
+  overchargePasses,
+  type WandCommand,
+  WandCommandField,
+  WandCommandSchema,
+  wandInventoryAfter,
+  wandOutcome,
+  WandOutcome,
+  WandProblem,
+  wandProblem,
+  wandUsesAfter,
+} from './wand-commands';
+export { type WandCount, type WandSource, type WandSourceInputs, wandSources } from './wand-sources';
 export { NO_STAFF, StaffProblem, type StaffLimits, staffLimits, staffProblem, staffSlotKey } from './staff-limits';
 export {
+  castingEntry,
+  type CastingEntry,
+  type CastingQuery,
   StaffSpellProblem,
   type StaffSource,
   type StaffSourceCharges,
