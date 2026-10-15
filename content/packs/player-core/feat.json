@@ -37209,7 +37209,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellSlots",
+        "entry": "bard",
+        "rank": 10,
+        "value": 1
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.xhuXpOFOxDpJgngm"
     },

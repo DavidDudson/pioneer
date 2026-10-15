@@ -9,22 +9,13 @@ import {
   SpellPreparation,
   SpellRank,
 } from '@pioneer/rules/sdk';
-import type {
-  ContentId,
-  Origin,
-  FocusSpellsElement,
-  GrantedSpell,
-  PoolSpellsElement,
-  RuleElement,
-  RuleSlug,
-  Slug,
-  SpellSlotsElement,
-} from '@pioneer/rules/sdk';
+import type { ContentId, GrantedSpell, Origin, RuleSlug, Slug, SpellSlotsElement } from '@pioneer/rules/sdk';
 
 import type { ModifierInputs, RuleInPlay } from './rule-in-play';
 import { truthOf } from './rule-value';
 import type { SpellcastingInputs } from './source-inputs';
-import { addGrantedSpells } from './spellcasting-granted-spells';
+import { gatherSpells } from './spellcasting-gathered';
+import type { Gathered } from './spellcasting-gathered';
 
 /** How many slots an entry or pool has of one rank. */
 export interface RankSlots {
@@ -71,8 +62,13 @@ interface EntryGrantedSpells {
   readonly grantedSpells: readonly GrantedSpell[];
 }
 
+/** The repertoire spells the `RepertoireCount` elements in play add to a spontaneous entry, by rank; none for another (ADR-0063). */
+interface EntryRepertoireCounts {
+  readonly repertoireCounts: readonly RankSlots[];
+}
+
 /** An entry as its `SpellcastingEntry` element gives it, before its slots are counted. */
-interface EntryInPlay extends SpellcastingInputs {
+export interface EntryInPlay extends SpellcastingInputs {
   readonly preparation: SpellPreparation;
   /** The entry whose `SpellcastingEntry` element gave it, and how that entry got on the character. */
   readonly origin: Origin;
@@ -83,7 +79,7 @@ interface EntryInPlay extends SpellcastingInputs {
  * slots.
  */
 export interface SpellcastingInPlay
-  extends EntryInPlay, EntrySlots, EntrySignatures, EntryFocusSpells, EntryGrantedSpells {
+  extends EntryInPlay, EntrySlots, EntrySignatures, EntryFocusSpells, EntryGrantedSpells, EntryRepertoireCounts {
   /** Whether a `DeitySpells` element in play adds the character's deity's spells to its list (ADR-0048). */
   readonly deitySpells: boolean;
 }
@@ -129,7 +125,7 @@ function highestRank(tally: Tally): SpellRank | undefined {
   return ranks.length === 0 ? undefined : SpellRank.parse(Math.max(...ranks));
 }
 
-interface PlacedSlots {
+export interface PlacedSlots {
   readonly element: SpellSlotsElement;
   readonly origin: Origin;
 }
@@ -189,54 +185,6 @@ function holds(rule: RuleInPlay, facts: PredicateFacts): boolean {
   return truthOf(rule.element.predicate, facts) === Truth.True;
 }
 
-/** What the rules in play give, by entry slug, as `spellcastingInPlay` reads them. */
-interface Gathered {
-  readonly entries: Map<Slug, EntryInPlay>;
-  readonly slots: Map<Slug, PlacedSlots[]>;
-  readonly poolSpells: Map<Slug, Map<RuleSlug, ContentId[]>>;
-  /** The entries a `DeitySpells` element names. */
-  readonly deitySpells: Set<Slug>;
-  /** The entries a `SignatureSpells` element names. */
-  readonly signatures: Set<Slug>;
-  /** The spells the `FocusSpells` elements give, by the entry they name. */
-  readonly focusSpells: Map<Slug, ContentId[]>;
-  /** The spells the `RepertoireSpells` elements give, by the entry they name. */
-  readonly grantedSpells: Map<Slug, GrantedSpell[]>;
-}
-
-/** Adds `spells` to what `pool` of `entry` takes, each spell once. */
-function addPoolSpells({ poolSpells }: Gathered, { entry, pool, spells }: PoolSpellsElement): void {
-  const pools = poolSpells.get(entry) ?? new Map<RuleSlug, ContentId[]>();
-  const taken = pools.get(pool) ?? [];
-  pools.set(pool, [...taken, ...spells.filter((spell) => !taken.includes(spell))]);
-  poolSpells.set(entry, pools);
-}
-
-/** Adds `spells` to the focus spells of `entry`, each spell once. */
-function addFocusSpells({ focusSpells }: Gathered, { entry, spells }: FocusSpellsElement): void {
-  const known = focusSpells.get(entry) ?? [];
-  focusSpells.set(entry, [...known, ...spells.filter((spell) => !known.includes(spell))]);
-}
-
-/** Adds the spells an element names an entry: its pool spells, deity spells, signature spells or focus spells. */
-function gatherSpells(gathered: Gathered, element: RuleElement): void {
-  if (element.key === RuleElementKey.PoolSpells) {
-    addPoolSpells(gathered, element);
-  }
-  if (element.key === RuleElementKey.DeitySpells) {
-    gathered.deitySpells.add(element.entry);
-  }
-  if (element.key === RuleElementKey.SignatureSpells) {
-    gathered.signatures.add(element.entry);
-  }
-  if (element.key === RuleElementKey.FocusSpells) {
-    addFocusSpells(gathered, element);
-  }
-  if (element.key === RuleElementKey.RepertoireSpells) {
-    addGrantedSpells(gathered.grantedSpells, element);
-  }
-}
-
 /**
  * Adds what one rule in play gives, if it holds: an entry the first time its slug holds, slots, pool spells, the
  * entries deity or signature spells name, or focus spells.
@@ -274,11 +222,13 @@ export function spellcastingInPlay({ rules, facts }: ModifierInputs): readonly S
     signatures: new Set(),
     focusSpells: new Map(),
     grantedSpells: new Map(),
+    repertoireCounts: new Map(),
   };
   for (const rule of rules) {
     gather(gathered, rule, facts);
   }
-  const { entries, slots, poolSpells, deitySpells, signatures, focusSpells, grantedSpells } = gathered;
+  const { entries, slots, poolSpells, deitySpells, signatures, focusSpells, grantedSpells, repertoireCounts } =
+    gathered;
   return bySlug(
     [...entries.values()].map((entry): SpellcastingInPlay => {
       const spontaneous = entry.preparation === SpellPreparation.Spontaneous;
@@ -289,6 +239,7 @@ export function spellcastingInPlay({ rules, facts }: ModifierInputs): readonly S
         signatures: spontaneous && signatures.has(entry.slug),
         focusSpells: focus,
         grantedSpells: spontaneous ? (grantedSpells.get(entry.slug) ?? []) : [],
+        repertoireCounts: spontaneous ? (repertoireCounts.get(entry.slug) ?? []) : [],
       });
     }),
     ({ slug }) => slug,

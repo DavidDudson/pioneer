@@ -1,6 +1,6 @@
 import type { SlotPool, SpellcastingInPlay, SpellSlots } from '@pioneer/rules/engine';
 import type { GrantResolution } from '@pioneer/rules/grants';
-import { SlotKey, SlotRank, SpellPreparation, SpellRank } from '@pioneer/rules/sdk';
+import { SlotKey, SlotRank, SPELL_RANK_MAX, SpellPreparation, SpellRank } from '@pioneer/rules/sdk';
 import type {
   ChoiceValue,
   ContentId,
@@ -17,6 +17,8 @@ import type { CharacterDocument } from './character-document';
 import type { CharacterLevel } from './character-fields';
 import { deityRanks, NO_DEITY_SPELLS } from './deity-ranks';
 import type { DeityRanks } from './deity-ranks';
+import { PreparedPickProblem } from './prepared-pick-problem';
+import { repertoireSlots } from './repertoire-slots';
 import type { SlotPick } from './slot-offer';
 import { needsAccess } from './spell-content';
 import type { SpellContent, SpellOption } from './spell-content';
@@ -46,17 +48,6 @@ function isPicked(preparation: SpellPreparation): preparation is PickedPreparati
 
 /** The rank of a prepared slot: cantrips, or 1 to 10. */
 export type PreparedRank = SpellRank | typeof SlotRank.Cantrip;
-
-/** Why a stored pick naming a loaded spell isn't on offer in its slot. */
-export const PreparedPickProblem = {
-  /** An uncommon or rare spell the build lists no access to; with access it would fit. */
-  NoAccess: 'noAccess',
-  /** A spell of another tradition, too high a rank, a cantrip in a spell slot or a spell in a cantrip slot. */
-  Unfit: 'unfit',
-  /** In a pool's slot, a spell the pool doesn't take (a divine font's other font). */
-  NotInPool: 'notInPool',
-} as const;
-export type PreparedPickProblem = ValueOf<typeof PreparedPickProblem>;
 
 /**
  * A pool of slots kept apart from an entry's own (ADR-0045): its slug, the entry whose slots first added to it, and the
@@ -150,6 +141,9 @@ function fitsRank(spell: SpellOption, rank: PreparedRank): boolean {
  */
 function fits(spell: SpellOption, place: SlotPlace): boolean {
   const { tradition, rank, takes } = place;
+  if (place.preparation === SpellPreparation.Spontaneous && rank === SPELL_RANK_MAX) {
+    return !spell.cantrip && spell.rank === SPELL_RANK_MAX && spell.traditions.includes(tradition);
+  }
   const taken = takes === undefined ? spell.traditions.includes(tradition) : takes.has(spell.id);
   return (taken && fitsRank(spell, rank)) || fitsAsDeitySpell(spell, place);
 }
@@ -198,13 +192,14 @@ function poolPlaces(own: SlotHome, slotPool: SlotPool): SlotPlace[] {
  * its pools' (#581) in pool order, the same way.
  */
 function entryPlaces(
-  { slug, tradition, slots, pools, deitySpells, grantedSpells: gifts }: SpellcastingInPlay,
+  { slug, tradition, slots, pools, deitySpells, grantedSpells: gifts, repertoireCounts }: SpellcastingInPlay,
   preparation: PickedPreparation,
   deity: DeityRanks,
 ): SlotPlace[] {
   const own = deitySpells ? deity : NO_DEITY_SPELLS;
   const home = { entry: slug, preparation, tradition, pool: undefined, takes: undefined, deity: own, gifts };
-  return [...placesOf(slots, home), ...pools.flatMap((pool) => poolPlaces(home, pool))];
+  const sized = preparation === SpellPreparation.Spontaneous ? repertoireSlots(slots, repertoireCounts) : slots;
+  return [...placesOf(sized, home), ...pools.flatMap((pool) => poolPlaces(home, pool))];
 }
 
 /**

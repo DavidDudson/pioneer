@@ -8785,7 +8785,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellSlots",
+        "entry": "sorcerer",
+        "rank": 10,
+        "value": 1
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.6SEDoht4dXEJE5SW"
     },
@@ -44027,7 +44034,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellSlots",
+        "entry": "oracle",
+        "rank": 10,
+        "value": 1
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.PExiZZTSP4p7TZaW"
     },

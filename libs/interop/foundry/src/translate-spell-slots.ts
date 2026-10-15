@@ -60,6 +60,21 @@ function classTable(entry: string, opening = NEW_RANK_SLOTS): readonly object[] 
   ];
 }
 
+const TENTH_RANK_PICKS = 2;
+
+/**
+ * A 10th-rank feature's two repertoire spells (ADR-0063): Magnum Opus, Bloodline Paragon and Oracular Clarity. The class
+ * table gives the single 10th-rank slot they cast from, and the slot never sizes the repertoire.
+ */
+function tenthRankPicks(entry: string): readonly object[] {
+  return [{ key: RuleElementKey.RepertoireCount, entry, rank: TENTH, value: TENTH_RANK_PICKS }];
+}
+
+/** The second 10th-rank slot a feat adds (Perfect Encore, Bloodline Perfection, Oracular Providence): a slot, no spell. */
+function secondTenthRankSlot(entry: string): readonly object[] {
+  return [slots({ entry, rank: TENTH, value: 1 }, 1)];
+}
+
 const DIVINE_FONT = 'divine-font';
 const FONT_SLOTS = 4;
 const FONT_FIRST_RAISE = 5;
@@ -140,6 +155,12 @@ export const SPELL_SLOTS: ReadonlyMap<string, readonly object[]> = new Map([
   // A sorcerer and an oracle cast from a repertoire with a slot more of each rank than a bard (Player Core 2).
   ['class-feature:sorcerer-spellcasting', classTable('sorcerer', SORCERER_NEW_RANK_SLOTS)],
   ['class-feature:oracle-spellcasting', classTable('oracle', SORCERER_NEW_RANK_SLOTS)],
+  ['class-feature:magnum-opus', tenthRankPicks('bard')],
+  ['class-feature:bloodline-paragon', tenthRankPicks('sorcerer')],
+  ['class-feature:oracular-clarity', tenthRankPicks('oracle')],
+  ['feat:perfect-encore', secondTenthRankSlot('bard')],
+  ['feat:bloodline-perfection', secondTenthRankSlot('sorcerer')],
+  ['feat:oracular-providence', secondTenthRankSlot('oracle')],
   ['class-feature:divine-font', DIVINE_FONT_SLOTS],
   ...CURRICULUM_SCHOOLS.map((school): [string, readonly object[]] => [`class-feature:${school}`, CURRICULUM_SLOTS]),
   ...['bard', 'cleric', 'druid', 'wizard'].flatMap((entry) => archetype(entry)),

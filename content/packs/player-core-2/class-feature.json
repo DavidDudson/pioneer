@@ -7384,7 +7384,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RepertoireCount",
+        "entry": "sorcerer",
+        "rank": 10,
+        "value": 2
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.feCnVrPPlKhl701x"
     },
@@ -17343,7 +17350,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RepertoireCount",
+        "entry": "oracle",
+        "rank": 10,
+        "value": 2
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.571c1aGnvNVwfF6b"
     },
