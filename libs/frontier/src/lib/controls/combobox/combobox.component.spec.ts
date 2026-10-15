@@ -239,6 +239,18 @@ describe(Combobox, () => {
       expect(rendered.searches).toStrictEqual(['Power']);
     });
 
+    it('emits every keystroke as typed, before the debounce', () => {
+      const rendered = render();
+      const typed: string[] = [];
+      rendered.fixture.componentInstance.typed.subscribe((text) => {
+        typed.push(text);
+      });
+      type(rendered, 'Pow');
+      type(rendered, 'Power');
+      expect(typed).toStrictEqual(['Pow', 'Power']);
+      expect(rendered.searches).toStrictEqual([]);
+    });
+
     it('drops a pending query on Escape', () => {
       const rendered = render();
       type(rendered, 'Pow');

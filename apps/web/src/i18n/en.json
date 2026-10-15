@@ -31,6 +31,23 @@
     },
     "footer": {
       "legal": "Legal"
+    },
+    "search": {
+      "label": "Search the content",
+      "placeholder": "Search content (press /)",
+      "kind": {
+        "action": "Action",
+        "armor": "Armor",
+        "consumable": "Consumable",
+        "equipment": "Equipment",
+        "feat": "Feat",
+        "kit": "Kit",
+        "rune": "Rune",
+        "shield": "Shield",
+        "spell": "Spell",
+        "treasure": "Treasure",
+        "weapon": "Weapon"
+      }
     }
   }
 }

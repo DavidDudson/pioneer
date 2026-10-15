@@ -1,0 +1,10 @@
+<fr-combobox
+  [options]="options()"
+  [loading]="loading()"
+  [placeholder]="Message.Placeholder | transloco"
+  [ariaLabel]="Message.Label | transloco"
+  (typed)="type($event)"
+  (searched)="search($event)"
+  (committed)="open()"
+  (cancelled)="cancel()"
+/>
