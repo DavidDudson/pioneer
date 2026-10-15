@@ -96,7 +96,7 @@ export async function writeOutput(
 }
 
 /** What to change in the catalog files so they load exactly the pack files now committed. */
-export async function registrationReport(): Promise<string> {
+async function registrationReport(): Promise<string> {
   const catalogs = await scan(CATALOG_PATTERN, CATALOG_DIRECTORY);
   const sources = await Promise.all(catalogs.map(async (file) => Bun.file(path.join(ROOT, file)).text()));
   const catalog = sources.join('\n');
@@ -116,7 +116,7 @@ export async function registrationReport(): Promise<string> {
  * carries Paizo's own misspellings, which `_typos.toml` allowlists as imported, so the import names them rather than
  * leaving them to fail CI.
  */
-export async function spellingReport(files: readonly string[]): Promise<string> {
+async function spellingReport(files: readonly string[]): Promise<string> {
   const checker = Bun.spawn(['typos', '--format', 'brief', ...files], { cwd: ROOT, stdout: 'pipe', stderr: 'pipe' });
   const [report, exited] = await Promise.all([new Response(checker.stdout).text(), checker.exited]);
   return exited === 0 ? '' : report.trim();
@@ -182,4 +182,16 @@ export async function applyRules(
   const files = await mergedEntryFiles(targets, merge);
   const written = await writeAndFormat([...files, cleared]);
   return { written, applied: merge.size };
+}
+
+/** What is left to do after a write: the catalog registration and the spelling `lint:workspace` would fail on. */
+export async function writeChecks(written: readonly string[]): Promise<string> {
+  const registration = await registrationReport();
+  const spelling = await spellingReport(written);
+  return [
+    registration === '' ? 'The catalog imports every pack file.' : registration,
+    spelling === ''
+      ? 'typos finds nothing in the written files.'
+      : `typos finds these in the written files; fix them, or allowlist Paizo's own spelling in _typos.toml:\n${spelling}`,
+  ].join('\n');
 }

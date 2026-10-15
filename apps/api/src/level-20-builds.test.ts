@@ -5,7 +5,7 @@ import { contentCatalog } from '@pioneer/rules/catalog';
 import { ContentRegistry } from '@pioneer/rules/sdk';
 
 import { level20Builds } from './level-20-build';
-import { deriveSheet, failedSelectors, UNFILLABLE } from './level-20-derive';
+import { deriveSheet, failedSelectors, unfillableSlots } from './level-20-derive';
 
 /** Time to load every pack and fill a build for every class. */
 const BUILD_TIMEOUT_MS = 60_000;
@@ -20,13 +20,13 @@ describe('level 20 builds', () => {
     expect(builds.length).toBeGreaterThan(0);
   });
 
-  describe.each(builds)('$name', ({ name, document }) => {
+  describe.each([...builds])('$name', ({ name, document }) => {
     test(
       'has no invalid slot, and no open one but those no build can fill yet',
       () => {
         const read = characterSlots(document, slots);
         expect(read.filter(({ status }) => status === SlotStatus.Invalid)).toEqual([]);
-        expect(read.filter(({ status }) => status === SlotStatus.Open)).toHaveLength(UNFILLABLE[name] ?? 0);
+        expect(read.filter(({ status }) => status === SlotStatus.Open)).toHaveLength(unfillableSlots(name));
       },
       BUILD_TIMEOUT_MS,
     );

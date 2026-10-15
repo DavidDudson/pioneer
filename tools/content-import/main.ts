@@ -48,14 +48,7 @@ import { BookId, PackId } from '@pioneer/rules/sdk';
 import { formatCoverage } from './coverage-table.ts';
 import { loadFoundryConfig } from './foundry-config-loader';
 import type { PackTargets } from './pack-writes.ts';
-import {
-  applyRules,
-  committedEntries,
-  previousImport,
-  registrationReport,
-  spellingReport,
-  writeOutput,
-} from './write-output.ts';
+import { applyRules, committedEntries, previousImport, writeChecks, writeOutput } from './write-output.ts';
 
 const ROOT = path.resolve(import.meta.dir, '../..');
 const CACHE = path.join(ROOT, '.data/foundry');
@@ -296,12 +289,5 @@ if (!dryRun && rulesOnly !== undefined) {
 } else if (!dryRun) {
   const written = await writeOutput(output, targets, pin);
   console.log([`Wrote ${written.length} files:`, ...written.map((file) => `  ${file}`)].join('\n'));
-  const registration = await registrationReport();
-  console.log(registration === '' ? 'The catalog imports every pack file.' : registration);
-  const spelling = await spellingReport(written);
-  console.log(
-    spelling === ''
-      ? 'typos finds nothing in the written files.'
-      : `typos finds these in the written files; fix them, or allowlist Paizo's own spelling in _typos.toml:\n${spelling}`,
-  );
+  console.log(await writeChecks(written));
 }
