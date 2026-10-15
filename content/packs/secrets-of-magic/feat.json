@@ -1,0 +1,4172 @@
+[
+  {
+    "id": "f3ae91b5-adb1-54da-baa3-46c1ba22e074",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:advanced-elemental-spell",
+    "name": "Advanced Elemental Spell",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["druid"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your connection to one of the great elemental aspects of nature deepens, allowing you further control over its powers."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain an advanced order spell associated with your order:"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "if you're a member of the flame order, you gain Combustion;"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "if you're a member of the stone order, you gain Stone Lance;"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "if you're a member of the storm order, you gain Powerful Inhalation;"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "if you're a member of the wave order, you gain Pulverizing Cascade."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Increase the number of Focus Points in your focus pool by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.DPk7a0cdFOjDOdn5"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "flame stone storm or wave order"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "5c84d395-7113-5e3a-bafb-c5c4d40630b2",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:attuned-stride",
+    "name": "Attuned Stride",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can move freely through terrain you're attuned to. When you gain a terrain attunement benefit, you ignore difficult terrain in the corresponding type of terrain until the end of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.bkX8v744C62W8hol"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Geomancer Dedication; expert in Nature"
+            }
+          ]
+        }
+      ],
+      "archetype": "54fb18c7-2ee9-5cea-8237-2ec9bb03f54a"
+    }
+  },
+  {
+    "id": "06731afc-61c6-5e13-aa00-1cac8dce37f4",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:attunement-shift",
+    "name": "Attunement Shift",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your previous action was to cast a spell with the air, cold, earth, fire, plant, or water trait."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The magic of your spell floods into you, overriding your connection to the land around you. You alter your terrain attunement to a terrain that matches a trait of the spell you just cast. You thereby gain your terrain attunement benefit when you cast further spells with the same descriptor, instead of using the terrain you're actually in. For instance, if you cast "
+          },
+          {
+            "type": "ref",
+            "id": "5ad9a64e-8b2e-5db4-8526-bc713e07778c"
+          },
+          {
+            "type": "text",
+            "text": ", your terrain attunement switches to your choice of forest or swamp, and your terrain attunement applies when you cast another plant spell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your terrain attunement reverts to that of the terrain you're in 1 minute after you use Attunement Shift."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.U1I87PGViGpGaP7D"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Geomancer Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "free",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Your previous action was to cast a spell with the air, cold, earth, fire, plant, or water trait."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "ten-minutes"
+        }
+      },
+      "archetype": "54fb18c7-2ee9-5cea-8237-2ec9bb03f54a"
+    }
+  },
+  {
+    "id": "10ac914a-017c-5046-87e0-16ed2110d5d5",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:basic-cathartic-spellcasting",
+    "name": "Basic Cathartic Spellcasting",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the Basic Spellcasting Feat benefits. Each time you gain a spell slot of a new rank from this archetype, add a spell of that spell rank from your chosen tradition to your repertoire-either a common spell or another spell you've learned or discovered."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.fVP8jX7yRUpyrcVO"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cathartic Mage Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "8ef61781-d691-5880-8225-9b4071016b4b"
+    }
+  },
+  {
+    "id": "cfa81544-c0df-5b2e-a3f2-caffa8385c43",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:basic-spellcasting",
+    "name": "Basic Spellcasting",
+    "level": 4,
+    "rarity": "rare",
+    "traits": ["pervasive-magic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You increase your ability to cast spells. You gain the Basic Spellcasting Feat benefits granted by spellcasting archetypes, gaining a spell repertoire. Each time you gain a spell slot of a new level from the basic, expert, and master spellcasting benefits from pervasive magic feats, add a spell of the appropriate spell rank to your repertoire: a common spell of the magical tradition matching your trait, or another spell of that tradition that you have learned or discovered."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.B5f7eCAC3ZEmlR9h"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cantrip Casting"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "275cade7-9f8b-5685-b394-12b68af72287",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:blazing-streak",
+    "name": "Blazing Streak",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["flourish", "monk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're in Stoked Flame Stance."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stride twice, making Strikes against up to four different creatures within reach at any point during your movement. Flashing sparks Strikes made during Blazing Streak deal fire damage instead of slashing."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.oltE3dIYZlM8s5BI"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Stoked Flame Stance"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "three",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You're in Stoked Flame Stance."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "bdccfd82-50e3-5507-ad24-d2de5e0bfc3c",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:cantrip-casting",
+    "name": "Cantrip Casting",
+    "level": 2,
+    "rarity": "rare",
+    "traits": ["pervasive-magic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You increase your ability to cast simple spells. You gain two additional cantrips from the tradition matching your trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.I2DGiMcof703Cnjc"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
+    "id": "93be3358-70b4-51f8-8451-b78274e9f920",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:cathartic-focus-spell",
+    "name": "Cathartic Focus Spell",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You learn the focus spell listed under your emotion's entry. You can cast it only while in emotional fervor. If you don't already have one, you gain a focus pool of 1 Focus Point, which you can Refocus while you use "
+          },
+          {
+            "type": "ref",
+            "id": "c5b44c5a-771b-57b0-b705-f0fe80a8182c"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.yqMBLt0GUTwiqnZT"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cathartic Mage Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "8ef61781-d691-5880-8225-9b4071016b4b"
+    }
+  },
+  {
+    "id": "f347ff98-5989-563b-8017-50e77fe2627f",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:cathartic-mage-dedication",
+    "name": "Cathartic Mage Dedication",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["archetype", "dedication"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've learned to harness a particular emotion and mix it into your magic. Choose an emotion to be your catharsis emotion."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you don't already cast spells from spell slots, you learn to cast spontaneous spells and gain the Cast a Spell activity. You gain a spell repertoire with one cantrip of your choice, from a spell list of your choice. You choose this cantrip from the common spells on your chosen spell list or from other spells to which you have access on that list. You're trained in spell attack rolls and spell DCs for that tradition. Your key spellcasting ability for these spells is Charisma."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you can already cast spells from spell slots, you learn one additional cantrip from your spellcasting tradition. If you're a prepared caster, you can prepare this spell in addition to your usual cantrips per day; if you're a spontaneous caster, you add this cantrip to your spell repertoire."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "2af4b844-0eba-5331-9556-91d226fab3ba"
+          },
+          {
+            "type": "text",
+            "text": " reaction and the "
+          },
+          {
+            "type": "ref",
+            "id": "c5b44c5a-771b-57b0-b705-f0fe80a8182c"
+          },
+          {
+            "type": "text",
+            "text": " activity."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Emotional States:",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anger"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Awe"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Dedication"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Fear"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Hatred"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Joy"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Love"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Misery"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Pride"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Remorse"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cathartic Mage"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "2af4b844-0eba-5331-9556-91d226fab3ba"
+      },
+      {
+        "key": "GrantItem",
+        "item": "c5b44c5a-771b-57b0-b705-f0fe80a8182c"
+      },
+      {
+        "key": "GrantItem",
+        "item": "a987e48c-e3a9-5483-ba08-295ea4fdfe5b"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.dkuY22d3yLUBcqhq"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Charisma +2 or ability to cast spells from spell slots"
+            }
+          ]
+        }
+      ],
+      "archetype": "8ef61781-d691-5880-8225-9b4071016b4b"
+    }
+  },
+  {
+    "id": "b7d8a0f3-79ca-5b98-8433-f0f4fdd31173",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:conflux-wellspring",
+    "name": "Conflux Wellspring",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["magus"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've achieved perfect magical and physical balance, allowing magic to flow into and through you more easily."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can recover 3 Focus Points when you "
+          },
+          {
+            "type": "ref",
+            "id": "f092ffed-f689-53f1-9c09-e48555974619"
+          },
+          {
+            "type": "text",
+            "text": " instead of 1 if you have spent at least 3 Focus Points since the last time you Refocused."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.o1Vo4PvU09UY8sj7"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Conflux Focus"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "82a7a543-35ca-5079-8c46-14e30ab59c79",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:disciple-of-shade",
+    "name": "Disciple of Shade",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've delved deeper into the mysteries of shadow and become blessed with magical power that increases your skills in the arts of deception and persuasion. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "44c32030-3b8b-517a-98eb-20983f35ad30"
+          },
+          {
+            "type": "text",
+            "text": " domain spell. Increase the number of Focus Points in your focus pool by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.TszXKspPffCzCD0X"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Shadowcaster Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "55620003-99ce-52f6-8a51-478bd8d17676"
+    }
+  },
+  {
+    "id": "b1bd434a-e517-5be2-a078-70a21234457f",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:draw-from-the-land",
+    "name": "Draw From the Land",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gained a terrain attunement benefit this turn, and it matched the terrain you're in."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You pull strength from the surrounding terrain. You gain temporary Hit Points equal to your level. They last for 1 round. If you previously gained the plains terrain attunement effect this turn, combine the temporary Hit Points together."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.HlqAdfxmcd9gdgHa"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Geomancer Dedication; expert in Nature"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You gained a terrain attunement benefit this turn, and it matched the terrain you're in."
+              }
+            ]
+          }
+        ],
+        "selfEffect": "29afb619-525f-5c1e-a143-a1ce7dafeeac"
+      },
+      "archetype": "54fb18c7-2ee9-5cea-8237-2ec9bb03f54a"
+    }
+  },
+  {
+    "id": "d2e898fe-8e6c-56cf-97c2-14f16d898f24",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:expert-cathartic-spellcasting",
+    "name": "Expert Cathartic Spellcasting",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the Expert Spellcasting Feat benefits."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "expert"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.IZFw3Do0kBdgwZX0"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Basic Cathartic Spellcasting"
+            }
+          ]
+        }
+      ],
+      "archetype": "8ef61781-d691-5880-8225-9b4071016b4b"
+    }
+  },
+  {
+    "id": "9c0c3ca8-a8d9-5881-82f3-e91b579f2d72",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:fiery-retort",
+    "name": "Fiery Retort",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["druid", "fire"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An opponent adjacent to you hits you with a melee weapon or a melee unarmed attack."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per minute"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ignoring your pain, you sear your attacker with a wave of flame. The triggering opponent takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "@level",
+                "damageType": "fire"
+              }
+            ],
+            "label": "fire damage"
+          },
+          {
+            "type": "text",
+            "text": " equal to your level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.6biVVoaqqUdQmQ37"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "flame order"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "An opponent adjacent to you hits you with a melee weapon or a melee unarmed attack."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "minute"
+        }
+      }
+    }
+  },
+  {
+    "id": "8ea77f58-34a0-5c42-b844-bc894bd5e778",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:fire-lung",
+    "name": "Fire Lung",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["druid"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A lifetime of proximity to flames has inured your lungs and eyes to smoke. You can breathe normally in areas of ash and smoke without risk of suffocation, and you ignore the "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " condition from smoke."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You need only a successful DC 10 flat check to recover from persistent fire damage, rather than DC 15 (and the DC when receiving particularly effective assistance is "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 5
+          },
+          {
+            "type": "text",
+            "text": " instead of 10)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.yOloZIGkulrrPYG4"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "flame order"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "03525313-8860-58cc-b482-24f7cf969d5d",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:fire-resistance",
+    "name": "Fire Resistance",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["druid"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your connection to heat and flame means that fire is reluctant to bring its full force to bear against you. You gain fire resistance equal to half your level, and you gain a +1 circumstance bonus to saving throws against fire effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["option:fire"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": "floor(@level / 2)"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.qbH9ns3HMYBxIvEQ"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "flame order"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "9afc6433-5bf8-5462-8c06-82f5449ef03c",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:flexible-spellcaster-dedication",
+    "name": "Flexible Spellcaster Dedication",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["archetype", "class", "dedication"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You now have four cantrips per day instead of three. At 4th level, you have five cantrips per day instead of four."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Flexible Spellcaster (Class Archetype)"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.CrS0iDwHmjKqvKti"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "flexible spell preparation"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "b14bc078-c689-57e5-b54d-9a11486ec899",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:geomancer-dedication",
+    "name": "Geomancer Dedication",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["archetype", "dedication"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You feel a deep connection to the world no matter where you are, a phenomenon known as \"terrain attunement.\" When you expend a spell slot to cast a spell with a trait that corresponds to the type of terrain you are currently in (as listed below), you gain the terrain attunement effect for that type of terrain. The GM might determine an attunement applies as long as it's prevalent enough around you. For instance, you might be in aquatic terrain on a riverbank or on a boat. Similarly, one place might count as multiple types of terrain, such as a mountain in the far north being both arctic and mountain. In this case, you choose only one terrain attunement effect, even if the spell has traits that would apply to each terrain type."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Certain terrain attunements affect your enemies instead of you. If they do, when you cast the spell you apply the listed effect to all enemies who are either adjacent to you, in the area of the spell, or targeted by the spell. These enemies receive the listed saving throw against your spell DC to attempt to avoid the effect."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Aquatic",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (water) You ride the currents of water. If you're in the water, you gain a swim Speed equal to your land Speed. If you're on a surface, temporary waves of water follow your movements, allowing you to use your swim Speed-if you have one-as your land Speed. This effect lasts one round."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Arctic",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (cold) Arctic rime covers your foes' bodies. Enemies must attempt a Fortitude save. They take a –5-foot status penalty to their Speeds for 2 rounds (-10-foot on a critical failure)."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Desert",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (fire) The scorching heat of the desert dehydrates your foes. Enemies must attempt a Fortitude save. On a failure, they're "
+                },
+                {
+                  "type": "ref",
+                  "id": "5e3582c3-701c-5169-9c69-4221096722c2"
+                },
+                {
+                  "type": "text",
+                  "text": " until they drink water or another potable liquid."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Forest",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (plant) Branches and vines reach out to get in your foes' way. Enemies must attempt a Reflex save. On a failure, they become "
+                },
+                {
+                  "type": "ref",
+                  "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+                  "label": "Clumsy 1"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 round ("
+                },
+                {
+                  "type": "ref",
+                  "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+                  "label": "Clumsy 2"
+                },
+                {
+                  "type": "text",
+                  "text": " on a critical failure)."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Mountain",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (earth) The rugged endurance of the mountain protects you from harm. You gain resistance to physical damage (except adamantine) equal to the spell rank for 1 round."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Plains",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (plant) The growing fields and pulsing vitality of the plains provide you vigor. You gain temporary Hit Points equal to the spell rank for 1 round."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Sky",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (air) A gust of wind carries you aloft. You can Fly up to 10 feet. If you're in the air at the end of the turn and don't have a fly Speed, you fall."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Swamp",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (plant) Your magic draws in noxious swamp gas to fumigate your foes. Affected foes take "
+                },
+                {
+                  "type": "ref",
+                  "id": "03f09f32-a6d0-56f8-995b-b80986c1e1dc",
+                  "label": "Persistent Poison Damage"
+                },
+                {
+                  "type": "text",
+                  "text": " equal to half the spell's rank (minimum 1 damage) with a basic Fortitude save."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Underground",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (earth) The endless darkness of the cavern depths opens up its secrets to your senses. For 1 round, you gain darkvision as well as imprecise tremorsense out to 15 feet."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Geomancer"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.E8SDesgMD6Zbye2j"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "trained in Nature; ability to cast spells from spell slots; at least one spell with the air, cold, earth, fire, plant, or water trait"
+            }
+          ]
+        }
+      ],
+      "archetype": "54fb18c7-2ee9-5cea-8237-2ec9bb03f54a"
+    }
+  },
+  {
+    "id": "420d81a9-a70c-56f7-8d64-e020f7d23c58",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:harden-flesh",
+    "name": "Harden Flesh",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["druid", "earth"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're standing on earthen or stone ground."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You fortify your skin with minerals drawn from earth and stone. You gain resistance 3 to physical damage, except adamantine, until the beginning of your next turn. At 12th level, and every 4 levels thereafter, the resistance increases by 1, to a maximum of resistance 6 at 20th level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.REgTwIVgI3j1FQiJ"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "stone order"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You're standing on earthen or stone ground."
+              }
+            ]
+          }
+        ],
+        "selfEffect": "3c8d7c35-fe40-5f2d-8598-82730de65b5b"
+      }
+    }
+  },
+  {
+    "id": "7580118e-083a-588f-a6bd-c57a01cfcafd",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:infectious-emotions",
+    "name": "Infectious Emotions",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you use "
+          },
+          {
+            "type": "ref",
+            "id": "2af4b844-0eba-5331-9556-91d226fab3ba"
+          },
+          {
+            "type": "text",
+            "text": ", one ally within 30 feet gains the catharsis activation benefits in addition to you. If these benefits require an emotional focus, they use your emotional focus as they're experiencing an empathic imprint of your emotions. Depending on the activation benefit, it might be impossible to grant it to an ally; for instance, pride could only have an effect for an ally if both you and the ally critically failed the same saving throw against the same effect."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.zybYSfeM0PLPpAaa"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cathartic Mage Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "8ef61781-d691-5880-8225-9b4071016b4b"
+    }
+  },
+  {
+    "id": "4a19ff0b-e830-5d67-8fe7-df16ac325f54",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:inner-fire-monk",
+    "name": "Inner Fire (Monk)",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["monk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While you're in Stoked Flame Stance, you have cold and fire resistance equal to half your level, and any creature that hits you with an unarmed attack, tries to Grab or Grapple you, or otherwise touches you takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "@attr.wis",
+                "damageType": "fire"
+              }
+            ],
+            "label": "fire damage"
+          },
+          {
+            "type": "text",
+            "text": " equal to your Wisdom modifier (minimum 1). A creature can take this damage no more than once per turn."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["cold", "fire"],
+        "value": "floor(@level / 2)",
+        "predicate": ["self:effect:stoked-flame-stance"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.PdQAAKtCW5dS9IYj"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Stoked Flame Stance"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "db53a3f7-e0e8-5e00-8082-6821e48c414a",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:interfering-surge",
+    "name": "Interfering Surge",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature you can see Casts a Spell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have an unexpended spell slot and can see the triggering spell's manifestations."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You overcharge the triggering spell with magic. You expend a spell slot and attempt to counteract the triggering spell using the energy of the expended slot. If the triggering spell is in your repertoire and the spell slot you expended was a high enough level to cast it, you take no penalty. Otherwise, you take a -2 penalty to the counteract check if the triggering spell was cast using the same magical tradition you cast, or a -5 penalty if it was cast using a different tradition."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the triggering spell is successfully counteracted, it creates a wellspring surge from its caster in addition to the normal effects of being counteracted. If it isn't counteracted, your expended spell slot creates a wellspring surge from you."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " This feat has the trait corresponding to the tradition of spells you cast (arcane, divine, primal, or occult)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.aWHOcGLA7AhX4xpm"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wellspring Mage Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You have an unexpended spell slot and can see the triggering spell's manifestations."
+              }
+            ]
+          }
+        ],
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "A creature you can see Casts a Spell."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "16f6a8d9-512e-5552-9376-92a6318e6c7c",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:magus-dedication",
+    "name": "Magus Dedication",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["archetype", "dedication", "multiclass"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You cast spells like a magus, gaining a spellbook with four common arcane cantrips of your choice. You gain the Cast a Spell activity. You can prepare two cantrips each day from your spellbook. You're trained in the spell attack modifier and spell DC statistics. Your key spellcasting attribute for magus archetype spells is Intelligence, and they are arcane magus spells. You become trained in Arcana; if you were already trained in Arcana, you instead become trained in a skill of your choice."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Magus"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:arcana",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:simple",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.TxKWgxor49xntDlU"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Strength or Dexterity +2; Intelligence +2"
+            }
+          ]
+        }
+      ],
+      "archetype": "87d3d585-2f68-56e4-a1cb-49efe132412c"
+    }
+  },
+  {
+    "id": "20bd4e47-a1c3-5168-b946-a1db2e6c87cd",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:master-cathartic-spellcasting",
+    "name": "Master Cathartic Spellcasting",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the Master Spellcasting Feat benefits."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "master"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.5NWZct5OvSiVvMn8"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Expert Cathartic Spellcasting"
+            }
+          ]
+        }
+      ],
+      "archetype": "8ef61781-d691-5880-8225-9b4071016b4b"
+    }
+  },
+  {
+    "id": "d24ae3c0-81d8-5269-ac9f-572837247c47",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:master-spellcasting",
+    "name": "Master Spellcasting",
+    "level": 18,
+    "rarity": "rare",
+    "traits": ["pervasive-magic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the Master Spellcasting Feat archetype benefits."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "master"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.NAgaDfwUSjPAon4o"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Expert Spellcasting"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "0ea2fc64-3396-544d-80a6-bf82ac346076",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:natural-swimmer",
+    "name": "Natural Swimmer",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["druid"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Water flows around you, letting you cut through the waves as if born to it. You gain a swim Speed of 15 feet. If you already have a permanent swim Speed, swimming up or down isn't difficult terrain."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:swim",
+        "mode": "upgrade",
+        "value": 15
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.epBOnfEDOd4V9mQ0"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "wave order"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "ade3556f-7a08-5d08-8e50-d0e5b4eeb37d",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:purifying-spell",
+    "name": "Purifying Spell",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["concentrate", "druid", "spellshape", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You purify the water within a creature's body to cleanse them of illness. If the next action you use is to cast "
+          },
+          {
+            "type": "ref",
+            "id": "949e0a89-f44b-598d-8adb-3d9d31db900e"
+          },
+          {
+            "type": "text",
+            "text": " targeting a single living creature, you can attempt to counteract a disease or poison affecting the target, in addition to the other benefits of "
+          },
+          {
+            "type": "text",
+            "text": "heal",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". If you do, "
+          },
+          {
+            "type": "text",
+            "text": "heal",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " gains the water trait."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:spell",
+          "item:slug:heal",
+          {
+            "lte": ["item:cast:actions", 2]
+          }
+        ],
+        "property": "traits",
+        "mode": "add",
+        "value": "water",
+        "predicate": ["spellshape:purifying-spell"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.VzQtyHSjq12E4Dzh"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "wave order"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one"
+      }
+    }
+  },
+  {
+    "id": "ab8da61a-11bd-59d8-bccc-aefadc60106d",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:pushing-attack",
+    "name": "Pushing Attack",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["evolution", "summoner"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon has an attack that pushes away enemies. Choose one of the eidolon's unarmed attacks with the shove trait. It gains the Push action for that attack."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.gdGusdEKt5zmh3rR"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
+    "id": "5520afc6-f7e7-5b21-9ea1-61bd1f1552b0",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:quickened-attunement",
+    "name": "Quickened Attunement",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["archetype", "concentrate", "spellshape"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your previous action was Attunement Shift."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If your next action is to cast a spell that would grant your terrain attunement bonus, reduce the number of actions to cast it by 1 (to a minimum of 1 action)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can't use Quickened Attunement and "
+          },
+          {
+            "type": "ref",
+            "id": "067d040b-2d81-5975-9ebb-5ecebc8e6bd8"
+          },
+          {
+            "type": "text",
+            "text": " in the same round."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.gqISxjbTtZSYndZ4"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Geomancer Dedication; legendary in Nature"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "free",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Your previous action was Attunement Shift."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "day"
+        }
+      },
+      "archetype": "54fb18c7-2ee9-5cea-8237-2ec9bb03f54a"
+    }
+  },
+  {
+    "id": "6242fbed-e0ec-50ae-93ca-b1b98274657d",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:read-the-land",
+    "name": "Read the Land",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've learned how to commune with the land to learn information. You learn the Commune ritual if you didn't know it already. You can perform this ritual with a casting time of 1 hour instead of 1 day and without a secondary caster."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.Gu8IAYxwNdQM603P"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Geomancer Dedication; master in Nature"
+            }
+          ]
+        }
+      ],
+      "archetype": "54fb18c7-2ee9-5cea-8237-2ec9bb03f54a"
+    }
+  },
+  {
+    "id": "0c939dbf-dac5-5d8f-9947-fdf82047d98e",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:reveal-true-name",
+    "name": "Reveal True Name",
+    "level": 1,
+    "rarity": "rare",
+    "traits": ["auditory", "concentrate", "emotion", "general", "mental", "skill", "true-name"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You attempt to get a creature to do as you wish by threatening them with your knowledge of their true name. You must know and speak the creature's true name and say what you want the creature to do. Attempt an "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:intimidation"
+          },
+          {
+            "type": "text",
+            "text": " check against the target's Will DC."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target does as you say out of a sense of self-preservation, and will not harm itself in any way. It becomes unfriendly (if it wasn't already unfriendly or hostile) but continues to comply for up to 1 day. The target is too scared of you to retaliate or flee, certain you would find them wherever they might go."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As critical success, but once the target becomes unfriendly, they avoid you and might act against you in an indirect manner, such as alerting your enemies to your location."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target refuses to comply and typically flees your presence to avoid your further use of their true name. If they were not already unfriendly or hostile, they become unfriendly. They avoid you in the future and are likely to take indirect action against you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target refuses to comply and becomes hostile, if it wasn't already. If they perceive you as weak, they might attack you; otherwise, they likely flee to avoid your further use of their true name."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.5s8FqK4YZTVOvP0v"
+    },
+    "data": {
+      "category": "skill",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "trained in Intimidation; trained in Arcana, Nature, Occultism, or Religion"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two"
+      }
+    }
+  },
+  {
+    "id": "d2fecede-84ae-5d1e-a733-e42135c7b8e5",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:rough-terrain-stance",
+    "name": "Rough Terrain Stance",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype", "stance"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gained a terrain attunement benefit this turn. You need to meet this requirement only to enter the stance, not to remain in it."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You enter a stance that makes it difficult to move around you. Each square adjacent to you becomes difficult terrain that matches the terrain attunement you gained (rime forms in an arctic terrain, momentary undergrowth shoots up in a forest terrain, and so on). You ignore this difficult terrain."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This stance ends if you move into a different type of terrain."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.O0POcPD2aELYTcIK"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Geomancer Dedication; expert in Nature"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You gained a terrain attunement benefit this turn. You need to meet this requirement only to enter the stance, not to remain in it."
+              }
+            ]
+          }
+        ],
+        "selfEffect": "549f2912-d468-52ac-8f64-31a8edfa4003"
+      },
+      "archetype": "54fb18c7-2ee9-5cea-8237-2ec9bb03f54a"
+    }
+  },
+  {
+    "id": "acd2862f-387f-536e-8bcd-2898a1f4f8aa",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:school-spell-redirection",
+    "name": "School Spell Redirection",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you Counterspell a spell with a school matching your specialization, if you critically succeed at your counteract check, or if you succeed while using a spell of a higher level than the spell you countered, you can redirect the spell you countered. You choose the target, area, and other aspects of the spell and use your own spell DC, spell attack roll, or other statistics as appropriate to determine the effects."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.ZB2WMbhALgQTGY3c"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Counterspell; Runelord Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "0698382f-266e-563a-badd-095f1e1a6844",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:secrets-of-shadow",
+    "name": "Secrets of Shadow",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your shadow's voice grows ever clearer; it whispers secrets of true power to you and shields your flesh from harm. Your shadow reservoir gains an additional spell 1 rank below the highest rank spell you can cast, in addition to the spells it already contains for all the levels below that."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In addition, the tattoos generated by casting shadow spells protect your body against harmful energies. You gain void resistance equal to the highest rank of spell you can cast from spell slots; if you have void healing (or are otherwise harmed by vitality damage and not void damage), you instead gain vitality resistance in the same amount."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.FA1s2jjZqoBy58Xx"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Shadow Reservoir"
+            }
+          ]
+        }
+      ],
+      "archetype": "55620003-99ce-52f6-8a51-478bd8d17676"
+    }
+  },
+  {
+    "id": "ff613dba-82a6-542e-93c5-77e5c0546fc1",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:shadow-reservoir",
+    "name": "Shadow Reservoir",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your own shadow speaks to you, providing knowledge of spells and a reservoir of magical power. Your shadow reservoir contains a single spell of each spell rank at least 2 levels lower than the highest-rank spell you can cast from your spell slots. This spell must come from your spell list, you must have access to it, and it must require a spell attack roll or a saving throw. These spells don't need to be prepared and aren't in your repertoire."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Regardless of the way in which you cast spells, you can spontaneously cast a spell from your shadow reservoir by using one of your spell slots of the same rank. If you're a prepared spellcaster, you lose the spell you prepared in that slot."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Spells cast from your shadow reservoir gain the shadow trait, and affected creatures might be able to disbelieve them. If the spell requires an attack roll, use the higher of the target's AC or their Will DC. If the spell requires a saving throw, the target uses their Will saving throw or the spell's normal saving throw, whichever is higher. Each time a creature fails its saving throw against a spell cast from your reservoir, you gain a small tattoo inked on your flesh out of pure shadowstuff."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you have more than one source of spells you can cast with spell slots, such as if you're a spellcaster with a multiclass archetype, choose one source of spells for your shadow reservoir."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.RLWbx2itF1jmW0OL"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "ability to cast spells from spell slots; Shadowcaster Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "55620003-99ce-52f6-8a51-478bd8d17676"
+    }
+  },
+  {
+    "id": "af7b42a6-f5aa-5c13-bb62-52c260598832",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:shadow-spell",
+    "name": "Shadow Spell",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype", "shadow", "spellshape"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You attach a piece of your shadow to a spell to cloud the senses and cause mischief. If the next action you take is to Cast a Spell that has the shadow trait, choose one creature affected by the spell. This creature either gains a +2 status bonus to Stealth or takes a -2 status penalty to Perception (your choice). This lasts for 1 round. This choice and the effect occur after resolving any checks for the spell's initial effects. If the chosen creature is your enemy, it's affected only if your spell attack roll succeeded or if it failed its saving throw."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The effects of "
+          },
+          {
+            "type": "text",
+            "text": "Shadow Spell",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " end if you use "
+          },
+          {
+            "type": "text",
+            "text": "Shadow Spell",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " again."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.eGgSGU1LOaRNRYR7"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Shadowcaster Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one"
+      },
+      "archetype": "55620003-99ce-52f6-8a51-478bd8d17676"
+    }
+  },
+  {
+    "id": "11f55f10-45c4-5662-a3e6-8d6ee2fcdc1c",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:shadow-spells",
+    "name": "Shadow Spells",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Hidden darkness whispers to you, teaching you secrets of shadow beyond other spellcasters of your tradition. Add "
+          },
+          {
+            "type": "ref",
+            "id": "e1332e15-0861-56f8-95f5-7749561ac8ae"
+          },
+          {
+            "type": "text",
+            "text": ", Shadow Siphon, and "
+          },
+          {
+            "type": "ref",
+            "id": "0a99e0bd-3ca9-579f-afaf-23a331e40c93"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "be0c9bfb-41e4-51b2-8f30-ec74e5d2043d"
+          },
+          {
+            "type": "text",
+            "text": ", Shadow Army, Shadow Projectile, and Shadow Raid to your spell list. You can thus potentially learn these spells even if they aren't normally on your tradition's spell list."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.f69C05QokaBrDFjn"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Shadowcaster Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "55620003-99ce-52f6-8a51-478bd8d17676"
+    }
+  },
+  {
+    "id": "31044388-b605-5795-8096-a8e7f7c13e50",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:shadowcaster-dedication",
+    "name": "Shadowcaster Dedication",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["archetype", "dedication"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've sacrificed a piece of your spirit, allowing the powers of shadow into your being and changing the nature of your magic. You can no longer cast spells that have the light trait; if an ability, such as a class feature or ancestry feat, would automatically grant you a light spell, such as the "
+          },
+          {
+            "type": "ref",
+            "id": "88972cb4-f358-5ce0-9162-98849d6d141a"
+          },
+          {
+            "type": "text",
+            "text": " feat granting you the "
+          },
+          {
+            "type": "ref",
+            "id": "ed738ff6-31d4-5abd-b34c-d55a9ab1d707"
+          },
+          {
+            "type": "text",
+            "text": " spell, you don't gain that spell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "255481ad-86d6-55d4-8d42-f17cad08a231"
+          },
+          {
+            "type": "text",
+            "text": " domain spell. It costs 1 Focus Point to cast a focus spell. This feat grants a focus pool of 1 Focus Point that you can recover using the "
+          },
+          {
+            "type": "ref",
+            "id": "f092ffed-f689-53f1-9c09-e48555974619"
+          },
+          {
+            "type": "text",
+            "text": " activity. You can Refocus by meditating to siphon power from the Shadow Plane and refill your focus pool. Your domain spells from the shadowcaster archetype are of the same tradition as the spells you used to meet the shadowcaster archetype's prerequisites."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Shadowcaster"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.ncrNQcwm4gOQRAA3"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "ability to cast spells"
+            }
+          ]
+        }
+      ],
+      "archetype": "55620003-99ce-52f6-8a51-478bd8d17676"
+    }
+  },
+  {
+    "id": "e5f990be-8106-596f-8183-b9219b0c92f2",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:shared-attunement",
+    "name": "Shared Attunement",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you would gain a benefit from your terrain attunement, you can grant it to one ally within 30 feet instead of yourself. This has no effect if the terrain attunement affects your foes instead of granting you a benefit."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.pfF5UzT1MLW3KwHd"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Geomancer Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "54fb18c7-2ee9-5cea-8237-2ec9bb03f54a"
+    }
+  },
+  {
+    "id": "b3308df2-211d-570f-8564-6292aa618633",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:sheltering-cave",
+    "name": "Sheltering Cave",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["druid", "earth", "exploration", "primal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're standing on ground composed of earth, stone, or a similar material."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You spend 10 minutes communing with spirits of earth and stone, requesting shelter. At the end of this time, the earth rises and opens, forming a small cave or earthen mound 20 feet in diameter and 10 feet high. This cave has the structure trait and the same restrictions as structures created by magic items. The cave has a single entrance and provides shelter from the elements."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The cave remains for 12 hours or until you spend 10 minutes coaxing the earth to close."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.RzElsoBGTjKWjPgY"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "stone order"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You're standing on ground composed of earth, stone, or a similar material."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "baec8a32-fff3-5d5b-b4bd-03fe5e0a2018",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:shifting-terrain",
+    "name": "Shifting Terrain",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your terrain attunement matches the terrain you're in and you're in Rough Terrain Stance."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You slam your fist into the ground or twirl your arms about to cause the terrain around you to shift and ripple, potentially throwing others off balance. Each creature within your area of difficult terrain from Rough Terrain Stance must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex"
+          },
+          {
+            "type": "text",
+            "text": " saving throw against your spell DC with the following effects."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After you use this action, you can't use it again for 1d4 rounds."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 2"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is clumsy 2 for 1 round and falls "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.SA8rnheHFtjkATrJ"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Rough Terrain Stance; master in Nature"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Your terrain attunement matches the terrain you're in and you're in Rough Terrain Stance."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "54fb18c7-2ee9-5cea-8237-2ec9bb03f54a"
+    }
+  },
+  {
+    "id": "728a3589-96b1-53c3-9922-82968b7d045d",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:shore-step",
+    "name": "Shore Step",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["druid"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The shallows and tide pools have always called to you and let you pass unhindered. You ignore difficult terrain resulting from shallow water."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In addition, if you roll a success on an Acrobatics check to "
+          },
+          {
+            "type": "ref",
+            "id": "6fb6b45a-8b16-55e4-ba53-e23a62359b56"
+          },
+          {
+            "type": "text",
+            "text": " on a slippery or wet surface, or on an Athletics check to "
+          },
+          {
+            "type": "ref",
+            "id": "890ca16b-87be-53af-b93c-ffddb037a2f8"
+          },
+          {
+            "type": "text",
+            "text": ", you get a critical success instead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.kS4wxSKrZxcOvSNK"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "wave order"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "f6e9c4ec-8911-5686-af20-2498dcbde579",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:signature-synergy",
+    "name": "Signature Synergy",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon gains an evolution integral to its form, and it comes more easily than your other synergies. You gain one evolution feat from the following list:"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Airborne Form"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Burrowing Form"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ever-Vigilant Senses"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Hulking Size"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For the purpose of meeting its prerequisites, your summoner level is equal to your character level - 4."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.AiDelwfA0uVT2lN3"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Advanced Synergy"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "dcb93568-4661-59d8-ac13-ea6deb921122",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:spell-parry",
+    "name": "Spell Parry",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["magus"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have one or more hands free."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You infuse magical power into your body or armaments to parry both physical and magical assaults."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You raise your guard, gaining a +1 circumstance bonus to AC and to saving throws against spells that target you until the start of your next turn, as long as you continue to meet the requirements."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.X9AkydrMdFwg7qIn"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "one",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You have one or more hands free."
+              }
+            ]
+          }
+        ],
+        "selfEffect": "1c8b30c9-2115-57a2-bfb1-62015cd30622"
+      }
+    }
+  },
+  {
+    "id": "e1d98573-0746-54ea-bd72-5ab8f0ef4165",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:steadying-stone",
+    "name": "Steadying Stone",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["druid"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The earth has taught you how to remain unyielding and firm. If you roll a success on an Acrobatics check made to "
+          },
+          {
+            "type": "ref",
+            "id": "6fb6b45a-8b16-55e4-ba53-e23a62359b56"
+          },
+          {
+            "type": "text",
+            "text": " on uneven ground composed of earth or rock, you get a critical success instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As long as you remain on the ground, you gain a +2 circumstance bonus to your Fortitude or Reflex DC against attempts to Shove or Trip you. This bonus also applies to saving throws against spells or effects that would attempt to knock you prone. If you're a rock dwarf, this bonus increases to +3."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.QEOe9AhQzdqIx1ei"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "stone order"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "dab1113f-ff60-5313-ade2-9ca50d5c1ee4",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:stoked-flame-stance",
+    "name": "Stoked Flame Stance",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["fire", "monk", "stance"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're unarmored."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You enter a stance of fast, fiery movements. You can make flashing spark attacks that deal 1d8 slashing damage. They are in the brawling group and have the forceful, nonlethal, sweep, and unarmed traits. If you have access to the flashing sparks' critical specialization effect, you can take an alternate effect instead: if your critical Strike dealt damage, the target takes 1d6 persistent fire damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While in Stoked Flame Stance, you gain a +5-foot status bonus to your Speed. If you have incredible movement, increase the benefit from incredible movement to a +15-foot status bonus plus 5 feet for every 4 levels beyond 3rd."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " This feat gains your choice of either the divine or occult trait, matching your ki spell tradition if possible."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.GuEdTz1VMEptQnOd"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "one",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You're unarmored."
+              }
+            ]
+          }
+        ],
+        "selfEffect": "823e5b21-5c9d-547a-8005-95c2f9f70473"
+      }
+    }
+  },
+  {
+    "id": "0a2d04ad-b1ff-5ca8-9f06-f618712dd54d",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:terrain-shield",
+    "name": "Terrain Shield",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A Strike would damage you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gained a terrain attunement benefit since the start of your most recent turn and that attunement matches the terrain you're in."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're so attuned to the land that it rises up to protect you from a potentially fatal blow in a seeming coincidence. For instance, a branch suddenly falls from a nearby tree to take the brunt of a sword swing or a surprising change of current disrupts an enemy's attack. You gain resistance to physical damage equal to double your level against the triggering Strike."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "a41005db-9871-5659-a0dc-48e7873565e5"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.TNRB8IY6Wtk9BoMp"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Geomancer Dedication; master in Nature"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You gained a terrain attunement benefit since the start of your most recent turn and that attunement matches the terrain you're in."
+              }
+            ]
+          }
+        ],
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "A Strike would damage you."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "ten-minutes"
+        }
+      },
+      "archetype": "54fb18c7-2ee9-5cea-8237-2ec9bb03f54a"
+    }
+  },
+  {
+    "id": "713d43d7-3c8b-55cd-b8aa-8e62c9e3601d",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:unending-emptiness",
+    "name": "Unending Emptiness",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You pool the power of shadow within your eyes, gaining the ability to gather darkness into a turbulent orb of crushing emptiness within your line of sight. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "199aae58-d9c6-503e-b195-f29a1a3ffade"
+          },
+          {
+            "type": "text",
+            "text": " domain spell. Increase the number of Focus Points in your focus pool by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.q0DGOuLuJNLzgM8d"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "focus pool; Shadowcaster Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "55620003-99ce-52f6-8a51-478bd8d17676"
+    }
+  },
+  {
+    "id": "7b9d5883-8ea4-5370-9db7-b3f56afef027",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:urgent-upwelling",
+    "name": "Urgent Upwelling",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An enemy reduces you to 0 HP, an enemy critically hits you, or you critically fail a saving throw against an enemy's effect."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Defeat lets you to tap into your wellspring. Attempt the flat check for wellspring magic. If you critically succeed, you can choose to forgo gaining a temporary spell slot to instead have the triggering enemy undergo a wellspring surge. This surge functions just as it would for you, the only difference being that it emits from the enemy."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.TCLDccG80M5GeqGw"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wellspring Mage Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "An enemy reduces you to 0 HP, an enemy critically hits you, or you critically fail a saving throw against an enemy's effect."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "ten-minutes"
+        }
+      }
+    }
+  },
+  {
+    "id": "63bcf7c4-d641-5edb-8e98-cf84a0e9c8b0",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:wellspring-control",
+    "name": "Wellspring Control",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype", "fortune"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you generate a wellspring surge, roll twice on the Wellspring Surges table and take the result of your choice. This doesn't apply when you cause another creature to generate a wellspring surge."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.7nnEtLdUKmDljdhm"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wellspring Mage Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "9a00d534-3021-58ec-a72d-96890cb55a91",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:wellspring-mage-dedication",
+    "name": "Wellspring Mage Dedication",
+    "level": 2,
+    "rarity": "rare",
+    "traits": ["archetype", "class", "dedication"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "There's no longer a limit on how many temporary spell slots you can gain per day from wellspring magic."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can't select another dedication feat until you gain two other feats from the Wellspring Mage archetype."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.Zyb3RMGyhsKfTjEG"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "wellspring magic"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "f357891a-9599-5bc8-a16a-36046dc66c0c",
+    "pack": "secrets-of-magic",
+    "kind": "feat",
+    "slug": "feat:work-yourself-up",
+    "name": "Work Yourself Up",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype", "concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have a reaction available and aren't prevented from using "
+          },
+          {
+            "type": "ref",
+            "id": "2af4b844-0eba-5331-9556-91d226fab3ba"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You concentrate on your mental state, tapping into that raw emotional energy. Take your Catharsis reaction, causing the catharsis activation and entering your emotional fervor as normal. The fervor lasts only until the end of your turn. At the end of your emotional fervor, you experience the effects of your emotional fallout, as normal."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.kQfqJLpKOPORq7I6"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cathartic Mage Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You have a reaction available and aren't prevented from using "
+              },
+              {
+                "type": "ref",
+                "id": "2af4b844-0eba-5331-9556-91d226fab3ba"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "8ef61781-d691-5880-8225-9b4071016b4b"
+    }
+  }
+]

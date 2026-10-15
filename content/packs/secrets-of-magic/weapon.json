@@ -1,0 +1,640 @@
+[
+  {
+    "id": "95c824d9-906c-5639-b9b8-c76d0f580604",
+    "pack": "secrets-of-magic",
+    "kind": "weapon",
+    "slug": "weapon:buzzsaw-axe",
+    "name": "Buzzsaw Axe",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["magical", "sweep"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "With an aerodynamic cutting edge and a curved handle, this "
+          },
+          {
+            "type": "text",
+            "text": "+2 striking battle axe",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is perfectly suited to whirling motions, and in fact seems like it wants to whirl free from your grip. A Strike with this axe that benefits from the sweep trait's circumstance bonus on attack rolls also gains a +2 circumstance bonus to the damage roll."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " command, Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You hurl the axe, which spins at great speed as it flies to a distant point and returns to you, leaving a trail of carnage. Each creature in a "
+          },
+          {
+            "type": "template",
+            "shape": "line",
+            "size": 120
+          },
+          {
+            "type": "text",
+            "text": " must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 28,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save or take damage equal to the weapon's melee damage, including your Strength modifier."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.aBfyzL0WBFMBAbuI"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1400
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "buzzsaw-axe",
+          "name": "Buzzsaw Axe",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "axe",
+      "baseItem": "battle-axe",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "157dbf15-0060-5501-9f76-165c0d6c8cff",
+    "pack": "secrets-of-magic",
+    "kind": "weapon",
+    "slug": "weapon:buzzsaw-axe-greater",
+    "name": "Buzzsaw Axe (Greater)",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["magical", "sweep"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "With an aerodynamic cutting edge and a curved handle, this "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater striking battle axe",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is perfectly suited to whirling motions, and in fact seems like it wants to whirl free from your grip. A Strike with this axe that benefits from the sweep trait's circumstance bonus on attack rolls also gains a +3 circumstance bonus to the damage roll."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " command, Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You hurl the axe, which spins at great speed as it flies to a distant point and returns to you, leaving a trail of carnage. Each creature in a "
+          },
+          {
+            "type": "template",
+            "shape": "line",
+            "size": 120
+          },
+          {
+            "type": "text",
+            "text": " must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 34,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save or take damage equal to the weapon's melee damage, including your Strength modifier."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.mXlVJIxv6EpzwTJs"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6250
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "buzzsaw-axe-greater",
+          "name": "Buzzsaw Axe (Greater)",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "axe",
+      "baseItem": "battle-axe",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "25153202-23b5-54be-997d-88a6590628b8",
+    "pack": "secrets-of-magic",
+    "kind": "weapon",
+    "slug": "weapon:buzzsaw-axe-major",
+    "name": "Buzzsaw Axe (Major)",
+    "level": 20,
+    "rarity": "common",
+    "traits": ["magical", "sweep"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "With an aerodynamic cutting edge and a curved handle, this "
+          },
+          {
+            "type": "text",
+            "text": "+3 major striking battle axe",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is perfectly suited to whirling motions, and in fact seems like it wants to whirl free from your grip. A Strike with this axe that benefits from the sweep trait's circumstance bonus on attack rolls also gains a +4 circumstance bonus to the damage roll."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " command, Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You hurl the axe, which spins at great speed as it flies to a distant point and returns to you, leaving a trail of carnage. Each creature in a "
+          },
+          {
+            "type": "template",
+            "shape": "line",
+            "size": 120
+          },
+          {
+            "type": "text",
+            "text": " must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 43,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save or take damage equal to the weapon's melee damage, including your Strength modifier."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.D2CnWGQ84bSjh5bz"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 65000
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "buzzsaw-axe-major",
+          "name": "Buzzsaw Axe (Major)",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "axe",
+      "baseItem": "battle-axe",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 3,
+        "striking": 3,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "5df53e66-891d-5cf8-a7c9-31b1fe9bfdd0",
+    "pack": "secrets-of-magic",
+    "kind": "weapon",
+    "slug": "weapon:guiding-star",
+    "name": "Guiding Star",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["agile", "deadly-d6", "divine", "finesse", "holy", "thrown-20", "versatile-s"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This +1 striking returning starknife is made of dark blue metal overlaid with smoky flecks of fused quartz. When you Cast an evocation Spell, your next attack this turn with this starknife reduces the target's cover, changing greater cover to standard cover or ignoring standard and lesser cover."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You successfully Strike a creature with a thrown Strike with guiding star"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Soft light outlines the target. At the beginning of your next turn, the guiding star's blades detach and form into darts of starlight, flying up to 40 feet and striking the target unerringly, collectively dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1",
+                "damageType": "spirit"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage before re-forming. The piercing damage increases to "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with a greater striking rune and "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "8",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with a major striking rune."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.atB2ewbcBMWvhjNT"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 325
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "guiding-star",
+          "name": "Guiding Star",
+          "frequency": {
+            "max": 1,
+            "per": "ten-minutes"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "knife",
+      "baseItem": "starknife",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": ["55822cf6-140a-55d9-9015-60f75cd52e5a"]
+      }
+    }
+  }
+]

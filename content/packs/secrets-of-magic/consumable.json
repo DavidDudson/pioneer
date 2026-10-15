@@ -1,0 +1,149 @@
+[
+  {
+    "id": "a39f09be-d851-5909-b632-3bfcd87c5939",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:potion-of-shared-life",
+    "name": "Potion of Shared Life",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Two swirling liquids fill this flask, each slightly distinct in color and brightness from the other. When you drink this potion, you consume only half of the contents. If another willing creature consumes the remainder of the contents within 1 minute, your vitalities become linked for 1 minute from the moment the second one of you drinks. The two of you share breath, so as long as you're within 60 feet of one another, neither of you can begin suffocating unless you're both suffocating. You both gain the "
+          },
+          {
+            "type": "ref",
+            "id": "267d8f5b-1402-5461-8331-26f629feb3fe"
+          },
+          {
+            "type": "text",
+            "text": " reaction."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ezSqiHhz2OYTzoF2"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 95
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "fb3df6df-ba62-5fb6-8368-8c2c392ed20a",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:shortbread-spy",
+    "name": "Shortbread Spy",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "scrying"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute (Interact)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Though this item looks like a simple cookie in the shape of a humanoid, it springs to life once decorated with icing or other edible substances. The cookie then scrambles away at a Speed of 15 feet, returning to the same spot about 1 hour later, which gives it enough time to travel roughly a half-mile away and then return along the same path. The cookie spy is oblivious to your instructions and can't be given directions, instead following a path of its own choosing. Upon its return, it falls to the ground, never to move again."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As long as you decorated the shortbread spy with eyes, it gains normal vision, which it uses to see and magically record the sights along its path. Any creature that eats the cookie once it returns can then see what the spy saw. The images are relatively clear, but the passage of time is a bit muddied, so it might be difficult to tell when the cookie witnessed a given sight."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.sM0Cbkn8cQN4pUsp"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 40
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  }
+]

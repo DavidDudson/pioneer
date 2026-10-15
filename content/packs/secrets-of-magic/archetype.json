@@ -1,0 +1,257 @@
+[
+  {
+    "id": "8ef61781-d691-5880-8225-9b4071016b4b",
+    "pack": "secrets-of-magic",
+    "kind": "archetype",
+    "slug": "archetype:cathartic-mage",
+    "name": "Cathartic Mage",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Emotions are powerful, and you can tap into that power to enhance your magic for a time. You learn to harness a particular emotional state under the right conditions, but be warned: emotions are volatile and destructive if left unchecked. The experience often leaves you reeling from the unhindered emotion, requiring a rest or distraction before tapping into it again."
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Emotional Focus"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "Some emotional states, such as love or hatred, require the caster to focus on a specific individual called their emotional focus. Your emotional focus can change over time with you choosing a new focus after an important part of your story is resolved. Work with your GM to determine when this change happens. An emotional focus doesn't get a say in the matter; the cathartic spellcaster's emotions determine the bond. However, making another PC your emotional focus could result in an uncomfortable social dynamic. You should check with that PC's player in advance to see if such a link is acceptable."
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.EWiUv3UiR3RHSGlA"
+    },
+    "data": {
+      "dedication": "f347ff98-5989-563b-8017-50e77fe2627f"
+    }
+  },
+  {
+    "id": "54fb18c7-2ee9-5cea-8237-2ec9bb03f54a",
+    "pack": "secrets-of-magic",
+    "kind": "archetype",
+    "slug": "archetype:geomancer",
+    "name": "Geomancer",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You know how to draw power from the land around you, no matter the terrain, by attuning your magic to match its mystical properties."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You might be a druid with an elemental focus (such as the flame, stone, or wave orders) or a naturalist with a touch of magic at your disposal. You could concentrate on a single type of terrain to wring every last drop of power from it or choose to wander the land to experience every type of terrain possible."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.I6FbkKYncDuu7eWq"
+    },
+    "data": {
+      "dedication": "b14bc078-c689-57e5-b54d-9a11486ec899"
+    }
+  },
+  {
+    "id": "87d3d585-2f68-56e4-a1cb-49efe132412c",
+    "pack": "secrets-of-magic",
+    "kind": "archetype",
+    "slug": "archetype:magus",
+    "name": "Magus",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've learned to mix physical combat with spellcasting."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.r79jab1XgOdcgvKJ"
+    },
+    "data": {
+      "dedication": "16f6a8d9-512e-5552-9376-92a6318e6c7c"
+    }
+  },
+  {
+    "id": "55620003-99ce-52f6-8a51-478bd8d17676",
+    "pack": "secrets-of-magic",
+    "kind": "archetype",
+    "slug": "archetype:shadowcaster",
+    "name": "Shadowcaster",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The world is full of shadows, but each living creature possesses a form of inner light to ward against that ever-present darkness… all except shadowcasters. By trading away that piece of their spirit, shadowcasters have removed a limiter, allowing them to gain magical power rooted in the darkness; however, this trade also exposes them to otherworldly whispers from the realms of shadow."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "4th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Familiar; "
+          },
+          {
+            "type": "text",
+            "text": "6th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Enhanced Familiar; "
+          },
+          {
+            "type": "text",
+            "text": "12th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Shadow Magic; "
+          },
+          {
+            "type": "text",
+            "text": "14th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Additional Shadow Magic, Shadow Illusion; "
+          },
+          {
+            "type": "text",
+            "text": "16th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Shadow Power"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.wHs6IGCMaXsgFNop"
+    },
+    "data": {
+      "dedication": "31044388-b605-5795-8096-a8e7f7c13e50"
+    }
+  }
+]

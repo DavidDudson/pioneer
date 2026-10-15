@@ -1,0 +1,20 @@
+[
+  {
+    "id": "c8883485-32c8-5422-b7ed-a58f2b160eae",
+    "pack": "core-rules",
+    "kind": "sense",
+    "slug": "sense:thoughtsense",
+    "name": "Thoughtsense",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  }
+]

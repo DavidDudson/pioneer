@@ -81,6 +81,8 @@ describe('LegalPage', () => {
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
+      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
+      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e',
     ]);
   });
@@ -98,11 +100,15 @@ describe('LegalPage', () => {
       'Howl of the Wild',
       'War of Immortals',
       'Lost Omens The Mwangi Expanse',
+      'Secrets of Magic',
+      'Rage of Elements',
     ]);
-    for (const book of books.slice(0, -1)) {
+    for (const book of books.slice(0, -3)) {
       expect(book.textContent).toContain('Paizo · ORC License');
     }
-    expect(books.at(-1)?.textContent).toContain('Paizo · Open Game License 1.0a');
+    for (const book of books.slice(-3)) {
+      expect(book.textContent).toContain('Paizo · Open Game License 1.0a');
+    }
   });
 
   it('names the Foundry release each official pack was imported from, and that it has been edited since', async () => {
@@ -118,6 +124,8 @@ describe('LegalPage', () => {
       expect.stringMatching(/^Howl of the Wild\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^War of Immortals\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^Lost Omens The Mwangi Expanse\s*Foundry release pf2e-8\.6\.0$/u),
+      expect.stringMatching(/^Secrets of Magic\s*Foundry release pf2e-8\.6\.0$/u),
+      expect.stringMatching(/^Rage of Elements\s*Foundry release pf2e-8\.6\.0$/u),
     ]);
     expect(foundry.textContent).toContain('then corrected and enriched by Pioneer contributors');
   });

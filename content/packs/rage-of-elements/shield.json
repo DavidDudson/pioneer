@@ -1,0 +1,1191 @@
+[
+  {
+    "id": "a948bd85-b584-50dd-9e1c-03f9f7052127",
+    "pack": "rage-of-elements",
+    "kind": "shield",
+    "slug": "shield:broadleaf-shield",
+    "name": "Broadleaf Shield",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["magical", "plant", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Though it resembles an enormous leaf freshly plucked from a tree, a "
+          },
+          {
+            "type": "text",
+            "text": "broadleaf shield",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is extremely durable. It also regrows rapidly, fully repairing itself when broken if it's left in sunlight for 10 consecutive minutes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At each dawn, the leaf transforms to an appearance appropriate for the season. While you're wielding the shield, you gain resistance 3 to a damage type depending on the shield's color. This resistance doubles while you have the shield raised."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Pink",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (void resistance) In spring, the leaf is a delicate blossom-like pink and exudes the energy of life."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Green",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (fire resistance) In summer, the leaf is a deep, rich green with a waxy coating."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Orange",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (poison resistance) In autumn, the leaf turns orange, red, or yellow and dehydrates slightly."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Brown",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (cold resistance) In winter, the leaf turns dead, dry, and brown."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate - Change Season",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The shield transforms as though living through seasons in a moment, becoming the color of your choice for 5 minutes."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:broadleaf-shield-resistance",
+        "toggleable": true,
+        "suboptions": [
+          {
+            "value": "void",
+            "label": "Pink (Void)"
+          },
+          {
+            "value": "fire",
+            "label": "Green (Fire)"
+          },
+          {
+            "value": "poison",
+            "label": "Orange (Poison)"
+          },
+          {
+            "value": "cold",
+            "label": "Brown (Cold)"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.dMaWOT9su0Aw5NCc"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 225
+        }
+      },
+      "bulk": "light",
+      "hardness": 4,
+      "hitPoints": 16,
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "457090ca-c648-5d77-8f6c-e30e265efca2",
+    "pack": "rage-of-elements",
+    "kind": "shield",
+    "slug": "shield:broadleaf-shield-greater",
+    "name": "Broadleaf Shield (Greater)",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["magical", "plant", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Though it resembles an enormous leaf freshly plucked from a tree, a "
+          },
+          {
+            "type": "text",
+            "text": "broadleaf shield",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is extremely durable. It also regrows rapidly, fully repairing itself when broken if it's left in sunlight for 10 consecutive minutes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At each dawn, the leaf transforms to an appearance appropriate for the season. While you're wielding the shield, you gain resistance 4 to a damage type depending on the shield's color. This resistance doubles while you have the shield raised."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Pink",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (void resistance) In spring, the leaf is a delicate blossom-like pink and exudes the energy of life."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Green",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (fire resistance) In summer, the leaf is a deep, rich green with a waxy coating."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Orange",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (poison resistance) In autumn, the leaf turns orange, red, or yellow and dehydrates slightly."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Brown",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (cold resistance) In winter, the leaf turns dead, dry, and brown."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate - Change Season",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The shield transforms as though living through seasons in a moment, becoming the color of your choice for 5 minutes."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:broadleaf-shield-resistance",
+        "toggleable": true,
+        "suboptions": [
+          {
+            "value": "void",
+            "label": "Pink (Void)"
+          },
+          {
+            "value": "fire",
+            "label": "Green (Fire)"
+          },
+          {
+            "value": "poison",
+            "label": "Orange (Poison)"
+          },
+          {
+            "value": "cold",
+            "label": "Brown (Cold)"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.6bC6RAZddiv8Io6w"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 675
+        }
+      },
+      "bulk": "light",
+      "hardness": 6,
+      "hitPoints": 24,
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "8dee07e8-e93a-5ba6-ba05-588dda22dce7",
+    "pack": "rage-of-elements",
+    "kind": "shield",
+    "slug": "shield:broadleaf-shield-major",
+    "name": "Broadleaf Shield (Major)",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["magical", "plant", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Though it resembles an enormous leaf freshly plucked from a tree, a "
+          },
+          {
+            "type": "text",
+            "text": "broadleaf shield",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is extremely durable. It also regrows rapidly, fully repairing itself when broken if it's left in sunlight for 10 consecutive minutes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At each dawn, the leaf transforms to an appearance appropriate for the season. While you're wielding the shield, you gain resistance 5 to a damage type depending on the shield's color. This resistance doubles while you have the shield raised."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Pink",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (void resistance) In spring, the leaf is a delicate blossom-like pink and exudes the energy of life."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Green",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (fire resistance) In summer, the leaf is a deep, rich green with a waxy coating."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Orange",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (poison resistance) In autumn, the leaf turns orange, red, or yellow and dehydrates slightly."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Brown",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (cold resistance) In winter, the leaf turns dead, dry, and brown."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate - Change Season",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The shield transforms as though living through seasons in a moment, becoming the color of your choice for 5 minutes."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:broadleaf-shield-resistance",
+        "toggleable": true,
+        "suboptions": [
+          {
+            "value": "void",
+            "label": "Pink (Void)"
+          },
+          {
+            "value": "fire",
+            "label": "Green (Fire)"
+          },
+          {
+            "value": "poison",
+            "label": "Orange (Poison)"
+          },
+          {
+            "value": "cold",
+            "label": "Brown (Cold)"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.yPeNtJVMJmJupcM2"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2750
+        }
+      },
+      "bulk": "light",
+      "hardness": 8,
+      "hitPoints": 32,
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "1a2d7066-1f78-553b-ae9a-14487e2e64c8",
+    "pack": "rage-of-elements",
+    "kind": "shield",
+    "slug": "shield:broadleaf-shield-true",
+    "name": "Broadleaf Shield (True)",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["magical", "plant", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Though it resembles an enormous leaf freshly plucked from a tree, a "
+          },
+          {
+            "type": "text",
+            "text": "broadleaf shield",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is extremely durable. It also regrows rapidly, fully repairing itself when broken if it's left in sunlight for 10 consecutive minutes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At each dawn, the leaf transforms to an appearance appropriate for the season. While you're wielding the shield, you gain resistance 6 to a damage type depending on the shield's color. This resistance doubles while you have the shield raised."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Pink",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (void resistance) In spring, the leaf is a delicate blossom-like pink and exudes the energy of life."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Green",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (fire resistance) In summer, the leaf is a deep, rich green with a waxy coating."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Orange",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (poison resistance) In autumn, the leaf turns orange, red, or yellow and dehydrates slightly."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Brown",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (cold resistance) In winter, the leaf turns dead, dry, and brown."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate - Change Season",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The shield transforms as though living through seasons in a moment, becoming the color of your choice for 5 minutes."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:broadleaf-shield-resistance",
+        "toggleable": true,
+        "suboptions": [
+          {
+            "value": "void",
+            "label": "Pink (Void)"
+          },
+          {
+            "value": "fire",
+            "label": "Green (Fire)"
+          },
+          {
+            "value": "poison",
+            "label": "Orange (Poison)"
+          },
+          {
+            "value": "cold",
+            "label": "Brown (Cold)"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.wkmn8UQ0nUeVtz5J"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 13750
+        }
+      },
+      "bulk": "light",
+      "hardness": 10,
+      "hitPoints": 40,
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "2b4043a6-20ac-5db8-95ee-2e6a14d148af",
+    "pack": "rage-of-elements",
+    "kind": "shield",
+    "slug": "shield:kizidhars-shield",
+    "name": "Kizidhar's Shield",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["magical", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "standard-grade duskwood shield",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is perfectly symmetrical and incredibly sturdy despite its elaborate construction. These shields are typically given to the chosen emissaries of a kizidhar shuyookh, and the shuyookh's name and title are engraved in Muan behind the shield's handle."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate - Repair",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You command the shield to repair itself, awakening the restorative magic within. For the next minute, the shield heals 3 Hit Points each round at the start of your turn."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate - Secure Site",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You place the "
+          },
+          {
+            "type": "text",
+            "text": "kizidhar's shield",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " into the ground at the edge of your campsite, which can't be more than 30 feet on a side, then speak the name of the kizidhar shuyookh carved into its handle. The shuyookh briefly appears just long enough to make a sweeping gesture, causing sprawling thorns to grow in an unnaturally symmetrical formation around the campsite, protecting it for the next 8 hours with an effect that's otherwise identical to "
+          },
+          {
+            "type": "ref",
+            "id": "9dfded9c-826b-57e9-989b-6b4ea568d4b8"
+          },
+          {
+            "type": "text",
+            "text": ". All creatures within the campsite are then immediately affected by a three-action "
+          },
+          {
+            "type": "ref",
+            "id": "949e0a89-f44b-598d-8adb-3d9d31db900e"
+          },
+          {
+            "type": "text",
+            "text": " spell cast at 4th rank by the shield. After 8 hours, the wall rots away, and the shield can be retrieved as an Interact action."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.jiC2ufyGZmmxiEAm"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1250
+        }
+      },
+      "bulk": "light",
+      "hardness": 5,
+      "hitPoints": 20,
+      "material": {
+        "type": "duskwood",
+        "grade": "standard"
+      },
+      "baseItem": "wooden-shield",
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "5614435c-2bad-53d9-a2a6-c34280c73e3b",
+    "pack": "rage-of-elements",
+    "kind": "shield",
+    "slug": "shield:limestone-shield",
+    "name": "Limestone Shield",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["earth", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This tower shield is a slab of limestone, shaved to a portable size and weight. The shield has Hardness 7 and 28 Hit Points."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Limestone Wall",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You set the shield down as it expands up to 60 feet wide and 10 feet tall. Each square of the wall has AC 10, Hardness 7, and 28 Hit Points, and it's immune to critical hits and precision damage. If a section is destroyed, this effect ends, and your limestone shield is broken. You can Dismiss this activation, which otherwise lasts for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Block Elements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're targeted by an effect with the air, fire, or water trait"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The shield expands to block the triggering effect, granting you standard cover from that effect."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.smKlMa76B6vBPNqG"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 350
+        }
+      },
+      "bulk": 4,
+      "hardness": 7,
+      "hitPoints": 28,
+      "activations": [
+        {
+          "slug": "limestone-wall",
+          "name": "Limestone Wall",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        },
+        {
+          "slug": "block-elements",
+          "name": "Block Elements",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "baseItem": "tower-shield",
+      "acBonus": 2,
+      "speedPenalty": 5
+    }
+  }
+]

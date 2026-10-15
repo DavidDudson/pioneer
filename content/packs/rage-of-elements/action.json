@@ -1,0 +1,1402 @@
+[
+  {
+    "id": "3839c462-2666-57c5-bd8c-0ef026999669",
+    "pack": "rage-of-elements",
+    "kind": "action",
+    "slug": "action:base-kinesis",
+    "name": "Base Kinesis",
+    "rarity": "common",
+    "traits": ["impulse", "kineticist", "primal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "It's trivial for you to create some of your element or alter a portion of it that already exists. Choose one of your kinetic elements to affect. This impulse has a range of 30 feet, and the Bulk of the target must be negligible or light. The GM decides what Bulk the element is. You can't affect an element that's magical, secured in place (like a stone mortared in a wall), or attended by a creature unwilling to let you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose one of the following options, though the GM might allow you to make similar small alterations. Base Kinesis can't deal damage or cause conditions unless otherwise noted."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Generate",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You bring an ordinary, non-magical piece of the chosen element from its elemental plane. The element can be used for any of its normal uses. For example, air can be breathed by an air-breathing creature, and fire casts light and can ignite flammable substances."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Move",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Move an existing piece of the element up to 20 feet in any direction. If you bring it into your space, you can catch it in an open hand. You can Sustain the impulse to keep moving the element."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Suppress",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You destroy an existing piece of element, such as snuffing out a flame or evaporating water from a cup. This affects only natural forms of the element, not durable, crafted goods like a stone statue, metal lock, or wooden door."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Level (+4)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The range increases by 15 feet, and the maximum Bulk increases by 1 (allowing Bulk 1 at 5th level)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.nTBrvt2b9wngyr0i"
+    },
+    "data": {
+      "cost": "two",
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "b0ae57b0-d534-57cf-be9d-b006702f5cb6",
+    "pack": "rage-of-elements",
+    "kind": "action",
+    "slug": "action:channel-elements",
+    "name": "Channel Elements",
+    "rarity": "common",
+    "traits": ["aura", "kineticist", "primal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your kinetic gate isn't active."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You tap into your kinetic gate to make elements flow around you. Your kinetic aura activates, and as a part of this action, you can use a 1-action Elemental Blast or a 1-action stance impulse. Your kinetic aura is a 10-foot emanation where pieces of your kinetic element (or all your kinetic elements, if you can channel more than one) flow around you. The kinetic aura can't damage anything or affect the environment around you unless another ability allows it to. Channel Elements has the traits of all your kinetic elements."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your kinetic aura automatically deactivates if you're knocked out, you use an impulse with the overflow trait, or you Dismiss the aura. Though you can't use new impulses while your kinetic aura is deactivated, ones you already used remain, and you can still Sustain any that can be sustained. Stance impulses are linked to your kinetic aura and end when the aura deactivates."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.g8QrV39TmZfkbXgE"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your kinetic gate isn't active."
+            }
+          ]
+        }
+      ],
+      "selfEffect": "b6295eab-de61-570d-bf5d-2e677645e0f2"
+    }
+  },
+  {
+    "id": "8e92f5c7-4f66-5741-a50c-37cf4940d8f9",
+    "pack": "rage-of-elements",
+    "kind": "action",
+    "slug": "action:decompose",
+    "name": "Decompose",
+    "rarity": "common",
+    "traits": ["primal", "void"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Void energy seeps out of you, decaying everything within a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 5
+          },
+          {
+            "type": "text",
+            "text": " and causing plants and foliage to age and decompose. Natural difficult terrain is destroyed, and creatures in the area with the plant or wood trait take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": {
+              "against": "class-or-spell-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC or spell DC, whichever is higher."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.Qj36ramjkoKE8kzJ"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "04ed21a0-bc50-5df8-8926-de696b53c427",
+    "pack": "rage-of-elements",
+    "kind": "action",
+    "slug": "action:elemental",
+    "name": "Elemental",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your familiar has the elemental trait instead of the animal trait. Choose air, earth, fire, metal, water, or wood. Your familiar gains that trait. The familiar is immune to bleed, "
+          },
+          {
+            "type": "ref",
+            "id": "7802f1d9-5ced-5b9b-8a08-98ec0adb9947"
+          },
+          {
+            "type": "text",
+            "text": ", poison, sleep, and the element matching its trait. Your familiar must have the resistance familiar ability to select this."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "element",
+        "choices": [
+          {
+            "value": "air",
+            "label": "Air"
+          },
+          {
+            "value": "earth",
+            "label": "Earth"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "metal",
+            "label": "Metal"
+          },
+          {
+            "value": "water",
+            "label": "Water"
+          },
+          {
+            "value": "wood",
+            "label": "Wood"
+          }
+        ],
+        "prompt": "Select an element."
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.ch6nFcRJO1fm8B4D"
+    },
+    "data": {
+      "category": "familiar"
+    }
+  },
+  {
+    "id": "5e3330f3-b291-54ba-a227-6184227b61fc",
+    "pack": "rage-of-elements",
+    "kind": "action",
+    "slug": "action:elemental-blast",
+    "name": "Elemental Blast",
+    "rarity": "common",
+    "traits": ["attack", "impulse", "kineticist", "primal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "With a wave of your hand, you collect elemental matter from your aura and swing or hurl it. Choose one of your kinetic elements and a damage type listed for that element, then make a melee or ranged impulse attack against the AC of one creature. Add your Strength modifier to the damage roll for a melee Elemental Blast. If you make a 2-action Elemental Blast, you gain a status bonus to the damage roll equal to your Constitution modifier. The element determines the damage die, damage type, and range (for a ranged blast). A damage type other than a physical damage type adds its trait to the blast."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Air",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " 1d6 electricity or slashing, 60 feet"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Earth",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " 1d8 bludgeoning or piercing, 30 feet"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Fire",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " 1d6 fire, range 60 feet"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Metal",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " 1d8 piercing or slashing, 30 feet"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Water",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " 1d8 bludgeoning or cold, 30 feet"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Wood",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " 1d8 bludgeoning or vitality, 30 feet"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes double damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes full damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Level (+4)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by one die."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "elemental-blast",
+        "option": "option:action-cost",
+        "toggleable": true,
+        "suboptions": [
+          {
+            "value": "1",
+            "label": "One Action"
+          },
+          {
+            "value": "2",
+            "label": "Two Actions"
+          }
+        ],
+        "predicate": ["self:effect:kinetic-aura"],
+        "priority": 49
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["elemental-blast-damage"],
+        "type": "status",
+        "value": "@attr.con",
+        "slug": "two-action-elemental-blast",
+        "predicate": ["self:action:slug:elemental-blast", "self:action:cost:2"],
+        "display": {
+          "label": "Two-Action Blast"
+        }
+      },
+      {
+        "key": "DamageAlteration",
+        "selectors": ["elemental-blast-damage"],
+        "slug": "base",
+        "property": "dice-number",
+        "mode": "override",
+        "value": "max(1 + floor((@level - 1) / 4), 1)",
+        "predicate": ["class:kineticist"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.6lbr0Jnv0zMB5uGb"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "479d6d28-3327-51ed-aeba-02bc9515f3a4",
+    "pack": "rage-of-elements",
+    "kind": "action",
+    "slug": "action:elemental-burst",
+    "name": "Elemental Burst",
+    "rarity": "common",
+    "traits": ["concentrate", "eidolon"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon rips off a chunk of elemental matter from their own form and hurls it into a group of foes. Your eidolon loses a number of Hit Points equal to your level. All creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 20
+          },
+          {
+            "type": "text",
+            "text": " within 60 feet take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(max(6,(@level - 1)))d6"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save against your spell DC. The damage increases by 1d6 for each level you have beyond 7th. The damage's type is either fire damage if your eidolon is a fire elemental, or the same physical damage type as your eidolon's primary unarmed attack if your eidolon isn't a fire elemental. Elemental Burst gains any traits that your eidolon's unarmed attacks gain from elemental core."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.Cb9XbKqHBHPAbQKk"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "ten-minutes"
+      }
+    }
+  },
+  {
+    "id": "4bb4ba15-823a-5468-9f5b-6882c01a687d",
+    "pack": "rage-of-elements",
+    "kind": "action",
+    "slug": "action:elemental-familiar-air",
+    "name": "Elemental Familiar (Air)",
+    "rarity": "common",
+    "traits": ["air"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your familiar gains the air elemental trait."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If your familiar stays completely still for 1 round, it becomes "
+          },
+          {
+            "type": "ref",
+            "id": "53cf375b-c3fa-5d92-afde-135a3c001674"
+          },
+          {
+            "type": "text",
+            "text": " until it next takes an action. Any motion, even being moved or carried by another creature, ends this effect."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ActorTraits",
+        "add": ["air"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.RIx6b1GvTEBh4ExW"
+    },
+    "data": {
+      "category": "familiar"
+    }
+  },
+  {
+    "id": "0cb2c619-f7fc-59fc-8921-411c88d06d80",
+    "pack": "rage-of-elements",
+    "kind": "action",
+    "slug": "action:elemental-familiar-earth",
+    "name": "Elemental Familiar (Earth)",
+    "rarity": "common",
+    "traits": ["earth"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your familiar gains the earth elemental trait."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your familiar gains resistance to physical damage (except adamantine) equal to half your level."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["physical"],
+        "value": "floor(@level / 2)",
+        "exceptions": ["adamantine"]
+      },
+      {
+        "key": "ActorTraits",
+        "add": ["earth"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.ZV4J5YTZGrqh6cvY"
+    },
+    "data": {
+      "category": "familiar"
+    }
+  },
+  {
+    "id": "812b4950-8bef-5ab2-a623-d24c17542cd9",
+    "pack": "rage-of-elements",
+    "kind": "action",
+    "slug": "action:elemental-familiar-fire",
+    "name": "Elemental Familiar (Fire)",
+    "rarity": "common",
+    "traits": ["fire"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your familiar gains the fire elemental trait."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your familiar sheds bright light in a 20-foot radius (and dim light for the next 20 feet) and emits warmth. Creatures who remain within a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": " don't take damage from severe environmental cold."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ActorTraits",
+        "add": ["fire"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.5019hvUZcNe9dLEO"
+    },
+    "data": {
+      "category": "familiar"
+    }
+  },
+  {
+    "id": "ca2ec963-d5b1-5c67-94c7-70eb0a64208e",
+    "pack": "rage-of-elements",
+    "kind": "action",
+    "slug": "action:elemental-familiar-metal",
+    "name": "Elemental Familiar (Metal)",
+    "rarity": "common",
+    "traits": ["metal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your familiar gains the metal elemental trait."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your familiar gains resistance to physical damage from metal weapons equal to half your level."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ActorTraits",
+        "add": ["metal"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.ZJdMyCjRvUTtg90u"
+    },
+    "data": {
+      "category": "familiar"
+    }
+  },
+  {
+    "id": "72d9a854-26a4-563f-8b15-cdfbe0f9454a",
+    "pack": "rage-of-elements",
+    "kind": "action",
+    "slug": "action:elemental-familiar-water",
+    "name": "Elemental Familiar (Water)",
+    "rarity": "common",
+    "traits": ["water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your familiar gains the water elemental trait."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your familiar can move through a gap at least 2 inches wide without Squeezing and can Squeeze through a gap at least 1 inch wide."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ActorTraits",
+        "add": ["water"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.mIl4YjbssQ5AERWS"
+    },
+    "data": {
+      "category": "familiar"
+    }
+  },
+  {
+    "id": "222e3dcf-0893-5cf8-8d09-149d035c11ba",
+    "pack": "rage-of-elements",
+    "kind": "action",
+    "slug": "action:elemental-familiar-wood",
+    "name": "Elemental Familiar (Wood)",
+    "rarity": "common",
+    "traits": ["wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your familiar gains the wood elemental trait."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If your familiar remains in bright light for 1 round, it gains fast healing equal to half your level. Once it is out of bright light, this effect ends."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ActorTraits",
+        "add": ["wood"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.XYb2udoNGaE0M11Y"
+    },
+    "data": {
+      "category": "familiar"
+    }
+  },
+  {
+    "id": "6e6dae8a-9fda-5bf9-9290-236a8b18936c",
+    "pack": "rage-of-elements",
+    "kind": "action",
+    "slug": "action:elemental-maelstrom",
+    "name": "Elemental Maelstrom",
+    "rarity": "common",
+    "traits": ["eidolon"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon temporarily shifts its form into a swirling vortex of elemental matter and rampages through their foes. Your eidolon Strides. During their movement, they can attempt a Strike against each enemy that is within their reach. If an enemy comes within your eidolon's reach more than once, your eidolon makes only a single Strike against a given enemy. These attacks all count towards your eidolon's multiple attack penalty, but the penalty doesn't increase until after all the attacks. If your eidolon has the appropriate Speed, they can Climb, Fly, or Swim instead of Stride."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.H8EXYfvFOSuq6vo8"
+    },
+    "data": {
+      "cost": "three",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "238c0f55-7f37-5dcc-a4a0-d234af20158f",
+    "pack": "rage-of-elements",
+    "kind": "action",
+    "slug": "action:extract-element",
+    "name": "Extract Element",
+    "rarity": "common",
+    "traits": ["impulse", "kineticist", "primal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You extract elemental matter from a creature's body to weaken it and take its power for your own. Target a creature within 30 feet that has a trait matching one of your kinetic elements or is made of one of your kinetic elements. The target takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(ceil(@level/2))d4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage (with no damage type) and becomes susceptible to your impulses, depending on its "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": {
+              "against": "class-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes half damage, and you add some of its elemental matter to your kinetic aura. Your impulses bypass any immunity the creature has to their elemental trait or traits, and the target takes a -1 circumstance penalty to its saves and AC against your impulses. If the target normally has a resistance that would apply to damage from one of your impulses, ignore that resistance; if it normally would be immune to that damage type, it instead has resistance equal to its level to damage from the impulse. You can't target a creature with Extract Element if elemental matter you extracted from it is already in your kinetic aura. These effects last for 5 minutes or until your kinetic aura ends, whichever comes first"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but the creature takes full damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but the creature takes double damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Level (+2)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by 1d4."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.low5ORd87QeA9Oug"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "b663036a-fe8b-584d-8d9a-6d058c55203a",
+    "pack": "rage-of-elements",
+    "kind": "action",
+    "slug": "action:jet",
+    "name": "Jet",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your familiar can use bursts of elemental energy or magic to "
+          },
+          {
+            "type": "ref",
+            "id": "1a0bed3d-5eb7-554f-ad07-4c8630afd0c8"
+          },
+          {
+            "type": "text",
+            "text": " up to 30 feet in any direction, even if that would exceed its normal maximum distance for leaping. The Leap must begin and end on a solid surface capable of supporting the familiar."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.fhyQ6uTSvfErTzyE"
+    },
+    "data": {
+      "category": "familiar"
+    }
+  },
+  {
+    "id": "cdd682da-bb84-5f6f-a540-25b2f3cff85f",
+    "pack": "rage-of-elements",
+    "kind": "action",
+    "slug": "action:levitator",
+    "name": "Levitator",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Using magnetism, magic, or other forces, your familiar can float up to 3 feet above solid and liquid surfaces while moving at a Speed of 25 feet. This allows it to ignore difficult terrain and damaging effects related to coming into direct contact with the surface. It typically allows the familiar to also avoid triggering the reactions of hazards that require you to step on them or an attached pressure plate."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.q9IXWngAOCpsXxsO"
+    },
+    "data": {
+      "category": "familiar"
+    }
+  },
+  {
+    "id": "3a3a619a-4eb8-561b-af61-4a5ba1655a9a",
+    "pack": "rage-of-elements",
+    "kind": "action",
+    "slug": "action:pacifying-infusion",
+    "name": "Pacifying Infusion",
+    "rarity": "common",
+    "traits": ["infusion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If your next action is an impulse, it gains the nonlethal trait. If it has an area, you can exclude creatures you've designated with Safe Elements from its effects."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.oAGawsNqr6FfMrSG"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "913d10d9-281e-5a3d-b38a-85b14d7bc1b2",
+    "pack": "rage-of-elements",
+    "kind": "action",
+    "slug": "action:toxic-touch",
+    "name": "Toxic Touch",
+    "rarity": "common",
+    "traits": ["poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your most recent action was to "
+          },
+          {
+            "type": "ref",
+            "id": "11d6f0fd-b182-5043-8a26-973179a93617"
+          },
+          {
+            "type": "text",
+            "text": ", and you successfully moved through an enemy's space"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Make a melee unarmed Strike against the enemy whose space you moved through. On a hit, the target takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "poison",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": " (or takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "poison",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and is "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": " on a critical hit)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.Rp7gcG6Mxasurr8o"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your most recent action was to Tumble Through, and you successfully moved through an enemy's space"
+            }
+          ]
+        }
+      ],
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  }
+]

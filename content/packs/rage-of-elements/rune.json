@@ -1,0 +1,375 @@
+[
+  {
+    "id": "bbd9397f-9860-5924-86a4-0b82e1e9ff91",
+    "pack": "rage-of-elements",
+    "kind": "rune",
+    "slug": "rune:malleable",
+    "name": "Malleable",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["magical", "metal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The metal of your armor can shift and rearrange at a moment's notice, allowing you to manipulate what kind of damage it resists."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Reconfigure Armor",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The armor's composition shifts, changing its specialization group to a different one of your choice. This doesn't change what the armor is made of, and any runes or precious material it's made of apply to the new composition. Any property runes that can't apply to the new form are suppressed until the item takes a composition to which they can apply."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.eHfL8Apfx4fxGksT"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 650
+        }
+      },
+      "bulk": "negligible",
+      "type": "property",
+      "etchedOnto": {
+        "item": "armor",
+        "restriction": "medium-or-heavy-metal"
+      }
+    }
+  },
+  {
+    "id": "96e550e0-bd6f-523c-aa2a-18cb57e8daf7",
+    "pack": "rage-of-elements",
+    "kind": "rune",
+    "slug": "rune:rooting",
+    "name": "Rooting",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["magical", "plant", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Small roots grow along the surface of the weapon, clinging tightly to its contours. On a critical hit with the weapon, roots grow from the target. It's "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round (Escape) and "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": " for as long as the immobilization lasts."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.yGgsoSA8EaaEsYZn"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 360
+        }
+      },
+      "bulk": "negligible",
+      "type": "property",
+      "etchedOnto": {
+        "item": "weapon",
+        "restriction": "melee"
+      }
+    }
+  },
+  {
+    "id": "d31a2ce8-5186-558c-93eb-c4b0fc7a2e9a",
+    "pack": "rage-of-elements",
+    "kind": "rune",
+    "slug": "rune:rooting-greater",
+    "name": "Rooting (Greater)",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["magical", "plant", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Small roots grow along the surface of the weapon, clinging tightly to its contours. On a critical hit with the weapon, roots grow from the target. It's "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round (Escape) and "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": " for as long as the immobilization lasts."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.T5KifnxLN3vWuUJa"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1400
+        }
+      },
+      "bulk": "negligible",
+      "type": "property",
+      "etchedOnto": {
+        "item": "weapon",
+        "restriction": "melee"
+      }
+    }
+  },
+  {
+    "id": "c5fc3a00-941d-5f0d-a4cd-6d2ce43c440f",
+    "pack": "rage-of-elements",
+    "kind": "rune",
+    "slug": "rune:rooting-major",
+    "name": "Rooting (Major)",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["magical", "plant", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Small roots grow along the surface of the weapon, clinging tightly to its contours. On a critical hit with the weapon, roots grow from the target. It's "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round (Escape) and "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": " for as long as the immobilization lasts."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.h4n9PdQrOkCrJ9sY"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6500
+        }
+      },
+      "bulk": "negligible",
+      "type": "property",
+      "etchedOnto": {
+        "item": "weapon",
+        "restriction": "melee"
+      }
+    }
+  },
+  {
+    "id": "ad2cfe0f-9143-5d26-9cd0-5cdacfebc79f",
+    "pack": "rage-of-elements",
+    "kind": "rune",
+    "slug": "rune:rooting-true",
+    "name": "Rooting (True)",
+    "level": 19,
+    "rarity": "common",
+    "traits": ["magical", "plant", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Small roots grow along the surface of the weapon, clinging tightly to its contours. On a critical hit with the weapon, roots grow from the target. It's "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round (Escape) and "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": " for as long as the immobilization lasts."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.aXqCFjLSSjC3a1Mq"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 40000
+        }
+      },
+      "bulk": "negligible",
+      "type": "property",
+      "etchedOnto": {
+        "item": "weapon",
+        "restriction": "melee"
+      }
+    }
+  },
+  {
+    "id": "febc17e0-b9b6-596e-b8e2-9ff26045886a",
+    "pack": "rage-of-elements",
+    "kind": "rune",
+    "slug": "rune:underwater",
+    "name": "Underwater",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["magical", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This weapon works as well in water as it does on land. Attacks with the weapon don't take the normal penalties and restrictions for being used in water or underwater. If the weapon is capable of dealing fire damage, its fire functions underwater as well."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.5QKAoWrpSetjHVJs"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": "negligible",
+      "type": "property",
+      "etchedOnto": {
+        "item": "weapon"
+      }
+    }
+  }
+]

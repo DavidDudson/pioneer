@@ -1,0 +1,1486 @@
+[
+  {
+    "id": "a987e48c-e3a9-5483-ba08-295ea4fdfe5b",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:catharsis-emotion",
+    "name": "Catharsis Emotion",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Catharsis Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The event or conditions you must meet to take your Catharsis reaction."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Catharsis Activation",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The benefit when you use Catharsis."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Emotional Fervor",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Benefits",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " you gain for 3 rounds after you use Catharsis. This entry also lists a spell you're able to cast while in your emotional fervor. You must expend a spell slot to cast it. This slot most be of at least the spell's rank, and the spell is automatically heightened to the rank of slot you expended."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Emotional Fallout",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The effect you experience when your emotional fervor ends."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Focus Spell",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The focus spell you gain if you select the Cathartic Focus Spell archetype feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["save:will"],
+        "slug": "catharsis-emotion-love",
+        "mode": "override",
+        "value": 3,
+        "predicate": ["option:benefit-love-focus"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:benefit-love-focus",
+        "toggleable": true,
+        "predicate": ["self:effect:emotional-fervor", "emotional-catharsis:love"],
+        "display": {
+          "label": "You cast a spell to benefit your emotional focus"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:will"],
+        "type": "status",
+        "value": 1,
+        "slug": "catharsis-emotion-love",
+        "predicate": ["self:effect:emotional-fervor", "emotional-catharsis:love"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["spell-attack-dc"],
+        "slug": "frightened",
+        "mode": "multiply",
+        "value": -1,
+        "predicate": ["self:effect:emotional-fervor", "emotional-catharsis:fear"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:performance"],
+        "type": "status",
+        "value": 1,
+        "slug": "catharsis-emotion-joy",
+        "predicate": ["self:effect:emotional-fervor", "emotional-catharsis:joy"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["spell-dc", "spell-attack"],
+        "type": "status",
+        "value": 1,
+        "slug": "catharsis-emotion-joy-emotion",
+        "predicate": ["self:effect:emotional-fervor", "item:trait:emotion", "emotional-catharsis:joy"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.aSOgbQWMwStTTmap"
+    },
+    "data": {}
+  },
+  {
+    "id": "39d39051-a9f9-569c-bee4-5c7df13bc10d",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:construct-eidolon",
+    "name": "Construct Eidolon",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["summoner"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon is a mental construct based on an astral thoughtform and given physical presence and life by their connection to you, their shape limited only by your imagination. Your eidolon's appearance and physical form vary based on your shared vision for their construction, from clockworks to stuffed dolls and everything between, and it's not uncommon for that appearance to change greatly as your construct gains evolutions. Because they arise from an astral entity, your construct is no mindless servitor, but a fully thinking being with their own ideas, goals, and even emotions. These entities are extremely diverse; while many construct eidolons come from a powerful symbiotic connection with astral denizens, just as many arise from the forgotten memories of ancient empires and craftworks drifting across the Silver Sea of the Astral Plane."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Tradition",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " arcane"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Traits",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " astral, construct, eidolon"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Home Plane",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Astral Plane"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Size",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Medium"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Suggested Attacks",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " fist (bludgeoning)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Eidolon Attributes",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Con +3, Int +1, Wis +0, Cha –1"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Skills",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Arcana, Crafting"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Senses",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " darkvision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Language",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " one common mortal language"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Speed",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 25 feet"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Initial (1st)—Construct Heart",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your construct eidolon has a link directly to your life force, which renders them a living creature and therefore susceptible to many ailments that bother only the living, though they do possess some resistances to these effects. They don't have a construct's normal immunities, but they do gain a +2 circumstance bonus to saving throws against death effects, disease, poison, and spirit effects, as well as effects causing the "
+          },
+          {
+            "type": "ref",
+            "id": "5e3582c3-701c-5169-9c69-4221096722c2"
+          },
+          {
+            "type": "text",
+            "text": " or sickened conditions. Additionally, their astral essence bleeds off slowly. The flat check to remove persistent bleed damage from the eidolon is DC 10 (or DC 5 after receiving particularly effective aid)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Symbiosis (7th)—Reconfigured Evolution",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your construct eidolon is particularly easy to reconfigure, gaining an additional evolution that suits both of your whims. Choose one additional evolution feat of 6th level or lower. Your eidolon gains that feat. You can Retrain this feat for any other evolution feat of 6th level or lower with only a single day of downtime if you succeed at a Crafting check with a standard DC of your eidolon's level. If you fail, you can try again on a later day. Many summoners choose Eidolon's Wrath for this ability."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Transcendence (17th)—Ultimate Reconfiguration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your construct eidolon becomes even more customizable. Choose an evolution feat of 16th level or lower. Your eidolon gains that feat. You can spend downtime to adjust it using Crafting, just like the feat from reconfigured evolution. Many summoners select Ever-Vigilant Senses for this ability."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:arcana",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:crafting",
+        "rank": "trained"
+      },
+      {
+        "key": "Language",
+        "slots": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.rwPx9D4PjZhinmmH"
+    },
+    "data": {
+      "tags": ["summoner-eidolon"]
+    }
+  },
+  {
+    "id": "60a52ad4-ba9d-5f3e-a7fc-c0f5bfadd414",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:eidolon-unarmed-mastery",
+    "name": "Eidolon Unarmed Mastery",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["summoner"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon truly masters their unarmed attacks, reaching greater heights. Their proficiency rank for unarmed attacks increases to master."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.NIzHfVcVMhDmvA49"
+    },
+    "data": {}
+  },
+  {
+    "id": "5ce02579-9214-5164-ac62-48ffcdc5ca8f",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:flame-order",
+    "name": "Flame Order",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["druid"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You feel a kinship with flames and can use them for succor and destruction."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Order Skill",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Acrobatics"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Druid Feat",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "8ea77f58-34a0-5c42-b844-bc894bd5e778"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Order Spell",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Wildfire"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Allowing unnatural fires to spread or preventing natural fires from occurring in a way that harms the environment. (this doesn't prevent you from using fire destructively or force you to combat a controlled or natural fire)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:acrobatics",
+        "rank": "trained",
+        "predicate": [
+          {
+            "not": "feat:order-explorer:flame-order"
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "8ea77f58-34a0-5c42-b844-bc894bd5e778",
+        "predicate": [
+          {
+            "or": ["class:druid", "feat:order-explorer:flame-order"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.NdeFvIXdHwKYLiUj"
+    },
+    "data": {
+      "tags": ["druid-order"]
+    }
+  },
+  {
+    "id": "45f73fa0-6a6d-5786-8d87-b07f026e83ca",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:flexible-spell-preparation",
+    "name": "Flexible Spell Preparation",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This class feature alters your spellcasting class feature (such as Arcane Spellcasting for the wizard or Divine Spellcasting for the cleric). If you choose this class archetype, you must select "
+          },
+          {
+            "type": "ref",
+            "id": "9afc6433-5bf8-5462-8c06-82f5449ef03c"
+          },
+          {
+            "type": "text",
+            "text": " as your 2nd-level class feat."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You can cast fewer spells each day. Your number of spell slots per day don't advance from 2 to 3 spells at even levels."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Reduce the number of cantrips you gain from your class by 2. This archetype doesn't change the way you prepare cantrips."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "During your daily preparations, you prepare a spell collection rather than preparing spells into each spell slot individually. The number of spells in your spell collection each day equals the total number of spell slots you get each day from your class spells. Select these spells from the same source as normal, such as from a spellbook for a wizard."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You can cast any of the spells in your collection by using a spell slot of an appropriate level. For instance, if you were level 1 and had "
+                },
+                {
+                  "type": "ref",
+                  "id": "9d83db58-4a62-5f49-b04a-55d6b4f18e7b"
+                },
+                {
+                  "type": "text",
+                  "text": " and "
+                },
+                {
+                  "type": "ref",
+                  "id": "1c97409b-bd67-5df2-a7d3-a49aff4d3896"
+                },
+                {
+                  "type": "text",
+                  "text": " in your spell collection, you could cast "
+                },
+                {
+                  "type": "text",
+                  "text": "gentle landing",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": " twice that day, "
+                },
+                {
+                  "type": "text",
+                  "text": "force barrage",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": " twice, or each spell once."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Extra spell slots you gain that have additional restrictions, like the wizard's specialist school spells or the cleric's divine font spells, don't change due to this archetype, nor do such spells count toward the number of spells you place in your spell collection."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.Upf1LXtWNJ6eB5sm"
+    },
+    "data": {
+      "tags": ["class-archetype"]
+    }
+  },
+  {
+    "id": "3b5c4d59-a370-5cdd-a0a8-d34fcb389107",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:psychopomp-eidolon",
+    "name": "Psychopomp Eidolon",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["summoner"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon is a psychopomp, a creature whose sworn duty is to usher souls safely to the afterlife and maintain the courts of the dead. Psychopomp eidolons have a variety of appearances, but since they often traffic with mortals, their form typically includes an elaborate mask. You and your psychopomp eidolon share an important fate together, whether it relates directly to your own soul or to a mission that will somehow protect the souls of others."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Tradition",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " divine"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Traits",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " eidolon, monitor, psychopomp"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Home Plane",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The Boneyard"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Size",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Medium"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Suggested Attacks",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " beak (piercing), claw (slashing), fist (bludgeoning), jaws (piercing), unarmed attacks shaped like a weapon"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Eidolon Attributes",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Con +3, Int +0, Wis +1, Cha –1"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Skills",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Intimidation, Religion"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Senses",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " darkvision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Language",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Requian"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Speed",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 25 feet"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Initial (1st)—Spirit Touch",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your eidolon's attacks possess a psychopomp's ability to harm the living and the dead. Your eidolon's unarmed Strikes affect incorporeal creatures as though etched with a ghost touch property rune and deal an extra 1 void damage to living creatures and an extra 1 vitality damage to undead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Symbiosis (7th)—Hidden Watcher",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your eidolon can render both of you unseen. Once per hour, they can cast invisibility as a divine innate spell targeting you, them, or both of you at once. If the spell targeted both of you, the spell ends for both of you if either of you uses a hostile action."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Transcendence (17th)—Spirit Taker",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your eidolon is particularly capable when it comes to handling bodiless spirits and putting undead to their final rest. Your eidolon can see incorporeal creatures inside of solid objects and can attack them with Strikes without penalty; an incorporeal creature in a solid object that takes damage from your eidolon's Strike is expelled from the object to the nearest available space, moving closer to your eidolon if possible."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additionally, your eidolon can target or affect a creature projecting its consciousness (such as via project image) or possessing another creature, even if its body is elsewhere, though your eidolon must know about the possession or projection and choose to do so."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Finally, the spirit of an undead destroyed by your eidolon's Strikes is sent directly to the Boneyard for judgment; an undead with an ability to avoid such a fate automatically, such as a ghost's rejuvenation, can attempt a counteract check against your spell DC to return via that ability as normal. In that case, the enemy uses its Will save modifier as its counteract modifier. When your eidolon destroys an undead (even if the undead later returns), they gain temporary Hit Points equal to your level that last for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:intimidation",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:religion",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.v7DxQ3QRa1WyTLTd"
+    },
+    "data": {
+      "tags": ["summoner-eidolon"]
+    }
+  },
+  {
+    "id": "b998d731-b5bc-5f3b-9ebe-1afa7455a584",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:stone-order",
+    "name": "Stone Order",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["druid"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're as enduring as stone, and you take comfort in its steadfast presence, both natural and worked."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Order Skill",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Crafting"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Druid Feat",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "e1d98573-0746-54ea-bd72-5ab8f0ef4165"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Order Spell",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Crushing Ground"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Poisoning or polluting the land and heedlessly carving the earth to plunder its natural resources. (this doesn't prevent you from responsibly digging or mining)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:crafting",
+        "rank": "trained",
+        "predicate": [
+          {
+            "not": "feat:order-explorer:stone-order"
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "e1d98573-0746-54ea-bd72-5ab8f0ef4165",
+        "predicate": [
+          {
+            "or": ["class:druid", "feat:order-explorer:stone-order"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.fKTewWlYgFuhl4KA"
+    },
+    "data": {
+      "tags": ["druid-order"]
+    }
+  },
+  {
+    "id": "f473db08-5fd0-5336-a028-f4fde3cddfab",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:unlimited-signature-spells",
+    "name": "Unlimited Signature Spells",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["summoner"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "All of your spells are signature spells. That means that if you know a spell, you can heighten it freely by casting it from a higher-rank spell slot, up to the maximum rank of spell you can cast. You can similarly cast any of its lower-rank versions without learning them separately."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.P34Jx6i4GJGoqTtG"
+    },
+    "data": {}
+  },
+  {
+    "id": "13139de2-24e1-5d2e-b6e5-a8a2c7c1d13b",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:wave-order",
+    "name": "Wave Order",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["druid"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Water is the source of life, and you've learned to shape how it flows."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Order Skill",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Medicine"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Druid Feat",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "728a3589-96b1-53c3-9922-82968b7d045d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Order Spell",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Rising Surf"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Polluting water or allowing those who pollute water sources to go unpunished. (this doesn't force you to take action against potential water pollution or to sacrifice yourself against an obviously superior foe)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:medicine",
+        "rank": "trained",
+        "predicate": [
+          {
+            "not": "feat:order-explorer:wave-order"
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "728a3589-96b1-53c3-9922-82968b7d045d",
+        "predicate": [
+          {
+            "or": ["class:druid", "feat:order-explorer:wave-order"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.FuUXyv2yBs7zRgqT"
+    },
+    "data": {
+      "tags": ["druid-order"]
+    }
+  },
+  {
+    "id": "bcef6eb4-e854-5d68-ab78-9824b67bf5c7",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:wellspring-magic",
+    "name": "Wellspring Magic",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You regain magic power quickly, but it can be difficult for you to control. You must select "
+          },
+          {
+            "type": "ref",
+            "id": "9a00d534-3021-58ec-a72d-96890cb55a91"
+          },
+          {
+            "type": "text",
+            "text": " as your 2nd-level class feat."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Wellspring Mage Adjustments",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You learn spells as normal for your class, but change your spontaneous spellcasting in the following ways."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can cast fewer spells each day unless you gain more spells thanks to your wellspring. Reduce your number of spell slots of each spell rank by 1. Reduce the number of cantrips you gain from your class by 1."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A wellspring of magic fills you with power that's not fully under your control. When you roll initiative for a non-trivial combat encounter, as well as in other high-stress situations of the GM's choice, magic wells up within you. Attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 6
+          },
+          {
+            "type": "text",
+            "text": " check."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You temporarily recover an expended spell slot of any rank of your choice. The temporary spell slot lasts for 1 minute, and if you don't use it by then, you experience an immediate Wellspring Surges."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As critical success, except you randomly determine the rank of spell slot from among your top three spell ranks (or all your ranks of spell slots if you have fewer than three). The slot lasts 3 rounds instead of 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You generate a "
+          },
+          {
+            "type": "text",
+            "text": "wellspring surge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", with a spell rank chosen randomly among your top three ranks of spell slots (or all your ranks if you have fewer than three)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can gain a temporary spell slot no more than twice per day. If you would gain a temporary spell slot for a rank that has no expended spell slots, there's no effect. If you use a temporary slot to cast a spell with a duration, the spell ends whenever you would have lost the slot if its duration hasn't yet elapsed. If you roll for "
+          },
+          {
+            "type": "text",
+            "text": "wellspring magic",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " while you currently have a temporary spell slot, you automatically fail the flat check."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "WELLSPRING SURGES"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When your wellspring magic goes out of control, it becomes a wellspring surge. Typically, this happens when you fail the flat check from wellspring magic, but other wellspring mage feats have effects that sometimes cause you to generate a wellspring surge, or might even cause your foes to do so."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Roll 1d20 and use the "
+          },
+          {
+            "type": "text",
+            "text": "Wellspring Surges",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rolltable to determine the surge's effect. If the effect calls for a damage type, the GM chooses the type based on the types of spells you know or your current location. The wellspring surge uses your spell DC. You have no control over the way your wellspring surge manifests. You are the point of origin for your wellspring surges, and you are not excluded from their effects. If you force a foe to generate a surge, they are the origin point of that surge instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If your wellspring was granted by a being like a god or muse, the entity's intentions might sometimes alter the results of wellspring surges, or move the point of origin for an area to any point within 30 feet if the GM determines this fits the situation. For example, instead of uncontrolled damage, the entity might choose to damage only creatures opposing its plan, even if they are your allies."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A wellspring surge always has the trait of your magical tradition, plus any traits that appear in parentheses at the end of the surge's effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["initiative"],
+        "title": "Wellspring Magic",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "When you roll initiative for a non-trivial combat encounter, as well as in other high-stress situations of the GM's choice, magic wells up within you. Attempt a "
+              },
+              {
+                "type": "check",
+                "statistic": "flat",
+                "dc": 6
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "Note",
+        "selectors": ["flat-check"],
+        "title": "Wellspring Magic",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You temporarily recover an expended spell slot of any rank of your choice. The temporary spell slot lasts for 1 minute, and if you don't use it by then, you experience an immediate Wellspring Surge."
+              }
+            ]
+          }
+        ],
+        "outcome": ["criticalSuccess"],
+        "predicate": ["option:wellspring-magic"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["flat-check"],
+        "title": "Wellspring Magic",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You temporarily recover an expended spell slot of a spell rank chosen randomly among your top three ranks of spell slots (or all your ranks of spell slots if you have fewer than three). The slot lasts 3 rounds instead of 1 minute, otherwise you experience a Wellspring Surge."
+              }
+            ]
+          }
+        ],
+        "outcome": ["success"],
+        "predicate": ["option:wellspring-magic"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["flat-check"],
+        "title": "Wellspring Magic",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You generate a Wellspring Surge, with a spell rank chosen randomly among your top three ranks of spell slots (or all your ranks if you have fewer than three)"
+              }
+            ]
+          }
+        ],
+        "outcome": ["failure", "criticalFailure"],
+        "predicate": ["option:wellspring-magic"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.mRvyq7G0rqRP1EAr"
+    },
+    "data": {
+      "tags": ["class-archetype"]
+    }
+  }
+]

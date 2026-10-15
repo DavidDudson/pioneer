@@ -1,0 +1,146 @@
+[
+  {
+    "id": "ca1171a1-c9e4-587f-913b-06bfab44d613",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:plane-of-air-lore",
+    "name": "Plane of Air Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:plane-of-air",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.plane-of-air",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "f9789f1e-dbc4-5a77-a257-76c695308586",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:plane-of-earth-lore",
+    "name": "Plane of Earth Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:plane-of-earth",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.plane-of-earth",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "dacfdb74-1efa-511c-9020-54655da67c24",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:plane-of-fire-lore",
+    "name": "Plane of Fire Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:plane-of-fire",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.plane-of-fire",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "ad5ff18a-11b0-5294-b77b-3aa0a4508428",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:plane-of-metal-lore",
+    "name": "Plane of Metal Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:plane-of-metal",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.plane-of-metal",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "ef1d7ee0-2b52-5e7d-852f-a561c9c8a812",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:plane-of-water-lore",
+    "name": "Plane of Water Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:plane-of-water",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.plane-of-water",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "c055f093-f6aa-567a-9cbb-35ae5e04e5f7",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:plane-of-wood-lore",
+    "name": "Plane of Wood Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:plane-of-wood",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.plane-of-wood",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  }
+]

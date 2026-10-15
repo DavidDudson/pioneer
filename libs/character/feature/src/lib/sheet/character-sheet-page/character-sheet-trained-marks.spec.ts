@@ -89,6 +89,8 @@ describe('CharacterSheetPage options that train a skill again', () => {
     ).toStrictEqual([
       ['Acolyte', MARK, undefined],
       ['Pilgrim', MARK, undefined],
+      ['Seer of the Dead', MARK, undefined],
+      ['Street Preacher', MARK, undefined],
     ]);
   });
 

@@ -5159,7 +5159,16 @@
         "content": [
           {
             "type": "text",
-            "text": "Stasian actuators help the limbs of this full plate move of their own accord, as long as they're supplied with power. A chamber in the chest plate can hold a single Bottled Lightning, which takes 3 Interact actions to install."
+            "text": "Stasian actuators help the limbs of this full plate move of their own accord, as long as they're supplied with power. A chamber in the chest plate can hold a single "
+          },
+          {
+            "type": "ref",
+            "id": "cddda25a-f21f-55c6-9b35-638b5a9869ef",
+            "label": "Bottled Lightning"
+          },
+          {
+            "type": "text",
+            "text": ", which takes 3 Interact actions to install."
           }
         ]
       },
@@ -5644,7 +5653,15 @@
           },
           {
             "type": "text",
-            "text": " incorporates the plates of an ore louse's hide, woven together with the creature's own sinew into a functional set of armor. While wearing the rusting carapace, you gain a +1 circumstance bonus to AC and saving throws against any effect that would rust you or your items, such as the ore louse's Strikes that have the rust ability or the Rust Cloud spell."
+            "text": " incorporates the plates of an ore louse's hide, woven together with the creature's own sinew into a functional set of armor. While wearing the rusting carapace, you gain a +1 circumstance bonus to AC and saving throws against any effect that would rust you or your items, such as the ore louse's Strikes that have the rust ability or the "
+          },
+          {
+            "type": "ref",
+            "id": "8592bca6-0f4f-55d8-b72f-b043c13f4eb5"
+          },
+          {
+            "type": "text",
+            "text": " spell."
           }
         ]
       },

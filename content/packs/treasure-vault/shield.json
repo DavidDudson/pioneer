@@ -1069,7 +1069,16 @@
           },
           {
             "type": "text",
-            "text": ". Twin electrical probes near the grip can socket into a jar of moderate (or higher leveled) Bottled Lightning, which takes 3 Interact actions to install."
+            "text": ". Twin electrical probes near the grip can socket into a jar of moderate (or higher leveled) "
+          },
+          {
+            "type": "ref",
+            "id": "cddda25a-f21f-55c6-9b35-638b5a9869ef",
+            "label": "Bottled Lightning"
+          },
+          {
+            "type": "text",
+            "text": ", which takes 3 Interact actions to install."
           }
         ]
       },

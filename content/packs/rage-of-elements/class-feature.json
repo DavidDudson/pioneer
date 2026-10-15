@@ -1,0 +1,4337 @@
+[
+  {
+    "id": "a37f303b-c432-5a3b-8781-fa6c31baeca6",
+    "pack": "rage-of-elements",
+    "kind": "class-feature",
+    "slug": "class-feature:air-gate",
+    "name": "Air Gate",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Air Gate Junction"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "Critical Blast",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " Push the target up to 10 feet."
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Elemental Resistance",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " air, electricity"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Impulse Junction",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " Before or after the other effects of the impulse, you can either Stride up to half your Speed or Step. If you have a fly Speed, you can Fly up to half your fly Speed instead."
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Aura Junction",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " You and any ally that starts its turn in the aura gets a +10-foot status bonus to land Speed until the end of that turn, and to fly Speed if applicable"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Skill Junction",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " Stealth, "
+              },
+              {
+                "type": "ref",
+                "id": "ab6adadd-c9c7-5a67-8aea-bd1d7c8bfd5f"
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "impulse-one",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            {
+              "lte": ["item:level", "parent:granter:level"]
+            },
+            "item:trait:impulse",
+            "item:trait:air",
+            {
+              "not": "item:trait:composite"
+            }
+          ]
+        },
+        "prompt": "Select an impulse feat.",
+        "predicate": ["class:kineticist"]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "impulse-one"
+        },
+        "allowDuplicate": false,
+        "predicate": ["class:kineticist"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "impulse-two",
+        "choices": {
+          "kind": "feat",
+          "filter": ["item:level:1", "item:trait:impulse", "item:trait:air"]
+        },
+        "prompt": "Select an impulse feat.",
+        "predicate": ["kinetic-gate:initial:single-gate", "kinetic-gate:first-element:air-gate"]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "impulse-two"
+        },
+        "allowDuplicate": false,
+        "predicate": ["kinetic-gate:initial:single-gate", "kinetic-gate:first-element:air-gate"]
+      },
+      {
+        "key": "RollOption",
+        "option": "kinetic-gate:air",
+        "priority": 10
+      },
+      {
+        "key": "RollOption",
+        "option": "junction:air:impulse",
+        "predicate": ["kinetic-gate:initial:single-gate", "kinetic-gate:first-element:air-gate"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "ab6adadd-c9c7-5a67-8aea-bd1d7c8bfd5f",
+        "allowDuplicate": false,
+        "predicate": ["junction:air:skill"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:stealth",
+        "rank": "trained",
+        "predicate": ["junction:air:skill"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "status",
+        "value": "ternary(gte(@level, 17), 3, ternary(gte(@level, 10), 2, 1))",
+        "predicate": ["junction:air:skill", "self:effect:kinetic-aura"]
+      },
+      {
+        "key": "Immunity",
+        "type": ["air", "electricity"],
+        "predicate": [
+          "junction:air:resistance",
+          {
+            "gte": ["self:level", 17]
+          },
+          "self:effect:kinetic-aura"
+        ]
+      },
+      {
+        "key": "Note",
+        "selectors": ["elemental-blast-damage"],
+        "title": "Critical Blast",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Push the target up to 10 feet."
+              }
+            ]
+          }
+        ],
+        "outcome": ["criticalSuccess"],
+        "predicate": ["junction:air:critical", "item:trait:air"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["impulse-attack-roll"],
+        "title": "Impulse Junction",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Before or after the other effects of the impulse, you can either Stride up to half your Speed or Step. If you have a fly Speed, you can Fly up to half your fly Speed instead."
+              }
+            ]
+          }
+        ],
+        "predicate": [
+          {
+            "gte": ["action:cost", 2]
+          },
+          "junction:air:impulse",
+          "self:action:trait:impulse",
+          "self:action:trait:air"
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.X11Y3T1IzmtNqGMV"
+    },
+    "data": {
+      "tags": ["kineticist-kinetic-gate"]
+    }
+  },
+  {
+    "id": "3c9e61ad-9713-586c-88fc-1493022012e1",
+    "pack": "rage-of-elements",
+    "kind": "class-feature",
+    "slug": "class-feature:double-reflow",
+    "name": "Double Reflow",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["kineticist"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your kinetic gate becomes even more adaptable. When you use reflow elements, you can replace two impulse feats instead of one."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.DvuPpIaM4BkHLX4y"
+    },
+    "data": {}
+  },
+  {
+    "id": "83589404-ed77-577d-a607-3d1462abae45",
+    "pack": "rage-of-elements",
+    "kind": "class-feature",
+    "slug": "class-feature:earth-gate",
+    "name": "Earth Gate",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Earth Gate Junction"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "Critical Blast",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " If the target is on the ground, it's knocked "
+              },
+              {
+                "type": "ref",
+                "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+              },
+              {
+                "type": "text",
+                "text": "; if it isn't on the ground, it descends up to 20 feet (you choose the distance)."
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Elemental Resistance",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " earth, poison"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Impulse Junction",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " Fragments of stone float around you, granting you a +1 circumstance bonus to AC until the start of your next turn."
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Aura Junction",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " Squares in the aura are difficult terrain fo your enemies, but only if moving into the square would make the enemy farther away from you."
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Skill Junction",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " Athletics, "
+              },
+              {
+                "type": "ref",
+                "id": "7e42ccc3-1342-59f0-b827-0279e78a7260"
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "impulse-one",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            {
+              "lte": ["item:level", "parent:granter:level"]
+            },
+            "item:trait:impulse",
+            "item:trait:earth",
+            {
+              "not": "item:trait:composite"
+            }
+          ]
+        },
+        "prompt": "Select an impulse feat.",
+        "predicate": ["class:kineticist"]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "impulse-one"
+        },
+        "allowDuplicate": false,
+        "predicate": ["class:kineticist"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "impulse-two",
+        "choices": {
+          "kind": "feat",
+          "filter": ["item:level:1", "item:trait:impulse", "item:trait:earth"]
+        },
+        "prompt": "Select an impulse feat.",
+        "predicate": ["kinetic-gate:initial:single-gate", "kinetic-gate:first-element:earth-gate"]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "impulse-two"
+        },
+        "allowDuplicate": false,
+        "predicate": ["kinetic-gate:initial:single-gate", "kinetic-gate:first-element:earth-gate"]
+      },
+      {
+        "key": "RollOption",
+        "option": "kinetic-gate:earth",
+        "priority": 10
+      },
+      {
+        "key": "RollOption",
+        "option": "junction:earth:impulse",
+        "predicate": ["kinetic-gate:initial:single-gate", "kinetic-gate:first-element:earth-gate"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "7e42ccc3-1342-59f0-b827-0279e78a7260",
+        "allowDuplicate": false,
+        "predicate": ["junction:earth:skill"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:athletics",
+        "rank": "trained",
+        "predicate": ["junction:earth:skill"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "status",
+        "value": "ternary(gte(@level, 17), 3, ternary(gte(@level, 10), 2, 1))",
+        "predicate": ["junction:earth:skill", "self:effect:kinetic-aura"]
+      },
+      {
+        "key": "Immunity",
+        "type": ["earth", "poison"],
+        "predicate": [
+          "junction:earth:resistance",
+          {
+            "gte": ["self:level", 17]
+          },
+          "self:effect:kinetic-aura"
+        ]
+      },
+      {
+        "key": "Note",
+        "selectors": ["elemental-blast-damage"],
+        "title": "Critical Blast",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "If the target is on the ground, it's knocked Prone; if it isn't on the ground, it descends up to 20 feet (you choose the distance)."
+              }
+            ]
+          }
+        ],
+        "outcome": ["criticalSuccess"],
+        "predicate": ["junction:earth:critical", "item:trait:earth"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["impulse-attack-roll"],
+        "title": "Impulse Junction",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Fragments of stone float around you, granting you a +1 circumstance bonus to AC until the start of your next turn. Effect: Earth Impulse Junction"
+              }
+            ]
+          }
+        ],
+        "predicate": [
+          {
+            "gte": ["action:cost", 2]
+          },
+          "junction:earth:impulse",
+          "self:action:trait:impulse",
+          "self:action:trait:earth"
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.dEm00L1XFXFCH2wS"
+    },
+    "data": {
+      "tags": ["kineticist-kinetic-gate"]
+    }
+  },
+  {
+    "id": "d4012390-b197-5f5f-9ad6-f51c74bdd45d",
+    "pack": "rage-of-elements",
+    "kind": "class-feature",
+    "slug": "class-feature:elemental-eidolon",
+    "name": "Elemental Eidolon",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["summoner"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon is a primal chunk of elemental matter infused with sapience, power, and identity, but unable to manifest a true form of their own without the life force you provide via your connection. Most elementals in their natural environment already have different sorts of forms, from vaguely humanoid, to animalistic, to simple masses of their component element. As your life force provides your eidolon the instincts necessary to adopt a physical form, their appearance varies based on the strength of their own self image and your prior exposure to elementals."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Elemental eidolons tend to reach their unusual state—powerful but formless—as the result of large scale events or cataclysms, such as the war to seal the benevolent Elemental Lords or their recent unsealing. Whether elemental eidolons possess any memories of a previous life or are a new sapience formed from left-over essence of a mighty servant of the Elemental Lords brought low varies from eidolon to eidolon. Together, you might undertake a journey to understand your eidolon's mysterious past or leave the past behind and forge a new destiny of your own."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Tradition",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " primal"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Traits",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " eidolon, elemental, and one more (see Elemental Core, below)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Home Plane",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ": elemental plane matching their Elemental Core"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Size",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Medium"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Suggested Attacks",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " branch (bludgeoning), fist (bludgeoning), spike (piercing), tendril (bludgeoning), wave (bludgeoning)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Adaptable Elemental",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Str +1, Dex +4, Con +3, Int +0, Wis +1, Cha +0; +1 AC (+4 Dex cap)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Primordial Elemental",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Str +4, Dex +2, Con +3, Int –1, Wis +1, Cha +0; +2 AC (+3 Dex cap)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Skills",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Nature, Survival"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Senses",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " darkvision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Language",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " s Sussuran (air elemental), Petran (earth elemental), Pyric (fire elemental), Talican (metal elemental), Thalassic (water elemental), or Muan (wood elemental),"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Speed",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 25 feet"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Eidolon Abilities",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Initial ",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "elemental core"
+          },
+          {
+            "type": "text",
+            "text": "; Symbiosis ",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "elemental burst"
+          },
+          {
+            "type": "text",
+            "text": "; Transcendence ",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "elemental maelstrom"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Elemental Core"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your elemental eidolon is an amalgam of elemental matter and mortal life force, which helps protect them from certain effects that are more harmful to mortals than elementals. They gain a +2 circumstance bonus to saving throws against poison and sleep effects, as well as effects causing the "
+          },
+          {
+            "type": "ref",
+            "id": "7802f1d9-5ced-5b9b-8a08-98ec0adb9947"
+          },
+          {
+            "type": "text",
+            "text": " condition. Additionally, their elemental essence bleeds less easily than flesh, so the DC of any flat check they make to remove persistent bleed damage is 10 (or 5 after receiving particularly effective aid). Choose for your eidolon to be an air, earth, fire, metal, wood, or water elemental. Your eidolon and all their unarmed attacks gain the trait of the chosen element, and the eidolon gains additional effects based on your choice."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Air:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your eidolon is formed from elemental air and is light as a breeze. Your eidolon can "
+          },
+          {
+            "type": "ref",
+            "id": "1a0bed3d-5eb7-554f-ad07-4c8630afd0c8"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "9b3d9121-5da3-57fe-a5d0-e0ff20210c41"
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "ref",
+            "id": "a76317a3-de3d-58c2-8b3e-5a73b09657be"
+          },
+          {
+            "type": "text",
+            "text": " twice as far, and doesn't take falling damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Earth:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your eidolon is formed from elemental earth, and is incredibly hard to move by force. Your eidolon gains a +2 circumstance bonus to their Fortitude or Reflex DCs against attempts to "
+          },
+          {
+            "type": "ref",
+            "id": "082b982f-3ed4-5d9c-9722-9ab10198523a"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "6257c7f0-f483-53d3-a791-d73a616cbce4"
+          },
+          {
+            "type": "text",
+            "text": " them. This bonus also applies to saving throws against spells or effects that attempt to knock them "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": ". In addition, if any effect would force them to move 10 feet or more, they're moved only half the distance."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Fire:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your eidolon is formed from elemental fire and burns with embers of flame. Your eidolon gains resistance equal to half your level (minimum 1) to fire and an equal amount of weakness to cold and water. Their unarmed attacks deal 1 additional fire damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Metal:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your eidolon is formed from elemental metal and can adapt their metallic form to battle. One of your eidolon's starting melee unarmed attacks gains the versatile bludgeoning, piercing, or slashing trait, as your eidolon learns how to shift the metal into various weaponlike forms."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Water:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your eidolon is formed from elemental water and swims with ease. Your eidolon gains the amphibious trait, allowing them to breathe in water and air and to avoid the normal –2 penalty for making bludgeoning and slashing unarmed Strikes underwater. Your eidolon's land Speed is reduced to 15 feet, and they gain a swim Speed of 25 feet. You can take the Amphibious Form feat to increase their land Speed back up to 25 feet, as described in the feat."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Wood:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your eidolon is formed from elemental wood, and its living wooden form twists and regrows as you focus your elemental energies. You can choose to have your eidolon gain the plant trait. Whenever you Refocus, your eidolon regains a number of Hit Points equal to double your level."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Elemental Burst7th"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon can form projectile attacks from their own body. Your eidolon gains the "
+          },
+          {
+            "type": "ref",
+            "id": "479d6d28-3327-51ed-aeba-02bc9515f3a4"
+          },
+          {
+            "type": "text",
+            "text": " activity."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Elemental Maelstrom17th"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon can form a swirling vortex of elemental matter and move across the battlefield, damaging everything in their path. Your eidolon gains the "
+          },
+          {
+            "type": "ref",
+            "id": "6e6dae8a-9fda-5bf9-9290-236a8b18936c"
+          },
+          {
+            "type": "text",
+            "text": " activity."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:nature",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:survival",
+        "rank": "trained"
+      },
+      {
+        "key": "Language",
+        "slots": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.sZEQCWsq8MxAmEHp"
+    },
+    "data": {
+      "tags": ["summoner-eidolon"]
+    }
+  },
+  {
+    "id": "60d786b7-da22-59a0-a401-6c3870a7e769",
+    "pack": "rage-of-elements",
+    "kind": "class-feature",
+    "slug": "class-feature:elemental-instinct",
+    "name": "Elemental Instinct",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["barbarian"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This instinct option for barbarians allows you to channel elemental forces, bonding with a single element and its associated plane. Perhaps your ancestors were elemental conjurers or blessed by an elemental lord. Select an element from the Elemental Instincts table to be your instinct's element. If your element offers multiple damage types, choose one of those type when you select your element."
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Element"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Trait"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Damage"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "Air"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Air"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Electricity or slashing"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Earth"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Earth"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Bludgeoning or piercing"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Fire"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fire"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fire"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Metal"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Metal"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Piercing or slashing"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Water"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Water"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Bludgeoning or cold"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Wood"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Wood"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Bludgeoning or piercing"
+              }
+            ]
+          ]
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Disrespecting an elemental creature is anathema to your instinct; defending yourself against one is not. Purposefully despoiling the elemental plane associated with your element is anathema to your instinct, though this doesn't prevent you from responsibly altering that plane."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Elemental Rage"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While raging, you're cloaked in a vortex of elemental matter; you become "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " against ranged attacks. You can't use this concealment to "
+          },
+          {
+            "type": "ref",
+            "id": "5a86b7d0-fc0e-52a6-9b0d-fb58ed15233d"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "7e4e48de-b626-5513-9518-73261c58b5f4"
+          },
+          {
+            "type": "text",
+            "text": ". While raging, you increase the additional damage from Rage from 2 to 4 and change its damage type to the one you selected for your element."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you have any kineticist impulses with the same element type as the one you chose for your instinct, such as ones gained by taking the "
+          },
+          {
+            "type": "ref",
+            "id": "11650256-4da2-5c04-84ff-95ba961c59d0"
+          },
+          {
+            "type": "text",
+            "text": " multiclass feat, you can use them while raging even if they have the concentrate trait."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Specialization Ability"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you use elemental rage, you increase the damage from Rage from 4 to 6. If you have greater weapon specialization, instead increase the damage from Rage when using elemental rage from 6 to 12."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Raging Resistance"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You resist the damage dealt by attacks and abilities of elemental creatures of your chosen element, as well as creatures made of your element, regardless of the damage type. You also resist damage dealt by attacks, spells, and abilities with your elemental trait."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["strike-damage"],
+        "slug": "rage",
+        "mode": "upgrade",
+        "value": 6,
+        "predicate": ["class:barbarian", "feature:weapon-specialization"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["strike-damage"],
+        "slug": "rage",
+        "mode": "upgrade",
+        "value": 12,
+        "predicate": ["class:barbarian", "feature:greater-weapon-specialization"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.0jSS6pgNXsC8k4o7"
+    },
+    "data": {
+      "tags": ["barbarian-instinct"]
+    }
+  },
+  {
+    "id": "78d2b213-55e6-5d00-b874-d554f2f79299",
+    "pack": "rage-of-elements",
+    "kind": "class-feature",
+    "slug": "class-feature:elemental-magic",
+    "name": "Elemental Magic",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're a spellcaster who specializes in harnessing the elements. Though you might feel a kinship for one element over the others, you're capable of shaping many of them. Due to your specialization in elemental magic, you have a smaller, more focused spell list than other spellcasters, though your magic is drawn from multiple traditions. If you choose this class archetype, you must select the "
+          },
+          {
+            "type": "ref",
+            "id": "a9f5ea53-12da-55bc-b082-4889f59942bc"
+          },
+          {
+            "type": "text",
+            "text": " as your 2nd-level class feat."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Elementalist Adjustments:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Replace your spell list with the elemental spell list. Your actual magical tradition is unchanged, but you choose your spells from the elemental list instead. You must choose an elemental philosophy (detailed below), which determines which spells and other elemental magic you can use."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Druid Elementalist Adjustments:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If you're a druid of the storm order and air is in your elemental philosophy, you can choose to replace your starting order spell, "
+          },
+          {
+            "type": "ref",
+            "id": "61f84b31-8da0-5b2f-89a8-9ae353d08524"
+          },
+          {
+            "type": "text",
+            "text": ", with "
+          },
+          {
+            "type": "ref",
+            "id": "325f4723-3618-5aa3-b588-892fabc4239a"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Elemental Sorcerer Adjustments:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If you're a sorcerer with the elemental bloodline, you can replace your initial bloodline spell with an initial elemental focus spell, and your advanced bloodline spell with an advanced elemental focus spell. The initial and advanced elemental focus spells you select must have the same trait as your elemental bloodline."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Wizard Elementalist Adjustments:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If you're a wizard, you can either choose to be a "
+          },
+          {
+            "type": "ref",
+            "id": "fd4df4d3-c1db-54eb-bbd0-dc5b6d825c92"
+          },
+          {
+            "type": "text",
+            "text": " or to follow an arcane school dedicated to one element from your elemental philosophy. If you choose an elemental school, your curriculum spells can be any spells that you have access to and that have your chosen element's trait. Your school spells are the elemental focus spells of your chosen element, with the 1st-rank spell as your initial school spell and the 3rd- rank spell as the advanced school spell."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Elemental Philosophy"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose an elemental philosophy, which determines which elements you can use. The options available are as follows."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Elemental Cycle:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Earth, fire, metal, water, wood"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Inner Sea Elementalism:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Air, earth, fire, water"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Every elementalist has the spells from the universal elemental spells list. Your choice of elemental philosophy affects your other spells. Your personal list also contains any spell that shares one or more traits with those in your elemental philosophy, and doesn't have any traits that aren't in your elemental philosophy. For example, an elemental cycle elementalist could choose a spell with both the earth and fire traits, but not one with the air and fire traits, while an inner sea elementalist could choose either of those, but not a spell with metal and fire traits."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can't take elementalist feats or use elementalist abilities for an element you're unable to attune to. For example, an Inner Sea elementalist couldn't select the "
+          },
+          {
+            "type": "ref",
+            "id": "696fab4a-8b8e-52bd-8195-100aad9b587c"
+          },
+          {
+            "type": "text",
+            "text": " feat, use "
+          },
+          {
+            "type": "ref",
+            "id": "d431a280-e739-5f3e-8e35-bca75e76c513"
+          },
+          {
+            "type": "text",
+            "text": " against a metal or wood spell, or choose a metal or wood ability for their "
+          },
+          {
+            "type": "ref",
+            "id": "27d2bd88-7bfc-5a26-afb5-b24a00ba8fa6"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Elementalist Focus Spells"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Air",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " initial: "
+          },
+          {
+            "type": "ref",
+            "id": "325f4723-3618-5aa3-b588-892fabc4239a"
+          },
+          {
+            "type": "text",
+            "text": "; advanced: "
+          },
+          {
+            "type": "ref",
+            "id": "2be90c6d-a541-5f29-b544-a76fdf78b654"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Earth",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " initial: "
+          },
+          {
+            "type": "ref",
+            "id": "c91ffe89-c442-5eb6-8b94-ae07875e497b"
+          },
+          {
+            "type": "text",
+            "text": "; advanced: "
+          },
+          {
+            "type": "ref",
+            "id": "e6027c2d-fc61-582f-8900-703ec07f7a61"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Fire",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " initial: "
+          },
+          {
+            "type": "ref",
+            "id": "4d797eae-314b-5ca3-bbc5-baa70026a664"
+          },
+          {
+            "type": "text",
+            "text": "; advanced: "
+          },
+          {
+            "type": "ref",
+            "id": "aa5788ab-eb86-5a84-8b04-e67bd51c42c8"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Metal",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " initial: "
+          },
+          {
+            "type": "ref",
+            "id": "b9dc1b38-528a-5ae3-9a28-f6ef406f89ed"
+          },
+          {
+            "type": "text",
+            "text": "; advanced: "
+          },
+          {
+            "type": "ref",
+            "id": "0960f923-2af4-56b3-ba99-4e5cdd31455e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Water",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " initial: "
+          },
+          {
+            "type": "ref",
+            "id": "c860637c-50dd-525c-9e29-7a617ecdc936"
+          },
+          {
+            "type": "text",
+            "text": "; advanced: "
+          },
+          {
+            "type": "ref",
+            "id": "f2147cf0-aa2c-5c21-bf3e-5469c31a67b6"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Wood",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " initial: "
+          },
+          {
+            "type": "ref",
+            "id": "9f6e6bcf-95fd-5591-a34d-cfeb40457c63"
+          },
+          {
+            "type": "text",
+            "text": "; advanced: "
+          },
+          {
+            "type": "ref",
+            "id": "7398b467-e7d9-53f6-88cc-3e0a5308c26a"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "elemental-magic",
+        "choices": [
+          {
+            "value": "elemental-cycle",
+            "label": "Elemental Cycle"
+          },
+          {
+            "value": "inner-sea-elementalism",
+            "label": "Inner Sea Elementalism"
+          }
+        ],
+        "prompt": "Choose an elemental philosophy.",
+        "rollOption": "elementalist"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "wizard-elmentalist-school",
+        "choices": {
+          "kind": "class-feature",
+          "filter": ["item:tag:wizard-elemental-school"]
+        },
+        "prompt": "Select an arcane school.",
+        "predicate": ["class:wizard"]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "wizard-elmentalist-school"
+        },
+        "predicate": ["class:wizard"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "elemental-magic",
+        "choices": [
+          {
+            "value": "yes",
+            "label": "Yes"
+          },
+          {
+            "value": "no",
+            "label": "No"
+          }
+        ],
+        "prompt": "Replace your initial bloodline spell with the initial elemental focus spell?",
+        "rollOption": "elemental-focus-initial",
+        "predicate": ["class:sorcerer", "feature:bloodline-elemental"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "elemental-magic",
+        "choices": [
+          {
+            "value": "yes",
+            "label": "Yes"
+          },
+          {
+            "value": "no",
+            "label": "No"
+          }
+        ],
+        "prompt": "Replace your advanced bloodline spell with the advanced elemental focus spell?",
+        "rollOption": "elemental-focus-advanced",
+        "predicate": ["class:sorcerer", "feature:bloodline-elemental"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.pUkUC8HHom2DmYzz"
+    },
+    "data": {
+      "tags": ["class-archetype"]
+    }
+  },
+  {
+    "id": "aea1f08f-487a-5260-b08c-2e05ea3dad4c",
+    "pack": "rage-of-elements",
+    "kind": "class-feature",
+    "slug": "class-feature:elemental-school",
+    "name": "Elemental School",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you choose an elemental school, your curriculum spells can be any spells that you have access to and that have your chosen element's trait. Your school spells are the elemental focus spells of your chosen element, with the 1st-rank spell as your initial school spell and the 3rd-rank spell as the advanced school spell."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "element",
+        "choices": [
+          {
+            "value": "air",
+            "label": "Air",
+            "predicate": ["elementalist:inner-sea-elementalism"]
+          },
+          {
+            "value": "earth",
+            "label": "Earth",
+            "predicate": [
+              {
+                "or": ["elementalist:inner-sea-elementalism", "elementalist:elemental-cycle"]
+              }
+            ]
+          },
+          {
+            "value": "fire",
+            "label": "Fire",
+            "predicate": [
+              {
+                "or": ["elementalist:inner-sea-elementalism", "elementalist:elemental-cycle"]
+              }
+            ]
+          },
+          {
+            "value": "metal",
+            "label": "Metal",
+            "predicate": ["elementalist:elemental-cycle"]
+          },
+          {
+            "value": "water",
+            "label": "Water",
+            "predicate": [
+              {
+                "or": ["elementalist:inner-sea-elementalism", "elementalist:elemental-cycle"]
+              }
+            ]
+          },
+          {
+            "value": "wood",
+            "label": "Wood",
+            "predicate": ["elementalist:elemental-cycle"]
+          }
+        ],
+        "prompt": "Choose which element your elemental school follows."
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.5rFzX6JK6CXLFxUP"
+    },
+    "data": {
+      "tags": ["wizard-elemental-school"]
+    }
+  },
+  {
+    "id": "fdab01d9-bd1f-51b8-b78f-56f2e9edb2e9",
+    "pack": "rage-of-elements",
+    "kind": "class-feature",
+    "slug": "class-feature:extract-element",
+    "name": "Extract Element",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["kineticist"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Creatures with a strong tie to your element might be troublesome for you to deal with, at least until you've learned to turn their elemental nature to your advantage. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "238c0f55-7f37-5dcc-a4a0-d234af20158f"
+          },
+          {
+            "type": "text",
+            "text": " action."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "238c0f55-7f37-5dcc-a4a0-d234af20158f",
+        "allowDuplicate": false
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.jyCEC3eC4B6YaGoy"
+    },
+    "data": {}
+  },
+  {
+    "id": "953cbb9e-4c6b-5ab1-81f3-5916e39e4fc8",
+    "pack": "rage-of-elements",
+    "kind": "class-feature",
+    "slug": "class-feature:final-gate",
+    "name": "Final Gate",
+    "level": 19,
+    "rarity": "common",
+    "traits": ["kineticist"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your kinetic gate reaches a perfect form, its power constantly fighting to be released. If your kinetic aura is inactive, you automatically use the first action of your turn to "
+          },
+          {
+            "type": "ref",
+            "id": "b0ae57b0-d534-57cf-be9d-b006702f5cb6"
+          },
+          {
+            "type": "text",
+            "text": " as a free action. You can deliberately suppress the effect. If you're unable to act, final gate still functions, but you don't get to use the "
+          },
+          {
+            "type": "ref",
+            "id": "5e3330f3-b291-54ba-a227-6184227b61fc"
+          },
+          {
+            "type": "text",
+            "text": " or stance impulse you normally do from using Channel Elements"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.DPxpBIxPidJfn0Xv"
+    },
+    "data": {}
+  },
+  {
+    "id": "ed8a5e96-3526-56fa-9e2b-21df7f41403d",
+    "pack": "rage-of-elements",
+    "kind": "class-feature",
+    "slug": "class-feature:fire-gate",
+    "name": "Fire Gate",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Fire Gate Junction"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "Critical Blast",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " The target takes 1d6 persistent fire damage. You gain an item bonus to this persistent damage equal to your item bonus to impulse attack rolls, such as from a "
+              },
+              {
+                "type": "text",
+                "text": "gate attenuator",
+                "marks": ["emphasis"]
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Elemental Resistance",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " cold, fire"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Impulse Junction",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " Increase the damage die size of fire damage dealt by the impulse by one step."
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Aura Junction",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " Enemies in your kinetic aura gain weakness to fire from your fire impulses. The weakness is equal to half your level (minimum weakness 1)."
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Skill Junction",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " Intimidation, "
+              },
+              {
+                "type": "ref",
+                "id": "83871ce2-c4f9-5a77-af0a-7d7f0708b5f0"
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "impulse-one",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            {
+              "lte": ["item:level", "parent:granter:level"]
+            },
+            "item:trait:impulse",
+            "item:trait:fire",
+            {
+              "not": "item:trait:composite"
+            }
+          ]
+        },
+        "prompt": "Select an impulse feat.",
+        "predicate": ["class:kineticist"]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "impulse-one"
+        },
+        "allowDuplicate": false,
+        "predicate": ["class:kineticist"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "impulse-two",
+        "choices": {
+          "kind": "feat",
+          "filter": ["item:level:1", "item:trait:impulse", "item:trait:fire"]
+        },
+        "prompt": "Select an impulse feat.",
+        "predicate": ["kinetic-gate:initial:single-gate", "kinetic-gate:first-element:fire-gate"]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "impulse-two"
+        },
+        "allowDuplicate": false,
+        "predicate": ["kinetic-gate:initial:single-gate", "kinetic-gate:first-element:fire-gate"]
+      },
+      {
+        "key": "RollOption",
+        "option": "kinetic-gate:fire",
+        "priority": 10
+      },
+      {
+        "key": "RollOption",
+        "option": "junction:fire:impulse",
+        "predicate": ["kinetic-gate:initial:single-gate", "kinetic-gate:first-element:fire-gate"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "83871ce2-c4f9-5a77-af0a-7d7f0708b5f0",
+        "allowDuplicate": false,
+        "predicate": ["junction:fire:skill"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:intimidation",
+        "rank": "trained",
+        "predicate": ["junction:fire:skill"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:intimidation"],
+        "type": "status",
+        "value": "ternary(gte(@level, 17), 3, ternary(gte(@level, 10), 2, 1))",
+        "predicate": ["junction:fire:skill", "self:effect:kinetic-aura"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["cold", "fire"],
+        "value": "@level",
+        "predicate": ["junction:fire:resistance", "self:effect:kinetic-aura"]
+      },
+      {
+        "key": "Immunity",
+        "type": ["cold", "fire"],
+        "predicate": [
+          "junction:fire:resistance",
+          {
+            "gte": ["self:level", 17]
+          },
+          "self:effect:kinetic-aura"
+        ]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["elemental-blast-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "fire",
+        "category": "persistent",
+        "critical": true,
+        "predicate": ["junction:fire:critical", "item:trait:fire"],
+        "display": {
+          "label": "Critical Blast"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.PfeDtJBJdUun0THS"
+    },
+    "data": {
+      "tags": ["kineticist-kinetic-gate"]
+    }
+  },
+  {
+    "id": "91fd7d96-3fb0-5671-9c06-ce8234e24b7a",
+    "pack": "rage-of-elements",
+    "kind": "class-feature",
+    "slug": "class-feature:fourth-gates-threshold",
+    "name": "Fourth Gate's Threshold",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["kineticist"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You reach a new milestone in your odyssey to become in tune with your kinetic gate and must decide how to expand the gate's power. At 5th level and every 4 levels thereafter, you choose to either expand the portal or fork the path."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Expand the Portal",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": ": Your gate attunes more precisely to one of your elements. Gain an impulse feat of your level or lower for one of your kinetic elements; if you have more than one element, you can choose a composite impulse. You also gain a gate junction for one of your kinetic elements. If you have no valid options for the feat-typically because you have one kinetic element and devoted your class feats to gaining that element's impulses-you can instead select any kineticist class feat of your level or lower for which you meet the prerequisites."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Fork the Path",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": ": Your gate reaches to another elemental plane. Add a new element of your choice to your kinetic elements. Gain an impulse feat of your level or lower with the trait of that element. You can't select a composite impulse feat with this feat selection."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "fourth-gate-s-threshold",
+        "choices": [
+          {
+            "value": "expand",
+            "label": "Expand the Portal"
+          },
+          {
+            "value": "fork",
+            "label": "Fork the Path"
+          }
+        ],
+        "prompt": "Select a gate's threshold.",
+        "rollOption": "kinetic-gate:fourth-threshold"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "element-fork",
+        "choices": {
+          "kind": "class-feature",
+          "filter": ["item:tag:kineticist-kinetic-gate"]
+        },
+        "prompt": "Select an element.",
+        "predicate": ["kinetic-gate:fourth-threshold:fork"]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "element-fork"
+        },
+        "allowDuplicate": false
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.o8QHrhc9MsWIoKUv"
+    },
+    "data": {}
+  },
+  {
+    "id": "1ee64407-a9e1-539d-9899-09e462020d9c",
+    "pack": "rage-of-elements",
+    "kind": "class-feature",
+    "slug": "class-feature:gate-junction",
+    "name": "Gate Junction",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["kineticist"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Gate Junctions",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you gain a gate junction, you develop a specialized kinetic technique. Choose one benefit from the gate junction table for one of your kinetic elements."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A "
+                },
+                {
+                  "type": "text",
+                  "text": "critical blast",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " junction happens when you get a critical success with an Elemental Blast of the kinetic element."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "An "
+                },
+                {
+                  "type": "text",
+                  "text": "elemental resistance",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " grants you resistance to damage while your kinetic aura is active. This resistance is equal to your level, and it applies to damage of any listed type or that comes from a creature or effect that has any of the listed traits. At 17th level, you gain immunity to effects with any of the listed traits. This doesn't make you immune to creatures with such a trait. You can voluntarily forgo this resistance, immunity, or both if you want an effect to work on you."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You can choose an "
+                },
+                {
+                  "type": "text",
+                  "text": "impulse junction",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " instead of one of the listed junctions. Impulse junctions are listed under Single Gate."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "An "
+                },
+                {
+                  "type": "text",
+                  "text": "aura junction",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " adds an effect to your kinetic aura when you Channel Elements."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A "
+                },
+                {
+                  "type": "text",
+                  "text": "skill junction",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " makes you trained in the listed skill and grants you the listed skill feat. If you were already trained in the listed skill, you instead become trained in a skill of your choice. While your kinetic aura is active, you gain a +1 status bonus to the listed skill; the bonus increases to +2 at 10th level and +3 at 17th level."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can select each gate junction only once, unless noted otherwise, but you can have the same type of junction for multiple elements. You can always choose not to use a gate junction when it would normally occur. If you have multiple junctions that would apply at the same time - such as kinetic aura junctions for different elements - you can apply any number of them. (Though note that you can use only one impulse junction per round.)"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.jx70hPakuTgB3lM5"
+    },
+    "data": {}
+  },
+  {
+    "id": "6d421a0c-9aa4-5d4a-8ae6-0451c0de499c",
+    "pack": "rage-of-elements",
+    "kind": "class-feature",
+    "slug": "class-feature:gates-threshold",
+    "name": "Gate's Threshold",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["kineticist"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You reach a new milestone in your odyssey to become in tune with your kinetic gate and must decide how to expand the gate's power. At 5th level and every 4 levels thereafter, you choose to either expand the portal or fork the path."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Expand the Portal",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": ": Your gate attunes more precisely to one of your elements. Gain an impulse feat of your level or lower for one of your kinetic elements; if you have more than one element, you can choose a composite impulse. You also gain a gate junction for one of your kinetic elements. If you have no valid options for the feat-typically because you have one kinetic element and devoted your class feats to gaining that element's impulses-you can instead select any kineticist class feat of your level or lower for which you meet the prerequisites."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Fork the Path",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": ": Your gate reaches to another elemental plane. Add a new element of your choice to your kinetic elements. Gain an impulse feat of your level or lower with the trait of that element. You can't select a composite impulse feat with this feat selection."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "gate-s-threshold",
+        "choices": [
+          {
+            "value": "expand",
+            "label": "Expand the Portal"
+          },
+          {
+            "value": "fork",
+            "label": "Fork the Path"
+          }
+        ],
+        "prompt": "Select a gate's threshold.",
+        "rollOption": "kinetic-gate:first-threshold"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "element-fork",
+        "choices": {
+          "kind": "class-feature",
+          "filter": ["item:tag:kineticist-kinetic-gate"]
+        },
+        "prompt": "Select an element.",
+        "predicate": ["kinetic-gate:first-threshold:fork"]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "element-fork"
+        },
+        "allowDuplicate": false
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.vEiENk0IzuzRQesp"
+    },
+    "data": {}
+  },
+  {
+    "id": "0c7c5f54-63aa-52a7-ab50-513a1c8e9559",
+    "pack": "rage-of-elements",
+    "kind": "class-feature",
+    "slug": "class-feature:greater-kinetic-durability",
+    "name": "Greater Kinetic Durability",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["kineticist"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your gate protects you even more. Your proficiency rank for Fortitude saves increases to legendary. When you roll a critical failure on a Fortitude save, you get a failure instead. When you fail a Fortitude save against an effect that deals damage, you halve the damage you take."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["save:fortitude"],
+        "adjustment": {
+          "criticalFailure": "one-degree-better"
+        }
+      },
+      {
+        "key": "Note",
+        "selectors": ["save:fortitude"],
+        "title": "Greater Kinetic Durability",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "When you roll a failure on a Fortitude save against a damaging effect, you take half damage."
+              }
+            ]
+          }
+        ],
+        "outcome": ["failure"],
+        "predicate": ["option:damaging-effect"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "save:fortitude",
+        "rank": "legendary"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.i3qjbhL7uukg9I80"
+    },
+    "data": {}
+  },
+  {
+    "id": "5245b1e5-334a-53af-943c-e0daf65c3da8",
+    "pack": "rage-of-elements",
+    "kind": "class-feature",
+    "slug": "class-feature:impulses",
+    "name": "Impulses",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["kineticist"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An impulse is a special type of magical action available to kineticists, allowing them to wield or shape their element into diverse and powerful forms. To wield an element, you must have your kinetic aura active and have a free hand, as described in the impulse trait. You automatically gain the Elemental Blast and Base Kinesis impulses, and your kinetic gate selection gives you additional impulse feats. You can select more impulse feats with kineticist class feats, and at higher levels, you'll automatically get more with the gate's threshold class feature. You can select an impulse feat only if it matches one of your kinetic elements."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Impulses are magical, and though they aren't spells, some things that affect spells also affect impulses. Abilities that restrict you from casting spells (such as being polymorphed into a battle form) or protect against spells (such as a spell that protects against other spells or a creature's bonus to saves against spells) also apply to impulses."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Impulse Levels",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Any impulse you use is the same level you are. For instance, if you're 5th level, your Elemental Blast would be 5th level (and its counteract rank would be 3rd rank), even though you gained the action at 1st level."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Similar to spells, many impulses get more powerful as you increase in level. In these cases, the impulse ends with one or more \"Level\" entries. This either lists the levels at which the impulse gets an upgrade or has an entry with a plus sign that describes a benefit that increases on a regular basis. For instance, a 1st-level impulse with a \"Level (+4)\" entry would get stronger at 5th, 9th, 13th, and 17th levels."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Impulse Attacks and DCs",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An impulse that requires a saving throw uses your kineticist class DC. Some of your impulses require you to attempt an "
+          },
+          {
+            "type": "text",
+            "text": "impulse attack roll",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " to see how effective they are. Your impulse attack roll uses the same proficiency and attribute modifier as your kineticist class DC. Like a spell attack modifier, your impulse attack modifier uses the following formula: d20 roll + attribute modifier + proficiency bonus + other bonuses + penalties. This means your impulse attack roll is typically 10 lower than your class DC. The "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b"
+          },
+          {
+            "type": "text",
+            "text": " condition can reduce your impulse attack rolls and class DCs. You can acquire a "
+          },
+          {
+            "type": "text",
+            "text": "gate attenuator",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to gain a bonus to your impulse attack modifier."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Elemental Blast",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The "
+          },
+          {
+            "type": "ref",
+            "id": "5e3330f3-b291-54ba-a227-6184227b61fc"
+          },
+          {
+            "type": "text",
+            "text": " impulse is a simple expression of your power, allowing you to attack with the pure matter of your kinetic element. Though each element has its own strengths and weaknesses, the basic principles to using them are the same. You can customize the appearance of your Elemental Blast and can even choose a different form each time you use the impulse."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Base Kinesis",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The "
+          },
+          {
+            "type": "ref",
+            "id": "3839c462-2666-57c5-bd8c-0ef026999669"
+          },
+          {
+            "type": "text",
+            "text": " impulse lets you perform simple alterations to an element."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "5e3330f3-b291-54ba-a227-6184227b61fc"
+      },
+      {
+        "key": "GrantItem",
+        "item": "3839c462-2666-57c5-bd8c-0ef026999669",
+        "predicate": ["class:kineticist"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.xhCYkt3acfFd0hr2"
+    },
+    "data": {}
+  },
+  {
+    "id": "cbfe5c9d-1364-5f83-9e0c-b8388d73252a",
+    "pack": "rage-of-elements",
+    "kind": "class-feature",
+    "slug": "class-feature:kinetic-aura",
+    "name": "Kinetic Aura",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["kineticist"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Through your kinetic gate, elements flow from an elemental plane to orbit your person. The form and appearance of this kinetic aura are unique to you. Examples include a chaotic wind orbiting the body, fragments of floating gravel, colorful wicks of flame stars of raw metal always changing shape, floatin snowflakes or splinters dancing in the air. If you can channel more than one element, pieces of all your kinetic elements appear in the aura."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have the "
+          },
+          {
+            "type": "ref",
+            "id": "b0ae57b0-d534-57cf-be9d-b006702f5cb6"
+          },
+          {
+            "type": "text",
+            "text": " action, which lets you activate your kinetic aura."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "b0ae57b0-d534-57cf-be9d-b006702f5cb6",
+        "allowDuplicate": false
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.f0BF2210l9k66cso"
+    },
+    "data": {}
+  },
+  {
+    "id": "a934b6d5-b5bf-5aea-a12e-86d6b46c5356",
+    "pack": "rage-of-elements",
+    "kind": "class-feature",
+    "slug": "class-feature:kinetic-durability",
+    "name": "Kinetic Durability",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["kineticist"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The sustenance of your inner gate counters harm that would come to your body. Your proficiency rank for Fortitude saves increases to master. When you roll a success on a Fortitude save, you get a critical success instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["save:fortitude"],
+        "adjustment": {
+          "success": "one-degree-better"
+        }
+      },
+      {
+        "key": "Proficiency",
+        "selector": "save:fortitude",
+        "rank": "master"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.eTHq1Cwf1pOvsx2R"
+    },
+    "data": {}
+  },
+  {
+    "id": "3ddb24a1-8371-562a-98d2-a5eb3983cb12",
+    "pack": "rage-of-elements",
+    "kind": "class-feature",
+    "slug": "class-feature:kinetic-expertise",
+    "name": "Kinetic Expertise",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["kineticist"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your kinetic gate grows stronger, making your elements harder to resist. The power flowing from you is even harder to resist. Your proficiency rank for your kineticist class DC increases to expert."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "class-dc",
+        "rank": "expert"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.dGiMAdZEQoXQWJbn"
+    },
+    "data": {}
+  },
+  {
+    "id": "b7d9f0de-7698-5380-8bc4-8c62c40f5633",
+    "pack": "rage-of-elements",
+    "kind": "class-feature",
+    "slug": "class-feature:kinetic-gate",
+    "name": "Kinetic Gate",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["kineticist"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As a kineticist, you've awakened or opened a kinetic gate, a supernatural conduit within your body that can channel elemental forces straight from the elemental planes. You can choose either a single gate (one element) or dual gate (two elements) at 1st level."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When selecting an element for your kinetic gate, you can pick from six elements - air, earth, fire metal, water, and wood. Elements you can channel are referred to as your kinetic elements. Your kinetic elements function even in environments where they normally wouldn't. For example, you could use fire actions underwater even though that's normally not possible, and you could create air in a vacuum."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your kinetic gate gives you impulse feats, magical actions that let you shape and control your elements in awesome ways. You can select more impulse feats using your kineticist class feats, as described under Impulses. At higher levels, the gate's threshold class feature gives you more impulse feats and lets you choose whether to improve with one element or access new kinetic elements."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Single Gate",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your kinetic gate links to a single elemental plane, starting you with a single element but giving you greater power with it. Choose one element to be your kinetic element, and select two 1st-level impulse feats that have that element's trait."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In addition, you gain an impulse junction, a benefit that occurs when you use an impulse of the chosen element that takes 2 actions or more. This happens before the other effects of the impulse, unless noted otherwise. You can gain only one impulse junction per round; they are described in full below."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Air",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Before or after the other effects of the impulse, you can either Stride up to half your Speed or Step. If you have a fly Speed, you can Fly up to half your fly Speed instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Earth",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Fragments of stone float around you, granting you a +1 circumstance bonus to AC until the start of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Fire",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Increase the damage die size of fire damage dealt by the impulse by one step."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Metal",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Choose acid, electricity, or piercing. Until the start of your next turn, each time a creature touches you or damages you with an unarmed melee attack or nonreach melee weapon, it takes damage of the chosen type equal to half your level (minimum 1 damage)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Water",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " After the impulse's other effects, you can move one creature targeted by the impulse or in its area 5 feet in any direction, or 10 feet if it's in a body of water. This can't move the creature into the air. You can choose only a creature that's willing to be moved, that failed its save against the impulse, or that you succeeded at an impulse attack roll against."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Wood",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain temporary Hit Points equal to your level that last until the start of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Dual Gate",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your kinetic gate is a harmonious conduit between two planes, allowing you to combine their elements to give you a versatile set of abilities. Select two elements to be your kinetic elements. Then, select two 1st-level impulse feats, one with the trait of the first element and one with the trait of the other."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "kinetic-gate",
+        "choices": [
+          {
+            "value": "dual-gate",
+            "label": "Dual Gate"
+          },
+          {
+            "value": "single-gate",
+            "label": "Single Gate"
+          }
+        ],
+        "prompt": "Select a kinetic gate.",
+        "rollOption": "kinetic-gate:initial"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "element-one",
+        "choices": {
+          "kind": "class-feature",
+          "filter": ["item:tag:kineticist-kinetic-gate"]
+        },
+        "prompt": "Select an element.",
+        "rollOption": "kinetic-gate:first-element"
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "element-one"
+        }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "element-two",
+        "choices": {
+          "kind": "class-feature",
+          "filter": ["item:tag:kineticist-kinetic-gate"]
+        },
+        "prompt": "Select an element.",
+        "rollOption": "kinetic-gate:second-element",
+        "predicate": ["kinetic-gate:initial:dual-gate"]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "element-two"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.IDBB44egwiQ4qZNh"
+    },
+    "data": {}
+  },
+  {
+    "id": "e79ddc49-2898-5684-847a-f274b6fa3ff9",
+    "pack": "rage-of-elements",
+    "kind": "class-feature",
+    "slug": "class-feature:kinetic-legend",
+    "name": "Kinetic Legend",
+    "level": 19,
+    "rarity": "common",
+    "traits": ["kineticist"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your elements become almost impossible to resist. Your proficiency rank for your kineticist class DC increases to legendary."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "class-dc",
+        "rank": "legendary"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.8ZAc21SvRO2rfPez"
+    },
+    "data": {}
+  },
+  {
+    "id": "5f3d919d-b6dc-547f-9a3d-dc3f12c9a586",
+    "pack": "rage-of-elements",
+    "kind": "class-feature",
+    "slug": "class-feature:kinetic-mastery",
+    "name": "Kinetic Mastery",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["kineticist"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The power flowing from you grows even difficult to resist. Your proficiency rank for your kineticist class DC increases to master."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "class-dc",
+        "rank": "master"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.a6fIKxCViZwwHZLJ"
+    },
+    "data": {}
+  },
+  {
+    "id": "2ffa3ac8-d2c6-5fc9-94bb-ae26e243cf8b",
+    "pack": "rage-of-elements",
+    "kind": "class-feature",
+    "slug": "class-feature:kinetic-quickness",
+    "name": "Kinetic Quickness",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["kineticist"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your body flows with the elegance of a flame a wave, a breeze. Your proficiency rank for Reflex saves increases to master. When you roll a success on a Reflex save, you get a critical success instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["save:reflex"],
+        "adjustment": {
+          "success": "one-degree-better"
+        }
+      },
+      {
+        "key": "Proficiency",
+        "selector": "save:reflex",
+        "rank": "master"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.9BUk7zy1aE092XCS"
+    },
+    "data": {}
+  },
+  {
+    "id": "841136c7-3dd0-5db4-9089-360f655bde70",
+    "pack": "rage-of-elements",
+    "kind": "class-feature",
+    "slug": "class-feature:metal-gate",
+    "name": "Metal Gate",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Metal Gate Junction"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "Critical Blast",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " The target takes 1d6 persistent bleed damage; if the creature has the metal trait or is made of metal, it instead takes 1d6 persistent damage with no type from rust. You gain an item bonus to this persistent damage equal to your item bonus to impulse attack rolls, such as from a "
+              },
+              {
+                "type": "text",
+                "text": "gate attenuator",
+                "marks": ["emphasis"]
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Elemental Resistance",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " electricity, metal"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Impulse Junction",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " Choose acid, electricity, or piercing. Until the start of your next turn, each time a creature touches you or damages you with an unarmed melee attack or nonreach melee weapon, it takes damage of the chosen type equal to half your level (minimum 1 damage)."
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Aura Junction",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " Your enemies in the aura take a -1 status penalty to attacks with metal objects, and they take a -1 status penalty to AC if they're wearing metal armor, have the metal trait, or are made of metal."
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Skill Junction",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " Crafting, "
+              },
+              {
+                "type": "ref",
+                "id": "794574f1-29c1-5cfd-abdf-413a512ca0e7"
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "impulse-one",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            {
+              "lte": ["item:level", "parent:granter:level"]
+            },
+            "item:trait:impulse",
+            "item:trait:metal",
+            {
+              "not": "item:trait:composite"
+            }
+          ]
+        },
+        "prompt": "Select an impulse feat.",
+        "predicate": ["class:kineticist"]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "impulse-one"
+        },
+        "allowDuplicate": false,
+        "predicate": ["class:kineticist"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "impulse-two",
+        "choices": {
+          "kind": "feat",
+          "filter": ["item:level:1", "item:trait:impulse", "item:trait:metal"]
+        },
+        "prompt": "Select an impulse feat.",
+        "predicate": ["kinetic-gate:initial:single-gate", "kinetic-gate:first-element:metal-gate"]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "impulse-two"
+        },
+        "allowDuplicate": false,
+        "predicate": ["kinetic-gate:initial:single-gate", "kinetic-gate:first-element:metal-gate"]
+      },
+      {
+        "key": "RollOption",
+        "option": "kinetic-gate:metal",
+        "priority": 10
+      },
+      {
+        "key": "RollOption",
+        "option": "junction:metal:impulse",
+        "predicate": ["kinetic-gate:initial:single-gate", "kinetic-gate:first-element:metal-gate"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "794574f1-29c1-5cfd-abdf-413a512ca0e7",
+        "allowDuplicate": false,
+        "predicate": ["junction:metal:skill"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:crafting",
+        "rank": "trained",
+        "predicate": ["junction:metal:skill"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:crafting"],
+        "type": "status",
+        "value": "ternary(gte(@level, 17), 3, ternary(gte(@level, 10), 2, 1))",
+        "predicate": ["junction:metal:skill", "self:effect:kinetic-aura"]
+      },
+      {
+        "key": "Immunity",
+        "type": ["electricity", "metal"],
+        "predicate": [
+          "junction:metal:resistance",
+          {
+            "gte": ["self:level", 17]
+          },
+          "self:effect:kinetic-aura"
+        ]
+      },
+      {
+        "key": "Note",
+        "selectors": ["elemental-blast-damage"],
+        "title": "Critical Blast",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The target takes 1d6 persistent bleed damage; if the creature has the metal trait or is made of metal, it instead takes "
+              },
+              {
+                "type": "damage",
+                "instances": [
+                  {
+                    "formula": "1d6",
+                    "category": "persistent"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " damage with no type from rust. You gain an item bonus to this persistent damage equal to your item bonus to impulse attack rolls, such as from a gate attenuator."
+              }
+            ]
+          }
+        ],
+        "outcome": ["criticalSuccess"],
+        "predicate": ["junction:metal:critical", "item:trait:metal"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["elemental-blast-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "bleed",
+        "critical": true,
+        "predicate": ["junction:metal:critical", "item:trait:metal"],
+        "display": {
+          "label": "Critical Blast"
+        }
+      },
+      {
+        "key": "Note",
+        "selectors": ["impulse-attack-roll"],
+        "title": "Impulse Junction",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Choose acid, electricity, or piercing. Until the start of your next turn, each time a creature touches you or damages you with an unarmed melee attack or nonreach melee weapon, it takes damage of the chosen type equal to half your level (minimum 1 damage)."
+              }
+            ]
+          }
+        ],
+        "predicate": [
+          {
+            "gte": ["action:cost", 2]
+          },
+          "junction:metal:impulse",
+          "self:action:trait:impulse",
+          "self:action:trait:metal"
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.21JjdNW0RQ2LfaH3"
+    },
+    "data": {
+      "tags": ["kineticist-kinetic-gate"]
+    }
+  },
+  {
+    "id": "b07b7021-935f-574b-afc3-b60aa0eebfdd",
+    "pack": "rage-of-elements",
+    "kind": "class-feature",
+    "slug": "class-feature:perception-expertise",
+    "name": "Perception Expertise",
+    "level": 3,
+    "rarity": "common",
+    "traits": [
+      "alchemist",
+      "animist",
+      "champion",
+      "cleric",
+      "druid",
+      "exemplar",
+      "kineticist",
+      "magus",
+      "monk",
+      "sorcerer",
+      "witch",
+      "wizard"
+    ],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You remain alert to threats around you. Your proficiency rank for Perception increases to expert."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "perception",
+        "rank": "expert"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.JCqACxgrm5ixX0Jy"
+    },
+    "data": {}
+  },
+  {
+    "id": "43959c87-43a6-5a95-81c1-cb97fd1b7bbd",
+    "pack": "rage-of-elements",
+    "kind": "class-feature",
+    "slug": "class-feature:reflow-elements",
+    "name": "Reflow Elements",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["kineticist"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You twist one of the impulses you've learned into a different but still similar magic. When you make your daily preparations, you can replace one of your impulse feats with a different impulse feat that has the same elemental trait. You can reflow only impulse feats that have exactly one elemental trait, not composite impulse feats or feats that vary by element. This follows the same rules as retraining; you can replace impulse feats gained through your class feats or through class features that grant you impulse feats."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.SIkSIln5G1J73PrM"
+    },
+    "data": {}
+  },
+  {
+    "id": "5c156baf-bf66-5902-97f7-0d39c2c37eec",
+    "pack": "rage-of-elements",
+    "kind": "class-feature",
+    "slug": "class-feature:second-gates-threshold",
+    "name": "Second Gate's Threshold",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["kineticist"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You reach a new milestone in your odyssey to become in tune with your kinetic gate and must decide how to expand the gate's power. At 5th level and every 4 levels thereafter, you choose to either expand the portal or fork the path."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Expand the Portal",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": ": Your gate attunes more precisely to one of your elements. Gain an impulse feat of your level or lower for one of your kinetic elements; if you have more than one element, you can choose a composite impulse. You also gain a gate junction for one of your kinetic elements. If you have no valid options for the feat-typically because you have one kinetic element and devoted your class feats to gaining that element's impulses-you can instead select any kineticist class feat of your level or lower for which you meet the prerequisites."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Fork the Path",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": ": Your gate reaches to another elemental plane. Add a new element of your choice to your kinetic elements. Gain an impulse feat of your level or lower with the trait of that element. You can't select a composite impulse feat with this feat selection."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "threshold",
+        "choices": [
+          {
+            "value": "expand",
+            "label": "Expand the Portal"
+          },
+          {
+            "value": "fork",
+            "label": "Fork the Path"
+          }
+        ],
+        "prompt": "Select a gate's threshold.",
+        "rollOption": "kinetic-gate:second-threshold"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "element-fork",
+        "choices": {
+          "kind": "class-feature",
+          "filter": ["item:tag:kineticist-kinetic-gate"]
+        },
+        "prompt": "Select an element.",
+        "predicate": ["kinetic-gate:second-threshold:fork"]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "element-fork"
+        },
+        "allowDuplicate": false
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.N5Gnf73TvuO6Reoj"
+    },
+    "data": {}
+  },
+  {
+    "id": "8985d83b-75be-538c-8d01-824287acf38d",
+    "pack": "rage-of-elements",
+    "kind": "class-feature",
+    "slug": "class-feature:third-gates-threshold",
+    "name": "Third Gate's Threshold",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["kineticist"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You reach a new milestone in your odyssey to become in tune with your kinetic gate and must decide how to expand the gate's power. At 5th level and every 4 levels thereafter, you choose to either expand the portal or fork the path."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Expand the Portal",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": ": Your gate attunes more precisely to one of your elements. Gain an impulse feat of your level or lower for one of your kinetic elements; if you have more than one element, you can choose a composite impulse. You also gain a gate junction for one of your kinetic elements. If you have no valid options for the feat-typically because you have one kinetic element and devoted your class feats to gaining that element's impulses-you can instead select any kineticist class feat of your level or lower for which you meet the prerequisites."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Fork the Path",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": ": Your gate reaches to another elemental plane. Add a new element of your choice to your kinetic elements. Gain an impulse feat of your level or lower with the trait of that element. You can't select a composite impulse feat with this feat selection."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "third-gate-s-threshold",
+        "choices": [
+          {
+            "value": "expand",
+            "label": "Expand the Portal"
+          },
+          {
+            "value": "fork",
+            "label": "Fork the Path"
+          }
+        ],
+        "prompt": "Select a gate's threshold.",
+        "rollOption": "kinetic-gate:third-threshold"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "element-fork",
+        "choices": {
+          "kind": "class-feature",
+          "filter": ["item:tag:kineticist-kinetic-gate"]
+        },
+        "prompt": "Select an element.",
+        "predicate": ["kinetic-gate:third-threshold:fork"]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "element-fork"
+        },
+        "allowDuplicate": false
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.GfQ5MngIn74OYhQL"
+    },
+    "data": {}
+  },
+  {
+    "id": "e64a1413-fa13-5ceb-b8e4-c5bf48b6c336",
+    "pack": "rage-of-elements",
+    "kind": "class-feature",
+    "slug": "class-feature:water-gate",
+    "name": "Water Gate",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Water Gate Junction"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "Critical Blast",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " The blast deals 2 splash per damage die of the blast, with the same damage type."
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Elemental Resistance",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " fire, water"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Impulse Junction",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " After the impulse's other effects, you can move one creature targeted by the impulse or in its area 5 feet in any direction, or 10 feet if it's in a body of water. This can't move the creature into the air. You can choose only a creature that's willing to be moved, that failed its save against the impulse, or that you succeeded at an impulse attack roll against."
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Aura Junction",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " The aura becomes saturated with humidity, and water moves as you please. Non-magical fires in the aura are extinguished, and creatures in the aura gain fire resistance equal to half your level."
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Skill Junction",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " Athletics, "
+              },
+              {
+                "type": "ref",
+                "id": "92df56f7-e2ed-5915-9d6a-f4aa8862eb23"
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "impulse-one",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            {
+              "lte": ["item:level", "parent:granter:level"]
+            },
+            "item:trait:impulse",
+            "item:trait:water",
+            {
+              "not": "item:trait:composite"
+            }
+          ]
+        },
+        "prompt": "Select an impulse feat.",
+        "predicate": ["class:kineticist"]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "impulse-one"
+        },
+        "allowDuplicate": false,
+        "predicate": ["class:kineticist"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "impulse-two",
+        "choices": {
+          "kind": "feat",
+          "filter": ["item:level:1", "item:trait:impulse", "item:trait:water"]
+        },
+        "prompt": "Select an impulse feat.",
+        "predicate": ["kinetic-gate:initial:single-gate", "kinetic-gate:first-element:water-gate"]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "impulse-two"
+        },
+        "allowDuplicate": false,
+        "predicate": ["kinetic-gate:initial:single-gate", "kinetic-gate:first-element:water-gate"]
+      },
+      {
+        "key": "RollOption",
+        "option": "kinetic-gate:water",
+        "priority": 10
+      },
+      {
+        "key": "RollOption",
+        "option": "junction:water:impulse",
+        "predicate": ["kinetic-gate:initial:single-gate", "kinetic-gate:first-element:water-gate"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "92df56f7-e2ed-5915-9d6a-f4aa8862eb23",
+        "allowDuplicate": false,
+        "predicate": ["junction:water:skill"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:athletics",
+        "rank": "trained",
+        "predicate": ["junction:water:skill"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "status",
+        "value": "ternary(gte(@level, 17), 3, ternary(gte(@level, 10), 2, 1))",
+        "predicate": ["junction:water:skill", "self:effect:kinetic-aura"]
+      },
+      {
+        "key": "Immunity",
+        "type": ["fire", "water"],
+        "predicate": [
+          "junction:water:resistance",
+          {
+            "gte": ["self:level", 17]
+          },
+          "self:effect:kinetic-aura"
+        ]
+      },
+      {
+        "key": "Note",
+        "selectors": ["impulse-attack-roll"],
+        "title": "Impulse Junction",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "After the impulse's other effects, you can move one creature targeted by the impulse or in its area 5 feet in any direction, or 10 feet if it's in a body of water. This can't move the creature into the air. You can choose only a creature that's willing to be moved, that failed its save against the impulse, or that you succeeded at an impulse attack roll against."
+              }
+            ]
+          }
+        ],
+        "predicate": [
+          {
+            "gte": ["action:cost", 2]
+          },
+          "junction:water:impulse",
+          "self:action:trait:impulse",
+          "self:action:trait:water"
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.MvunDFH8Karxee0t"
+    },
+    "data": {
+      "tags": ["kineticist-kinetic-gate"]
+    }
+  },
+  {
+    "id": "ba805be4-5be4-569a-9f7b-6f7def5b7fca",
+    "pack": "rage-of-elements",
+    "kind": "class-feature",
+    "slug": "class-feature:will-expertise",
+    "name": "Will Expertise",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["alchemist", "kineticist", "ranger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your mental defenses grow stronger. Your proficiency rank for Will saves increases to expert."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "save:will",
+        "rank": "expert"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.NhcF2CbXA8R1UCg4"
+    },
+    "data": {}
+  },
+  {
+    "id": "a492d763-12de-58cb-a84b-097f6d6d14df",
+    "pack": "rage-of-elements",
+    "kind": "class-feature",
+    "slug": "class-feature:wood-gate",
+    "name": "Wood Gate",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Wood Gate Junction"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "Critical Blast",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " If the target of the critical hit is adjacent to a surface, roots entangle it. The target is "
+              },
+              {
+                "type": "ref",
+                "id": "64278392-4910-5a32-b819-56f6e54952dd"
+              },
+              {
+                "type": "text",
+                "text": " and must spend an Interact action to attempt a "
+              },
+              {
+                "type": "check",
+                "statistic": "skill:athletics",
+                "dc": 10
+              },
+              {
+                "type": "text",
+                "text": " check to pull itself free. The target doesn't become stuck if it is incorporeal, is liquid, or could otherwise escape without effort"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Elemental Resistance",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " poison, wood"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Impulse Junction",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " You gain temporary Hit Points equal to your level that last until the start of your next turn."
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Aura Junction",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " Life-giving blossoms spring up around you. Any ally that begins its turn in the aura gains 1 temporary Hit Point that lasts until the start of its next turn. This increases to 2 temporary Hit Points if you're 10th level or higher and to 3 temporary Hit Points if you're 15th level or higher."
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Skill Junction",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " Survival, "
+              },
+              {
+                "type": "ref",
+                "id": "57542da4-3edc-5464-9143-2236defe9f0e",
+                "label": "Terrain Expertise (forest)"
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "impulse-one",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            {
+              "lte": ["item:level", "parent:granter:level"]
+            },
+            "item:trait:impulse",
+            "item:trait:wood",
+            {
+              "not": "item:trait:composite"
+            }
+          ]
+        },
+        "prompt": "Select an impulse feat.",
+        "predicate": ["class:kineticist"]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "impulse-one"
+        },
+        "allowDuplicate": false,
+        "predicate": ["class:kineticist"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "impulse-two",
+        "choices": {
+          "kind": "feat",
+          "filter": ["item:level:1", "item:trait:impulse", "item:trait:wood"]
+        },
+        "prompt": "Select an impulse feat.",
+        "predicate": ["kinetic-gate:initial:single-gate", "kinetic-gate:first-element:wood-gate"]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "impulse-two"
+        },
+        "allowDuplicate": false,
+        "predicate": ["kinetic-gate:initial:single-gate", "kinetic-gate:first-element:wood-gate"]
+      },
+      {
+        "key": "RollOption",
+        "option": "kinetic-gate:wood",
+        "priority": 10
+      },
+      {
+        "key": "RollOption",
+        "option": "junction:wood:impulse",
+        "predicate": ["kinetic-gate:initial:single-gate", "kinetic-gate:first-element:wood-gate"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "57542da4-3edc-5464-9143-2236defe9f0e",
+        "allowDuplicate": false,
+        "choices": {
+          "terrain": "forest"
+        },
+        "predicate": ["junction:wood:skill"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:survival",
+        "rank": "trained",
+        "predicate": ["junction:wood:skill"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:survival"],
+        "type": "status",
+        "value": "ternary(gte(@level, 17), 3, ternary(gte(@level, 10), 2, 1))",
+        "predicate": ["junction:wood:skill", "self:effect:kinetic-aura"]
+      },
+      {
+        "key": "Immunity",
+        "type": ["poison", "wood"],
+        "predicate": [
+          "junction:wood:resistance",
+          {
+            "gte": ["self:level", 17]
+          },
+          "self:effect:kinetic-aura"
+        ]
+      },
+      {
+        "key": "Note",
+        "selectors": ["elemental-blast-damage"],
+        "title": "Critical Blast",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "If the target of the critical hit is adjacent to a surface, roots entangle it. The target is Immobilized and must spend an Interact action to attempt a "
+              },
+              {
+                "type": "check",
+                "statistic": "skill:athletics",
+                "dc": 10
+              },
+              {
+                "type": "text",
+                "text": " check to pull itself free. The target doesn't become stuck if it is incorporeal, is liquid, or could otherwise escape without effort."
+              }
+            ]
+          }
+        ],
+        "outcome": ["criticalSuccess"],
+        "predicate": ["junction:wood:critical", "item:trait:wood"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["impulse-attack-roll"],
+        "title": "Impulse Junction",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You gain temporary Hit Points equal to your level that last until the start of your next turn. Effect: Wood Impulse Junction"
+              }
+            ]
+          }
+        ],
+        "predicate": [
+          {
+            "gte": ["action:cost", 2]
+          },
+          "junction:wood:impulse",
+          "self:action:trait:impulse",
+          "self:action:trait:wood"
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.8X8db58vKx21L0Dr"
+    },
+    "data": {
+      "tags": ["kineticist-kinetic-gate"]
+    }
+  }
+]

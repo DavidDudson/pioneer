@@ -1,0 +1,1201 @@
+[
+  {
+    "id": "850b9a45-076e-5ac4-b647-fcfec5a9b24e",
+    "pack": "rage-of-elements",
+    "kind": "armor",
+    "slug": "armor:tales-in-timber",
+    "name": "Tales in Timber",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["invested", "magical", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Dozens of pictorial stories—told in wood carvings, painting, or pyrography—adorn every outer surface of this "
+          },
+          {
+            "type": "text",
+            "text": "+1 resilient wooden breastplate",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". All are old, and many truly ancient, depicting tales set eons ago on the Plane of Wood. You gain a +2 item bonus to Nature checks to Recall Knowledge. If you know the "
+          },
+          {
+            "type": "ref",
+            "id": "39a76fbf-320c-5beb-9457-d1766960ab18"
+          },
+          {
+            "type": "text",
+            "text": " ritual, you can use Nature instead of Occultism if you're the primary caster."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Statue Disguise",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The armor makes you look like a wooden statue version of one of the creatures depicted on the armor for 1 hour. This is a 3rd-rank "
+          },
+          {
+            "type": "ref",
+            "id": "adcc4c8f-05ae-5440-83d0-9e88ad22209b"
+          },
+          {
+            "type": "text",
+            "text": ", but it can make you look like any creature depicted on the armor. This doesn't change your size or the capabilities of your body, and it scales the appearance of the creature to match yours. You can Dismiss the activation. This disguise is just real enough to make you somewhat closer to a creature of wood. You're affected by two spells while it lasts: "
+          },
+          {
+            "type": "ref",
+            "id": "d649aded-ca36-5663-ba2c-edc97e35bd6c"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "29397615-a073-572b-a506-4a6b88f6529d"
+          },
+          {
+            "type": "text",
+            "text": ". If you stand still, you gain a +2 item bonus to Deception checks and DCs to appear as an inanimate wooden statue, in addition to the status bonus to Deception from "
+          },
+          {
+            "type": "text",
+            "text": "illusory disguise",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:nature"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["action:recall-knowledge"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.gg6XF2dWafE0pcHu"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "statue-disguise",
+          "name": "Statue Disguise",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "medium",
+      "group": "wood",
+      "baseItem": "wooden-breastplate",
+      "acBonus": 3,
+      "dexCap": 2,
+      "checkPenalty": 2,
+      "speedPenalty": 5,
+      "strength": 2,
+      "runes": {
+        "potency": 1,
+        "resilient": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "7512ffd4-f891-59f1-bd1e-17f29a6c0bb7",
+    "pack": "rage-of-elements",
+    "kind": "armor",
+    "slug": "armor:tales-in-timber-greater",
+    "name": "Tales in Timber (Greater)",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["invested", "magical", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Dozens of pictorial stories—told in wood carvings, painting, or pyrography—adorn every outer surface of this "
+          },
+          {
+            "type": "text",
+            "text": "+2 resilient wooden breastplate",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". All are old, and many truly ancient, depicting tales set eons ago on the Plane of Wood. You gain a +2 item bonus to Nature checks to Recall Knowledge. If you know the "
+          },
+          {
+            "type": "ref",
+            "id": "39a76fbf-320c-5beb-9457-d1766960ab18"
+          },
+          {
+            "type": "text",
+            "text": " ritual, you can use Nature instead of Occultism if you're the primary caster."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Statue Disguise",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The armor makes you look like a wooden statue version of one of the creatures depicted on the armor for 1 hour. This is a 3rd-rank "
+          },
+          {
+            "type": "ref",
+            "id": "adcc4c8f-05ae-5440-83d0-9e88ad22209b"
+          },
+          {
+            "type": "text",
+            "text": ", but it can make you look like any creature depicted on the armor. This doesn't change your size or the capabilities of your body, and it scales the appearance of the creature to match yours. You can Dismiss the activation. This disguise is just real enough to make you somewhat closer to a creature of wood. You're affected by two spells while it lasts: 4th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "d649aded-ca36-5663-ba2c-edc97e35bd6c"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "29397615-a073-572b-a506-4a6b88f6529d"
+          },
+          {
+            "type": "text",
+            "text": ". If you stand still, you gain a +2 item bonus to Deception checks and DCs to appear as an inanimate wooden statue, in addition to the status bonus to Deception from "
+          },
+          {
+            "type": "text",
+            "text": "illusory disguise",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:nature"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["action:recall-knowledge"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.4XYnZij3BqhFuayG"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2800
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "statue-disguise",
+          "name": "Statue Disguise",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "medium",
+      "group": "wood",
+      "baseItem": "wooden-breastplate",
+      "acBonus": 3,
+      "dexCap": 2,
+      "checkPenalty": 2,
+      "speedPenalty": 5,
+      "strength": 2,
+      "runes": {
+        "potency": 2,
+        "resilient": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "cd1134bc-6f59-5c5b-8a89-55712bc6a1cc",
+    "pack": "rage-of-elements",
+    "kind": "armor",
+    "slug": "armor:tales-in-timber-major",
+    "name": "Tales in Timber (Major)",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["invested", "magical", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Dozens of pictorial stories—told in wood carvings, painting, or pyrography—adorn every outer surface of this "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater resilient wooden breastplate",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". All are old, and many truly ancient, depicting tales set eons ago on the Plane of Wood. You gain a +3 item bonus to Nature checks to Recall Knowledge. If you know the "
+          },
+          {
+            "type": "ref",
+            "id": "39a76fbf-320c-5beb-9457-d1766960ab18"
+          },
+          {
+            "type": "text",
+            "text": " ritual, you can use Nature instead of Occultism if you're the primary caster."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Statue Disguise",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The armor makes you look like a wooden statue version of one of the creatures depicted on the armor for 1 hour. This is a 3rd-rank "
+          },
+          {
+            "type": "ref",
+            "id": "adcc4c8f-05ae-5440-83d0-9e88ad22209b"
+          },
+          {
+            "type": "text",
+            "text": ", but it can make you look like any creature depicted on the armor. This doesn't change your size or the capabilities of your body, and it scales the appearance of the creature to match yours. You can Dismiss the activation. This disguise is just real enough to make you somewhat closer to a creature of wood. You're affected by two spells while it lasts: 6th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "d649aded-ca36-5663-ba2c-edc97e35bd6c"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "29397615-a073-572b-a506-4a6b88f6529d"
+          },
+          {
+            "type": "text",
+            "text": ". If you stand still, you gain a +2 item bonus to Deception checks and DCs to appear as an inanimate wooden statue, in addition to the status bonus to Deception from "
+          },
+          {
+            "type": "text",
+            "text": "illusory disguise",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:nature"],
+        "type": "item",
+        "value": 3,
+        "predicate": ["action:recall-knowledge"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.o9y5aRGsbH5x77Mn"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 22000
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "statue-disguise",
+          "name": "Statue Disguise",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "medium",
+      "group": "wood",
+      "baseItem": "wooden-breastplate",
+      "acBonus": 3,
+      "dexCap": 2,
+      "checkPenalty": 2,
+      "speedPenalty": 5,
+      "strength": 2,
+      "runes": {
+        "potency": 2,
+        "resilient": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "a9b32b09-c80b-5035-a0af-10f66e3175e3",
+    "pack": "rage-of-elements",
+    "kind": "armor",
+    "slug": "armor:wisp-chain",
+    "name": "Wisp Chain",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["air", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 resilient chain shirt",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is made of small, interlocking currents of wind carefully woven together. While the links of air don't jingle against each other like chain links might, the tiny cyclones nevertheless create a blustering howl akin to standing at the center of a storm. A creature that ends its turn adjacent to you must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 23,
+            "options": ["inflicts:deafened"]
+          },
+          {
+            "type": "text",
+            "text": " save. On a failure, it becomes "
+          },
+          {
+            "type": "ref",
+            "id": "4271da2e-7225-5aa7-9807-c499d8af6a5a"
+          },
+          {
+            "type": "text",
+            "text": " until it moves away from you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Slicing Links",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You unbind the currents that form your armor and release them as cutting whorls of air that slice into creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": ". Creatures in the area take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6",
+                "damageType": "slashing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 25,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save. A creature that fails its save is also pushed 10 feet (or 20 feet on a critical failure). You lose the AC bonus of your armor until the end of your turn, when the air currents reform the wisp chain around you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.bosOCvsQb8tG8fuD"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 685
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "slicing-links",
+          "name": "Slicing Links",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "light",
+      "group": "chain",
+      "baseItem": "chain-shirt",
+      "acBonus": 2,
+      "dexCap": 3,
+      "checkPenalty": 1,
+      "strength": 1,
+      "runes": {
+        "potency": 1,
+        "resilient": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "6e900a7e-123e-549f-897b-5020769d87da",
+    "pack": "rage-of-elements",
+    "kind": "armor",
+    "slug": "armor:wisp-chain-greater",
+    "name": "Wisp Chain (Greater)",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["air", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+2 resilient chain shirt",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is made of small, interlocking currents of wind carefully woven together. While the links of air don't jingle against each other like chain links might, the tiny cyclones nevertheless create a blustering howl akin to standing at the center of a storm. A creature that ends its turn adjacent to you must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 27,
+            "options": ["inflicts:deafened"]
+          },
+          {
+            "type": "text",
+            "text": " save. On a failure, it becomes "
+          },
+          {
+            "type": "ref",
+            "id": "4271da2e-7225-5aa7-9807-c499d8af6a5a"
+          },
+          {
+            "type": "text",
+            "text": " until it moves away from you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Slicing Links",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You unbind the currents that form your armor and release them as cutting whorls of air that slice into creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": ". Creatures in the area take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "9d6",
+                "damageType": "slashing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 29,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save. A creature that fails its save is also pushed 10 feet (or 20 feet on a critical failure). You lose the AC bonus of your armor until the end of your turn, when the air currents reform the wisp chain around you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.M7H8LNnmUA17oqsW"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1900
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "slicing-links",
+          "name": "Slicing Links",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "light",
+      "group": "chain",
+      "baseItem": "chain-shirt",
+      "acBonus": 2,
+      "dexCap": 3,
+      "checkPenalty": 1,
+      "strength": 1,
+      "runes": {
+        "potency": 2,
+        "resilient": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "e2d0b563-baad-515e-a885-5ef79b7e7871",
+    "pack": "rage-of-elements",
+    "kind": "armor",
+    "slug": "armor:wisp-chain-major",
+    "name": "Wisp Chain (Major)",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["air", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater resilient chain shirt",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is made of small, interlocking currents of wind carefully woven together. While the links of air don't jingle against each other like chain links might, the tiny cyclones nevertheless create a blustering howl akin to standing at the center of a storm. A creature that ends its turn adjacent to you must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 32,
+            "options": ["inflicts:deafened"]
+          },
+          {
+            "type": "text",
+            "text": " save. On a failure, it becomes "
+          },
+          {
+            "type": "ref",
+            "id": "4271da2e-7225-5aa7-9807-c499d8af6a5a"
+          },
+          {
+            "type": "text",
+            "text": " until it moves away from you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Slicing Links",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You unbind the currents that form your armor and release them as cutting whorls of air that slice into creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": ". Creatures in the area take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "12d6",
+                "damageType": "slashing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 34,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save. A creature that fails its save is also pushed 10 feet (or 20 feet on a critical failure). You lose the AC bonus of your armor until the end of your turn, when the air currents reform the wisp chain around you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.BTHxd53T6xttQ0d9"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6000
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "slicing-links",
+          "name": "Slicing Links",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "light",
+      "group": "chain",
+      "baseItem": "chain-shirt",
+      "acBonus": 2,
+      "dexCap": 3,
+      "checkPenalty": 1,
+      "strength": 1,
+      "runes": {
+        "potency": 2,
+        "resilient": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "7bd7b0ca-9b2d-56e5-868a-2698ebccf688",
+    "pack": "rage-of-elements",
+    "kind": "armor",
+    "slug": "armor:wisp-chain-true",
+    "name": "Wisp Chain (True)",
+    "level": 19,
+    "rarity": "common",
+    "traits": ["air", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+3 greater resilient chain shirt",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is made of small, interlocking currents of wind carefully woven together. While the links of air don't jingle against each other like chain links might, the tiny cyclones nevertheless create a blustering howl akin to standing at the center of a storm. A creature that ends its turn adjacent to you must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 39,
+            "options": ["inflicts:deafened"]
+          },
+          {
+            "type": "text",
+            "text": " save. On a failure, it becomes "
+          },
+          {
+            "type": "ref",
+            "id": "4271da2e-7225-5aa7-9807-c499d8af6a5a"
+          },
+          {
+            "type": "text",
+            "text": " until it moves away from you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Slicing Links",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You unbind the currents that form your armor and release them as cutting whorls of air that slice into creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": ". Creatures in the area take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "16d6",
+                "damageType": "slashing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 41,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save. A creature that fails its save is also pushed 10 feet (or 20 feet on a critical failure). You lose the AC bonus of your armor until the end of your turn, when the air currents reform the wisp chain around you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.4Zxm46hCidf2GmvV"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 35000
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "slicing-links",
+          "name": "Slicing Links",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "light",
+      "group": "chain",
+      "baseItem": "chain-shirt",
+      "acBonus": 2,
+      "dexCap": 3,
+      "checkPenalty": 1,
+      "strength": 1,
+      "runes": {
+        "potency": 3,
+        "resilient": 2,
+        "property": []
+      }
+    }
+  }
+]

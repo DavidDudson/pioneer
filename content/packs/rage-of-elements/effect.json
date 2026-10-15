@@ -1,0 +1,6774 @@
+[
+  {
+    "id": "f9aac79e-0089-5d53-9367-68955ccf063e",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-a-thousand-cuts",
+    "name": "Effect: A Thousand Cuts",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain weakness 2 to slashing damage while affected by persistent bleed damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Weakness",
+        "type": ["slashing"],
+        "value": 2,
+        "predicate": ["self:condition:persistent-damage:bleed"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.Eecbbol29eIP3zvf"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "f9256e44-e697-5f7a-8389-3f174239a6eb",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-alloy-flesh-and-steel",
+    "name": "Effect: Alloy Flesh and Steel",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "e24f7436-d136-5dbd-ac50-0f3fc984a732"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance 10 to physical damage, except adamantine. You're immune to death effects, disease, drained, fatigued, healing, nonlethal attacks, paralyzed, poison, sickened, vitality, and void."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your fist Strikes have a 1d10 damage die, and your metal spells deal one additional die of damage (of the same damage die and damage type the spell uses). Your metal Elemental Blasts deal an additional die of damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Immunity",
+        "type": [
+          "death-effects",
+          "disease",
+          "drained",
+          "fatigued",
+          "healing",
+          "nonlethal-attacks",
+          "paralyzed",
+          "poison",
+          "sickened",
+          "vitality",
+          "void"
+        ]
+      },
+      {
+        "key": "Strike",
+        "fist": true
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["elemental-blast-damage", "spell-damage"],
+        "diceNumber": 1,
+        "predicate": ["item:trait:metal"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.JzVfTeHDopKAA5P0"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start",
+        "sustained": true
+      }
+    }
+  },
+  {
+    "id": "5350bf0b-dc74-5200-aebd-d356bb4fbaeb",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-aura-junction-air",
+    "name": "Effect: Aura Junction (Air)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +10-foot status bonus to land and fly Speed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed", "fly-speed"],
+        "type": "status",
+        "value": 10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.Mnvd3jV4EW6nAJKI"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "75cb3610-3f87-50ce-87d4-a2e8b52847ca",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-aura-junction-fire",
+    "name": "Effect: Aura Junction (Fire)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Enemies in your kinetic aura gain weakness to fire from your fire impulses. The weakness is equal to half your level (minimum weakness 1)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.QOWjsM4GYUHw6pFA"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "dce2712e-e4da-5046-b8cd-4e607b24432c",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-aura-junction-metal",
+    "name": "Effect: Aura Junction (Metal)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Creatures with the metal trait take a -1 status penalty to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "status",
+        "value": -1,
+        "predicate": ["self:trait:metal"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.MFCcEWCC9PR46qPy"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "74aa1860-5170-5473-b783-509616cd562c",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-aura-junction-water",
+    "name": "Effect: Aura Junction (Water)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain fire resistance equal to half the kineticist's level."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": "floor(@item.level / 2)"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.s8LMK2zCQgUT3HoY"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "39d0a04d-d0c8-58a3-a1d9-4e06cfa7b722",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-aura-junction-wood",
+    "name": "Effect: Aura Junction (Wood)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Any ally that begins its turn in the aura gains 1 temporary Hit Point that lasts until the start of its next turn. This increases to 2 temporary Hit Points if you're 10th level or higher and to 3 temporary Hit Points if you're 15th level or higher."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.su5qLXoweaHxt6ZP"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "8c877df7-7ae4-5e99-89c5-0aaf09b58315",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-beacon-of-the-rowan-guard",
+    "name": "Effect: Beacon of the Rowan Guard",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While within the emanation, a creature with the elemental trait and either the plant trait or wood trait gains fast healing 10 and a +2 circumstance bonus to all attack and damage rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FastHealing",
+        "value": 10,
+        "type": "fast-healing"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack", "damage"],
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.6KebCyP5O7Gl9baR"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "a6a2d2a5-623d-5e4b-bcc1-edca8bcc6255",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-blight-breath",
+    "name": "Effect: Blight Breath",
+    "level": 12,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "4b5d165b-c9fc-589b-9ec9-b541ff96ea16"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance 10 to poison."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["poison"],
+        "value": 10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.N2XR9v6Vo13SJZXV"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "9758e32e-a988-58d2-8bd5-09af1c234477",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-conductive-sphere",
+    "name": "Effect: Conductive Sphere",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1aad83db-5398-51f3-b8b5-0de6d6cf2837"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance to electricity equal to the level of the origin and add the "
+          },
+          {
+            "type": "text",
+            "text": "shock",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune to all your Strikes with metal objects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:conductive-sphere",
+        "toggleable": true,
+        "display": {
+          "label": "Strike with metal object"
+        }
+      },
+      {
+        "key": "AdjustStrike",
+        "predicate": ["option:conductive-sphere"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "shock"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.sl3umfGcLROU3U5U"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "363ab2b7-f203-5dbc-a5ed-96d218e3be4e",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-consume-power",
+    "name": "Effect: Consume Power",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "164ca9c0-f11b-5f51-a24e-66b1da6ebe78"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a status bonus equal to half your level to the damage of your metal impulse."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["inline-damage", "impulse-damage"],
+        "type": "status",
+        "value": "floor(@level / 2)",
+        "predicate": ["item:trait:metal", "item:trait:impulse"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.m5kXngVAHiprZea1"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "d31d3092-84b8-56a3-883d-cff5c55dc690",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-cyclonic-ascent",
+    "name": "Effect: Cyclonic Ascent",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "d347ecae-4b19-5bf0-97c7-72e33ad28f28"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a fly Speed equal to your land Speed or 30 feet, whichever is greater."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": "max(30, @stat.speed.land)"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.SZY4zxhxoeehYRdN"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "9d4c5856-9ac5-5bcc-b3d8-a1626362710a",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-downcast",
+    "name": "Effect: Downcast",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature takes a –1 status penalty to attack rolls"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack"],
+        "type": "status",
+        "value": -1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.zjVBG6uDd4WKWeKU"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "e6d5616c-be98-552b-9de5-2cb187b8ff28",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-dust-eternal",
+    "name": "Effect: Dust Eternal",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Everything within the aura is concealed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "f410da96-b56a-5c7c-857b-7096defec0a1",
+        "allowDuplicate": false
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.lR49i3wO6TxJAK9o"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "90dc1515-5045-5cdc-b14b-9a67e2aaa814",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-earth-impulse-junction",
+    "name": "Effect: Earth Impulse Junction",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.09oP0FBBAhXOS4JW"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "db4b6632-e8c1-5c91-b80b-14091a6dbaee",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-elementalist-dedication",
+    "name": "Effect: Elementalist Dedication",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "a9f5ea53-12da-55bc-b082-4889f59942bc"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each day when you make your daily preparations, you can attune yourself to one element of your choice from your elemental philosophy. You gain resistance equal to half your level (minimum 1 resistance) against damage dealt by effects with your attuned elemental trait. This attunement lasts until you next make your daily preparations."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "element",
+        "choices": [
+          {
+            "value": "air",
+            "label": "Air",
+            "predicate": [
+              {
+                "or": ["elementalist:inner-sea-elementalism", "expanded-elemental-magic:air"]
+              }
+            ]
+          },
+          {
+            "value": "earth",
+            "label": "Earth",
+            "predicate": [
+              {
+                "or": ["elementalist:inner-sea-elementalism", "elementalist:elemental-cycle"]
+              }
+            ]
+          },
+          {
+            "value": "fire",
+            "label": "Fire",
+            "predicate": [
+              {
+                "or": ["elementalist:inner-sea-elementalism", "elementalist:elemental-cycle"]
+              }
+            ]
+          },
+          {
+            "value": "metal",
+            "label": "Metal",
+            "predicate": [
+              {
+                "or": ["elementalist:elemental-cycle", "expanded-elemental-magic:metal"]
+              }
+            ]
+          },
+          {
+            "value": "water",
+            "label": "Water",
+            "predicate": [
+              {
+                "or": ["elementalist:inner-sea-elementalism", "elementalist:elemental-cycle"]
+              }
+            ]
+          },
+          {
+            "value": "wood",
+            "label": "Wood",
+            "predicate": [
+              {
+                "or": ["elementalist:elemental-cycle", "expanded-elemental-magic:wood"]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an element."
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.O8qithYQCv3e7DUQ"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "day",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "40d56ed3-4e0e-5a00-adf1-e8ef5eff7ffc",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-eternal-torch",
+    "name": "Effect: Eternal Torch",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1dce3bb4-edf4-507f-a5f3-6076bed1fce9"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You create a torch-like flame. If you create a flame on a weapon, you still need to use it as an improvised weapon to attack with the flame, just as with a torch."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "eternal-torch",
+        "category": "simple",
+        "damage": {
+          "dice": 1,
+          "die": "d4",
+          "damageType": "bludgeoning"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.61qS86bjxg8HCJBY"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "a056263f-9f21-5bf0-8292-6720584aa6cc",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-fold-form",
+    "name": "Effect: Fold Form",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The kinzaruk swiftly unfolds and refolds its body into a new shape chosen from the options of animal form. This grants it the movement Speeds and Strikes of the chosen form, but none of the other benefits. Its attack bonus is unchanged, and its damage bonus is +3."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-fold-form",
+        "choices": [
+          {
+            "value": "ape",
+            "label": "Ape"
+          },
+          {
+            "value": "bear",
+            "label": "Bear"
+          },
+          {
+            "value": "bull",
+            "label": "Bull"
+          },
+          {
+            "value": "canine",
+            "label": "Canine"
+          },
+          {
+            "value": "cat",
+            "label": "Cat"
+          },
+          {
+            "value": "deer",
+            "label": "Deer"
+          },
+          {
+            "value": "frog",
+            "label": "Frog"
+          },
+          {
+            "value": "shark",
+            "label": "Shark"
+          },
+          {
+            "value": "snake",
+            "label": "Snake"
+          }
+        ],
+        "prompt": "Select an animal.",
+        "rollOption": "fold-form"
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["fangs-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "poison"
+      },
+      {
+        "key": "Change",
+        "selector": "speed:land",
+        "mode": "upgrade",
+        "value": 25,
+        "predicate": [
+          {
+            "or": ["fold-form:ape", "fold-form:frog"]
+          }
+        ]
+      },
+      {
+        "key": "Change",
+        "selector": "speed:climb",
+        "mode": "upgrade",
+        "value": 20,
+        "predicate": [
+          {
+            "or": ["fold-form:ape", "fold-form:snake"]
+          }
+        ]
+      },
+      {
+        "key": "Change",
+        "selector": "speed:land",
+        "mode": "upgrade",
+        "value": 30,
+        "predicate": [
+          {
+            "or": ["fold-form:bear", "fold-form:bull"]
+          }
+        ]
+      },
+      {
+        "key": "Change",
+        "selector": "speed:land",
+        "mode": "upgrade",
+        "value": 40,
+        "predicate": [
+          {
+            "or": ["fold-form:canine", "fold-form:cat"]
+          }
+        ]
+      },
+      {
+        "key": "Change",
+        "selector": "speed:land",
+        "mode": "upgrade",
+        "value": 50,
+        "predicate": ["fold-form:deer"]
+      },
+      {
+        "key": "Change",
+        "selector": "speed:swim",
+        "mode": "upgrade",
+        "value": 25,
+        "predicate": ["fold-form:frog"]
+      },
+      {
+        "key": "Change",
+        "selector": "speed:swim",
+        "mode": "upgrade",
+        "value": 35,
+        "predicate": ["fold-form:shark"]
+      },
+      {
+        "key": "Change",
+        "selector": "speed:swim",
+        "mode": "upgrade",
+        "value": 20,
+        "predicate": ["fold-form:snake"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.513Y2ZSzvm8rijkp"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "e530dfb5-22a8-5e27-9cd4-3b0f7087df9d",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-fresh-produce",
+    "name": "Effect: Fresh Produce",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "a92e7580-9a56-5b1e-82eb-52a61d15dae7"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance to void damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.2GWZgsvMJF9DN0DO"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "3f226a27-8119-529f-9ee6-d11f059c6353",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-frost-breath",
+    "name": "Effect: Frost Breath",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "8b4b5fd8-1178-52f4-a4b2-bb4aea4dd40f"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance 5 to cold."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["cold"],
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.r4nq5JzY8U1lXsAY"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "ef01dd2f-a102-5d82-a42e-469752b52675",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-furnace-form",
+    "name": "Effect: Furnace Form",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "36169c9c-47bc-5005-984c-0f683d529f08"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain fire immunity, resistance 10 to precision damage, weakness 5 to cold and to water, and a fly Speed of 40 feet. Any creature that touches you or damages you with an unarmed attack or non-reach melee weapon takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your unarmed attacks deal 1d4 additional fire damage, and your fire spells deal one additional die of fire damage (of the same damage die the spell uses). Your fire Elemental Blasts deal an additional die of damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Immunity",
+        "type": ["fire"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["precision"],
+        "value": 10
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 1,
+        "dieSize": "d4",
+        "damageType": "fire",
+        "predicate": ["option:unarmed"]
+      },
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": 40
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["spell-damage"],
+        "diceNumber": 1,
+        "damageType": "fire",
+        "predicate": ["item:trait:fire"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["elemental-blast-damage"],
+        "diceNumber": 1,
+        "predicate": ["item:trait:fire"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["damage-received"],
+        "title": "Effect: Furnace Form",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The attacker takes "
+              },
+              {
+                "type": "damage",
+                "instances": [
+                  {
+                    "formula": "3d6",
+                    "damageType": "fire"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " damage."
+              }
+            ]
+          }
+        ],
+        "predicate": [
+          {
+            "or": [
+              "item:category:unarmed",
+              {
+                "not": "item:trait:reach"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.Tw9MjeQHL3qFY1PO"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start",
+        "sustained": true
+      }
+    }
+  },
+  {
+    "id": "6f220c76-8b34-5f8b-b9f6-5433c78a24f8",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-ghosts-in-the-storm",
+    "name": "Effect: Ghosts in the Storm",
+    "level": 12,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "21f5cae6-1201-5e10-bb85-ac3326207577"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus to Reflex saves and Acrobatics checks."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:reflex", "skill:acrobatics"],
+        "type": "status",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.mmaJYXBUxVncsOsx"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "e02fb3ed-142c-5762-a507-008e049df208",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-ghosts-in-the-storm-move",
+    "name": "Effect: Ghosts in the Storm (Move)",
+    "level": 12,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f98c86e5-a665-53ec-a42e-3ebf872a42a2"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are concealed, and your Strikes gain the "
+          },
+          {
+            "type": "text",
+            "text": "shock",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "f410da96-b56a-5c7c-857b-7096defec0a1"
+      },
+      {
+        "key": "AdjustStrike",
+        "property": "property-runes",
+        "mode": "add",
+        "value": "shock"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.Sb3ZdFs61atILypS"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "199912f5-432d-52b3-b8ad-9a5c677b28ab",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-glowing-lantern-fruit-lantern-light",
+    "name": "Effect: Glowing Lantern Fruit (Lantern Light)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "0c49093b-ef42-539e-bd8b-4c19b11e6a78"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The "
+          },
+          {
+            "type": "text",
+            "text": "glowing lantern fruit",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " sheds bright light in a 60-foot radius (and dim light for the next 60 feet). You can Interact with the "
+          },
+          {
+            "type": "text",
+            "text": "glowing lantern fruit",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to open or close some of its reflective leaves, making the light directional like a bull's-eye lantern or a hooded lantern."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:glowing-lantern-fruit",
+        "toggleable": true,
+        "suboptions": [
+          {
+            "value": "radius",
+            "label": "emanation"
+          },
+          {
+            "value": "cone",
+            "label": "cone"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.JCMACUq7FkEksV0Q"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 8,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "f9ba1dea-cb0b-55e9-be49-6857c4bce21a",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-janns-prism-janns-light",
+    "name": "Effect: Jann's Prism (Jann's Light)",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "264a6bd3-a53b-59a7-9235-b43e125c3cbc"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You shed bright light in a 20-foot emanation (and dim light for the next 20 feet). You gain resistance 5 to two damage types."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "janns-light-one",
+        "choices": [
+          {
+            "value": "acid",
+            "label": "Acid"
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "force",
+            "label": "Force"
+          },
+          {
+            "value": "mental",
+            "label": "Mental"
+          },
+          {
+            "value": "poison",
+            "label": "Poison"
+          },
+          {
+            "value": "sonic",
+            "label": "Sonic"
+          }
+        ],
+        "prompt": "Select a resistance.",
+        "rollOption": "janns-light-one"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.uJyFG2gxW29bXNfu"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "18e8390b-5525-59e5-a113-0ff8716df201",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-kindle-inner-flames",
+    "name": "Effect: Kindle Inner Flames",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "2667828f-c588-5a87-b6c2-db008a6ba668"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a status bonus to Reflex saves and Acrobatics checks."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.bWvOkRT3alzllsiG"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "b6295eab-de61-570d-bf5d-2e677645e0f2",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-kinetic-aura",
+    "name": "Effect: Kinetic Aura",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "b0ae57b0-d534-57cf-be9d-b006702f5cb6"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You activate your kinetic aura."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.pLurcSPQb2gjAzoP"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "1e7cc4b8-4aad-53c8-a957-560896d8d151",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-lava-leap",
+    "name": "Effect: Lava Leap",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "8bdbc24e-8ca8-59a3-9fbc-de0263c90eb9"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.GnEzDtPBQ1lDwmZI"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "a6b2f90d-14bf-587f-b384-e1bafafeb2a6",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-metallic-skin",
+    "name": "Effect: Metallic Skin",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "da3ce14c-3c64-573e-bdc0-e9cccf8c04f4"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus to AC and resistance 10 to physical damage (except adamantine), but you take a –10-foot penalty to Speed. If you take fire damage while this ability is active, until the end of your next turn, you deal an additional 2d6 fire damage with all your unarmed melee Strikes."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "status",
+        "value": 2
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["speed"],
+        "type": "untyped",
+        "value": -10
+      },
+      {
+        "key": "Resistance",
+        "type": ["physical"],
+        "value": 10,
+        "exceptions": ["adamantine"]
+      },
+      {
+        "key": "RollOption",
+        "domain": "damage",
+        "option": "option:metallic-skin-fire",
+        "toggleable": true
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["melee-strike-damage"],
+        "diceNumber": 2,
+        "dieSize": "d6",
+        "damageType": "fire",
+        "predicate": ["item:category:unarmed", "option:metallic-skin-fire"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.YIShkE3JCEuwCAxl"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "7566aae8-6191-5501-ace3-8b0b155f470c",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-nimbus-breath",
+    "name": "Effect: Nimbus Breath",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "e447a20c-968a-5638-948b-d9cba4054b6e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance 5 to electricity and gain a fly speed equal to your land speed or 20, whichever is higher."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["electricity"],
+        "value": 5
+      },
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": "max(20, @stat.speed.land)"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.fszJ9ZaslnrW5m5z"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "cfc2125f-d2b2-5585-9469-efc92e8cc956",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-oceans-balm",
+    "name": "Effect: Ocean's Balm",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "a44f181e-efba-5013-ad9c-3105897f3358"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain fire resistance."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.uG1EljvrnC9HGwUh"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "ce7f30ba-aa83-5bf5-acd4-87981b4c4948",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-orchards-endurance",
+    "name": "Effect: Orchard's Endurance",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "b26bf605-fb4b-5f1c-b23d-7eb747fd05f1"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance to bludgeoning and piercing damage. In addition, you roll flat checks to recover from persistent damage twice and take the higher result; this is a fortune effect."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollTwice",
+        "selectors": ["pd-recovery-check"],
+        "keep": "higher"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.FHBYfq3w7ddLvzrK"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "fed65c14-29e6-5903-af2d-99b184f3eaa1",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-rebirth-in-living-stone",
+    "name": "Effect: Rebirth in Living Stone",
+    "level": 18,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "fb51a8b9-286e-5824-83b0-e51ea4a6abbc"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points. You're immune to critical hits and precision damage. Your earth Elemental Blasts deal an additional 1d10 damage of their normal type."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "ternary(lt(@level, 20), 40, 50)"
+      },
+      {
+        "key": "Immunity",
+        "type": ["precision", "critical-hits"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["elemental-blast-damage"],
+        "diceNumber": 1,
+        "dieSize": "d10",
+        "predicate": ["item:trait:earth"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.zqgOjMU9TGoGwJWc"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-end",
+        "sustained": true
+      }
+    }
+  },
+  {
+    "id": "9b67141f-aae4-5529-99f5-a1c074724147",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-roast",
+    "name": "Effect: Roast",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Creatures who have been Roasted take a –2 circumstance penalty to Fortitude saves against Serve."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:fortitude"],
+        "type": "circumstance",
+        "value": -2,
+        "predicate": ["action:serve"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.IySCRGYxxLFDlIZI"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "9efa307c-04be-5f3e-9953-1daf167fcaa5",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-sairazul-blue",
+    "name": "Effect: Sairazul Blue",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "0caaa89f-f329-5373-816e-6df88337d497"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance 5 to poison damage and void damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["poison", "void"],
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.hexHnjCuq6vaEZEx"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 8,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "894664d4-31bc-5724-868d-1a9650e016fb",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-sea-glass-guardians",
+    "name": "Effect: Sea Glass Guardians",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "4612ba61-3312-53d7-b10e-47dd5ab63b0a"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to AC and saving throws."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "saving-throw"],
+        "type": "status",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.LOql7Rc5anCse9Nx"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "8e041328-23d1-59c1-a372-fe3004ebea2d",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-sharkskin-robe",
+    "name": "Effect: Sharkskin Robe",
+    "level": 12,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "e1ad9ad7-0e1e-5c58-9cae-7f4910f3d2a9"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your weapon or unarmed attack gains the benefit of the "
+          },
+          {
+            "type": "text",
+            "text": "underwater",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " weapon property rune."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:type:weapon"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "underwater"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.KC8mrGFXs5hIhjXt"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "7215ed6c-e24a-5e47-a183-9b339c357847",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-shattershields",
+    "name": "Effect: Shattershields",
+    "level": 12,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f722b9a8-b9c5-5459-93b3-2f35f267b3fe"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.6hh788S8hznyD66m"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "1a6e9b8f-09fd-57c1-9e6b-8e191938e069",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-spike-skin",
+    "name": "Effect: Spike Skin",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "57e02ed8-837d-5bbb-9774-d47a352d373e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance to all physical damage, except adamantine."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.pFEk5cwegWqXvX4D"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "2d1d2252-4a4e-5bcd-8430-e761b8620f07",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-spiny-lodestone-armor",
+    "name": "Effect: Spiny Lodestone - Armor",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "d696b2da-c04c-5f5f-9eb1-d54bc952f805"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "8ee69afd-270a-5f7c-aee5-6000a619f314"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "c90f84c1-6dca-558c-b7a3-ad64eff2f555"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain an item bonus to Athletics checks and resistance to nonlethal damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "item",
+        "value": 1,
+        "slug": "spiny-lodestone-armor-bonus"
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["skill:athletics"],
+        "slug": "spiny-lodestone-armor-bonus",
+        "mode": "upgrade",
+        "value": 2,
+        "predicate": ["spiny-lodestone:spiny-lodestone-major"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.bHBehLniirjNAnVh"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "67b08add-7238-5acd-abb6-1d95dfabee21",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-spiny-lodestone-weapon",
+    "name": "Effect: Spiny Lodestone - Weapon",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "d696b2da-c04c-5f5f-9eb1-d54bc952f805"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "8ee69afd-270a-5f7c-aee5-6000a619f314"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "c90f84c1-6dca-558c-b7a3-ad64eff2f555"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your Strikes with the weapon deal additional piercing damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.m6z7OrJgF4XQFNpa"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "d851f1b7-6da1-5a11-b0e1-b91d18e4a60b",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-spun-cloud-blue",
+    "name": "Effect: Spun Cloud (Blue)",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "6637f70b-2888-5435-92cb-f17508db686f"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Creatures gain resistance 5 to electricity while in the cloud."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["electricity"],
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.FV5d8zdo8CGZuRbg"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "80d209ef-b245-5651-9c11-accfb1e2e32a",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-spun-cloud-white",
+    "name": "Effect: Spun Cloud (White)",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "2dfcc72f-7ebb-59cb-93e6-bf5cc7f29e83"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +10-foot item bonus to your land Speed and fly Speed (if you have one)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["fly-speed", "land-speed"],
+        "type": "item",
+        "value": 10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.vrQeNhy3M48RBH4B"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "d46aed2b-3fc7-5c2b-85b7-5adbbe508e16",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-storm-breath",
+    "name": "Effect: Storm Breath",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "dbb78ba0-87f8-5a79-b070-d488af7d759e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance 5 to both electricity and sonic."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["electricity", "sonic"],
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.CDfixYwjfjoXkOVq"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "c3a98c59-a9b8-587d-993b-036511b192ee",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-strum-of-thunder",
+    "name": "Effect: Strum of Thunder",
+    "level": 12,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1349b76a-ceb7-5b33-8908-07957956ff8d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This item gains the "
+          },
+          {
+            "type": "text",
+            "text": "thundering",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.ogtcaPeypLDiUXMS"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "810f11fe-c325-5e27-bc52-026c872a2f11",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-thawing-candle",
+    "name": "Effect: Thawing Candle",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "dc5037b6-bc88-5d03-9b87-7d60e9accbe6"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain cold resistance 10."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["cold"],
+        "value": 10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.wvzrq1Lh9Y8PpxBs"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "f649ff93-0f4c-56fb-8089-f364f6f1fd80",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-therapeutic-snap-peas",
+    "name": "Effect: Therapeutic Snap Peas",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "e5dec698-e769-505d-8052-4b8236429ed0"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 item bonus to all saves against poisons or diseases."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "item",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["item:trait:disease", "item:trait:poison"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.0eO7QaOjKDxKv65V"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "9787c5bf-d110-553e-b5b8-996e5a1b08ef",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-thermal-nimbus",
+    "name": "Effect: Thermal Nimbus",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "65600825-146e-50e1-9fc7-b73e11747bd0"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain cold or fire resistance."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.1WqXbwhfT1f6OrPU"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "91279d11-3c60-54be-b59d-e102a7c06061",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-thorn-triad-armor",
+    "name": "Effect: Thorn Triad - Armor",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "ba66e1c3-91d3-55f0-be72-a4261a7474b7"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "3671c81a-7f65-5475-b1c8-7a888a4f0809"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "513280c7-bdf2-55ac-bb21-8b27962f4f96"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance to bludgeoning and piercing damage and weakness 3 to fire, or double the resistance for a non-cantrip spell."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Weakness",
+        "type": ["fire"],
+        "value": 3
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.JaPNzmgD7p7hHH8o"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "17fbf84c-7103-575e-a509-af94e40f73cc",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-thorn-triad-weapon",
+    "name": "Effect: Thorn Triad - Weapon",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "ba66e1c3-91d3-55f0-be72-a4261a7474b7"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "3671c81a-7f65-5475-b1c8-7a888a4f0809"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "513280c7-bdf2-55ac-bb21-8b27962f4f96"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your Strikes with the weapon deal an additional persistent bleed damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.FTj94xTqZbaCs4jT"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "01cfd4d7-f71a-5b12-b966-225f8046606b",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-viscous-breath",
+    "name": "Effect: Viscous Breath",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Creatures in the aura take a –2 status penalty to any non-magical physical attacks they attempt."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack"],
+        "type": "status",
+        "value": -2,
+        "predicate": [
+          {
+            "not": "item:magical"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.7txhqKeWFyTJhrEE"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "f273c26f-7fd2-5431-adbb-b9aae22b383f",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-voice-of-oceans",
+    "name": "Effect: Voice of Oceans",
+    "level": 12,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "63b3f789-4519-5f3c-aa7f-07c24d440fab"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can understand and speak Thalassic."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.pDErD7SHcOxYAbqf"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "c42a2f90-fd8c-517b-9c1f-ccd705d98d35",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-weapon-infusion",
+    "name": "Effect: Weapon Infusion",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f880142d-4572-5cb2-9cc7-1674118a0278"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If your next action is an Elemental Blast, choose a weapon shape for it to take. You can choose to change the blast's damage type to bludgeoning, piercing, or slashing-whichever suits the weapon shape-and you can choose other alterations depending on whether you make a melee or ranged blast."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Melee",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Add one of the following traits of your choice: agile, backswing, forceful, reach, sweep."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ranged",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Choose one of three options: range increment 100 feet and the volley 30 feet trait, range increment 50 feet and the propulsive trait, or range increment 20 feet and the thrown trait."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.zezKegTvOArcDQ0x"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "009fde9d-df55-5a87-943a-4ac9bf7062a0",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-wood-impulse-junction",
+    "name": "Effect: Wood Impulse Junction",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary hit points equal to your level."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@level"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.rCsmv66TzQhte4Gp"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "8001feac-a622-56e5-b5e1-55931299eca1",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:spell-effect-cauterize-wounds",
+    "name": "Spell Effect: Cauterize Wounds",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "5ab30ff9-1304-59ab-a268-2172c9e898fc"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can attempt to recover from your persistent bleed damage, with the lower DC for particularly effective assistance."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.sdKsB8dmIiPEHePZ"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "4e710a43-7425-5652-b266-07930bd9d148",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:spell-effect-conductive-weapon",
+    "name": "Spell Effect: Conductive Weapon",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "248bb8df-49f3-51db-ae05-afebdded8c5c"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The target becomes a "
+          },
+          {
+            "type": "text",
+            "text": "+1 shock weapon",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". If any target of an attack with the weapon is wearing metal armor or is primarily made of metal, the electricity damage die from the "
+          },
+          {
+            "type": "text",
+            "text": "shock",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune is 1d12."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "target:metal",
+        "toggleable": true,
+        "display": {
+          "label": "Target is wearing metal armor or is made of metal"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.WdXLgPashH5in5eB"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "d655d134-4631-5d95-838b-95f6beb1e87a",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:spell-effect-eat-fire",
+    "name": "Spell Effect: Eat Fire",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "516a20cc-79f5-583c-ac5f-c798cbc660ed"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance to fire damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": "5 * ceil(@item.level / 3)"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.BGv44XBGtD4zOJBd"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "ee260691-2201-5fb9-81de-79bf6329a3ad",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:spell-effect-entwined-roots",
+    "name": "Spell Effect: Entwined Roots",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "9e335cc8-f907-5831-926a-ec3917e9b303"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance to bludgeoning and piercing damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["bludgeoning", "piercing"],
+        "value": "5 * (max(0, floor((@item.level - 5) / 2)) + 1)"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.nFOJ53IkO5khO4Rr"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "18606013-3e1d-5753-9447-d8014ed5d4ba",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:spell-effect-ferrous-form",
+    "name": "Spell Effect: Ferrous Form",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "e63be8c2-c9cf-5e4f-94f2-2012eeb04ef7"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance to physical damage, except adamantine. You're immune to death effects, disease, drained, fatigued, healing, nonlethal attacks, paralyzed, poison, sickened, vitality, and void."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your fist Strikes have a 1d10 damage die, and your metal spells deal one additional die of damage (of the same damage die and damage type the spell uses)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Immunity",
+        "type": [
+          "death-effects",
+          "disease",
+          "drained",
+          "fatigued",
+          "healing",
+          "nonlethal-attacks",
+          "paralyzed",
+          "poison",
+          "sickened",
+          "vitality",
+          "void"
+        ]
+      },
+      {
+        "key": "Resistance",
+        "type": ["physical"],
+        "value": "ternary(gte(@item.level, 9), 15, 10)",
+        "exceptions": ["adamantine"]
+      },
+      {
+        "key": "Strike",
+        "fist": true
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["spell-damage"],
+        "diceNumber": 1,
+        "predicate": ["item:trait:metal"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.qD1OA6dx8h33nKFC"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "0312ad86-88a2-51da-a674-b2e40b60bd86",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:spell-effect-flame-dancer",
+    "name": "Spell Effect: Flame Dancer",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "9bf5a935-b184-58e6-838e-c6171c0ac62d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The target's unarmed Strikes deal additional fire damage. Critical hits with these Strikes also deal persistent fire damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": "ternary(gte(@item.level, 7), 3, 2)",
+        "dieSize": "d6",
+        "damageType": "fire",
+        "predicate": ["option:unarmed"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": "ternary(gte(@item.level, 7), 3, 2)",
+        "dieSize": "d4",
+        "damageType": "fire",
+        "category": "persistent",
+        "critical": true,
+        "predicate": ["option:unarmed"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.1cBl1gVcpzOqlluC"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "21405c22-e249-5795-ae17-063d594a4a4c",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:spell-effect-gentle-breeze",
+    "name": "Spell Effect: Gentle Breeze",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "83605cb1-fc67-5c38-b409-d40018ea36c4"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Medicine checks attempted to benefit living creatures in the area get a +2 status bonus. Any living creature in the area also gets a +2 status bonus to saving throws against afflictions."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:medicine"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["option:benefit-creature", "target:mode:living"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["self:mode:living", "item:type:affliction"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.A9T9NIummN3ShJwz"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "312c63f8-36a7-5f23-abd1-a4c22935b1c5",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:spell-effect-glass-form",
+    "name": "Spell Effect: Glass Form",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "6225ea51-8fce-5411-8550-042eac7a007a"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The target gains resistance to acid, cold, electricity, and piercing damage and weakness to sonic and bludgeoning damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["acid", "cold", "electricity", "piercing"],
+        "value": "5 * floor((@item.level - 2) / 2)"
+      },
+      {
+        "key": "Weakness",
+        "type": ["sonic", "bludgeoning"],
+        "value": "5 * floor((@item.level - 2) / 2)"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.0lYbjDI2N3xVl24E"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "dc3ceb36-e02f-568e-9db7-8fe15f4b3a2a",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:spell-effect-glass-shield",
+    "name": "Spell Effect: Glass Shield",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "00ad9914-ce99-5114-ad70-593dcee9516e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to AC. You can Shield Block with the glass shield."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "self:shield:equipped",
+        "predicate": [
+          {
+            "or": ["self:type:character", "self:type:npc"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.oDDS6D2KTjpbA491"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "2760b23b-b11f-5adf-97db-f5d4dbd0886f",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:spell-effect-mantle-of-the-melting-heart",
+    "name": "Spell Effect: Mantle of the Melting Heart",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "78674760-3068-5197-b578-c682d2493ca6"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Pick two of the options below. As a single action, which has the concentrate trait, you can change one of your chosen abilities to a different option from the list."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Copper Core",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You gain resistance 10 to electricity."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Golden Flesh",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You become immune to poison and disease and gain a +2 circumstance bonus to your checks against any poison and disease effects currently affecting you."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Reactive Touch",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Any metal that touches you or that you touch takes 2d6 acid damage that bypasses Hardness."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Weighted Grasp",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You gain a cabled fist unarmed attack with the disarm, finesse, reach, and trip traits and that's in the flail group. Your cabled fist deals 1d4 bludgeoning damage plus an additional 1d6 poison damage and Grab."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:melting-heart-first",
+        "toggleable": true,
+        "suboptions": [
+          {
+            "value": "copper-core",
+            "label": "Copper Core"
+          },
+          {
+            "value": "golden-flesh",
+            "label": "Golden Flesh"
+          },
+          {
+            "value": "reactive-touch",
+            "label": "Reactive Touch"
+          },
+          {
+            "value": "weighted-grasp",
+            "label": "Weighted Grasp"
+          }
+        ],
+        "display": {
+          "label": "Mantle of the Melting Heart — First ability"
+        }
+      },
+      {
+        "key": "RollOption",
+        "option": "option:melting-heart-second",
+        "toggleable": true,
+        "suboptions": [
+          {
+            "value": "copper-core",
+            "label": "Copper Core",
+            "predicate": [
+              {
+                "not": "melting-heart-first:copper-core"
+              }
+            ]
+          },
+          {
+            "value": "golden-flesh",
+            "label": "Golden Flesh",
+            "predicate": [
+              {
+                "not": "melting-heart-first:golden-flesh"
+              }
+            ]
+          },
+          {
+            "value": "reactive-touch",
+            "label": "Reactive Touch",
+            "predicate": [
+              {
+                "not": "melting-heart-first:reactive-touch"
+              }
+            ]
+          },
+          {
+            "value": "weighted-grasp",
+            "label": "Weighted Grasp",
+            "predicate": [
+              {
+                "not": "melting-heart-first:weighted-grasp"
+              }
+            ]
+          }
+        ],
+        "display": {
+          "label": "Mantle of the Melting Heart — Second ability"
+        }
+      },
+      {
+        "key": "RollOption",
+        "domain": "all",
+        "option": "self:heart-of-melting",
+        "predicate": [
+          {
+            "or": ["melting-heart-first:reactive-touch", "melting-heart-second:reactive-touch"]
+          }
+        ]
+      },
+      {
+        "key": "Resistance",
+        "type": ["electricity"],
+        "value": 10,
+        "predicate": [
+          {
+            "or": ["melting-heart-first:copper-core", "melting-heart-second:copper-core"]
+          }
+        ]
+      },
+      {
+        "key": "Immunity",
+        "type": ["disease", "poison"],
+        "predicate": [
+          {
+            "or": ["melting-heart-first:golden-flesh", "melting-heart-second:golden-flesh"]
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw", "skill-check"],
+        "type": "untyped",
+        "value": 2,
+        "predicate": [
+          "option:against-poison-disease-onself",
+          {
+            "or": ["melting-heart-first:golden-flesh", "melting-heart-second:golden-flesh"]
+          }
+        ],
+        "display": {
+          "label": "Golden Flesh"
+        }
+      },
+      {
+        "key": "Strike",
+        "slug": "cabled-fist",
+        "category": "unarmed",
+        "group": "flail",
+        "traits": ["disarm", "finesse", "reach", "trip", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d4",
+          "damageType": "bludgeoning"
+        },
+        "predicate": [
+          {
+            "or": ["melting-heart-first:weighted-grasp", "melting-heart-second:weighted-grasp"]
+          }
+        ],
+        "display": {
+          "label": "Cabled Fist"
+        }
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["cabled-fist-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "poison",
+        "predicate": [
+          {
+            "or": ["melting-heart-first:weighted-grasp", "melting-heart-second:weighted-grasp"]
+          }
+        ]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["unarmed-damage"],
+        "diceNumber": 2,
+        "dieSize": "d6",
+        "damageType": "acid",
+        "predicate": [
+          "target:trait:metal",
+          {
+            "or": ["melting-heart-first:reactive-touch", "melting-heart-second:reactive-touch"]
+          }
+        ],
+        "display": {
+          "label": "Reactive Touch"
+        }
+      },
+      {
+        "key": "Note",
+        "selectors": ["cabled-fist-damage"],
+        "title": "@Localize[PF2E.AttackEffectGrab] <span class=\"action-glyph\">1</span>",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Requirements",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " The monster's last action was a successful Strike that lists Grab in its damage entry, or the monster has a creature Grabbed or Restrained"
+              }
+            ]
+          },
+          {
+            "type": "rule"
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Effect",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " If used after a Strike, the monster attempts to grapple the creature using the body part it attacked with. This attempt neither applies nor counts toward the creature's multiple attack penalty."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The monster can instead use Grab and choose one creature it's grabbing or restraining with an appendage that has Grab to automatically extend that condition to the end of the monster's next turn."
+              }
+            ]
+          }
+        ],
+        "predicate": [
+          {
+            "or": ["melting-heart-first:weighted-grasp", "melting-heart-second:weighted-grasp"]
+          }
+        ]
+      },
+      {
+        "key": "Note",
+        "selectors": ["damage-received"],
+        "title": "Spell Effect: Mantle of the Melting Heart",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Any metal that touches you takes "
+              },
+              {
+                "type": "damage",
+                "instances": [
+                  {
+                    "formula": "2d6",
+                    "damageType": "acid"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " damage that bypasses Hardness."
+              }
+            ]
+          }
+        ],
+        "predicate": [
+          "origin:trait:metal",
+          "self:heart-of-melting",
+          "item:melee",
+          {
+            "not": "item:trait:reach"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.T2wbyGJrH9XY24o6"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "12316565-a113-5507-a765-6a07e6c648ae",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:spell-effect-mantle-of-the-unwavering-heart",
+    "name": "Spell Effect: Mantle of the Unwavering Heart",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "cca526bf-ad2e-5a59-a28e-d6788451e631"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Pick two of the options below. As a single action, which has the concentrate trait, you can change one of your chosen abilities to a different option from the list."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Evergreen Vitality",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You gain fast healing 3 and a +2 bonus to saves against poison and disease. This effect has the healing and vitality traits."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Overwhelming Perfume",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (aura, olfactory) A cloud of potent floral scent surrounds you in a 15-foot emanation. Creatures in the aura can't benefit from the scent ability and are sickened 1 as long as they remain in the aura. The sickness is a disease effect."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Towering Trunk",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You grow to your size to Large. You're clumsy 1. Your reach increases by 5 feet (or by 10 feet if you started out Tiny), and you gain a grasping branch unarmed attack; this attack is in the brawling weapon group and deals 2d8 bludgeoning damage plus Grab."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Unyielding Will",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You're immune to being fascinated, and you get a +1 bonus to saves and DCs against mental effects."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:unwavering-heart-first",
+        "toggleable": true,
+        "suboptions": [
+          {
+            "value": "evergreen-vitality",
+            "label": "Evergreen Vitality"
+          },
+          {
+            "value": "overwhelming-perfume",
+            "label": "Overwhelming Perfume"
+          },
+          {
+            "value": "towering-trunk",
+            "label": "Towering Trunk"
+          },
+          {
+            "value": "unyielding-will",
+            "label": "Unyielding Will"
+          }
+        ],
+        "display": {
+          "label": "Mantle of the Unwavering Heart — First ability"
+        }
+      },
+      {
+        "key": "RollOption",
+        "option": "option:unwavering-heart-second",
+        "toggleable": true,
+        "suboptions": [
+          {
+            "value": "evergreen-vitality",
+            "label": "Evergreen Vitality",
+            "predicate": [
+              {
+                "not": "unwavering-heart-first:evergreen-vitality"
+              }
+            ]
+          },
+          {
+            "value": "overwhelming-perfume",
+            "label": "Overwhelming Perfume",
+            "predicate": [
+              {
+                "not": "unwavering-heart-first:overwhelming-perfume"
+              }
+            ]
+          },
+          {
+            "value": "towering-trunk",
+            "label": "Towering Trunk",
+            "predicate": [
+              {
+                "not": "unwavering-heart-first:towering-trunk"
+              }
+            ]
+          },
+          {
+            "value": "unyielding-will",
+            "label": "Unyielding Will",
+            "predicate": [
+              {
+                "not": "unwavering-heart-first:unyielding-will"
+              }
+            ]
+          }
+        ],
+        "display": {
+          "label": "Mantle of the Unwavering Heart — Second ability"
+        }
+      },
+      {
+        "key": "FastHealing",
+        "value": 3,
+        "predicate": [
+          {
+            "or": ["unwavering-heart-first:evergreen-vitality", "unwavering-heart-second:evergreen-vitality"]
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "untyped",
+        "value": 2,
+        "slug": "evergreen",
+        "predicate": [
+          {
+            "or": ["unwavering-heart-first:evergreen-vitality", "unwavering-heart-second:evergreen-vitality"]
+          },
+          {
+            "or": ["item:trait:disease", "item:trait:poison"]
+          }
+        ]
+      },
+      {
+        "key": "Aura",
+        "slug": "overwhelming-perfume",
+        "radius": 15,
+        "traits": ["olfactory"],
+        "effects": [
+          {
+            "effect": "4981ee18-a808-5b15-a091-67020706eecc",
+            "includesSelf": false
+          }
+        ],
+        "predicate": [
+          {
+            "or": ["unwavering-heart-first:overwhelming-perfume", "unwavering-heart-second:overwhelming-perfume"]
+          }
+        ]
+      },
+      {
+        "key": "CreatureSize",
+        "value": "large",
+        "reach": {
+          "add": 5
+        },
+        "predicate": [
+          {
+            "or": ["unwavering-heart-first:towering-trunk", "unwavering-heart-second:towering-trunk"]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+        "predicate": [
+          {
+            "or": ["unwavering-heart-first:towering-trunk", "unwavering-heart-second:towering-trunk"]
+          }
+        ]
+      },
+      {
+        "key": "Strike",
+        "slug": "grasping-branch",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["unarmed", "magical"],
+        "damage": {
+          "dice": 2,
+          "die": "d8",
+          "damageType": "bludgeoning"
+        },
+        "predicate": [
+          {
+            "or": ["unwavering-heart-first:towering-trunk", "unwavering-heart-second:towering-trunk"]
+          }
+        ],
+        "display": {
+          "label": "Grasping Branch"
+        }
+      },
+      {
+        "key": "Immunity",
+        "type": ["fascinated"],
+        "predicate": [
+          {
+            "or": ["unwavering-heart-first:unyielding-will", "unwavering-heart-second:unyielding-will"]
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw", "saving-throw-dc"],
+        "type": "untyped",
+        "value": 1,
+        "slug": "unyielding",
+        "predicate": [
+          {
+            "or": ["unwavering-heart-first:unyielding-will", "unwavering-heart-second:unyielding-will"]
+          },
+          "option:mental"
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.OlkrQOPjLclyyxCw"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "4981ee18-a808-5b15-a091-67020706eecc",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:spell-effect-overwhelming-perfume",
+    "name": "Spell Effect: Overwhelming Perfume",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["disease"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "cca526bf-ad2e-5a59-a28e-d6788451e631"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Creatures in the aura can't benefit from the scent ability and are sickened 1 as long as they remain in the aura."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "5cfa1065-86f1-5622-a7de-7c91351dcdb8"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.wdA5DW7YiYR4jXPs"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "640d31f3-9cea-531d-a893-0c5652fb3eb1",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:spell-effect-phoenix-ward",
+    "name": "Spell Effect: Phoenix Ward",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "705dd9f9-fa90-57fa-9b3f-11fb95cfc2ff"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance 10 to fire."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": 10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.0eP0JRBPwfRyu7gN"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "0cdceb2c-1ae3-5da2-8171-035a79824f90",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:spell-effect-rousing-splash",
+    "name": "Spell Effect: Rousing Splash",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "dee4ed95-62af-5f30-9635-1eb3c726bf18"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@item.value"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.IYvzqymG4xOhqFir"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      },
+      "badge": {
+        "type": "formula",
+        "formula": "(@item.level)d4"
+      }
+    }
+  },
+  {
+    "id": "35d4172f-5b36-5cc7-8875-ce5450939745",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:spell-effect-sand-form",
+    "name": "Spell Effect: Sand Form",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c1efd615-0969-530f-8067-4f0abf19a3a3"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance to piercing and slashing damage, and immunity to bleed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["piercing", "slashing"],
+        "value": "ternary(gte(@item.level, 7), 15, ternary(gte(@item.level, 5), 10, 5))"
+      },
+      {
+        "key": "Immunity",
+        "type": ["bleed"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.qO1Gj9l8gh5CMEbf"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "33a17610-6d08-5560-b3b3-89c39ed5f8b9",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:spell-effect-take-root",
+    "name": "Spell Effect: Take Root",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "77669817-64f4-5f9a-9f86-2a4c99c5274e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to your Fortitude DC against attempts to Shove you and a +1 circumstance bonus to your Reflex DC against attempts to Disarm or Trip you."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:fortitude", "save:reflex"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["action:disarm", "action:shove", "action:trip"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.ZGzhNFB3SM8owk85"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "809c5562-e49d-5a86-805c-d99e47e85ebb",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:spell-effect-tempest-cloak",
+    "name": "Spell Effect: Tempest Cloak",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "99e4b5b6-aff5-587d-a5cb-932cabbdc60c"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The twisting shield of wind creates difficult terrain in a 5-foot burst surrounding you. You gain a +2 circumstance bonus to your AC against physical ranged attacks. You also gain a +2 circumstance bonus to all defenses against auditory effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Aura",
+        "slug": "tempest-cloak",
+        "radius": 5,
+        "traits": []
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["item:damage:category:physical", "item:ranged"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "saving-throw"],
+        "type": "circumstance",
+        "value": 2,
+        "slug": "auditory-defenses",
+        "predicate": ["item:trait:auditory"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.8y6Ap9xIsnseYYvk"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "5f1e3cc6-392e-5bf2-b470-6617344e0eea",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:spell-effect-thermal-remedy",
+    "name": "Spell Effect: Thermal Remedy",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "9eef733e-1529-5d22-a3d8-a50b7a75c60d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose one of the benefits listed below. Any creature that consumes the targeted drink or food gains that benefit."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Gain temporary Hit Points."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Gain resistance to fire."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Gain a circumstance bonus to saves against disease."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.7wHYSgNG6LaxxlOz"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "85899beb-3733-5eec-b66c-9b101e205155",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:spell-effect-tremorsense",
+    "name": "Spell Effect: Tremorsense",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "62d43581-31a9-5525-9569-e2457b13de90"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain tremorsense as an imprecise sense with a range of 30 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "367b9fa7-8944-5208-9949-9457984b7c59",
+        "acuity": "imprecise",
+        "range": 30
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.7cYUiOONB2lZfSaA"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "60c77920-5990-5ee1-b6fb-f748f407198d",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:spell-effect-vitrifying-blast",
+    "name": "Spell Effect: Vitrifying Blast",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "d348919e-4ee6-5b8f-a11a-36b08580dcaf"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain weakness to sonic and bludgeoning damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.UFfItbPq9cVq3LNa"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "unlimited"
+      },
+      "badge": {
+        "type": "counter",
+        "value": 1,
+        "max": 3
+      }
+    }
+  },
+  {
+    "id": "abcdf65b-65dc-5e12-bcf3-33701b57ccd5",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:spell-effect-weaken-earth",
+    "name": "Spell Effect: Weaken Earth",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "35baf324-f738-5b08-bfa8-f0721e266e4e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain weakness to physical damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Weakness",
+        "type": ["physical"],
+        "value": "ceil(@item.level / 2) * 3"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.uD13zIE22foqmFgt"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "84a768f9-8f3c-527b-a8a2-fd60d4e2c6c7",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:spell-effect-wooden-fists",
+    "name": "Spell Effect: Wooden Fists",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "97b07b03-c8e6-5598-916f-3f32b2d2e11d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your fists deal more bludgeoning damage, lose the nonlethal trait, and have reach."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "fist": true
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.z2PYQCsDDoBZUwR5"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "c718c2e5-29f0-5a62-abc9-7ecdfea1d31c",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:stance-air-shroud",
+    "name": "Stance: Air Shroud",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "78e162dd-b2d8-5d81-8d53-238d02bc9127"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Attacks with ranged weapons take a -1 circumstance penalty to their attack rolls if their paths pass through your kinetic aura. Air in your kinetic aura is difficult terrain for flying creatures other than yourself."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.XFc3dVzTe7KnpjuP"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  },
+  {
+    "id": "4fe864e1-4cdc-5d07-ae9a-81bcba356e74",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:stance-assume-earths-mantle",
+    "name": "Stance: Assume Earth's Mantle",
+    "level": 14,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "91d089a9-26c4-581f-8aa6-a4d90324ef1f"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You become Large if you were smaller. This increases your reach by 5 feet (or by 10 feet if you started out Tiny)."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You gain a climb Speed equal to your land Speed, but you can use it only to climb surfaces of earthen matter."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You gain a +1 circumstance bonus to your Fortitude saves and a +2 circumstance bonus to your Fortitude or Reflex DCs against attempts to Shove you, Trip you, or knock you Prone."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "If your Strength is below +4, this armor raises your Strength to +4. If your Strength is +4 or higher, this armor grants you a +1 item bonus to your Strength."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "stance-assume-earth-s-mantle",
+        "choices": [
+          {
+            "value": "tiny",
+            "label": "Tiny",
+            "predicate": ["self:size:tiny"]
+          },
+          {
+            "value": "medium-or-small",
+            "label": "Small",
+            "predicate": [
+              {
+                "or": ["self:size:medium", "self:size:small"]
+              }
+            ]
+          },
+          {
+            "value": "large-or-larger",
+            "label": "Large",
+            "predicate": [
+              {
+                "gte": ["self:size", 3]
+              }
+            ]
+          }
+        ],
+        "rollOption": "assume-earths-mantle-initial-size"
+      },
+      {
+        "key": "CreatureSize",
+        "value": "large",
+        "reach": {
+          "add": 10
+        },
+        "predicate": ["assume-earths-mantle-initial-size:tiny"]
+      },
+      {
+        "key": "CreatureSize",
+        "value": "large",
+        "reach": {
+          "add": 5
+        },
+        "predicate": ["assume-earths-mantle-initial-size:medium-or-small"]
+      },
+      {
+        "key": "Change",
+        "selector": "speed:climb",
+        "mode": "upgrade",
+        "value": "@stat.speed.land"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:fortitude"],
+        "type": "circumstance",
+        "value": 1
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["fortitude-dc", "reflex-dc"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["action:shove", "action:trip", "inflicts:prone"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.QrJ06Sc2GiloQ6hB"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  },
+  {
+    "id": "6e88af9c-a0fa-53a7-8288-b7e2c49a2a66",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:stance-crowned-in-tempests-fury",
+    "name": "Stance: Crowned in Tempest's Fury",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "3a24861f-cd99-5292-9700-4dee71c038f1"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Any creature that enters your kinetic aura or ends its turn there takes 2d12 electricity damage."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "If you don't have a fly Speed, you gain a 20-foot fly Speed. If you have the Cyclonic Ascent impulse, you instead gain that fly Speed and the extra benefits."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You gain a +10-foot status bonus to all your Speeds."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Your air Elemental Blasts deal an additional 1d12 electricity damage."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": 20
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["speed"],
+        "type": "status",
+        "value": 10
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["elemental-blast-damage"],
+        "diceNumber": 1,
+        "dieSize": "d12",
+        "damageType": "electricity",
+        "predicate": ["item:trait:air"]
+      },
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": "max(30, @stat.speed.land)",
+        "predicate": ["feat:cyclonic-ascent"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.woKCbf1kXPrPjeZG"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  },
+  {
+    "id": "96d4b88b-89da-5fac-93dc-309f85e84c8f",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:stance-desert-wind",
+    "name": "Stance: Desert Wind",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "ae751ad7-a2a3-582f-989b-5d7640e7d1ac"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you use a damaging air impulse that affects at least one creature in your kinetic aura, that impulse deals additional slashing damage. This damage is doubled if the impulse has a single target."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:desert-wind-damage",
+        "toggleable": true,
+        "suboptions": [
+          {
+            "value": "multiple",
+            "label": "Multiple targets"
+          },
+          {
+            "value": "single",
+            "label": "Single target"
+          }
+        ],
+        "display": {
+          "label": "Desert Wind — Extra damage"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["inline-damage", "impulse-damage"],
+        "type": "untyped",
+        "value": "floor(@level / 2) - 2",
+        "slug": "desert-wind",
+        "damageType": "slashing",
+        "predicate": ["item:trait:air", "item:trait:impulse", "option:desert-wind-damage"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["inline-damage", "impulse-damage"],
+        "slug": "desert-wind",
+        "mode": "multiply",
+        "value": 2,
+        "predicate": ["desert-wind-damage:single"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.gcR66Xgi12ICOVt7"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  },
+  {
+    "id": "a5f9399b-b7cf-5fba-a437-a320a2aef3f5",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:stance-drifting-pollen",
+    "name": "Stance: Drifting Pollen",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c68675bc-c207-5c37-87a8-66868897592e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A creature in your kinetic aura when you enter the stance, or who later enters the aura or ends its turn in the aura, attempts at a Fortitude save against your class DC. On a failure, it's sickened 1 (sickened 2 on a critical failure) and dazzled until it's no longer sickened. A creature attempts this save no more than once per round and doesn't attempt a new save if already affected."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.8hmw9L2ORKz6Z6Bc"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  },
+  {
+    "id": "39274564-2142-5ebe-8a5a-f31e3ec3d15e",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:stance-geologic-attunement",
+    "name": "Stance: Geologic Attunement",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "ed9c5bfd-1d9d-5dbd-ae0f-2a25173f3ad5"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain tremorsense (imprecise) in your kinetic aura."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At 13th level this becomes precise tremorsense."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.ebCWQB5nfK19GpY5"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  },
+  {
+    "id": "21f5cae6-1201-5e10-bb85-ac3326207577",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:stance-ghosts-in-the-storm",
+    "name": "Stance: Ghosts in the Storm",
+    "level": 12,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f98c86e5-a665-53ec-a42e-3ebf872a42a2"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You and your allies while they're in your kinetic aura gain a +2 status bonus to Reflex saves and Acrobatics checks. When an affected creature uses a move action, clouds dance around it. Until the start of its next turn, it's concealed, and its Strikes gain the "
+          },
+          {
+            "type": "text",
+            "text": "shock",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.sPIaly8bgNxgcNvT"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  },
+  {
+    "id": "28477c56-a38c-5f88-b37a-0aa8a25ac94c",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:stance-kindle-inner-flames",
+    "name": "Stance: Kindle Inner Flames",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "2667828f-c588-5a87-b6c2-db008a6ba668"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You shed faint, glowing embers, as do your allies while they're in your kinetic aura. Anyone shedding these embers gains a +1 status bonus to Reflex saves and Acrobatics checks and can Step as a free action once per round. When an affected creature takes a move action, its Strikes deal an extra "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage until the end of its turn."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Level (12th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The status bonus to Reflex saves and Acrobatics checks is +2, and the Strikes gain the "
+          },
+          {
+            "type": "ref",
+            "id": "161a6329-9809-57d5-9b34-c150d2bfe235"
+          },
+          {
+            "type": "text",
+            "text": " rune instead of the extra 2 fire damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.hrEG2smy3tZyGxIn"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  },
+  {
+    "id": "1c38ce9b-bda8-5746-acf3-ac4354dcdde7",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:stance-magnetic-field",
+    "name": "Stance: Magnetic Field",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "9a4a3c59-fc9d-532b-98eb-a36b21533175"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose a polarity when you take this action. You can switch the polarity as a free action at the start of each of your turns while you remain in this stance."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Attract",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature that is wearing metal armor, has the metal trait, or is made of metal treats squares in your kinetic aura as difficult terrain when moving away from you. You pull unattended metal objects of light Bulk or less in your kinetic aura to you. They gather in your space and move with you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Repel",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature that is wearing metal armor, has the metal trait, or is made of metal treats squares in your kinetic aura as difficult terrain when moving closer to you. You push unattended metal objects of light Bulk or less in your kinetic aura away. They stop moving once they're outside your aura."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.PdFisHX9ZJmKEKCv"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  },
+  {
+    "id": "e9cc5cd1-4b88-5d51-b913-0cc11f1bcc57",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:stance-orchards-endurance",
+    "name": "Stance: Orchard's Endurance",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You and your allies in your kinetic aura gain resistance 5 to bludgeoning and piercing damage. In addition, you and your affected allies roll flat checks to recover from persistent damage twice and take the higher result; this is a fortune effect."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Level (+4)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The resistance increases by 2."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.YNoBbHUu7enOSKyv"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  },
+  {
+    "id": "83657edb-6848-53ba-9193-4b34ec012d48",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:stance-ravel-of-thorns",
+    "name": "Stance: Ravel of Thorns",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "533695ce-4d04-5790-9781-fa63a38512b0"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A creature that starts its turn in the thorns takes a –10-foot circumstance penalty to its Speeds until it leaves the area. The thorns are hazardous terrain. A creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "floor((@level -4)/4)+2",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage each time it moves into one of these squares. If any square the thorns grow on is water or soil, double the hazardous terrain damage for all thorns. If you move, the thorns disappear; new thorns grow at the end of your turn."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Level (+4)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.JW93FDTAOUNuCgIu"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  },
+  {
+    "id": "805c79a1-5a1b-5ae6-84fa-191fb6e06562",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:stance-sea-glass-guardians",
+    "name": "Stance: Sea Glass Guardians",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "4612ba61-3312-53d7-b10e-47dd5ab63b0a"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You and your allies within your kinetic aura gain a +1 status bonus to AC and saving throws."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If any creature affected is critically hit or critically fails at a saving throw against an attack, effect from an enemy, or hazard and remains above 0 HP, the guardians reach out to heal that creature. The creature regains 4d8+8 HP, and the impulse ends. If the creature is in water, the healing dice are d10s instead of d8s."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Level (+3)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The healing increases by 1d8+4."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(floor((max(12,@level)-12)/3)+4)d8+(floor((max(12,@level)-12)/3)*4+8)"
+              }
+            ],
+            "healing": true,
+            "label": "Leveled HP"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.buCKRBDZi27shB3X"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  },
+  {
+    "id": "33169668-ed38-5604-b46e-c6d77a63fa9a",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:stance-shattershields",
+    "name": "Stance: Shattershields",
+    "level": 12,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f722b9a8-b9c5-5459-93b3-2f35f267b3fe"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You and allies in your kinetic aura gain a +1 circumstance bonus to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.Njb4eLx5VngDIDpo"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "encounter"
+      },
+      "badge": {
+        "type": "counter",
+        "value": 4,
+        "min": 0,
+        "max": 4
+      }
+    }
+  },
+  {
+    "id": "bc758c49-e59d-526b-a229-7ac24ef95b8f",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:stance-steam-knight",
+    "name": "Stance: Steam Knight",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "ce2ee615-60ba-5149-8b19-3753d5dd9537"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You shape your kinetic aura into swirling armor of steam that scalds your enemies and propels you on super-heated jet streams. A creature can take damage from Steam Knight only once per round. Your steam armor has the following effects."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You gain a +10-foot status bonus to your Speed."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "When you "
+                },
+                {
+                  "type": "ref",
+                  "id": "1a0bed3d-5eb7-554f-ad07-4c8630afd0c8"
+                },
+                {
+                  "type": "text",
+                  "text": ", you can jump up to your Speed. You don't immediately fall at the end of a jump, provided you Leap again with your next action. If you Leap over a creature and come within 10 feet, that creature takes "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "(floor((@level -6)/5)+2)d6",
+                      "damageType": "fire"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage with a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:reflex",
+                  "dc": {
+                    "against": "class-dc"
+                  },
+                  "basic": true
+                },
+                {
+                  "type": "text",
+                  "text": " save against your class DC."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "At the start of each of your turns, you can emit steam as a free action. It deals "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "(floor((@level -6)/5)+2)d6",
+                      "damageType": "fire"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage to each creature in your kinetic aura with a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:reflex",
+                  "dc": {
+                    "against": "class-dc"
+                  },
+                  "basic": true
+                },
+                {
+                  "type": "text",
+                  "text": " save against your class DC. A creature that fails is also pushed 5 feet."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Level (+5)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The fire damage from a jump or blast of steam increases by 1d6."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["speed"],
+        "type": "status",
+        "value": 10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.cmCLIMgtd4TLA23p"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  },
+  {
+    "id": "7473b92e-bb38-5865-9bc0-6bd32c56325c",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:stance-thermal-nimbus",
+    "name": "Stance: Thermal Nimbus",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "65600825-146e-50e1-9fc7-b73e11747bd0"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose cold or fire. You and allies in your kinetic aura gain resistance equal to your level to damage of that type."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.2EMak2C8x6pFwoUi"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  },
+  {
+    "id": "f8addf6b-0874-51a4-a80c-8fdd4dd873ea",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:stance-winter-sleet",
+    "name": "Stance: Winter Sleet",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "04b1a2f6-8d01-53ec-969f-c71925d7dec5"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Bone-chilling, swirling sleet surrounds you, cruel as deepest winter. Surfaces in your kinetic aura are coated in slippery ice. A creature that moves on the ice immediately falls unless it succeeds at an Acrobatics check or Reflex save against your impulse DC – 2. A creature that Steps or Crawls doesn't have to attempt a check or save. You're immune to this effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If a creature on the ice is critically hit by one of your water impulses or critically fails at a save against one, that creature is "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " until the end of its next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.lge4vtZdfZOCWAch"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  }
+]

@@ -22,6 +22,8 @@ export const FOUNDRY_IMPORTS: readonly FoundryImport[] = [
   { pack: PackId.parse('howl-of-the-wild'), book: BookId.parse('howl-of-the-wild'), release: 'pf2e-8.6.0' },
   { pack: PackId.parse('war-of-immortals'), book: BookId.parse('war-of-immortals'), release: 'pf2e-8.6.0' },
   { pack: PackId.parse('mwangi-expanse'), book: BookId.parse('mwangi-expanse'), release: 'pf2e-8.6.0' },
+  { pack: PackId.parse('secrets-of-magic'), book: BookId.parse('secrets-of-magic'), release: 'pf2e-8.6.0' },
+  { pack: PackId.parse('rage-of-elements'), book: BookId.parse('rage-of-elements'), release: 'pf2e-8.6.0' },
 ];
 
 /** The release's page on GitHub. */

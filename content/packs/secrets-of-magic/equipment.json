@@ -1,0 +1,1849 @@
+[
+  {
+    "id": "48bda8a6-f120-5fcb-830e-cf291df93958",
+    "pack": "secrets-of-magic",
+    "kind": "equipment",
+    "slug": "equipment:deck-of-illusions",
+    "name": "Deck of illusions",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["illusion", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This set of 34 parchment cards usually comes in a velvet bag or simple leather wrap. Each card depicts a different creature, monster, or other being that, when the deck is activated, immediately appears as a believable, life-size illusion. You can look at the card's artwork, but no magical effect takes place until you Activate the deck, shuffling and drawing randomly."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Deck of Illusions Cards"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " envision, Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You draw a card, chosen randomly from the remaining cards in the deck, and throw it to the ground to create an illusion of the creature depicted. The image is an illusory creature, except it has a range of only 30 feet from where the card was thrown and the illusion lasts until destroyed or until anyone moves or damages the card. The creature takes its actions once on your turn if you're within 60 feet of the card and Sustain the Activation. The illusion ends if you don't Sustain it, or if you activate a new card from the deck."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.0zTY4ogkffTxmJUj"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 200
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "0502edff-9f89-5406-a1dd-47b838489ee5",
+    "pack": "secrets-of-magic",
+    "kind": "equipment",
+    "slug": "equipment:linis-leafstick",
+    "name": "Lini's Leafstick",
+    "level": 15,
+    "rarity": "unique",
+    "traits": ["magical", "plant", "staff"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Moss and winding vines give this gnarled staff of wild wood a vibrant green tinge. You created this staff to aid you in speaking to the plants you met on your adventure and beseeching them to come to your aid."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You expend a number of charges from the staff to cast a spell from its list."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Cantrip",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "5ad9a64e-8b2e-5db4-8526-bc713e07778c"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "e18819d9-9490-5428-bcdf-4b00ece3defb"
+                },
+                {
+                  "type": "text",
+                  "text": ", Shillelagh"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "2nd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "72db3961-ed8d-5546-8104-1f7aad2fb3e9"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "facfbe1d-4b9d-5f57-bd33-bd5413a58316"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "3rd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "57003239-0bcf-5e13-9b4f-8dfd8e31ba40"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "9dfded9c-826b-57e9-989b-6b4ea568d4b8"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "4th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "d649aded-ca36-5663-ba2c-edc97e35bd6c"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "29397615-a073-572b-a506-4a6b88f6529d"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "5th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "813db347-48b2-5dec-bbda-70e18cbe1719"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "9dfded9c-826b-57e9-989b-6b4ea568d4b8"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "6th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Nature's Reprisal, "
+                },
+                {
+                  "type": "ref",
+                  "id": "813db347-48b2-5dec-bbda-70e18cbe1719"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply one casting of all listed levels of all listed spells."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.FbboejktKOMCm181"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6500
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "2f72c560-031b-56f3-81b1-18f2d3b3ed6a",
+    "pack": "secrets-of-magic",
+    "kind": "equipment",
+    "slug": "equipment:restful-tent",
+    "name": "Restful Tent",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This four-person tent provides several benefits for those who rest within. The climate inside the tent is comfortable and allows creatures inside it to withstand most hostile weather conditions, but incredible heat or cold, powerful storms, and winds of hurricane force or greater can still damage or destroy the tent. Mundane pests such as solitary ordinary insects avoid the tent, though swarms and giant insects can attack the tent as normal. Once you pitch the tent, only you can easily move it; any other creatures must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:athletics",
+            "dc": 20
+          },
+          {
+            "type": "text",
+            "text": " check to do so. Finally, the tent automatically camouflages with its surroundings, requiring a Searching creature to succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "perception",
+            "dc": 22
+          },
+          {
+            "type": "text",
+            "text": " check to notice it."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Yed5EEEWdJyf2AVX"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 320
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "f1675484-c66b-55b5-86a4-ca5edfcb63c6",
+    "pack": "secrets-of-magic",
+    "kind": "equipment",
+    "slug": "equipment:specialists-ring",
+    "name": "Specialist's Ring",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["focused", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each "
+          },
+          {
+            "type": "text",
+            "text": "specialist's ring",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is dedicated to a single school of magic, and the ring is covered in symbols and glyphs related to that school according to the creator's arcane studies. A specialist's ring has the trait corresponding to its school of magic. You gain a +2 item bonus to Arcana checks, and a +1 circumstance bonus to recognize magical effects and items of the specific school of magic."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain 1 Focus Point, which you can use only to cast a wizard school spell of the corresponding school. If not used by the end of your turn, this Focus Point is lost."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:arcana"],
+        "type": "item",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.RtQwbPiJs2FRyfNE"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "specialists-ring",
+          "name": "Specialist's Ring",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "5e87cf24-e66d-5fb3-91c9-18d5f6a96e2c",
+    "pack": "secrets-of-magic",
+    "kind": "equipment",
+    "slug": "equipment:specialists-ring-abjuration",
+    "name": "Specialist's Ring (Abjuration)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["focused", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "specialist's ring",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is dedicated to the abjuration school of magic, and the ring is covered in symbols and glyphs related to the abjuration school according to the creator's arcane studies. You gain a +2 item bonus to Arcana checks, and a +1 circumstance bonus to recognize magical effects and items of the abjuration school of magic."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain 1 Focus Point, which you can use only to cast a wizard school spell of the abjuration school. If not used by the end of your turn, this Focus Point is lost."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:arcana"],
+        "type": "item",
+        "value": 2
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:arcana", "skill:nature", "skill:occultism", "skill:religion"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["action:identify-magic"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.FTTrNjLsSlrPvkLi"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "specialists-ring-abjuration",
+          "name": "Specialist's Ring (Abjuration)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "5a65fd3a-adac-558d-9d18-2d91ea9f3cc9",
+    "pack": "secrets-of-magic",
+    "kind": "equipment",
+    "slug": "equipment:specialists-ring-conjuration",
+    "name": "Specialist's Ring (Conjuration)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["focused", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "specialist's ring",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is dedicated to the conjuration school of magic, and the ring is covered in symbols and glyphs related to the conjuration school according to the creator's arcane studies. You gain a +2 item bonus to Arcana checks, and a +1 circumstance bonus to recognize magical effects and items of the conjuration school of magic."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain 1 Focus Point, which you can use only to cast a wizard school spell of the conjuration school. If not used by the end of your turn, this Focus Point is lost."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:arcana"],
+        "type": "item",
+        "value": 2
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:arcana", "skill:nature", "skill:occultism", "skill:religion"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["action:identify-magic"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.nE12I5dTvJFPr9at"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "specialists-ring-conjuration",
+          "name": "Specialist's Ring (Conjuration)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "bb834827-3019-525f-b688-001e3c3351cb",
+    "pack": "secrets-of-magic",
+    "kind": "equipment",
+    "slug": "equipment:specialists-ring-divination",
+    "name": "Specialist's Ring (Divination)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["focused", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "specialist's ring",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is dedicated to the divination school of magic, and the ring is covered in symbols and glyphs related to the divination school according to the creator's arcane studies. You gain a +2 item bonus to Arcana checks, and a +1 circumstance bonus to recognize magical effects and items of the divination school of magic."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain 1 Focus Point, which you can use only to cast a wizard school spell of the divination school. If not used by the end of your turn, this Focus Point is lost."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:arcana"],
+        "type": "item",
+        "value": 2
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:arcana", "skill:nature", "skill:occultism", "skill:religion"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["action:identify-magic"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.nyLV5YVh90kYGaBd"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "specialists-ring-divination",
+          "name": "Specialist's Ring (Divination)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "cd8bdc56-aa6a-5e8a-a43d-deb5ac7a0e4d",
+    "pack": "secrets-of-magic",
+    "kind": "equipment",
+    "slug": "equipment:specialists-ring-enchantment",
+    "name": "Specialist's Ring (Enchantment)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["focused", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "specialist's ring",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is dedicated to the enchantment school of magic, and the ring is covered in symbols and glyphs related to the enchantment school according to the creator's arcane studies. You gain a +2 item bonus to Arcana checks, and a +1 circumstance bonus to recognize magical effects and items of the enchantment school of magic."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain 1 Focus Point, which you can use only to cast a wizard school spell of the enchantment school. If not used by the end of your turn, this Focus Point is lost."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:arcana"],
+        "type": "item",
+        "value": 2
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:arcana", "skill:nature", "skill:occultism", "skill:religion"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["action:identify-magic"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.gKlxurDeLS95zuuY"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "specialists-ring-enchantment",
+          "name": "Specialist's Ring (Enchantment)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "dc39925b-af32-5364-8bce-52e5814eaecd",
+    "pack": "secrets-of-magic",
+    "kind": "equipment",
+    "slug": "equipment:specialists-ring-evocation",
+    "name": "Specialist's Ring (Evocation)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["focused", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "specialist's ring",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is dedicated to the evocation school of magic, and the ring is covered in symbols and glyphs related to the evocation school according to the creator's arcane studies. You gain a +2 item bonus to Arcana checks, and a +1 circumstance bonus to recognize magical effects and items of the evocation school of magic."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain 1 Focus Point, which you can use only to cast a wizard school spell of the evocation school. If not used by the end of your turn, this Focus Point is lost."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:arcana"],
+        "type": "item",
+        "value": 2
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:arcana", "skill:nature", "skill:occultism", "skill:religion"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["action:identify-magic"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.6MswPHUwvqPLtN5H"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "specialists-ring-evocation",
+          "name": "Specialist's Ring (Evocation)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "481d00f1-c66f-5ad6-a9cf-b1bc7f9c8460",
+    "pack": "secrets-of-magic",
+    "kind": "equipment",
+    "slug": "equipment:specialists-ring-illusion",
+    "name": "Specialist's Ring (Illusion)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["focused", "illusion", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "specialist's ring",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is dedicated to the illusion school of magic, and the ring is covered in symbols and glyphs related to the illusion school according to the creator's arcane studies. You gain a +2 item bonus to Arcana checks, and a +1 circumstance bonus to recognize magical effects and items of the illusion school of magic."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain 1 Focus Point, which you can use only to cast a wizard school spell of the illusion school. If not used by the end of your turn, this Focus Point is lost."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:arcana"],
+        "type": "item",
+        "value": 2
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:arcana", "skill:nature", "skill:occultism", "skill:religion"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["option:illusion", "action:identify-magic"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.H44rJpMzx6JyoKoa"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "specialists-ring-illusion",
+          "name": "Specialist's Ring (Illusion)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "d1d0240a-a543-5801-b045-2f0a23c8d4f6",
+    "pack": "secrets-of-magic",
+    "kind": "equipment",
+    "slug": "equipment:specialists-ring-necromancy",
+    "name": "Specialist's Ring (Necromancy)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["focused", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "specialist's ring",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is dedicated to the necromancy school of magic, and the ring is covered in symbols and glyphs related to the necromancy school according to the creator's arcane studies. You gain a +2 item bonus to Arcana checks, and a +1 circumstance bonus to recognize magical effects and items of the necromancy school of magic."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain 1 Focus Point, which you can use only to cast a wizard school spell of the necromancy school. If not used by the end of your turn, this Focus Point is lost."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:arcana"],
+        "type": "item",
+        "value": 2
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:arcana", "skill:nature", "skill:occultism", "skill:religion"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["action:identify-magic"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.PjCowzEMV2aJnHkV"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "specialists-ring-necromancy",
+          "name": "Specialist's Ring (Necromancy)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "0af91051-72d3-5285-bf06-7032ac818bdf",
+    "pack": "secrets-of-magic",
+    "kind": "equipment",
+    "slug": "equipment:specialists-ring-transmutation",
+    "name": "Specialist's Ring (Transmutation)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["focused", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "specialist's ring",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is dedicated to the transmutation school of magic, and the ring is covered in symbols and glyphs related to the transmutation school according to the creator's arcane studies. You gain a +2 item bonus to Arcana checks, and a +1 circumstance bonus to recognize magical effects and items of the transmutation school of magic."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain 1 Focus Point, which you can use only to cast a wizard school spell of the transmutation school. If not used by the end of your turn, this Focus Point is lost."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:arcana"],
+        "type": "item",
+        "value": 2
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:arcana", "skill:nature", "skill:occultism", "skill:religion"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["action:identify-magic"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Jt3q4i2FlRPZ14VV"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "specialists-ring-transmutation",
+          "name": "Specialist's Ring (Transmutation)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "c8558467-4890-5a7b-ad49-67e4e8433044",
+    "pack": "secrets-of-magic",
+    "kind": "equipment",
+    "slug": "equipment:true-name-amulet-greater",
+    "name": "True Name Amulet (Greater)",
+    "level": 15,
+    "rarity": "rare",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This amulet bears the true name of a single creature with a level no higher than the item's level. These amulets are typically made of gold and engraved, but could be made of anything, including simple clay. The name is clearly visible, though only to you, and only while you have the amulet invested."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you can read the language in which the name is written, that creature always takes the effects of "
+          },
+          {
+            "type": "text",
+            "text": "invoke true name",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " against your spells (with a spell rank equal to half the item's level, rounded up). In addition, when the creature uses any magical effect against you, you can immediately attempt to counteract it using Arcana, Nature, Occult, or Religion for the counteract check and the true name amulet's level to determine the counteract rank. Legendary amulets bearing the true names of creatures of level 21+ may exist."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.dABsOA9Qiy0nkGgV"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5500
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn",
+        "slot": "amulet"
+      }
+    }
+  },
+  {
+    "id": "36f51ef0-2f90-584d-bb97-51ec3ac44e17",
+    "pack": "secrets-of-magic",
+    "kind": "equipment",
+    "slug": "equipment:true-name-amulet-lesser",
+    "name": "True Name Amulet (Lesser)",
+    "level": 5,
+    "rarity": "rare",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This amulet bears the true name of a single creature with a level no higher than the item's level. These amulets are typically made of gold and engraved, but could be made of anything, including simple clay. The name is clearly visible, though only to you, and only while you have the amulet invested."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you can read the language in which the name is written, that creature always takes the effects of "
+          },
+          {
+            "type": "text",
+            "text": "invoke true name",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " against your spells (with a spell rank equal to half the item's level, rounded up). In addition, when the creature uses any magical effect against you, you can immediately attempt to counteract it using Arcana, Nature, Occult, or Religion for the counteract check and the true name amulet's level to determine the counteract rank. Legendary amulets bearing the true names of creatures of level 21+ may exist."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.KnI89eneLdJeURob"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 150
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn",
+        "slot": "amulet"
+      }
+    }
+  },
+  {
+    "id": "3785aabe-41de-5b22-90a1-9eda4df3ce04",
+    "pack": "secrets-of-magic",
+    "kind": "equipment",
+    "slug": "equipment:true-name-amulet-major",
+    "name": "True Name Amulet (Major)",
+    "level": 20,
+    "rarity": "rare",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This amulet bears the true name of a single creature with a level no higher than the item's level. These amulets are typically made of gold and engraved, but could be made of anything, including simple clay. The name is clearly visible, though only to you, and only while you have the amulet invested."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you can read the language in which the name is written, that creature always takes the effects of "
+          },
+          {
+            "type": "text",
+            "text": "invoke true name",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " against your spells (with a spell rank equal to half the item's level, rounded up). In addition, when the creature uses any magical effect against you, you can immediately attempt to counteract it using Arcana, Nature, Occult, or Religion for the counteract check and the true name amulet's level to determine the counteract rank. Legendary amulets bearing the true names of creatures of level 21+ may exist."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.D9OGy69XaLBwjdd1"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 55000
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn",
+        "slot": "amulet"
+      }
+    }
+  },
+  {
+    "id": "2926a335-d551-5116-9743-f779c06ff177",
+    "pack": "secrets-of-magic",
+    "kind": "equipment",
+    "slug": "equipment:true-name-amulet-moderate",
+    "name": "True Name Amulet (Moderate)",
+    "level": 10,
+    "rarity": "rare",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This amulet bears the true name of a single creature with a level no higher than the item's level. These amulets are typically made of gold and engraved, but could be made of anything, including simple clay. The name is clearly visible, though only to you, and only while you have the amulet invested."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you can read the language in which the name is written, that creature always takes the effects of "
+          },
+          {
+            "type": "text",
+            "text": "invoke true name",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " against your spells (with a spell rank equal to half the item's level, rounded up). In addition, when the creature uses any magical effect against you, you can immediately attempt to counteract it using Arcana, Nature, Occult, or Religion for the counteract check and the true name amulet's level to determine the counteract rank. Legendary amulets bearing the true names of creatures of level 21+ may exist."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.t28PWYfoGoj1Sq3e"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 850
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn",
+        "slot": "amulet"
+      }
+    }
+  }
+]

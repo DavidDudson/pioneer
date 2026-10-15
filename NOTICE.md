@@ -45,7 +45,7 @@ both.
 
 A few things the remastered books still point at, such as the Goloma ancestry, exist only in pre-remaster books
 published under the [Open Game License 1.0a](https://github.com/foundryvtt/pf2e/blob/pf2e-8.6.0/static/licenses/OpenGameLicense.md).
-Pioneer imports those books whole (`mwangi-expanse`) and declares them `OGL` in the book registry and pack manifest.
+Pioneer imports those books whole (`mwangi-expanse`, `secrets-of-magic`, `rage-of-elements`) and declares them `OGL` in the book registry and pack manifest.
 Only Open Game Content is used; Product Identity is not. Section 15 of the licence is reproduced on the Legal page
 for each such book. Adding a book to `OGL_BOOKS` means adding its Section 15 notice there too.
 
@@ -78,6 +78,8 @@ from, and offers the content caches for download without an account.
 | `gm-core`          | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
 | `treasure-vault`   | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
 | `mwangi-expanse`   | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
+| `secrets-of-magic` | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
+| `rage-of-elements` | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
 
 The vocabulary each import adds to `core-rules` (traits, senses, damage types,
 Lore statistics), under `content/packs/core-rules/imported/<pack>/`, comes from

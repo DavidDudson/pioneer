@@ -1,0 +1,4068 @@
+[
+  {
+    "id": "4b952e43-b1dc-5d97-aa5d-3e9572a555e9",
+    "pack": "rage-of-elements",
+    "kind": "consumable",
+    "slug": "consumable:animal-nip-lesser",
+    "name": "Animal Nip (Lesser)",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "olfactory", "plant", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Animal nip contains a mix of herbaceous, fragrant plants, ground into a coarse powder with a strong scent that attracts a broad spectrum of animals. You activate animal nip by sprinkling it on the ground or a target of your choice. For the next minute, all creatures within 30 feet that have the animal trait must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 18
+          },
+          {
+            "type": "text",
+            "text": " save or become "
+          },
+          {
+            "type": "ref",
+            "id": "88ca1b7b-d5de-5978-9ff4-258c9aadef1a"
+          },
+          {
+            "type": "text",
+            "text": " by the smell of the animal nip for 1 round. On a critical failure, they also fall "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": " and roll about on the ground. If the target is subject to a hostile act, the fascination ends immediately. Regardless of the result of the creature's save, it's then immune to animal nip for 1 hour."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.suTxnYr8arqC9pt7"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "f071b4fb-e9fa-5b94-bd70-2b4fd2c64b48",
+    "pack": "rage-of-elements",
+    "kind": "consumable",
+    "slug": "consumable:animal-nip-major",
+    "name": "Animal Nip (Major)",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "olfactory", "plant", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Animal nip contains a mix of herbaceous, fragrant plants, ground into a coarse powder with a strong scent that attracts a broad spectrum of animals. You activate animal nip by sprinkling it on the ground or a target of your choice. For the next minute, all creatures within 30 feet that have the animal trait must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 30
+          },
+          {
+            "type": "text",
+            "text": " save or become "
+          },
+          {
+            "type": "ref",
+            "id": "88ca1b7b-d5de-5978-9ff4-258c9aadef1a"
+          },
+          {
+            "type": "text",
+            "text": " by the smell of the animal nip for 1 round. On a critical failure, they also fall "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": " and roll about on the ground. If the target is subject to a hostile act, the fascination ends immediately. Regardless of the result of the creature's save, it's then immune to animal nip for 1 hour."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.8XFicWnOf9VwSklQ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 350
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "fc717608-e415-56ec-94f1-5e4757713769",
+    "pack": "rage-of-elements",
+    "kind": "consumable",
+    "slug": "consumable:animal-nip-moderate",
+    "name": "Animal Nip (Moderate)",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "olfactory", "plant", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Animal nip contains a mix of herbaceous, fragrant plants, ground into a coarse powder with a strong scent that attracts a broad spectrum of animals. You activate animal nip by sprinkling it on the ground or a target of your choice. For the next minute, all creatures within 30 feet that have the animal trait must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 24
+          },
+          {
+            "type": "text",
+            "text": " save or become "
+          },
+          {
+            "type": "ref",
+            "id": "88ca1b7b-d5de-5978-9ff4-258c9aadef1a"
+          },
+          {
+            "type": "text",
+            "text": " by the smell of the animal nip for 1 round. On a critical failure, they also fall "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": " and roll about on the ground. If the target is subject to a hostile act, the fascination ends immediately. Regardless of the result of the creature's save, it's then immune to animal nip for 1 hour."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.d6u3xqPPvx3xWaqF"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 75
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "4b5d165b-c9fc-589b-9ec9-b541ff96ea16",
+    "pack": "rage-of-elements",
+    "kind": "consumable",
+    "slug": "consumable:blight-breath",
+    "name": "Blight Breath",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["air", "bottled-breath", "consumable", "magical", "poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This foul-smelling bottle contains compressed, noxious fumes. After you inhale the odious gases of the "
+          },
+          {
+            "type": "text",
+            "text": "blight breath",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you gain resistance 10 to poison for as long as you hold your breath. You can exhale the "
+          },
+          {
+            "type": "text",
+            "text": "blight breath",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " as a single action. The resulting spray of noxious fumes deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to each creature in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": ", with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 29,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "a6a2d2a5-623d-5e4b-bcc1-edca8bcc6255"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.4XpPgF5smMjCCHRF"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 350
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "a0b26f9f-af6e-53f9-8b03-e7dba9827a10",
+    "pack": "rage-of-elements",
+    "kind": "consumable",
+    "slug": "consumable:blooming-lotus-seed-pod",
+    "name": "Blooming Lotus Seed Pod",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "plant", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The seeds of this lotus seed pod scatter with incredible ease and accuracy, quickly growing into temporary plants."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate - Floating Pads",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You scatter the blooming lotus seed pod's seeds across a non-damaging liquid surface within 40 feet of you, where they form into 5 lotus pads that each float in place in a separate square within range for 1 minute. Each lotus pad has a 10- foot radius and can support 1 Large creature, 2 Medium creatures, or 4 Small creatures."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate - Blooming Flower",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You plant the blooming lotus seed pod in the ground and a giant lotus flower blooms in that square. Over the next 8 hours, creatures who sleep for at least 6 hours within 30 feet of the lotus flower gain the benefits of long-term rest as though they'd spent an entire day and night resting, and all creatures within the affected area are immune to the effects of the "
+          },
+          {
+            "type": "ref",
+            "id": "2b65b470-1daa-53ca-ab03-e8816b93c235"
+          },
+          {
+            "type": "text",
+            "text": " spell and other magical effects that affect only sleeping creatures."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.3cMFVAOHXHOHUvSW"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 68
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "32850f17-9143-53ce-b08c-fd919186cef8",
+    "pack": "rage-of-elements",
+    "kind": "consumable",
+    "slug": "consumable:brine-dragon-scale",
+    "name": "Brine Dragon Scale",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["acid", "consumable", "talisman", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Usage",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " affixed to a melee weapon"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Prerequisites",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're an expert with the affixed weapon"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature in reach of the weapon takes an action with the concentrate trait."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Brine dragons are known to distract their foes at just the right moment, and this blue-green scale appears to have come from one of these creatures. When you activate the scale, it cracks open and releases a spray of caustic saltwater at the triggering creature. The creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d8",
+                "damageType": "acid"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 24,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save. If the creature critically fails at its save, its concentration is broken—the triggering action is disrupted."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.yVCZrZLrLcIsR8aH"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 100
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "affixed",
+        "to": "melee-weapon"
+      }
+    }
+  },
+  {
+    "id": "11d5449b-058c-511a-9664-334b76e3d736",
+    "pack": "rage-of-elements",
+    "kind": "consumable",
+    "slug": "consumable:candle-of-inflamed-passions",
+    "name": "Candle of Inflamed Passions",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["consumable", "fire", "magical", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This blood-red candle is made from wax derived from oil shale found in certain parts of the Plane of Fire. The wick burns with a flame that flickers and dances even if there's no draft to stir it. You activate the candle by lighting it, which causes creatures within 10 feet of the candle to find their emotions running high. Creatures in the area take a -1 status penalty to saving throws against emotion effects. Once lit, the candle burns for 10 minutes. If extinguished, it can't be relit."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.aZSuB6RTb14XE2N3"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "6e3fb27b-f174-5f84-9538-8468cecdca52",
+    "pack": "rage-of-elements",
+    "kind": "consumable",
+    "slug": "consumable:captivating-rosebud",
+    "name": "Captivating Rosebud",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["consumable", "emotion", "magical", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Named because of its popularity among thieves to distract any authorities in pursuit, a "
+          },
+          {
+            "type": "text",
+            "text": "captivating rosebud",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has a near-irresistible fragrance."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate - Scent of Roses",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate, mental, olfactory)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You throw the captivating rosebud in a square adjacent to you. The rosebud quickly sprouts into a little rosebush that lasts for 1 hour. Any creature that passes within 15 feet of the rose bush, other than yourself, must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 18
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes a –1 status penalty to Perception checks for 10 minutes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but a –2 penalty."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but a –2 penalty and the creature is "
+          },
+          {
+            "type": "ref",
+            "id": "88ca1b7b-d5de-5978-9ff4-258c9aadef1a"
+          },
+          {
+            "type": "text",
+            "text": " by the rosebush."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate - Rose Vines",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You plant the captivating rosebud into a square adjacent to a building or other structure. It grows into a rosebush that stretches up to 30 feet tall. You and your allies can use the rosebush as a ladder to Climb easily up and down the side of the adjacent structure, but all other creatures must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 17
+          },
+          {
+            "type": "text",
+            "text": " saving throw or fail to notice the rosebush's presence."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.If2zV787OCMXVTUS"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": 1,
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "c56401d6-1a8f-5c96-b937-53b09caff67e",
+    "pack": "rage-of-elements",
+    "kind": "consumable",
+    "slug": "consumable:drought-powder",
+    "name": "Drought Powder",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["consumable", "earth", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A gray powder that smells like wet rock, "
+          },
+          {
+            "type": "text",
+            "text": "drought powder",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has various uses against water. If you sprinkle it over your body, you and items you carry or wear remain dry for the next 24 hours. Thrown into a body of water, the dust lowers the water in an area 50 feet long by 50 feet wide by 10 feet. You can fling it in the air, coating all creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " centered on a point within 5 feet of you. Creatures who have the water trait in that area are affected as if by a "
+          },
+          {
+            "type": "ref",
+            "id": "cfa1a3f3-2450-52eb-95d6-875232fd5219"
+          },
+          {
+            "type": "text",
+            "text": " spell (DC 28). If you attempt to use the dust in other, similar ways, the GM decides whether the dust can accomplish your aims."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.4gAndhLFJ4Is3NJ2"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "a3c9f6b2-86f6-5a35-be22-a09866945633",
+    "pack": "rage-of-elements",
+    "kind": "consumable",
+    "slug": "consumable:elemental-fragment",
+    "name": "Elemental Fragment",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This chunk of solidified planar energy is as large as a walnut and comes in six different varieties: a clear piece of crystal for the Plane of Air, a rough piece of rock for the Plane of Earth, a solidified piece of cooled lava for the Plane of Fire, a compact piece of iron for the Plane of Metal, a solid piece of ice for the Plane of Water, or a compact mass of plant matter for the Plane of Wood. You crack the fragment as you activate it, unleashing the planar energy within. This energy casts a spell of your choice: a 5th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "877e8c19-8f14-5568-8d0b-4b9c520e07ea"
+          },
+          {
+            "type": "text",
+            "text": " spell affecting you or a 5th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "6e9347ad-d1fa-59e4-b4cf-0cfbb9ca698c"
+          },
+          {
+            "type": "text",
+            "text": " spell; if you summon an elemental, you can Sustain the activation to keep control of the elemental. The spell's element matches that of the fragment."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.BiFzQ1MlxK7F7jkE"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 200
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "e0dc8e9a-7eb8-5101-a990-29ccbe355648",
+    "pack": "rage-of-elements",
+    "kind": "consumable",
+    "slug": "consumable:elemental-fragment-greater",
+    "name": "Elemental Fragment (Greater)",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This chunk of solidified planar energy is as large as a walnut and comes in six different varieties: a clear piece of crystal for the Plane of Air, a rough piece of rock for the Plane of Earth, a solidified piece of cooled lava for the Plane of Fire, a compact piece of iron for the Plane of Metal, a solid piece of ice for the Plane of Water, or a compact mass of plant matter for the Plane of Wood. You crack the fragment as you activate it, unleashing the planar energy within. This energy casts a spell of your choice: a 6th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "877e8c19-8f14-5568-8d0b-4b9c520e07ea"
+          },
+          {
+            "type": "text",
+            "text": " spell affecting you or a 6th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "6e9347ad-d1fa-59e4-b4cf-0cfbb9ca698c"
+          },
+          {
+            "type": "text",
+            "text": " spell; if you summon an elemental, you can Sustain the activation to keep control of the elemental. The spell's element matches that of the fragment."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.1iIb8vL2WQHOqN46"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 300
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "31144e74-f9f2-570d-ad00-dcef166a783d",
+    "pack": "rage-of-elements",
+    "kind": "consumable",
+    "slug": "consumable:elemental-fragment-major",
+    "name": "Elemental Fragment (Major)",
+    "level": 14,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This chunk of solidified planar energy is as large as a walnut and comes in six different varieties: a clear piece of crystal for the Plane of Air, a rough piece of rock for the Plane of Earth, a solidified piece of cooled lava for the Plane of Fire, a compact piece of iron for the Plane of Metal, a solid piece of ice for the Plane of Water, or a compact mass of plant matter for the Plane of Wood. You crack the fragment as you activate it, unleashing the planar energy within. This energy casts a spell of your choice: a 7th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "877e8c19-8f14-5568-8d0b-4b9c520e07ea"
+          },
+          {
+            "type": "text",
+            "text": " spell affecting you or a 7th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "6e9347ad-d1fa-59e4-b4cf-0cfbb9ca698c"
+          },
+          {
+            "type": "text",
+            "text": " spell; if you summon an elemental, you can Sustain the activation to keep control of the elemental. The spell's element matches that of the fragment."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.2iWD3YHmsQ9uicIF"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 500
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "a851c738-8b42-5132-ad6a-2d714417b1ce",
+    "pack": "rage-of-elements",
+    "kind": "consumable",
+    "slug": "consumable:exuviae-powder",
+    "name": "Exuviae Powder",
+    "level": 14,
+    "rarity": "rare",
+    "traits": ["alchemical", "consumable", "earth"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Exuviae powder",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " comes from cast-off shells of cicada-like insects native to the Plane of Earth, crushed to dust. You sprinkle this powder over your body, leaving an iridescent layer reminiscent of insect chitin. After you do so, for 8 hours, you double the time you can hold your breath. During this time, you also have access to the shed chitin activation."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Shed Chitin",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You would be petrified"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The powder petrifies like a shell around you instead, and its other effects end. The powder causes you to become "
+          },
+          {
+            "type": "ref",
+            "id": "6517bbf2-8085-534b-be6a-187d52739fa0"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute as well as "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7",
+            "label": "Doomed 1"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071"
+          },
+          {
+            "type": "text",
+            "text": " (Escape). You can use the extra action each round only for Escape and Stride actions."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.cplkaokMiskvFgAe"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 750
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "0d467c4e-eb7f-5fc1-aef4-893f5cbe8556",
+    "pack": "rage-of-elements",
+    "kind": "consumable",
+    "slug": "consumable:ferrofluid-urchin-greater",
+    "name": "Ferrofluid Urchin (Greater)",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "metal", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Prerequisites",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have the armor specialization effect of the affixed armor"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take physical damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This spiky glob of magnetic liquid attaches directly onto the metal of your armor. When you activate the globule, it reshapes to deflect the incoming harm. You gain resistance 10 to the triggering damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.dhn6dx5bvZBgZGHs"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 925
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "affixed",
+        "to": "medium-heavy-metal-armor"
+      }
+    }
+  },
+  {
+    "id": "c30fad17-7601-547f-99fb-e7debd7821a3",
+    "pack": "rage-of-elements",
+    "kind": "consumable",
+    "slug": "consumable:ferrofluid-urchin-lesser",
+    "name": "Ferrofluid Urchin (Lesser)",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "metal", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Prerequisites",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have the armor specialization effect of the affixed armor"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take physical damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This spiky glob of magnetic liquid attaches directly onto the metal of your armor. When you activate the globule, it reshapes to deflect the incoming harm. You gain resistance 3 to the triggering damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.vqGAy24GXV3jyGoZ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 55
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "affixed",
+        "to": "medium-heavy-metal-armor"
+      }
+    }
+  },
+  {
+    "id": "e131644d-3457-5d32-8782-7bc62ebc86b6",
+    "pack": "rage-of-elements",
+    "kind": "consumable",
+    "slug": "consumable:ferrofluid-urchin-moderate",
+    "name": "Ferrofluid Urchin (Moderate)",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "metal", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Prerequisites",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have the armor specialization effect of the affixed armor"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take physical damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This spiky glob of magnetic liquid attaches directly onto the metal of your armor. When you activate the globule, it reshapes to deflect the incoming harm. You gain resistance 6 to the triggering damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.4DfaAHIxnWPMoWb5"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 225
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "affixed",
+        "to": "medium-heavy-metal-armor"
+      }
+    }
+  },
+  {
+    "id": "8b4b5fd8-1178-52f4-a4b2-bb4aea4dd40f",
+    "pack": "rage-of-elements",
+    "kind": "consumable",
+    "slug": "consumable:frost-breath",
+    "name": "Frost Breath",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["air", "bottled-breath", "cold", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This bottle of frozen vapors is captured in the frozen peaks of the crown of the world. After inhaling frost breath, you gain resistance 5 to cold. You can exhale the frost breath as a single action to release a spray of frigid air in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": ". Each creature in the area takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "cold"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 20,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save. For 10 minutes, surfaces in the area are covered in ice, becoming difficult terrain and uneven ground ("
+          },
+          {
+            "type": "check",
+            "statistic": "skill:acrobatics",
+            "dc": 20
+          },
+          {
+            "type": "text",
+            "text": ")."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "3f226a27-8119-529f-9ee6-d11f059c6353"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.PVpViB2Wg3f61dFa"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 70
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "0c49093b-ef42-539e-bd8b-4c19b11e6a78",
+    "pack": "rage-of-elements",
+    "kind": "consumable",
+    "slug": "consumable:glowing-lantern-fruit",
+    "name": "Glowing Lantern Fruit",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The flesh of this fruit pod resembles a stylized paper lantern, with a woody, geometric structure and thin layers of flesh, complete with a glow coming from the interior."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate - Lantern Light",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "glowing lantern fruit",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " sheds bright light in a 60-foot radius (and dim light for the next 60 feet) for 8 hours. While the light is shining, you can Interact with the "
+          },
+          {
+            "type": "text",
+            "text": "glowing lantern fruit",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to open or close some of its reflective leaves, making the light directional like a bull's-eye lantern or a hooded lantern."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "199912f5-432d-52b3-b8ad-9a5c677b28ab"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate - Fire Fruit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You plant the "
+          },
+          {
+            "type": "text",
+            "text": "glowing lantern fruit",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " in the ground upside down. The petals of the lantern peel away, while the fruit inside glows hotter. For the next 8 hours, the "
+          },
+          {
+            "type": "text",
+            "text": "glowing lantern fruit",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " emits as much light and heat as a bonfire, giving all creatures within 15 feet immunity to the effects of mild and severe cold temperatures for as long as they're within the area."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.INyiWvehFuo8nGaa"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "e447a20c-968a-5638-948b-d9cba4054b6e",
+    "pack": "rage-of-elements",
+    "kind": "consumable",
+    "slug": "consumable:nimbus-breath",
+    "name": "Nimbus Breath",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["air", "bottled-breath", "consumable", "electricity"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The dwarves of Cloudspire Citadel in Golarion's Mwangi Expanse create bottles of "
+          },
+          {
+            "type": "text",
+            "text": "nimbus breath",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " by capturing and bottling the fluffiest nimbus clouds from the lairs of cloud dragons. After harvesting the cloud, the bottle must sit at the peak of the tallest mountain for 10 days and 10 nights, pelted by all forms of weather. "
+          },
+          {
+            "type": "text",
+            "text": "Nimbus breaths",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can also be created by capturing clouds on other planes, such as those found on the Plane of Air or in the highest peaks of Celestia."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After you inhale the "
+          },
+          {
+            "type": "text",
+            "text": "nimbus breath",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you gain resistance 5 to electricity and are affected by "
+          },
+          {
+            "type": "ref",
+            "id": "5ff17619-93b1-5680-ad41-5f66ad9a8c0b"
+          },
+          {
+            "type": "text",
+            "text": " as long as you hold your breath."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can exhale the breath as a single action to create a "
+          },
+          {
+            "type": "ref",
+            "id": "e48e01db-df29-5558-b6a3-a78233bae1d1"
+          },
+          {
+            "type": "text",
+            "text": " (DC 24) from your mouth. If you're airborne when the cloud expires, you float gently to the ground at 60 feet per round and don't take damage from this fall."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "7566aae8-6191-5501-ace3-8b0b155f470c"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.NLUsrnvQsYK0CYp3"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 80
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "b751d323-c58c-5dce-b71e-9518289ab9b3",
+    "pack": "rage-of-elements",
+    "kind": "consumable",
+    "slug": "consumable:octopus-potion-greater",
+    "name": "Octopus Potion (Greater)",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "morph", "potion", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Eight flailing octopus arms covered in suckers pop out from the sides of your body when you imbibe this potion. The arms share your multiple attack penalty and attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "380d34f1-f6f6-5820-b9dd-c01ee4e19fd5"
+          },
+          {
+            "type": "text",
+            "text": " a random enemy within 15 feet of you. On a success, roll 1d4 to determine an additional effect of the arms, which lasts as long as the target remains "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071"
+          },
+          {
+            "type": "text",
+            "text": " by the arms. On subsequent turns, you can use a single action, which has the attack trait, to have the arms either Grapple a creature currently grabbed or restrained (with no added effect) or release any creature they currently hold and repeat their initial effect. After 1 minute, the arms disappear and the potion's effects end."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The Athletics modifier is +22 and the Escape DC is 30."
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "1d4"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Added Effect"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "1"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "The arms cover the eyes; the target is also "
+              },
+              {
+                "type": "ref",
+                "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "The arms cover the mouth; the target can't speak."
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "3"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "The arms wrap around the limbs; the flat check for the target to use a manipulate action while grabbed is "
+              },
+              {
+                "type": "check",
+                "statistic": "flat",
+                "dc": 7
+              },
+              {
+                "type": "text",
+                "text": " instead of DC 5."
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "4"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "The arms crush your enemy; the target takes "
+              },
+              {
+                "type": "damage",
+                "instances": [
+                  {
+                    "formula": "13",
+                    "damageType": "bludgeoning"
+                  }
+                ],
+                "label": "bludgeoning damage"
+              },
+              {
+                "type": "text",
+                "text": " equal to the potion's level immediately and at the end of each of its turns."
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.igJxUzuMlYdrwSU2"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 500
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "4f0331bb-d4d1-54c7-a627-3cf40fdbed05",
+    "pack": "rage-of-elements",
+    "kind": "consumable",
+    "slug": "consumable:octopus-potion-lesser",
+    "name": "Octopus Potion (Lesser)",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "morph", "potion", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Eight flailing octopus arms covered in suckers pop out from the sides of your body when you imbibe this potion. The arms share your multiple attack penalty and attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "380d34f1-f6f6-5820-b9dd-c01ee4e19fd5"
+          },
+          {
+            "type": "text",
+            "text": " a random enemy within 15 feet of you. On a success, roll 1d4 to determine an additional effect of the arms, which lasts as long as the target remains "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071"
+          },
+          {
+            "type": "text",
+            "text": " by the arms. On subsequent turns, you can use a single action, which has the attack trait, to have the arms either Grapple a creature currently grabbed or restrained (with no added effect) or release any creature they currently hold and repeat their initial effect. After 1 minute, the arms disappear and the potion's effects end."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The Athletics modifier is +12 and the Escape DC is 20 (Escape)."
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "1d4"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Added Effect"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "1"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "The arms cover the eyes; the target is also "
+              },
+              {
+                "type": "ref",
+                "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "The arms cover the mouth; the target can't speak."
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "3"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "The arms wrap around the limbs; the flat check for the target to use a manipulate action while grabbed is "
+              },
+              {
+                "type": "check",
+                "statistic": "flat",
+                "dc": 7
+              },
+              {
+                "type": "text",
+                "text": " instead of DC 5."
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "4"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "The arms crush your enemy; the target takes "
+              },
+              {
+                "type": "damage",
+                "instances": [
+                  {
+                    "formula": "6",
+                    "damageType": "bludgeoning"
+                  }
+                ],
+                "label": "bludgeoning damage"
+              },
+              {
+                "type": "text",
+                "text": " equal to the potion's level immediately and at the end of each of its turns."
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.QWKDGY62Buq9dryf"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "e85cc6a8-8c1e-53f8-9378-454dc1b9d77c",
+    "pack": "rage-of-elements",
+    "kind": "consumable",
+    "slug": "consumable:octopus-potion-moderate",
+    "name": "Octopus Potion (Moderate)",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "morph", "potion", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Eight flailing octopus arms covered in suckers pop out from the sides of your body when you imbibe this potion. The arms share your multiple attack penalty and attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "380d34f1-f6f6-5820-b9dd-c01ee4e19fd5"
+          },
+          {
+            "type": "text",
+            "text": " a random enemy within 15 feet of you. On a success, roll 1d4 to determine an additional effect of the arms, which lasts as long as the target remains "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071"
+          },
+          {
+            "type": "text",
+            "text": " by the arms. On subsequent turns, you can use a single action, which has the attack trait, to have the arms either Grapple a creature currently grabbed or restrained (with no added effect) or release any creature they currently hold and repeat their initial effect. After 1 minute, the arms disappear and the potion's effects end."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The Athletics modifier is +17 and the Escape DC is 25."
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "1d4"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Added Effect"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "1"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "The arms cover the eyes; the target is also "
+              },
+              {
+                "type": "ref",
+                "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "The arms cover the mouth; the target can't speak."
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "3"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "The arms wrap around the limbs; the flat check for the target to use a manipulate action while grabbed is "
+              },
+              {
+                "type": "check",
+                "statistic": "flat",
+                "dc": 7
+              },
+              {
+                "type": "text",
+                "text": " instead of DC 5."
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "4"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "The arms crush your enemy; the target takes "
+              },
+              {
+                "type": "damage",
+                "instances": [
+                  {
+                    "formula": "9",
+                    "damageType": "bludgeoning"
+                  }
+                ],
+                "label": "bludgeoning damage"
+              },
+              {
+                "type": "text",
+                "text": " equal to the potion's level immediately and at the end of each of its turns."
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.0jhX5ibOIt77UmPP"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 130
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "0caaa89f-f329-5373-816e-6df88337d497",
+    "pack": "rage-of-elements",
+    "kind": "consumable",
+    "slug": "consumable:sairazul-blue",
+    "name": "Sairazul Blue",
+    "level": 10,
+    "rarity": "rare",
+    "traits": ["consumable", "earth", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "Sairazul blue",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " potion is a rich navy blue in color. Subjects of the Crystalline Queen produced the potion to protect themselves from the radiation Ayrzul left behind. For the next 8 hours, your skin becomes navy blue, and you gain resistance 5 to poison damage and void damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "9efa307c-04be-5f3e-9953-1daf167fcaa5"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you drop to 0 Hit Points due to poison or void damage, the "
+          },
+          {
+            "type": "text",
+            "text": "Sairazul blue",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " within your body reacts, healing you for "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "8d8"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points. The resistances the potion grants then end."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.BYl1jXHOpDJVYsvY"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 180
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "212edd1f-e30a-50dd-97fa-dab0348ba992",
+    "pack": "rage-of-elements",
+    "kind": "consumable",
+    "slug": "consumable:spun-cloud-black",
+    "name": "Spun Cloud (Black)",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["air", "bottled-breath", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "On the Elemental Plane of Air, small clouds of differing colors can sometimes float separately from other cloud formations. Clever people can spin these clouds into small handfuls, creating a magical bundle of elemental power. Unlike most bottled breath, "
+          },
+          {
+            "type": "text",
+            "text": "spun clouds",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " don't have any effect on you while you hold them in your lungs, but you can exhale the cloud as a single action. When exhaled, the cloud flows out and expands into a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 20
+          },
+          {
+            "type": "text",
+            "text": " within 60 feet of you. The cloud dissipates after 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A dark storm cloud conceals creatures within it. Creatures outside the cloud are "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " to creatures within it."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.0Lz5mlbB6QTZIYLf"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 70
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "6637f70b-2888-5435-92cb-f17508db686f",
+    "pack": "rage-of-elements",
+    "kind": "consumable",
+    "slug": "consumable:spun-cloud-blue",
+    "name": "Spun Cloud (Blue)",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["air", "bottled-breath", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "On the Elemental Plane of Air, small clouds of differing colors can sometimes float separately from other cloud formations. Clever people can spin these clouds into small handfuls, creating a magical bundle of elemental power. Unlike most bottled breath, "
+          },
+          {
+            "type": "text",
+            "text": "spun clouds",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " don't have any effect on you while you hold them in your lungs, but you can exhale the cloud as a single action. When exhaled, the cloud flows out and expands into a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 20
+          },
+          {
+            "type": "text",
+            "text": " within 60 feet of you. The cloud dissipates after 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A blue cloud protects against lightning. Creatures gain resistance 5 to electricity while in the cloud."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "d851f1b7-6da1-5a11-b0e1-b91d18e4a60b"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.PEjGV24mOK5gPPPS"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "cc469aa9-73cc-5fb0-a29e-ed306d932054",
+    "pack": "rage-of-elements",
+    "kind": "consumable",
+    "slug": "consumable:spun-cloud-green",
+    "name": "Spun Cloud (Green)",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["air", "bottled-breath", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "On the Elemental Plane of Air, small clouds of differing colors can sometimes float separately from other cloud formations. Clever people can spin these clouds into small handfuls, creating a magical bundle of elemental power. Unlike most bottled breath, "
+          },
+          {
+            "type": "text",
+            "text": "spun clouds",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " don't have any effect on you while you hold them in your lungs, but you can exhale the cloud as a single action. When exhaled, the cloud flows out and expands into a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 20
+          },
+          {
+            "type": "text",
+            "text": " within 60 feet of you. The cloud dissipates after 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A green cloud smells terrible, making those inside ill. Any creature that ends its turn in the cloud must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 25
+          },
+          {
+            "type": "text",
+            "text": " save or be "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": " (or "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": " on a critical failure). Regardless of the result of its save, the creature becomes temporarily immune for 24 hours. This is an olfactory poison effect."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.9BNMhEZ2ztFtu2WU"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 125
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "cbc77e3a-34a5-5bfe-8d24-b19b9fc67028",
+    "pack": "rage-of-elements",
+    "kind": "consumable",
+    "slug": "consumable:spun-cloud-red",
+    "name": "Spun Cloud (Red)",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["air", "bottled-breath", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "On the Elemental Plane of Air, small clouds of differing colors can sometimes float separately from other cloud formations. Clever people can spin these clouds into small handfuls, creating a magical bundle of elemental power. Unlike most bottled breath, "
+          },
+          {
+            "type": "text",
+            "text": "spun clouds",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " don't have any effect on you while you hold them in your lungs, but you can exhale the cloud as a single action. When exhaled, the cloud flows out and expands into a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 20
+          },
+          {
+            "type": "text",
+            "text": " within 60 feet of you. The cloud dissipates after 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A red cloud terrifies those it surrounds. Any creature in the cloud, or that later enters the cloud, must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 24
+          },
+          {
+            "type": "text",
+            "text": " save or become "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": " (or "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 3"
+          },
+          {
+            "type": "text",
+            "text": " on a critical failure). Regardless of the result of its save, the creature becomes temporarily immune for 24 hours. This is an emotion, fear, and mental effect."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.qDvsHszooFbPAqlN"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 100
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "2dfcc72f-7ebb-59cb-93e6-bf5cc7f29e83",
+    "pack": "rage-of-elements",
+    "kind": "consumable",
+    "slug": "consumable:spun-cloud-white",
+    "name": "Spun Cloud (White)",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["air", "bottled-breath", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "On the Elemental Plane of Air, small clouds of differing colors can sometimes float separately from other cloud formations. Clever people can spin these clouds into small handfuls, creating a magical bundle of elemental power. Unlike most bottled breath, "
+          },
+          {
+            "type": "text",
+            "text": "spun clouds",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " don't have any effect on you while you hold them in your lungs, but you can exhale the cloud as a single action. When exhaled, the cloud flows out and expands into a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 20
+          },
+          {
+            "type": "text",
+            "text": " within 60 feet of you. The cloud dissipates after 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A white cloud swirls with winds that speed up travel. A creature that starts its turn in the cloud gains a +10-foot item bonus to its land Speed and fly Speed (if it has one) until the end of its turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "80d209ef-b245-5651-9c11-accfb1e2e32a"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.a05LWc1gKq0NwRfs"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 7
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "7ea5f701-324b-597f-a17d-8f39f7189f3c",
+    "pack": "rage-of-elements",
+    "kind": "consumable",
+    "slug": "consumable:stalagmite-seed",
+    "name": "Stalagmite Seed",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["consumable", "earth", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can throw a "
+          },
+          {
+            "type": "text",
+            "text": "stalagmite seed",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", use it as a sling stone, or pack it into firearm ammunition. When you use the seed, you aim it at a 5-foot square rather than a specific target. Stalagmites of assorted sizes erupt in the square the seed lands in, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to any creature within that space ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 23,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save). The stalagmites remain for 1 minute, creating difficult terrain in that space, before they crumble into dust."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.RcVJ30230zAeLILV"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 60
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "dbb78ba0-87f8-5a79-b070-d488af7d759e",
+    "pack": "rage-of-elements",
+    "kind": "consumable",
+    "slug": "consumable:storm-breath",
+    "name": "Storm Breath",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["air", "bottled-breath", "consumable", "electricity", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Storm breaths",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " are bottles of temperamental lightning captured during storms on the Plane of Air, releasing small charges of static energy any time they're touched. The first "
+          },
+          {
+            "type": "text",
+            "text": "storm breaths",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " were created by Ranginori's faithful following the Elemental Lord's return from a long imprisonment, but the recipe has since been duplicated across the multiverse."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After inhaling "
+          },
+          {
+            "type": "text",
+            "text": "storm breath",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you gain resistance 5 to both electricity and sonic. You can exhale the "
+          },
+          {
+            "type": "text",
+            "text": "storm breath",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " as a bolt of lightning, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d12",
+                "damageType": "electricity"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to all creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "line",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": ", with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 25,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "d46aed2b-3fc7-5c2b-85b7-5adbbe508e16"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.XPIsejlpyvHvR0Ma"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 125
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "973aab93-cb8b-53bd-adc0-38f57ee19ade",
+    "pack": "rage-of-elements",
+    "kind": "consumable",
+    "slug": "consumable:tailors-boll",
+    "name": "Tailor's Boll",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "plant", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Harvested from one of the rainbow fields of the Plane of Wood, this cotton boll is filled with multicolored fibers. When you Activate the boll, you make a request for a bespoke set of non-magical explorer's clothing or fine clothing. The hard fibers and seeds leap from your hand to spin and weave, cotton flying through the air at incredible speed to make cloth and thread. The clothing is ready at the start of your next turn, in the most convenient spot nearby for hanging the clothing or laying it flat."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you hold clothing in your other hand when you activate the boll, the boll instead reweaves that item to match the style you specified. This can't change the type of item; you couldn't turn fine clothing into explorer's clothing or winter clothing, for example."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.bvT6uMBD8MALvZAZ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 12
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "dc5037b6-bc88-5d03-9b87-7d60e9accbe6",
+    "pack": "rage-of-elements",
+    "kind": "consumable",
+    "slug": "consumable:thawing-candle",
+    "name": "Thawing Candle",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["consumable", "fire", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This stubby, black candle has a wick made of a type of flammable bronze that can be found only on the Plane of Fire. You activate the candle by lighting it, which enables creatures within "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " of the candle to ignore the cold while within range. Creatures in the area gain cold resistance 10. In addition, a creature taking persistent cold damage that is in or enters the area can immediately attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 15
+          },
+          {
+            "type": "text",
+            "text": " to end the persistent damage. A given creature can gain this flat check only once from a single "
+          },
+          {
+            "type": "text",
+            "text": "thawing candle",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". Once lit, the candle burns for 10 minutes. If extinguished, it can't be relit."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "810f11fe-c325-5e27-bc52-026c872a2f11"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.U5G4FXAUvtxhYLYj"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 90
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "e5dec698-e769-505d-8052-4b8236429ed0",
+    "pack": "rage-of-elements",
+    "kind": "consumable",
+    "slug": "consumable:therapeutic-snap-peas",
+    "name": "Therapeutic Snap Peas",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "plant", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Affectionately called \"the healer's kit of the Plane of Wood,\" "
+          },
+          {
+            "type": "text",
+            "text": "therapeutic snap peas",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " are specially cultivated snap pea pods overflowing with restorative magic."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Healing Pod",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You break the snap pea pod in half, unleashing its restorative healing energy. Up to 5 creatures of your choice within 30 feet regain "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d8+10"
+              }
+            ],
+            "healing": true,
+            "label": "4d8+10 Hit Points"
+          },
+          {
+            "type": "text",
+            "text": " and gain a +2 item bonus to all saves against poisons or diseases for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "f649ff93-0f4c-56fb-8089-f364f6f1fd80"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Beanstalk",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You plant the "
+          },
+          {
+            "type": "text",
+            "text": "therapeutic snap peas",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " in a square of open ground, after which they rapidly grow into a 10-foot-tall beanstalk that remains in place for 8 hours. The beanstalk's enormous pea pods provide a full day's food for up to 8 living creatures of size Large or smaller, which must be eaten before the beanstalk expires. Any creature that eats the pea pods also immediately heals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "30"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points and can attempt a new saving throw against one poison or disease afflicting them."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.s0iiOMicSe4EspMM"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 85
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "damage": {
+        "formula": "4d8+10",
+        "kind": "healing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "7498bbf6-afa4-5416-b091-a535c5bf375f",
+    "pack": "rage-of-elements",
+    "kind": "consumable",
+    "slug": "consumable:vital-earth",
+    "name": "Vital Earth",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["consumable", "earth", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Life-infused soil from the Plane of Earth, "
+          },
+          {
+            "type": "text",
+            "text": "vital earth",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is glittering dust you inhale that causes you to not need air or water for 24 hours. Also, for this time, your wounds close easily, like molding clay, meaning someone attempting to "
+          },
+          {
+            "type": "ref",
+            "id": "e03baa02-2fea-552f-9996-c41bfa074713"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "18c1b923-595b-5203-a0be-010205e51c44"
+          },
+          {
+            "type": "text",
+            "text": " on you doesn't need a healer's toolkit and gains a +1 item bonus to the Medicine check."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.2pfQkBdEfA5Fxuqg"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 30
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

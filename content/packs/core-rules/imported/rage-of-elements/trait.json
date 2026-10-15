@@ -1,0 +1,142 @@
+[
+  {
+    "id": "765af8e2-5c1c-51c4-82d6-194cc03c4a5d",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:bottled-breath",
+    "name": "Bottled Breath",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "consumable"]
+    }
+  },
+  {
+    "id": "3666b300-a739-5984-930c-f065f36aae63",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:censer",
+    "name": "Censer",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["equipment"]
+    }
+  },
+  {
+    "id": "d7cdd9da-2343-503f-b9ec-5182f1ab48d5",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:composite",
+    "name": "Composite",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "feat"]
+    }
+  },
+  {
+    "id": "71745182-ff49-57b1-b5df-4f3cfcba12dd",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:figurehead",
+    "name": "Figurehead",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["equipment"]
+    }
+  },
+  {
+    "id": "ac505155-66aa-5741-8851-31d1a5cc6cc7",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:impulse",
+    "name": "Impulse",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "condition", "effect", "feat"]
+    }
+  },
+  {
+    "id": "cd13cca0-f8ed-594a-a7ec-cfa6443bad3e",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:infusion",
+    "name": "Infusion",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "condition", "effect", "feat"]
+    }
+  },
+  {
+    "id": "65b0727a-b273-5b90-a17f-dcc4e58c9c11",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:overflow",
+    "name": "Overflow",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "feat"]
+    }
+  }
+]

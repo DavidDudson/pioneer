@@ -1,0 +1,106 @@
+[
+  {
+    "id": "e3a008b8-ae22-59c3-bc2c-ddce1fd5b1f0",
+    "pack": "rage-of-elements",
+    "kind": "heritage",
+    "slug": "heritage:ardande",
+    "name": "Ardande",
+    "rarity": "uncommon",
+    "traits": ["ardande"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You descend from wood elementals or have some other heritage influenced by the elemental Plane of Wood. You might have green, mossy skin, vines that grow from your head instead of hair, or thin appendages that resemble twigs. You gain the ardande trait, in addition to the traits from your ancestry. You also gain low-light vision, or you gain darkvision if your ancestry already has low-light vision."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can choose from ardande feats, geniekin feats, and feats from your ancestry whenever you gain an ancestry feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+      },
+      {
+        "key": "Sense",
+        "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb",
+        "predicate": ["self:low-light-vision:from-ancestry"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.jAX7yavR4lNKwDK8"
+    },
+    "data": {}
+  },
+  {
+    "id": "e7a24113-675d-5f09-854f-06801a143410",
+    "pack": "rage-of-elements",
+    "kind": "heritage",
+    "slug": "heritage:talos",
+    "name": "Talos",
+    "rarity": "uncommon",
+    "traits": ["talos"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your physical features reflect the influence a zuhra or other metal elemental has had over your bloodline. Your skin likely has a metallic sheen, ranging from the dull luster of raw ore to the gleaming polish of a new blade, with the wear of age or hardship taking the form of tarnish, rust, or scouring. Your hair might resemble spun gold, coiled steel, copper wiring, or braided chains. You gain the talos trait, in addition to the traits from your ancestry. You gain resistance to electricity equal to half your level (minimum 1). You can cast the "
+          },
+          {
+            "type": "ref",
+            "id": "687d9a32-c799-5614-881d-b262ab1f3633"
+          },
+          {
+            "type": "text",
+            "text": " cantrip as an arcane innate spell at will. A cantrip is heightened to a spell rank equal to half your level rounded up."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can choose from talos feats, geniekin feats, and feats from your ancestry whenever you gain an ancestry feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["electricity"],
+        "value": "max(1, floor(@level / 2))"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.Ga7UEU186pjq7LBD"
+    },
+    "data": {}
+  }
+]

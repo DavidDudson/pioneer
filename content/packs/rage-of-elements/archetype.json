@@ -1,0 +1,36 @@
+[
+  {
+    "id": "91f8d50a-846d-53ec-b08c-e347d4830ba7",
+    "pack": "rage-of-elements",
+    "kind": "archetype",
+    "slug": "archetype:kineticist",
+    "name": "Kineticist",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have, intentionally or accidentally, awoken a gateway to elemental power inside yourself and can now channel that power to devastating effect, adding an elemental arsenal to your abilities"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.1kRGIb5LPPKypQpN"
+    },
+    "data": {
+      "dedication": "11650256-4da2-5c04-84ff-95ba961c59d0",
+      "multiclass": "67d0b2e8-9537-5d29-b6e5-6604c079a577"
+    }
+  }
+]

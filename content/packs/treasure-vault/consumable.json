@@ -12620,7 +12620,15 @@
           },
           {
             "type": "text",
-            "text": " or Chilling Spray, a scale from a dragon's throat changes the spell's damage type and corresponding trait to the damage type and trait of the dragon's breath. You can instead choose the damage type and trait corresponding to the dragon's tradition if it's different."
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "a3d53fc9-c4f7-562e-ac49-db710e6199e3"
+          },
+          {
+            "type": "text",
+            "text": ", a scale from a dragon's throat changes the spell's damage type and corresponding trait to the damage type and trait of the dragon's breath. You can instead choose the damage type and trait corresponding to the dragon's tradition if it's different."
           }
         ]
       },
@@ -12847,7 +12855,15 @@
         "content": [
           {
             "type": "text",
-            "text": "If you have a dragonclaw scutcheon, dragonscale cameo, and dragontooth trophy attached to your items, and they all correspond to the same type of dragon, you gain an extra benefit. When you Activate any of these talismans, you gain the ability to cast an 8th-rank Dragon Breath focus spell ("
+            "text": "If you have a dragonclaw scutcheon, dragonscale cameo, and dragontooth trophy attached to your items, and they all correspond to the same type of dragon, you gain an extra benefit. When you Activate any of these talismans, you gain the ability to cast an 8th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "46e30c8e-85f6-547a-a779-8d059ef67d3d"
+          },
+          {
+            "type": "text",
+            "text": " focus spell ("
           },
           {
             "type": "check",
@@ -13503,7 +13519,15 @@
           },
           {
             "type": "text",
-            "text": ", and Web each once per day as primal innate spells. The web is a dense mycelial net rather than spider silk."
+            "text": ", and "
+          },
+          {
+            "type": "ref",
+            "id": "9e63871b-e287-5e26-8383-f5c4c9fe2bc7"
+          },
+          {
+            "type": "text",
+            "text": " each once per day as primal innate spells. The web is a dense mycelial net rather than spider silk."
           }
         ]
       },
@@ -17432,7 +17456,15 @@
           },
           {
             "type": "text",
-            "text": " condition increases by 1, and the talisman casts Drop Dead on you. You and any items you're wearing and holding are instantly transported from your current space to a clear space of your choice within 30 feet. You take no damage from the triggering effect. If you are carrying another creature (even one contained inside an extradimensional container), it's left behind in your original space."
+            "text": " condition increases by 1, and the talisman casts "
+          },
+          {
+            "type": "ref",
+            "id": "7b6f390e-208f-58b7-b7e8-6c75c886cb2f"
+          },
+          {
+            "type": "text",
+            "text": " on you. You and any items you're wearing and holding are instantly transported from your current space to a clear space of your choice within 30 feet. You take no damage from the triggering effect. If you are carrying another creature (even one contained inside an extradimensional container), it's left behind in your original space."
           }
         ]
       }
@@ -17537,7 +17569,15 @@
           },
           {
             "type": "text",
-            "text": " condition increases by 1, and the talisman casts Drop Dead on you. The talisman teleports you to a clear space of your choice that you can see within 120 feet. This also transports any items you're wearing and holding with you, as well as up to one other creature currently in contact with you—including if you're carrying it in an extradimensional container. This effect has the teleportation trait."
+            "text": " condition increases by 1, and the talisman casts "
+          },
+          {
+            "type": "ref",
+            "id": "7b6f390e-208f-58b7-b7e8-6c75c886cb2f"
+          },
+          {
+            "type": "text",
+            "text": " on you. The talisman teleports you to a clear space of your choice that you can see within 120 feet. This also transports any items you're wearing and holding with you, as well as up to one other creature currently in contact with you—including if you're carrying it in an extradimensional container. This effect has the teleportation trait."
           }
         ]
       }
@@ -32918,7 +32958,15 @@
         "content": [
           {
             "type": "text",
-            "text": "This mirrored metal fragment is bolted or welded to the face of the affixed shield. When you Activate it, you attempt to reflect the triggering spell back at its caster with Spell Riposte, using your "
+            "text": "This mirrored metal fragment is bolted or welded to the face of the affixed shield. When you Activate it, you attempt to reflect the triggering spell back at its caster with "
+          },
+          {
+            "type": "ref",
+            "id": "35c8fba6-ef32-549e-a849-34d6e599b4d6"
+          },
+          {
+            "type": "text",
+            "text": ", using your "
           },
           {
             "type": "check",
@@ -33023,7 +33071,15 @@
         "content": [
           {
             "type": "text",
-            "text": "This mirrored metal fragment is bolted or welded to the face of the affixed shield. When you Activate it, you attempt to reflect the triggering spell back at its caster with Spell Riposte, using your "
+            "text": "This mirrored metal fragment is bolted or welded to the face of the affixed shield. When you Activate it, you attempt to reflect the triggering spell back at its caster with "
+          },
+          {
+            "type": "ref",
+            "id": "35c8fba6-ef32-549e-a849-34d6e599b4d6"
+          },
+          {
+            "type": "text",
+            "text": ", using your "
           },
           {
             "type": "check",
@@ -33582,7 +33638,15 @@
           },
           {
             "type": "text",
-            "text": " You gain the effects of a 7th-rank Bullhorn spell. You can Dismiss the activation."
+            "text": " You gain the effects of a 7th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "427481f6-06b8-5e15-9f76-a87a84b28d01"
+          },
+          {
+            "type": "text",
+            "text": " spell. You can Dismiss the activation."
           }
         ]
       },
@@ -33848,7 +33912,15 @@
           },
           {
             "type": "text",
-            "text": " You gain the effects of a Bullhorn spell. You can Dismiss the activation."
+            "text": " You gain the effects of a "
+          },
+          {
+            "type": "ref",
+            "id": "427481f6-06b8-5e15-9f76-a87a84b28d01"
+          },
+          {
+            "type": "text",
+            "text": " spell. You can Dismiss the activation."
           }
         ]
       },
@@ -34114,7 +34186,15 @@
           },
           {
             "type": "text",
-            "text": " You gain the effects of a 5th-rank Bullhorn spell. You can Dismiss the activation."
+            "text": " You gain the effects of a 5th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "427481f6-06b8-5e15-9f76-a87a84b28d01"
+          },
+          {
+            "type": "text",
+            "text": " spell. You can Dismiss the activation."
           }
         ]
       },
@@ -45179,7 +45259,15 @@
           },
           {
             "type": "text",
-            "text": " that works like Strange Geometry for 1 round. This emanation can affect you."
+            "text": " that works like "
+          },
+          {
+            "type": "ref",
+            "id": "2d183b4e-d77b-58a3-b2b0-3a2e8b7082b1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round. This emanation can affect you."
           }
         ]
       },
@@ -45247,7 +45335,15 @@
           },
           {
             "type": "text",
-            "text": " You must find and slay a powerful aberration or a servant of such creatures the GM deems appropriate. The creature must be of your level or higher. Then, someone must cast a Rest Eternal ritual on you and the dead being; you must be anointed with the same oils the ritual normally requires. If the ritual results in a success, it casts the slain creature into the void along with the "
+            "text": " You must find and slay a powerful aberration or a servant of such creatures the GM deems appropriate. The creature must be of your level or higher. Then, someone must cast a "
+          },
+          {
+            "type": "ref",
+            "id": "549bd343-78c0-53a8-8c1c-8e04b2bcc5b6"
+          },
+          {
+            "type": "text",
+            "text": " ritual on you and the dead being; you must be anointed with the same oils the ritual normally requires. If the ritual results in a success, it casts the slain creature into the void along with the "
           },
           {
             "type": "text",
@@ -45493,7 +45589,15 @@
           },
           {
             "type": "text",
-            "text": " You cast Cinder Swarm, but the mist prevents creatures from being able to breathe in its area. They must hold their breath or start suffocating."
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "ce595823-5a12-5332-9c63-3e320d607e6a"
+          },
+          {
+            "type": "text",
+            "text": ", but the mist prevents creatures from being able to breathe in its area. They must hold their breath or start suffocating."
           }
         ]
       },
@@ -45519,7 +45623,15 @@
           },
           {
             "type": "text",
-            "text": " Supply a casting of Cinder Swarm."
+            "text": " Supply a casting of "
+          },
+          {
+            "type": "ref",
+            "id": "ce595823-5a12-5332-9c63-3e320d607e6a"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       }
@@ -45548,6 +45660,10 @@
       ],
       "category": "wand",
       "kept": true,
+      "spell": {
+        "spell": "ce595823-5a12-5332-9c63-3e320d607e6a",
+        "rank": 4
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -45620,7 +45736,15 @@
           },
           {
             "type": "text",
-            "text": " You cast 4th-rank Chromatic Armor. Additionally, the target can use the Chromatic Armor Burst action."
+            "text": " You cast 4th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "1f5f8f2d-666f-53e4-8098-b0331acb1bb0"
+          },
+          {
+            "type": "text",
+            "text": ". Additionally, the target can use the Chromatic Armor Burst action."
           }
         ]
       },
@@ -45659,7 +45783,15 @@
           },
           {
             "type": "text",
-            "text": " You're affected by Chromatic Armor created by the "
+            "text": " You're affected by "
+          },
+          {
+            "type": "ref",
+            "id": "1f5f8f2d-666f-53e4-8098-b0331acb1bb0"
+          },
+          {
+            "type": "text",
+            "text": " created by the "
           },
           {
             "type": "text",
@@ -45678,7 +45810,15 @@
           },
           {
             "type": "text",
-            "text": " Choose one color of the Chromatic Armor the wand created for you. The spell ends and light of that color flashes brightly in a "
+            "text": " Choose one color of the "
+          },
+          {
+            "type": "ref",
+            "id": "1f5f8f2d-666f-53e4-8098-b0331acb1bb0"
+          },
+          {
+            "type": "text",
+            "text": " the wand created for you. The spell ends and light of that color flashes brightly in a "
           },
           {
             "type": "template",
@@ -45725,7 +45865,15 @@
           },
           {
             "type": "text",
-            "text": " Supply a casting of Chromatic Armor of the appropriate rank."
+            "text": " Supply a casting of "
+          },
+          {
+            "type": "ref",
+            "id": "1f5f8f2d-666f-53e4-8098-b0331acb1bb0"
+          },
+          {
+            "type": "text",
+            "text": " of the appropriate rank."
           }
         ]
       }
@@ -45834,6 +45982,10 @@
       ],
       "category": "wand",
       "kept": true,
+      "spell": {
+        "spell": "1f5f8f2d-666f-53e4-8098-b0331acb1bb0",
+        "rank": 4
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -45906,7 +46058,15 @@
           },
           {
             "type": "text",
-            "text": " You cast 7th-rank Chromatic Armor. Additionally, the target can use the Chromatic Armor Burst action."
+            "text": " You cast 7th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "1f5f8f2d-666f-53e4-8098-b0331acb1bb0"
+          },
+          {
+            "type": "text",
+            "text": ". Additionally, the target can use the Chromatic Armor Burst action."
           }
         ]
       },
@@ -45945,7 +46105,15 @@
           },
           {
             "type": "text",
-            "text": " You're affected by Chromatic Armor created by the "
+            "text": " You're affected by "
+          },
+          {
+            "type": "ref",
+            "id": "1f5f8f2d-666f-53e4-8098-b0331acb1bb0"
+          },
+          {
+            "type": "text",
+            "text": " created by the "
           },
           {
             "type": "text",
@@ -45964,7 +46132,15 @@
           },
           {
             "type": "text",
-            "text": " Choose one color of the Chromatic Armor the wand created for you. The spell ends and light of that color flashes brightly in a "
+            "text": " Choose one color of the "
+          },
+          {
+            "type": "ref",
+            "id": "1f5f8f2d-666f-53e4-8098-b0331acb1bb0"
+          },
+          {
+            "type": "text",
+            "text": " the wand created for you. The spell ends and light of that color flashes brightly in a "
           },
           {
             "type": "template",
@@ -46011,7 +46187,15 @@
           },
           {
             "type": "text",
-            "text": " Supply a casting of Chromatic Armor of the appropriate rank."
+            "text": " Supply a casting of "
+          },
+          {
+            "type": "ref",
+            "id": "1f5f8f2d-666f-53e4-8098-b0331acb1bb0"
+          },
+          {
+            "type": "text",
+            "text": " of the appropriate rank."
           }
         ]
       }
@@ -46120,6 +46304,10 @@
       ],
       "category": "wand",
       "kept": true,
+      "spell": {
+        "spell": "1f5f8f2d-666f-53e4-8098-b0331acb1bb0",
+        "rank": 7
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -48111,7 +48299,15 @@
           },
           {
             "type": "text",
-            "text": " You cast 3rd-rank Impending Doom, showing the target a potential death that's gruesome and absurd. If the target becomes "
+            "text": " You cast 3rd-rank "
+          },
+          {
+            "type": "ref",
+            "id": "437df595-c36d-5c61-88b4-b4f78d3ca7a3"
+          },
+          {
+            "type": "text",
+            "text": ", showing the target a potential death that's gruesome and absurd. If the target becomes "
           },
           {
             "type": "ref",
@@ -48182,6 +48378,10 @@
       ],
       "category": "wand",
       "kept": true,
+      "spell": {
+        "spell": "437df595-c36d-5c61-88b4-b4f78d3ca7a3",
+        "rank": 3
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -48254,7 +48454,15 @@
           },
           {
             "type": "text",
-            "text": " You cast 4th-rank Impending Doom, showing the target a potential death that's gruesome and absurd. If the target becomes "
+            "text": " You cast 4th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "437df595-c36d-5c61-88b4-b4f78d3ca7a3"
+          },
+          {
+            "type": "text",
+            "text": ", showing the target a potential death that's gruesome and absurd. If the target becomes "
           },
           {
             "type": "ref",
@@ -48325,6 +48533,10 @@
       ],
       "category": "wand",
       "kept": true,
+      "spell": {
+        "spell": "437df595-c36d-5c61-88b4-b4f78d3ca7a3",
+        "rank": 4
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -48397,7 +48609,15 @@
           },
           {
             "type": "text",
-            "text": " You cast 5th-rank Impending Doom, showing the target a potential death that's gruesome and absurd. If the target becomes "
+            "text": " You cast 5th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "437df595-c36d-5c61-88b4-b4f78d3ca7a3"
+          },
+          {
+            "type": "text",
+            "text": ", showing the target a potential death that's gruesome and absurd. If the target becomes "
           },
           {
             "type": "ref",
@@ -48468,6 +48688,10 @@
       ],
       "category": "wand",
       "kept": true,
+      "spell": {
+        "spell": "437df595-c36d-5c61-88b4-b4f78d3ca7a3",
+        "rank": 5
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -48540,7 +48764,15 @@
           },
           {
             "type": "text",
-            "text": " You cast 6th-rank Impending Doom, showing the target a potential death that's gruesome and absurd. If the target becomes "
+            "text": " You cast 6th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "437df595-c36d-5c61-88b4-b4f78d3ca7a3"
+          },
+          {
+            "type": "text",
+            "text": ", showing the target a potential death that's gruesome and absurd. If the target becomes "
           },
           {
             "type": "ref",
@@ -48611,6 +48843,10 @@
       ],
       "category": "wand",
       "kept": true,
+      "spell": {
+        "spell": "437df595-c36d-5c61-88b4-b4f78d3ca7a3",
+        "rank": 6
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -48683,7 +48919,15 @@
           },
           {
             "type": "text",
-            "text": " You cast 7th-rank Impending Doom, showing the target a potential death that's gruesome and absurd. If the target becomes "
+            "text": " You cast 7th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "437df595-c36d-5c61-88b4-b4f78d3ca7a3"
+          },
+          {
+            "type": "text",
+            "text": ", showing the target a potential death that's gruesome and absurd. If the target becomes "
           },
           {
             "type": "ref",
@@ -48754,6 +48998,10 @@
       ],
       "category": "wand",
       "kept": true,
+      "spell": {
+        "spell": "437df595-c36d-5c61-88b4-b4f78d3ca7a3",
+        "rank": 7
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -48826,7 +49074,15 @@
           },
           {
             "type": "text",
-            "text": " You cast 8th-rank Impending Doom, showing the target a potential death that's gruesome and absurd. If the target becomes "
+            "text": " You cast 8th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "437df595-c36d-5c61-88b4-b4f78d3ca7a3"
+          },
+          {
+            "type": "text",
+            "text": ", showing the target a potential death that's gruesome and absurd. If the target becomes "
           },
           {
             "type": "ref",
@@ -48897,6 +49153,10 @@
       ],
       "category": "wand",
       "kept": true,
+      "spell": {
+        "spell": "437df595-c36d-5c61-88b4-b4f78d3ca7a3",
+        "rank": 8
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -48969,7 +49229,15 @@
           },
           {
             "type": "text",
-            "text": " You cast 9th-rank Impending Doom, showing the target a potential death that's gruesome and absurd. If the target becomes "
+            "text": " You cast 9th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "437df595-c36d-5c61-88b4-b4f78d3ca7a3"
+          },
+          {
+            "type": "text",
+            "text": ", showing the target a potential death that's gruesome and absurd. If the target becomes "
           },
           {
             "type": "ref",
@@ -49040,6 +49308,10 @@
       ],
       "category": "wand",
       "kept": true,
+      "spell": {
+        "spell": "437df595-c36d-5c61-88b4-b4f78d3ca7a3",
+        "rank": 9
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -52415,7 +52687,15 @@
           },
           {
             "type": "text",
-            "text": " You cast 4th-rank Chromatic Ray. After you cast the spell, if you hit the target, the light refracts to another creature within 30 feet of the first target. Roll your spell attack roll and to determine the ray's color separately for each target. The ray continues to refract each time it hits. The refraction ceases if you miss any target, and you can end the refraction at any point. You can't target the same creature more than once, and you must have line of effect to all targets."
+            "text": " You cast 4th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "01dc41ab-115a-5b38-a563-82e1779bf7b4"
+          },
+          {
+            "type": "text",
+            "text": ". After you cast the spell, if you hit the target, the light refracts to another creature within 30 feet of the first target. Roll your spell attack roll and to determine the ray's color separately for each target. The ray continues to refract each time it hits. The refraction ceases if you miss any target, and you can end the refraction at any point. You can't target the same creature more than once, and you must have line of effect to all targets."
           }
         ]
       },
@@ -52470,6 +52750,10 @@
       ],
       "category": "wand",
       "kept": true,
+      "spell": {
+        "spell": "01dc41ab-115a-5b38-a563-82e1779bf7b4",
+        "rank": 4
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -52542,7 +52826,15 @@
           },
           {
             "type": "text",
-            "text": " You cast 7th-rank Chromatic Ray. After you cast the spell, if you hit the target, the light refracts to another creature within 30 feet of the first target. Roll your spell attack roll and to determine the ray's color separately for each target. The ray continues to refract each time it hits. The refraction ceases if you miss any target, and you can end the refraction at any point. You can't target the same creature more than once, and you must have line of effect to all targets."
+            "text": " You cast 7th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "01dc41ab-115a-5b38-a563-82e1779bf7b4"
+          },
+          {
+            "type": "text",
+            "text": ". After you cast the spell, if you hit the target, the light refracts to another creature within 30 feet of the first target. Roll your spell attack roll and to determine the ray's color separately for each target. The ray continues to refract each time it hits. The refraction ceases if you miss any target, and you can end the refraction at any point. You can't target the same creature more than once, and you must have line of effect to all targets."
           }
         ]
       },
@@ -52597,6 +52889,10 @@
       ],
       "category": "wand",
       "kept": true,
+      "spell": {
+        "spell": "01dc41ab-115a-5b38-a563-82e1779bf7b4",
+        "rank": 6
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -56583,7 +56879,15 @@
           },
           {
             "type": "text",
-            "text": ". Damage from the wall also exposes the damaged creature to Cave Worm Venom. The poison uses its normal DC. A creature can be exposed to the poison no more than once per turn."
+            "text": ". Damage from the wall also exposes the damaged creature to "
+          },
+          {
+            "type": "ref",
+            "id": "31e76f04-86c1-5d5a-acc0-e5e31223102f"
+          },
+          {
+            "type": "text",
+            "text": ". The poison uses its normal DC. A creature can be exposed to the poison no more than once per turn."
           }
         ]
       },
@@ -56721,7 +57025,15 @@
           },
           {
             "type": "text",
-            "text": ". Damage from the wall also exposes the damaged creature to Deathcap Powder with no onset. The poison uses its normal DC. A creature can be exposed to the poison no more than once per turn."
+            "text": ". Damage from the wall also exposes the damaged creature to "
+          },
+          {
+            "type": "ref",
+            "id": "1f2d501d-a29a-582e-b6e4-4b4e88609e10"
+          },
+          {
+            "type": "text",
+            "text": " with no onset. The poison uses its normal DC. A creature can be exposed to the poison no more than once per turn."
           }
         ]
       },
@@ -56859,7 +57171,15 @@
           },
           {
             "type": "text",
-            "text": ". Damage from the wall also exposes the damaged creature to Cerulean Scourge. The poison uses its normal DC. A creature can be exposed to the poison no more than once per turn."
+            "text": ". Damage from the wall also exposes the damaged creature to "
+          },
+          {
+            "type": "ref",
+            "id": "e031ad27-2e3a-5dd8-ae6b-49751efd70af"
+          },
+          {
+            "type": "text",
+            "text": ". The poison uses its normal DC. A creature can be exposed to the poison no more than once per turn."
           }
         ]
       },
