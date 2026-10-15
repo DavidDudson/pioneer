@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1792073355401,
+  "lastUpdate": 1792073733499,
   "repoUrl": "https://github.com/DavidDudson/pioneer",
   "entries": {
     "Pioneer benchmarks": [
@@ -2214,6 +2214,168 @@ window.BENCHMARK_DATA = {
             "value": 0.401,
             "unit": "ms",
             "extra": "median 0.886 ms, 51 runs after 20 warm-up, budget 3 ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "DavidDudson@users.noreply.github.com",
+            "name": "David Dudson",
+            "username": "DavidDudson"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "71ec4ca20a8f8e0c2ae5838817e4009895c938e7",
+          "message": "feat(content): import Impossible Magic from Foundry (#896)\n\n* feat(content): import Impossible Magic from Foundry\n\nRegisters Impossible Magic (ORC, 2026-07-30) and imports it once at\npf2e-8.6.0 into an impossible-magic pack of 1251 entries, with its\nvocabulary in core-rules. Curricula for its four new wizard schools are\nderived from their description tables; a curriculum may now name another\npack's spell as pack:slug.\n\nRe-imports Treasure Vault: every spell and rune property reference now\nresolves.\n\nIts Legal page credit is Paizo Inc. alone, as Foundry's ORC file has no\nentry for the book yet.\n\nRefs #773\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* fix(legal): credit Rage of Elements once, from Foundry's ORC notice\n\nFoundry's ORCLicense.md already lists Rage of Elements with its printed\ncredits, which the Legal page carries. Drops the duplicate Section 15 line\ndrawn from Paizo's blog post, added in the Secrets of Magic and Rage of\nElements import.\n\n* refactor(catalog): load Impossible Magic from orc-packs\n\njson-packs.ts hit the 300-line cap after the rebase onto main.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Sonnet 5.5 <noreply@anthropic.com>",
+          "timestamp": "2026-10-16T00:06:24+10:00",
+          "tree_id": "697b6ad351905e19fb129c7381b8ace4adb0b018",
+          "url": "https://github.com/DavidDudson/pioneer/commit/71ec4ca20a8f8e0c2ae5838817e4009895c938e7"
+        },
+        "date": 1792073732369,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "character: level 20 Bard with every slot and its gear filled",
+            "value": 12.387,
+            "unit": "ms",
+            "extra": "median 14.18 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Cleric with every slot and its gear filled",
+            "value": 17.106,
+            "unit": "ms",
+            "extra": "median 19.388 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Druid with every slot and its gear filled",
+            "value": 13.627,
+            "unit": "ms",
+            "extra": "median 15.67 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Fighter with every slot and its gear filled",
+            "value": 11.826,
+            "unit": "ms",
+            "extra": "median 12.998 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Ranger with every slot and its gear filled",
+            "value": 14.85,
+            "unit": "ms",
+            "extra": "median 17.131 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Rogue with every slot and its gear filled",
+            "value": 14.465,
+            "unit": "ms",
+            "extra": "median 16.282 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Witch with every slot and its gear filled",
+            "value": 14.199,
+            "unit": "ms",
+            "extra": "median 16.538 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Wizard with every slot and its gear filled",
+            "value": 12.951,
+            "unit": "ms",
+            "extra": "median 14.849 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Alchemist with every slot and its gear filled",
+            "value": 13.001,
+            "unit": "ms",
+            "extra": "median 15.591 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Barbarian with every slot and its gear filled",
+            "value": 17.327,
+            "unit": "ms",
+            "extra": "median 20.099 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Champion with every slot and its gear filled",
+            "value": 15.776,
+            "unit": "ms",
+            "extra": "median 17.972 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Investigator with every slot and its gear filled",
+            "value": 14.118,
+            "unit": "ms",
+            "extra": "median 16.582 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Monk with every slot and its gear filled",
+            "value": 12.507,
+            "unit": "ms",
+            "extra": "median 14.69 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Oracle with every slot and its gear filled",
+            "value": 13.978,
+            "unit": "ms",
+            "extra": "median 15.745 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Sorcerer with every slot and its gear filled",
+            "value": 12.543,
+            "unit": "ms",
+            "extra": "median 14.534 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Swashbuckler with every slot and its gear filled",
+            "value": 21.17,
+            "unit": "ms",
+            "extra": "median 24.305 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Animist with every slot and its gear filled",
+            "value": 13.141,
+            "unit": "ms",
+            "extra": "median 15.801 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Exemplar with every slot and its gear filled",
+            "value": 18.849,
+            "unit": "ms",
+            "extra": "median 21.975 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "catalog: level 20 Fighter derives grants and every statistic",
+            "value": 3.549,
+            "unit": "ms",
+            "extra": "median 4.336 ms, 51 runs after 20 warm-up, budget 10 ms"
+          },
+          {
+            "name": "catalog: level 20 Fighter with Proficiency Without Level and a homebrew pack restating Perception",
+            "value": 3.828,
+            "unit": "ms",
+            "extra": "median 4.784 ms, 51 runs after 20 warm-up, budget 10 ms"
+          },
+          {
+            "name": "grants: a query over 1000 entries",
+            "value": 0.559,
+            "unit": "ms",
+            "extra": "median 0.762 ms, 51 runs after 20 warm-up, budget 2 ms"
+          },
+          {
+            "name": "grants: level 20 character with every slot picked over 1000 more feats",
+            "value": 0.566,
+            "unit": "ms",
+            "extra": "median 0.757 ms, 51 runs after 20 warm-up, budget 3 ms"
+          },
+          {
+            "name": "grants: level 20 Fighter resolves to a fixpoint",
+            "value": 0.282,
+            "unit": "ms",
+            "extra": "median 0.589 ms, 51 runs after 20 warm-up, budget 3 ms"
           }
         ]
       }
