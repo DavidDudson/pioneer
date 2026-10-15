@@ -84,7 +84,7 @@
       "category": "class",
       "action": {
         "cost": "one",
-        "requirements": [
+        "requirementsText": [
           {
             "type": "paragraph",
             "content": [
