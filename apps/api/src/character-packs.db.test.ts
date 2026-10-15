@@ -211,7 +211,7 @@ describe.skipIf(adminUrl === undefined)('CharacterPackService over postgres', ()
     );
     const allies = await directory.alliesOf(kyra);
     await database.db.execute(sql`delete from campaign_characters where character_id = ${seoni.id}`);
-    await database.db.execute(sql`delete from characters where id = ${seoni.id}`);
+    await database.db.execute(sql`update characters set archived_at = ${at} where id = ${seoni.id}`);
 
     expect(allies.map(({ characterId, name }) => [characterId, String(name)])).toStrictEqual([[seoni.id, 'Seoni']]);
   });
