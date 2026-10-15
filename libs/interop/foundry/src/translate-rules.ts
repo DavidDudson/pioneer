@@ -1,10 +1,9 @@
-import { ContentKind, RuleElement, RuleElementKey } from '@pioneer/rules/sdk';
+import { RuleElement, RuleElementKey } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
-import * as z from 'zod';
+import type * as z from 'zod';
 
-import { NO_REFERENCES, resolveUuid } from './entry-references';
+import { NO_REFERENCES } from './entry-references';
 import type { EntryReferences } from './entry-references';
-import { kebab } from './foundry-flags';
 import { fromFoundryFormula } from './foundry-formula';
 import { isLangKey, isUnresolved, localize } from './foundry-lang';
 import type { LangValues, UnresolvedKey, UnresolvedText } from './foundry-lang';
@@ -13,6 +12,7 @@ import { isUnread, withChoiceSet, withTagQuery } from './translate-choice-sets';
 import { withDefenceTypes } from './translate-defences';
 import { withFavoredWeaponRank } from './translate-favored-weapon';
 import { withFontChoice } from './translate-font-choice';
+import { withAura, withChoiceGrant, withGrantedId, withGrantFields, withGrantValue } from './translate-grants';
 import { withItemScope } from './translate-item-alterations';
 import { withLanguageSlots } from './translate-language-slots';
 import {
@@ -58,87 +58,6 @@ function withPioneerFormula(raw: unknown): unknown {
     return raw;
   }
   return { ...raw, value: fromFoundryFormula(raw.value) };
-}
-
-const GRANT_FIELDS_REPLACED: ReadonlySet<string> = new Set(['uuid', 'inMemoryOnly', 'onDeleteActions']);
-
-/**
- * Foundry's delete actions, as a derived grant reads them. The granter side decides: `cascade` (the grant goes with
- * its granter) is a derived grant, `detach` (the grantee stays, as Prone after Unconscious) is not, and Foundry
- * defaults to `detach` for a physical item and `cascade` for anything else. The grantee side (`restrict`, `detach`:
- * whether the grantee can be removed alone) has no Pioneer meaning, as a granted entry is never removed alone;
- * `cascade` there (removing the grantee removes its granter) is kept for the backlog.
- */
-const FoundryDeleteActions = z
-  .strictObject({
-    granter: z.enum(['cascade', 'detach', 'restrict']).optional(),
-    grantee: z.enum(['cascade', 'detach', 'restrict']).optional(),
-  })
-  .optional();
-
-/** The kinds Foundry files as physical items, whose grants detach from their granter unless they say otherwise. */
-const PHYSICAL_KINDS: ReadonlySet<ContentKind> = new Set([
-  ContentKind.Armor,
-  ContentKind.Consumable,
-  ContentKind.Equipment,
-  ContentKind.Shield,
-  ContentKind.Treasure,
-  ContentKind.Weapon,
-]);
-
-/** Whether a grant of `item` with Foundry's `onDeleteActions` goes with its granter and only with it. */
-function isDerivedGrant(deletes: unknown, item: ContentId | undefined, references: EntryReferences): boolean {
-  const actions = FoundryDeleteActions.safeParse(deletes);
-  if (!actions.success) {
-    return false;
-  }
-  const kind = item === undefined ? undefined : references.kinds.get(item);
-  const physical = kind !== undefined && PHYSICAL_KINDS.has(kind);
-  const granter = actions.data?.granter ?? (physical ? 'detach' : 'cascade');
-  return granter === 'cascade' && actions.data?.grantee !== 'cascade';
-}
-
-/**
- * A `GrantItem` naming its item by compendium UUID, granting the entry that UUID resolves to instead. Foundry's
- * `inMemoryOnly` (granted without being saved to the actor, as conditions grant theirs) has no Pioneer meaning: a
- * grant is always derived. An unresolved UUID, or delete actions a derived grant lacks, leave it as it is, so the
- * element fails and is kept for the backlog.
- */
-function withGrantedId(raw: unknown, references: EntryReferences): unknown {
-  if (keyOf(raw) !== RuleElementKey.GrantItem || typeof raw !== 'object' || raw === null || !('uuid' in raw)) {
-    return raw;
-  }
-  const deletes = 'onDeleteActions' in raw ? raw.onDeleteActions : undefined;
-  const item = typeof raw.uuid === 'string' ? resolveUuid(references, raw.uuid) : undefined;
-  if (item === undefined || !isDerivedGrant(deletes, item, references)) {
-    return raw;
-  }
-  const rest = Object.entries(raw).filter(([field]) => !GRANT_FIELDS_REPLACED.has(field));
-  return { ...Object.fromEntries(rest), item };
-}
-
-/**
- * Foundry's alteration of a granted condition's value, `{ mode: override, property: badge-value, value: 2 }`, alone
- * on its grant. A value read from a pick or the item (`{item|...}`, `@item...`) is a string, which this does not take.
- */
-const FoundryBadgeValue = z.tuple([
-  z.strictObject({ mode: z.literal('override'), property: z.literal('badge-value'), value: z.number() }),
-]);
-
-/**
- * A `GrantItem` whose only alteration sets the granted condition's value, as the grant's `value`. Any other
- * alterations leave it as it is, so the element fails and is kept for the backlog.
- */
-function withGrantValue(raw: unknown): unknown {
-  if (keyOf(raw) !== RuleElementKey.GrantItem || typeof raw !== 'object' || raw === null || !('alterations' in raw)) {
-    return raw;
-  }
-  const alterations = FoundryBadgeValue.safeParse(raw.alterations);
-  if (!alterations.success) {
-    return raw;
-  }
-  const { alterations: _replaced, ...rest } = raw;
-  return { ...rest, value: alterations.data[0].value };
 }
 
 /** A field or array item left out because its lang key did not resolve. */
@@ -197,29 +116,6 @@ export interface RuleContext {
   readonly senses?: FoundrySenses;
 }
 
-/** Foundry's grant of a `ChoiceSet`'s pick on the same item: `{item|flags.system.rulesSelections.doctrine}`. */
-const SELECTION_UUID = /^\{item\|flags\.system\.rulesSelections\.(?<flag>[A-Za-z0-9]+)\}$/u;
-
-/**
- * A `GrantItem` of a `ChoiceSet`'s pick, as Foundry names it by the pick's flag, granting `{ choice }` under the flag
- * `withTagQuery` gives it, when a `ChoiceSet` of the entry that translated declares that flag; without one the grant
- * would read a pick nothing asks for, so it is left for the backlog with its `ChoiceSet`. Delete actions are read as for
- * a granted id; a pick is no physical item.
- */
-function withChoiceGrant(raw: unknown, references: EntryReferences, declared: ReadonlySet<string>): unknown {
-  if (keyOf(raw) !== RuleElementKey.GrantItem || typeof raw !== 'object' || raw === null || !('uuid' in raw)) {
-    return raw;
-  }
-  const flag = typeof raw.uuid === 'string' ? SELECTION_UUID.exec(raw.uuid)?.groups?.['flag'] : undefined;
-  const deletes = 'onDeleteActions' in raw ? raw.onDeleteActions : undefined;
-  const choice = flag === undefined ? undefined : kebab(flag);
-  if (choice === undefined || !declared.has(choice) || !isDerivedGrant(deletes, undefined, references)) {
-    return raw;
-  }
-  const rest = Object.entries(raw).filter(([field]) => !GRANT_FIELDS_REPLACED.has(field));
-  return { ...Object.fromEntries(rest), item: { choice } };
-}
-
 export interface RuleTranslation {
   readonly rules: readonly RuleElement[];
   readonly untranslated: readonly UntranslatedRule[];
@@ -236,13 +132,20 @@ interface Shaped {
   readonly chosen: unknown;
 }
 
+/** `raw` with its grant fields read, the content id a grant names, and the aura effects. */
+function withGrants(raw: unknown, references: EntryReferences): unknown {
+  const fields = withGrantFields(raw);
+  const granted = withGrantedId(fields, references);
+  return withAura(granted, references);
+}
+
 function shapeRule(raw: unknown, context: RuleContext, unresolved: UnresolvedKey[]): Shaped {
   const references = context.references ?? NO_REFERENCES;
   const text = withDisplayLabel(localized(raw, context, unresolved));
   const rolled = withRollOption(withNamespacedOptions(text), context.values.item);
   const scoped = withDiceFormula(withDefenceTypes(withItemScope(rolled)));
   const options = withNoteText(scoped, context);
-  const granted = withGrantedId(withPioneerFormula(options), references);
+  const granted = withGrants(withPioneerFormula(options), references);
   const struck = withStrikeScope(withStrikeDamage(withoutStrikeExtras(granted)));
   const modifier = withBaseSpeed(withModifierSelectors(withCreatureSize(struck)));
   const queried = withLanguageSlots(withTagQuery(withGrantValue(modifier)));

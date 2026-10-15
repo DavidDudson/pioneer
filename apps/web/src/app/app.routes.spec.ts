@@ -12,6 +12,9 @@ import { describe, expect, it, vi } from 'vitest';
 
 import { appRoutes } from './app.routes';
 
+/** How long a route's lazy chunk and its first request may take: seconds on a busy runner, over `vi.waitFor`'s 1 s. */
+const ROUTE_TIMEOUT = 10_000;
+
 const unauthorized = {
   type: 'unauthorized',
   title: 'Unauthorized',
@@ -45,7 +48,7 @@ describe('app routes', () => {
       TestBed.inject(HttpTestingController)
         .expectOne('/api/me')
         .flush(unauthorized, { status: 401, statusText: 'Unauthorized' });
-    });
+    }, ROUTE_TIMEOUT);
     await navigation;
     expect(router.url).toBe(`/account/sign-in?returnTo=%2F${path}`);
   });
@@ -69,11 +72,11 @@ describe('app routes', () => {
       const join = http.expectOne('/api/campaigns/join');
       expect(join.request.body).toStrictEqual({ token });
       join.flush(unauthorized, { status: 401, statusText: 'Unauthorized' });
-    });
+    }, ROUTE_TIMEOUT);
 
     await vi.waitFor(() => {
       expect(router.url).toBe('/account/sign-in?returnTo=%2Fcampaigns%2Fjoin');
-    });
+    }, ROUTE_TIMEOUT);
     expect(sessionStorage.getItem('pioneer.campaign.pendingInvite')).toBe(token);
     sessionStorage.clear();
   });

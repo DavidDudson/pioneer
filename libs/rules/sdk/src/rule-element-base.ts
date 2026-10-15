@@ -45,6 +45,7 @@ export const RuleElementKey = {
   AdjustDegreeOfSuccess: 'AdjustDegreeOfSuccess',
   RollTwice: 'RollTwice',
   SubstituteRoll: 'SubstituteRoll',
+  Aura: 'Aura',
 } as const;
 export type RuleElementKey = ValueOf<typeof RuleElementKey>;
 

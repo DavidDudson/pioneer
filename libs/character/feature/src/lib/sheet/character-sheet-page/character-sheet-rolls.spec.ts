@@ -39,8 +39,11 @@ function modifierOf(root: HTMLElement, name: string): number {
     .map((item) => textOf(item))
     .find((text) => text.startsWith(name));
   const match = /(?<sign>[+-−])(?<value>\d+)/u.exec(row ?? '');
-  const value = Number(match?.groups?.['value']);
-  return match?.groups?.['sign'] === '+' ? value : -value;
+  if (match === null) {
+    throw new Error(`Expected a modifier beside ${name}`);
+  }
+  const value = Number(match.groups?.['value']);
+  return match.groups?.['sign'] === '+' ? value : -value;
 }
 
 describe('CharacterSheetPage rolls', () => {
@@ -57,7 +60,8 @@ describe('CharacterSheetPage rolls', () => {
     rolling(12);
     const { root } = await openSheet(FIGHTER);
     const button = await vi.waitFor(() => rollButton(root, 'Athletics'));
-    const modifier = modifierOf(root, 'Athletics');
+    // The skills list renders once the engine has run, which can trail the sheet's first paint.
+    const modifier = await vi.waitFor(() => modifierOf(root, 'Athletics'));
 
     button.click();
     render();
@@ -74,7 +78,8 @@ describe('CharacterSheetPage rolls', () => {
   it('shows no degree until a DC is typed, then the degree against it', async () => {
     rolling(12);
     const { root } = await openSheet(FIGHTER);
-    const modifier = modifierOf(root, 'Athletics');
+    // The skills list renders once the engine has run, which can trail the sheet's first paint.
+    const modifier = await vi.waitFor(() => modifierOf(root, 'Athletics'));
     const button = await vi.waitFor(() => rollButton(root, 'Athletics'));
     button.click();
     render();

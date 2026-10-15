@@ -602,7 +602,20 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Aura",
+        "slug": "forge-warden",
+        "radius": 5,
+        "effects": [
+          {
+            "effect": "7deb80ad-7b28-5b1e-a5dc-c5a45aeb16fc",
+            "affects": "allies"
+          }
+        ],
+        "predicate": ["self:shield:raised"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.NoTUhKkiTY5BQU5T"
     },

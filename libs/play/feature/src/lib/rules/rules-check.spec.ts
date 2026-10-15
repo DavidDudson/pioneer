@@ -37,9 +37,9 @@ describe(checkRulesJson, () => {
 
 describe('checkRulesJson for rule elements', () => {
   it('names an unknown element key', () => {
-    expect(checkRulesJson(RulesSchema.RuleElement, '{ "key": "Aura", "radius": 10 }')).toStrictEqual({
+    expect(checkRulesJson(RulesSchema.RuleElement, '{ "key": "BattleForm", "value": 10 }')).toStrictEqual({
       status: CheckStatus.Invalid,
-      issues: [{ path: ['key'], message: message(RulesMessage.UnknownElement, { key: 'Aura' }) }],
+      issues: [{ path: ['key'], message: message(RulesMessage.UnknownElement, { key: 'BattleForm' }) }],
     });
   });
 

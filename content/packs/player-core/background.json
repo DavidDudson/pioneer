@@ -1578,6 +1578,13 @@
         "key": "Proficiency",
         "selector": "skill:lore:farming",
         "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "161d1c8a-4304-59c5-bd4b-e0f21e3afa13",
+        "choices": {
+          "assurance": "athletics"
+        }
       }
     ],
     "externalIds": {
@@ -2935,6 +2942,13 @@
         "key": "Proficiency",
         "selector": "skill:survival",
         "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "161d1c8a-4304-59c5-bd4b-e0f21e3afa13",
+        "choices": {
+          "assurance": "survival"
+        }
       }
     ],
     "externalIds": {

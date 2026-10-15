@@ -44,6 +44,18 @@
         "property": "property-runes",
         "mode": "add",
         "value": "holy"
+      },
+      {
+        "key": "Aura",
+        "radius": 30,
+        "traits": ["holy"],
+        "effects": [
+          {
+            "effect": "437a7fb8-bb91-5ae3-a43f-585702185129",
+            "affects": "allies",
+            "includesSelf": false
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -125,7 +137,21 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Aura",
+        "slug": "flame-tongue-aura",
+        "radius": 10,
+        "traits": [],
+        "effects": [
+          {
+            "effect": "621c03d1-3f94-5a11-82b8-69f0ec44602e",
+            "affects": "allies",
+            "events": ["enter"]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.4XO5mkjnh5riwZPM"
     },
@@ -194,7 +220,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Aura",
+        "slug": "shining-symbol",
+        "radius": 20,
+        "traits": ["light"],
+        "effects": [
+          {
+            "effect": "a1712e9c-0744-50d1-a9bc-54a4c8274612",
+            "affects": "all"
+          },
+          {
+            "effect": "709521d2-577d-5c5f-81b2-774322bb35aa",
+            "affects": "enemies"
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.NNxguHneoM3NvW1S"
     },

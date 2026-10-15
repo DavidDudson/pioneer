@@ -57,6 +57,6 @@ export const PlanningSkillsAndBoosts: LevelTimelineStory = {
   args: { rows: PLANNING_SKILLS_TIMELINE },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    await expect(canvas.getByText('Level 5 skill increase')).toBeVisible();
+    await expect(canvas.getAllByText('Level 5 skill increase')[0]).toBeVisible();
   },
 };

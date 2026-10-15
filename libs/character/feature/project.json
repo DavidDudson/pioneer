@@ -10,7 +10,8 @@
       "options": {
         "buildTarget": "web:build:development",
         "tsConfig": "libs/character/feature/tsconfig.spec.json",
-        "runner": "vitest"
+        "runner": "vitest",
+        "setupFiles": ["libs/character/feature/src/test-setup.ts"]
       }
     }
   }
