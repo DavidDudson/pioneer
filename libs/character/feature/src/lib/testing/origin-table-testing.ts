@@ -80,7 +80,7 @@ export async function pickRow<
   TPicker extends RowPicker<TRow>,
 >(root: HTMLElement, target: PickerTarget<TPicker>, name: string): Promise<HTMLElement> {
   const { field, picker } = await openPicker<TRow, TPicker>(root, target);
-  const row = present(picker.rows().find((each) => each.name.startsWith(name)));
+  const row = await vi.waitFor(() => present(picker.rows().find((each) => each.name.startsWith(name))));
   picker.value.set(row.id);
   picker.committed.emit();
   return field;

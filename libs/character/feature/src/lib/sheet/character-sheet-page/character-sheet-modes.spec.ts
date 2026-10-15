@@ -36,10 +36,10 @@ describe('CharacterSheetPage modes', () => {
 
   it('shows AC, saves and Perception in the vitals with their ranks, and what sets AC', async () => {
     const { root } = await openSheet();
-    const vitals = present(root.querySelector('pio-vitals'));
+    const vitalsOf = (): HTMLElement => present(root.querySelector('pio-vitals'));
 
     await vi.waitFor(() => {
-      expect([...vitals.querySelectorAll('summary')].map((summary) => textOf(summary))).toStrictEqual([
+      expect([...vitalsOf().querySelectorAll('summary')].map((summary) => textOf(summary))).toStrictEqual([
         'Armor Class 12',
         'Fortitude +1',
         'Reflex +2',
@@ -47,11 +47,11 @@ describe('CharacterSheetPage modes', () => {
         'Perception +1',
       ]);
     });
-    expect([...vitals.querySelectorAll('pio-proficiency-rank')].map((rank) => textOf(rank))).toStrictEqual(
+    expect([...vitalsOf().querySelectorAll('pio-proficiency-rank')].map((rank) => textOf(rank))).toStrictEqual(
       Array.from({ length: 5 }, () => 'UUntrained'),
     );
-    expect(vitals.textContent).toContain('Unarmored');
-    const ac = present(vitals.querySelector('pio-breakdown'));
+    expect(vitalsOf().textContent).toContain('Unarmored');
+    const ac = present(vitalsOf().querySelector('pio-breakdown'));
     expect(ac.textContent).toContain('Base 12');
   });
 
