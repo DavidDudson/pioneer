@@ -1,0 +1,1286 @@
+[
+  {
+    "id": "77dc4d69-5a47-5999-a119-71b0fb95a759",
+    "pack": "tian-xia-character-guide",
+    "kind": "ancestry",
+    "slug": "ancestry:samsaran",
+    "name": "Samsaran",
+    "rarity": "uncommon",
+    "traits": ["humanoid", "samsaran"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Samsarans, as the tale goes, originated with a group of scholars in Zi Ha who ventured into the mountains to find the cure for an illness ravaging their village. After weeks of peril, they found a freshwater spring filled with pure magical life essence. This water brought the scholars back from the brink of death and cured the villagers. Given a new chance at life, everyone who drank the water devoted the rest of their life to learning and experiencing the world fully. Upon death, this devotion, combined with the magical essence now infused in their bodies, transformed these people into the first samsarans.",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Samsaran",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "ce3ae33a-bf2d-5a16-9be2-16bf39668c89"
+      },
+      {
+        "key": "GrantItem",
+        "item": "471bbf49-823d-541e-8171-4063a5c2aad8"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-1",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:samsaran",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Samsaran feat"
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-1"
+        }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-5",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:samsaran",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Samsaran feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-5"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-9",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:samsaran",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Samsaran feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-9"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-13",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:samsaran",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Samsaran feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-13"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-17",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:samsaran",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Samsaran feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-17"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestries.Item.l7vjMIbPAUvEIosU"
+    },
+    "data": {
+      "hitPoints": 8,
+      "size": "medium",
+      "speed": 25,
+      "boosts": [["con"], ["wis"], ["str", "dex", "con", "int", "wis", "cha"]],
+      "flaws": ["cha"],
+      "languages": ["444a2133-3e11-55b6-b57a-1f11ebe8e12b", "75533c57-b1f0-5598-a072-80a8a8ba9191"],
+      "additionalLanguages": {
+        "count": 0,
+        "options": [
+          "ae9c727a-c819-5c5f-9329-c79ac7b4b03d",
+          "c60a69f8-1fae-5452-9c94-4cf2bd4662b1",
+          "315eced7-9fa5-595b-bdab-002877559cff",
+          "ff9d8655-df77-52bc-852f-ee4669509e08",
+          "a547cbec-9812-5731-aace-b0f5f5a08607",
+          "b12f2dea-17fb-58e9-871e-3ad0c28f05c7",
+          "abb69e36-b49e-54e5-8cba-a6bb63c45c8d",
+          "85a9a212-540b-5211-96ce-ffce82640b25",
+          "17635451-e596-5045-8af5-47f581cd1a40"
+        ]
+      },
+      "vision": "16b42c38-9373-58ec-a7ac-2221bb17a71c",
+      "reach": 5
+    }
+  },
+  {
+    "id": "af808b70-4ee0-51f5-bc73-96de677a553f",
+    "pack": "tian-xia-character-guide",
+    "kind": "ancestry",
+    "slug": "ancestry:sarangay",
+    "name": "Sarangay",
+    "rarity": "rare",
+    "traits": ["humanoid", "sarangay"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sarangay are carabao-headed people who have long survived deep in the forests across Tian Xia. Many adventurers have thought them to be monsters at first, but sarangay are nothing more than a thriving society who value their community and their souls above all else. Their cultures are built upon the intense desire to protect their communities and their chosen leader. Their horns are said to be a crescent moon, and their towering statures are said to have come from their ancestors being stretched so far up to reach their Father Moon while their Mother Earth kept them close to her bosom. They revere the great Father Moon, their First Ancestor, and endeavor to protect and exalt nature above all else, for they understand that they're part of it.",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sarangay",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "7ca443ed-b892-5417-9f41-e343320fd09e"
+      },
+      {
+        "key": "GrantItem",
+        "item": "4b72f2a6-d4a1-5a48-a9b3-e1b44a7e1ee8"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-1",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:sarangay",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Sarangay feat"
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-1"
+        }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-5",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:sarangay",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Sarangay feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-5"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-9",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:sarangay",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Sarangay feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-9"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-13",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:sarangay",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Sarangay feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-13"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-17",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:sarangay",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Sarangay feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-17"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestries.Item.7mpMGhVoaPANJnZ8"
+    },
+    "data": {
+      "hitPoints": 8,
+      "size": "medium",
+      "speed": 25,
+      "boosts": [["str"], ["cha"], ["str", "dex", "con", "int", "wis", "cha"]],
+      "flaws": ["wis"],
+      "languages": ["444a2133-3e11-55b6-b57a-1f11ebe8e12b"],
+      "additionalLanguages": {
+        "count": 0,
+        "options": [
+          "c60a69f8-1fae-5452-9c94-4cf2bd4662b1",
+          "30b3a33b-b3f0-5ba1-9e46-aed5301bb2ce",
+          "5894e982-f57f-5b65-9c44-78c0471098e9",
+          "ff9d8655-df77-52bc-852f-ee4669509e08",
+          "a547cbec-9812-5731-aace-b0f5f5a08607",
+          "b12f2dea-17fb-58e9-871e-3ad0c28f05c7",
+          "abb69e36-b49e-54e5-8cba-a6bb63c45c8d",
+          "2b1b9165-43fd-5875-bc19-888430d2080d"
+        ]
+      },
+      "reach": 5
+    }
+  },
+  {
+    "id": "0f0cb96c-b8c1-5be2-b5a1-3e0147bf2217",
+    "pack": "tian-xia-character-guide",
+    "kind": "ancestry",
+    "slug": "ancestry:tanuki",
+    "name": "Tanuki",
+    "rarity": "uncommon",
+    "traits": ["humanoid", "tanuki"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Tian Xia is replete with magically gifted ancestries—such as tengu, kitsune, yakshas, and yaoguai—whose powers bring them high regard and who, in turn, use their gifts for responsible ends. Tanuki aren't one of these ancestries. Instead, the shapeshifting raccoon dog–like humanoids use their powers of illusion and transformation in ways more people should: for fun! Tanuki delight in pranks and practical jokes, especially those that allow them to take the high and mighty down a notch and show them what life is like for everyone else. Where other peoples take pride in their storied histories, noble traditions, or intricate ceremonies, tanuki take pride in their simplicity and disregard for the world's many rules. Though some might claim this outlook reduces tanuki to uncouth rubes, tanuki feel it makes them more cultured; after all, one must know a rule to bend it, and one must understand a norm to break it.",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Tanuki",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "e114f41a-9129-5b91-b7d2-f88e152b9c0c"
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:action", "item:slug:change-shape"],
+        "property": "traits",
+        "mode": "add",
+        "value": "primal"
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:action", "item:slug:change-shape"],
+        "property": "traits",
+        "mode": "add",
+        "value": "tanuki"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-1",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:tanuki",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Tanuki feat"
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-1"
+        }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-5",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:tanuki",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Tanuki feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-5"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-9",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:tanuki",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Tanuki feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-9"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-13",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:tanuki",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Tanuki feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-13"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-17",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:tanuki",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Tanuki feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-17"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestries.Item.pILFsoGsUQkVF5dZ"
+    },
+    "data": {
+      "hitPoints": 10,
+      "size": "small",
+      "speed": 25,
+      "boosts": [["con"], ["cha"], ["str", "dex", "con", "int", "wis", "cha"]],
+      "flaws": ["wis"],
+      "languages": ["444a2133-3e11-55b6-b57a-1f11ebe8e12b", "f955497c-376a-56b4-87a1-2c2f6a3d7d0f"],
+      "additionalLanguages": {
+        "count": 0,
+        "options": [
+          "3128d8af-f464-563e-ac8d-ac86a7e9408b",
+          "30b3a33b-b3f0-5ba1-9e46-aed5301bb2ce",
+          "d2200e11-b3e5-5878-be67-4f4492c1f76d",
+          "cc56a173-7e20-50ca-b027-1a5aca98fe4b",
+          "8e9eb692-a3c5-505c-9a69-73426e3397f4",
+          "cd4a558a-c679-5063-8c6c-749d2d47e501"
+        ]
+      },
+      "reach": 5
+    }
+  },
+  {
+    "id": "3c044f14-e8cc-512b-b7f9-23f205d1d23c",
+    "pack": "tian-xia-character-guide",
+    "kind": "ancestry",
+    "slug": "ancestry:wayang",
+    "name": "Wayang",
+    "rarity": "uncommon",
+    "traits": ["humanoid", "shadow", "wayang"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Wayangs are diasporic sojourners from the Netherworld where they lived and worked alongside their allies, lightweaving d'ziriaks. Both peoples shared affinities for artistic expression and spiritual introspection, inspiring each other's sensitivities to color, form, and function; they also bolstered each other's defense against rampaging dragons, oni, and undead. This idyll collapsed from divine meddling; some say when Abadar sentenced Zon-Kuthon to exile in the Netherworld, the Midnight Lord's deific presence distorted the plane into a nightmarish domain, while others accounts ascribe fiendish sources to this doom.",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Wayang",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-1",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:wayang",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Wayang feat"
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-1"
+        }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-5",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:wayang",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Wayang feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-5"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-9",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:wayang",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Wayang feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-9"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-13",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:wayang",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Wayang feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-13"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-17",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:wayang",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Wayang feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-17"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestries.Item.8FpI46oVxYVku04u"
+    },
+    "data": {
+      "hitPoints": 8,
+      "size": "small",
+      "speed": 25,
+      "boosts": [["dex"], ["cha"], ["str", "dex", "con", "int", "wis", "cha"]],
+      "flaws": ["con"],
+      "languages": [
+        "444a2133-3e11-55b6-b57a-1f11ebe8e12b",
+        "c960afa4-f657-5917-8612-e95b449496cc",
+        "c1976863-0905-5ab2-afa8-c6254c9cd977"
+      ],
+      "additionalLanguages": {
+        "count": 0,
+        "options": [
+          "b0d87fc0-fc6e-56a6-9b35-41b51a59b960",
+          "85a9a212-540b-5211-96ce-ffce82640b25",
+          "fe0fe728-5ecc-5115-93d1-145a66f0742a",
+          "5894e982-f57f-5b65-9c44-78c0471098e9",
+          "abb69e36-b49e-54e5-8cba-a6bb63c45c8d",
+          "8769b431-977b-5ab0-9836-c62e1b62518f",
+          "2b1b9165-43fd-5875-bc19-888430d2080d"
+        ]
+      },
+      "vision": "67979b6a-4b24-5be5-b7ea-94783c497bcb",
+      "reach": 5
+    }
+  },
+  {
+    "id": "da555aee-4401-5418-9d95-f31ec167dd35",
+    "pack": "tian-xia-character-guide",
+    "kind": "ancestry",
+    "slug": "ancestry:yaksha",
+    "name": "Yaksha",
+    "rarity": "rare",
+    "traits": ["spirit", "yaksha"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Away from shining citadels and opulent palaces, reticent yakshas shelter Tian Xia's rural hinterlands from natural disasters and otherworldly depredations. Famed for resolute vows and prowess with primal magic, yakshas shield the indigent and protect the wilderness, punishing those who threaten either with bone-crushing fury. Yaksha legends recall their origins as divine spirits, overseeing the safety of roads and abodes in a primeval world of vast storm forests and titanic flame floods—the First World, a realm of boundless potentiality. During the Great Abandonment, when the gods left the First World, many yakshas rejected this exodus, instead staying to perform their duties as caretakers. Despite the realm's sudden dearth of divine power, the remaining yakshas swore primordial vows, allowing them to channel power from the nearby Creation's Forge into primal magic and transform swathes of the metamorphic First World into stable regions to provide refuge for destitute fey.",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Yaksha",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-1",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:yaksha",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Yaksha feat"
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-1"
+        }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-5",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:yaksha",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Yaksha feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-5"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-9",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:yaksha",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Yaksha feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-9"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-13",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:yaksha",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Yaksha feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-13"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-17",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:yaksha",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Yaksha feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-17"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestries.Item.k3zyr6du4gV0Ftuh"
+    },
+    "data": {
+      "hitPoints": 8,
+      "size": "medium",
+      "speed": 25,
+      "boosts": [["con"], ["cha"], ["str", "dex", "con", "int", "wis", "cha"]],
+      "flaws": ["int"],
+      "languages": [
+        "444a2133-3e11-55b6-b57a-1f11ebe8e12b",
+        "30b3a33b-b3f0-5ba1-9e46-aed5301bb2ce",
+        "2b1b9165-43fd-5875-bc19-888430d2080d"
+      ],
+      "additionalLanguages": {
+        "count": 0,
+        "options": [
+          "85a9a212-540b-5211-96ce-ffce82640b25",
+          "c60a69f8-1fae-5452-9c94-4cf2bd4662b1",
+          "5894e982-f57f-5b65-9c44-78c0471098e9",
+          "b4a3c832-7651-5a7d-adc3-1cad60dfb279",
+          "cd4a558a-c679-5063-8c6c-749d2d47e501",
+          "8769b431-977b-5ab0-9836-c62e1b62518f"
+        ]
+      },
+      "vision": "16b42c38-9373-58ec-a7ac-2221bb17a71c",
+      "reach": 5
+    }
+  },
+  {
+    "id": "e1e7633a-e183-5631-b9c4-d91a6f9fe46a",
+    "pack": "tian-xia-character-guide",
+    "kind": "ancestry",
+    "slug": "ancestry:yaoguai",
+    "name": "Yaoguai",
+    "rarity": "rare",
+    "traits": ["humanoid", "yaoguai"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Yaoguai usually begin as simple animals, plants, or objects before finding a way to awaken to sapience, becoming strange shapeshifting creatures in the process. Often originating from an infusion of ambient energy into their original form, yaoguai attain their powers through training their innate magic. Taking care not to expose their true appearance and nature, yaoguai of the same origins or species sometimes form enclaves in which they dedicate their lives to honing their powers or engaging in hedonistic pursuits—though the two aren't mutually exclusive. Yaoguai who lack a solid community, meanwhile, feel compelled to cultivate themselves until they transcend their origin, which might allow them to join society and experience a new kind of freedom.",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Yaoguai",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:action", "item:slug:change-shape"],
+        "property": "traits",
+        "mode": "add",
+        "value": "occult"
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:action", "item:slug:change-shape"],
+        "property": "traits",
+        "mode": "add",
+        "value": "yaoguai"
+      },
+      {
+        "key": "GrantItem",
+        "item": "e114f41a-9129-5b91-b7d2-f88e152b9c0c"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-1",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:yaoguai",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Yaoguai feat"
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-1"
+        }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-5",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:yaoguai",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Yaoguai feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-5"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-9",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:yaoguai",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Yaoguai feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-9"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-13",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:yaoguai",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Yaoguai feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-13"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-17",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:yaoguai",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Yaoguai feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-17"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestries.Item.dnk0Rf7AUmyR5b8z"
+    },
+    "data": {
+      "hitPoints": 8,
+      "size": "medium",
+      "speed": 25,
+      "boosts": [["cha"], ["con"], ["str", "dex", "con", "int", "wis", "cha"]],
+      "flaws": ["int"],
+      "languages": ["444a2133-3e11-55b6-b57a-1f11ebe8e12b"],
+      "additionalLanguages": {
+        "count": 0,
+        "options": [
+          "7cd4c9cb-53a2-5f62-8cf3-d904bce62260",
+          "17635451-e596-5045-8af5-47f581cd1a40",
+          "3128d8af-f464-563e-ac8d-ac86a7e9408b",
+          "30b3a33b-b3f0-5ba1-9e46-aed5301bb2ce",
+          "8e9eb692-a3c5-505c-9a69-73426e3397f4",
+          "5894e982-f57f-5b65-9c44-78c0471098e9",
+          "da0478dc-3e4f-5abb-9b5f-79be74bf143e",
+          "cd4a558a-c679-5063-8c6c-749d2d47e501",
+          "0138f3af-66e3-51ad-8b55-8a7644fa94d5"
+        ]
+      },
+      "reach": 5
+    }
+  }
+]

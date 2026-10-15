@@ -1,0 +1,515 @@
+[
+  {
+    "id": "0fe2bfd3-df76-57a0-9fc2-0b5fa91a9c7e",
+    "pack": "tian-xia-character-guide",
+    "kind": "ritual",
+    "slug": "ritual:bonding-meal",
+    "name": "Bonding Meal",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Many grow up and spend their lives eating with others, and doing so binds them—to their families, communities, and cultures. Food can form long-lasting bonds, and with a bit of extra work, those bonds can be shared."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You prepare a meal for a small gathering of up to 10 close friends, enough people to comfortably eat together at one table or in one circle. As you collect and prepare the food, you call upon spirits of home and memory. As they work through you and guide you, you perfectly recreate a dish that emotionally connects you to a place of your past: perhaps your mother's cooking when you were a child, or the way you and your comrades-in-arms cooked rations together when you fought in the war. When you're done, you share the meal and tell your new friends the story that comes with it. As they eat and drink, any participants of 4th level or lower sink into a snapshot of your past and can borrow insights from it for future use."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your friends are vividly taken through your memories as you relive them, and they hold onto the experience even after the fugue ends. For the next week, they have a +4 circumstance bonus to Deception and Diplomacy checks to convince anyone from the community where the meal originated from that they are from that area or were present for events you described. Even after the raw magic infusing the memories fade, the memories don't, and your friends will be able to make the dish just as well as you can. Chances are, they like it just as much as you did."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As critical success, except your friends get a +2 circumstance bonus to Deception and Diplomacy checks instead. They also can't make the meal themselves but probably look forward to tasting it the way you make it if you ever offer to cook it again."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your friends see the vision as planned, but the magic doesn't quite take. As success, but no one receives any bonus. The real treasure will have to be the friends you fed along the way."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your friends see the vision as planned, and the magic takes hold—but it goes wrong, like a bad case of indigestion. The memories are scattered around the rest of their psyches, and it takes a week to settle down properly. They confuse parts of your past for theirs, and they take a –2 circumstance bonus to Deception and Diplomacy checks for the next week against anyone from your old community, as they confidently apply the wrong expectations from their lives across the one you were trying to introduce them to."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (4th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Participants up to 8th level can gain the benefits, and the cost is 40 gp."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (6th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Participants up to 12th level can gain the benefits, and the cost is 150 gp."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (8th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Participants up to 16th level can gain the benefits, and the cost is 480 gp."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (10th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Participants of any level can gain the benefits, and the cost is 2000 gp."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.aYn7Xgrz4vIMNeIc"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "10 gp"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:lore:cooking", "skill:crafting", "skill:performance", "skill:survival"],
+        "proficiency": "trained"
+      },
+      "secondary": {
+        "checks": [],
+        "casters": 0
+      }
+    }
+  },
+  {
+    "id": "5d24fce6-550e-5817-912b-24aa6ca55264",
+    "pack": "tian-xia-character-guide",
+    "kind": "ritual",
+    "slug": "ritual:butterfly-bender",
+    "name": "Butterfly Bender",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sometimes, the problems in your life are too oppressive. Sometimes, you have a case you need to crack and you have no idea where to start. When you've exhausted all options and willpower, you might as well just get drunk and call it a night. The butterfly bender is a ritual to kill two birds with one stone. By twisting fate around a session of hard drinking, you and a small party (no more than five people) suspend judgment, memory, and even consciousness as you all hurl yourselves into the arms of destiny and politely ask for a favor. You all get blackout drunk and, if all goes according to plan, you'll wake up with some progress upon a quest you've all undertaken—hopefully, without too much collateral damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The participants of the ritual wake up the next day with some of the following, determined by the results of the ritual. Any options that aren't chosen are temporarily lost to you."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Your dignity."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A common item that has the consumable trait of a level no higher than that of the ritual, which might be useful for an upcoming challenge. If lost, you misplace all of your currently carried items—including keys to where your equipment might be stored. With a modicum of effort, you recover your items within 1 day."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A new friend or connection, as though you'd succeeded at a Diplomacy check to "
+                },
+                {
+                  "type": "ref",
+                  "id": "722e5346-27c0-5157-b5a9-e6018df94150"
+                },
+                {
+                  "type": "text",
+                  "text": " with a relevant NPC up to the ritual's level. If this is one of things lost, an existing friend refuses to speak to you for 1 day."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A useful piece of information, as though you'd succeeded at a Diplomacy check to Gather Information. If lost, you take a –4 status penalty to your next check to Recall Knowledge."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A convenient opportunity of the GM's choice. If there's no immediately relevant opportunity, you find an opportunity to "
+                },
+                {
+                  "type": "ref",
+                  "id": "b03a543f-4d12-5c6b-a4f9-6afe141aa651"
+                },
+                {
+                  "type": "text",
+                  "text": " at the ritual's level + 1. If lost, the result of your next attempt to Earn Income is one degree of success worse."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Pick two options from the above list. The GM then gives you a bonus 3rd option of their choice."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Pick two options from the above list."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Pick one option from the above list."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Pick two options from the above list. The GM gives you one of them."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.wneYzMFUWreyqWHD"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "time",
+        "count": 2,
+        "unit": "hour"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Alcohol worth a total of 20 gp × the ritual level"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:medicine"],
+        "proficiency": "trained"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:diplomacy"]
+          }
+        ],
+        "casters": 2
+      }
+    }
+  },
+  {
+    "id": "705a42aa-997f-5429-956c-b31f4d291382",
+    "pack": "tian-xia-character-guide",
+    "kind": "ritual",
+    "slug": "ritual:feast-of-supplication",
+    "name": "Feast of Supplication",
+    "level": 5,
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When mortals attempt to sway gods, spirits, and other beings of great spiritual power to take sides in mortal affairs, those powers demand to be impressed. And what better way to impress than a cook-off? This old ritual has roots in the spiritadjudicated village festival contests of rural Tian Xia. Two or more rival parties must participate, performing the ritual simultaneously as assistants gather and prepare ingredients while each team's head chef does their best to create the ultimate dish to satisfy their patron's palate. Cheering bystanders are usually involved. While the primary caster—the chef—is always busy with cooking, it's very normal for the secondary caster assistants to spend most of their time interfering with the other teams and slowing them down."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You've truly blown your patron away with the competition and the meal you've expertly crafted. The supernatural patrons you sought to impress grant a request as if you'd received a critical success to Make a Request of them, even if they're indifferent or unfriendly to you. If there's some argument or confusion on what request should be granted, the patrons grant the request of the team that achieved the highest overall result. At the GM's discretion, the attitude of any patrons pleased by the ritual can permanently increase toward all participants in the ritual. In addition, the sheer theatricality and flair of your cooking has earned you deep respect and die-hard fans from the spectators, doubly so if you tied with another contender."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You've created a wonderful meal that your patron loves. The supernatural patrons you sought to impress grant a request as if you'd received a success to Make a Request of them, even if they're indifferent to you. If there's some argument or confusion on what request should be granted, the patrons grant the request of the team that achieved the highest overall result. At the GM's discretion, the attitude of any patrons pleased by the ritual can permanently increase toward all participants in the ritual. All contestants have still earned the jovial respect and appreciation of the crowd for cooking something entertaining and lovely."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You've created a dish that doesn't impress. The winner of the competition is declared in the most unsatisfying and mechanical of manners—someone has to win, but no one is happy about it. The supernatural patrons you sought to impress politely make their excuses and leave as soon as they have a chance. At the GM's discretion, the attitude of any patrons who experienced the meal can permanently decrease toward all participants in the ritual."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your team's dish is ruined at the last possible moment in a spectacular manner. You completely embarrass yourself, and the attitude of the supernatural patrons who experienced this farce permanently decreases by one step toward you. If you haven't earned the ire of your patron host, you've definitely lost the respect of any onlookers or spectators."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.bS3DW0MptpnZl5Zr"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "time",
+        "count": 3,
+        "unit": "hour"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "25 gp"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:lore:cooking", "skill:crafting", "skill:performance", "skill:survival"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:deception", "skill:thievery"]
+          }
+        ],
+        "casters": 2
+      }
+    }
+  }
+]

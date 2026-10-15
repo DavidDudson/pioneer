@@ -1,0 +1,2968 @@
+[
+  {
+    "id": "b3d36a5c-1f24-57b3-93b0-5f3aaeb0d883",
+    "pack": "dark-archive-remastered",
+    "kind": "effect",
+    "slug": "effect:effect-accept-echo",
+    "name": "Effect: Accept Echo",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "5afe450a-d296-59ce-a6a2-f84a8732905e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +4 status bonus to all saves against possession effects. You become trained and expert, respectively, in the weapon and skill you chose with Echo of the Fallen."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At 7th level you become a master of the skill you chose, at 13th level you become an expert with the weapon you chose, and at 15th level you become legendary with the skill you chose."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 4,
+        "predicate": ["item:trait:possession"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.2ca1ZuqQ7VkunAh3"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "fcfb135a-c389-5c02-aeba-f325843b10b0",
+    "pack": "dark-archive-remastered",
+    "kind": "effect",
+    "slug": "effect:effect-amulets-abeyance",
+    "name": "Effect: Amulet's Abeyance",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "128bfecb-06f4-5b46-a8d4-20c932c88a44"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance to all damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.90dTxPhFtbhK6Nv4"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "4733d610-4873-57eb-b8bf-1a5487240ea2",
+    "pack": "dark-archive-remastered",
+    "kind": "effect",
+    "slug": "effect:effect-bone-spikes",
+    "name": "Effect: Bone Spikes",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "a893b6f0-ef72-58d6-bc2d-c399f70580bd"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can make bone spike unarmed Strikes, which deal 1d6 piercing damage and have the versatile S and sweep traits."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "bone-spike",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["versatile-s", "sweep", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "piercing"
+        },
+        "display": {
+          "label": "Bone Spike"
+        }
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon", "item:slug:bone-spike"],
+        "property": "traits",
+        "mode": "add",
+        "value": "reach",
+        "predicate": ["awakening:bone-spikes:reach:active"]
+      },
+      {
+        "key": "RollOption",
+        "option": "awakening:bone-spikes:reach:active",
+        "toggleable": true,
+        "predicate": ["awakening:bone-spikes:reach"],
+        "display": {
+          "label": "Extend bone spikes"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.ZsO5juyylVoxUkXh"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "8fa351c9-2c0a-5f11-937f-f00910770e8a",
+    "pack": "dark-archive-remastered",
+    "kind": "effect",
+    "slug": "effect:effect-calculate-threats",
+    "name": "Effect: Calculate Threats",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "e4e772b9-e191-5457-962e-82e9c4ee7bf4"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to AC and Reflex saves until the beginning of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "save:reflex"],
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.P6druSuWIVoLrXJR"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "6ff68638-06b7-57fc-a90a-27e6237aa686",
+    "pack": "dark-archive-remastered",
+    "kind": "effect",
+    "slug": "effect:effect-chalice-adept-benefit-self",
+    "name": "Effect: Chalice Adept Benefit (Self)",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "cc156bc9-d559-5ba0-a62f-7716c676af31"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your temporary Hit Points granted by Drink from the Chalice increase to 2 + your Charisma modifier + your level, and its healing increases to 5 Hit Points for each level you have."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["drink-from-the-chalice-inline-healing"],
+        "type": "untyped",
+        "value": "2 * @level"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.Sq558879cgEc1lGC"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "e0b80e27-1133-57d9-b277-71dbee0addd4",
+    "pack": "dark-archive-remastered",
+    "kind": "effect",
+    "slug": "effect:effect-combat-premonition",
+    "name": "Effect: Combat Premonition",
+    "level": 12,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "b47baa0f-1e7b-59a4-8f6d-186113a24892"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you are not the origin, you roll your initiative roll twice and take the better result. If you are the origin, you take the worse result instead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.CdWAXaePkMP4hts9"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "d5257132-6845-5efe-b527-c08b7c3ad088",
+    "pack": "dark-archive-remastered",
+    "kind": "effect",
+    "slug": "effect:effect-curse-maelstrom-state",
+    "name": "Effect: Curse Maelstrom State",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "7b305a7c-8405-5049-ad5f-c5338019cb96"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "All creatures other than you within a 10-foot emanation take a -1 status penalty to all saving throws and skill checks. You gain the Expel Maelstrom action."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.85w9OI1gMd6uJRKh"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "encounter"
+      },
+      "badge": {
+        "type": "counter",
+        "value": 1
+      }
+    }
+  },
+  {
+    "id": "423d4d7a-8bd6-5a40-8538-224902057b8b",
+    "pack": "dark-archive-remastered",
+    "kind": "effect",
+    "slug": "effect:effect-daydream-trance",
+    "name": "Effect: Daydream Trance",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "8a6df1a9-5665-58b3-a2fb-d9392b2db4e7"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –1 penalty to Perception checks and initiative rolls and gain a +1 status bonus to Will saves. This bonus increases to +2 against mental effects. If you're legendary in Occultism, the bonus against mental effects increases to +3."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["initiative", "perception"],
+        "type": "untyped",
+        "value": -1
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:will"],
+        "type": "status",
+        "value": 1,
+        "slug": "daydream-trance"
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["save:will"],
+        "slug": "daydream-trance",
+        "mode": "upgrade",
+        "value": "ternary(gte(@rank.skill.occultism, 4), 3, 2)",
+        "predicate": ["item:trait:mental"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.RATDyLyxXN3qmOas"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "25fce737-dff4-5fa9-a2d0-abc2830c051d",
+    "pack": "dark-archive-remastered",
+    "kind": "effect",
+    "slug": "effect:effect-distant-wandering",
+    "name": "Effect: Distant Wandering",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "ae513184-a60b-5ece-8662-320887da22c3"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are invisible and inaudible."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Awakening",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain a fly Speed and a +20-foot status bonus to your Speed"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Awakening",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are Quickened while in spirit form and can use the extra action only to Recall Knowledge or Seek."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "53cf375b-c3fa-5d92-afde-135a3c001674",
+        "allowDuplicate": false
+      },
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": "@stat.speed.land",
+        "predicate": ["awakening:distant-wandering:fly"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed", "fly-speed"],
+        "type": "status",
+        "value": 20,
+        "predicate": ["awakening:distant-wandering:fly"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "6517bbf2-8085-534b-be6a-187d52739fa0",
+        "allowDuplicate": false,
+        "predicate": ["awakening:distant-wandering:quick"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.ngwcN8u7f7CnqGXp"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "5cd2acf1-a328-5c65-9dee-f3d7db79aa61",
+    "pack": "dark-archive-remastered",
+    "kind": "effect",
+    "slug": "effect:effect-drink-from-the-chalice",
+    "name": "Effect: Drink from the Chalice",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "4e978262-a1fc-5204-8d97-bfe5f5709bad"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points equal to the origin's level (minimum 3). If the origin is under the effects of the chalice's adept benefit, these temporary Hit Points increase to twice their level."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-drink-from-the-chalice",
+        "choices": [
+          {
+            "value": "adept",
+            "label": "Yes",
+            "predicate": ["parent:origin:item:tag:chalice-adept-benefit"]
+          },
+          {
+            "value": "initiate",
+            "label": "No"
+          }
+        ],
+        "prompt": "Does the chalice's adept benefit apply?",
+        "rollOption": "drink-from-the-chalice-temp-hp"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.gjxSQgN3MopLxM35"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "c1f1bcf2-b348-578f-a44c-b5396d8e1e85",
+    "pack": "dark-archive-remastered",
+    "kind": "effect",
+    "slug": "effect:effect-emotional-surge",
+    "name": "Effect: Emotional Surge",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "662dc98d-01e1-586c-bd47-944dddeebfda"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus to attack rolls and skill checks."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll", "skill-check"],
+        "type": "status",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.dTymNXgTtnjqgYP9"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "46b034cf-c343-5001-b919-320127363c7d",
+    "pack": "dark-archive-remastered",
+    "kind": "effect",
+    "slug": "effect:effect-energetic-meltdown",
+    "name": "Effect: Energetic Meltdown",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by Energetic Meltdown"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Mild Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "@level"
+              }
+            ],
+            "label": "damage equal to your level"
+          },
+          {
+            "type": "text",
+            "text": " as energy scours your body."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Moderate Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " After taking the damage, you gain weakness to the energy type of your backlash until your next daily preparations. The weakness is equal to one-third of your level. You also lose immunity to the energy type if you had it, until your next daily preparations."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Severe Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You deal "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(@level)d6"
+              }
+            ],
+            "label": "1d6 damage per level"
+          },
+          {
+            "type": "text",
+            "text": " to all creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": {
+              "against": "class-or-spell-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save. You automatically take full damage without attempting a save."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.0AD7BiKjT8a6Uh92"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "day",
+        "expiry": "turn-start"
+      },
+      "badge": {
+        "type": "counter",
+        "value": 1,
+        "labels": ["Mild", "Moderate", "Severe"],
+        "loop": false
+      }
+    }
+  },
+  {
+    "id": "d3a1b824-7610-5f03-bbfc-4cb4f1aa44b2",
+    "pack": "dark-archive-remastered",
+    "kind": "effect",
+    "slug": "effect:effect-entitys-resurgence",
+    "name": "Effect: Entity's Resurgence",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "fad16a26-d649-5530-b2fa-c053ece54c72"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You remain at 1 Hit Point and gain temporary Hit Points equal to your level + your key ability modifier. However, the entity is in control. While the entity is in control, you gain a +1 status bonus to attack rolls and damage rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack", "damage"],
+        "type": "status",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.yr5ey5qC8dXH749T"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "f162af97-34fa-5fad-8d14-51808d1488d3",
+    "pack": "dark-archive-remastered",
+    "kind": "effect",
+    "slug": "effect:effect-expel-maelstrom-failure-or-critical-failure",
+    "name": "Effect: Expel Maelstrom (Failure or Critical Failure)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "b6232f42-1b66-5d5c-bcac-e4c212a1dc2c"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature takes a -2 status penalty to all saving throws and skill checks for 10 minutes."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-expel-maelstrom-failure-or-critical-failure",
+        "choices": [
+          {
+            "value": "critical-failure",
+            "label": "Critical Failure"
+          },
+          {
+            "value": "failure",
+            "label": "Failure"
+          }
+        ],
+        "prompt": "Select the degree of success.",
+        "rollOption": "expel-maelstrom"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw", "skill-check"],
+        "type": "status",
+        "value": -2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.lc8ez8O4eN73hNpR"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "9f19a1d2-9757-52ff-b533-00b24ab3a94b",
+    "pack": "dark-archive-remastered",
+    "kind": "effect",
+    "slug": "effect:effect-expel-maelstrom-success",
+    "name": "Effect: Expel Maelstrom (Success)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "b6232f42-1b66-5d5c-bcac-e4c212a1dc2c"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature takes a -1 status penalty to all saving throws and skill checks for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw", "skill-check"],
+        "type": "status",
+        "value": -1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.fIRJftsmd83iSoR4"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "406d93be-a6ac-549f-99f3-39a61cbcaada",
+    "pack": "dark-archive-remastered",
+    "kind": "effect",
+    "slug": "effect:effect-fling-magic-adept-cold",
+    "name": "Effect: Fling Magic (Adept Cold)",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "2a380160-be95-5f49-befb-dabec302d202"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –10-foot-status penalty to all Speeds."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "status",
+        "value": -10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.MRPaYmohQ5FZkrZj"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "278be1b3-3fc9-59af-808a-2d158c4d0580",
+    "pack": "dark-archive-remastered",
+    "kind": "effect",
+    "slug": "effect:effect-glimpse-vulnerability",
+    "name": "Effect: Glimpse Vulnerability",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f32d1753-352e-5843-afa9-60437023388c"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain weakness 2 to the origin's unarmed and weapon Strikes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.H35En2lHCVzOOUMf"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "ae493821-c44d-5050-a1a5-f5ddc61abaf5",
+    "pack": "dark-archive-remastered",
+    "kind": "effect",
+    "slug": "effect:effect-guide-the-timeline",
+    "name": "Effect: Guide the Timeline",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "327ec849-41ed-5e2d-9748-9c3ebc567db3"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you are an ally, the next time you make an attack roll or skill check, roll it twice and take the higher result. If you are a foe, the next time you make an attack roll or skill check, you must roll twice and take the lower result."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-guide-the-timeline",
+        "choices": [
+          {
+            "value": "fortune",
+            "label": "Fortune"
+          },
+          {
+            "value": "misfortune",
+            "label": "Misfortune"
+          }
+        ],
+        "rollOption": "guide-the-timeline"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.bxxek5BP4zqP5GzM"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "7aafb030-aa1d-5bda-b462-ed0286439784",
+    "pack": "dark-archive-remastered",
+    "kind": "effect",
+    "slug": "effect:effect-high-speed-regeneration-speed-boost",
+    "name": "Effect: High-Speed Regeneration Speed Boost",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1996dcc4-2ba9-58f3-8959-437d3ba62da1"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +10-foot status bonus to your Speed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "status",
+        "value": 10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.tx0S0fnfZ6Q2o80H"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "7dc155e0-80e1-5061-a69a-b92f3e3c75b4",
+    "pack": "dark-archive-remastered",
+    "kind": "effect",
+    "slug": "effect:effect-lantern",
+    "name": "Effect: Lantern",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "67376b29-2d7d-5194-8308-3c377d6ba1f8"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain gain a +1 status bonus to visual Perception checks to notice anything that is within the origin's bright light, and to checks to Recall Knowledge against creatures within the bright light."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:lantern-implement-bonus",
+        "toggleable": true,
+        "display": {
+          "label": "Target is within the lantern's bright light"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "status",
+        "value": 1,
+        "slug": "lantern-recall-knowledge",
+        "predicate": ["option:lantern-implement-bonus", "action:recall-knowledge"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "status",
+        "value": 1,
+        "slug": "lantern-perception",
+        "predicate": ["option:lantern-implement-bonus", "item:trait:visual"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.6hrbTLlSyhL2W9Nf"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "f3b11345-4846-55bf-bfa9-3e4a0616239b",
+    "pack": "dark-archive-remastered",
+    "kind": "effect",
+    "slug": "effect:effect-pact-of-the-final-breath",
+    "name": "Effect: Pact of the Final Breath",
+    "level": 12,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "07a94001-9df1-5f12-8751-87a6faf20247"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain fast healing equal to your level."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FastHealing",
+        "value": "@level"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.unMxC3XGviRjC1CH"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 3,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "7ead10f8-8863-5d6e-a3f7-7c3fd02b82c9",
+    "pack": "dark-archive-remastered",
+    "kind": "effect",
+    "slug": "effect:effect-propulsive-leap",
+    "name": "Effect: Propulsive Leap",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "560aad35-5271-5252-b456-7c17f1bf95e9"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a fly Speed equal to your Speed or 20 feet, whichever is greater."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": "max(@stat.speed.land, 20)"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["fly-speed"],
+        "type": "status",
+        "value": 15,
+        "predicate": ["awakening:propulsive-leap:speed"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.RU6D7pNQSBt1zSuK"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "341c3aed-cd1b-58d3-b59a-c3c2be8b2afb",
+    "pack": "dark-archive-remastered",
+    "kind": "effect",
+    "slug": "effect:effect-psi-strikes",
+    "name": "Effect: Psi Strikes",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "41308e0f-05f2-5608-abd2-b9d973018dc6"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your chosen attack deals an extra 1d6 force damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.BIHU3o499fsa1bwt"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "122cea62-286d-584f-a641-c02591cb5be2",
+    "pack": "dark-archive-remastered",
+    "kind": "effect",
+    "slug": "effect:effect-strained-metabolism",
+    "name": "Effect: Strained Metabolism",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "e8e4ffa9-f0ff-5988-a41d-02c566b78b4a"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Mild Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You become "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 1"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": " until you take a bite of food (which usually requires 2 Interact actions: one to retrieve the food and another to consume it)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Moderate Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are enfeebled 1, clumsy 1, and "
+          },
+          {
+            "type": "ref",
+            "id": "5e3582c3-701c-5169-9c69-4221096722c2"
+          },
+          {
+            "type": "text",
+            "text": " until you can eat a full meal, which requires at least 10 minutes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Severe Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You become "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": " as nausea wracks you, and you are also enfeebled 1 and clumsy 1 until you can eat a full meal (which requires you to no longer be sickened). You are fatigued until you can get a full night's rest."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.lZPbv3nBRWmfbs3z"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "day",
+        "expiry": "turn-start"
+      },
+      "badge": {
+        "type": "counter",
+        "value": 1,
+        "labels": ["Mild", "Moderate", "Severe"],
+        "loop": false
+      }
+    }
+  },
+  {
+    "id": "470ac9cb-b502-5d3f-a75d-c9a8298aabea",
+    "pack": "dark-archive-remastered",
+    "kind": "effect",
+    "slug": "effect:effect-thoughtform-summoning",
+    "name": "Effect: Thoughtform Summoning",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "caa42888-e382-59de-8b03-07a9d4b61fb2"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance to physical damage equal to half your level and weakness 5 to force and mental damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["physical"],
+        "value": "@level / 2"
+      },
+      {
+        "key": "Weakness",
+        "type": ["force", "mental"],
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.ByXEvk0gyFwUk5gU"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "a72c1560-6a8f-592b-87fb-12f313b8b3c6",
+    "pack": "dark-archive-remastered",
+    "kind": "effect",
+    "slug": "effect:effect-tome-adept-benefit",
+    "name": "Effect: Tome Adept Benefit",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "280aa699-6798-5b38-a26d-8e7291562b42"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to your next attack roll against the marked creature. If you have the tome's paragon benefit, this bonus applies to all attack rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.vm8Ir6qfvb3BaNUs"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "19dcee94-946c-514a-81d0-e3b0a8637b1f",
+    "pack": "dark-archive-remastered",
+    "kind": "effect",
+    "slug": "effect:effect-trance-of-celerity",
+    "name": "Effect: Trance of Celerity",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "64bb40bc-2414-5fc0-a895-8f7db8a2b7a9"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you are cursebound 2 at any point, the bonus increases to a +10-foot status bonus. If you are cursebound 3, this bonus increases to +15-foot status bonus instead. Finally, if you are cursebound 4 at any point during this duration, this bonus increases to a +20-foot status bonus."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "status",
+        "value": 5,
+        "slug": "trance-of-celerity"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.IzmXq1LycaKNqGIt"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "0813e2ae-beec-5f0e-912a-d9d14d3ba713",
+    "pack": "dark-archive-remastered",
+    "kind": "effect",
+    "slug": "effect:effect-turn-back-the-clock",
+    "name": "Effect: Turn Back The Clock",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "fec0c079-c5f5-59b8-b3cc-9c2404a23d34"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You reroll the triggering check with a +1 circumstance bonus."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.LbICHKe5jLMxhaOw"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "221a53c7-7c6a-520b-b807-16b837604d06",
+    "pack": "dark-archive-remastered",
+    "kind": "effect",
+    "slug": "effect:effect-unleash-psyche",
+    "name": "Effect: Unleash Psyche",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "11cd94cd-9702-5002-8625-2371cf1408c9"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you cast a damaging spell using your psychic spellcasting, you gain a status bonus to its damage equal to double the spell's rank. This applies only to the initial damage the spell deals when cast, and an individual creature takes this damage only once per spell, even if the spell would damage that creature multiple times."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:unleash-psyche-damage",
+        "toggleable": true,
+        "value": true,
+        "display": {
+          "label": "Casting a spell from Psychic Spellcasting"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.939OHjW9y8uCmDk3"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 2,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "cb79f2a3-20ad-5061-8353-bdda1a3e0113",
+    "pack": "dark-archive-remastered",
+    "kind": "effect",
+    "slug": "effect:effect-wine-of-the-blood",
+    "name": "Effect: Wine of the Blood",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "3704ef8e-1c9e-543f-b023-5d18f17c6ae7"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to all Will saves, or a +2 status bonus against emotion effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:will"],
+        "type": "status",
+        "value": 1
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:will"],
+        "type": "status",
+        "value": 2,
+        "slug": "effect-wine-of-the-blood-emotion",
+        "predicate": ["item:trait:emotion"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.KkFk8PZ2ZZVUrdgj"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "298f6b9a-8081-5f66-bd8e-85c08ec912b5",
+    "pack": "dark-archive-remastered",
+    "kind": "effect",
+    "slug": "effect:spell-effect-cinder-gaze",
+    "name": "Spell Effect: Cinder Gaze",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "8abf7e8e-a69b-599f-b603-f84fb6940c9f"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": true,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Terrible Danger",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You gain a +2 status bonus to your next initiative roll."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "New Life",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The next time you take damage, just before taking the damage, you gain temporary Hit Points."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Vivid Insight",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (fortune) The next time you attempt a check to Recall Knowledge, roll twice and take the higher result."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Good Fortune",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (fortune) The next time you attempt a saving throw, roll twice and take the better result."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "2 * (@item.level + 2)",
+        "predicate": ["parent:badge:value:2"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.myWvjlGLvbzkSCNO"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      },
+      "badge": {
+        "type": "formula",
+        "formula": "1d4"
+      }
+    }
+  },
+  {
+    "id": "c43d8438-c5d1-5e5c-95ea-3141e6dbff6f",
+    "pack": "dark-archive-remastered",
+    "kind": "effect",
+    "slug": "effect:spell-effect-contagious-idea-pleasant-thought",
+    "name": "Spell Effect: Contagious Idea (Pleasant Thought)",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "105b532f-c0d1-5892-9f5c-03fb794205c1"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points equal to the spell rank."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@item.level"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.VVSOzHV6Rz2YNHRl"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "1a33ab7e-9bbb-5b9a-ac9e-fdb4982ff91b",
+    "pack": "dark-archive-remastered",
+    "kind": "effect",
+    "slug": "effect:spell-effect-entropic-wheel",
+    "name": "Spell Effect: Entropic Wheel",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "5a0f4646-417a-5995-8d9d-d6fd30a51f46"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you Cast a Spell that deals fire damage, the target also takes cold damage equal to the number of motes in the "
+          },
+          {
+            "type": "text",
+            "text": "entropic wheel",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". When you Cast a Spell that deals cold damage, the target also takes fire damage equal to the number of motes in the "
+          },
+          {
+            "type": "text",
+            "text": "entropic wheel",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". This applies only to the initial damage of the spell, not to any persistent damage or ongoing effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["spell-damage"],
+        "type": "untyped",
+        "value": "@item.value",
+        "slug": "entropic-wheel-fire",
+        "damageType": "fire",
+        "predicate": [
+          "item:damage:type:cold",
+          {
+            "not": "item:damage:type:persistent"
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["spell-damage"],
+        "type": "untyped",
+        "value": "@item.value",
+        "slug": "entropic-wheel-cold",
+        "damageType": "cold",
+        "predicate": [
+          "item:damage:type:fire",
+          {
+            "not": "item:damage:type:persistent"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.znwjWUvGOFQ6VYaE"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "unlimited"
+      },
+      "badge": {
+        "type": "counter",
+        "value": 1
+      }
+    }
+  },
+  {
+    "id": "582f671d-944d-5ffc-9d5b-38a4e8d84645",
+    "pack": "dark-archive-remastered",
+    "kind": "effect",
+    "slug": "effect:spell-effect-euphoric-renewal",
+    "name": "Spell Effect: Euphoric Renewal",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "25b438a3-4cbf-5e19-b8e8-b9198a2c15d1"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to saves and temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "2 * @item.level"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.16QrxIYal7PJFL2W"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "18f8b867-d9dd-5d07-a7aa-57346ce6958d",
+    "pack": "dark-archive-remastered",
+    "kind": "effect",
+    "slug": "effect:spell-effect-frenzied-revelry",
+    "name": "Spell Effect: Frenzied Revelry",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "86414de7-9b81-5980-8462-e0951851d9df"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to saving throws against mental effects while in the area. Whenever someone benefiting from this bonus critically succeeds at a saving throw against an enemy's mental effect, its revelry increases, granting it a +1 status bonus to attack rolls and damage rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:will"],
+        "type": "status",
+        "value": "ternary(gte(@item.level, 7), 3, ternary(gte(@item.level, 4), 2, 1))",
+        "predicate": ["item:trait:mental"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["saving-throw"],
+        "title": "Spell Effect: Frenzied Revelry",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Whenever someone benefitting from this bonus critically succeeds at a saving throw against an enemy's mental effect, its revelry increases, granting it a +1 status bonus to attack rolls and damage rolls for 1 round. Spell Effect: Frenzied Revelry (Critical)"
+              }
+            ]
+          }
+        ],
+        "outcome": ["criticalSuccess"],
+        "predicate": ["item:trait:mental", "origin:enemy"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.Jbj3aIUeDc7LOXH6"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "587fee1b-fab6-502e-b93b-587396952c6e",
+    "pack": "dark-archive-remastered",
+    "kind": "effect",
+    "slug": "effect:spell-effect-ghostly-shift",
+    "name": "Spell Effect: Ghostly Shift",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "3cf19a4d-3b4c-5a48-84ad-2333cd9eae39"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance 2 to all damage (except force)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+2)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The resistance increases by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["all"],
+        "value": "ceil(@item.level / 2)",
+        "exceptions": ["force"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.vUjRvriyuHDZrsgc"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start",
+        "sustained": true
+      }
+    }
+  },
+  {
+    "id": "88b81a84-19a2-562b-aa74-9f83bb0d3357",
+    "pack": "dark-archive-remastered",
+    "kind": "effect",
+    "slug": "effect:spell-effect-glimpse-weakness",
+    "name": "Spell Effect: Glimpse Weakness",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "bc221499-cd35-50f4-918e-1227b1343a38"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You deal additional precision damage equal to 1 + this spell's rank, and then the spell ends."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": "ceil(@item.level / 2)",
+        "dieSize": "d4",
+        "category": "precision",
+        "predicate": ["parent:origin:item:tag:amped"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["strike-damage"],
+        "slug": "glimpse-weakness",
+        "mode": "downgrade",
+        "value": "ceil(@item.level / 2)",
+        "predicate": ["parent:origin:item:tag:amped"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.VJpRUgSDtAO2TSRR"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "0b5f43ac-fc41-5c2c-92f4-fa39547b8fbc",
+    "pack": "dark-archive-remastered",
+    "kind": "effect",
+    "slug": "effect:spell-effect-phase-bolt",
+    "name": "Spell Effect: Phase Bolt",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f7179b2f-5ab4-5bf5-aadc-b69b1c8d762f"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you have any circumstance bonuses to AC, you reduce that bonus by 2 for this attack."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["ac"],
+        "mode": "subtract",
+        "value": 2,
+        "predicate": ["bonus:type:circumstance"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["ac"],
+        "mode": "upgrade",
+        "value": 0,
+        "predicate": ["bonus:type:circumstance"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.ZVPlFsk5Zimd8Mc9"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "5ed62b72-9d41-5776-a87b-afc2f16db16a",
+    "pack": "dark-archive-remastered",
+    "kind": "effect",
+    "slug": "effect:spell-effect-return-the-favor",
+    "name": "Spell Effect: Return the Favor",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "776cc593-3581-5c94-a8f5-929c4ae8e324"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "4 * @item.level"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.cSoL5aMy3PCzM4Yv"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "9fb77b0c-1721-5b11-8390-7695bcc81831",
+    "pack": "dark-archive-remastered",
+    "kind": "effect",
+    "slug": "effect:spell-effect-shield-amped",
+    "name": "Spell Effect: Shield (Amped)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "6dee4f5d-f584-5402-af2a-d3738ec685b3"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to AC. When you Shield Block with this spell, one of the three layers breaks and you cease to gain the bonus to AC. You can choose to break additional layers when you Shield Block with this spell. If you break two layers instead of one, increase the Hardness to 1-1/2 × the normal amount. If you break all three layers, increase the Hardness to double the normal amount."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:shield-block-layers",
+        "toggleable": true,
+        "suboptions": [
+          {
+            "value": "1",
+            "label": "One"
+          },
+          {
+            "value": "2",
+            "label": "Two",
+            "predicate": [
+              {
+                "gte": ["parent:badge:value", 2]
+              }
+            ]
+          },
+          {
+            "value": "3",
+            "label": "Three",
+            "predicate": [
+              {
+                "gte": ["parent:badge:value", 3]
+              }
+            ]
+          }
+        ],
+        "priority": 49,
+        "display": {
+          "label": "Shield (Amped) — Break layers to Shield Block"
+        }
+      },
+      {
+        "key": "RollOption",
+        "option": "self:shield:equipped",
+        "predicate": [
+          {
+            "or": ["self:type:character", "self:type:npc"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.N1b28wOrZmuSjN9i"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start",
+        "sustained": true
+      },
+      "badge": {
+        "type": "counter",
+        "value": 3,
+        "labels": ["1 Layer", "2 Layers", "3 Layers"],
+        "loop": false
+      }
+    }
+  },
+  {
+    "id": "3d0bf382-5bab-5757-858a-8ab79565313a",
+    "pack": "dark-archive-remastered",
+    "kind": "effect",
+    "slug": "effect:spell-effect-thermal-stasis",
+    "name": "Spell Effect: Thermal Stasis",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "625abd60-c556-51f7-93d5-22072ab6a367"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The target gains resistance 2 against fire damage and resistance 2 against cold damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["cold", "fire"],
+        "value": "@item.level * 2"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.Y6aNYnGVXdAMvL7Y"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "5433612b-6207-52df-8e26-151d6cf56f27",
+    "pack": "dark-archive-remastered",
+    "kind": "effect",
+    "slug": "effect:spell-effect-warp-step",
+    "name": "Spell Effect: Warp Step",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "46614709-2c6f-5766-8466-6bfaf222442b"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +5-foot status bonus to your Speed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "status",
+        "value": 5
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["all-speeds"],
+        "slug": "warp-step",
+        "mode": "upgrade",
+        "value": 10,
+        "predicate": ["parent:origin:item:tag:psi-cantrip"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.9Tl9jGUKoj0wS73d"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
+      }
+    }
+  }
+]

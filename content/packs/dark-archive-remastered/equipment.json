@@ -1,0 +1,3338 @@
+[
+  {
+    "id": "4364669c-2a1a-5a04-8f80-6dd2bb31f3c9",
+    "pack": "dark-archive-remastered",
+    "kind": "equipment",
+    "slug": "equipment:amulet-implement",
+    "name": "Amulet Implement",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:implement-held"
+      },
+      {
+        "key": "RollOption",
+        "option": "implement:amulet:equipped"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.GbR8rgZMCVBn3Evb"
+    },
+    "data": {
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "38de3483-9386-5c0b-8e4c-4da0d2622a26",
+    "pack": "dark-archive-remastered",
+    "kind": "equipment",
+    "slug": "equipment:bell-implement",
+    "name": "Bell Implement",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:implement-held"
+      },
+      {
+        "key": "RollOption",
+        "option": "implement:bell:equipped"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.f0A1zqCFiUJuXc9U"
+    },
+    "data": {
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "409be42d-e44a-5b21-8b84-c2b41fbcfada",
+    "pack": "dark-archive-remastered",
+    "kind": "equipment",
+    "slug": "equipment:book-of-lost-days",
+    "name": "Book of Lost Days",
+    "level": 15,
+    "rarity": "unique",
+    "traits": ["cursed", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This massive tome's yellowed pages curl at the edges, and the letters on its face and spine are too worn to be read. When you open the book, it always opens to a page that seems to perfectly answer the question you had in mind, but reading more than a few lines causes your head to swim alarmingly."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Study Memory",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 hour (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You aren't drained"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You open the book while trying to learn information about any topic. "
+          },
+          {
+            "type": "text",
+            "text": "The Book of Lost Days",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " permits you to view another's memory, which contains information about that subject commensurate to rolling a total of 40 to "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": " about the topic, with additional context provided on a success or critical success."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The price for this knowledge is the memory of a day in your past, and the vitality of a day in your future. You lose the memory of that day completely, and the total of all the knowledge you learned on that date is added to the book's repository of information. The book, not you, chooses which memories are taken, preferring days with concentrated emotional resonance, and thus tends to steal significant life moments. This loss affects only your memories; it has no effect on your level, class, feats, or other character choices."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your natural lifespan is also shortened by 1 day. The loss of this life energy causes you to be "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 2"
+          },
+          {
+            "type": "text",
+            "text": ". You can't reduce the drained condition for 2 days, after which you can recover normally from the condition."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Creatures have occasionally managed to use the "
+          },
+          {
+            "type": "text",
+            "text": "Book of Lost Days",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " not to gain others' knowledge but to wipe their minds clean of painful memories or deadly secrets. Their memories aren't destroyed but merely stored in the book, where someone else might later retrieve them."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.9IckeffVxmxX0cwV"
+    },
+    "data": {
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "181e9f45-149a-5b0b-a2b5-e0f6b62b788b",
+    "pack": "dark-archive-remastered",
+    "kind": "equipment",
+    "slug": "equipment:bottomless-purse",
+    "name": "Bottomless Purse",
+    "level": 8,
+    "rarity": "rare",
+    "traits": ["contract", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "With a handshake, you traded future wealth for a "
+          },
+          {
+            "type": "text",
+            "text": "bottomless purse",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " of gems and other valuables. Using the purse, you can always sell items for their normal sell value during downtime, even if you aren't anywhere near a settlement. You just put them into the purse, and within a day, the proper sale price appears in coins and gems. Once per day, from any distance, the entity that holds your bargained contract automatically sells a common consumable item in your possession, giving you back only half the normal amount for a sold item."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Fair Trade",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You deposit up to 30 gp of gems and coins in a separate pouch of the "
+          },
+          {
+            "type": "text",
+            "text": "bottomless purse",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " while thinking of a common consumable item costing that amount of money. You then upend the pouch. The item you imagined comes tumbling out into your hand."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Y8kiHC9keql957uo"
+    },
+    "data": {
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "fair-trade",
+          "name": "Fair Trade",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "other"
+      }
+    }
+  },
+  {
+    "id": "bd0e7faf-397c-5757-81d8-4d93a8350d0e",
+    "pack": "dark-archive-remastered",
+    "kind": "equipment",
+    "slug": "equipment:calamity-glass",
+    "name": "Calamity Glass",
+    "level": 11,
+    "rarity": "rare",
+    "traits": ["cursed", "magical", "scrying"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This mirror appears to give warnings about the future, but subtle and malevolent hands designed the silver-framed glass to lure heroes into bringing doom upon those they hope to save."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Mirror, Mirror",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per week"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You activate the "
+          },
+          {
+            "type": "text",
+            "text": "calamity glass",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " and obtain a vision related to a likely action or event within the next 48 hours. The "
+          },
+          {
+            "type": "text",
+            "text": "calamity glass",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " decides what vision to show, though if you think about a specific event, the vision is typically at least tangentially related."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "No matter what, the mirror shows only tragedies. The mirror's visions are accurate but misleading, as they depict tragedies that could be averted but in so doing might lead to greater suffering."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For example, a "
+          },
+          {
+            "type": "text",
+            "text": "calamity glass",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " might show a family starving as the result of harbor officials turning away a boatload of improperly documented grain. Without intervention, this future will come to pass. What the mirror didn't show is the grain was improperly labeled and carelessly stored, resulting in its contamination with poisonous mold capable of killing hundreds. Purifying and then distributing the grain would avert both the "
+          },
+          {
+            "type": "text",
+            "text": "calamity glass'",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "s vision and the greater suffering its curse attempted to create."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.efm6thOteY7PWEvg"
+    },
+    "data": {
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "mirror-mirror",
+          "name": "Mirror, Mirror",
+          "frequency": {
+            "max": 1,
+            "per": "week"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "a5d71185-dafa-5941-abff-d35f24d66132",
+    "pack": "dark-archive-remastered",
+    "kind": "equipment",
+    "slug": "equipment:chaos-collar",
+    "name": "Chaos Collar",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["companion", "invested", "primal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This unobtrusive collar is made to hide beneath an animal's fur or blend in against scaled skin. It's most often used by unscrupulous trophy hunters hoping to make a name for themselves by defeating threats they artificially created, using hapless animals as pawns."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "chaos collar",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " fuses to its animal bearer the first time it's clasped around the creature's neck. Three nights per month, it transforms the animal into the form of a terrifying monster. The appearance is the same size as the original animal and doesn't change the animal's statistics, but it's always something new, horrifying, and unique to that particular "
+          },
+          {
+            "type": "text",
+            "text": "chaos collar",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". The transformation lasts from dusk until dawn, and it occurs with complete randomness throughout the month."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An animal slain while wearing a "
+          },
+          {
+            "type": "text",
+            "text": "chaos collar",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " remains in the form it had at the time of its death. Once its bearer dies, the collar transforms into a scrap of dirty string and falls off, where the unscrupulous hunter can collect and use it again."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.73lxT8RrbKtoHvty"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 125
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "worn",
+        "slot": "collar"
+      }
+    }
+  },
+  {
+    "id": "460740a2-8290-5d33-a013-a996112d3841",
+    "pack": "dark-archive-remastered",
+    "kind": "equipment",
+    "slug": "equipment:cloak-of-the-false-foe",
+    "name": "Cloak of the False Foe",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["invested", "primal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Images of strange animals and distorted figures are woven into this coarse, fur-lined cloak."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Cryptid Shape",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate, polymorph, primal)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The cloak rises to envelop your head and body, reshaping your appearance into that of a locally feared cryptid. If there is no such figure in local lore, the "
+          },
+          {
+            "type": "text",
+            "text": "cloak of the false",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " foe instead alters your appearance into a form imagined by the crafter of the cloak. One choice that occurs with disturbing frequency is a gaunt figure with triple-jointed fingers; an eyeless, hairless head with a lamprey mouth in the center of its face; and stubby tentacles waving down its neck. The transformation also grants the effects of either a 3rd-rank "
+          },
+          {
+            "type": "ref",
+            "id": "6a92fc43-23d9-559f-a7fd-f25a6735ef9a"
+          },
+          {
+            "type": "text",
+            "text": " spell that lasts for 1 hour if you turn into a Medium cryptid, or a 5th-rank "
+          },
+          {
+            "type": "text",
+            "text": "humanoid form",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " spell that lasts for 10 minutes if you turn into a Large cryptid."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While you're in cryptid form, any wounds left by your spells and Strikes appear to be the result of the cryptid's unarmed attacks and special abilities to a casual inspection. This doesn't alter the actual damage type inflicted or the effects of such attack. Someone closely studying the wounds can, with a successful "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:medicine",
+            "dc": 30
+          },
+          {
+            "type": "text",
+            "text": " check, realize that magic has altered the appearance of the injuries."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.yI6L5ZHRxWpZmOP0"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1850
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "cryptid-shape",
+          "name": "Cryptid Shape",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "cloak"
+      }
+    }
+  },
+  {
+    "id": "52c48a48-2795-520a-9672-ed177393a782",
+    "pack": "dark-archive-remastered",
+    "kind": "equipment",
+    "slug": "equipment:compass-of-transpositional-awareness",
+    "name": "Compass of Transpositional Awareness",
+    "level": 10,
+    "rarity": "rare",
+    "traits": ["invested", "magical", "teleportation"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The silver face of this glass-encased compass is etched with dozens of esoteric symbols, obscure icons, and inscrutable abbreviations."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Track Teleportation",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per minute"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You point the compass of transpositional awareness at an extant teleportation effect (such as a magical portal) or the site of a teleportation effect that existed within the last 1 minute (such as the space where a creature just cast "
+          },
+          {
+            "type": "ref",
+            "id": "e25a3eab-3b7d-56fd-90e2-98d892fdc8fd"
+          },
+          {
+            "type": "text",
+            "text": "). Attempt an Occultism check to determine to where the effect leads or led. The DC of this check is the effect's counteract DC. On a success, you know roughly the destination of the teleportation effect (for example \"the Plane of Fire,\" \"north,\" or \"Avistan\"). On a critical success, you ascertain the exact destination within mere feet for local effects (such as "
+          },
+          {
+            "type": "text",
+            "text": "translocate",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ") or within a few miles for long-range effects (such as "
+          },
+          {
+            "type": "ref",
+            "id": "fdafb7f2-fde7-571a-89b5-7c2aba17e259"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "3e61b605-c274-5409-a4e1-9cb72132821d"
+          },
+          {
+            "type": "text",
+            "text": ", or interdimensional portals)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Triangulate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You use the compass of transpositional awareness to triangulate your current coordinates and those of your intended destination using teleportation magic. For 1 minute, whenever you cast a teleportation spell that has a range, increase that spell's range by 30 feet. If the spell normally has a range of touch, extend its range to 30 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.geSsIAYv85MZtppg"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 950
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "track-teleportation",
+          "name": "Track Teleportation",
+          "frequency": {
+            "max": 1,
+            "per": "minute"
+          }
+        },
+        {
+          "slug": "triangulate",
+          "name": "Triangulate",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "cc890ad1-a7c3-55ee-aa1f-57a37c7ecaa1",
+    "pack": "dark-archive-remastered",
+    "kind": "equipment",
+    "slug": "equipment:cryolite-eye",
+    "name": "Cryolite Eye",
+    "level": 6,
+    "rarity": "rare",
+    "traits": ["contract", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You tore your eye from the socket and offered it to whatever spirit would take it. In return, you received a glass eye in its place. This eye allows you to see as normal, and when you succeed at a Perception check against an illusion, you get a critical success instead. Once per day, from any distance, the entity that holds your "
+          },
+          {
+            "type": "text",
+            "text": "bargained contract",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can overwhelm your cryolite eye with magical energy, causing images to float over your vision that inflict the "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " condition on you for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Look Beyond",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You look through the glass eye sealing your "
+          },
+          {
+            "type": "text",
+            "text": "bargained contract",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". The contract casts "
+          },
+          {
+            "type": "ref",
+            "id": "52cd674f-3e49-5527-b0c9-8a4137bc9c08"
+          },
+          {
+            "type": "text",
+            "text": " affecting you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Duj5vC7F5588ugS6"
+    },
+    "data": {
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "look-beyond",
+          "name": "Look Beyond",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "other"
+      }
+    }
+  },
+  {
+    "id": "82a27ad7-1cb9-5aff-b64f-462c3818908e",
+    "pack": "dark-archive-remastered",
+    "kind": "equipment",
+    "slug": "equipment:false-bottomed-mug",
+    "name": "False-Bottomed Mug",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Member of the Bellflower Network"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This mug looks like any other; however, the bottom part unscrews to reveal a velvet-lined chamber. These are primarily used by members of the Bellflower Network to sneak messages and small objects to other possible members. The Perception DC to discover the false bottom is 15 if someone specifically examines the mug."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.O6XNICvMAolYdgFP"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 5
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "a417f13a-9502-5eb7-bbaf-4c07c798fae4",
+    "pack": "dark-archive-remastered",
+    "kind": "equipment",
+    "slug": "equipment:glittering-scarab",
+    "name": "Glittering Scarab",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Member of the Esoteric Order of the Palatine Eye"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This pin is a valuable copy of a popular pin sold in markets throughout Osirion. The original pin is a solid piece, often purchased by tourists. The glittering scarab, though, can be squeezed gently, causing the wings to part and reveal an eye painted underneath them. This pin is used to gain entrance to most meetings of the Esoteric Order of the Palatine Eye. Someone who specifically examines the scarab can find the hidden eye with a successful "
+          },
+          {
+            "type": "check",
+            "statistic": "perception",
+            "dc": 20
+          },
+          {
+            "type": "text",
+            "text": " check, though if they know about glittering scarabs, they can simply squeeze it to check for the eye."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.PIR3RduvFcou4xz6"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "065795fa-fec4-523c-956c-5541f057819a",
+    "pack": "dark-archive-remastered",
+    "kind": "equipment",
+    "slug": "equipment:golden-goose",
+    "name": "Golden Goose",
+    "level": 11,
+    "rarity": "rare",
+    "traits": ["cursed", "magical", "unholy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This life-sized, hollow, golden goose statuette has an open, fanged mouth and an unsettling aura of hunger. Fiends sometimes present it as a gift to mortals whose greed makes them susceptible to temptation. While the "
+          },
+          {
+            "type": "text",
+            "text": "golden goose",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can be used without malice, those who possess such a thing often find its glittering lure erodes their morals over time."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Golden Goose",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You feed the goose the warm, still-bloody heart of any sapient, non-unholy creature who died within the past hour. The golden goose's eyes flare red as it chews the heart into pulp. Once the heart is destroyed, the goose lays a golden egg worth 50 gp, or 100 gp if you murdered the creature for no reason other than to feed the goose."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After 12 such eggs are laid, the next time you activate the golden goose, it transmutes your heart to gold. This effect functions as "
+          },
+          {
+            "type": "ref",
+            "id": "86c529b1-5a2f-5bac-9c74-674544b5bd32"
+          },
+          {
+            "type": "text",
+            "text": ", with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 30
+          },
+          {
+            "type": "text",
+            "text": " save to resist. If you become "
+          },
+          {
+            "type": "ref",
+            "id": "3d9defdb-7a92-5ba7-817e-e95b3811cf7f"
+          },
+          {
+            "type": "text",
+            "text": ", you turn to solid, transparent stone. Your heart becomes a golden egg worth 100 gp, which can be retrieved only by shattering your body. Whether or not you turn to stone, the golden goose dissipates with a honk into sulfurous smoke."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.J4QuF3h13uFElZyX"
+    },
+    "data": {
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "golden-goose",
+          "name": "Golden Goose",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "0bcf736c-6bbf-538a-89e7-35fe412aa091",
+    "pack": "dark-archive-remastered",
+    "kind": "equipment",
+    "slug": "equipment:hand-hewed-face",
+    "name": "Hand-Hewed Face",
+    "level": 7,
+    "rarity": "rare",
+    "traits": ["contract", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At the crossroads under a new moon, you traded your face for one that you can mold as though it were clay, sealed with a ribbon worn around your neck to hide the seam. Your true appearance changes to that of a generic member of your ancestry. You can shape your facial features with your hands and thus don't need a disguise kit to Impersonate, and you don't take circumstance penalties to Impersonate someone due to the difference in your facial features. Once per day, from any distance, the entity that holds your "
+          },
+          {
+            "type": "text",
+            "text": "bargained contract",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can change their appearance to match your appearance from before you sealed the contract, or the appearance you're currently using through Impersonate. When they do, your face transforms to your new true appearance—that of a generic member of your ancestry—and you become "
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+            "label": "Stunned 3"
+          },
+          {
+            "type": "text",
+            "text": " by the sudden backlash."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Fresh Face",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have used Impersonate and molded your face into a different face"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You peel your current face from your skin, revealing the true generic appearance from your "
+          },
+          {
+            "type": "text",
+            "text": "bargained contract",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". This allows you to duck out of sight and remove the facial component of your disguise almost immediately, though clothing or other elements might still give you away."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.M450qjybosAkGcdN"
+    },
+    "data": {
+      "bulk": "negligible",
+      "usage": {
+        "type": "other"
+      }
+    }
+  },
+  {
+    "id": "27ce9a17-8ae2-5ad9-b1d3-7db1360b249f",
+    "pack": "dark-archive-remastered",
+    "kind": "equipment",
+    "slug": "equipment:hoax-hunters-kit",
+    "name": "Hoax-Hunter's Kit",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This wooden box unfolds into a stack of hinged trays holding calipers, magnifying lenses, acids and reagents, comparison sketches of species commonly mistaken for one another, and glass slides for specimen testing. When you use this kit to study accounts of a creature or what it left behind (such as spoor, tracks, or fur samples), you gain a +1 item bonus to "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": " about the creature or to Track the creature. In addition, if you fail to Recall Knowledge about the creature (but don't critically fail), you're able to eliminate at least one possibility of a common type of animal. For instance, you might be able to verify the creature isn't an ankhrav, even if you get no further information."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["action:recall-knowledge", "option:hoax-hunter"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:survival"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["action:track", "option:hoax-hunter"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.5KHp3903LnOcHp8k"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "5fddede5-b22b-5347-9e72-c8979dd0308e",
+    "pack": "dark-archive-remastered",
+    "kind": "equipment",
+    "slug": "equipment:horn-of-the-aoyin",
+    "name": "Horn of the Aoyin",
+    "level": 13,
+    "rarity": "rare",
+    "traits": ["cursed", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This musical instrument is crafted from the horn of an aoyin—a large, cannibalistic beast whose form resembles an ox with a white body, four horns, and hair as coarse as straw—and carved with fell symbols. If the horn of the aoyin's owner doesn't use the instrument's activation on sapient creatures at least once a day, the horn of the aoyin activates at some point of its own choosing on the owner, and the owner critically fails with no saving throw."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Cannibal Call",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (auditory, emotion, incapacitation, magical, manipulate, mental)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're trained in Performance"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You blow the horn, creating a low growling sound. Creatures other than you in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": " must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 30
+          },
+          {
+            "type": "text",
+            "text": " save. Those who fail become overwhelmed with an animalistic rage and the urge to consume flesh for 1 round, or 1 minute on a critical failure. They indiscriminately attack the nearest target unaffected by the magic of the horn unless there are no such targets, at which point they set on each other. While affected, they gain a jaws unarmed attack that deals 1d8 piercing damage, deal an additional 2 damage with unarmed attacks, and lose the ability to use any weaponry. They also gain a +2 status bonus to saving throws against mental effects, can detect bleeding creatures and open wounds as an imprecise sense with a range of 30 feet, and gain a +10-foot status bonus to their Speed. Lastly, they take a –1 penalty to AC and are unable to use concentrate actions other than Seeking. Creatures who critically succeed are temporarily immune for 24 hours."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A horn of the aoyin can be crafted only from a single aoyin horn. Crafting this object must be undertaken using tools soaked in the wielder's blood."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.wrTvu4gU5IzDJVbA"
+    },
+    "data": {
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "cannibal-call",
+          "name": "Cannibal Call",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "bafc6127-f988-5790-a3f8-3aa886303f33",
+    "pack": "dark-archive-remastered",
+    "kind": "equipment",
+    "slug": "equipment:key-to-the-stomach",
+    "name": "Key to the Stomach",
+    "level": 9,
+    "rarity": "rare",
+    "traits": ["contract", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whether due to the inconvenience of having a physical body or the desperation of impending starvation, you were drawn to a person offering relief from hunger. You swallowed a key, which remains in your stomach, that continuously satiates you. You no longer need to eat or drink. Once per day, from any distance, the entity that holds your "
+          },
+          {
+            "type": "text",
+            "text": "bargained contract",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can have the key sealing your "
+          },
+          {
+            "type": "text",
+            "text": "bargained contract",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " absorb all items in your stomach, which prevents you from benefiting from items that require you to eat or drink them, such as potions and elixirs, for 10 minutes. During this time, the entity gains the benefits of these items instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Iron Gut",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You absorb any poisons with the key sealing your "
+          },
+          {
+            "type": "text",
+            "text": "bargained contract",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". You're affected by a 5th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "9495e90b-a69c-5eaf-a472-b6b536856f28"
+          },
+          {
+            "type": "text",
+            "text": " spell to remove a poison (counteract modifier +15)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.h96LHhdZhVYnjcYA"
+    },
+    "data": {
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "iron-gut",
+          "name": "Iron Gut",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "other"
+      }
+    }
+  },
+  {
+    "id": "85d347b4-fd18-5a75-8b87-c1c130f3fc9c",
+    "pack": "dark-archive-remastered",
+    "kind": "equipment",
+    "slug": "equipment:lantern-implement",
+    "name": "Lantern Implement",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:implement-held"
+      },
+      {
+        "key": "RollOption",
+        "option": "implement:lantern:equipped"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.AtiSK2lwEi25f3PT"
+    },
+    "data": {
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "4d55b5b4-3c25-5d1a-9dda-d25ff878422f",
+    "pack": "dark-archive-remastered",
+    "kind": "equipment",
+    "slug": "equipment:lost-ember",
+    "name": "Lost Ember",
+    "level": 10,
+    "rarity": "rare",
+    "traits": ["contract", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sealed with a vial containing the ashes from your childhood home, you traded the memories of your early life to stay focused on the present, allowing you to avoid distractions during combat. Once per day, from any distance, the entity that holds your "
+          },
+          {
+            "type": "text",
+            "text": "bargained contract",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can take one of your memories. This functions as a casting of "
+          },
+          {
+            "type": "ref",
+            "id": "1f048683-4c42-51f0-afdc-351f5fe3af2c"
+          },
+          {
+            "type": "text",
+            "text": " that doesn't grant you a saving throw and can't be reversed by any means without stealing the memory back first."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Fix Focus",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You start your turn "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "6f53a234-670f-5b02-a986-7cce57585fc8"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A speck of ash from the vial sealing your "
+          },
+          {
+            "type": "text",
+            "text": "bargained contract",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " appears out of nowhere on your tongue, bringing your senses into focus. You suppress the "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "6f53a234-670f-5b02-a986-7cce57585fc8"
+          },
+          {
+            "type": "text",
+            "text": " condition until the start of your next turn. You can use this free action when you're confused, even though you normally can't take actions of your choice when confused."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.hUhH5QeSZ8B7Yg65"
+    },
+    "data": {
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "fix-focus",
+          "name": "Fix Focus",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "other"
+      }
+    }
+  },
+  {
+    "id": "e2d6ebeb-381c-5e26-a235-462d2acd5bb1",
+    "pack": "dark-archive-remastered",
+    "kind": "equipment",
+    "slug": "equipment:membership-cords",
+    "name": "Membership Cords",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Member of a secret society"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These braided wool cords are threaded with reflective metal threads in patterns specified by the purchaser. No two society's patterns are the same, and purchasers tend to return to the same weaver each time to ensure new cords match previous ones. In a room lit only by dim candlelight, the reflective metal threads shimmer in a specific pattern. Many societies use these cords to prevent outsiders from infiltrating secret meetings and often have someone at the meeting area's entrance checking cords before allowing entry."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.XUEoUlpB8yGaXjLc"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "d9e4a2e5-a48a-570a-a438-b2b0e31c51d3",
+    "pack": "dark-archive-remastered",
+    "kind": "equipment",
+    "slug": "equipment:mirror-implement",
+    "name": "Mirror Implement",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:implement-held"
+      },
+      {
+        "key": "RollOption",
+        "option": "implement:mirror:equipped"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.NpNDlH8YE2i67vQV"
+    },
+    "data": {
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "51479c23-c3ec-56e8-b2b5-47219b9aab0c",
+    "pack": "dark-archive-remastered",
+    "kind": "equipment",
+    "slug": "equipment:old-tillimaquin",
+    "name": "Old Tillimaquin",
+    "level": 12,
+    "rarity": "unique",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This beloved tavern mascot is a shabby old stuffed beast mounted on an immense slab of ironwood. The beast is roughly the size and shape of a wolverine but with a broader snout, blue stripes along its upper legs and bristled back, and a club of spiked bone at the end of its long tail. No one can recall where "
+          },
+          {
+            "type": "text",
+            "text": "Old Tillimaquin",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " originally came from, how the taxidermic beast came to stand in its tavern, or even whether it's a genuine article. The tradition of rubbing its bronzed claws for good luck has been observed for so long that the front claws are worn to stubs. Local belief holds that as long as Old Tillimaquin stands, neither fire nor flood will claim its town."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Luck of the Mascot",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (fortune, manipulate, occult)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per month"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You rub "
+          },
+          {
+            "type": "text",
+            "text": "Old Tillimaquin",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "'s bronzed claws for good luck before setting out on a task that might benefit the town. You can reroll a single failed saving throw within the next 24 hours, but you must take the second result, even if it's worse than your original result. Each person who rubs the claws can benefit only once per month, but there's no limit to how many people can draw on "
+          },
+          {
+            "type": "text",
+            "text": "Old Tillimaquin",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "'s luck."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ENF3Er7cJvb4oXMM"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2000
+        }
+      },
+      "bulk": 3,
+      "activations": [
+        {
+          "slug": "luck-of-the-mascot",
+          "name": "Luck of the Mascot",
+          "frequency": {
+            "max": 1,
+            "per": "month"
+          }
+        }
+      ],
+      "usage": {
+        "type": "other"
+      }
+    }
+  },
+  {
+    "id": "785d5e96-890f-5a15-ab4c-5f35dc5fd910",
+    "pack": "dark-archive-remastered",
+    "kind": "equipment",
+    "slug": "equipment:regalia-implement",
+    "name": "Regalia Implement",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:implement-held"
+      },
+      {
+        "key": "RollOption",
+        "option": "implement:regalia:equipped"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.7FzmHy7PugYNGkoX"
+    },
+    "data": {
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "fc72b0c4-8699-5438-b2c0-6fa538a64457",
+    "pack": "dark-archive-remastered",
+    "kind": "equipment",
+    "slug": "equipment:ring-of-sneering-charity",
+    "name": "Ring of Sneering Charity",
+    "level": 7,
+    "rarity": "rare",
+    "traits": ["cursed", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This gold ring seems to offer good fortune to the wearer when they're charitable to those in need, but its curse was created to tear societies apart by inflaming class resentments and discrediting good works of true charity."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Upon donning the ring, you must attempt a secret "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 25
+          },
+          {
+            "type": "text",
+            "text": " save to avoid activating its magic. If you succeed, the ring's curse remains dormant, and it appears to be an exhausted item with no magic left. If you fail, the curse awakens, and the ring fuses to you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're compelled to spend 10% of your wealth—and 10% of any future wealth you obtain—on charity. However, your acts of charity are insensitive and so insulting that they earn the recipients' enmity. For example, upon learning someone lost a child, you might toss money at them \"to buy a new one.\" You can't understand why your gifts aren't met with gratitude and resent the unappreciative recipients, and you firmly believe you should be able to call upon them for favors. You consider yourself an ideal philanthropist, and you constantly try to ingratiate yourself with other charitable organizations and individuals by offering to guide their donations to be more like your own."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.GAffuPaxuhSku90B"
+    },
+    "data": {
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn",
+        "slot": "ring"
+      }
+    }
+  },
+  {
+    "id": "fe9454ec-2604-5103-b2d6-517ed54b7664",
+    "pack": "dark-archive-remastered",
+    "kind": "equipment",
+    "slug": "equipment:self-emptying-pocket",
+    "name": "Self-Emptying Pocket",
+    "level": 9,
+    "rarity": "rare",
+    "traits": ["contract", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You never perform to an empty crowd after promising any profits to a phantom in a playhouse, sealed by holes that appear in your pockets. By meeting with the attendees at your events, you can use Performance instead of Diplomacy to Gather Information. When you would use Performance to "
+          },
+          {
+            "type": "ref",
+            "id": "b03a543f-4d12-5c6b-a4f9-6afe141aa651"
+          },
+          {
+            "type": "text",
+            "text": ", you don't earn any gold pieces, as the money disappears before you can even count it."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The entity that holds your "
+          },
+          {
+            "type": "text",
+            "text": "bargained contract",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can influence your reception any time you perform for a crowd or Activate the pocket. If they influence your performance favorably, you gain a +2 item bonus to your Performance check. If they influence your performance unfavorably, you take a -2 item penalty to your Performance check. If you've failed to earn the entity money in quite a while, it often influences your performance unfavorably."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Beguiling Presence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You exercise all of your charm on a creature, turning a chance meeting into an impromptu performance that commands attention. Attempt a single "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:performance"
+          },
+          {
+            "type": "text",
+            "text": " check against the Perception DC of the creature. On a success, the creature is affected as though by a successful Deception check to Create a Diversion. The entity that holds your contract can influence this performance as well."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.5EDJgEYfktSEa1pr"
+    },
+    "data": {
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "beguiling-presence",
+          "name": "Beguiling Presence",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "other"
+      }
+    }
+  },
+  {
+    "id": "376b78c2-7b2f-584f-b86c-661aa7f5ac08",
+    "pack": "dark-archive-remastered",
+    "kind": "equipment",
+    "slug": "equipment:siblings-coin",
+    "name": "Sibling's Coin",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Member of a secret society"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Contrary to widespread belief, secret handshakes are not the preferred method of confirmation between secret society members, mostly because this would be obvious in the middle of a crowded street or busy tavern. Instead, societies tend to mark each other by carrying sibling's coins. The name was originally coined by a past secret society that has since fallen into obscurity, but its ingenious coins remain. The coins are innocuous, resembling common silver coins until the owner twists the outer edge clockwise. At this point, the face of the coin rotates to reveal the symbol of the secret society of the owner. Suspected compatriots often toy with their coins as a half-recognized fidget, before trying to subtly flash the inscription to their fellow conversationalist."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While it's possible to notice the coin's mechanism if you specifically check the coin ("
+          },
+          {
+            "type": "check",
+            "statistic": "perception",
+            "dc": 20
+          },
+          {
+            "type": "text",
+            "text": "), few people individually inspect coins unless they have a reason to be suspicious of them."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.XLuRWK7QluA2NUNn"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "3a6674c4-942c-5838-95b0-b0ecbccc3805",
+    "pack": "dark-archive-remastered",
+    "kind": "equipment",
+    "slug": "equipment:silent-bell",
+    "name": "Silent Bell",
+    "level": 9,
+    "rarity": "uncommon",
+    "traits": ["illusion", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Member of a secret society"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This large handbell is made from cast bronze and has a wooden handle. The outside of the bell is covered in fine etchings, showing a group of varied people sitting around a table with clouds obscuring anyone in the background. The clapper is curiously absent from this bell and, when idly rung, it produces no audible sound."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Ring in the Quiet",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The silent bell creates an invisible wall surrounding a cube, 20 feet to a side, that prevents sound from passing into or from the cube for 10 minutes. The wall isn't solid and doesn't prevent anything but sound from passing through. Since the cube is invisible, creatures can still read lips and body language through the wall."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ojbsJu6Uq269xx3U"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 600
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "ring-in-the-quiet",
+          "name": "Ring in the Quiet",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "cce770d2-20ae-5105-a836-156b61066434",
+    "pack": "dark-archive-remastered",
+    "kind": "equipment",
+    "slug": "equipment:society-portrait",
+    "name": "Society Portrait",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Member of a secret society"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These large portraits are commonly commissioned by secret societies to display their current member ranks, and to protect against members who would break their vows to keep their secrets. Each member being painted gives their consent to be traced by the portrait, and they agree to keep their vows for as long as their membership stands or until death, whichever comes first. This consent can be transferred to a new portrait if one is needed once the society expands, without needing another confirmation."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Should a member betray the secrets of their society, their image in the society portrait changes within 10 minutes, altering the image of the member by spelling out \"TRAITOR\" across their form. It provides no details on the specifics of the betrayal. The traitor can attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 30
+          },
+          {
+            "type": "text",
+            "text": " save or "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:deception",
+            "dc": 30
+          },
+          {
+            "type": "text",
+            "text": " check at the time they betrayed a secret to avoid the portrait revealing their treachery. The traitorous scrawl can be counteracted by dispel magic targeted at the portrait (counteract DC 20, counteract rank of 3)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.qMmg6e6GlMAM0F39"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 210
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "d9b01f6f-5188-5a85-be2a-c48bf38076ca",
+    "pack": "dark-archive-remastered",
+    "kind": "equipment",
+    "slug": "equipment:stone-of-unrivaled-skill",
+    "name": "Stone of Unrivaled Skill",
+    "level": 17,
+    "rarity": "rare",
+    "traits": ["contract", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You traded your senses to a hag for unrivaled expertise stolen from various souls who were once the greatest in their field. Your "
+          },
+          {
+            "type": "text",
+            "text": "bargained contract",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is sealed by sleeping with a pitch-black stone under your pillow every night. Choose one skill when you seal this "
+          },
+          {
+            "type": "text",
+            "text": "bargained contract",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". You become an expert in that skill; if you were already an expert, you become a master, and if you were already a master, you become legendary. Once per day, from any distance, the hag that holds your contract can take over your senses for 10 minutes, during which time the hag hears, sees, smells, tastes, and feels everything you would typically experience. During this time, you're "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " by your own disjointed senses."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Taste Fluency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You place the stone sealing your "
+          },
+          {
+            "type": "text",
+            "text": "bargained contract",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " in your mouth. For the next 10 minutes, you gain a +3 status bonus to skill checks using the skill you chose for your contract."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.pLAggVa6iDN4cpsz"
+    },
+    "data": {
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "taste-fluency",
+          "name": "Taste Fluency",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "other"
+      }
+    }
+  },
+  {
+    "id": "6947491b-d21f-57d4-9c65-ca72a734fcaa",
+    "pack": "dark-archive-remastered",
+    "kind": "equipment",
+    "slug": "equipment:tablet-of-chained-souls",
+    "name": "Tablet of Chained Souls",
+    "level": 8,
+    "rarity": "rare",
+    "traits": ["cursed", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Half-formed, unreadable runes drift across this weathered stone tablet, which resembles a tombstone too eroded to be legible. Created by a long-dead order of scholars dedicated to Pharasma, the "
+          },
+          {
+            "type": "text",
+            "text": "tablet of chained souls",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can be a powerful tool in laying uneasy spirits to rest, but its magic exacts a heavy cost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Spirit Carving",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You present the tablet to a ghost or lay it on a haunted site. The tablet's words resolve into a cryptic but accurate clue about the spirit's unfinished business. Upon reading the tablet's words, you're subject to a "
+          },
+          {
+            "type": "ref",
+            "id": "7e85a1ac-f426-579c-bdf8-13484861d9d2"
+          },
+          {
+            "type": "text",
+            "text": " that requires you to right that wrong and lay the ghost to rest. If you die without completing the task, you become a ghost, cursed to remain until another recovers the tablet and discharges your duty."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.SUgFSQJWnfTcM1ZJ"
+    },
+    "data": {
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "5b29ac8f-0369-581f-9da0-7a282839e7cd",
+    "pack": "dark-archive-remastered",
+    "kind": "equipment",
+    "slug": "equipment:taletellers-ring",
+    "name": "Taleteller's Ring",
+    "level": 9,
+    "rarity": "rare",
+    "traits": ["cursed", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Smiling faces are inscribed about this silver band. You become a fluent weaver of fictions, gaining a +2 item bonus to Deception checks to "
+          },
+          {
+            "type": "ref",
+            "id": "1ee7b671-dd18-5950-a4db-fbd4f8dae832"
+          },
+          {
+            "type": "text",
+            "text": ", Deception DCs against Sense Motive, and Performance checks for storytelling. Whenever you're under suspicion or being questioned by an authority figure, you find yourself compulsively spinning absurd, tall tales that are so unconvincing that they make you look guilty even when you're innocent. The ring's bonuses vanish, and any listener can quickly determine you're lying. Nevertheless, you're completely unable to be honest in such situations."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["action:lie"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:performance"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["option:storytelling"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["deception-dc"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["action:sense-motive"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.XQFEjwQUCXl68Pva"
+    },
+    "data": {
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn",
+        "slot": "ring"
+      }
+    }
+  },
+  {
+    "id": "0657da34-f96f-53ba-ae29-7912bfaf5243",
+    "pack": "dark-archive-remastered",
+    "kind": "equipment",
+    "slug": "equipment:tome-implement",
+    "name": "Tome Implement",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:implement-held"
+      },
+      {
+        "key": "RollOption",
+        "option": "implement:tome:equipped"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.V9mhR91d2qWa3dGh"
+    },
+    "data": {
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "0e6a3a81-42c5-5b85-a464-f15f657d5824",
+    "pack": "dark-archive-remastered",
+    "kind": "equipment",
+    "slug": "equipment:traitors-ring",
+    "name": "Traitor's Ring",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Member of a secret society"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This ring has a thick band supporting a square-cut gem that can be customized to the buyer's preference. The thickness of the band allows it to be taken to any jeweler or blacksmith to be adjusted to different hands or fingers from the original make. There is a tiny clasp at the side of the gem that, when pressed, opens the gem, revealing a small, hinged compartment. This compartment is designed to hold one dose of poison, allowing wearers to slip the contents of the ring into the food or drink of an intended target. The compartment can be closed again by gently pressing the gem back into place. Noticing the compartment requires a "
+          },
+          {
+            "type": "check",
+            "statistic": "perception",
+            "dc": 15
+          },
+          {
+            "type": "text",
+            "text": " check for anyone inspecting the ring."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.vM88qqJrUo3Yqth4"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "29e17f42-ae95-501b-8d42-2195f504716c",
+    "pack": "dark-archive-remastered",
+    "kind": "equipment",
+    "slug": "equipment:vial-of-the-immortal-wellspring",
+    "name": "Vial of the Immortal Wellspring",
+    "level": 20,
+    "rarity": "rare",
+    "traits": ["contract", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At a wellspring, you gave your blood to a force of nature and received a vial from the wellspring's heart in return. Once per 10 minutes, when your dying value would increase above 3, you instead become "
+          },
+          {
+            "type": "ref",
+            "id": "e1a78dad-4887-518e-9120-e58b7009ebfd"
+          },
+          {
+            "type": "text",
+            "text": " and are no longer dying; this doesn't prevent you from being killed by death effects or the doomed condition. Once per day, from any distance, the entity that holds your "
+          },
+          {
+            "type": "text",
+            "text": "bargained contract",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can possess you and control your actions, leaving you unaware of what goes on. This possession automatically succeeds, regardless of any countermeasures you might take. Normally this lasts for only 1 round if during an encounter, or no longer than a few minutes during exploration. However, the more you rely on the power of the wellspring's heart to survive death, the longer it can possess you the next time it chooses to do so, doubling the amount of time with each use, to a maximum duration of 1 day. Once the entity possesses you, this duration resets."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Spring of Life",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You drink from the vial of water that seals your "
+          },
+          {
+            "type": "text",
+            "text": "bargained contract",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". You gain the effects of a 9th-rank, 2-action "
+          },
+          {
+            "type": "ref",
+            "id": "949e0a89-f44b-598d-8adb-3d9d31db900e"
+          },
+          {
+            "type": "text",
+            "text": " spell."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.1JHPSOUD7Ij75OAf"
+    },
+    "data": {
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "spring-of-life",
+          "name": "Spring of Life",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "other"
+      }
+    }
+  },
+  {
+    "id": "efa4da2d-dee8-5ef1-8a5a-f438390df602",
+    "pack": "dark-archive-remastered",
+    "kind": "equipment",
+    "slug": "equipment:wand-implement",
+    "name": "Wand Implement",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:implement-held"
+      },
+      {
+        "key": "RollOption",
+        "option": "implement:wand:equipped"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ZjApNlusD5oZkPTJ"
+    },
+    "data": {
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

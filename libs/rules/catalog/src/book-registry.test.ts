@@ -37,6 +37,7 @@ describe('book registry', () => {
   test('books.json validates and has the remaster core books', () => {
     expect(bookRegistry.books.map((book) => book.id).toSorted()).toStrictEqual(
       [
+        'dark-archive-remastered',
         'divine-mysteries',
         'gm-core',
         'howl-of-the-wild',
@@ -46,6 +47,7 @@ describe('book registry', () => {
         'player-core-2',
         'rage-of-elements',
         'secrets-of-magic',
+        'tian-xia-character-guide',
         'treasure-vault',
         'war-of-immortals',
       ].map((id) => BookId.parse(id)),

@@ -26,6 +26,8 @@ export const FOUNDRY_BOOK_TITLES: ReadonlyMap<string, BookId> = new Map([
   ['Pathfinder Lost Omens The Mwangi Expanse', BookId.parse('mwangi-expanse')],
   ['Pathfinder Secrets of Magic', BookId.parse('secrets-of-magic')],
   ['Pathfinder Rage of Elements', BookId.parse('rage-of-elements')],
+  ['Pathfinder Dark Archive (Remastered)', BookId.parse('dark-archive-remastered')],
+  ['Pathfinder Lost Omens Tian Xia Character Guide', BookId.parse('tian-xia-character-guide')],
 ]);
 
 /**

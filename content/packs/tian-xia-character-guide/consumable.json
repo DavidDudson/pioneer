@@ -1,0 +1,1209 @@
+[
+  {
+    "id": "85fb0ea0-38af-502c-9dac-e670db9c6fce",
+    "pack": "tian-xia-character-guide",
+    "kind": "consumable",
+    "slug": "consumable:chilled-fire-noodles",
+    "name": "Chilled Fire Noodles",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Tian Xia origin"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These cool noodles are served with dark fermented sauces and vinegars before finally being tossed with spicy chili oil."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you consume the noodles, you temporarily ignore the -1 status penalty to AC and saving throws caused by the "
+          },
+          {
+            "type": "ref",
+            "id": "5e3582c3-701c-5169-9c69-4221096722c2"
+          },
+          {
+            "type": "text",
+            "text": " condition for 1 hour."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.lXQ9ATsfuBo1MRko"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "b25cbc8c-77c0-5638-88f2-f5a70fc6b092",
+    "pack": "tian-xia-character-guide",
+    "kind": "consumable",
+    "slug": "consumable:chilled-fire-noodles-greater",
+    "name": "Chilled Fire Noodles (Greater)",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Tian Xia origin"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These cool noodles are served with dark fermented sauces and vinegars before finally being tossed with spicy chili oil."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you consume the noodles, you temporarily ignore the -1 status penalty to AC and saving throws caused by the "
+          },
+          {
+            "type": "ref",
+            "id": "5e3582c3-701c-5169-9c69-4221096722c2"
+          },
+          {
+            "type": "text",
+            "text": " condition for 4 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.LY4HQe0WfYy95d6M"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "46b38e33-2a73-564a-92c8-f385a87a8c75",
+    "pack": "tian-xia-character-guide",
+    "kind": "consumable",
+    "slug": "consumable:cloud-buns",
+    "name": "Cloud Buns",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Tian Xia origin"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "White, pillowy dough surrounds an interior containing minced meats, spices, and herbs. The dough is steamed with elemental magic to make it light and airy while keeping the meaty center moist."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you consume a bun, a set of small clouds form around your feet that grant you a fly Speed of 30 feet or your speed, whichever is lower, for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "94440993-df77-5834-b866-caca5568aa49"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.NZDZzVgW2Pu8blar"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 17
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "6c91800c-7990-5363-94e1-cbe9208bc9d4",
+    "pack": "tian-xia-character-guide",
+    "kind": "consumable",
+    "slug": "consumable:cloud-buns-greater",
+    "name": "Cloud Buns (Greater)",
+    "level": 9,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Tian Xia origin"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "White, pillowy dough surrounds an interior containing minced meats, spices, and herbs. The dough is steamed with elemental magic to make it light and airy while keeping the meaty center moist."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you consume a bun, a set of small clouds form around your feet that grant you a fly Speed of 30 feet or your speed, whichever is lower, for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You also have a +2 item bonus to Acrobatics checks to "
+          },
+          {
+            "type": "ref",
+            "id": "1ae0ccf4-979a-5abe-a4cd-c5ecef1e4232"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "636f4b24-2fd8-55c7-a461-c2e0150a6cd7"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TioBntQv3VAnS7Wb"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 150
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "f77db643-2eee-5efc-9f14-6b804023d85d",
+    "pack": "tian-xia-character-guide",
+    "kind": "consumable",
+    "slug": "consumable:dragon-pearl",
+    "name": "Dragon Pearl",
+    "level": 10,
+    "rarity": "rare",
+    "traits": ["alchemical", "consumable", "processed"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These fermented and dried tea leaves are rolled into a ball shaped like a pearl."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When brewed as a tea and consumed, it promotes an outpouring of vital energy that surges through your body. For the next 10 minutes, you have resistance 15 to void damage, and your unarmed attacks deal an additional 1d6 points of vitality damage on a successful Strike."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While this effect is active, whenever a damaging attack or effect would reduce you to 0 Hit Points, you can use your reaction to immediately end the benefits of dragon pearl and remain conscious and standing with 10 Hit Points, increasing your "
+          },
+          {
+            "type": "ref",
+            "id": "6c4e09a7-469d-5668-8c1b-92f87de94d27"
+          },
+          {
+            "type": "text",
+            "text": " condition by 1."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "0a92812d-2eda-5e13-b95b-87fd979d5acb"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.g6agII64qc6wuSiP"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 180
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "325d0826-7e70-5a25-996d-00a404006ed2",
+    "pack": "tian-xia-character-guide",
+    "kind": "consumable",
+    "slug": "consumable:ghost-fowl-porridge",
+    "name": "Ghost Fowl Porridge",
+    "level": 9,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Tian Xia origin"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This robust porridge—made from a cockatrice distilled into a broth, hot peppers from a demonic source, and various toppings—causes diners to utter a ghostly wail from the intense heat."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Consuming the porridge grants you a +2 item bonus to saving throws against being "
+          },
+          {
+            "type": "ref",
+            "id": "3d9defdb-7a92-5ba7-817e-e95b3811cf7f"
+          },
+          {
+            "type": "text",
+            "text": " for 1 hour. You also gain resistance 3 against physical damage for the duration."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "1d9ad047-b7af-54f7-a9e0-f0f36b1a5b0c"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Vemy5QGbLRdPedcP"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 140
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "d122f8aa-904d-52b9-baef-1a980a549b78",
+    "pack": "tian-xia-character-guide",
+    "kind": "consumable",
+    "slug": "consumable:iron-wine",
+    "name": "Iron Wine",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable", "elixir"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Tian Xia origin"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This strong, clear liquor is made from fermented rice."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you drink a cup of iron wine, your sweat becomes highly combustive for the next 10 minutes, igniting with the slightest bit of friction. This causes your unarmed attacks to deal an additional 1d4 fire damage for the duration of the effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "99b3d56b-4f5e-596e-94a0-3e06adc9749e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drinking more than one cup of iron wine in a single day gives you weakness 5 to fire until your next daily preparations."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "60757ae4-35ea-58db-afb2-969eba0dc9fa"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.DOJxQLwkDvebbLWJ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "a767ab7f-fc10-52dd-9bc9-dd84f8012019",
+    "pack": "tian-xia-character-guide",
+    "kind": "consumable",
+    "slug": "consumable:peachwood-talisman",
+    "name": "Peachwood Talisman",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Tian Xia origin"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Symbols of good fortune and luck are carved on this thin, square wooden plaque. It smells of sandalwood from the blessings placed upon it. After activation, for the next minute, you can sense attacks from undead. You aren't "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " to "
+          },
+          {
+            "type": "ref",
+            "id": "d851e3ca-be0d-55a7-a4d1-d7ed8b7ecafa"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "61f1fec4-1bb4-585d-9c12-6059d15dd74b"
+          },
+          {
+            "type": "text",
+            "text": ", or flanking undead of your level or lower, or undead of your level or lower using surprise attack. However, they can still help their allies flank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.GiiBkaa5JaJ5msPS"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 40
+        }
+      },
+      "bulk": "negligible",
+      "category": "talisman",
+      "usage": {
+        "type": "affixed",
+        "to": "armor"
+      }
+    }
+  },
+  {
+    "id": "b2932e9b-6077-5f49-ae00-b845ffc4d2d8",
+    "pack": "tian-xia-character-guide",
+    "kind": "consumable",
+    "slug": "consumable:preserved-moonflower",
+    "name": "Preserved Moonflower",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Tian Xia origin"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Though these preserved vegetables aren't actual moonflowers, they're made using a moonflower-distilled vinegar."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When consumed, tendrils sprout from your veins and curl around you, granting you a +2 status bonus to saves against void effects for 10 minutes and reducing your wounded condition by up to 2."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "fe400341-ecc6-59ba-9963-c0c9abdbd5ad"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Eating more than one preserved moonflower dish in a day doesn't grant further benefits and makes you "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ebpO5kKJBEvbZQrQ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 60
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "ad5bcd5b-47ef-5167-a127-4af40527c872",
+    "pack": "tian-xia-character-guide",
+    "kind": "consumable",
+    "slug": "consumable:rainbow-vinegar-greater",
+    "name": "Rainbow Vinegar (Greater)",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable", "elixir"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Tian Xia origin"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Black swill with multicolored ribbons makes this vinegar look like an oil spill."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ingesting a dose of rainbow vinegar makes your sweat acidic and nonconductive for 10 minutes. During this time, your unarmed attacks deal an additional 1d8 acid damage, and you have resistance 15 to electricity. Vampires find this vinegar particularly harmful and take an additional 2d8 acid damage instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "3c926486-632a-5e80-b2dc-8d8df7c01bfd"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Taking more than one dose of rainbow vinegar in a single day gives you weakness 5 to acid until your next daily preparations."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "7884f239-9e5a-54d4-a083-73d6245d2a3f"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.iq7hL6HDsPCPU4pt"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 110
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "2852bf9d-1aa9-5cab-9b66-0b293a38693a",
+    "pack": "tian-xia-character-guide",
+    "kind": "consumable",
+    "slug": "consumable:rainbow-vinegar-moderate",
+    "name": "Rainbow Vinegar (Moderate)",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable", "elixir"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Tian Xia origin"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Black swill with multicolored ribbons makes this vinegar look like an oil spill."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ingesting a dose of rainbow vinegar makes your sweat acidic and nonconductive for 10 minutes. During this time, your unarmed attacks deal an additional 1d4 acid damage, and you have resistance 10 to electricity. Vampires find this vinegar particularly harmful and take an additional 2d4 acid damage instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "3c926486-632a-5e80-b2dc-8d8df7c01bfd"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Taking more than one dose of rainbow vinegar in a single day gives you weakness 5 to acid until your next daily preparations."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "7884f239-9e5a-54d4-a083-73d6245d2a3f"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.NVssWHKyKlaRmHog"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

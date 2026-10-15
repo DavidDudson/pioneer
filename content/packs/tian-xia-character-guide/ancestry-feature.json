@@ -1,0 +1,178 @@
+[
+  {
+    "id": "ce3ae33a-bf2d-5a16-9be2-16bf39668c89",
+    "pack": "tian-xia-character-guide",
+    "kind": "ancestry-feature",
+    "slug": "ancestry-feature:cryptomnesia",
+    "name": "Cryptomnesia",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["samsaran"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You retain bits of knowledge from your former lives. You gain a +1 circumstance bonus to untrained skill checks."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["proficiency:untrained"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.QLSvmOid6gAdzBYi"
+    },
+    "data": {}
+  },
+  {
+    "id": "7ca443ed-b892-5417-9f41-e343320fd09e",
+    "pack": "tian-xia-character-guide",
+    "kind": "ancestry-feature",
+    "slug": "ancestry-feature:head-gem",
+    "name": "Head Gem",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["sarangay"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Upon your brow is a gem that houses your soul. When casting any spell or ritual to return you to life, your intact "
+          },
+          {
+            "type": "ref",
+            "id": "07aec27b-b15d-5f5b-9a42-6666b0dc96c4"
+          },
+          {
+            "type": "text",
+            "text": " can be substituted for your body. While you can freely remove your head gem, it's typically impossible for another creature to forcibly remove or destroy your head gem unless you're killed or permanently incapacitated first; at the GM's discretion, powerful magic or abilities can circumvent this restriction. If your head gem is removed or destroyed, it can be regrown using a day-long ritual. When this occurs, any remains of the previous gem immediately crumble to dust."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.HYefFkddD9lOhFM8"
+    },
+    "data": {}
+  },
+  {
+    "id": "4b72f2a6-d4a1-5a48-a9b3-e1b44a7e1ee8",
+    "pack": "tian-xia-character-guide",
+    "kind": "ancestry-feature",
+    "slug": "ancestry-feature:horns-sarangay",
+    "name": "Horns (Sarangay)",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["sarangay"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your powerful horns are formidable weapons. You have a horns unarmed attack that deals 1d6 piercing damage and has the shove trait. Your horns are in the brawling group."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "horns",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["unarmed", "shove"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "piercing"
+        },
+        "display": {
+          "label": "Horns"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.LhgVj9GhPsXGfwAM"
+    },
+    "data": {}
+  },
+  {
+    "id": "471bbf49-823d-541e-8171-4063a5c2aad8",
+    "pack": "tian-xia-character-guide",
+    "kind": "ancestry-feature",
+    "slug": "ancestry-feature:wanderers-soul",
+    "name": "Wanderer's Soul",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["samsaran"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your soul is especially able to return to the cycle of reincarnation. When you're the subject of "
+          },
+          {
+            "type": "ref",
+            "id": "0fc0fff7-19d9-5610-a6c7-b586b4e07cad"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "2538cc40-43fa-5583-994b-db2735d6d75c"
+          },
+          {
+            "type": "text",
+            "text": ", or a similar ritual that would return you to life, the primary caster uses the outcome one degree of success better than their roll. You always return to life as a samsaran, even if the ritual would reincarnate you into a body of a different ancestry."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.D6AjSg0JOYtn7Coa"
+    },
+    "data": {}
+  }
+]

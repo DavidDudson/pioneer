@@ -1,0 +1,412 @@
+[
+  {
+    "id": "73c95613-17f1-58fa-8c0b-780dc39a55ed",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:deadly-d4",
+    "name": "Deadly d4",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "3f0af599-fdab-505f-afc4-b4af9404199b",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:hungerseed",
+    "name": "Hungerseed",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "20da7874-f215-562a-b8cf-f981891426ee",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:kitsune",
+    "name": "Kitsune",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "de168c12-aca7-5acb-9734-4859a0211a1d",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:modification",
+    "name": "Modification",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "feat"]
+    }
+  },
+  {
+    "id": "9c2ee4d6-bd02-5bd7-9278-6adefad2486b",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:nagaji",
+    "name": "Nagaji",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "0848edd8-6316-5419-ba12-1fec48c89eb7",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:oni",
+    "name": "Oni",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["ancestry", "creature", "heritage"]
+    }
+  },
+  {
+    "id": "699aa268-c03f-5db9-8a96-d192e707d1e0",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:poppet",
+    "name": "Poppet",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "c5ac5092-9275-5c89-8d76-39f6091aff73",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:samsaran",
+    "name": "Samsaran",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "3e65bcbd-ef90-5115-8fe6-2a88536fb284",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:sarangay",
+    "name": "Sarangay",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "9a2b39dc-6de7-5a28-9728-56fb84dc024f",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:sprite",
+    "name": "Sprite",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "c58759ba-5b9c-5860-8a06-2e9326edc0e9",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:tanuki",
+    "name": "Tanuki",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "85ebf02c-673d-5afa-980a-f6c95b17ba61",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:unstable",
+    "name": "Unstable",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "feat"]
+    }
+  },
+  {
+    "id": "04e15689-b84d-5566-b365-a8cd934b9d9a",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:wayang",
+    "name": "Wayang",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "05236aed-2c95-54a1-b0f9-59e7a4ece32b",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:yaksha",
+    "name": "Yaksha",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "b9ed5cfb-a191-5982-a0f5-202e3f2d94e8",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:yaoguai",
+    "name": "Yaoguai",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  }
+]

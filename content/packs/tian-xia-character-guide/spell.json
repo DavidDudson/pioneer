@@ -1,0 +1,615 @@
+[
+  {
+    "id": "a94ac73a-355b-5b51-a2c2-9c7af1ac486c",
+    "pack": "tian-xia-character-guide",
+    "kind": "spell",
+    "slug": "spell:home-among-mulberry-leaves",
+    "name": "Home Among Mulberry Leaves",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["focus", "magus", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're wielding qi-infused fabric."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Qi-formed threads unravel from your fabric on conjured needles as your attack makes contact with an enemy and wraps it in place like an insect in its cocoon. Make a melee Strike with your qi-infused fabric. On a success, the target is "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": " until the start of your next turn, though it can attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "2ae74030-e87a-55ee-955c-fb9870392d44"
+          },
+          {
+            "type": "text",
+            "text": " against your spell DC. On a critical success, your needles anchor in the target's nerve centers after the threads bind it, making it your choice of "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 1"
+          },
+          {
+            "type": "text",
+            "text": " until the start of your next turn, in addition to immobilizing it."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.JIphJbkWHndtFk72"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "one"
+      },
+      "requirements": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You're wielding qi-infused fabric."
+            }
+          ]
+        }
+      ],
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
+    "id": "40bcc8d7-2e0d-5cbc-ade5-c5d6158e7e22",
+    "pack": "tian-xia-character-guide",
+    "kind": "spell",
+    "slug": "spell:luminous-stardust-healing",
+    "name": "Luminous Stardust Healing",
+    "level": 2,
+    "rarity": "rare",
+    "traits": ["concentrate", "focus", "healing", "manipulate", "spirit"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You scatter twinkling sparks from your sentinel weapon, replenishing your allies' fighting spirit and driving out evil. The target regains 16 Hit Points. If they were affected by a possession effect, you attempt to counteract the effect, casting out the possessing entity on a success and preventing them from possessing the target again for 1 week. If you fail, the entity is immune to being cast out by this spell for 1 week, though you can still heal the target as normal."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The amount of healing increases by 8."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.1H3T9UwxW44Y0YaS"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "traditions": [],
+      "damage": [
+        {
+          "key": "is7bqgout0p4zhzj",
+          "formula": "16",
+          "kinds": ["healing"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "is7bqgout0p4zhzj",
+            "formula": "8"
+          }
+        ]
+      },
+      "counteraction": true
+    }
+  },
+  {
+    "id": "3cb5ebb6-8c3e-545c-8b6f-1d65a04b19f1",
+    "pack": "tian-xia-character-guide",
+    "kind": "spell",
+    "slug": "spell:shining-starlight-attack",
+    "name": "Shining Starlight Attack",
+    "level": 2,
+    "rarity": "rare",
+    "traits": ["concentrate", "focus", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Area",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " varies (see below)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You brandish your sentinel weapon, summoning the image of your constellation above your head. The constellation then releases a powerful blast that deals 2d10 damage to all enemies in either a "
+          },
+          {
+            "type": "template",
+            "shape": "line",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": ", with a basic save against your arcane spell DC. Enemies that critically fail are "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " until the start of your next turn. The damage type, traits, area, and saving throw are determined by your zodiac constellation (see below)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by 1d10."
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Constellation"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Attack (Area, Save, Damage Type; Traits)"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "Underworld Dragon"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Volcanic vents (line, Reflex, fire)"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Ogre"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Wild club swing (cone, Fortitude, bludgeoning)"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Swordswoman"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Falling blades of light (line, Reflex, piercing)"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Forest Dragon"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Swarm of insects (cone, Fortitude, poison)"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Sea Dragon"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Pressurized seawater (line, Reflex, piercing; water trait)"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Blossom"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Storming petals and pollen (line, Fortitude; poison, plant, wood)"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Swallow"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Wing gust (cone, Reflex, slashing; air)"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Dog"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "A biting dog (line, Reflex, slashing)"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Ox"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "A trampling ox (line, Reflex, bludgeoning)"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Sky Dragon"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Draconic lightning (line, Reflex, electricity)"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Sovereign Dragon"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Psychic roar (cone, Will, mental)"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Archer"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Hail of silver arrows (piercing, cone, Reflex)"
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.yuhhRjqBzFgkKYrq"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "traditions": [],
+      "damage": [
+        {
+          "key": "0",
+          "formula": "2d10",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "0",
+            "formula": "1d10"
+          }
+        ]
+      },
+      "variants": [
+        {
+          "name": "Shining Starlight Attack (Fortitude)",
+          "defense": {
+            "save": {
+              "statistic": "save:fortitude",
+              "basic": true
+            }
+          },
+          "damage": [
+            {
+              "key": "0",
+              "formula": "2d10",
+              "kinds": ["damage"]
+            }
+          ]
+        },
+        {
+          "name": "Shining Starlight Attack (Reflex)",
+          "defense": {
+            "save": {
+              "statistic": "save:reflex",
+              "basic": true
+            }
+          },
+          "damage": [
+            {
+              "key": "0",
+              "formula": "2d10",
+              "kinds": ["damage"]
+            }
+          ]
+        },
+        {
+          "name": "Shining Starlight Attack (Will)",
+          "defense": {
+            "save": {
+              "statistic": "save:will",
+              "basic": true
+            }
+          },
+          "damage": [
+            {
+              "key": "0",
+              "formula": "2d10",
+              "kinds": ["damage"]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "4432dc12-8f94-5bf6-ad59-619561eae0cd",
+    "pack": "tian-xia-character-guide",
+    "kind": "spell",
+    "slug": "spell:sky-laughs-at-waves",
+    "name": "Sky Laughs at Waves",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["focus", "magus", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're wielding a one-handed weapon in the sword group."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You soar and leave the world's squabbles behind before your violent intentions ground you once more. Fly up to your Speed, then make a Strike with your sword against an adjacent creature at the end of your movement. If you don't have any other means of flying, you fall after the Strike. If you can't end your movement adjacent to an enemy, this spell is disrupted."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.2C0ftvzTwYgzb3Qt"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "one"
+      },
+      "requirements": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You're wielding a one-handed weapon in the sword group."
+            }
+          ]
+        }
+      ],
+      "traditions": [],
+      "damage": []
+    }
+  }
+]

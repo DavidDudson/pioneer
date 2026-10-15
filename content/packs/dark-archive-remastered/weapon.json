@@ -1,0 +1,85 @@
+[
+  {
+    "id": "b0834564-1ac4-5d02-9f10-4f7921e5e6b4",
+    "pack": "dark-archive-remastered",
+    "kind": "weapon",
+    "slug": "weapon:dog-bone-knife",
+    "name": "Dog-Bone Knife",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["agile", "finesse", "thrown-10", "versatile-s"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The blade of this "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking dagger",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is made from the thigh bone of a canine that died in the act of protecting its master. A werecreature or other creature willingly under the effects of a non-permanent polymorph effect damaged by a "
+          },
+          {
+            "type": "text",
+            "text": "dog-bone knife",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 19
+          },
+          {
+            "type": "text",
+            "text": " save or immediately revert to its natural form-this has no effect on a creature unwillingly polymorphed. On a successful save, the creature is temporarily immune to this effect for 1 minute. Kushtakas and other creatures vulnerable to canines take a -2 circumstance penalty to saves against this effect, and this weapon overcomes any resistance such creatures have to physical attacks."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.6rWcLbV82KYwaHo1"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 150
+        }
+      },
+      "bulk": 1,
+      "category": "simple",
+      "group": "knife",
+      "baseItem": "dagger",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": []
+      }
+    }
+  }
+]

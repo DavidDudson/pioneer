@@ -12,6 +12,8 @@ import {
   playerCore2Pack,
   playerCorePack,
   rageOfElementsPack,
+  darkArchiveRemasteredPack,
+  tianXiaCharacterGuidePack,
   secretsOfMagicPack,
   treasureVaultPack,
   warOfImmortalsPack,
@@ -74,6 +76,8 @@ export const officialPacks: readonly PackContentsLoader[] = [
   checkedLoader('mwangi-expanse', mwangiExpansePack),
   checkedLoader('secrets-of-magic', secretsOfMagicPack),
   checkedLoader('rage-of-elements', rageOfElementsPack),
+  checkedLoader('dark-archive-remastered', darkArchiveRemasteredPack),
+  checkedLoader('tian-xia-character-guide', tianXiaCharacterGuidePack),
   checkedLoader('gm-core', gmCorePack),
 ];
 

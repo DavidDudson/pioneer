@@ -1,0 +1,3724 @@
+[
+  {
+    "id": "2056606d-7efa-51f8-a41b-319b9aeb72d9",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-acupuncturist",
+    "name": "Effect: Acupuncturist",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "890e6bdd-f582-5c32-beb4-71066e9a5c22"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You grant your ally the choice of a circumstance bonus to one downtime activity skill check. On a critical failure, your ally takes a –1 circumstance penalty to all downtime activity skill checks instead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.fHM9xvCBWrBqcDQY"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 7,
+        "unit": "day",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "88909864-56eb-527c-b0a8-d0da923662f9",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-adamantine-body",
+    "name": "Effect: Adamantine Body",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "56e90096-d81f-5395-8012-cbf557553e71"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance equal to 2 + half your level against all damage from the triggering attack or effect."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["all"],
+        "value": "2 + floor(@level / 2)"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.ReqVLQUQy7Y91IiB"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "64d124ec-2bb2-5c7a-a54a-945c2b7e307a",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-avowed-insight",
+    "name": "Effect: Avowed Insight",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "63fc9f69-1b52-5b89-b506-58cf564b2514"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to AC and saving throws against the marked creature's attacks and abilities."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "saving-throw"],
+        "type": "untyped",
+        "value": 1,
+        "predicate": ["origin:mark:avowed-insight"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.P4EkIpTqPDB3gNba"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "d846852d-4589-5bd3-85c6-dd8c0637fd98",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-blade-of-the-heart",
+    "name": "Effect: Blade of the Heart",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "73fa9c65-8a21-5f44-a3b5-09ec663a7eab"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your transformed weapon gains one of the following weapon property runes on your weapon: corrosive, flaming, frost, shock, thundering, or vitalizing."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At 16th level, you draw the greater version of the rune instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "rune",
+        "choices": [
+          {
+            "value": "corrosive",
+            "label": "Corrosive",
+            "predicate": [
+              {
+                "lt": ["self:level", 16]
+              }
+            ]
+          },
+          {
+            "value": "greater-corrosive",
+            "label": "Greater Corrosive",
+            "predicate": [
+              {
+                "gte": ["self:level", 16]
+              }
+            ]
+          },
+          {
+            "value": "flaming",
+            "label": "Flaming",
+            "predicate": [
+              {
+                "lt": ["self:level", 16]
+              }
+            ]
+          },
+          {
+            "value": "greater-flaming",
+            "label": "Greater Flaming",
+            "predicate": [
+              {
+                "gte": ["self:level", 16]
+              }
+            ]
+          },
+          {
+            "value": "frost",
+            "label": "Frost",
+            "predicate": [
+              {
+                "lt": ["self:level", 16]
+              }
+            ]
+          },
+          {
+            "value": "greater-frost",
+            "label": "Greater Frost",
+            "predicate": [
+              {
+                "gte": ["self:level", 16]
+              }
+            ]
+          },
+          {
+            "value": "shock",
+            "label": "Shock",
+            "predicate": [
+              {
+                "lt": ["self:level", 16]
+              }
+            ]
+          },
+          {
+            "value": "greater-shock",
+            "label": "Greater Shock",
+            "predicate": [
+              {
+                "gte": ["self:level", 16]
+              }
+            ]
+          },
+          {
+            "value": "thundering",
+            "label": "Thundering",
+            "predicate": [
+              {
+                "lt": ["self:level", 16]
+              }
+            ]
+          },
+          {
+            "value": "greater-thundering",
+            "label": "Greater Thundering",
+            "predicate": [
+              {
+                "gte": ["self:level", 16]
+              }
+            ]
+          },
+          {
+            "value": "disrupting",
+            "label": "Vitalizing",
+            "predicate": [
+              {
+                "lt": ["self:level", 16]
+              }
+            ]
+          },
+          {
+            "value": "greater-disrupting",
+            "label": "Greater Vitalizing",
+            "predicate": [
+              {
+                "gte": ["self:level", 16]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.5yfA4sAo0CjXIYDr"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "aa0aef47-24b7-5b28-83b6-db9b47601f16",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-bold-defiance",
+    "name": "Effect: Bold Defiance",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "e29b39b4-ec6c-5ecb-8c74-c2e6f5bb94d3"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points equal to your level."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@level"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.xYd4G4yPLHSWWWvT"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "d57a3da0-c5d6-54eb-b565-9773ce9b605e",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-celestial-yaoguai-might",
+    "name": "Effect: Celestial Yaoguai Might",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "5b003f65-bb61-58e3-a08e-769a939d31fd"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to attack rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll"],
+        "type": "status",
+        "value": 1,
+        "display": {
+          "label": "Unleash Yaoguai Might"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.D1SUxDvtDyqwdXqO"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "94440993-df77-5834-b866-caca5568aa49",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-cloud-buns",
+    "name": "Effect: Cloud Buns",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "46b38e33-2a73-564a-92c8-f385a87a8c75"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a fly Speed of 30 feet or your speed, whichever is lower."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": "min(30, @stat.speed.land)"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.YcHGSplvY5Vbqfc8"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "636f4b24-2fd8-55c7-a461-c2e0150a6cd7",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-cloud-buns-greater",
+    "name": "Effect: Cloud Buns (Greater)",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "6c91800c-7990-5363-94e1-cbe9208bc9d4"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a fly Speed of 30 feet or your speed, whichever is lower."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You also gain a +2 item bonus to Acrobatics checks to Maneuver in Flight."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": "min(30, @stat.speed.land)"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:acrobatics"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["action:maneuver-in-flight"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.bDcRrcC6VlkenVK4"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "960ef716-a48a-5368-9fc9-e8f527612f99",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-dissolutions-sight",
+    "name": "Effect: Dissolution's Sight",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "b5f648cd-b64f-5535-acdb-d71591b243ff"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain greater darkvision."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "d9c41f9d-318a-5062-b129-db87b8f08f5e"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.EcVitI0Wqu3uNfaK"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "f07fb683-97f1-5b3c-aced-207f4d17aedd",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-dragon-chill",
+    "name": "Effect: Dragon Chill",
+    "level": 14,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "78689e99-c4d3-5f38-ac86-1ac4e5db2849"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The "
+          },
+          {
+            "type": "text",
+            "text": "Frost Fair Yanyuedao",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " gains the effects of a "
+          },
+          {
+            "type": "text",
+            "text": "greater frost",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:slug:frost-fair-yanyuedao"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "greater-frost"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.TxGrhZe4NUSOpCxt"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "0a92812d-2eda-5e13-b95b-87fd979d5acb",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-dragon-pearl",
+    "name": "Effect: Dragon Pearl",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f77db643-2eee-5efc-9f14-6b804023d85d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance 15 to void damage, and your unarmed attacks deal an additional 1d6 points of vitality damage on a successful Strike."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["void"],
+        "value": 15
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["unarmed-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "vitality"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.APYXxkfZ9xf7HNf9"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "1530defd-e600-51ce-a5fe-1e34ed488c89",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-familiars-resolve",
+    "name": "Effect: Familiar's Resolve",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "91ef4abe-a1b2-5094-874d-7881bd22fb74"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a status bonus to saving throws against effects that would cause you to be "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": "ternary(gte(@level, 14), 3, 2)",
+        "predicate": [
+          {
+            "or": ["inflicts:doomed", "inflicts:frightened"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.6I4qWkHzxj4MAt6g"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "90e5d7d9-52eb-5b6a-a48e-ff05a3839c30",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-fluttering-distraction",
+    "name": "Effect: Fluttering Distraction",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "011345c6-f728-5b8a-9cba-1a3e858bc35f"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The enemy must roll its attack twice and take the lower result."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.1aMjsd08O2v5TNG2"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "db8d86b7-c931-585d-86cf-6cf0e7cf8223",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-geobukseon-retaliation",
+    "name": "Effect: Geobukseon Retaliation",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "e5c0010e-7e18-5861-b04c-6418be1da370"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +4 circumstance bonus to AC and resistance 2 to bludgeoning, piercing, and slashing damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 4
+      },
+      {
+        "key": "Resistance",
+        "type": ["physical"],
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.GboCEoWR636VR9Z6"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "1d9ad047-b7af-54f7-a9e0-f0f36b1a5b0c",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-ghost-fowl-porridge",
+    "name": "Effect: Ghost Fowl Porridge",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "325d0826-7e70-5a25-996d-00a404006ed2"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 item bonus to saving throws against being petrified, and you gain resistance 3 against physical damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["inflicts:petrified"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["physical"],
+        "value": 3
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.mq5J4p6vLenAuqsC"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "e5287ed6-c699-59b3-bf67-a4a3a8699a23",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-gods-palm-temporary-hit-points",
+    "name": "Effect: God's Palm (Temporary Hit Points)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f74fb349-64f7-547b-b7f9-85d575eedb58"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points equal to half your level."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "floor(@level / 2)"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.KqyxpiGpEuju3d4z"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "578442d7-cce5-5c63-8f53-cf3c6da0bb96",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-hasty-celebration",
+    "name": "Effect: Hasty Celebration",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c9773705-a1b3-50c2-b8b6-074912e5df46"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You grant all allies within 60 feet a +2 circumstance bonus to attack rolls and damage, and you're "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " to all enemies."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.J8WkLtuY0RpcjI8q"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "cfe99836-92e6-5808-97c4-8335f3b64a4f",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-howling-aspect",
+    "name": "Effect: Howling Aspect",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "50290d3f-187e-5279-8602-216ca4cfe56c"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a tusks melee unarmed attack that deals 1d6 piercing damage, is in the brawling group, and has the finesse and unarmed traits. You also gain a flame-hair melee unarmed attack that deals 1d4 fire damage, is in the brawling group, and has the agile, finesse, and unarmed traits."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "tusks",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["finesse", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "piercing"
+        },
+        "display": {
+          "label": "Tusk"
+        }
+      },
+      {
+        "key": "Strike",
+        "slug": "flame-hair",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["agile", "finesse", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d4",
+          "damageType": "fire"
+        },
+        "display": {
+          "label": "Flame-Hair"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.HohNWN5sdJW3naYe"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "99b3d56b-4f5e-596e-94a0-3e06adc9749e",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-iron-wine",
+    "name": "Effect: Iron Wine",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "d122f8aa-904d-52b9-baef-1a980a549b78"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your unarmed attacks deal an additional 1d4 fire damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["unarmed-damage"],
+        "diceNumber": 1,
+        "dieSize": "d4",
+        "damageType": "fire"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.cUm05scv7getd79d"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "60757ae4-35ea-58db-afb2-969eba0dc9fa",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-iron-wine-weakness",
+    "name": "Effect: Iron Wine Weakness",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "d122f8aa-904d-52b9-baef-1a980a549b78"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain weakness 5 to fire."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Weakness",
+        "type": ["fire"],
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.nQ1LawgHvC7NZmiN"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "day",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "15c75487-a86b-5e55-a786-66cc4b870322",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-kindling",
+    "name": "Effect: Kindling",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "89ae0bf8-f3aa-50c0-bdac-0e7d2ec6e3a8"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a status bonus to the damage of a spell that has the fire trait equal to twice the spell rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.Pe4qwrE1oU68iW4g"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "8249ca67-fd29-5c81-b0c0-1cf8a7193623",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-kishin-rage",
+    "name": "Effect: Kishin Rage",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "121cb560-df7a-543a-a5b7-227e6a9ea32f"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain 40 temporary Hit Points, a fly Speed equal to your Speed, and your horns deal an additional 1d4 electricity damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 40
+      },
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": "@stat.speed.land"
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["horns-damage"],
+        "diceNumber": 1,
+        "dieSize": "d4",
+        "damageType": "electricity",
+        "predicate": ["item:tag:hungerseed-horns"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.TKuUezmnwVftoCcL"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "e7c86777-0219-5ff8-a0e1-68ae785544c2",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-legendary-monster",
+    "name": "Effect: Legendary Monster",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "885b08d9-878c-52dd-a3ca-b059468ccf12"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you Unleash Yaoguai Might, you can gain one of the following additional benefits."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Your body grows to impossible heights. Your "
+                },
+                {
+                  "type": "ref",
+                  "id": "b76d119e-0d8d-52ad-8cca-1a224c3077ae"
+                },
+                {
+                  "type": "text",
+                  "text": " effect is heightened to 4th rank."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Your spiritual power erupts to punish your enemies. You deal an additional 1d4 spirit damage with all Strikes and attack spells, and your Strikes and attack spells gain the spirit trait."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You can leap off the air itself. You gain the effects of the "
+                },
+                {
+                  "type": "ref",
+                  "id": "5ff17619-93b1-5680-ad41-5f66ad9a8c0b"
+                },
+                {
+                  "type": "text",
+                  "text": " spell."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-legendary-monster",
+        "choices": [
+          {
+            "value": "enlarge",
+            "label": "4th rank Enlarge"
+          },
+          {
+            "value": "damage",
+            "label": "Additional spirit damage"
+          },
+          {
+            "value": "fly",
+            "label": "Fly Speed"
+          }
+        ],
+        "prompt": "Choose an additional benefit",
+        "rollOption": "legendary-monster-boost"
+      },
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": "max(20, @stat.speed.land)",
+        "predicate": ["change-shape:yaoguai", "legendary-monster-boost:fly"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage", "spell-damage"],
+        "diceNumber": 1,
+        "dieSize": "d4",
+        "damageType": "spirit",
+        "predicate": ["change-shape:yaoguai", "legendary-monster-boost:damage"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "03a84c98-7023-56c4-bf79-1bf3e0a4cd01"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.ELCODoiGDBEqRAtT"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "6cacb0b1-e1e6-5e38-87c2-4f28ec9dae78",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-lightning-armillary",
+    "name": "Effect: Lightning Armillary",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "eff45953-5863-56b2-8f0e-d00a5d45f6ca"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your weapon or hand deals an additional 1d6 electricity damage, or 1d8 electricity damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.QVk0oRgc1pRwhG7U"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "5189f08d-64ef-5e52-9286-51d88f8c0116",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-memory-of-skill",
+    "name": "Effect: Memory of Skill",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "8421d805-e875-54be-ae62-19f8681fdff0"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You temporarily increase your proficiency rank with that skill by one step."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.K0VkhTXXmyGPilVN"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "fbbaf54a-07d1-5d47-bf08-c0fe1b96a0a6",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-oni-form",
+    "name": "Effect: Oni Form",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "dfd9d61f-42e0-54db-80c2-d30cef265b14"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your size increases to Large, and you're "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": ". This doesn't change your Speed, reach, or other statistics except as noted here."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "CreatureSize",
+        "value": "large",
+        "resizeEquipment": true
+      },
+      {
+        "key": "GrantItem",
+        "item": "69f88e3c-d871-5fb9-82c6-120348a7c0e8"
+      },
+      {
+        "key": "Change",
+        "selector": "reach",
+        "mode": "add",
+        "value": 5,
+        "predicate": ["feat:greater-transformation"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.8iLsH0McVDbPGMJ3"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start",
+        "sustained": true
+      }
+    }
+  },
+  {
+    "id": "3b44708c-d78b-5f02-ad1a-196384aece3a",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-packed-with-flavor",
+    "name": "Effect: Packed with Flavor",
+    "level": 12,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "12c5ab98-c2d3-5cec-a5f6-c8053fcf6f10"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.U9tJvfQDdpsf5Ipd"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "acb1ff12-6ca5-51da-a600-a6cca7009517",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-path-of-the-tempest",
+    "name": "Effect: Path of the Tempest",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "203d2ae6-a3d5-5ac8-87bd-b3316c4e6e9f"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your familiar summons winds that speed up and protect you. You gain a +10-foot status bonus to your Speed until the end of your turn. When you Stride this turn, you don't trigger reactions. In addition, you don't need to Stride before a "
+          },
+          {
+            "type": "ref",
+            "id": "a76317a3-de3d-58c2-8b3e-5a73b09657be"
+          },
+          {
+            "type": "text",
+            "text": " this turn."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "status",
+        "value": 10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.2CJwgnCsYtk4R5sO"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "23a1ea67-d651-553f-9f4b-b50cb04216c9",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-prepare-elemental-medicine",
+    "name": "Effect: Prepare Elemental Medicine",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "2d9dd107-0a45-5ef9-b4c3-c2d49a1365c2"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a circumstance bonus to saves against an affliction, or a –1 circumstance penalty on a critical failure."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you have "
+          },
+          {
+            "type": "ref",
+            "id": "dde7ae94-fd28-550e-a47e-8cb3c87bf348"
+          },
+          {
+            "type": "text",
+            "text": " and use Occultism to Prepare Elemental Medicine, the recipient gains resistance and weakness to vitality damage and void damage based on the element you chose."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "skill",
+        "choices": [
+          {
+            "value": "crafting",
+            "label": "Crafting"
+          },
+          {
+            "value": "herbalism-lore",
+            "label": "Herbalism Lore"
+          },
+          {
+            "value": "medicine",
+            "label": "Medicine"
+          },
+          {
+            "value": "occultism",
+            "label": "Occultism",
+            "predicate": ["parent:origin:item:tag:energy-fortification"]
+          }
+        ],
+        "prompt": "Select a skill.",
+        "rollOption": "prepare-elemental-medicine:skill",
+        "predicate": [
+          {
+            "or": ["parent:origin:item:tag:energy-fortification", "feat:intensified-element-stance"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.ZqEOsqnGFLI2ob9m"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "day",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "fe400341-ecc6-59ba-9963-c0c9abdbd5ad",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-preserved-moonflower",
+    "name": "Effect: Preserved Moonflower",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "b2932e9b-6077-5f49-ae00-b845ffc4d2d8"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus to saves against void effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["item:trait:void"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.32VbgOcmqIqRpWIU"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "7fdd0c0f-87b6-5484-a407-a967a1c70f06",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-protective-cycle",
+    "name": "Effect: Protective Cycle",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "031bd8af-ccc0-5248-95a3-d31b408f7dc7"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.1VwsQa7SyUviSoFA"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "07eaa4ce-a3b3-55ba-848a-2e58a441f21b",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-protective-pose",
+    "name": "Effect: Protective Pose",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "9db55085-11ec-5d54-997f-8b872700592b"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance to either acid, cold, electricity, fire, or sonic damage equal to half the origin's level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.qIPl31SfvT993Lyz"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "a6e1ab49-49c2-590e-b699-68c7949486a4",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-pushing-wind",
+    "name": "Effect: Pushing Wind",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "a5156eb8-7c48-59e0-a0b5-3675c9f3387c"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +5-foot circumstance bonus to land Speed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed", "fly-speed"],
+        "type": "circumstance",
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.AOqlEOF3Q7w9XYFp"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "3c926486-632a-5e80-b2dc-8d8df7c01bfd",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-rainbow-vinegar",
+    "name": "Effect: Rainbow Vinegar",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "2852bf9d-1aa9-5cab-9b66-0b293a38693a"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "ad5bcd5b-47ef-5167-a127-4af40527c872"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your unarmed attacks deal additional acid damage, and you have resistance to electricity. Vampires take additional acid damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageAlteration",
+        "selectors": ["unarmed-damage"],
+        "property": "dice-number",
+        "mode": "upgrade",
+        "value": 2,
+        "predicate": ["target:trait:vampire", "dice:tag:rainbow-vinegar-acid"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["electricity"],
+        "value": 10,
+        "predicate": ["rainbow-vinegar:rainbow-vinegar-moderate"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["electricity"],
+        "value": 15,
+        "predicate": ["rainbow-vinegar:rainbow-vinegar-greater"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.bHCpqwKH9JM8FZa6"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "7884f239-9e5a-54d4-a083-73d6245d2a3f",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-rainbow-vinegar-weakness",
+    "name": "Effect: Rainbow Vinegar Weakness",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "2852bf9d-1aa9-5cab-9b66-0b293a38693a"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "ad5bcd5b-47ef-5167-a127-4af40527c872"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain weakness 5 to acid."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Weakness",
+        "type": ["acid"],
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.wY7yV6a3SICudb1w"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "day",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "d9e75ffa-69cc-54a2-bdde-76e62f0114fa",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-regional-specialty",
+    "name": "Effect: Regional Specialty",
+    "level": 14,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "ab515256-37e1-525a-9f6b-f619eb5aea32"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain an item bonus against certain saves depending on the chosen element."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Wood",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Against disease and poison effects."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Fire",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Against being doomed or frightened."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Earth",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Against being enfeebled."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Metal",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Against being stupefied."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Water",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Against deafened or drained."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "saving-throw",
+        "option": "option:regional-specialty-bonus",
+        "toggleable": true,
+        "display": {
+          "label": "Regional Specialty — Apply saving throw bonus"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.dA8AzlayuQ1hIeEx"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "5296365b-4c19-5884-98b6-bf94badd65fe",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-renewing-cycle",
+    "name": "Effect: Renewing Cycle",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "4dbfcd76-231b-56a2-8577-b1f183c8e384"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points equal to half your level."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "floor(@level / 2)"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.hGj6fnFwQwczmubB"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "6da8cdcb-8015-5f24-9ae9-39649bdbc0d2",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-rolling-flight",
+    "name": "Effect: Rolling Flight",
+    "level": 14,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "52ae28b4-9c8d-5a84-a9ee-c3883572aea6"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a fly Speed of 20 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": 20
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.DXVnnltqkfFglbrn"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "0b416dd5-d3ae-593f-a3ce-2a899803ac6f",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-sheltering-pulse",
+    "name": "Effect: Sheltering Pulse",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "3c2e25db-5e24-590d-b9c0-ec66e2a8251f"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["option:sheltering-pulse"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.m0hi0jpIF6tNJzzo"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 3,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "734bbe94-6edc-5b72-b29b-9a185e7a022e",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-signature-weapon",
+    "name": "Effect: Signature Weapon",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f9174bab-6cb9-59c1-a66a-6a9403a8bceb"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain access to its critical specialization effect of the selected weapon."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.OqZtUOemGXgi9HDM"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "472c6ce1-c1fd-5f5e-8896-af8d751c4051",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-silk-bracelet",
+    "name": "Effect: Silk Bracelet",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f3be4bb1-b161-5459-ada6-ea46010342b6"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a -10 foot status penalty to all your Speeds for 1 round."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "status",
+        "value": -10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.RmJ5qosNpE8DUX2a"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "1cebbe1d-cee0-54e8-81fb-57f814081b89",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-starlit-transformation",
+    "name": "Effect: Starlit Transformation",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f1083e00-afe8-5599-8d20-bfabfc85e927"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your weapon gains a +1 status bonus to damage rolls. You can fling bolts of starlight from your weapon with a Strike action, using your melee attack modifier with the weapon. These bolts deal 1d4 force damage and have the arcane and force traits."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:bolts-of-starlight",
+        "toggleable": true,
+        "display": {
+          "label": "Bolts of Starlight"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.JmAYeBSVvr5QMNis"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "d860376f-140c-5640-86f8-94e675dd016d",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-strategist-stance",
+    "name": "Effect: Strategist Stance",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "88b24967-63c1-5745-969e-a2f95a8fa28b"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your marshal's aura grants you and allies a +1 status bonus to Reflex saving throws"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:reflex"],
+        "type": "status",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.no8vv18N7YmEKvOH"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  },
+  {
+    "id": "b019a42a-f9e6-5abe-8d7d-5087d7571a10",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-tap-the-past",
+    "name": "Effect: Tap the Past",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "36092373-8c59-5954-940f-48937216ed14"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You roll a second time and use the higher result. If you roll a critical failure, you get a failure instead. If you roll a success, you get a critical success instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill-check"],
+        "adjustment": {
+          "criticalFailure": "one-degree-better",
+          "success": "one-degree-better"
+        },
+        "predicate": ["action:recall-knowledge"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.m8QCmsy4WFQCIC7t"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "03a84c98-7023-56c4-bf79-1bf3e0a4cd01",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-unleash-yaoguai-might",
+    "name": "Effect: Unleash Yaoguai Might",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "5b003f65-bb61-58e3-a08e-769a939d31fd"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you Change Shape to enter your yaoguai form, you can spend an additional action to gain the effects of "
+          },
+          {
+            "type": "text",
+            "text": "enlarge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " and an additional effect based on your heritage."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Animal",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Your hide thickens, granting a +1 circumstance bonus to AC."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Celestial",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You recover some of your celestial perfection, granting you and all allies within 15 feet a +1 status bonus to attack rolls."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Elements",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You're surrounded in wind and dust, granting concealment each round that you spend at least 1 action that has the move trait. You can't use this concealment to Hide or Sneak, as normal for sources of obvious concealment."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Object",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Your skin transmutes partially into an inorganic substance, granting resistance 5 to your choice of bludgeoning, piercing, or slashing."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Vegetation",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You trigger an accelerated growth, gaining fast healing 5."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["change-shape:yaoguai", "self:heritage:born-of-animal"]
+      },
+      {
+        "key": "Aura",
+        "radius": 15,
+        "effects": [
+          {
+            "effect": "d57a3da0-c5d6-54eb-b565-9773ce9b605e",
+            "affects": "allies"
+          }
+        ],
+        "predicate": ["change-shape:yaoguai", "self:heritage:born-of-celestial"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:unleash-elements-concealed",
+        "toggleable": true,
+        "predicate": ["self:heritage:born-of-elements"],
+        "display": {
+          "label": "Used action that has the move trait."
+        }
+      },
+      {
+        "key": "GrantItem",
+        "item": "f410da96-b56a-5c7c-857b-7096defec0a1",
+        "predicate": ["option:unleash-elements-concealed"]
+      },
+      {
+        "key": "FastHealing",
+        "value": 5,
+        "predicate": ["change-shape:yaoguai", "self:heritage:born-of-vegetation"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+        "predicate": ["change-shape:yaoguai"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["melee-strike-damage"],
+        "type": "status",
+        "value": 2,
+        "slug": "unleash-yaoguai-bonus",
+        "predicate": ["change-shape:yaoguai"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["melee-strike-damage"],
+        "slug": "unleash-yaoguai-bonus",
+        "mode": "upgrade",
+        "value": 4,
+        "predicate": ["change-shape:yaoguai", "legendary-monster-boost:enlarge"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.OBsItGQScxHyUcmR"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "5c13ed18-fd52-598f-827b-19db47336912",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:stance-intensified-element-stance",
+    "name": "Stance: Intensified Element Stance",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "3804aca3-2533-50b3-86dc-edf531fe4365"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your Strikes and damaging spells deal an additional 1d6 damage against certain creatures, depending on the type of elemental medicine expended. If the person who crafted the elemental medicine expended was legendary in the skill they used, increased this damage to 2d6."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Earth",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " acid damage against water creatures"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Fire",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " fire damage against metal creatures and constructs that are primarily metallic"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Metal",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " electricity damage against wood or plant creatures and constructs primarily made of wood or plant matter"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Water",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " sonic damage against fire creatures"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Wood",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " cold damage against earth creatures and constructs that are primarily made of rock or earth"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:intensified-element-stance-construct-damage",
+        "toggleable": true,
+        "predicate": [
+          {
+            "or": [
+              "prepare-elemental-medicine:fire",
+              "prepare-elemental-medicine:metal",
+              "prepare-elemental-medicine:wood"
+            ]
+          }
+        ],
+        "priority": 51,
+        "display": {
+          "label": "Intensified Element Stance — Damage vs. Constructs"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.EWiuxy4H1mCVcmud"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  },
+  {
+    "id": "f23d6fef-d6dc-554e-9781-5e2ad98eeef7",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:stance-kaiju-stance",
+    "name": "Stance: Kaiju Stance",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "de56eb12-ed26-5fbc-97b9-349ae0c50b6a"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You become Large and are clumsy 1. The only Strikes you can make are shattering earth attacks. These strikes deal 1d8 bludgeoning damage, are in the brawling group, and have the backswing, fatal d12, reach, and unarmed traits. On a critical success with a shattering earth attack, all creatures other than you that are within 10 feet of the target, including the target itself, take 1 point of bludgeoning splash damage per weapon damage die."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You ignore difficult terrain."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "69f88e3c-d871-5fb9-82c6-120348a7c0e8"
+      },
+      {
+        "key": "CreatureSize",
+        "value": "large",
+        "resizeEquipment": true,
+        "reach": {
+          "override": 10
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.fo8kb5GW0OF3HPKK"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  },
+  {
+    "id": "805da102-8b94-5288-bec3-7d502f0a621f",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:stance-rushing-goat-stance",
+    "name": "Stance: Rushing Goat Stance",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "0fdd5629-e1d7-50fb-b0ef-fd18752e936d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The only Strikes you can make are ramming horn attacks. These strikes deal 1d8 bludgeoning damage, are in the brawling group, and have the forceful, nonlethal, shove, and unarmed traits."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you make a ramming horn attack and your previous action was to Climb, Stride, or Leap, you gain a circumstance bonus to damage equal to the number of weapon damage dice."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "damage",
+        "option": "option:rushing-goat-stance-damage",
+        "toggleable": true,
+        "display": {
+          "label": "Your previous action was to Climb, Leap, or Stride"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.5Z250imfYqYGU2AP"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  },
+  {
+    "id": "6b6b111d-a574-5220-8fe9-f065684e0d53",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:stance-strategist-stance",
+    "name": "Stance: Strategist Stance",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "88b24967-63c1-5745-969e-a2f95a8fa28b"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your marshal's aura grants you and allies a +1 status bonus to Reflex saving throws"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.z6oLNlBs724PCcR6"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  },
+  {
+    "id": "8109397e-2955-5444-844e-2f09a62ca58d",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:stance-twisting-petal-stance",
+    "name": "Stance: Twisting Petal Stance",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "95edd115-7943-59ec-b219-f42fd075164b"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can make gale blossom strikes that deal 1d6 slashing damage. These strikes are in the brawling group and have the agile, finesse, nonlethal, shove, and unarmed traits."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to Athletics checks to "
+          },
+          {
+            "type": "ref",
+            "id": "082b982f-3ed4-5d9c-9722-9ab10198523a"
+          },
+          {
+            "type": "text",
+            "text": " and a +2 circumstance bonus to your Fortitude DC to avoid being Shoved. You also gain a +1 circumstance bonus to Deception checks to "
+          },
+          {
+            "type": "ref",
+            "id": "8b950c56-7b5d-5063-9439-adb52a323cd9"
+          },
+          {
+            "type": "text",
+            "text": " and a +2 circumstance bonus to your Perception DC to resist an opponent's Feint attempt."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["action:shove"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:fortitude"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["action:shove"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["action:feint"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception-dc"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["action:feint"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.7Eh8gHNcRNs9iIR8"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  }
+]

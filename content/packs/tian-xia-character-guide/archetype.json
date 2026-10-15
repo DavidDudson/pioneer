@@ -1,0 +1,363 @@
+[
+  {
+    "id": "03e1cd50-133d-5774-8441-65a0fafe201b",
+    "pack": "tian-xia-character-guide",
+    "kind": "archetype",
+    "slug": "archetype:cultivator",
+    "name": "Cultivator",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Rare"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cultivators are seekers of immortality who practice occult disciplines to refine their qi. By gathering and purifying vast quantities of qi and enriching their bodies' qi with energies from the Universe and Creation's Forge, these warriors pursue—or \"cultivate\"—immortality and gain mastery over life and death. Many cultivators seek to become ageless immortals with awe-inspiring mystical powers known as xian and potentially even ascend to divinity as minor officials of the Tian pantheon. More unorthodox cultivators instead mingle qi with the Void and the Netherworld's dark energies."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While humanoid cultivators are the norm, it isn't unheard of for animals, trees, rocks, or even household objects to cultivate their qi and become powerful yaoguai. The mountains of Shanguang, Shenmen, and Zi Ha are famed sites for cultivators, as are the bamboo groves of Songbai and the verdant heart of the Valashmai Jungle. All types of cultivators are watched over carefully by Tian Xia's imperial dragons, for cultivators go against Heaven's will in seeking to transcend their ontology and destiny. There is little place for the timid among cultivators, as they seek to stand among the most powerful beings of both earth and Heaven. As a result, their personalities tend to be extreme, possessed of otherworldly benevolence, hellish wrath, or unmoving poise."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The intense effort and discipline required to reach the peaks of cultivation weed out most aspirants before they can even truly begin, and the tribulations that most cultivators attract winnows the rest. While calamity drives many to cultivate, rumors persist that gods and dragons alike test and punish cultivation's path with yet more hardship and woe. For every cultivator who eventually attains immortality, a thousand more aspirants meet their ends in the cruelest fates."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cultivators are rare, even within Tian Xia."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.RIOLY9LaX3qOnujl"
+    },
+    "data": {
+      "dedication": "5b88110f-b523-51ae-b22a-ab522b78ba50"
+    }
+  },
+  {
+    "id": "fc909ccd-e281-5dc5-bba5-1ca3b43c423c",
+    "pack": "tian-xia-character-guide",
+    "kind": "archetype",
+    "slug": "archetype:familiar-sage",
+    "name": "Familiar Sage",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "According to Tian Xia's scholars, spirits and apparitions are commonly believed to embody various aspects of life, objects, and concepts. These spirits might choose a form that strikes their fancy or inhabit one that best reflects their personality, temperament, or philosophy. Sometimes, an apparition achieves a greater awareness that results in a spiritual awakening. Such entities might develop a strong magical connection to the world that elevates and separates them from others of their kind. Over time, they might form connections or mystical bonds with worthy individuals to serve throughout their chosen partner's lifetime, possibly continuing on to watch over their partner's descendants and becoming spiritual household guardians. Typically, these apparitions are remnants of humanoid souls or personifications of spiritually infused items or locations, but in some cases, primal spirits form similar bonds, granting a greater connection to the five elements and the natural world. Regardless of the fundamental nature of these spirits, those who have mastered the ability to conjure and control a familiar can form a bond with them that unlocks a unique and potent well of shared magical energy."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.bi4WaRQzrOwuEILM"
+    },
+    "data": {
+      "dedication": "e934f58d-4d3e-5d86-978b-0caeb5b1eb19"
+    }
+  },
+  {
+    "id": "00779c35-fc85-5141-80c9-c1f9156f762c",
+    "pack": "tian-xia-character-guide",
+    "kind": "archetype",
+    "slug": "archetype:fan-dancer",
+    "name": "Fan Dancer",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Fan dancers display exceptional elegance and control as they drift across the stage, specializing in spinning movements that are, at times, like a trickling brook and, at others, a swift and powerful river. While some fan dancers use their skills to gain the advantage in combat, others adeptly manipulate their fans to distract their enemies and create openings for their allies."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Some fan dancer abilities require you to be wielding one or more fans, which can be a fighting fan or a normal fan used as an improvised weapon."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Characters with Tian Xia origin have access to the fan dancer archetype."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.RK6AbtT26DHbHlLj"
+    },
+    "data": {
+      "dedication": "efcf0851-e327-5507-827e-3cd30a960341"
+    }
+  },
+  {
+    "id": "916a0323-b2a9-5b1d-b9fd-d8ae086d08f7",
+    "pack": "tian-xia-character-guide",
+    "kind": "archetype",
+    "slug": "archetype:five-breath-vanguard",
+    "name": "Five-Breath Vanguard",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Tian elementalists of the School of Five Breaths seek mastery over the five elemental martial arts expressed by the following stances: Ironblood Stance for metal, Mountain Stance for earth, Reflective Ripple Stance for water, Stoked Flame Stance for fire, and Tangled Forest Stance for wood. They're collectively referred to as the elemental stances. Those of the School of Five Breaths who practice martial arts are taught to harness the elemental cycle by learning, mastering, and moving quickly between the elemental stances, creating a versatile and potent martial art form. Monastic training is essentially a requirement for five-breath vanguards, but martial artists from a variety of classes might find ways to master the techniques."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.lCmFR1N4lCMOYXcE"
+    },
+    "data": {
+      "dedication": "dac74166-06ad-5b8b-90de-c97ac96dfb30"
+    }
+  },
+  {
+    "id": "de521924-cd9e-5ec1-83b4-0690e044531e",
+    "pack": "tian-xia-character-guide",
+    "kind": "archetype",
+    "slug": "archetype:spirit-warrior",
+    "name": "Spirit Warrior",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Warriors can draw powers from the joy and the sadness in their hearts, spiritual gifts and burdens they can share and give to others. They cultivate experiences from their adventures to nurture and grow their spiritual power, learning to channel it through martial arts techniques tailored to their style and personality. Once they've created a martial art that combines a favored weapon and specialized unarmed techniques, spirit warriors learn to channel spirit energy through their limbs and weapons. Spirit warriors are typically found in the Forest of Spirits, the Chuyokai Forest, and the Valashmai Jungle."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.bT2NuSZ1h02PFhpJ"
+    },
+    "data": {
+      "dedication": "95c30302-10d9-5c28-9212-2423614f12ba"
+    }
+  },
+  {
+    "id": "4f68cb8c-c413-5a3a-a542-bca756f8bd44",
+    "pack": "tian-xia-character-guide",
+    "kind": "archetype",
+    "slug": "archetype:starlit-sentinel",
+    "name": "Starlit Sentinel",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Rare"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Though the zodiac is known throughout Tian Xia for subtly watching over the continent, sometimes the 12 constellations find more direct action necessary. When a grave threat arises, a zodiac constellation might shine on an everyday student or worker, granting them the power to transform into a powerful alter ego to repel those threats. Though most of these starlit sentinels act covertly when the world is asleep, some become well known either as urban legends or outright celebrities, though usually only as their alter ego. Some might find themselves pulled between the dual pressures of an unassuming civilian identity working in a market by day, and the defender of that same market from rampaging oni or qi-stealing jiang-shi under the light of the stars. Due to a quartet of well-known female sentinels operating out of Goka, many have come to believe that the zodiac chooses only girls as its champions, but the heavens care little for such mortal concerns and are equally likely to grant their power to those of any gender. Starlit sentinels are rare, even in Tian Xia, and individual sentinels are unique; a new sentinel empowered by a given constellation won't awaken as long as the previous sentinel of that constellation is active."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.7sbqk36AqxqUNh60"
+    },
+    "data": {
+      "dedication": "7fd3c102-e446-5f01-884c-2c33d42c54d3"
+    }
+  },
+  {
+    "id": "e3172aa9-a3fe-5cb7-a28a-1c21602c37a8",
+    "pack": "tian-xia-character-guide",
+    "kind": "archetype",
+    "slug": "archetype:wandering-chef",
+    "name": "Wandering Chef",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "No matter where you go in Tian Xia, one thing you can always find with some reliability is good food. Tian Xia's many talented chefs practice a wide array of cooking techniques, and many can be found traveling between the continent's states and regions as frequently as any adventurer. Chefs from Zi Ha wander to expand their knowledge of cooking techniques, while culinarians from the Lung Wa Successor States visit foreign courts to display their pride in their regional cuisine."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.kWN0nFzOq3VvONC5"
+    },
+    "data": {
+      "dedication": "469aed5e-16e2-53a8-87b4-740ead7f5b01"
+    }
+  }
+]
