@@ -17,6 +17,8 @@ const SCORE_MAX = 25;
 const PROFICIENCY_MAX = 8;
 const SPELL_RANK_MAX = 10;
 const NAME_MAX = 500;
+/** A potency rune runs +1 to +4. */
+const RUNE_GRADE_MAX = 4;
 const LIST_MAX = 500;
 
 const Name = z.string().max(NAME_MAX);
@@ -61,19 +63,33 @@ const LoreTuple = z.tuple([Name, ProficiencyNumber]);
 /** `[name, quantity, container id or "Invested"?]`. */
 const EquipmentTuple = z.tuple([Name, Count], z.unknown());
 
+/** A potency or resilient/striking grade as Pathbuilder writes it: a number, or "" / null for none. */
+const RuneNumber = z.int().min(0).max(RUNE_GRADE_MAX).nullish();
+/** "resilient", "greaterResilient", "majorStriking"…; "" for none. */
+const RuneWord = z.string().max(NAME_MAX).nullish();
+
 const Armor = z.looseObject({
   name: Name,
   qty: Count.default(1),
   prof: Name.optional(),
   display: Name.optional(),
   worn: z.boolean().default(false),
+  pot: RuneNumber,
+  res: RuneWord,
+  runes: Names,
 });
 
 const Weapon = z.looseObject({
   name: Name,
   qty: Count.default(1),
   display: Name.optional(),
+  pot: RuneNumber,
+  str: RuneWord,
+  runes: Names,
 });
+
+/** Pathbuilder's own folders for gear ("Magic Items", a backpack), keyed by the id equipment rows name. */
+const EquipmentContainer = z.looseObject({ containerName: Name, backpack: z.boolean().default(false) });
 
 const SpellRankList = z.looseObject({
   spellLevel: z.int().min(0).max(SPELL_RANK_MAX),
@@ -142,6 +158,7 @@ export const PathbuilderBuild = z.looseObject({
   specials: Names,
   lores: z.array(LoreTuple).max(LIST_MAX).default([]),
   equipment: z.array(EquipmentTuple).max(LIST_MAX).default([]),
+  equipmentContainers: z.record(z.string(), EquipmentContainer).default({}),
   weapons: z.array(Weapon).max(LIST_MAX).default([]),
   armor: z.array(Armor).max(LIST_MAX).default([]),
   money: Money.optional(),

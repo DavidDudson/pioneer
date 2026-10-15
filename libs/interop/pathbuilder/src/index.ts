@@ -18,6 +18,7 @@ export {
 } from './import-report';
 export { PathbuilderBuild, PathbuilderExport } from './pathbuilder-export';
 export type { ImportedBoosts } from './read-boosts';
+export type { ImportedCoins, ImportedItem, ImportedRunes } from './read-items';
 export {
   type ImportedLore,
   type PathbuilderIdentity,

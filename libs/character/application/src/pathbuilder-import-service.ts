@@ -4,17 +4,50 @@ import {
   CharacterCommand,
   CharacterId,
   CharacterVariantRuleId,
+  itemContent,
+  runeContent,
   slotContent,
 } from '@pioneer/character/domain';
-import { characterImportReport, modifierDifferences, registryLookup } from '@pioneer/interop/pathbuilder';
-import type { BoostChoices, PathbuilderImport, PathbuilderImportResponse } from '@pioneer/interop/pathbuilder';
-import type { AncestryId, ContentSource, VariantRuleEntry } from '@pioneer/rules/sdk';
+import type { Inventory } from '@pioneer/character/domain';
+import {
+  characterImportReport,
+  entryLookup,
+  ImportKind,
+  modifierDifferences,
+  registryLookup,
+} from '@pioneer/interop/pathbuilder';
+import type {
+  BoostChoices,
+  ContentLookup,
+  PathbuilderImport,
+  PathbuilderImportResponse,
+} from '@pioneer/interop/pathbuilder';
+import type { AncestryId, ContentRegistry, ContentSource, VariantRuleEntry } from '@pioneer/rules/sdk';
 import { newId } from '@pioneer/shared/kernel';
 import type { Clock, UserId } from '@pioneer/shared/kernel';
 
 import type { CharacterRepository } from './character-repository';
 import type { CharacterVariantRepository } from './character-variant-repository';
 import { dualClassVariant, importedCharacter, matchedAncestry, readExport } from './pathbuilder-import';
+import { importedInventory } from './pathbuilder-inventory';
+import type { InventoryContent } from './pathbuilder-inventory';
+
+/** What a new character starts from beside the export's name and level. */
+interface Start {
+  readonly ancestry: AncestryId;
+  readonly inventory: Inventory;
+}
+
+/** The items and property runes of `registry`, to match an export's gear against. */
+function inventoryContent(registry: ContentRegistry, lookup: ContentLookup): InventoryContent {
+  return {
+    items: lookup,
+    runes: entryLookup({
+      [ImportKind.Item]: [...runeContent(registry).values()].map(({ id, name }) => ({ id, name })),
+    }),
+    entries: itemContent(registry),
+  };
+}
 
 /** The ports `PathbuilderImportService` works through. */
 export interface PathbuilderImportPorts {
@@ -55,7 +88,10 @@ export class PathbuilderImportService {
     const content = await this.#content.registry();
     const lookup = registryLookup(content);
     const ancestry = matchedAncestry(value, lookup);
-    const create = this.#newCharacter(actor, value, ancestry);
+    const create = this.#newCharacter(actor, value, {
+      ancestry,
+      inventory: importedInventory(value, inventoryContent(content, lookup)),
+    });
     const dual = dualClassVariant(value, content);
     const slots = slotContent(content, dual === undefined ? [] : [dual]);
     const { character, unplaced, notOffered, dualClass } = importedCharacter(value, { lookup, slots }, create);
@@ -70,11 +106,15 @@ export class PathbuilderImportService {
   }
 
   /** The character `value` makes, owned by `actor`, with the choices it is given picked. */
-  #newCharacter(actor: UserId, value: PathbuilderImport, ancestry: AncestryId): (choices: BoostChoices) => Character {
+  #newCharacter(
+    actor: UserId,
+    value: PathbuilderImport,
+    { ancestry, inventory }: Start,
+  ): (choices: BoostChoices) => Character {
     const id = CharacterId.parse(newId());
     const now = this.#clock.now();
     return (choices) =>
-      Character.create({ id, ownerId: actor, name: value.name, ancestry, level: value.level, choices, now });
+      Character.create({ id, ownerId: actor, name: value.name, ancestry, level: value.level, choices, inventory, now });
   }
 
   /** The variant rule `character` needs, enabled for its owner; nothing when it needs none. */
