@@ -44,12 +44,9 @@ describe('catalog registration', () => {
     expect(missing(catalog, files)).toEqual(['@pioneer/content/packs/player-core/ancestry.json']);
   });
 
-  test('json-packs.ts and ogl-packs.ts import every committed pack file, and nothing else', async () => {
-    const sources = await Promise.all(
-      ['json-packs.ts', 'ogl-packs.ts'].map(async (name) =>
-        Bun.file(path.join(ROOT, 'libs/rules/catalog/src', name)).text(),
-      ),
-    );
+  test('the catalog pack files import every committed pack file, and nothing else', async () => {
+    const catalogs = await Array.fromAsync(new Glob('libs/rules/catalog/src/*-packs.ts').scan({ cwd: ROOT }));
+    const sources = await Promise.all(catalogs.map(async (file) => Bun.file(path.join(ROOT, file)).text()));
     const source = sources.join('\n');
     const scanned = await Array.fromAsync(new Glob('content/packs/*/**/*.json').scan({ cwd: ROOT }));
     const files = scanned.map((file) => file.split(path.sep).join('/'));
