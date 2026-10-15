@@ -25,7 +25,7 @@ export interface EffectOption {
 }
 
 /** Where an effect came from, as the sheet words it. */
-export interface EffectSourceView {
+interface EffectSourceView {
   readonly kind: EffectSourceKind;
   /** The ally who gave it; undefined for the character itself and for a GM. */
   readonly name: string | undefined;
