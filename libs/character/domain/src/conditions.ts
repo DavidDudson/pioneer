@@ -1,5 +1,13 @@
 import type { GrantRoot } from '@pioneer/rules/grants';
-import { ConditionValue, ContentId, ContentKind, EventRef, OriginHopKind } from '@pioneer/rules/sdk';
+import {
+  ConditionValue,
+  ContentId,
+  ContentKind,
+  DamageFormula,
+  DamageTypeSchema,
+  EventRef,
+  OriginHopKind,
+} from '@pioneer/rules/sdk';
 import type { ContentRegistry } from '@pioneer/rules/sdk';
 import { Pg, Uuid } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
@@ -39,6 +47,17 @@ export type ConditionDuration = z.infer<typeof ConditionDurationSchema>;
 export const UNLIMITED: ConditionDuration = { kind: ConditionDurationKind.Unlimited };
 
 /**
+ * The damage a persistent damage condition deals at the end of each turn: the formula, rolled anew each time, and its
+ * type. Assisted recovery (a helper tending the wound) lowers the DC of the flat check that ends it.
+ */
+export const PersistentDamageSchema = z.strictObject({
+  formula: DamageFormula,
+  type: DamageTypeSchema,
+  assisted: z.boolean().default(false),
+});
+export type PersistentDamage = z.infer<typeof PersistentDamageSchema>;
+
+/**
  * A condition active on a character, as an input: which condition, its value when it is valued, how long it lasts and
  * the campaign event that applied it. Its effect on statistics is the content's, worked out on every read.
  */
@@ -48,6 +67,8 @@ export const ActiveConditionSchema = z.strictObject({
   value: ConditionValue.optional(),
   duration: ConditionDurationSchema.default(UNLIMITED),
   appliedBy: EventRef.optional(),
+  /** What a persistent damage condition deals; any other condition has none. */
+  persistent: PersistentDamageSchema.optional(),
 });
 export type ActiveCondition = z.infer<typeof ActiveConditionSchema>;
 

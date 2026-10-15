@@ -39,6 +39,8 @@ export {
   ConditionCommandField,
   ConditionCommandSchema,
   ConditionDurationKind,
+  type PersistentDamage,
+  PersistentDamageSchema,
   type ConditionDuration,
   ConditionInstanceId,
   ConditionRounds,
@@ -437,7 +439,7 @@ export {
 } from './play-needs';
 export { applyRestCommand, preparedDaily, refocused, rested, sessionStarted } from './rest-actions';
 
-export { restHealing, restRecovery } from './rest-limits';
+export { conditionRecovery, restHealing, restRecovery } from './rest-limits';
 export {
   isRestCommand,
   type RecoveryConditions,
@@ -517,6 +519,9 @@ export {
 } from './staff-sources';
 export {
   conditionEnded,
+  conditionLowered,
+  flatCheck,
+  persistentDamage,
   effectExpired,
   healedEvent,
   type TurnEvent,
@@ -525,3 +530,4 @@ export {
   turnStarted,
 } from './turn-events';
 export { reevaluateBadges, type Reevaluation, startTurn, type TurnInputs, type TurnOutcome } from './turn-start';
+export { endTurn, type EndTurnInputs } from './turn-end';
