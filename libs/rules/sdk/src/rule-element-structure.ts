@@ -62,7 +62,8 @@ export type ChoiceQuery = z.infer<typeof ChoiceQuery>;
 /**
  * Asks the player to pick, and stores the pick under `flag`. Unanswered, it is an open slot in the
  * builder. With `rollOption`, a namespace (`favored-terrain`, `kinetic-gate:initial`), the pick also becomes a roll
- * option in it (`favored-terrain:forest`).
+ * option in it (`favored-terrain:forest`). With `optional`, the player may leave it unanswered (Foundry's
+ * `allowNoSelection`).
  */
 export const ChoiceSetElement = z.strictObject({
   key: z.literal(RuleElementKey.ChoiceSet),
@@ -70,6 +71,7 @@ export const ChoiceSetElement = z.strictObject({
   choices: z.union([z.array(ChoiceOption).min(1).max(CHOICES_MAX), ChoiceQuery]),
   prompt: ContentText.optional(),
   rollOption: RollOptionNamespace.optional(),
+  optional: z.boolean().optional(),
   ...ruleElementBase,
 });
 export type ChoiceSetElement = z.infer<typeof ChoiceSetElement>;
