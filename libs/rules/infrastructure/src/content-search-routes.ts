@@ -43,6 +43,10 @@ export function contentSearchRoutes(
       const named = query.packs.length > 0;
       const packs = named ? await homebrew.readable(actor, query.packs) : [];
       responseHeaders['cache-control'] = named ? HOMEBREW_SEARCH_CACHE_CONTROL : SEARCH_CACHE_CONTROL;
+      if (!named) {
+        // A renewed session cookie is for this user alone; a shared cache must never replay it.
+        delete responseHeaders['set-cookie'];
+      }
       return search.search({ ...query, packs });
     },
   ).app;
