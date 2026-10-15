@@ -1,0 +1,33 @@
+[
+  {
+    "id": "b79a9ff0-ff40-5303-afe2-2a0c8be1e969",
+    "pack": "dark-archive-remastered",
+    "kind": "heritage",
+    "slug": "heritage:reflection",
+    "name": "Reflection",
+    "rarity": "rare",
+    "traits": ["reflection"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You were created as a duplicate of another creature, intentionally or accidentally, though you might not know of your origins. Other than a minor mark or two, you look just like your progenitor. You gain the reflection trait, in addition to the traits from your ancestry. You don't need to attempt Deception checks to Impersonate your progenitor unless you're interacting with people who know them personally or you do something known to be out of character for them. The GM might require you to roll a Deception check in other circumstances, such as if you're mirror-risen and interacting with someone who has seen an accurate likeness of your progenitor and might notice a distinguishing feature on the reverse side. You can choose from reflection feats and feats from your ancestry whenever you gain an ancestry feat."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.gKLTlzAVapXTQ86V"
+    },
+    "data": {}
+  }
+]

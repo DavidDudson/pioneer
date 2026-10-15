@@ -83,6 +83,8 @@ describe('LegalPage', () => {
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
+      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
+      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e',
     ]);
   });
@@ -102,13 +104,16 @@ describe('LegalPage', () => {
       'Lost Omens The Mwangi Expanse',
       'Secrets of Magic',
       'Rage of Elements',
+      'Lost Omens Tian Xia Character Guide',
+      'Dark Archive (Remastered)',
     ]);
-    for (const book of books.slice(0, -3)) {
-      expect(book.textContent).toContain('Paizo · ORC License');
-    }
-    for (const book of books.slice(-3)) {
-      expect(book.textContent).toContain('Paizo · Open Game License 1.0a');
-    }
+    const licenses = books.map((book) => /Paizo · (?<license>.+)$/u.exec(book.textContent.trim())?.groups?.['license']);
+    expect(licenses).toStrictEqual([
+      ...Array.from({ length: 8 }, () => 'ORC License'),
+      ...Array.from({ length: 3 }, () => 'Open Game License 1.0a'),
+      'ORC License',
+      'ORC License',
+    ]);
   });
 
   it('names the Foundry release each official pack was imported from, and that it has been edited since', async () => {
@@ -126,6 +131,8 @@ describe('LegalPage', () => {
       expect.stringMatching(/^Lost Omens The Mwangi Expanse\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^Secrets of Magic\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^Rage of Elements\s*Foundry release pf2e-8\.6\.0$/u),
+      expect.stringMatching(/^Lost Omens Tian Xia Character Guide\s*Foundry release pf2e-8\.6\.0$/u),
+      expect.stringMatching(/^Dark Archive \(Remastered\)\s*Foundry release pf2e-8\.6\.0$/u),
     ]);
     expect(foundry.textContent).toContain('then corrected and enriched by Pioneer contributors');
   });

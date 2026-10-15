@@ -1,0 +1,949 @@
+[
+  {
+    "id": "25bb5ba0-1a93-582f-8b8a-33b6d1418f93",
+    "pack": "dark-archive-remastered",
+    "kind": "ritual",
+    "slug": "ritual:bacchanalia",
+    "name": "Bacchanalia",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["emotion", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You hold an elaborate feast and stoke the celebratory spirit, causing it to spread to other people nearby; you buoy them with hope and good cheer as they revel into the night. The ritual was first developed by the cult of the hero-god Kelksiomides in Iblydos and meant to be a benefit to the community during hard times, though other groups have used it for far different purposes, such as to spread chaos or to provide cover for a heist."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You and the secondary casters begin your feast in a public space where others can see you, exactly 8 hours before dusk. When dusk falls, you complete the ritual. The party spreads outward from your initial site until it slowly encompasses the settlement (for a town or smaller), or a district or division of up to approximately 1,000 people (for a larger settlement). Those partaking in the celebration are "
+          },
+          {
+            "type": "ref",
+            "id": "88ca1b7b-d5de-5978-9ff4-258c9aadef1a"
+          },
+          {
+            "type": "text",
+            "text": " until the ritual comes to an end (or someone uses a hostile action toward them, as usual). The partying appears to spread naturally, as others see the revelers, they too slowly join until the celebration reaches its peak size. The spell's effect ends sharply at midnight, but that doesn't mean people stop partying right away if they're enjoying themselves."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The party is a huge hit! The effects work as above, except that in a larger settlement, the celebration can spread to an area with as many as 10,000 people. Furthermore, the celebration leaves strong memories in the hearts of those who participated, causing locals to commemorate it or possibly outlaw such celebrations (depending on their view of the event)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The party is successful. It spreads as described in the ritual's description."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The party never really catches on. You and the secondary casters get to celebrate, but the most other people do is give you odd looks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Instead of celebration, you inspire anger and resentment toward you and the secondary casters for disturbing the peace or possibly even deepening the despair of a people who are already troubled. People in the area have their attitudes toward you temporarily adjusted two steps worse than normal. Those who become hostile won't necessarily attack you, but they will mock you, break up your revelry, and potentially arrest you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.s0SerOrkkUd7SAH9"
+    },
+    "data": {
+      "rank": 6,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "a lavish meal with expensive alcohol for every caster (225 gp)"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:occultism", "skill:religion"]
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:performance"]
+          }
+        ],
+        "casters": 8
+      }
+    }
+  },
+  {
+    "id": "06bfc5d0-b77e-586a-a4f5-b7b790a18432",
+    "pack": "dark-archive-remastered",
+    "kind": "ritual",
+    "slug": "ritual:construct-mindscape",
+    "name": "Construct Mindscape",
+    "level": 5,
+    "rarity": "rare",
+    "traits": ["illusion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You create an entirely mental environment called an immersive mindscape. It can have any appearance you and the secondary casters imagine and hold in your minds as you execute the ritual. A mindscape is typically veiled, disguising its nature as a mental construct, but you can choose to make it overt. Even a veiled mindscape has some signs it's not a real place that can be revealed through close inspection or by spending a long time there. Most mindscapes are incapable of physically harming those inside. Even though the mindscape you create is limited in dimension, it appears to have a convincing environment around it, such as a sky and clouds."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You create a mindscape approximately a half-mile in length and width, and 50 feet in height (large enough to contain a typical village). The GM might allow you to make it larger if it has little detail, such as a grassy plain. You and any secondary casters of your choice can enter it and you can leave a doorway that you and any creatures you designate can pass through."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As critical success, but the mindscape is approximately 25 feet in length, width, and height (like a modest house)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can't hold the image together and it falls apart."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your secret desires horribly warp the mindscape into a distorted mirror of what you intended."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (6th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The duration is 1 week."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (9th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The duration is 1 year, and the area on a critical success is 1 mile in length and width."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (10th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The duration is unlimited, and the area on a critical success is 1 mile in length and width. The cost increases to 2,000 gp."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.Pp88ueeq4AlkaL6g"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "precious clay, wood, or other modeling materials worth spell rank × 20 gp"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:arcana", "skill:occultism"],
+        "proficiency": "master"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:arcana", "skill:occultism"]
+          },
+          {
+            "skills": ["skill:crafting"]
+          }
+        ],
+        "casters": 2
+      }
+    }
+  },
+  {
+    "id": "6c76d536-217f-5d6c-8d84-e55e73b82a0e",
+    "pack": "dark-archive-remastered",
+    "kind": "ritual",
+    "slug": "ritual:contact-friends",
+    "name": "Contact Friends",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You meditate for a quiet moment before your mind seeks out others whom you have befriended, as well as friends of any of the secondary casters. The ritual projects your mind to a blank space where you see one or more friends from your past. Once there, you can ask each friend a single question. If more than one friend is present, you can ask each one a different question. These friends aren't compelled to answer you honestly or answer at all, but those who are your friends are likely to help you if they can, barring special situations."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You contact up to three close friends of yourself or any of the secondary casters, and the friends attempt to help you with their knowledge. They each answer one of your questions, as described above."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As critical success, but your mind reaches one friend, instead of three."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your mind reaches three friends you've made in the past, but each of them gives you a useless fact. None of these facts help with your situation at all."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your mind freezes. You saw something that terrified you to your core, leaving you and all other casters "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 3"
+          },
+          {
+            "type": "text",
+            "text": " for 1 day."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.9vDmTCHyAWdWWPIs"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour"
+      },
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "upTo": true
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "incense worth 50 gp"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:arcana", "skill:occultism"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:survival"]
+          }
+        ],
+        "casters": 0
+      }
+    }
+  },
+  {
+    "id": "a39d9c42-7871-52e3-93cd-076c8d1d6392",
+    "pack": "dark-archive-remastered",
+    "kind": "ritual",
+    "slug": "ritual:oblivious-expulsion",
+    "name": "Oblivious Expulsion",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Severing ties with a member of a cult courts danger and threatens to undermine the secrecy of the group, whether that secrecy protects its worshippers or enables them to operate in the shadows. Many cults end their association with a wayward member on the edge of a blade, but there are options that preserve both secrecy and the life of the expelled member. An oblivious expulsion removes knowledge of the cult but is time-consuming enough that a cult usually reserves it for only the most well-regarded members who nevertheless need to be removed-or for sleeper agents the cult wishes to place among society and activate later."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "It's difficult to cast this ritual unless the target is willing or "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071"
+          },
+          {
+            "type": "text",
+            "text": ". If the creature is unwilling to accept the ritual, it can attempt a Will save to negate the effect. The effects of the ritual depend on the results of your Occultism check."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual removes all memories of the cult's activity, practices, and secrets from the target's memory. The target remembers only what an average citizen of the larger society would know, which is typically nothing or a few rumors with very little detail. The spell is hard to detect: a "
+          },
+          {
+            "type": "ref",
+            "id": "c91ac947-a9ec-5f07-b5f9-a054617eb571"
+          },
+          {
+            "type": "text",
+            "text": " spell or similar effect must be a higher rank than "
+          },
+          {
+            "type": "text",
+            "text": "oblivious expulsion",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to detect it. You can Dismiss the spell. While casting the spell, you can choose to give the secondary casters the ability to Dismiss it. You can also choose to set a key phrase or event that causes the spell to be Dismissed. When the target witnesses this phrase or event, the spell immediately ends."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As critical success, except the spell isn't harder to detect with "
+          },
+          {
+            "type": "text",
+            "text": "detect magic",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual fails."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual fails, and the target is temporarily immune for 1 month."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.QIjc7Zyej0P3b9v5"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "duration": {
+        "type": "unlimited"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "incense worth a total value of 150 gp"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:occultism", "skill:religion"],
+        "proficiency": "master"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:deception"]
+          },
+          {
+            "skills": ["skill:society"]
+          }
+        ],
+        "casters": 2
+      }
+    }
+  },
+  {
+    "id": "5cf9aa81-f6cc-5337-982c-fd5389267e37",
+    "pack": "dark-archive-remastered",
+    "kind": "ritual",
+    "slug": "ritual:recall-past-life",
+    "name": "Recall Past Life",
+    "level": 4,
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You and the secondary casters spend 2 days drawing sigils on one another. At the end of the second day, the secondary caster responsible for the Crafting check carefully mixes the wine with the herbs and a small amount of saliva or blood from the target. The target then drinks the concoction, entering a state of metaphorical death and rebirth, their body becoming comatose for the final day of the ritual. During this time, you and the other secondary caster bathe the body in dirt, symbolizing a grave, and sprinkle the remainder of the wine around the body. If done properly, swaddled baby orchids grow around the area, enveloping the body in a bed of flowers."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "On the final hour, the target returns to life, waking up temporarily possessed by an incarnation from one of their past lives. Though they retain the memories from their current life, their demeanor and personality are different for the remaining duration of the ritual, and they also remember vivid details from their past life. Unfortunately, it's impossible to choose a particular past self or to know whether a given former incarnation has good or bad intentions."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target's personality reverts to a previous incarnation, determined by the GM. Normally they keep their abilities, but in rare cases, the GM might determine that the past incarnation has a different set of abilities based on their previous life. The lingering knowledge of the past incarnation is powerful and sticks with the target, allowing them to retrain one of their skills increases into a skill in which the past incarnation was particularly talented; the list of possible skills depends on the nature of the past incarnation and is determined by the GM."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As critical success, except there's no lingering knowledge, and the target isn't able to retrain a skill increase."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Nothing happens, though the target's "
+          },
+          {
+            "type": "ref",
+            "id": "e1a78dad-4887-518e-9120-e58b7009ebfd"
+          },
+          {
+            "type": "text",
+            "text": " state is disturbing, and they wake up "
+          },
+          {
+            "type": "ref",
+            "id": "5e3582c3-701c-5169-9c69-4221096722c2"
+          },
+          {
+            "type": "text",
+            "text": " as well as likely disoriented."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The sigils are drawn improperly, or the wine was tainted. The swaddled baby orchids that grow around the body scream at the moment when the target would've awakened. The target dies and their body is immediately possessed by a malevolent spirit that seeks to destroy their former allies. Use the statistics for a Ghost Commoner using Malevolent Possession on the target's body."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.bqx1tJeOZq1Ufhcc"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "time",
+        "count": 3,
+        "unit": "day"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "100 gp in special wine and symbolic herbs"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:occultism", "skill:religion"],
+        "proficiency": "master"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:crafting"]
+          }
+        ],
+        "casters": 2
+      }
+    }
+  },
+  {
+    "id": "fff60785-618c-5ebc-a1e2-76e858b11a4d",
+    "pack": "dark-archive-remastered",
+    "kind": "ritual",
+    "slug": "ritual:supreme-connection",
+    "name": "Supreme Connection",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In a show of power, you call forth a powerful entity in front of a crowd of onlookers, forcing the entity to manifest and answer your questions. The being appears as a twisted ball of vines and branches that springs forth from a nearby patch of dirt or up from between cobblestones or bricks. The ball of vines is relatively formless, giving no indication of the being that controls it. However, when you make a request, it twists into a rough face to answer your request."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can ask up to seven questions that could be answered with \"yes\" or \"no,\" although the entity can give you any one working answer it wants, including vague answers like \"likely\" or \"unknown.\" The entity is likely to know answers related to its nature and priorities. Depending on the entity you call, it might attempt to deceive you and likely has its own agenda. The entity can only respond when surrounded by the energy of a crowd."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Once it has answered your questions, the vines freeze in place, contorted in pain, a reminder of where the powerful creature touched this world."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The entity is in a good mood or is more honest than most. It won't attempt to deceive you, though it still might not know the answers. When it's important to provide clarity, the entity will answer your questions with up to five words, such as \"if you leave immediately\" or \"that was true once.\" The words of the entity ring with truth, and the crowd takes the statements as gospel. You gain a +4 circumstance bonus to Diplomacy checks made to influence the crowd and to any Deception checks to Lie to the crowd by directly incorporating the entity's answers."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can ask and receive your seven answers normally. The crowd is excited by the entity's words and believes them to be true. You gain a +2 circumstance bonus to Diplomacy checks made to influence the crowd and to any Deception checks to Lie to the crowd by directly incorporating the entity's answers."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The vines reach out in a weighted gasp before dying. The crowd is likely disappointed, especially if you made them wait, but they don't necessarily change their attitude toward you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The vines wrap around you in desperation, trying to squeeze out your life force to survive. You take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10d6",
+                "damageType": "bludgeoning"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and become "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 3"
+          },
+          {
+            "type": "text",
+            "text": ", and you can't reduce the drained condition for 1 week. The attitude of the most members of the crowd toward you become one step worse, though individual members of the crowd might have different reactions."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.6TKGaQm4PfEMkeRd"
+    },
+    "data": {
+      "rank": 7,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "upTo": true
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "rare perfume worth 250 gp"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:occultism", "skill:religion"],
+        "proficiency": "master"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:performance"]
+          }
+        ],
+        "casters": 2
+      }
+    }
+  }
+]

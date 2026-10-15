@@ -1,0 +1,2844 @@
+[
+  {
+    "id": "202c7516-d11f-55be-a5e7-f627c96e4ed9",
+    "pack": "tian-xia-character-guide",
+    "kind": "equipment",
+    "slug": "equipment:cloak-of-waves-clouds",
+    "name": "Cloak of Waves & Clouds",
+    "level": 19,
+    "rarity": "common",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This magical cloak was crafted from the feathers and scales of a legendary giant fish that could transform into a resplendent bird."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Cut Air and Sea",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The cloak ripples, becoming either giant eagle feathers or iridescent fish scales. Until you next Activate the cloak, you gain either a swim Speed of 60 feet and the ability to breathe underwater or a fly Speed of 40 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:cut-air-and-sea",
+        "toggleable": true,
+        "suboptions": [
+          {
+            "value": "fly",
+            "label": "Fly"
+          },
+          {
+            "value": "swim",
+            "label": "Swim"
+          }
+        ],
+        "display": {
+          "label": "Cut Air and Sea"
+        }
+      },
+      {
+        "key": "Change",
+        "selector": "speed:swim",
+        "mode": "upgrade",
+        "value": 60,
+        "predicate": ["cut-air-and-sea:swim"]
+      },
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": 40,
+        "predicate": ["cut-air-and-sea:fly"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.qVmOQFcsVQkOn4zM"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 38000
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "worn",
+        "slot": "cloak"
+      }
+    }
+  },
+  {
+    "id": "3c4908c3-c7b2-5a24-a2cb-f32a6cbbb9e7",
+    "pack": "tian-xia-character-guide",
+    "kind": "equipment",
+    "slug": "equipment:gamtu-hat",
+    "name": "Gamtu Hat",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You conjure a magical gamtu hat, which is a magic item of light Bulk. The gamtu persists for 1 hour, and you can give the gamtu to another creature to wear."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Hat Trick",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You tap the hat and gain the effects of a 2nd-rank "
+          },
+          {
+            "type": "ref",
+            "id": "e8221b18-c4c7-5d99-a604-a3cf119d41b1"
+          },
+          {
+            "type": "text",
+            "text": " spell, which lasts for the spell's normal duration, until the hat is removed, or until the hat's normal duration runs out, whichever comes first. After the spell ends, the gamtu disappears."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.iS8v3jXGPV8yGdcE"
+    },
+    "data": {
+      "bulk": "light",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "07aec27b-b15d-5f5b-9a42-6666b0dc96c4",
+    "pack": "tian-xia-character-guide",
+    "kind": "equipment",
+    "slug": "equipment:head-gem",
+    "name": "Head Gem",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Upon your brow is a gem that houses your soul. When casting any spell or ritual to return you to life, your intact head gem can be substituted for your body. While you can freely remove your head gem, it's typically impossible for another creature to forcibly remove or destroy your head gem unless you're killed or permanently incapacitated first; at the GM's discretion, powerful magic or abilities can circumvent this restriction. If your head gem is removed or destroyed, it can be regrown using a day-long ritual. When this occurs, any remains of the previous gem immediately crumble to dust."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.FA1mAc7rEyC9vzZa"
+    },
+    "data": {
+      "bulk": "negligible",
+      "usage": {
+        "type": "other"
+      }
+    }
+  },
+  {
+    "id": "399007ac-e666-55d5-b283-46029de049b1",
+    "pack": "tian-xia-character-guide",
+    "kind": "equipment",
+    "slug": "equipment:kotodama-bells",
+    "name": "Kotodama Bells",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This set of bronze bells bear engravings with symbols representing the word \"awaken.\" Among kotodama magic users, who seek to touch the souls of objects using the power of words, the peals of these bells are known to awaken the spirits of even inanimate objects."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Awaken the Soul",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (auditory, concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You ring the bell and focus on an object of negligible Bulk within 10 feet. The bell's toll animates the object for 24 hours. The object becomes a minion that can't attack but can move and take simple Interact actions appropriate for an item of its type, as determined by the GM. For example, a piece of chalk can write a message or draw a symbol, a hand fan can open or fan in a particular direction, or a magnifying glass can set itself up to dramatically reveal incriminating evidence. The animated item has AC 5, 5 Hit Points, a Speed of 10 feet, and automatically fails all saves. If the object is broken, it can no longer move, though it can still Interact as appropriate for an item of its type. As normal with minions you control, you must Command the object to grant it actions."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.UMJjOsukQATkXW3R"
+    },
+    "data": {
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "awaken-the-soul",
+          "name": "Awaken the Soul",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "96191a8d-83ee-5b83-ba3c-58b5403cb355",
+    "pack": "tian-xia-character-guide",
+    "kind": "equipment",
+    "slug": "equipment:kotodama-whistle",
+    "name": "Kotodama Whistle",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This small wooden whistle bears an engraving with a symbol representing the word \"query.\" Practitioners of kotodama magic use these whistles to speak with the spirits of objects."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Question the Soul",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You place your hand on an object and play a single note on the whistle, causing the item to stir and respond to your questions for 1 minute. During this time, the object attempts to answer your questions to the best of its ability but can provide an answer of only \"yes\" or \"no.\" In most cases, an object has knowledge only of events it was personally present for and has no particular knowledge skills to interpret the events it has seen. If the object can't answer a question with a simple yes or no answer, it stays silent."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.YEB49me6ZI2Sahuv"
+    },
+    "data": {
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "question-the-soul",
+          "name": "Question the Soul",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "d28944b0-6163-597b-b22f-bb115eebad63",
+    "pack": "tian-xia-character-guide",
+    "kind": "equipment",
+    "slug": "equipment:navaratna-of-the-solar-ruby",
+    "name": "Navaratna of the Solar Ruby",
+    "level": 13,
+    "rarity": "unique",
+    "traits": ["artifact", "divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These nine flawless gems are set within a golden necklace, their centerpiece a holy ruby pulled from the center of a sun. So long as you are wearing the navaratna, you ignore all environmental effects due to temperature, do not take penalties due to wind, and ignore all damage and effects from droughts, floods, and earthquakes. You are also immune to damage from starvation. The navaratna does not otherwise grant you resistance against damage (such as fire or cold damage)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Sutra of the Flawless Servant",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, divine, fortune)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An ally within 30 feet fails a saving throw against an environmental effect or a spell with the air, earth, fire, or water trait"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You offer a prayer for your divine protection to extend to your companion. The creature rerolls the triggering saving throw with a +2 item bonus. They must take the new result, even if it is worse."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destruction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The navaratna must be swallowed by a fiendish divine lion; the lion must then by killed by drowning in a lake of naga venom and left to rot for a year. At the stroke of midnight on the final day, the artifact is destroyed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.9s4wIWjq9z9VGxmz"
+    },
+    "data": {
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "sutra-of-the-flawless-servant",
+          "name": "Sutra of the Flawless Servant",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "01989e3d-4f61-5ca2-8776-af87cfbd909d",
+    "pack": "tian-xia-character-guide",
+    "kind": "equipment",
+    "slug": "equipment:peachwood-branch",
+    "name": "Peachwood Branch",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["precious"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Peachwood, often cultivated by Pharasmin priests, can ward against undead—even incorporeal ones. However, the wood loses its magical properties when it comes in contact with metal, requiring advanced carpentry to make full use of it."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Peachwood Items"
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Peachwood Items"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Hardness"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "HP"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "BT"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "Thin Items",
+                "marks": ["strong"]
+              }
+            ],
+            [],
+            [],
+            []
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Standard-grade"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "4"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "16"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "8"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "High-grade"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "6"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "24"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "12"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Items",
+                "marks": ["strong"]
+              }
+            ],
+            [],
+            [],
+            []
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Standard-grade"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "20"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "10"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "High-grade"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "8"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "32"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "16"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Structure",
+                "marks": ["strong"]
+              }
+            ],
+            [],
+            [],
+            []
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Standard-grade"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "12"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "48"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "24"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "High-grade"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "18"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "64"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "32"
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.7XJQmpYWRZRRutc4"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 600
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "17e21e50-7127-5e79-bf73-a4c611beb1c2",
+    "pack": "tian-xia-character-guide",
+    "kind": "equipment",
+    "slug": "equipment:peachwood-lumber",
+    "name": "Peachwood Lumber",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["precious"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Peachwood, often cultivated by Pharasmin priests, can ward against undead—even incorporeal ones. However, the wood loses its magical properties when it comes in contact with metal, requiring advanced carpentry to make full use of it."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Peachwood Items"
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Peachwood Items"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Hardness"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "HP"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "BT"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "Thin Items",
+                "marks": ["strong"]
+              }
+            ],
+            [],
+            [],
+            []
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Standard-grade"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "4"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "16"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "8"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "High-grade"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "6"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "24"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "12"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Items",
+                "marks": ["strong"]
+              }
+            ],
+            [],
+            [],
+            []
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Standard-grade"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "20"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "10"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "High-grade"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "8"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "32"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "16"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Structure",
+                "marks": ["strong"]
+              }
+            ],
+            [],
+            [],
+            []
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Standard-grade"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "12"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "48"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "24"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "High-grade"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "18"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "64"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "32"
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.b4hSaH0ITd5fbR08"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6000
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "201b6b84-f410-5596-8447-03541372598a",
+    "pack": "tian-xia-character-guide",
+    "kind": "equipment",
+    "slug": "equipment:sun-heralds-stylus",
+    "name": "Sun Herald's Stylus",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This writing instrument was made from the spur of one of the giant divine roosters that heralds the presence of Shizuru. While you hold it, you gain a +2 item bonus to Calligraphy Lore and Medicine checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Rejuvenating Ink",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Drawing a circle on the ground with your stylus, you cast "
+          },
+          {
+            "type": "ref",
+            "id": "9e74612a-5951-5a86-b13d-31d1a2609c4c"
+          },
+          {
+            "type": "text",
+            "text": " centered on yourself."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The feathers must be plucked from a living divine rooster or given by the bird to a chosen mortal."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.tULEDu1O4fzhyBeB"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4000
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "rejuvenating-ink",
+          "name": "Rejuvenating Ink",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "aaee412b-2370-506e-b1fc-897511846cb6",
+    "pack": "tian-xia-character-guide",
+    "kind": "equipment",
+    "slug": "equipment:wand-of-purification-2nd-rank-spell",
+    "name": "Wand of Purification (2nd-Rank Spell)",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["magical", "wand"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This cypress onusa rod is decorated with a number of paper streamers that rustle when shaken to direct purification magic. Wands of purification contain either "
+          },
+          {
+            "type": "ref",
+            "id": "9495e90b-a69c-5eaf-a472-b6b536856f28"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "c441df15-0219-514f-a5f5-00da93a3e391"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "674398f3-e121-59fe-a086-423c20002dd1"
+          },
+          {
+            "type": "text",
+            "text": ", decided when the wand is created."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "5e7b32f6-95d4-5b66-9956-03c679d22fa2"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "text",
+            "text": "cleanse affliction",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "text",
+            "text": "clear mind",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "text",
+            "text": "sound body",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " of the indicated level. If your counteract check would be sufficient only to suppress the effect until the beginning of your next turn, instead of to fully counteract it, then you can Sustain the Activation of the wand each round to suppress the effect for an additional round, to a maximum of 1 minute. You Sustain the Activation by shaking the wand, so if at any point you release or otherwise drop the wand, the effect immediately stops being suppressed and resumes on the target as normal."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of "
+          },
+          {
+            "type": "text",
+            "text": "cleanse affliction",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "text",
+            "text": "clear mind",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "text",
+            "text": "sound body",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", as appropriate."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TIP4RFdWohqqpiBV"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-purification-2nd-rank-spell",
+          "name": "Wand of Purification (2nd-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "84f2b5aa-3654-50f9-a3d0-7e2c048fb4b9",
+    "pack": "tian-xia-character-guide",
+    "kind": "equipment",
+    "slug": "equipment:wand-of-purification-3rd-rank-spell",
+    "name": "Wand of Purification (3rd-Rank Spell)",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["magical", "wand"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This cypress onusa rod is decorated with a number of paper streamers that rustle when shaken to direct purification magic. Wands of purification contain either "
+          },
+          {
+            "type": "ref",
+            "id": "9495e90b-a69c-5eaf-a472-b6b536856f28"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "c441df15-0219-514f-a5f5-00da93a3e391"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "674398f3-e121-59fe-a086-423c20002dd1"
+          },
+          {
+            "type": "text",
+            "text": ", decided when the wand is created."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "5e7b32f6-95d4-5b66-9956-03c679d22fa2"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "text",
+            "text": "cleanse affliction",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "text",
+            "text": "clear mind",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "text",
+            "text": "sound body",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " of the indicated level. If your counteract check would be sufficient only to suppress the effect until the beginning of your next turn, instead of to fully counteract it, then you can Sustain the Activation of the wand each round to suppress the effect for an additional round, to a maximum of 1 minute. You Sustain the Activation by shaking the wand, so if at any point you release or otherwise drop the wand, the effect immediately stops being suppressed and resumes on the target as normal."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of "
+          },
+          {
+            "type": "text",
+            "text": "cleanse affliction",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "text",
+            "text": "clear mind",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "text",
+            "text": "sound body",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", as appropriate."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.OvGfkoGfqFMEhknO"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 500
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-purification-3rd-rank-spell",
+          "name": "Wand of Purification (3rd-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "5709af1b-b399-54e8-b75e-f3ab5e71c774",
+    "pack": "tian-xia-character-guide",
+    "kind": "equipment",
+    "slug": "equipment:wand-of-purification-4th-rank-spell",
+    "name": "Wand of Purification (4th-Rank Spell)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["magical", "wand"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This cypress onusa rod is decorated with a number of paper streamers that rustle when shaken to direct purification magic. Wands of purification contain either "
+          },
+          {
+            "type": "ref",
+            "id": "9495e90b-a69c-5eaf-a472-b6b536856f28"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "c441df15-0219-514f-a5f5-00da93a3e391"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "674398f3-e121-59fe-a086-423c20002dd1"
+          },
+          {
+            "type": "text",
+            "text": ", decided when the wand is created."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "5e7b32f6-95d4-5b66-9956-03c679d22fa2"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "text",
+            "text": "cleanse affliction",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "text",
+            "text": "clear mind",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "text",
+            "text": "sound body",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " of the indicated level. If your counteract check would be sufficient only to suppress the effect until the beginning of your next turn, instead of to fully counteract it, then you can Sustain the Activation of the wand each round to suppress the effect for an additional round, to a maximum of 1 minute. You Sustain the Activation by shaking the wand, so if at any point you release or otherwise drop the wand, the effect immediately stops being suppressed and resumes on the target as normal."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of "
+          },
+          {
+            "type": "text",
+            "text": "cleanse affliction",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "text",
+            "text": "clear mind",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "text",
+            "text": "sound body",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", as appropriate."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.IaUKTq5fnWafnwO8"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1400
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-purification-4th-rank-spell",
+          "name": "Wand of Purification (4th-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "8e4539a9-0075-597d-b6a9-ea6c2e50d035",
+    "pack": "tian-xia-character-guide",
+    "kind": "equipment",
+    "slug": "equipment:wand-of-purification-5th-rank-spell",
+    "name": "Wand of Purification (5th-Rank Spell)",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["magical", "wand"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This cypress onusa rod is decorated with a number of paper streamers that rustle when shaken to direct purification magic. Wands of purification contain either "
+          },
+          {
+            "type": "ref",
+            "id": "9495e90b-a69c-5eaf-a472-b6b536856f28"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "c441df15-0219-514f-a5f5-00da93a3e391"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "674398f3-e121-59fe-a086-423c20002dd1"
+          },
+          {
+            "type": "text",
+            "text": ", decided when the wand is created."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "5e7b32f6-95d4-5b66-9956-03c679d22fa2"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "text",
+            "text": "cleanse affliction",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "text",
+            "text": "clear mind",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "text",
+            "text": "sound body",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " of the indicated level. If your counteract check would be sufficient only to suppress the effect until the beginning of your next turn, instead of to fully counteract it, then you can Sustain the Activation of the wand each round to suppress the effect for an additional round, to a maximum of 1 minute. You Sustain the Activation by shaking the wand, so if at any point you release or otherwise drop the wand, the effect immediately stops being suppressed and resumes on the target as normal."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of "
+          },
+          {
+            "type": "text",
+            "text": "cleanse affliction",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "text",
+            "text": "clear mind",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "text",
+            "text": "sound body",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", as appropriate."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.9QstkAexbb6QOwht"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-purification-5th-rank-spell",
+          "name": "Wand of Purification (5th-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "f4bac092-708b-5026-aa7c-3d2032aedaff",
+    "pack": "tian-xia-character-guide",
+    "kind": "equipment",
+    "slug": "equipment:wand-of-purification-6th-rank-spell",
+    "name": "Wand of Purification (6th-Rank Spell)",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["magical", "wand"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This cypress onusa rod is decorated with a number of paper streamers that rustle when shaken to direct purification magic. Wands of purification contain either "
+          },
+          {
+            "type": "ref",
+            "id": "9495e90b-a69c-5eaf-a472-b6b536856f28"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "c441df15-0219-514f-a5f5-00da93a3e391"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "674398f3-e121-59fe-a086-423c20002dd1"
+          },
+          {
+            "type": "text",
+            "text": ", decided when the wand is created."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "5e7b32f6-95d4-5b66-9956-03c679d22fa2"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "text",
+            "text": "cleanse affliction",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "text",
+            "text": "clear mind",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "text",
+            "text": "sound body",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " of the indicated level. If your counteract check would be sufficient only to suppress the effect until the beginning of your next turn, instead of to fully counteract it, then you can Sustain the Activation of the wand each round to suppress the effect for an additional round, to a maximum of 1 minute. You Sustain the Activation by shaking the wand, so if at any point you release or otherwise drop the wand, the effect immediately stops being suppressed and resumes on the target as normal."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of "
+          },
+          {
+            "type": "text",
+            "text": "cleanse affliction",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "text",
+            "text": "clear mind",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "text",
+            "text": "sound body",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", as appropriate."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ZFx0WqzlNnIxeIII"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4500
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-purification-6th-rank-spell",
+          "name": "Wand of Purification (6th-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "ac1bc1c6-671c-546f-b2ac-c5b9a0c9842b",
+    "pack": "tian-xia-character-guide",
+    "kind": "equipment",
+    "slug": "equipment:wand-of-purification-7th-rank-spell",
+    "name": "Wand of Purification (7th-Rank Spell)",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["magical", "wand"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This cypress onusa rod is decorated with a number of paper streamers that rustle when shaken to direct purification magic. Wands of purification contain either "
+          },
+          {
+            "type": "ref",
+            "id": "9495e90b-a69c-5eaf-a472-b6b536856f28"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "c441df15-0219-514f-a5f5-00da93a3e391"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "674398f3-e121-59fe-a086-423c20002dd1"
+          },
+          {
+            "type": "text",
+            "text": ", decided when the wand is created."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "5e7b32f6-95d4-5b66-9956-03c679d22fa2"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "text",
+            "text": "cleanse affliction",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "text",
+            "text": "clear mind",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "text",
+            "text": "sound body",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " of the indicated level. If your counteract check would be sufficient only to suppress the effect until the beginning of your next turn, instead of to fully counteract it, then you can Sustain the Activation of the wand each round to suppress the effect for an additional round, to a maximum of 1 minute. You Sustain the Activation by shaking the wand, so if at any point you release or otherwise drop the wand, the effect immediately stops being suppressed and resumes on the target as normal."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of "
+          },
+          {
+            "type": "text",
+            "text": "cleanse affliction",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "text",
+            "text": "clear mind",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "text",
+            "text": "sound body",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", as appropriate."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.4UsokByXD6h54H0F"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-purification-7th-rank-spell",
+          "name": "Wand of Purification (7th-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "3051255a-9fd7-5502-999f-d7905292618d",
+    "pack": "tian-xia-character-guide",
+    "kind": "equipment",
+    "slug": "equipment:wand-of-purification-8th-rank-spell",
+    "name": "Wand of Purification (8th-Rank Spell)",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["magical", "wand"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This cypress onusa rod is decorated with a number of paper streamers that rustle when shaken to direct purification magic. Wands of purification contain either "
+          },
+          {
+            "type": "ref",
+            "id": "9495e90b-a69c-5eaf-a472-b6b536856f28"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "c441df15-0219-514f-a5f5-00da93a3e391"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "674398f3-e121-59fe-a086-423c20002dd1"
+          },
+          {
+            "type": "text",
+            "text": ", decided when the wand is created."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "5e7b32f6-95d4-5b66-9956-03c679d22fa2"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "text",
+            "text": "cleanse affliction",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "text",
+            "text": "clear mind",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "text",
+            "text": "sound body",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " of the indicated level. If your counteract check would be sufficient only to suppress the effect until the beginning of your next turn, instead of to fully counteract it, then you can Sustain the Activation of the wand each round to suppress the effect for an additional round, to a maximum of 1 minute. You Sustain the Activation by shaking the wand, so if at any point you release or otherwise drop the wand, the effect immediately stops being suppressed and resumes on the target as normal."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of "
+          },
+          {
+            "type": "text",
+            "text": "cleanse affliction",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "text",
+            "text": "clear mind",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "text",
+            "text": "sound body",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", as appropriate."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.LC7a0ur3o2CJDVPq"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 24000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-purification-8th-rank-spell",
+          "name": "Wand of Purification (8th-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "f6495de4-a315-58a5-97c1-91d64de7e95a",
+    "pack": "tian-xia-character-guide",
+    "kind": "equipment",
+    "slug": "equipment:wand-of-purification-9th-rank-spell",
+    "name": "Wand of Purification (9th-Rank Spell)",
+    "level": 20,
+    "rarity": "common",
+    "traits": ["magical", "wand"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This cypress onusa rod is decorated with a number of paper streamers that rustle when shaken to direct purification magic. Wands of purification contain either "
+          },
+          {
+            "type": "ref",
+            "id": "9495e90b-a69c-5eaf-a472-b6b536856f28"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "c441df15-0219-514f-a5f5-00da93a3e391"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "674398f3-e121-59fe-a086-423c20002dd1"
+          },
+          {
+            "type": "text",
+            "text": ", decided when the wand is created."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "5e7b32f6-95d4-5b66-9956-03c679d22fa2"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "text",
+            "text": "cleanse affliction",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "text",
+            "text": "clear mind",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "text",
+            "text": "sound body",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " of the indicated level. If your counteract check would be sufficient only to suppress the effect until the beginning of your next turn, instead of to fully counteract it, then you can Sustain the Activation of the wand each round to suppress the effect for an additional round, to a maximum of 1 minute. You Sustain the Activation by shaking the wand, so if at any point you release or otherwise drop the wand, the effect immediately stops being suppressed and resumes on the target as normal."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of "
+          },
+          {
+            "type": "text",
+            "text": "cleanse affliction",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "text",
+            "text": "clear mind",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "text",
+            "text": "sound body",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", as appropriate."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TBoEmxOSYSrRweBC"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 70000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-purification-9th-rank-spell",
+          "name": "Wand of Purification (9th-Rank Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

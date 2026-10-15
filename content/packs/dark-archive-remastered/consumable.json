@@ -1,0 +1,1351 @@
+[
+  {
+    "id": "f3f59b6c-9019-5e9b-b961-51757d8047a5",
+    "pack": "dark-archive-remastered",
+    "kind": "consumable",
+    "slug": "consumable:baleblood-draft",
+    "name": "Baleblood Draft",
+    "level": 10,
+    "rarity": "rare",
+    "traits": ["alchemical", "consumable", "elixir"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This vial of murky, acrid-smelling liquid is derived from a blend of strange blood, typically coming from aberrations and cryptids. It has no special properties when used alone, but if you drink one shortly before drinking an alchemical elixir, you enhance the elixir's duration. Many tales of mysterious cryptids are actually based on encounters with people suffering the aftereffects of such concoctions."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After drinking a baleblood draft, the next elixir you drink within 1 minute that has a duration of at least 1 minute and at most 1 hour has its duration extended by 50% (so a lesser cheetah's elixir lasts for a minute and a half instead of 1 minute)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "However, after pairing baleblood draft with another elixir, you suffer an eerie side effect for 1 week. This side effect never causes serious harm, although it might be inconvenient and is always ominous in appearance. All elixirs made in the same batch cause the same side effect. Drinking another draft with the same side effect extends the side effect's duration by another week, and drinking one with a different side effect causes you to suffer both effects simultaneously."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.eZIOsvyFRkqU43f8"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 155
+        }
+      },
+      "bulk": "light",
+      "category": "elixir",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "91fcf685-c2a0-56f8-b2eb-7dccb655eed3",
+    "pack": "dark-archive-remastered",
+    "kind": "consumable",
+    "slug": "consumable:chimera-thread",
+    "name": "Chimera Thread",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This multicolored skein is twisted together from strands of many different materials. When used to stitch together pieces from the carcasses of two or more animals, it fuses them into a single intact carcass of an outlandish-looking monster with characteristics of the component species. The thread disappears, leaving no obvious seams and smoothing the transition between the parts of the creatures."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.mxnlzHb86s56F5wc"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "other"
+      }
+    }
+  },
+  {
+    "id": "2ac75c0b-fa27-5add-9feb-2c50c04764c8",
+    "pack": "dark-archive-remastered",
+    "kind": "consumable",
+    "slug": "consumable:conrasu-coin-arbiter",
+    "name": "Conrasu Coin (Arbiter)",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You attempt a Diplomacy check to "
+          },
+          {
+            "type": "ref",
+            "id": "722e5346-27c0-5157-b5a9-e6018df94150"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These wooden discs sometimes form spontaneously at the Wood Pile, a secret conrasu location suffused with extraplanar energy. A conrasu coin can be activated to call upon the power of a specific type of aeon."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This coin has small wings like an arbiter, the messenger and diplomat aeon. When you activate the coin, you gain a +2 circumstance bonus on the Diplomacy check, which increases to a +3 circumstance bonus to Make an Impression on a creature with the aeon trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.SHQv4yntEoU4uYRJ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 7
+        }
+      },
+      "bulk": "negligible",
+      "category": "talisman",
+      "usage": {
+        "type": "affixed",
+        "to": "armor"
+      }
+    }
+  },
+  {
+    "id": "3887ce77-c628-5da5-84a2-97427fa2cccf",
+    "pack": "dark-archive-remastered",
+    "kind": "consumable",
+    "slug": "consumable:conrasu-coin-bythos",
+    "name": "Conrasu Coin (Bythos)",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're targeted with an attack but the opponent hasn't rolled yet."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These wooden discs sometimes form spontaneously at the Wood Pile, a secret conrasu location suffused with extraplanar energy. A conrasu coin can be activated to call upon the power of a specific type of aeon."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This cog-like coin bears an hourglass on one side and the four-armed silhouette of a bythos—aeons that steward over time—on the other. When activated, you catch a glimpse of your body moving on one of its potential timelines in response to danger and you follow those movements to dodge. You gain a +2 circumstance bonus to AC against the attack, and after resolving the attack, you can Stride up to 10 feet without triggering reactions. If you have the Nimble Roll feat and the attack misses, you can Stride up to 20 feet instead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.FgZCLBhOOhhXDdvI"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 200
+        }
+      },
+      "bulk": "negligible",
+      "category": "talisman",
+      "usage": {
+        "type": "affixed",
+        "to": "armor"
+      }
+    }
+  },
+  {
+    "id": "53a4e7f9-09c9-5f31-9073-5738ff72b892",
+    "pack": "dark-archive-remastered",
+    "kind": "consumable",
+    "slug": "consumable:forgetful-drops",
+    "name": "Forgetful Drops",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable", "ingested", "poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Member of a secret society"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These innocuous, colorless drops can be poured directly into a victim's mouth, or slipped into their food or drink. They initially haze a victim's mind slightly, making them easier to fool; in later stages, they can lead to the victim entering a murderous "
+          },
+          {
+            "type": "ref",
+            "id": "6f53a234-670f-5b02-a986-7cce57585fc8"
+          },
+          {
+            "type": "text",
+            "text": " state. Secret societies use these drops to befuddle a target or to frame them for violence."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Saving Throw",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 18
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Onset",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 5 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Maximum Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 1"
+          },
+          {
+            "type": "text",
+            "text": " (10 minutes)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " stupefied 1 and "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": " (20 minutes)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " stupefied 1, clumsy 1, and "
+          },
+          {
+            "type": "ref",
+            "id": "6f53a234-670f-5b02-a986-7cce57585fc8"
+          },
+          {
+            "type": "text",
+            "text": " (30 minutes)"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.qhn0PSd5TPGpblbg"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": 1,
+      "category": "poison",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "6bcf0c74-00a9-5a35-ba4d-1db91ad3dab4",
+    "pack": "dark-archive-remastered",
+    "kind": "consumable",
+    "slug": "consumable:gift-of-the-poisoned-heart",
+    "name": "Gift of the Poisoned Heart",
+    "level": 16,
+    "rarity": "rare",
+    "traits": ["consumable", "cursed", "magical", "unholy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Those who fail to see the curse view this object as a priceless gift, capable of restoring life to the deceased, but deep in the heart of this diamond lies a single flaw: a fissured occlusion of sickly, tainted red. To activate the diamond, place it on the relatively intact body of a creature that died within the past year. The stone shatters, restoring the recipient to life with the effects of a successful "
+          },
+          {
+            "type": "ref",
+            "id": "ffb89230-3939-5733-83a2-d20bbd4d33db"
+          },
+          {
+            "type": "text",
+            "text": " ritual, except there's no limit to the level of the creature that can be revived."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This gift of life comes with a terrible cost: the recipient believes you—and anyone else who aided in the resurrection—deliberately caused their death and revived them only in furtherance of some nefarious scheme. Having a proxy activate the "
+          },
+          {
+            "type": "text",
+            "text": "gift of the poisoned heart",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is of no use, as the item's magic sniffs out all coconspirators and uses your attempt to avoid the drawback to feed the resurrected creature's paranoia."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "No amount of information or persuasion can alleviate this mistrust, as the cursed creature twists the facts endlessly to fit their delusion. Only magic such as "
+          },
+          {
+            "type": "ref",
+            "id": "9495e90b-a69c-5eaf-a472-b6b536856f28"
+          },
+          {
+            "type": "text",
+            "text": " can neutralize this effect, and the subject resists any attempt to alter their beliefs by magic."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.CXCWF6jQQHKHFhpR"
+    },
+    "data": {
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "2809f576-1ab2-50e7-b3ce-87f9e4300044",
+    "pack": "dark-archive-remastered",
+    "kind": "consumable",
+    "slug": "consumable:mistranslators-draft",
+    "name": "Mistranslator's Draft",
+    "level": 9,
+    "rarity": "rare",
+    "traits": ["consumable", "cursed", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A pickled lizard's tongue, tied into a knot, floats in this oily potion. When you drink it, you can speak and understand all spoken (but not written) languages for 1 hour. However, if you attempt to translate any spoken language, your translation is always erroneous in a way likely to cause substantial confusion or anger, typically reducing the listener's attitude toward you by one step. You aren't aware of your error, and any attempt to correct the mistake only compounds it."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.DZHV8R2908H2cVWM"
+    },
+    "data": {
+      "bulk": "light",
+      "category": "potion",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "1f250baa-f4b1-5079-b83f-1e4d59a62dfa",
+    "pack": "dark-archive-remastered",
+    "kind": "consumable",
+    "slug": "consumable:moonlit-ink",
+    "name": "Moonlit Ink",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Member of a secret society"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This alchemical ink is applied to a stamping device, typically a wooden seal or chop commissioned by the secret society and costing 1 sp. When the seal is pressed to paper, the ink briefly shows up before fading into invisibility. The stamp can be revealed by exposing the stamped item to direct moonlight for 1 minute. A character checking a good or document marked by a moonlit ink stamp must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "perception",
+            "dc": 25
+          },
+          {
+            "type": "text",
+            "text": " check to spot the stamp without exposure to moonlight. In addition to its use by secret societies for their secret books, papers, and messages, some smugglers use moonlit ink to mark their goods."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.QyEp8sN9mn36K5El"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "214a6fb6-6518-55e5-8a92-cfd28fda3d7c",
+    "pack": "dark-archive-remastered",
+    "kind": "consumable",
+    "slug": "consumable:parchment-of-secrets",
+    "name": "Parchment of Secrets",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["consumable", "illusion", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Member of a secret society"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This parchment is crafted with illusion magic, allowing for the transfer of secret messages. You can fill the parchment with the usual amount of text, encoding your secret message within the innocuous message."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Hide Message",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You tap the letters of your secret message one at a time, causing the letters to glow momentarily before fading to their standard ink color, and a symbol of your choice appears at the corner of the page. The next time someone taps the symbol with a writing instrument, the chosen letters glow again, revealing the secret message, and then the power of the parchment is spent."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.qzT0myaHAiSqnwWW"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 8
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "7163954b-ba3a-5ad8-acde-cfb975c17f6a",
+    "pack": "dark-archive-remastered",
+    "kind": "consumable",
+    "slug": "consumable:rose-of-loves-lost",
+    "name": "Rose of Loves Lost",
+    "level": 10,
+    "rarity": "rare",
+    "traits": ["consumable", "cursed", "magical", "unholy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "No thorns are visible on this ruby-red crystal rose, which seems to grant a boon to a loved one, but it draws three beads of blood when first bestowed upon an unwitting recipient. Hags delight in using the rose's curse to ruin young lovers, but it can be found anywhere—even buried innocently in a treasure hoard."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You activate the "
+          },
+          {
+            "type": "text",
+            "text": "rose of loves",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " lost by giving it to someone toward whom you feel romantic attraction. This item functions only if you feel genuine attraction and desire, and it doesn't function if you know the item's curse. If the target accepts the gift, they must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 27
+          },
+          {
+            "type": "text",
+            "text": " save or be affected by "
+          },
+          {
+            "type": "ref",
+            "id": "a3738cb8-aa5d-5084-b250-86fe19b7498d"
+          },
+          {
+            "type": "text",
+            "text": " with an unlimited duration. Every 24 hours, the victim attempts another Will save to break the spell. If they fail three consecutive Will saves, they become "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7",
+            "label": "Doomed 1"
+          },
+          {
+            "type": "text",
+            "text": ", as the rose inflicts a lethal wasting disease. This value can't decrease while the curse continues. Instead, it worsens every 3 days the victim fails to break the rose's spell, until the victim either dies or shakes off the curse. A successful saving throw or "
+          },
+          {
+            "type": "ref",
+            "id": "9495e90b-a69c-5eaf-a472-b6b536856f28"
+          },
+          {
+            "type": "text",
+            "text": " (of 4th rank or higher) ends the charm and enables the victim to begin decreasing their doomed value."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.D2iSFSgRq2jSov76"
+    },
+    "data": {
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "7d542874-0448-52e8-8ec2-da2532d9669d",
+    "pack": "dark-archive-remastered",
+    "kind": "consumable",
+    "slug": "consumable:sampling-ammunition",
+    "name": "Sampling Ammunition",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ammunition",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " arrow, bolt"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The head of this arrow or bolt is a pointed glass cylinder with a hollow core. Upon hitting a corporeal creature, sampling ammunition captures a small portion of the target's skin, blood, and flesh. The sample falls to the ground below wherever the creature was hit. This sample is sealed and magically preserved inside its chamber, although it deteriorates normally once the cylinder is opened. Sampling ammunition can't collect samples from creatures made entirely of metal, stone, or other hard substances."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Cs96jFDDcL9sX4Hv"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 22
+        }
+      },
+      "bulk": "negligible",
+      "category": "ammunition",
+      "ammunition": ["arrows", "bolts"]
+    }
+  },
+  {
+    "id": "6024cea4-b6ca-551c-8048-3c330590b05d",
+    "pack": "dark-archive-remastered",
+    "kind": "consumable",
+    "slug": "consumable:self-immolating-note",
+    "name": "Self-Immolating Note",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable", "fire"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Member of a secret society"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This paper is crafted with an unusual formula, causing it to catch fire and self-immolate 5 minutes after being exposed to the air. The item activates automatically when the envelope is opened, which typically takes an Interact action. Anyone holding the note when it catches fire takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. Often, these notes are given as practical jokes or threats, but secret societies find them quite useful when sharing information about upcoming meetings or any other relevant news. These letters must be written in haste and require the use of their accompanying envelopes, which prevent air from interacting with the paper until the envelope's seal is broken."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.g91dodJKrkQ2gCA6"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "d7176c69-03fa-5a3b-ada3-e6d943307481",
+    "pack": "dark-archive-remastered",
+    "kind": "consumable",
+    "slug": "consumable:swirling-sand",
+    "name": "Swirling Sand",
+    "level": 7,
+    "rarity": "rare",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Swirling sand carries a faint trace of strange compulsions from the helical sand spire near Beachcomber. Adding this catalyst to a "
+          },
+          {
+            "type": "ref",
+            "id": "06dcb2ac-6b0e-512e-bcc4-7dd4abe5d503"
+          },
+          {
+            "type": "text",
+            "text": " spell implants a strange compulsion in one target of the spell. The target creature must spin counterclockwise at the end of its turn if it didn't take a move action that turn. This spin is a free action that has the move trait. This effect lasts for 3 rounds on a success, failure, or critical failure against "
+          },
+          {
+            "type": "text",
+            "text": "suggestion",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " (even if the target completes its "
+          },
+          {
+            "type": "text",
+            "text": "suggestion",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " in fewer rounds); a target that critically succeeds against "
+          },
+          {
+            "type": "text",
+            "text": "suggestion",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is unaffected by the swirling sand."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Fgcc2OXLIKXWjbSp"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 52
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "3704ef8e-1c9e-543f-b023-5d18f17c6ae7",
+    "pack": "dark-archive-remastered",
+    "kind": "consumable",
+    "slug": "consumable:wine-of-the-blood",
+    "name": "Wine of the Blood",
+    "level": 5,
+    "rarity": "rare",
+    "traits": ["consumable", "healing", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This wine, prepared using the blood of a creature with overwhelming vitality, soothes the body, mind, and spirit with a temporary sense of euphoria and rest. When you drink wine of the blood, you recover "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d10"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points. Additionally, the wine attempts to counteract every negative emotion effect affecting you, with a counteract rank of 3 and a counteract modifier of +9. Lastly, you gain a +1 status bonus to all Will saves and a +2 status bonus against emotion effects for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "cb79f2a3-20ad-5061-8353-bdda1a3e0113"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.YnkfinMN0l06iR1t"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 30
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

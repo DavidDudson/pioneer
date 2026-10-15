@@ -1,0 +1,60 @@
+[
+  {
+    "id": "35d4f4d7-0caf-52cc-a388-cc44b5ac0a65",
+    "pack": "tian-xia-character-guide",
+    "kind": "armor",
+    "slug": "armor:bakuwa-lizardfolk-bony-plates",
+    "name": "Bakuwa Lizardfolk Bony Plates",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["aquadynamic", "comfort"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Note",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Bakuwa Lizardfolk heritage only"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your plates are medium armor in the plate armor group that grant a +4 item bonus to AC, a Dex cap of +1, a check penalty of –2, a Speed penalty of –5 feet, a Strength value of +3, and have the aquadynamic and comfort traits. You can never wear other armor or remove your plates. You can etch armor runes onto your plates."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.mrgtvEbYTjGpOi7F"
+    },
+    "data": {
+      "bulk": "negligible",
+      "category": "medium",
+      "group": "plate",
+      "acBonus": 4,
+      "dexCap": 1,
+      "checkPenalty": 2,
+      "speedPenalty": 5,
+      "strength": 3
+    }
+  }
+]

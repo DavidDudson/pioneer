@@ -1,0 +1,26 @@
+[
+  {
+    "id": "824f3449-6720-565d-9352-447ecd3f0410",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:planar-rift-lore",
+    "name": "Planar Rift Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:planar-rift",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.planar-rift",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  }
+]

@@ -132,6 +132,7 @@ describe.skipIf(adminUrl === undefined)('content routes (postgres)', () => {
 
     expect(packs.map((pack) => String(pack.id))).toStrictEqual([
       'core-rules',
+      'dark-archive-remastered',
       'divine-mysteries',
       'gm-core',
       'howl-of-the-wild',
@@ -141,6 +142,7 @@ describe.skipIf(adminUrl === undefined)('content routes (postgres)', () => {
       'player-core-2',
       'rage-of-elements',
       'secrets-of-magic',
+      'tian-xia-character-guide',
       'treasure-vault',
       'war-of-immortals',
     ]);

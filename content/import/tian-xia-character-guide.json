@@ -1,0 +1,5636 @@
+{
+  "pin": {
+    "tag": "pf2e-8.6.0",
+    "sha256": "d9c4c1f6bbf9bd907ec0acbaea9b8d4e8b0d049758a8616829f07c1b4ee81342"
+  },
+  "backlog": [
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "action:blazing-conflagration",
+      "foundry": "Compendium.pf2e.actionspf2e.Item.XotRIv6tKRtuAGAF",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "action:lightning-needles",
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.0R18Nd0CotPo9KD7",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "ancestry-feature:head-gem",
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.HYefFkddD9lOhFM8",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "key": "GrantItem",
+            "uuid": "Compendium.pf2e.equipment-srd.Item.Head Gem"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "ancestry-feature:horns-sarangay",
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.LhgVj9GhPsXGfwAM",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "weapon",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:id:{item|id}"],
+            "property": "other-tags",
+            "value": "sarangay-horns"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "ancestry:samsaran",
+      "foundry": "Compendium.pf2e.ancestries.Item.l7vjMIbPAUvEIosU",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "ancestry:sarangay",
+      "foundry": "Compendium.pf2e.ancestries.Item.7mpMGhVoaPANJnZ8",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "ancestry:tanuki",
+      "foundry": "Compendium.pf2e.ancestries.Item.pILFsoGsUQkVF5dZ",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "PF2E.NPCAbility.ChangeShape.Label",
+            "mergeable": true,
+            "option": "change-shape",
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Animal.Specific.RacoonDog",
+                "value": "raccoon-dog"
+              }
+            ],
+            "toggleable": true
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "predicate": ["item:slug:change-shape"],
+            "property": "description",
+            "value": [
+              {
+                "text": "PF2E.SpecificRule.ChangeShape.Tanuki"
+              }
+            ]
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "ancestry:wayang",
+      "foundry": "Compendium.pf2e.ancestries.Item.8FpI46oVxYVku04u",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "flags.system.colorDarkvision",
+            "value": true
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "ancestry:yaksha",
+      "foundry": "Compendium.pf2e.ancestries.Item.k3zyr6du4gV0Ftuh",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "ancestry:yaoguai",
+      "foundry": "Compendium.pf2e.ancestries.Item.dnk0Rf7AUmyR5b8z",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "PF2E.NPCAbility.ChangeShape.Label",
+            "mergeable": true,
+            "option": "change-shape",
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Yaoguai",
+                "value": "yaoguai"
+              }
+            ],
+            "toggleable": true
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "predicate": ["item:slug:change-shape"],
+            "property": "description",
+            "value": [
+              {
+                "text": "PF2E.SpecificRule.ChangeShape.Yaoguai"
+              }
+            ]
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "background:professional-letter-writer",
+      "foundry": "Compendium.pf2e.backgrounds.Item.rAvoo4cwdkWiGNe0",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "value": "Compendium.pf2e.feats-srd.Item.Specialty Crafting"
+              },
+              {
+                "value": "Compendium.pf2e.feats-srd.Item.Multilingual"
+              }
+            ],
+            "flag": "feat",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.SkillFeat"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "key": "GrantItem",
+            "uuid": "{item|flags.system.rulesSelections.feat}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "class-feature:aloof-firmament",
+      "foundry": "Compendium.pf2e.classfeatures.Item.9CC5Ek0Mq768Lhgx",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              "spellcasting:category:prepared",
+              "spellcasting:tradition:arcane",
+              {
+                "or": [
+                  {
+                    "and": [
+                      "item:slug:water-walk",
+                      {
+                        "gte": ["self:level", 7]
+                      }
+                    ]
+                  },
+                  {
+                    "and": [
+                      "item:slug:wall-of-wind",
+                      {
+                        "gte": ["self:level", 11]
+                      }
+                    ]
+                  },
+                  {
+                    "and": [
+                      "item:slug:variable-gravity",
+                      {
+                        "gte": ["self:level", 13]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "property": "other-tags",
+            "value": "studious-spell"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[actionspf2e] Pathfinder Impossible Magic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "class-feature:unfurling-brocade",
+      "foundry": "Compendium.pf2e.classfeatures.Item.y0WQzzshwGIymZsr",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              "spellcasting:category:prepared",
+              "spellcasting:tradition:arcane",
+              {
+                "or": [
+                  {
+                    "and": [
+                      "item:slug:web",
+                      {
+                        "gte": ["self:level", 7]
+                      }
+                    ]
+                  },
+                  {
+                    "and": [
+                      "item:slug:whirling-scarves",
+                      {
+                        "gte": ["self:level", 11]
+                      }
+                    ]
+                  },
+                  {
+                    "and": [
+                      "item:slug:planar-tether",
+                      {
+                        "gte": ["self:level", 13]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "property": "other-tags",
+            "value": "studious-spell"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[actionspf2e] Pathfinder Impossible Magic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "effect:effect-acupuncturist",
+      "foundry": "Compendium.pf2e.feat-effects.Item.fHM9xvCBWrBqcDQY",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": [
+              {
+                "label": "PF2E.Check.Result.Degree.Check.criticalSuccess",
+                "value": 2
+              },
+              {
+                "label": "PF2E.Check.Result.Degree.Check.success",
+                "value": 1
+              },
+              {
+                "label": "PF2E.Check.Result.Degree.Check.criticalFailure",
+                "value": -1
+              }
+            ],
+            "flag": "acupuncturist",
+            "key": "ChoiceSet"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["downtime"],
+            "selector": "skill-check",
+            "type": "circumstance",
+            "value": "@item.flags.system.rulesSelections.acupuncturist"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "effect:effect-blade-of-the-heart",
+      "foundry": "Compendium.pf2e.feat-effects.Item.5yfA4sAo0CjXIYDr",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "AdjustStrike",
+          "raw": {
+            "definition": ["item:tag:starlit-sentinel-weapon"],
+            "key": "AdjustStrike",
+            "mode": "add",
+            "property": "property-runes",
+            "value": "{item|flags.system.rulesSelections.rune}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "effect:effect-fluttering-distraction",
+      "foundry": "Compendium.pf2e.feat-effects.Item.1aMjsd08O2v5TNG2",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "RollTwice",
+          "raw": {
+            "keep": "lower",
+            "key": "RollTwice",
+            "removeAfterRoll": true,
+            "selector": "strike-attack-roll"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "effect:effect-hasty-celebration",
+      "foundry": "Compendium.pf2e.feat-effects.Item.J8WkLtuY0RpcjI8q",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": [
+              {
+                "not": "self:signature:{item|origin.signature}"
+              }
+            ],
+            "selector": ["attack-roll", "damage"],
+            "type": "circumstance",
+            "value": 2
+          }
+        },
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "inMemoryOnly": true,
+            "key": "GrantItem",
+            "predicate": ["self:signature:{item|origin.signature}"],
+            "uuid": "Compendium.pf2e.conditionitems.Item.Off-Guard"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "effect:effect-kindling",
+      "foundry": "Compendium.pf2e.feat-effects.Item.Pe4qwrE1oU68iW4g",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": {
+              "config": "ranks"
+            },
+            "flag": "rank",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Rank"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["item:trait:fire", "item:duration:0"],
+            "selector": "spell-damage",
+            "type": "status",
+            "value": "2*@item.flags.system.rulesSelections.rank"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "effect:effect-lightning-armillary",
+      "foundry": "Compendium.pf2e.feat-effects.Item.QVk0oRgc1pRwhG7U",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "label": "PF2E.UI.RuleElements.ChoiceSet.NoLabel",
+                "value": "d6"
+              },
+              {
+                "label": "PF2E.UI.RuleElements.ChoiceSet.YesLabel",
+                "value": "d8"
+              }
+            ],
+            "flag": "dieSize",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.FamiliarSage.LightningRingsOvercharge.Prompt"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": {
+              "includeHandwraps": true,
+              "ownedItems": true,
+              "types": ["weapon"]
+            },
+            "flag": "weapon",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.WeaponOrUnarmed"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "DamageDice",
+          "raw": {
+            "damageType": "electricity",
+            "diceNumber": 1,
+            "dieSize": "{item|flags.system.rulesSelections.dieSize}",
+            "key": "DamageDice",
+            "selector": "{item|flags.system.rulesSelections.weapon}-damage"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "effect:effect-memory-of-skill",
+      "foundry": "Compendium.pf2e.feat-effects.Item.K0VkhTXXmyGPilVN",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": {
+              "config": "skills",
+              "predicate": [
+                {
+                  "lte": ["skill:{choice|value}:rank", 2]
+                }
+              ]
+            },
+            "flag": "skill",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Skill"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "system.skills.{item|flags.system.rulesSelections.skill}.rank",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "effect:effect-packed-with-flavor",
+      "foundry": "Compendium.pf2e.feat-effects.Item.U9tJvfQDdpsf5Ipd",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "TempHP",
+          "raw": {
+            "key": "TempHP",
+            "value": "ternary(gte(@item.origin.system.skills.crafting.rank,3),10,5)"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "effect:effect-prepare-elemental-medicine",
+      "foundry": "Compendium.pf2e.feat-effects.Item.ZqEOsqnGFLI2ob9m",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "label": "PF2E.Check.Result.Degree.Check.criticalSuccess",
+                "value": 2
+              },
+              {
+                "label": "PF2E.Check.Result.Degree.Check.success",
+                "value": 1
+              },
+              {
+                "label": "PF2E.Check.Result.Degree.Check.criticalFailure",
+                "value": -1
+              }
+            ],
+            "flag": "value",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.DegreeOfSuccess"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "label": "PF2E.TraitEarth",
+                "value": {
+                  "element": "earth",
+                  "resistance": "void",
+                  "weakness": "vitality"
+                }
+              },
+              {
+                "label": "PF2E.TraitFire",
+                "value": {
+                  "damageType": "fire",
+                  "element": "fire",
+                  "resistance": "vitality",
+                  "weakness": "void"
+                }
+              },
+              {
+                "label": "PF2E.TraitMetal",
+                "value": {
+                  "element": "metal",
+                  "resistance": "vitality",
+                  "weakness": "void"
+                }
+              },
+              {
+                "label": "PF2E.TraitWater",
+                "value": {
+                  "element": "water",
+                  "resistance": "void",
+                  "weakness": "vitality"
+                }
+              },
+              {
+                "label": "PF2E.TraitWood",
+                "value": {
+                  "element": "wood",
+                  "resistance": "void",
+                  "weakness": "vitality"
+                }
+              }
+            ],
+            "flag": "prepareElementalMedicine",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Element"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": [
+              "prepare-elemental-medicine",
+              {
+                "or": ["item:trait:curse", "item:trait:disease", "item:trait:poison"]
+              }
+            ],
+            "selector": "saving-throw",
+            "type": "circumstance",
+            "value": "@item.flags.system.rulesSelections.value"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "key": "Resistance",
+            "predicate": ["prepare-elemental-medicine:skill:occultism"],
+            "type": "{item|flags.system.rulesSelections.prepareElementalMedicine.resistance}",
+            "value": "ternary(gte(@item.origin.skills.occultism.rank,4),8,ternary(gte(@item.origin.skills.occultism.rank,3),4,2))"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Weakness",
+          "raw": {
+            "key": "Weakness",
+            "predicate": ["prepare-elemental-medicine:skill:occultism"],
+            "type": "{item|flags.system.rulesSelections.prepareElementalMedicine.weakness}",
+            "value": "ternary(gte(@item.origin.skills.occultism.rank,4),8,ternary(gte(@item.origin.skills.occultism.rank,3),4,2))"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "RollOption",
+          "raw": {
+            "key": "RollOption",
+            "option": "prepare-elemental-medicine:{item|flags.system.rulesSelections.prepareElementalMedicine.element}",
+            "predicate": ["feat:intensified-element-stance"]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "flags.system.prepareElementalMedicine.skillRank",
+            "predicate": ["feat:intensified-element-stance"],
+            "value": "@item.origin.skills.{item|flags.system.rulesSelections.skill}.rank"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "effect:effect-protective-pose",
+      "foundry": "Compendium.pf2e.feat-effects.Item.qIPl31SfvT993Lyz",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": [
+              {
+                "label": "PF2E.TraitAcid",
+                "value": "acid"
+              },
+              {
+                "label": "PF2E.TraitCold",
+                "value": "cold"
+              },
+              {
+                "label": "PF2E.TraitElectricity",
+                "value": "electricity"
+              },
+              {
+                "label": "PF2E.TraitFire",
+                "value": "fire"
+              },
+              {
+                "label": "PF2E.TraitSonic",
+                "value": "sonic"
+              }
+            ],
+            "flag": "damageType",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.EnergyType"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "key": "Resistance",
+            "type": "{item|flags.system.rulesSelections.damageType}",
+            "value": "floor(@item.origin.level/2)"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "effect:effect-rainbow-vinegar",
+      "foundry": "Compendium.pf2e.equipment-effects.Item.bHCpqwKH9JM8FZa6",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:rainbow-vinegar-moderate",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Rainbow Vinegar (Moderate)"
+              },
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:rainbow-vinegar-greater",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Rainbow Vinegar (Greater)"
+              }
+            ],
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
+            "rollOption": "rainbow-vinegar"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "DamageDice",
+          "raw": {
+            "damageType": "acid",
+            "diceNumber": 1,
+            "dieSize": "d4",
+            "key": "DamageDice",
+            "selector": "unarmed-damage",
+            "tags": ["rainbow-vinegar-acid"]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "upgrade",
+            "predicate": ["rainbow-vinegar:rainbow-vinegar-greater", "dice:tag:rainbow-vinegar-acid"],
+            "property": "dice-faces",
+            "selectors": ["strike-damage"],
+            "value": 8
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "effect:effect-regional-specialty",
+      "foundry": "Compendium.pf2e.feat-effects.Item.dA8AzlayuQ1hIeEx",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": {
+              "config": "elementTraits"
+            },
+            "key": "ChoiceSet",
+            "rollOption": "regional-specialty"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "label": "PF2E.UI.RuleElements.ChoiceSet.NoLabel",
+                "value": 3
+              },
+              {
+                "label": "PF2E.UI.RuleElements.ChoiceSet.YesLabel",
+                "value": 4
+              }
+            ],
+            "flag": "bonus",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.WanderingChef.RegionalSpecialty.Prompt"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": [
+              {
+                "or": [
+                  {
+                    "and": [
+                      "regional-specialty:wood",
+                      {
+                        "or": ["item:trait:disease", "item:trait:poison", "regional-specialty-bonus"]
+                      }
+                    ]
+                  },
+                  {
+                    "and": [
+                      "regional-specialty:fire",
+                      {
+                        "or": ["inflicts:doomed", "inflicts:frightened", "regional-specialty-bonus"]
+                      }
+                    ]
+                  },
+                  {
+                    "and": [
+                      "regional-specialty:earth",
+                      {
+                        "or": ["inflicts:enfeebled", "regional-specialty-bonus"]
+                      }
+                    ]
+                  },
+                  {
+                    "and": [
+                      "regional-specialty:metal",
+                      {
+                        "or": ["inflicts:stupefied", "regional-specialty-bonus"]
+                      }
+                    ]
+                  },
+                  {
+                    "and": [
+                      "regional-specialty:water",
+                      {
+                        "or": ["inflicts:deafened", "inflicts:drained", "regional-specialty-bonus"]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "selector": "saving-throw",
+            "type": "item",
+            "value": "@item.flags.system.rulesSelections.bonus"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "effect:effect-signature-weapon",
+      "foundry": "Compendium.pf2e.feat-effects.Item.OqZtUOemGXgi9HDM",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": {
+              "ownedItems": true,
+              "types": ["weapon"]
+            },
+            "flag": "weapon",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Weapon"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "CriticalSpecialization",
+          "raw": {
+            "key": "CriticalSpecialization",
+            "predicate": ["item:id:{item|flags.system.rulesSelections.weapon}"]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "AdjustStrike",
+          "raw": {
+            "definition": ["item:id:{item|flags.system.rulesSelections.weapon}"],
+            "key": "AdjustStrike",
+            "mode": "add",
+            "predicate": ["improved-signature-weapon"],
+            "property": "materials",
+            "value": "dawnsilver"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "AdjustStrike",
+          "raw": {
+            "definition": ["item:id:{item|flags.system.rulesSelections.weapon}"],
+            "key": "AdjustStrike",
+            "mode": "add",
+            "predicate": ["improved-signature-weapon"],
+            "property": "materials",
+            "value": "duskwood"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "AdjustStrike",
+          "raw": {
+            "definition": ["item:id:{item|flags.system.rulesSelections.weapon}"],
+            "key": "AdjustStrike",
+            "mode": "add",
+            "predicate": ["improved-signature-weapon"],
+            "property": "materials",
+            "value": "peachwood"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "effect:effect-starlit-transformation",
+      "foundry": "Compendium.pf2e.feat-effects.Item.JmAYeBSVvr5QMNis",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": {
+              "ownedItems": true,
+              "types": ["weapon"]
+            },
+            "flag": "weapon",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Weapon"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "selector": "{item|flags.system.rulesSelections.weapon}-damage",
+            "type": "status",
+            "value": 1
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|flags.system.rulesSelections.weapon}",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "property": "other-tags",
+            "value": "starlit-sentinel-weapon"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "override",
+            "predicate": ["bolts-of-starlight"],
+            "property": "dice-faces",
+            "selectors": ["{item|flags.system.rulesSelections.weapon}-damage"],
+            "slug": "base",
+            "value": 4
+          }
+        },
+        {
+          "type": "rule",
+          "key": "DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "override",
+            "predicate": ["bolts-of-starlight"],
+            "property": "damage-type",
+            "selectors": ["{item|flags.system.rulesSelections.weapon}-damage"],
+            "slug": "base",
+            "value": "force"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "AdjustStrike",
+          "raw": {
+            "definition": ["item:id:{item|flags.system.rulesSelections.weapon}"],
+            "key": "AdjustStrike",
+            "mode": "add",
+            "predicate": ["bolts-of-starlight"],
+            "property": "traits",
+            "value": "arcane"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "AdjustStrike",
+          "raw": {
+            "definition": ["item:id:{item|flags.system.rulesSelections.weapon}"],
+            "key": "AdjustStrike",
+            "mode": "add",
+            "predicate": ["bolts-of-starlight"],
+            "property": "traits",
+            "value": "force"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "AdjustModifier",
+          "raw": {
+            "key": "AdjustModifier",
+            "predicate": ["bolts-of-starlight"],
+            "selector": "{item|flags.system.rulesSelections.weapon}-damage",
+            "slug": "str",
+            "suppress": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "effect:effect-tap-the-past",
+      "foundry": "Compendium.pf2e.feat-effects.Item.m8QCmsy4WFQCIC7t",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "RollTwice",
+          "raw": {
+            "keep": "higher",
+            "key": "RollTwice",
+            "predicate": ["action:recall-knowledge"],
+            "removeAfterRoll": true,
+            "selector": "skill-check"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "effect:effect-unleash-yaoguai-might",
+      "foundry": "Compendium.pf2e.feat-effects.Item.OBsItGQScxHyUcmR",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": [
+              {
+                "label": "PF2E.TraitBludgeoning",
+                "value": "bludgeoning"
+              },
+              {
+                "label": "PF2E.TraitPiercing",
+                "value": "piercing"
+              },
+              {
+                "label": "PF2E.TraitSlashing",
+                "value": "slashing"
+              }
+            ],
+            "flag": "objectResistanceType",
+            "key": "ChoiceSet",
+            "predicate": ["change-shape:yaoguai", "self:heritage:born-of-item"],
+            "prompt": "PF2E.SpecificRule.Prompt.DamageType"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "key": "Resistance",
+            "predicate": ["change-shape:yaoguai", "self:heritage:born-of-item"],
+            "type": "{item|flags.system.rulesSelections.objectResistanceType}",
+            "value": 5
+          }
+        },
+        {
+          "type": "rule",
+          "key": "CreatureSize",
+          "raw": {
+            "key": "CreatureSize",
+            "predicate": [
+              "change-shape:yaoguai",
+              {
+                "not": "legendary-monster-boost:enlarge"
+              }
+            ],
+            "reach": {
+              "override": "10"
+            },
+            "resizeEquipment": true,
+            "value": "large"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "CreatureSize",
+          "raw": {
+            "key": "CreatureSize",
+            "predicate": ["change-shape:yaoguai", "legendary-monster-boost:enlarge"],
+            "reach": {
+              "override": "15"
+            },
+            "resizeEquipment": true,
+            "value": "huge"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "effect:stance-intensified-element-stance",
+      "foundry": "Compendium.pf2e.feat-effects.Item.EWiuxy4H1mCVcmud",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": [
+              {
+                "label": "PF2E.TraitEarth",
+                "predicate": ["prepare-elemental-medicine:earth"],
+                "value": "acid"
+              },
+              {
+                "label": "PF2E.TraitFire",
+                "predicate": ["prepare-elemental-medicine:fire"],
+                "value": "fire"
+              },
+              {
+                "label": "PF2E.TraitMetal",
+                "predicate": ["prepare-elemental-medicine:metal"],
+                "value": "electricity"
+              },
+              {
+                "label": "PF2E.TraitWater",
+                "predicate": ["prepare-elemental-medicine:water"],
+                "value": "sonic"
+              },
+              {
+                "label": "PF2E.TraitWood",
+                "predicate": ["prepare-elemental-medicine:wood"],
+                "value": "cold"
+              }
+            ],
+            "flag": "damageType",
+            "key": "ChoiceSet"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "DamageDice",
+          "raw": {
+            "damageType": "{item|flags.system.rulesSelections.damageType}",
+            "diceNumber": "ternary(gte(@actor.flags.system.prepareElementalMedicine.skillRank,4),2,1)",
+            "dieSize": "d6",
+            "key": "DamageDice",
+            "predicate": [
+              {
+                "or": [
+                  {
+                    "and": ["prepare-elemental-medicine:earth", "target:trait:water"]
+                  },
+                  {
+                    "and": [
+                      "prepare-elemental-medicine:fire",
+                      {
+                        "or": ["target:trait:metal", "intensified-element-stance-construct-damage"]
+                      }
+                    ]
+                  },
+                  {
+                    "and": [
+                      "prepare-elemental-medicine:metal",
+                      {
+                        "or": ["target:trait:plant", "target:trait:wood", "intensified-element-stance-construct-damage"]
+                      }
+                    ]
+                  },
+                  {
+                    "and": ["prepare-elemental-medicine:water", "target:trait:fire"]
+                  },
+                  {
+                    "and": [
+                      "prepare-elemental-medicine:water",
+                      {
+                        "or": ["target:trait:earth", "intensified-element-stance-construct-damage"]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "selector": ["spell-damage", "strike-damage"]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "effect:stance-kaiju-stance",
+      "foundry": "Compendium.pf2e.feat-effects.Item.fo8kb5GW0OF3HPKK",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Strike",
+          "raw": {
+            "category": "unarmed",
+            "damage": {
+              "base": {
+                "damageType": "bludgeoning",
+                "dice": 1,
+                "die": "d8"
+              }
+            },
+            "group": "brawling",
+            "key": "Strike",
+            "label": "PF2E.SpecificRule.Stance.Attack.ShatteringEarth",
+            "range": null,
+            "replaceAll": true,
+            "slug": "shattering-earth",
+            "traits": ["backswing", "fatal-d12", "reach", "unarmed"]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalSuccess"],
+            "selector": "{item|_id}-attack",
+            "text": "PF2E.SpecificRule.Stance.Note.ShatteringEarthStance",
+            "title": "{item|name}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "effect:stance-rushing-goat-stance",
+      "foundry": "Compendium.pf2e.feat-effects.Item.5Z250imfYqYGU2AP",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Strike",
+          "raw": {
+            "category": "unarmed",
+            "damage": {
+              "base": {
+                "damageType": "bludgeoning",
+                "dice": 1,
+                "die": "d8"
+              }
+            },
+            "group": "brawling",
+            "key": "Strike",
+            "label": "PF2E.SpecificRule.Stance.Attack.RammingHorn",
+            "range": null,
+            "replaceAll": true,
+            "slug": "ramming-horn",
+            "traits": ["forceful", "nonlethal", "shove", "unarmed"]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["rushing-goat-stance-damage"],
+            "selector": "ramming-horn-damage",
+            "type": "circumstance",
+            "value": "@weapon.system.damage.dice"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "effect:stance-strategist-stance",
+      "foundry": "Compendium.pf2e.feat-effects.Item.z6oLNlBs724PCcR6",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": [
+              {
+                "label": "PF2E.Check.Result.Degree.Check.criticalSuccess",
+                "value": 20
+              },
+              {
+                "label": "PF2E.Check.Result.Degree.Check.success",
+                "value": 15
+              }
+            ],
+            "flag": "auraRadius",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.UI.RuleElements.ChoiceSet.Prompt"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Aura",
+          "raw": {
+            "effects": [
+              {
+                "affects": "allies",
+                "uuid": "Compendium.pf2e.feat-effects.Item.Effect: Strategist Stance"
+              }
+            ],
+            "key": "Aura",
+            "radius": "@item.flags.system.rulesSelections.auraRadius",
+            "slug": "marshals-aura",
+            "traits": ["emotion", "visual", "mental"]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "effect:stance-twisting-petal-stance",
+      "foundry": "Compendium.pf2e.feat-effects.Item.7Eh8gHNcRNs9iIR8",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Strike",
+          "raw": {
+            "category": "unarmed",
+            "damage": {
+              "base": {
+                "damageType": "slashing",
+                "dice": 1,
+                "die": "d6"
+              }
+            },
+            "group": "brawling",
+            "key": "Strike",
+            "label": "PF2E.SpecificRule.Stance.Attack.GaleBlossom",
+            "range": null,
+            "replaceAll": false,
+            "slug": "gale-blossom",
+            "traits": ["agile", "finesse", "nonlethal", "shove", "nonlethal"]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "equipment:head-gem",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.FA1mAc7rEyC9vzZa",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "RollOption",
+          "raw": {
+            "key": "RollOption",
+            "option": "has-sarangay-head-gem",
+            "requiresEquipped": false,
+            "toggleable": true,
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "equipment:peachwood-branch",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.7XJQmpYWRZRRutc4",
+      "gaps": [
+        {
+          "type": "markup",
+          "markup": "table[class]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "equipment:peachwood-lumber",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.b4hSaH0ITd5fbR08",
+      "gaps": [
+        {
+          "type": "markup",
+          "markup": "table[class]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:adamantine-body",
+      "foundry": "Compendium.pf2e.feats-srd.Item.GIr0i1ucWnMSLwJo",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:adamantine-mantra",
+      "foundry": "Compendium.pf2e.feats-srd.Item.nCVX6szvnW1Js57w",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:blessing-of-defiance", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:blessing-of-defiance", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:yaksha"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:additional-servings",
+      "foundry": "Compendium.pf2e.feats-srd.Item.243yFdMntCMPLLrp",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.resources.versatileVials.max",
+            "value": "4 + @item.timesTaken"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:ancestral-form",
+      "foundry": "Compendium.pf2e.feats-srd.Item.UWOSRX6FH6MZDlEw",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:animal-form", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:animal-form", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:lizardfolk"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:ancestral-healer",
+      "foundry": "Compendium.pf2e.feats-srd.Item.PajUTojvRtTTEPPQ",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:clear-mind", "item:slug:sound-body"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:clear-mind", "item:slug:sound-body"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell:sarangay"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:and-will-do-so-once-more",
+      "foundry": "Compendium.pf2e.feats-srd.Item.9nkcjb63ibLJrzRV",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "feat",
+            "key": "ItemAlteration",
+            "label": "{item|name}",
+            "mode": "add",
+            "predicate": ["item:slug:all-this-will-happen-again"],
+            "property": "description",
+            "value": [
+              {
+                "text": "{item|description}"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:arboreal-conversationalist",
+      "foundry": "Compendium.pf2e.feats-srd.Item.AO45is6WXyK9XzMl",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:speak-with-plants", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:speak-with-plants", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:gnome"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:awaken-the-obake",
+      "foundry": "Compendium.pf2e.feats-srd.Item.XECkaKwvc8M8ec9H",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:fear", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:fear", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:poppet"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:blood-like-water",
+      "foundry": "Compendium.pf2e.feats-srd.Item.UzYLSiDBFCGewhFi",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "condition",
+            "key": "ItemAlteration",
+            "mode": "downgrade",
+            "predicate": ["item:damage:type:bleed"],
+            "property": "pd-recovery-dc",
+            "value": 10
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:blood-must-have-blood",
+      "foundry": "Compendium.pf2e.feats-srd.Item.lzXVF6VTaPRfGDgj",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:blood-vendetta", "item:slug:share-life"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:blood-vendetta", "item:slug:share-life"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell:hungerseed"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:brilliant-vision",
+      "foundry": "Compendium.pf2e.feats-srd.Item.b95x1RNTFtp5TCM3",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:see-the-unseen", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:see-the-unseen", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:yaoguai"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:celestial-cacophony",
+      "foundry": "Compendium.pf2e.feats-srd.Item.zWbPmIQfv9VTYwwH",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["unstable-state"],
+            "property": "traits",
+            "value": "unstable"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "upgrade",
+            "predicate": ["unstable-state"],
+            "property": "dice-faces",
+            "selectors": ["{item|id}-inline-damage"],
+            "slug": "base",
+            "value": 8
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:colugos-traversal",
+      "foundry": "Compendium.pf2e.feats-srd.Item.xlPT1vT8pkgV3iCp",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:gentle-landing", "item:slug:jump"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:gentle-landing", "item:slug:jump"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell:yaksha"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:convocation-of-earth-and-moon",
+      "foundry": "Compendium.pf2e.feats-srd.Item.Jfq7VKkSc6TY7MEl",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Aura",
+          "raw": {
+            "key": "Aura",
+            "predicate": ["has-sarangay-head-gem"]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:crocodiles-twin",
+      "foundry": "Compendium.pf2e.feats-srd.Item.jRtQgOVZMr3QobG1",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.attributes.familiarAbilities.value",
+            "priority": 19,
+            "value": 2
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:crown-of-bone",
+      "foundry": "Compendium.pf2e.feats-srd.Item.pC9sGxKBOGWQLOuw",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "weapon",
+            "key": "ItemAlteration",
+            "mode": "upgrade",
+            "predicate": ["item:tag:sarangay-horns"],
+            "property": "damage-dice-faces"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:cultivator-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.nRyfLEs9JfEX2CTc",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:dance-of-the-jester",
+      "foundry": "Compendium.pf2e.feats-srd.Item.ycmxU7gySnfsO1Se",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[against]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:dance-of-the-mousedeer",
+      "foundry": "Compendium.pf2e.feats-srd.Item.1sojLNzisrsw0dhW",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[against]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:dance-of-the-tiger",
+      "foundry": "Compendium.pf2e.feats-srd.Item.3xKOqBaPApgsnRtB",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[against]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:deflecting-jewel",
+      "foundry": "Compendium.pf2e.feats-srd.Item.e7nTmdVOcaVkn2Q9",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "RollOption",
+          "raw": {
+            "disabledIf": [
+              {
+                "not": "has-sarangay-head-gem"
+              }
+            ],
+            "disabledValue": false,
+            "domain": "ac",
+            "key": "RollOption",
+            "option": "deflecting-jewel",
+            "priority": 51,
+            "toggleable": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:dissolutions-sovereignty",
+      "foundry": "Compendium.pf2e.feats-srd.Item.PbSyQ8PRlG3x42zY",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:duplicate-foe", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:duplicate-foe", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:wayang"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:distant-waterbirds-poise",
+      "foundry": "Compendium.pf2e.feats-srd.Item.3HaftIWhhxIGWzE7",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[actionspf2e] Pathfinder Impossible Magic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:dokkaebi-fire",
+      "foundry": "Compendium.pf2e.feats-srd.Item.gRa4bvQn7rI1LoRl",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "damageType": "mental",
+            "hideIfDisabled": true,
+            "key": "FlatModifier",
+            "label": "PF2E.SpecificRule.Feat.BurnIt.Label",
+            "predicate": ["item:slug:ignition", "spellcasting:occult", "spellcasting:innate", "feat:burn-it"],
+            "selector": "spell-damage",
+            "slug": "burn-it-spell",
+            "type": "status",
+            "value": "max(floor(@spell.level/2), 1)"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "damageCategory": "persistent",
+            "damageType": "mental",
+            "key": "FlatModifier",
+            "label": "PF2E.SpecificRule.Feat.BurnIt.Label",
+            "predicate": ["spellcasting:occult", "spellcasting:innate", "feat:burn-it"],
+            "selector": "ignition-inline-damage",
+            "slug": "burn-it-persistent",
+            "type": "status",
+            "value": 1
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:ignition", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:ignition", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:goblin"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:duo-dragon-kick",
+      "foundry": "Compendium.pf2e.feats-srd.Item.wOb5YGq1EcRn3lwl",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["unstable-state"],
+            "property": "traits",
+            "value": "unstable"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:echoing-violence",
+      "foundry": "Compendium.pf2e.feats-srd.Item.DaW1Ugz0a24jhWLY",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:elemental-spark",
+      "foundry": "Compendium.pf2e.feats-srd.Item.JMB4ldz7BQ5tx0hM",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "label": "PF2E.TraitEarth",
+                "value": {
+                  "damage": "piercing",
+                  "element": "earth",
+                  "trait": "versatile-p"
+                }
+              },
+              {
+                "label": "PF2E.TraitFire",
+                "value": {
+                  "damage": "fire",
+                  "element": "fire",
+                  "trait": "versatile-fire"
+                }
+              },
+              {
+                "label": "PF2E.TraitMetal",
+                "value": {
+                  "damage": "slashing",
+                  "element": "metal",
+                  "trait": "versatile-s"
+                }
+              },
+              {
+                "label": "PF2E.TraitWater",
+                "value": {
+                  "damage": "bludgeoning",
+                  "element": "water",
+                  "trait": "versatile-b"
+                }
+              },
+              {
+                "label": "PF2E.TraitWood",
+                "value": {
+                  "damage": "vitality",
+                  "element": "wood",
+                  "trait": "versatile-vitality"
+                }
+              }
+            ],
+            "flag": "elementalSpark",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Element"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "weapon",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:sprites-spark"],
+            "property": "traits",
+            "value": "{item|flags.system.rulesSelections.elementalSpark.trait}"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "AdjustStrike",
+          "raw": {
+            "definition": [
+              "item:slug:sprites-spark",
+              "item:damage:type:{item|flags.system.rulesSelections.elementalSpark.damage}"
+            ],
+            "key": "AdjustStrike",
+            "mode": "add",
+            "property": "traits",
+            "value": "{item|flags.system.rulesSelections.elementalSpark.element}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:energy-fortification",
+      "foundry": "Compendium.pf2e.feats-srd.Item.qaiwbAb1PaKrZ2O0",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "feat",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:prepare-elemental-medicine"],
+            "property": "other-tags",
+            "value": "energy-fortification"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:false-priest-form",
+      "foundry": "Compendium.pf2e.feats-srd.Item.UJdKgw8rbpkyoaeR",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:divine-lance", "item:slug:haunting-hymn"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:divine-lance", "item:slug:haunting-hymn"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell:tanuki"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][skill]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:familiar-sage-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.YKBDNQEqYPKE8dlH",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:familiars-resolve",
+      "foundry": "Compendium.pf2e.feats-srd.Item.BQ50m0Jb9qyoPchi",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["spellshape:familiars-resolve"],
+            "property": "description",
+            "value": [
+              {
+                "text": "PF2E.SpecificRule.Spellshape.FamiliarsResolve"
+              }
+            ]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.TraitSpellshape",
+            "mergeable": true,
+            "option": "spellshape",
+            "placement": "spellcasting",
+            "suboptions": [
+              {
+                "label": "{item|name}",
+                "value": "familiars-resolve"
+              }
+            ],
+            "toggleable": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:fan-dancer-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.KXPPwGmoKsMa6Ytg",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.skills.performance.rank",
+            "value": "ternary(gte(@actor.level,15),4,ternary(gte(@actor.level,7),3,2))"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:feast-planner",
+      "foundry": "Compendium.pf2e.feats-srd.Item.SuIRAnpe0RvNrx6I",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:fiend-trampling-stature",
+      "foundry": "Compendium.pf2e.feats-srd.Item.nk8jtjNodT15IU1N",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalSuccess"],
+            "predicate": [
+              {
+                "or": ["target:condition:prone", "target:condition:grabbed", "target:condition:restrained"]
+              }
+            ],
+            "selector": "strike-attack-roll",
+            "text": "{item|description}",
+            "title": "{item|name}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:five-breath-vanguard-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.8aYizNbZP8wyyj9y",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:five-breaths-one-death",
+      "foundry": "Compendium.pf2e.feats-srd.Item.aWGwGoodVZjcXkvE",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[traits]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:five-gods-ram",
+      "foundry": "Compendium.pf2e.feats-srd.Item.gq1gGsJDLQuQDrhW",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "RollOption",
+          "raw": {
+            "disabledIf": [
+              {
+                "not": "self:effect:rushing-goat-stance"
+              }
+            ],
+            "disabledValue": false,
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.Monk.FiveGodsRam.RollOptionLabel",
+            "option": "five-gods-ram",
+            "suboptions": [
+              {
+                "label": "PF2E.GenericLabel.StrikeCount.First",
+                "value": "first-strike"
+              },
+              {
+                "label": "PF2E.GenericLabel.StrikeCount.Second",
+                "value": "second-strike"
+              }
+            ],
+            "toggleable": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:flames-of-vision",
+      "foundry": "Compendium.pf2e.feats-srd.Item.3OmL54xnVTx1pW25",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:clairvoyance", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:clairvoyance", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:goblin"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:flower-chimera",
+      "foundry": "Compendium.pf2e.feats-srd.Item.F6bfZLBMS9fUtQiQ",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:spiritual-guardian", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:spiritual-guardian", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:leshy"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:form-of-the-beloved-mother",
+      "foundry": "Compendium.pf2e.feats-srd.Item.GDyYYA91A3r80Oec",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:animal-form", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:animal-form", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:nagaji"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:form-up",
+      "foundry": "Compendium.pf2e.feats-srd.Item.UpnXrLhJZ06HTaJh",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:fox-arson",
+      "foundry": "Compendium.pf2e.feats-srd.Item.N8PVMhhGgkJr41yj",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "critical": true,
+            "damageCategory": "persistent",
+            "key": "FlatModifier",
+            "selector": "foxfire-damage",
+            "value": "@weapon.flags.system.attackItemBonus"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[feats-srd] Pathfinder Lost Omens Ancestry Guide"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:generals-gambit",
+      "foundry": "Compendium.pf2e.feats-srd.Item.HX67CcR59JO2RJXI",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:geobukseon-retaliation",
+      "foundry": "Compendium.pf2e.feats-srd.Item.WcvscJpQhbTiefwn",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:ghost-path-epiphany",
+      "foundry": "Compendium.pf2e.feats-srd.Item.G96zcEKvxtWLn701",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[spells-srd] Pathfinder Player Core"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:golden-dragons-bounty",
+      "foundry": "Compendium.pf2e.feats-srd.Item.HvbVV8wjJmVmkYt7",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.TraitSpellshape",
+            "mergeable": true,
+            "option": "spellshape",
+            "placement": "spellcasting",
+            "suboptions": [
+              {
+                "label": "{item|name}",
+                "value": "golden-dragons-bounty"
+              }
+            ],
+            "toggleable": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:guardian-lion-roar",
+      "foundry": "Compendium.pf2e.feats-srd.Item.cgHpgpUeZdMXyCY4",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:horn-and-bone-incantation",
+      "foundry": "Compendium.pf2e.feats-srd.Item.JXKbfwsyYWcqZUUl",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:animal-form", "item:slug:humanoid-form"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:animal-form", "item:slug:humanoid-form"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell:yaksha"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:hypnotic-gaze",
+      "foundry": "Compendium.pf2e.feats-srd.Item.nok1dwVWHvb4SNuw",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "feat",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:hypnotic-lure", "hypnotic-gaze"],
+            "property": "description",
+            "value": [
+              {
+                "divider": true,
+                "text": "{item|description}"
+              }
+            ]
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[feats-srd] Pathfinder Lost Omens Impossible Lands"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:imperial-dragon-potion",
+      "foundry": "Compendium.pf2e.feats-srd.Item.BoLeT3uNl7iikQuI",
+      "gaps": [
+        {
+          "type": "markup",
+          "markup": "table[class]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:kaijus-footfalls",
+      "foundry": "Compendium.pf2e.feats-srd.Item.1i2Ms9egpbnzuUjQ",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:enlarge", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:enlarge", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:kobold"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:kijimuna-whistle",
+      "foundry": "Compendium.pf2e.feats-srd.Item.Bekco7lCUkqyLi6S",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:summon-plant-or-fungus", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:summon-plant-or-fungus", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:gnome"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:kin-hunter",
+      "foundry": "Compendium.pf2e.feats-srd.Item.AO3qHCGDU552NEIj",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["kin-hunter"],
+            "selector": ["unarmed-damage", "weapon-damage"],
+            "slug": "kin-hunter-damage",
+            "type": "circumstance",
+            "value": "@weapon.system.damage.dice"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:know-your-enemy",
+      "foundry": "Compendium.pf2e.feats-srd.Item.tlqz29fgp45bjSg6",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:kodama-call",
+      "foundry": "Compendium.pf2e.feats-srd.Item.qp6O9QBifW9bj7IV",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:helpful-wood-spirits", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:helpful-wood-spirits", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:leshy"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:light-bending-jewel",
+      "foundry": "Compendium.pf2e.feats-srd.Item.sSdlbJYQQD2TwIIb",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:invisibility", "item:slug:translocate"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:invisibility", "item:slug:translocate"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell:sarangay"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:many-guises-kitsune",
+      "foundry": "Compendium.pf2e.feats-srd.Item.ncVdpZFkqrMJIF75",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "feat",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "predicate": ["item:slug:shifting-faces"],
+            "property": "frequency-max",
+            "value": 3
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[feats-srd] Pathfinder Lost Omens Ancestry Guide"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:memory-of-mastery",
+      "foundry": "Compendium.pf2e.feats-srd.Item.XAvDZdWNTVBp68aN",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "feat",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "predicate": ["item:slug:memory-of-skill"],
+            "property": "frequency-per",
+            "value": "PT1H"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:minuscule-mentee",
+      "foundry": "Compendium.pf2e.feats-srd.Item.LKkX8Ft92u0ax6Yh",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.attributes.familiarAbilities.value",
+            "priority": 19,
+            "value": 2
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:mooneater",
+      "foundry": "Compendium.pf2e.feats-srd.Item.FKS9nLz07v9x49sE",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:eclipse-burst", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:eclipse-burst", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:lizardfolk"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:morning-side-dishes",
+      "foundry": "Compendium.pf2e.feats-srd.Item.g2qwr5maymONJAVI",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "CraftingAbility",
+          "raw": {
+            "craftableItems": ["item:tag:alchemical-food"],
+            "isDailyPrep": true,
+            "key": "CraftingAbility",
+            "label": "PF2E.SpecificRule.Alchemist.AdvancedAlchemy",
+            "maxSlots": 5,
+            "slug": "advanced-alchemy"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:morphic-strike",
+      "foundry": "Compendium.pf2e.feats-srd.Item.6lMKIvO6McMW0FBJ",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": [
+              {
+                "label": "PF2E.TraitBludgeoning",
+                "value": "bludgeoning"
+              },
+              {
+                "label": "PF2E.TraitSlashing",
+                "value": "slashing"
+              }
+            ],
+            "flag": "objectDamageType",
+            "key": "ChoiceSet",
+            "predicate": ["self:heritage:born-of-item"],
+            "prompt": "PF2E.SpecificRule.Prompt.DamageType"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Strike",
+          "raw": {
+            "category": "unarmed",
+            "damage": {
+              "base": {
+                "damageType": "{item|flags.system.rulesSelections.objectDamageType}",
+                "dice": 1,
+                "die": "d8"
+              }
+            },
+            "group": "brawling",
+            "key": "Strike",
+            "label": "PF2E.BattleForm.Attack.StrikingSurface",
+            "predicate": ["self:heritage:born-of-item"],
+            "slug": "striking-surface",
+            "traits": ["unarmed", "sweep"]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:no-hands-no-problem",
+      "foundry": "Compendium.pf2e.feats-srd.Item.xunnqCkAszIlanLF",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:telekinetic-hand", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:telekinetic-hand", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:poppet"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:numbing-spice-exhalation",
+      "foundry": "Compendium.pf2e.feats-srd.Item.vsibRIwbWoG37tuC",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:oni-weapon-familiarity",
+      "foundry": "Compendium.pf2e.feats-srd.Item.3o5tWjDIcfIARHIj",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "CriticalSpecialization",
+          "raw": {
+            "key": "CriticalSpecialization",
+            "predicate": [
+              {
+                "gte": ["self:level", 5]
+              },
+              {
+                "or": [
+                  "item:base:khakkhara",
+                  "item:base:nodachi",
+                  "item:base:ogre-hook",
+                  "item:base:tetsubo",
+                  "item:tag:hungerseed-horns"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:onis-mask",
+      "foundry": "Compendium.pf2e.feats-srd.Item.YrawssRNHsyqYuHi",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:illusory-disguise", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:illusory-disguise", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:hungerseed"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:peonys-flourish",
+      "foundry": "Compendium.pf2e.feats-srd.Item.jFdCLA9X9WloBvv3",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[against]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:phantom-orchestra",
+      "foundry": "Compendium.pf2e.feats-srd.Item.18B3fL77WgEY25M1",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:figment", "item:slug:ventriloquism"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:figment", "item:slug:ventriloquism"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell:tanuki"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:ponpoko-pon",
+      "foundry": "Compendium.pf2e.feats-srd.Item.hDvjODvJXdFjZJ81",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:rekindled-light",
+      "foundry": "Compendium.pf2e.feats-srd.Item.eXv8ZWcASOgs8jLZ",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[feats-srd] Pathfinder Lost Omens Ancestry Guide"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:river-adaptation",
+      "foundry": "Compendium.pf2e.feats-srd.Item.ruRhslwl9ReaVcY4",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:feet-to-fins", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:feet-to-fins", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:lizardfolk"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:samsaran-lore",
+      "foundry": "Compendium.pf2e.feats-srd.Item.eIXMBNTsA7yXzM9Q",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.skills.samsaran-lore",
+            "value": {
+              "attribute": "int",
+              "label": "{item|name}",
+              "rank": "match(when(gte(@actor.level, 15), 4), when(gte(@actor.level, 7), 3),when(gte(@actor.level, 3), 2),1)"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:samsaran-weapon-memory",
+      "foundry": "Compendium.pf2e.feats-srd.Item.5dOAR7OypjgUTz07",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": {
+              "config": "baseWeaponTypes"
+            },
+            "flag": "weaponOne",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Weapon"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": {
+              "config": "baseWeaponTypes"
+            },
+            "flag": "weaponTwo",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Weapon"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "MartialProficiency",
+          "raw": {
+            "definition": [
+              "item:category:martial",
+              {
+                "or": [
+                  "item:base:{item|flags.system.rulesSelections.weaponOne}",
+                  "item:base:{item|flags.system.rulesSelections.weaponTwo}"
+                ]
+              }
+            ],
+            "key": "MartialProficiency",
+            "label": "PF2E.SpecificRule.MartialProficiency.MartialSamsaranWeapons",
+            "sameAs": "simple",
+            "slug": "martial-samsaran-weapons"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "MartialProficiency",
+          "raw": {
+            "definition": [
+              "item:category:advanced",
+              {
+                "or": [
+                  "item:base:{item|flags.system.rulesSelections.weaponOne}",
+                  "item:base:{item|flags.system.rulesSelections.weaponTwo}"
+                ]
+              }
+            ],
+            "key": "MartialProficiency",
+            "label": "PF2E.SpecificRule.MartialProficiency.AdvancedSamsaranWeapons",
+            "sameAs": "martial",
+            "slug": "advanced-samsaran-weapons"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "CriticalSpecialization",
+          "raw": {
+            "key": "CriticalSpecialization",
+            "predicate": [
+              {
+                "or": [
+                  "item:base:{item|flags.system.rulesSelections.weaponOne}",
+                  "item:base:{item|flags.system.rulesSelections.weaponTwo}"
+                ]
+              },
+              {
+                "gte": ["self:level", 5]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:sarangay-lore",
+      "foundry": "Compendium.pf2e.feats-srd.Item.HhgIofEsA7HwjO6U",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.skills.sarangay-lore",
+            "value": {
+              "attribute": "int",
+              "label": "{item|name}",
+              "rank": "match(when(gte(@actor.level, 15), 4), when(gte(@actor.level, 7), 3),when(gte(@actor.level, 3), 2),1)"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:sash-of-the-wind",
+      "foundry": "Compendium.pf2e.feats-srd.Item.e8DABlCNZ0h0i9OA",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:fly", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:fly", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:fly"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:scarlet-strands",
+      "foundry": "Compendium.pf2e.feats-srd.Item.n4JiVs3f72XS99f6",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:web", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:web", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:gnome"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:scorched-on-the-crackling-mountain",
+      "foundry": "Compendium.pf2e.feats-srd.Item.Xdtwvy3RrrorHEzX",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "condition",
+            "key": "ItemAlteration",
+            "mode": "downgrade",
+            "predicate": ["item:damage:type:fire"],
+            "property": "pd-recovery-dc",
+            "value": 10
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:secrets-of-the-past",
+      "foundry": "Compendium.pf2e.feats-srd.Item.Wu6refn3bqI1vYvi",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:hypercognition", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:hypercognition", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:samsaran"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:seven-changes-performance",
+      "foundry": "Compendium.pf2e.feats-srd.Item.sleWJp0dtIuZ3DPq",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][skill]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:sever-the-dreaming-shadow",
+      "foundry": "Compendium.pf2e.feats-srd.Item.ioK5GZD2dnrLB7ti",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[pathfinder-monster-core]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:shadowplay",
+      "foundry": "Compendium.pf2e.feats-srd.Item.Ic5C2y26H2mbUiUF",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:sheltering-jewel",
+      "foundry": "Compendium.pf2e.feats-srd.Item.g9nHhqb8Bl1njopV",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:vital-beacon", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:vital-beacon", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:sarangay"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:signature-weapon",
+      "foundry": "Compendium.pf2e.feats-srd.Item.yiZwGVErxzWCJOlW",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": {
+              "ownedItems": true,
+              "types": ["weapon"]
+            },
+            "flag": "weapon",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Weapon"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "CriticalSpecialization",
+          "raw": {
+            "key": "CriticalSpecialization",
+            "predicate": ["item:id:{item|flags.system.rulesSelections.weapon}"]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "AdjustStrike",
+          "raw": {
+            "definition": ["item:id:{item|flags.system.rulesSelections.weapon}"],
+            "key": "AdjustStrike",
+            "mode": "add",
+            "predicate": ["improved-signature-weapon"],
+            "property": "materials",
+            "value": "dawnsilver"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "AdjustStrike",
+          "raw": {
+            "definition": ["item:id:{item|flags.system.rulesSelections.weapon}"],
+            "key": "AdjustStrike",
+            "mode": "add",
+            "predicate": ["improved-signature-weapon"],
+            "property": "materials",
+            "value": "duskwood"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "AdjustStrike",
+          "raw": {
+            "definition": ["item:id:{item|flags.system.rulesSelections.weapon}"],
+            "key": "AdjustStrike",
+            "mode": "add",
+            "predicate": ["improved-signature-weapon"],
+            "property": "materials",
+            "value": "peachwood"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:solo-dancer",
+      "foundry": "Compendium.pf2e.feats-srd.Item.0Rr1uS9pmYa5j9f9",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "EphemeralEffect",
+          "raw": {
+            "key": "EphemeralEffect",
+            "predicate": [
+              "encounter:round:1",
+              {
+                "lt": ["self:participant:initiative:rank", "target:participant:initiative:rank"]
+              }
+            ],
+            "selectors": ["strike-attack-roll", "spell-attack-roll", "strike-damage", "attack-spell-damage"],
+            "uuid": "Compendium.pf2e.conditionitems.Item.Off-Guard"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:spirit-coffin",
+      "foundry": "Compendium.pf2e.feats-srd.Item.ky9jhAGOWGj8gAsO",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.Incorporeal",
+            "option": "target:trait:incorporeal",
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "AdjustStrike",
+          "raw": {
+            "definition": [
+              {
+                "not": "item:magical"
+              }
+            ],
+            "key": "AdjustStrike",
+            "mode": "add",
+            "predicate": ["target:trait:incorporeal"],
+            "property": "weapon-traits",
+            "value": "magical"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:spirit-warrior-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.lxfVXvlOK8id3MqA",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "xxxxxxFISTxxxxxx",
+            "key": "ItemAlteration",
+            "mode": "upgrade",
+            "property": "damage-dice-faces"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:spiritual-echo",
+      "foundry": "Compendium.pf2e.feats-srd.Item.kHZ6OCP0Yj2xBvHB",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:spirit-sense", "spellcasting:innate", "heritage:full-moon-sarangay"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:status", "spellcasting:innate", "heritage:half-moon-sarangay"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:darkness", "spellcasting:innate", "heritage:new-moon-sarangay"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:creation", "spellcasting:innate", "heritage:waning-moon-sarangay"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:blood-vendetta", "spellcasting:innate", "heritage:waxing-moon-sarangay"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:spirit-sense", "spellcasting:innate", "heritage:full-moon-sarangay"],
+            "property": "other-tags",
+            "value": "ancestral-spell:sarangay"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:status", "spellcasting:innate", "heritage:half-moon-sarangay"],
+            "property": "other-tags",
+            "value": "ancestral-spell:sarangay"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:darkness", "spellcasting:innate", "heritage:new-moon-sarangay"],
+            "property": "other-tags",
+            "value": "ancestral-spell:sarangay"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:creation", "spellcasting:innate", "heritage:waning-moon-sarangay"],
+            "property": "other-tags",
+            "value": "ancestral-spell:sarangay"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:blood-vendetta", "spellcasting:innate", "heritage:waxing-moon-sarangay"],
+            "property": "other-tags",
+            "value": "ancestral-spell:sarangay"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:spiritual-headhunter",
+      "foundry": "Compendium.pf2e.feats-srd.Item.Y5w2BOMeZpbSC6Ss",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:talking-corpse", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:talking-corpse", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:lizardfolk"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:splendid-illusion",
+      "foundry": "Compendium.pf2e.feats-srd.Item.bft7gWfibx3BY5BK",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:illusory-scene", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:illusory-scene", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:tanuki"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:starlit-sentinel-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.Tqarg0W2YEUfgEsn",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "actorFlag": true,
+            "choices": [
+              {
+                "label": "PF2E.SpecificRule.StarlitSentinel.Constellation.Archer",
+                "value": {
+                  "constellation": "archer",
+                  "damageType": "piercing"
+                }
+              },
+              {
+                "label": "PF2E.SpecificRule.StarlitSentinel.Constellation.Blossom",
+                "value": {
+                  "constellation": "blossom",
+                  "damageType": "poison"
+                }
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Animal.Specific.Dog",
+                "value": {
+                  "constellation": "dog",
+                  "damageType": "slashing"
+                }
+              },
+              {
+                "label": "PF2E.Dragon.Forest",
+                "value": {
+                  "constellation": "forest-dragon",
+                  "damageType": "poison"
+                }
+              },
+              {
+                "label": "PF2E.SpecificRule.StarlitSentinel.Constellation.Ogre",
+                "value": {
+                  "constellation": "ogre",
+                  "damageType": "bludgeoning"
+                }
+              },
+              {
+                "label": "PF2E.SpecificRule.StarlitSentinel.Constellation.Ox",
+                "value": {
+                  "constellation": "ox",
+                  "damageType": "bludgeoning"
+                }
+              },
+              {
+                "label": "PF2E.Dragon.Sea",
+                "value": {
+                  "constellation": "sea-dragon",
+                  "damageType": "piercing"
+                }
+              },
+              {
+                "label": "PF2E.Dragon.Sky",
+                "value": {
+                  "constellation": "sky-dragon",
+                  "damageType": "electricity"
+                }
+              },
+              {
+                "label": "PF2E.Dragon.Sovereign",
+                "value": {
+                  "constellation": "sovereign-dragon",
+                  "damageType": "mental"
+                }
+              },
+              {
+                "label": "PF2E.SpecificRule.StarlitSentinel.Constellation.Swallow",
+                "value": {
+                  "constellation": "swallow",
+                  "damageType": "slashing"
+                }
+              },
+              {
+                "label": "PF2E.SpecificRule.StarlitSentinel.Constellation.Swordswoman",
+                "value": {
+                  "constellation": "swordswoman",
+                  "damageType": "piercing"
+                }
+              },
+              {
+                "label": "PF2E.Dragon.Underworld",
+                "value": {
+                  "constellation": "underworld-dragon",
+                  "damageType": "fire"
+                }
+              }
+            ],
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.StarlitSentinel.Constellation.Prompt",
+            "rollOption": "starlit-sentinel"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:start-the-festival",
+      "foundry": "Compendium.pf2e.feats-srd.Item.2VzIrCWJU4dJQV0x",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:stem-the-tide",
+      "foundry": "Compendium.pf2e.feats-srd.Item.aW6Fg2Nowl4oB3qP",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:protector-tree", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:protector-tree", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:yaksha"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:storming-gaze",
+      "foundry": "Compendium.pf2e.feats-srd.Item.D3usONRMsGZ7mWs1",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "mergeable": true,
+            "option": "storming-gaze",
+            "suboptions": [
+              {
+                "label": "PF2E.TraitElectricity",
+                "value": "electricity"
+              },
+              {
+                "label": "PF2E.TraitSonic",
+                "value": "sonic"
+              }
+            ],
+            "toggleable": true
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "not": "storming-gaze:tempest-gaze"
+              }
+            ],
+            "property": "traits",
+            "value": "{item|flags.system.rulesSelections.stormingGaze}"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Damage[type:@item.flags.system.rulesSelections.stormingGaze]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:strategist-stance",
+      "foundry": "Compendium.pf2e.feats-srd.Item.fJwsZM6WXwP8EStV",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[roller]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[dc]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:sudden-terror",
+      "foundry": "Compendium.pf2e.feats-srd.Item.tXn6fJO3Q2dAvCZC",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:tanuki-lore",
+      "foundry": "Compendium.pf2e.feats-srd.Item.dH7ZyYArCHJfpKRi",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.skills.tanuki-lore",
+            "value": {
+              "attribute": "int",
+              "label": "{item|name}",
+              "rank": "match(when(gte(@actor.level, 15), 4), when(gte(@actor.level, 7), 3),when(gte(@actor.level, 3), 2),1)"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:tempest-gaze",
+      "foundry": "Compendium.pf2e.feats-srd.Item.Cjl530PBu86JKL9c",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "mergeable": true,
+            "option": "storming-gaze",
+            "suboptions": [
+              {
+                "label": "{item|name}",
+                "value": "tempest-gaze"
+              }
+            ],
+            "toggleable": true
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "feat",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:storming-gaze", "storming-gaze:tempest-gaze"],
+            "property": "description",
+            "value": [
+              {
+                "text": "{item|description}"
+              }
+            ]
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:the-bitter-scholars-promotion",
+      "foundry": "Compendium.pf2e.feats-srd.Item.z3tH63RsLkVze82H",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[book-of-the-dead-bestiary]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[lost-omens-bestiary]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:the-moon-weavers-art",
+      "foundry": "Compendium.pf2e.feats-srd.Item.ceQ09tTO4M7qwHXv",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:illusory-object", "item:slug:invisible-item"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:illusory-object", "item:slug:invisible-item"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell:sarangay"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:this-too-shall-pass",
+      "foundry": "Compendium.pf2e.feats-srd.Item.dxqBfIJEzoUJapyF",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "feat",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "predicate": ["item:slug:all-this-will-happen-again"],
+            "property": "frequency-per",
+            "value": "PT1H"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:transcend-the-azimuth",
+      "foundry": "Compendium.pf2e.feats-srd.Item.Ce5xvrkgh9eyOJLL",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:cosmic-form", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:cosmic-form", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:yaksha"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:twirl-through",
+      "foundry": "Compendium.pf2e.feats-srd.Item.B2sX3irC8DEH7JyY",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][skill]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:twirling-strike",
+      "foundry": "Compendium.pf2e.feats-srd.Item.uT4zSkhziUQOZOD6",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][skill]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:unleash-yaoguai-might",
+      "foundry": "Compendium.pf2e.feats-srd.Item.fjB514XFJG4V3wMy",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["unleash-yaoguai-might", "item:slug:change-shape"],
+            "property": "description",
+            "value": [
+              {
+                "predicate": [
+                  {
+                    "not": "feat:legendary-monster"
+                  }
+                ],
+                "text": "PF2E.SpecificRule.Yaoguai.UnleashYaoguaiMight.Frequency"
+              },
+              {
+                "text": "PF2E.SpecificRule.Yaoguai.UnleashYaoguaiMight.Description"
+              },
+              {
+                "predicate": ["self:heritage:born-of-animal"],
+                "text": "PF2E.SpecificRule.Yaoguai.UnleashYaoguaiMight.BornOfAnimal"
+              },
+              {
+                "predicate": ["self:heritage:born-of-celestial"],
+                "text": "PF2E.SpecificRule.Yaoguai.UnleashYaoguaiMight.BornOfCelestial"
+              },
+              {
+                "predicate": ["self:heritage:born-of-elements"],
+                "text": "PF2E.SpecificRule.Yaoguai.UnleashYaoguaiMight.BornOfElements"
+              },
+              {
+                "predicate": ["heritage:born-of-item"],
+                "text": "PF2E.SpecificRule.Yaoguai.UnleashYaoguaiMight.BornOfItem"
+              },
+              {
+                "predicate": ["self:heritage:born-of-vegetation"],
+                "text": "PF2E.SpecificRule.Yaoguai.UnleashYaoguaiMight.BornOfVegetation"
+              },
+              {
+                "divider": true,
+                "predicate": ["feat:legendary-monster"],
+                "text": "PF2E.SpecificRule.Yaoguai.LegendaryMonster.Text.Title"
+              },
+              {
+                "predicate": ["feat:legendary-monster"],
+                "text": "PF2E.SpecificRule.Yaoguai.LegendaryMonster.Text.Frequency"
+              },
+              {
+                "predicate": ["legendary-monster", "feat:legendary-monster"],
+                "text": "PF2E.SpecificRule.Yaoguai.LegendaryMonster.Text.Description"
+              },
+              {
+                "predicate": ["legendary-monster", "feat:legendary-monster"],
+                "text": "PF2E.SpecificRule.Yaoguai.LegendaryMonster.Text.Enlarge",
+                "title": "-"
+              },
+              {
+                "predicate": ["legendary-monster", "feat:legendary-monster"],
+                "text": "PF2E.SpecificRule.Yaoguai.LegendaryMonster.Text.Damage",
+                "title": "-"
+              },
+              {
+                "predicate": ["legendary-monster", "feat:legendary-monster"],
+                "text": "PF2E.SpecificRule.Yaoguai.LegendaryMonster.Text.Fly",
+                "title": "-"
+              },
+              {
+                "predicate": [
+                  {
+                    "not": "legendary-monster"
+                  }
+                ],
+                "text": "PF2E.SpecificRule.Yaoguai.UnleashYaoguaiMight.Effect"
+              },
+              {
+                "predicate": ["legendary-monster", "feat:legendary-monster"],
+                "text": "PF2E.SpecificRule.Yaoguai.UnleashYaoguaiMight.Effect"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:unsheathing-the-sword-light",
+      "foundry": "Compendium.pf2e.feats-srd.Item.RtT7r61Yytpe2RlF",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Note",
+          "raw": {
+            "key": "Note",
+            "predicate": ["unsheathing-the-sword-light"],
+            "selector": "strike-attack-roll",
+            "text": "PF2E.SpecificRule.Magus.UnsheathingTheSwordLight.Note",
+            "title": "{item|name}"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[actionspf2e] Pathfinder Impossible Magic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:vermillion-threads",
+      "foundry": "Compendium.pf2e.feats-srd.Item.gcDnshdIZVfp9bbz",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[actionspf2e] Pathfinder Impossible Magic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:vexing-tempest",
+      "foundry": "Compendium.pf2e.feats-srd.Item.IsWrDVtDsWDKTPSi",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:trait:air", "spellshape:vexing-tempest"],
+            "property": "description",
+            "value": [
+              {
+                "text": "{item|description}"
+              }
+            ]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.TraitSpellshape",
+            "mergeable": true,
+            "option": "spellshape",
+            "placement": "spellcasting",
+            "suboptions": [
+              {
+                "label": "{item|name}",
+                "value": "vexing-tempest"
+              }
+            ],
+            "toggleable": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:wandering-chef-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.9dPz3x6uLCFEB3yK",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "SpecialResource",
+          "raw": {
+            "itemUUID": "Compendium.pf2e.equipment-srd.Item.Versatile Vial",
+            "key": "SpecialResource",
+            "label": "PF2E.SpecificRule.Alchemist.VersatileVials",
+            "level": "ternary(gte(@actor.level, 18), 18, ternary(gte(@actor.level, 12), 12, ternary(gte(@actor.level, 4), 4, 1)))",
+            "max": 4,
+            "slug": "versatile-vials"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "CraftingAbility",
+          "raw": {
+            "craftableItems": ["item:tag:alchemical-food"],
+            "key": "CraftingAbility",
+            "slug": "quick-alchemy"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:water-to-water",
+      "foundry": "Compendium.pf2e.feats-srd.Item.yWt2Em1Cz7mgDS1R",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:translocate", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:translocate", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:samsaran"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:wayang-lore",
+      "foundry": "Compendium.pf2e.feats-srd.Item.riuC44zpzZLGJUul",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.skills.wayang-lore",
+            "value": {
+              "attribute": "int",
+              "label": "{item|name}",
+              "rank": "match(when(gte(@actor.level, 15), 4), when(gte(@actor.level, 7), 3),when(gte(@actor.level, 3), 2),1)"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:wayang-weapon-familiarity",
+      "foundry": "Compendium.pf2e.feats-srd.Item.5ij2nnZj4v2dx5N1",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "CriticalSpecialization",
+          "raw": {
+            "key": "CriticalSpecialization",
+            "predicate": [
+              {
+                "gte": ["self:level", 5]
+              },
+              {
+                "or": [
+                  "item:base:blowgun",
+                  "item:base:fighting-fan",
+                  "item:base:longspear",
+                  "item:base:machete",
+                  "item:base:sai",
+                  "item:base:trident"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[equipment-srd] Pathfinder Lost Omens Impossible Lands"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:whirling-in-the-summer-storm",
+      "foundry": "Compendium.pf2e.feats-srd.Item.EqNhUXGFjk99QzCg",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:whispers-in-the-night",
+      "foundry": "Compendium.pf2e.feats-srd.Item.qYJyzAk8TOWPjaAL",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:darkness", "item:slug:ventriloquism"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:darkness", "item:slug:ventriloquism"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell:goblin"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:wild-haired-fury",
+      "foundry": "Compendium.pf2e.feats-srd.Item.W0JwZEe2uJnSGZRN",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "selector": "melee-damage",
+            "type": "circumstance",
+            "value": "@actor.conditions.doomed.badge.value + @actor.conditions.wounded.badge.value"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:wisteria-and-peony-reunion",
+      "foundry": "Compendium.pf2e.feats-srd.Item.GnTh2t4MvjifRxBd",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[formula]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:withstand-the-storm",
+      "foundry": "Compendium.pf2e.feats-srd.Item.hUVedLw6mkY4e24v",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "key": "Resistance",
+            "predicate": ["withstand-the-storm"],
+            "type": "{item|flags.system.rulesSelections.withstandTheStorm}",
+            "value": "@actor.level"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:witness-of-earth",
+      "foundry": "Compendium.pf2e.feats-srd.Item.NhBKdOa02dCMxUnG",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[spells-srd] Pathfinder Player Core"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:world-breaking-footfall",
+      "foundry": "Compendium.pf2e.feats-srd.Item.9oQRX6ss2pSqMZBr",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:world-protectors-hospitality",
+      "foundry": "Compendium.pf2e.feats-srd.Item.2sVR3Z1TPZ8pQdQ0",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:create-food", "item:slug:cleanse-cuisine"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:create-food", "item:slug:cleanse-cuisine"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell:yaksha"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "feat:xidao-sea-mine-drop",
+      "foundry": "Compendium.pf2e.feats-srd.Item.Tlo7Ln13l5wvgVtZ",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["unstable-state"],
+            "property": "traits",
+            "value": "unstable"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "heritage:bakuwa-lizardfolk",
+      "foundry": "Compendium.pf2e.heritages.Item.OIW3UYrdaWLwUZCh",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "key": "GrantItem",
+            "uuid": "Compendium.pf2e.equipment-srd.Item.Bakuwa Lizardfolk Bony Plates"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "heritage:born-of-elements",
+      "foundry": "Compendium.pf2e.heritages.Item.RXn2y7QVHVB0XHr8",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": {
+              "filter": [
+                {
+                  "or": [
+                    "item:slug:electric-arc",
+                    "item:slug:frostbite",
+                    "item:slug:ignition",
+                    "item:slug:needle-darts",
+                    "item:slug:timber",
+                    "item:slug:scatter-scree",
+                    "item:slug:slashing-gust",
+                    "item:slug:spout"
+                  ]
+                }
+              ],
+              "itemType": "spell",
+              "slugsAsValues": true
+            },
+            "flag": "cantrip",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Cantrip",
+            "rollOption": "born-of-elements"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:{item|flags.system.rulesSelections.cantrip}", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:{item|flags.system.rulesSelections.cantrip}", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:yaoguai"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "heritage:born-of-vegetation",
+      "foundry": "Compendium.pf2e.heritages.Item.y87jU1yU8Plz4Yhq",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActorTraits",
+          "raw": {
+            "add": ["{item|flags.system.rulesSelections.trait}"],
+            "key": "ActorTraits"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "heritage:deny-lady-nanbyos-charity",
+      "foundry": "Compendium.pf2e.heritages.Item.qeFCDRSgFRR2ElWK",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "inventory.bulk.encumberedAfterAddend",
+            "value": 1
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "inventory.bulk.maxAddend",
+            "value": 2
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "heritage:dijiang",
+      "foundry": "Compendium.pf2e.heritages.Item.TXBsQbzDg1AjJnop",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "ancestry",
+          "raw": "Compendium.pf2e.ancestries.Item.TRqoeYfGAFjQbviF"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "heritage:dokkaebi-goblin",
+      "foundry": "Compendium.pf2e.heritages.Item.gf2CfXocpIQgRsCY",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:figment", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:figment", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:goblin"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "heritage:gandharva",
+      "foundry": "Compendium.pf2e.heritages.Item.lBSO9RuEUv2P4rnp",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:summon-instrument", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:summon-instrument", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:sprite"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "ancestry",
+          "raw": "Compendium.pf2e.ancestries.Item.TRqoeYfGAFjQbviF"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "heritage:healer-samsaran",
+      "foundry": "Compendium.pf2e.heritages.Item.NK88lPzi3SDAT8w5",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["action:treat-wounds", "check:statistic:medicine", "origin:signature:{actor|signature}"],
+            "selector": "healing-received",
+            "value": "@actor.level"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "heritage:heavenscribe-kobold",
+      "foundry": "Compendium.pf2e.heritages.Item.G61eBHmsQaPM4Xge",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "system.build.languages.granted",
+            "value": {
+              "slug": "draconic",
+              "source": "{item|name}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "heritage:hungerseed",
+      "foundry": "Compendium.pf2e.heritages.Item.9FlpW1nSczH8f85v",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "weapon",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:id:{item|id}"],
+            "property": "other-tags",
+            "value": "hungerseed-horns"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "heritage:kanchil",
+      "foundry": "Compendium.pf2e.heritages.Item.5WkhF3JYISElgMLL",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "ancestry",
+          "raw": "Compendium.pf2e.ancestries.Item.TRqoeYfGAFjQbviF"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "heritage:leungli",
+      "foundry": "Compendium.pf2e.heritages.Item.wxQwFQGsg6yDiMmN",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "ancestry",
+          "raw": "Compendium.pf2e.ancestries.Item.TRqoeYfGAFjQbviF"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "heritage:makari-lizardfolk",
+      "foundry": "Compendium.pf2e.heritages.Item.e6ykfotynKPzR2PT",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": {
+              "filter": [
+                {
+                  "or": ["item:slug:forbidding-ward", "item:slug:divine-lance"]
+                }
+              ],
+              "itemType": "spell",
+              "slugsAsValues": true
+            },
+            "flag": "cantrip",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Cantrip"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:{item|flags.system.rulesSelections.cantrip}", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:{item|flags.system.rulesSelections.cantrip}", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:lizardfolk"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "remove",
+            "predicate": ["item:slug:{item|flags.system.rulesSelections.cantrip}", "spellcasting:innate"],
+            "property": "traits",
+            "value": "manipulate"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "heritage:mightyfall-kobold",
+      "foundry": "Compendium.pf2e.heritages.Item.SPcTcZgUMy5J4kzs",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.ancestryhp",
+            "value": 10
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "heritage:new-moon-sarangay",
+      "foundry": "Compendium.pf2e.heritages.Item.H2mbY3aypl6ikaSR",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.ancestryhp",
+            "value": 10
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "heritage:palace-echoes-kitsune",
+      "foundry": "Compendium.pf2e.heritages.Item.SienSObWb4deLQig",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "ancestry",
+          "raw": "Compendium.pf2e.ancestries.Item.4BL5wf1VF9feC2rY"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "heritage:shimmertongue-nagaji",
+      "foundry": "Compendium.pf2e.heritages.Item.Cmj0pI0GPHl7kBUB",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "ancestry",
+          "raw": "Compendium.pf2e.ancestries.Item.J7T7bDLaQGoY1sMF"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "heritage:steadfast-tanuki",
+      "foundry": "Compendium.pf2e.heritages.Item.5gqcEsJ4gkE6W5jj",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "value": "Compendium.pf2e.feats-srd.Item.Everyday Form"
+              },
+              {
+                "value": "Compendium.pf2e.feats-srd.Item.Teakettle Form"
+              }
+            ],
+            "flag": "steadfastTanuki",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Feat"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "key": "GrantItem",
+            "uuid": "{item|flags.system.rulesSelections.steadfastTanuki}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "heritage:tsukumogami-poppet",
+      "foundry": "Compendium.pf2e.heritages.Item.cKgxEWnRVazFPi3M",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Weakness",
+          "raw": {
+            "key": "Weakness",
+            "predicate": [
+              {
+                "not": "feat:insulated-poppet"
+              }
+            ],
+            "type": "{item|flags.system.rulesSelections.weakness}",
+            "value": "max(1,floor(@actor.level/3))"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "ancestry",
+          "raw": "Compendium.pf2e.ancestries.Item.6F2fSFC1Eo1JdpY4"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[feats-srd] Pathfinder Lost Omens The Grand Bazaar"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "heritage:virtuous-tanuki",
+      "foundry": "Compendium.pf2e.heritages.Item.JtrZ2TcPXP1uIcmd",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "consumable",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              "self:condition:sickened",
+              {
+                "or": ["item:tag:alchemical-food", "item:trait:elixir", "item:trait:ingested", "item:trait:potion"]
+              }
+            ],
+            "priority": 121,
+            "property": "description",
+            "value": [
+              {
+                "text": "PF2E.SpecificRule.Conditions.Sickened.AllowEatOrDrink"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "spell:shining-starlight-attack",
+      "foundry": "Compendium.pf2e.spells-srd.Item.yuhhRjqBzFgkKYrq",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "override",
+            "predicate": ["item:slug:shining-starlight-attack"],
+            "property": "damage-type",
+            "selectors": ["spell-damage"],
+            "value": "{actor|flags.system.starlitSentinelDedication.damageType}"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "overlays.7kXuvyzlvtAyq6rR.rules",
+          "raw": []
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "overlays.LQQbWk6HbCVgJ1Y0.rules",
+          "raw": []
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "overlays.ZuI1Ww6k5gzoGUyb.rules",
+          "raw": []
+        },
+        {
+          "type": "markup",
+          "markup": "table[class]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "weapon:caress-of-the-great-serpent",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.FlZUF29msGVibG5k",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["serpents-kiss"],
+            "selector": "{item|id}-attack",
+            "value": -2
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "weapon:celestial-peachwood-sword",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TKvAPv3jgv4l143r",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "runes.property",
+          "raw": "disrupting"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "weapon:deathseeker",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.VYmdcWj6VmUrTxJI",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[traits]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "weapon:frost-fair-yanyuedao",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.8YijFaakOFWjddJO",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "upgrade",
+            "predicate": ["environment:severe-cold"],
+            "property": "runes-potency",
+            "value": 3
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "upgrade",
+            "predicate": ["environment:severe-cold"],
+            "property": "runes-striking",
+            "value": 3
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "weapon:staff-of-sun-wukong",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.insH5VazP8WTkQgu",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-character-guide",
+      "slug": "weapon:twisting-gale",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.2iKqXkRAq8qwlFlT",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "runes.property",
+          "raw": "impactful"
+        }
+      ]
+    },
+    {
+      "type": "vocabulary",
+      "kind": "damage-type",
+      "slug": "untyped",
+      "reason": "unmapped-value",
+      "detail": "untyped"
+    }
+  ]
+}

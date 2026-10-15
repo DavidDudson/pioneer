@@ -1,0 +1,2803 @@
+[
+  {
+    "id": "be358890-552e-5805-8ba5-11ede87331cc",
+    "pack": "tian-xia-character-guide",
+    "kind": "weapon",
+    "slug": "weapon:bow-of-sun-slaying",
+    "name": "Bow of Sun Slaying",
+    "level": 20,
+    "rarity": "unique",
+    "traits": ["artifact", "cold", "deadly-d10", "divine", "propulsive"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The B"
+          },
+          {
+            "type": "text",
+            "text": "ow of Sun Slaying",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a "
+          },
+          {
+            "type": "text",
+            "text": "+3 major striking greater frost composite shortbow",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " constructed out of wood, horn, and sinew. It bears carvings of a long-forgotten demigod who legends say possessed the ability to destroy the sun with a single arrow."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Darkness for My Foes",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your last action was a successful Strike against your foe with this weapon"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You whisper, \"Darkness for my foes,\" and the target of your last attack takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10d6",
+                "damageType": "cold"
+              },
+              {
+                "formula": "10d6",
+                "damageType": "spirit"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 45,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.fqOcjvpOdIIAx0k5"
+    },
+    "data": {
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "darkness-for-my-foes",
+          "name": "Darkness for My Foes",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "bow",
+      "baseItem": "composite-shortbow",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "range": 60,
+      "reload": 0,
+      "ammunition": {
+        "type": "arrows"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one-plus"
+      },
+      "runes": {
+        "potency": 3,
+        "striking": 3,
+        "property": ["c9077442-2c05-5df9-b213-d3fad04dc2c8"]
+      }
+    }
+  },
+  {
+    "id": "9aff7b57-b326-56d8-9905-50eeee94449a",
+    "pack": "tian-xia-character-guide",
+    "kind": "weapon",
+    "slug": "weapon:caress-of-the-great-serpent",
+    "name": "Caress of the Great Serpent",
+    "level": 18,
+    "rarity": "uncommon",
+    "traits": ["deadly-d10", "magical", "sweep"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+3 greater striking extending urumi",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " was fashioned after the legendary eightheaded orochi serpent, with its whiplike metal blades carved to resemble the many heads of the mythical beast, and its hilt wrapped in scaled leather. These weapons are commonly used by those who worship an orochi, raiding and threatening settlements to obtain sacrifices for the beast in hopes of being granted some modicum of its power."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Serpent's Kiss",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You use your urumi as an effigy with which to call upon an orochi's power, offering your blood in exchange. You can make up to eight Strikes with a –2 penalty, each against a different target within 30 feet. For each Strike you choose to make, you take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. Each attack counts toward your multiple attack penalty, but don't increase your penalty until you've made all your attacks."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:serpents-kiss",
+        "toggleable": true,
+        "display": {
+          "label": "Serpent's Kiss"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.FlZUF29msGVibG5k"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 24000
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "serpents-kiss",
+          "name": "Serpent's Kiss",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "flail",
+      "baseItem": "urumi",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 3,
+        "striking": 2,
+        "property": ["9ccb6aef-3af5-5174-a527-f11cbf6eb834"]
+      }
+    }
+  },
+  {
+    "id": "d82ee228-d8f4-5c73-8baa-f3f122e1e34b",
+    "pack": "tian-xia-character-guide",
+    "kind": "weapon",
+    "slug": "weapon:celestial-peachwood-sword",
+    "name": "Celestial Peachwood Sword",
+    "level": 17,
+    "rarity": "rare",
+    "traits": ["agile", "finesse", "holy", "magical", "versatile-s", "vitality"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "From blade to pommel, this sword is carved from a branch of the now-extinct celestial peach tree. The blade of this "
+          },
+          {
+            "type": "text",
+            "text": "+3 greater striking holy vitalizing peachwood shortsword",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has ancient runes that can permanently destroy the most powerful undead—if you are willing to pay the price."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An undead creature of 12th level or lower that takes damage from a Strike with the sword takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10d6",
+                "damageType": "vitality"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 35,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save. This damage is separate from the Strike itself and isn't included in any effect based on the Strike's damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Violent Exorcism",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You critically hit an undead creature with the sword"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 35
+          },
+          {
+            "type": "text",
+            "text": " save or be destroyed. If the undead fails its saving throw and is destroyed, you suffer a backlash, taking 1d6 void damage per level of the destroyed undead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TKvAPv3jgv4l143r"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15000
+        }
+      },
+      "bulk": "light",
+      "material": {
+        "type": "peachwood",
+        "grade": "standard"
+      },
+      "activations": [
+        {
+          "slug": "violent-exorcism",
+          "name": "Violent Exorcism",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "shortsword",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 3,
+        "striking": 2,
+        "property": ["1c942139-39ff-5ab6-bccc-88a68a1ec2e6"]
+      }
+    }
+  },
+  {
+    "id": "671c1b24-9512-53ea-8693-c17b56384778",
+    "pack": "tian-xia-character-guide",
+    "kind": "weapon",
+    "slug": "weapon:deathseeker",
+    "name": "Deathseeker",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["agile", "deadly-d8", "finesse", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A hauntingly beautiful and masterfully crafted blade, this "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking wounding kris",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has been whet with the spilled blood of its creator, imbuing violent intent within its crimson curves. When you critically succeed at a Strike made with a deathseeker, the target feels the blade's unbridled bloodlust trying to consume it and must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 24
+          },
+          {
+            "type": "text",
+            "text": " save; this effect has the incapacitation trait."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected and is temporarily immune for 24 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes an additional 1 persistent bleed damage, and the DC for recovering from persistent bleed damage is 17, or 12 with particularly effective assistance."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, except the target is also "
+          },
+          {
+            "type": "ref",
+            "id": "6f53a234-670f-5b02-a986-7cce57585fc8"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round. It gets a flat check to recover from this confusion when it critically succeeds at a Strike against another creature or reduces another living being to 0 Hit Points, but not when it takes damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, except the target is also confused for 3 rounds. It gets a flat check to recover from this confusion when it critically succeeds at a Strike against another creature or reduces another living being to 0 Hit Points, but not when it takes damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.VYmdcWj6VmUrTxJI"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 500
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "knife",
+      "baseItem": "kris",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": ["2ed55af4-0d60-53f9-ad8e-ce9db657b9c0"]
+      }
+    }
+  },
+  {
+    "id": "37ea1234-eb0e-5981-8712-b4f0f10e9580",
+    "pack": "tian-xia-character-guide",
+    "kind": "weapon",
+    "slug": "weapon:flashblade",
+    "name": "Flashblade",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["brace", "deadly-d12", "magical", "reach"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A sleek and impossibly lightweight blade attached to a haft scriven with lightning bolts make up this "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking nodachi",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Prepare Flash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You concentrate with complete focus on your surroundings, breathing in the flashblade's magic to make you lighter and faster, and the blade of your sword more flexible. You Ready a melee Strike, increasing the flashblade's reach for that Strike to 15 feet. If the trigger doesn't occur, this doesn't count against the flashblade's frequency."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.QKhVKfaum7DyF53w"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 230
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "prepare-flash",
+          "name": "Prepare Flash",
+          "frequency": {
+            "max": 1,
+            "per": "ten-minutes"
+          }
+        }
+      ],
+      "category": "advanced",
+      "group": "sword",
+      "baseItem": "nodachi",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "cd0f802b-635b-5252-b151-ada4bb80fd5d",
+    "pack": "tian-xia-character-guide",
+    "kind": "weapon",
+    "slug": "weapon:flashblade-greater",
+    "name": "Flashblade (Greater)",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["brace", "deadly-d12", "magical", "reach"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A sleek and impossibly lightweight blade attached to a haft scriven with lightning bolts make up this "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater striking nodachi",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Prepare Flash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You concentrate with complete focus on your surroundings, breathing in the flashblade's magic to make you lighter and faster, and the blade of your sword more flexible. You Ready a melee Strike, increasing the flashblade's reach for that Strike to 20 feet. If the trigger doesn't occur, this doesn't count against the flashblade's frequency."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.uPtU3QGn9UdskxFh"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1900
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "prepare-flash",
+          "name": "Prepare Flash",
+          "frequency": {
+            "max": 1,
+            "per": "ten-minutes"
+          }
+        }
+      ],
+      "category": "advanced",
+      "group": "sword",
+      "baseItem": "nodachi",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "a4afc273-cf88-5daa-9a27-fffbedae1e12",
+    "pack": "tian-xia-character-guide",
+    "kind": "weapon",
+    "slug": "weapon:flashblade-major",
+    "name": "Flashblade (Major)",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["brace", "deadly-d12", "magical", "reach"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A sleek and impossibly lightweight blade attached to a haft scriven with lightning bolts make up this "
+          },
+          {
+            "type": "text",
+            "text": "+3 greater striking nodachi",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Prepare Flash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You concentrate with complete focus on your surroundings, breathing in the flashblade's magic to make you lighter and faster, and the blade of your sword more flexible. You Ready a melee Strike, increasing the flashblade's reach for that Strike to 25 feet. If the trigger doesn't occur, this doesn't count against the flashblade's frequency."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.GWwbrnWBymUQn4JI"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 14700
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "prepare-flash",
+          "name": "Prepare Flash",
+          "frequency": {
+            "max": 1,
+            "per": "ten-minutes"
+          }
+        }
+      ],
+      "category": "advanced",
+      "group": "sword",
+      "baseItem": "nodachi",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 3,
+        "striking": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "78689e99-c4d3-5f38-ac86-1ac4e5db2849",
+    "pack": "tian-xia-character-guide",
+    "kind": "weapon",
+    "slug": "weapon:frost-fair-yanyuedao",
+    "name": "Frost Fair Yanyuedao",
+    "level": 14,
+    "rarity": "unique",
+    "traits": ["artifact", "cold", "deadly-d8", "forceful", "reach"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The "
+          },
+          {
+            "type": "text",
+            "text": "Frost Fair Yanyuedao",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater striking yanyuedao",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " (use statistics for glaive) once wielded by a legendary military general from Goka. This weapon was constructed from pieces harvested from a dragon's body. When in an area of severe cold or colder, the "
+          },
+          {
+            "type": "text",
+            "text": "Frost Fair Yanyuedao",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " becomes a "
+          },
+          {
+            "type": "text",
+            "text": "+3 major striking yanyuedao",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " with a glowing blue cutting edge and the following ability."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Dragon Chill",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Until the end of your turn, the "
+          },
+          {
+            "type": "text",
+            "text": "Frost Fair Yanyuedao",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " gains the effects of a "
+          },
+          {
+            "type": "ref",
+            "id": "c9077442-2c05-5df9-b213-d3fad04dc2c8",
+            "label": "Greater Frost"
+          },
+          {
+            "type": "text",
+            "text": " rune. While under this effect, if you critically succeed at a Strike using this weapon against a creature who has resistance or immunity to cold, that creature must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 31
+          },
+          {
+            "type": "text",
+            "text": " save or be "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "f07fb683-97f1-5b3c-aced-207f4d17aedd"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "environment:severe-cold",
+        "toggleable": true,
+        "display": {
+          "label": "In Area of Severe Cold"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.8YijFaakOFWjddJO"
+    },
+    "data": {
+      "bulk": 2,
+      "category": "martial",
+      "group": "polearm",
+      "baseItem": "glaive",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "7cc771e2-71b4-54a4-9f65-be923adca348",
+    "pack": "tian-xia-character-guide",
+    "kind": "weapon",
+    "slug": "weapon:gakgung",
+    "name": "Gakgung",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["deadly-d8", "monk", "propulsive"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A gakgung is a type of composite reflex bow that combines speed and power in equal amounts for effective precision shooting."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.0E9ADJkQUVsz7A4G"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bow",
+      "baseItem": "gakgung",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "range": 100,
+      "reload": 0,
+      "ammunition": {
+        "type": "arrows"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one-plus"
+      }
+    }
+  },
+  {
+    "id": "52ae28b4-9c8d-5a84-a9ee-c3883572aea6",
+    "pack": "tian-xia-character-guide",
+    "kind": "weapon",
+    "slug": "weapon:heavenly-rolling-flames",
+    "name": "Heavenly Rolling Flames",
+    "level": 14,
+    "rarity": "uncommon",
+    "traits": ["agile", "disarm", "finesse", "magical", "monk", "parry", "twin", "versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This set of "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater striking flaming feng huo lun",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is warm to the touch and wreathed in the bright red and orange glow of a constantly flickering flame. While wielded, you gain cold resistance 2, and you treat the effects of environmental cold as one degree lower. Heavenly rolling flames can be Activated only if you wield two of them, and Activating them counts against the frequency for both weapons."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Rolling Flight",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You attach the wheels to your feet, and their constant movement and energy allow you to move through the air. You gain a fly Speed of 20 feet for 10 minutes. While in use in this way, you can't wield the wheels as weapons. You can spend an Interact action at any time to end this effect and re-grip the heavenly rolling flames. If you lack enough free hands to wield them, you drop them in your space."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "6da8cdcb-8015-5f24-9ae9-39649bdbc0d2"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Speed of Heaven",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "2b79f5bd-e9d5-59cd-81f8-b1362ed0b59a"
+          },
+          {
+            "type": "text",
+            "text": " as a 3rd-rank occult spell, but you can target only yourself."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["cold"],
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.srCxiFF44RcuRMHD"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4500
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "rolling-flight",
+          "name": "Rolling Flight",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        },
+        {
+          "slug": "speed-of-heaven",
+          "name": "Speed of Heaven",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "advanced",
+      "group": "knife",
+      "baseItem": "feng-huo-lun",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 2,
+        "property": ["161a6329-9809-57d5-9b34-c150d2bfe235"]
+      }
+    }
+  },
+  {
+    "id": "8187efb1-a5da-5128-a65d-bc8eb545284d",
+    "pack": "tian-xia-character-guide",
+    "kind": "weapon",
+    "slug": "weapon:jian-of-lifes-duality",
+    "name": "Jian of Life's Duality",
+    "level": 13,
+    "rarity": "uncommon",
+    "traits": ["magical", "versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater striking longsword",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " sports no extravagant characteristics save for a blade of pure, unblemished ivory and a hilt of unmarred obsidian. It takes on the propensity of its user, turning whiter or darker based on their actions."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The effects of "
+          },
+          {
+            "type": "text",
+            "text": "life's duality",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " are based on the number and type of charges it has. It begins with 0 charges and can gain either dark or light charges, up to a maximum of 3 charges of one type. A charge dissipates after 10 minutes or when a charge of the opposite type is gained. If you have a charge of one type and would gain the opposite type of charge, you lose your current charges."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Life's duality",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " gains a dark charge when it critically succeeds at a Strike against an opponent or reduces the Hit Points of a living enemy to 0. For each dark charge it has, it deals an additional "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d4",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage (maximum 3d4)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Life's duality",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " gains a light charge when you use a spell, skill check, or ability to restore at least 10 Hit Points to an ally. The damage healed must have been inflicted by a significant foe or threat. For each light charge it has, you gain 1d4 temporary Hit Points at the end of each round (maximum 3d4)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Burst of Duality",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Life's duality",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has 3 dark charges or 3 light charges;"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You unleash the sword's charged energy in a magical display. You cast a 3-action 5th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "1330902b-a95f-54ea-9a07-3764617bd887"
+          },
+          {
+            "type": "text",
+            "text": " spell if you have 3 dark charges or a 3-action 5th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "949e0a89-f44b-598d-8adb-3d9d31db900e"
+          },
+          {
+            "type": "text",
+            "text": " spell if you have 3 light charges ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 30
+          },
+          {
+            "type": "text",
+            "text": "). The sword then reverts to having 0 charges."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.KzvbL114c72EhWhd"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "burst-of-duality",
+          "name": "Burst of Duality",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "longsword",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "a487dc8c-67b7-5ab9-a434-a9cadb703036",
+    "pack": "tian-xia-character-guide",
+    "kind": "weapon",
+    "slug": "weapon:liuyedao",
+    "name": "Liuyedao",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["agile", "deadly-d4", "finesse", "sweep", "versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The liuyedao, or willow-leaf saber, is a common, one-handed military saber with a moderately curved blade designed for slashing and chopping attacks."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.kFZpTT1jI6UMfV9I"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "liuyedao",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "d75a42be-afe2-5916-9d11-525f82571c2b",
+    "pack": "tian-xia-character-guide",
+    "kind": "weapon",
+    "slug": "weapon:ogre-hook",
+    "name": "Ogre Hook",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["deadly-d10", "trip"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ogres are known for using immense, curved picks called ogre hooks."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Oiq3QgLrM4i3W5Hg"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1
+        }
+      },
+      "bulk": 2,
+      "category": "martial",
+      "group": "pick",
+      "baseItem": "ogre-hook",
+      "damage": {
+        "dice": 1,
+        "die": "d10",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "625e3fcd-9a58-5861-a7c9-b9444a5f0f48",
+    "pack": "tian-xia-character-guide",
+    "kind": "weapon",
+    "slug": "weapon:shuan-ji",
+    "name": "Shuan Ji",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["backswing", "forceful", "reach", "versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The shuan ji is a polearm featuring a long spear point on one end and two crescent-shaped blades that allow the wielder to strike with either side of the weapon."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.0yiz254UI7DUFXWN"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": 2,
+      "category": "martial",
+      "group": "polearm",
+      "baseItem": "shuan-ji",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "70e16b6a-ca71-5214-b397-e68c81b0a61c",
+    "pack": "tian-xia-character-guide",
+    "kind": "weapon",
+    "slug": "weapon:staff-of-sun-wukong",
+    "name": "Staff of Sun Wukong",
+    "level": 20,
+    "rarity": "unique",
+    "traits": ["artifact", "divine", "monk", "parry", "reach", "trip"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Also known as "
+          },
+          {
+            "type": "text",
+            "text": "Ruyi Bang",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", this "
+          },
+          {
+            "type": "text",
+            "text": "+3 major striking greater extending grievous bo staff",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a legendary artifact wielded by the Monkey King, Sun Wukong. Unlike normal bo staves, the "
+          },
+          {
+            "type": "text",
+            "text": "Staff of Sun Wukong",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is made of solid iron with two brilliant gold bands at either end."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Meteor Slam",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You extend the staff with the force of a meteor, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10d10",
+                "damageType": "bludgeoning"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to a single creature within 120 feet and making it "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 day. All other creatures within 10 feet of the target (except the staff's wielder) take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "8d10",
+                "damageType": "sonic"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 43,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Close at Hand",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " It's said that Sun Wukong tucked this magical staff behind his ear during his travels. When not in use, the Staff of Sun Wukong shrinks to the size and weight of a needle or toothpick, making it highly concealable (+4 circumstance bonus to Stealth checks to hide it from sight). In this form, the item has negligible Bulk. You can Activate this ability again to return the staff to its normal size."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Cloud Somersault",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You use the shapeshifting capabilities of this relic to propel yourself great distances. You "
+          },
+          {
+            "type": "ref",
+            "id": "1a0bed3d-5eb7-554f-ad07-4c8630afd0c8"
+          },
+          {
+            "type": "text",
+            "text": " up to 50 feet in any direction."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destruction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Despite being made of iron and gold, mundane heat sources can't damage the Staff of Sun Wukong. Magical fire similarly has no effect on this relic. The only way to destroy this item is to expose it to the intense heat of a specific volcano in the depths of the Songil Sea (though which volcano remains shrouded in myth)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.insH5VazP8WTkQgu"
+    },
+    "data": {
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "meteor-slam",
+          "name": "Meteor Slam",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "club",
+      "baseItem": "bo-staff",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "85175709-cd03-54ae-9f54-6536f1818911",
+    "pack": "tian-xia-character-guide",
+    "kind": "weapon",
+    "slug": "weapon:tetsubo",
+    "name": "Tetsubo",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["razing", "shove", "sweep"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The tetsubo is a war club constructed out of heavy wood shod with iron studs, designed for smashing through armor and defenses. A tetsubo made entirely out of metal might also be referred to as a kanabo."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.FjeKuljhpaIiDTI7"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": 3,
+      "category": "martial",
+      "group": "club",
+      "baseItem": "tetsubo",
+      "damage": {
+        "dice": 1,
+        "die": "d10",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "8bb5bebf-42b7-5534-98df-e3391386a082",
+    "pack": "tian-xia-character-guide",
+    "kind": "weapon",
+    "slug": "weapon:tri-bladed-katar",
+    "name": "Tri-bladed Katar",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["disarm", "fatal-d8", "monk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This punching dagger resembles the standard katar, save that a pair of blades can be folded out from the center blade, transforming the weapon into a starburst shape well suited to catching foes' weapons."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.WuzK2R5ra5SZdbij"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 1
+        }
+      },
+      "bulk": "light",
+      "category": "simple",
+      "group": "knife",
+      "baseItem": "tri-bladed-katar",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "d64665e3-516c-5901-85ba-19c1cda66a7c",
+    "pack": "tian-xia-character-guide",
+    "kind": "weapon",
+    "slug": "weapon:twisting-gale",
+    "name": "Twisting Gale",
+    "level": 14,
+    "rarity": "uncommon",
+    "traits": ["backswing", "disarm", "force", "monk", "parry"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater striking impactful sansetsukon",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is made of metal colored pale blue that echoes howling winds when swung and emits the force of a storm when it connects."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Sonic Gale",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, force, magical)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You critically hit with the "
+          },
+          {
+            "type": "text",
+            "text": "twisting gale",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The energy of your follow-through erupts from your opponent in a wave of concussive energy. You deal sonic damage equal to your normal Strike damage with the twisting gale in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " behind your target. Creatures in the area, not including your target, must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": {
+              "against": "class-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.2iKqXkRAq8qwlFlT"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4200
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "sonic-gale",
+          "name": "Sonic Gale",
+          "frequency": {
+            "max": 1,
+            "per": "ten-minutes"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "flail",
+      "baseItem": "sansetsukon",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "663afb0e-c635-5b48-b14e-5a469905698f",
+    "pack": "tian-xia-character-guide",
+    "kind": "weapon",
+    "slug": "weapon:worldringer",
+    "name": "Worldringer",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["shove", "two-hand-d10", "versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking khakkhara",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is topped by an ornate finial depiction of a small-statured traveler with animal companions. While the rings of a khakkhara are normally meant to alert others of one's presence, the magic of the "
+          },
+          {
+            "type": "text",
+            "text": "worldringer",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " enhances the chimes to entreat upon those who hear it."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Chimes of Command",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You call upon beings of this plane or another to hear your call. Choose "
+          },
+          {
+            "type": "ref",
+            "id": "b9046731-3460-5540-a530-52134df5346a"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "15904512-5f17-5bba-b1a0-1f892989912c"
+          },
+          {
+            "type": "text",
+            "text": ". You Cast the chosen Spell at 1st rank (DC 19). When casting "
+          },
+          {
+            "type": "text",
+            "text": "summon lesser servitor",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " in this way, you must choose to summon a magical animal."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.7L10GdJdL1hYcJZm"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 160
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "chimes-of-command",
+          "name": "Chimes of Command",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "club",
+      "baseItem": "khakkhara",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "1f515c85-0ca8-5452-b278-2817cdeceb20",
+    "pack": "tian-xia-character-guide",
+    "kind": "weapon",
+    "slug": "weapon:worldringer-greater",
+    "name": "Worldringer (Greater)",
+    "level": 14,
+    "rarity": "uncommon",
+    "traits": ["shove", "two-hand-d10", "versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater striking khakkhara",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is topped by an ornate finial depiction of a small-statured traveler with animal companions. While the rings of a khakkhara are normally meant to alert others of one's presence, the magic of the "
+          },
+          {
+            "type": "text",
+            "text": "worldringer",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " enhances the chimes to entreat upon those who hear it."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Chimes of Command",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You call upon beings of this plane or another to hear your call. Choose "
+          },
+          {
+            "type": "ref",
+            "id": "b9046731-3460-5540-a530-52134df5346a"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "15904512-5f17-5bba-b1a0-1f892989912c"
+          },
+          {
+            "type": "text",
+            "text": ". You Cast the chosen Spell at 5th rank (DC 33). When casting "
+          },
+          {
+            "type": "text",
+            "text": "summon lesser servitor",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " in this way, you must choose to summon a magical animal."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.NvukdOaemuC6kMLL"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4200
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "chimes-of-command",
+          "name": "Chimes of Command",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "club",
+      "baseItem": "khakkhara",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "8b40564b-04e3-57d9-958b-99bb4421c5d2",
+    "pack": "tian-xia-character-guide",
+    "kind": "weapon",
+    "slug": "weapon:zhuazhi-bang",
+    "name": "Zhuazhi Bang",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["disarm", "grapple", "razing", "trip"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This niche close-combat weapon resembles a flail with articulated talons used to hook onto an opponent's clothing or armor."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.EZho49nI8ZMXD3oD"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "flail",
+      "baseItem": "zhuazhi-bang",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

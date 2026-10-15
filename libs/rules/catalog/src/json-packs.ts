@@ -34,6 +34,12 @@ export async function coreRulesPack(): Promise<PackContents> {
     import('@pioneer/content/packs/core-rules/imported/war-of-immortals/sense.json'),
     import('@pioneer/content/packs/core-rules/imported/war-of-immortals/statistic.json'),
     import('@pioneer/content/packs/core-rules/imported/war-of-immortals/trait.json'),
+    import('@pioneer/content/packs/core-rules/imported/tian-xia-character-guide/language.json'),
+    import('@pioneer/content/packs/core-rules/imported/tian-xia-character-guide/sense.json'),
+    import('@pioneer/content/packs/core-rules/imported/tian-xia-character-guide/statistic.json'),
+    import('@pioneer/content/packs/core-rules/imported/tian-xia-character-guide/trait.json'),
+    import('@pioneer/content/packs/core-rules/imported/dark-archive-remastered/statistic.json'),
+    import('@pioneer/content/packs/core-rules/imported/dark-archive-remastered/trait.json'),
     import('@pioneer/content/packs/core-rules/imported/mwangi-expanse/language.json'),
     import('@pioneer/content/packs/core-rules/imported/mwangi-expanse/trait.json'),
     import('@pioneer/content/packs/core-rules/imported/rage-of-elements/statistic.json'),
@@ -171,6 +177,44 @@ export async function mwangiExpansePack(): Promise<PackContents> {
     import('@pioneer/content/packs/mwangi-expanse/feat.json'),
     import('@pioneer/content/packs/mwangi-expanse/heritage.json'),
     import('@pioneer/content/packs/mwangi-expanse/weapon.json'),
+  ]);
+}
+
+export async function tianXiaCharacterGuidePack(): Promise<PackContents> {
+  return pack(import('@pioneer/content/packs/tian-xia-character-guide/pack.json'), [
+    import('@pioneer/content/packs/tian-xia-character-guide/action.json'),
+    import('@pioneer/content/packs/tian-xia-character-guide/ancestry-feature.json'),
+    import('@pioneer/content/packs/tian-xia-character-guide/ancestry.json'),
+    import('@pioneer/content/packs/tian-xia-character-guide/archetype.json'),
+    import('@pioneer/content/packs/tian-xia-character-guide/armor.json'),
+    import('@pioneer/content/packs/tian-xia-character-guide/background.json'),
+    import('@pioneer/content/packs/tian-xia-character-guide/class-feature.json'),
+    import('@pioneer/content/packs/tian-xia-character-guide/consumable.json'),
+    import('@pioneer/content/packs/tian-xia-character-guide/effect.json'),
+    import('@pioneer/content/packs/tian-xia-character-guide/equipment.json'),
+    import('@pioneer/content/packs/tian-xia-character-guide/feat.json'),
+    import('@pioneer/content/packs/tian-xia-character-guide/heritage.json'),
+    import('@pioneer/content/packs/tian-xia-character-guide/ritual.json'),
+    import('@pioneer/content/packs/tian-xia-character-guide/spell.json'),
+    import('@pioneer/content/packs/tian-xia-character-guide/weapon.json'),
+  ]);
+}
+
+export async function darkArchiveRemasteredPack(): Promise<PackContents> {
+  return pack(import('@pioneer/content/packs/dark-archive-remastered/pack.json'), [
+    import('@pioneer/content/packs/dark-archive-remastered/action.json'),
+    import('@pioneer/content/packs/dark-archive-remastered/archetype.json'),
+    import('@pioneer/content/packs/dark-archive-remastered/background.json'),
+    import('@pioneer/content/packs/dark-archive-remastered/class-feature.json'),
+    import('@pioneer/content/packs/dark-archive-remastered/class.json'),
+    import('@pioneer/content/packs/dark-archive-remastered/consumable.json'),
+    import('@pioneer/content/packs/dark-archive-remastered/effect.json'),
+    import('@pioneer/content/packs/dark-archive-remastered/equipment.json'),
+    import('@pioneer/content/packs/dark-archive-remastered/feat.json'),
+    import('@pioneer/content/packs/dark-archive-remastered/heritage.json'),
+    import('@pioneer/content/packs/dark-archive-remastered/ritual.json'),
+    import('@pioneer/content/packs/dark-archive-remastered/spell.json'),
+    import('@pioneer/content/packs/dark-archive-remastered/weapon.json'),
   ]);
 }
 

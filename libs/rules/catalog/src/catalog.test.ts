@@ -27,6 +27,8 @@ const warOfImmortals = PackId.parse('war-of-immortals');
 const mwangiExpanse = PackId.parse('mwangi-expanse');
 const rageOfElements = PackId.parse('rage-of-elements');
 const secretsOfMagic = PackId.parse('secrets-of-magic');
+const tianXiaCharacterGuide = PackId.parse('tian-xia-character-guide');
+const darkArchiveRemastered = PackId.parse('dark-archive-remastered');
 const gmCore = PackId.parse('gm-core');
 const humanId = AncestryId.parse(contentId(playerCore, EntrySlug.parse('ancestry:human')));
 const zombieId = CreatureId.parse(contentId(monsterCore, EntrySlug.parse('creature:zombie-shambler')));
@@ -37,6 +39,7 @@ describe('content catalog', () => {
     await Promise.all(contentCatalog.map(async (loader) => registry.load(loader)));
     expect(registry.packs.map((pack) => pack.id).toSorted()).toStrictEqual([
       coreRules,
+      darkArchiveRemastered,
       divineMysteries,
       gmCore,
       howlOfTheWild,
@@ -46,6 +49,7 @@ describe('content catalog', () => {
       playerCore2,
       rageOfElements,
       secretsOfMagic,
+      tianXiaCharacterGuide,
       treasureVault,
       warOfImmortals,
     ]);

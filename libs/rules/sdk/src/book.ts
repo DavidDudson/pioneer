@@ -30,6 +30,8 @@ export const BOOK_TITLES: ReadonlyMap<BookId, BookLabel> = new Map([
   [BookId.parse('mwangi-expanse'), BookLabel.parse('rules.book.title.mwangiExpanse')],
   [BookId.parse('secrets-of-magic'), BookLabel.parse('rules.book.title.secretsOfMagic')],
   [BookId.parse('rage-of-elements'), BookLabel.parse('rules.book.title.rageOfElements')],
+  [BookId.parse('dark-archive-remastered'), BookLabel.parse('rules.book.title.darkArchiveRemastered')],
+  [BookId.parse('tian-xia-character-guide'), BookLabel.parse('rules.book.title.tianXiaCharacterGuide')],
 ]);
 
 export const PUBLISHER_LABELS: Readonly<Record<Publisher, BookLabel>> = {

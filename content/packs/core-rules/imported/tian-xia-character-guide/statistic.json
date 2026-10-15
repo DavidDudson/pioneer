@@ -1,0 +1,122 @@
+[
+  {
+    "id": "0bc5ac1e-d7bd-5570-9270-6b210ac828d1",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:acupuncture-lore",
+    "name": "Acupuncture Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:acupuncture",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.acupuncture",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "77ad9c3e-4a27-5d56-95ea-f130e6debd39",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:gem-lore",
+    "name": "Gem Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:gem",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.gem",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "860678e1-2b53-5c1a-b6a5-9ccd1c224394",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:hunting-lore",
+    "name": "Hunting Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:hunting",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.hunting",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "da5e8c82-5d3e-52a2-9ad7-c056ef1c46c1",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:sericulture-lore",
+    "name": "Sericulture Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:sericulture",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.sericulture",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "2b664203-4709-5155-814e-670055849215",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:spirit-lore",
+    "name": "Spirit Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:spirit",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.spirit",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  }
+]

@@ -1,0 +1,1952 @@
+[
+  {
+    "id": "f8be8a32-4cee-5ca3-90fa-419b0e13c927",
+    "pack": "tian-xia-character-guide",
+    "kind": "action",
+    "slug": "action:blazing-conflagration",
+    "name": "Blazing Conflagration",
+    "rarity": "common",
+    "traits": ["fire", "healing", "light", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're transformed into phoenix form by the monstrosity form spell granted by this feat"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You dismiss phoenix form while a fiery corona erupts from you as searing light. Each creature in a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "max(16,(2*(floor(@level/2))))d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": {
+              "against": "spell-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save against your spell DC; creatures that critically fail are "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round. You gain 8d6 temporary Hit Points. At 18th level and again at 20th level, the burst deals an additional 2d6 fire damage, and you gain an additional 1d6 temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.XotRIv6tKRtuAGAF"
+    },
+    "data": {
+      "cost": "three",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You're transformed into phoenix form by the monstrosity form spell granted by this feat"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "b81f8067-e4d0-57fb-a1a5-314b3d9c7574",
+    "pack": "tian-xia-character-guide",
+    "kind": "action",
+    "slug": "action:create-familiar-fulu",
+    "name": "Create Familiar Fulu",
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day or greater (see "
+          },
+          {
+            "type": "ref",
+            "id": "7b7d3ba0-0f9c-59f3-a35a-edc222d911a6"
+          },
+          {
+            "type": "text",
+            "text": ");"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your familiar is within 30 feet, and you have one hand free;"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You make a pinching motion, and your familiar dissolves into magical energy that re-forms between your fingers as a fulu magical item. The fulu must be at least two levels lower than your level, and you don't need to spend the normal monetary cost in magical components or attempt a Crafting check. You can then choose to "
+          },
+          {
+            "type": "ref",
+            "id": "25b614df-8f63-506c-be63-3bcb8dac5834"
+          },
+          {
+            "type": "text",
+            "text": " as part of this activity to affix your familiar fulu. While transformed, your familiar doesn't grant its normal benefits, and it remains transformed until your next daily preparations or until you Activate the fulu, at which point your familiar reappears in an unoccupied space adjacent to you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.NT1rtY5DFJGsR5QR"
+    },
+    "data": {
+      "cost": "two",
+      "category": "interaction",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your familiar is within 30 feet, and you have one hand free;"
+            }
+          ]
+        }
+      ],
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "43fced40-07d7-5f55-9863-88255a16bad6",
+    "pack": "tian-xia-character-guide",
+    "kind": "action",
+    "slug": "action:cycle-elemental-stance",
+    "name": "Cycle Elemental Stance",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're in one of the elemental stances"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Stride or Step, and then enter a different elemental stance from the one you're currently in."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.Oh6H1fuXC6jK4Hcp"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You're in one of the elemental stances"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "2e084ff0-dd8c-5e5a-85bf-ba29a28ea913",
+    "pack": "tian-xia-character-guide",
+    "kind": "action",
+    "slug": "action:dazzling-show",
+    "name": "Dazzling Show",
+    "rarity": "common",
+    "traits": ["move", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per minute"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your kinnara flashes his brilliant feathers. Each creature within a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-or-spell-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC or spell DC, whichever is higher, or be "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " for 2 rounds."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.m8wjlYnTAAfddWyA"
+    },
+    "data": {
+      "cost": "two",
+      "category": "familiar",
+      "frequency": {
+        "max": 1,
+        "per": "minute"
+      }
+    }
+  },
+  {
+    "id": "1e8a429f-a1c1-5ef5-8a6a-2047566206b1",
+    "pack": "tian-xia-character-guide",
+    "kind": "action",
+    "slug": "action:disarming-interception",
+    "name": "Disarming Interception",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have your fist positioned to parry"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An enemy within your reach targets you or an ally with a weapon Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "ef57a555-f9e9-53cc-b09b-b7432156cbf1"
+          },
+          {
+            "type": "text",
+            "text": " the weapon the enemy is attacking with. You gain a +2 status bonus to this Disarm check, and if the check is successful, the triggering attack is disrupted. If the Disarm attempt is a critical success and you have a hand free, you can catch the disarmed weapon in your hand instead of it falling to the ground in the target's space."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:disarming-interception",
+        "toggleable": true
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["action:disarm", "option:disarming-interception"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.jl1euufxNpAhVt26"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You have your fist positioned to parry"
+            }
+          ]
+        }
+      ],
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "An enemy within your reach targets you or an ally with a weapon Strike"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "5fc42446-0abb-5c6d-ab10-6a6977bd8816",
+    "pack": "tian-xia-character-guide",
+    "kind": "action",
+    "slug": "action:enlightenment-in-adversity",
+    "name": "Enlightenment in Adversity",
+    "rarity": "common",
+    "traits": ["fortune"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You critically fail a skill check with a skill you gained from the banished celestial background"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The next time you attempt a skill check using the skill that triggered this ability within the next minute, roll twice and take the higher result."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.PaQL7cyry64nx9CG"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "interaction",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You critically fail a skill check with a skill you gained from the banished celestial background"
+            }
+          ]
+        }
+      ],
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "0a1edc94-7b0e-57e2-bff8-f4501d24922a",
+    "pack": "tian-xia-character-guide",
+    "kind": "action",
+    "slug": "action:flatten",
+    "name": "Flatten",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your familiar can flatten itself to the width of a sheet of paper, easily fitting through the smallest of cracks and gaps. So long as a door or other obstacle has a gap that can fit a sheet of paper, your familiar can move through it without needing to Squeeze."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.6cwswBPHm1GWdx5j"
+    },
+    "data": {
+      "category": "familiar"
+    }
+  },
+  {
+    "id": "36fdb6fb-3c54-560d-ac63-7967463aa3a2",
+    "pack": "tian-xia-character-guide",
+    "kind": "action",
+    "slug": "action:inscribe-shadow-pamor",
+    "name": "Inscribe Shadow Pamor",
+    "rarity": "common",
+    "traits": ["occult", "shadow"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per minute"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You plunge your fist or weapon into your shadow, enveloping it in a rippling, damask-like pattern of darkness. If your next action is to Strike, the shadows cling to your foe with your attack, obscuring its vision. On a hit, the target of your Strike becomes "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " until the start of your next turn. The target can use an Interact action to tear away the clinging shadows and remove the dazzled condition. On a critical hit, the shadows are particularly stubborn and can't be torn away."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.lgpJoFrkzfkjAzeV"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "minute"
+      }
+    }
+  },
+  {
+    "id": "89ae0bf8-f3aa-50c0-bdac-0e7d2ec6e3a8",
+    "pack": "tian-xia-character-guide",
+    "kind": "action",
+    "slug": "action:kindling",
+    "name": "Kindling",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can immolate your familiar's body for a surge of power. Once per day as a free action, when you Cast a Spell that has the fire trait, deals damage, and doesn't have a duration, you can sacrifice your familiar to empower the spell. Your familiar is immediately slain, and you gain a status bonus to that spell's damage equal to twice the spell rank."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "15c75487-a86b-5e55-a786-66cc4b870322"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.gVPtUSEPZYGRIRyQ"
+    },
+    "data": {
+      "category": "familiar"
+    }
+  },
+  {
+    "id": "eff45953-5863-56b2-8f0e-d00a5d45f6ca",
+    "pack": "tian-xia-character-guide",
+    "kind": "action",
+    "slug": "action:lightning-armillary",
+    "name": "Lightning Armillary",
+    "rarity": "common",
+    "traits": ["electricity"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your familiar flies around and around an adjacent ally's weapon or hand, dissolving into multiple rings of lightning. Until the beginning of your next turn, the affected weapon or unarmed attack deals an additional 1d6 electricity damage, or 1d8 electricity damage if you Cast a Spell with the air or electricity trait this turn. Your familiar remains in lightning ring form, preventing it from being targeted or taking any actions."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "6cacb0b1-e1e6-5e38-87c2-4f28ec9dae78"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.zwWgHjcU0iZ6gUDY"
+    },
+    "data": {
+      "cost": "one",
+      "category": "familiar"
+    }
+  },
+  {
+    "id": "ac14c187-0256-55a6-9937-731ed34394ba",
+    "pack": "tian-xia-character-guide",
+    "kind": "action",
+    "slug": "action:lightning-needles",
+    "name": "Lightning Needles",
+    "rarity": "common",
+    "traits": ["electricity"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Cast a Spell that had the air or electricity traits this turn;"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your familiar absorbs excess electrical charge and unleashes a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 5
+          },
+          {
+            "type": "text",
+            "text": " of static electricity that flows into creatures' meridians. Creatures in the emanation that fail a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude"
+          },
+          {
+            "type": "text",
+            "text": " save against your spell DC become "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": " until the end of their next turn. If a creature is soaked or standing over or in water inside the emanation, it also takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d4",
+                "damageType": "electricity",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage on a failed save."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.0R18Nd0CotPo9KD7"
+    },
+    "data": {
+      "cost": "one",
+      "category": "familiar",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You Cast a Spell that had the air or electricity traits this turn;"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "5c617161-a83c-5214-aeb2-f375537fd645",
+    "pack": "tian-xia-character-guide",
+    "kind": "action",
+    "slug": "action:mass-produced",
+    "name": "Mass-Produced",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If your shikigami dies, you can rebind its spirit to another paper doll during your next daily preparations."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.1fRkeUkPJFiBJ5u6"
+    },
+    "data": {
+      "category": "familiar"
+    }
+  },
+  {
+    "id": "aac26b12-337d-51e8-bb3e-e821301c5b0c",
+    "pack": "tian-xia-character-guide",
+    "kind": "action",
+    "slug": "action:name-drop",
+    "name": "Name Drop",
+    "rarity": "common",
+    "traits": ["auditory", "fortune"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day;"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail or critically fail a Deception, Diplomacy, Intimidation, or Society check"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Reroll the skill check. You must use the second result, even if it's worse."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["skill:deception", "skill:diplomacy", "skill:intimidation", "skill:society"],
+        "title": "{item|name} <span class=\"action-glyph\">R</span>",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Frequency",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " once per day;"
+              }
+            ]
+          },
+          {
+            "type": "rule"
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Effect",
+                "marks": ["strong"]
+              },
+              {
+                "type": "text",
+                "text": " Reroll the skill check. You must use the second result, even if it's worse."
+              }
+            ]
+          }
+        ],
+        "outcome": ["criticalFailure"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.fsR3X4c3p19W8RB2"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "interaction",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You fail or critically fail a Deception, Diplomacy, Intimidation, or Society check"
+            }
+          ]
+        }
+      ],
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "5bfd14f3-e10d-5de9-8fe0-476b1913dfea",
+    "pack": "tian-xia-character-guide",
+    "kind": "action",
+    "slug": "action:nudging-whisper",
+    "name": "Nudging Whisper",
+    "rarity": "common",
+    "traits": ["curse", "divine", "emotion", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You lace your words with echoes of your ancestors' magic. If your next action is to "
+          },
+          {
+            "type": "ref",
+            "id": "bd7385d5-c754-542c-9518-060942de3701"
+          },
+          {
+            "type": "text",
+            "text": ", you gain the effects of the "
+          },
+          {
+            "type": "ref",
+            "id": "d5a00833-d9de-5567-ba4a-ee307cd4ff69"
+          },
+          {
+            "type": "text",
+            "text": " feat, and if your next action is to "
+          },
+          {
+            "type": "ref",
+            "id": "1ee7b671-dd18-5950-a4db-fbd4f8dae832"
+          },
+          {
+            "type": "text",
+            "text": ", you gain the effects of the "
+          },
+          {
+            "type": "ref",
+            "id": "d4a15afd-2975-537f-92da-6e5e43cc68d8"
+          },
+          {
+            "type": "text",
+            "text": " feat. If you critically fail at either check, the target and anyone who witnessed you fail becomes immune to your Nudging Whisper for one day, though this doesn't necessarily let them know that you attempted to charm them."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.rlGVQku78DGoOl9V"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "e66b8a40-663f-522e-afe3-8c200aeb7012",
+    "pack": "tian-xia-character-guide",
+    "kind": "action",
+    "slug": "action:overwhelming-combination",
+    "name": "Overwhelming Combination",
+    "rarity": "common",
+    "traits": ["flourish"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're wielding a one-handed melee weapon or a melee weapon with the agile or finesse trait"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Make two Strikes against a target within your reach, one with the required weapon and one with your fist unarmed attack. If both hit the same target, combine their damage for the purposes of its resistances and weaknesses. Apply your multiple attack penalty to each Strike normally."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:overwhelming-combination",
+        "toggleable": true,
+        "predicate": ["feat:kaiju-defense-oath"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.zUWj4zmBNWOTzeFJ"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You're wielding a one-handed melee weapon or a melee weapon with the agile or finesse trait"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "203d2ae6-a3d5-5ac8-87bd-b3316c4e6e9f",
+    "pack": "tian-xia-character-guide",
+    "kind": "action",
+    "slug": "action:path-of-the-tempest",
+    "name": "Path of the Tempest",
+    "rarity": "common",
+    "traits": ["air"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes;"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your familiar summons winds that speed up and protect you. You gain a +10-foot status bonus to your Speed until the end of your turn. When you Stride this turn, you don't trigger reactions. In addition, you don't need to Stride before a "
+          },
+          {
+            "type": "ref",
+            "id": "a76317a3-de3d-58c2-8b3e-5a73b09657be"
+          },
+          {
+            "type": "text",
+            "text": " this turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "acb1ff12-6ca5-51da-a600-a6cca7009517"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.O0XJIvMGK36yg9TJ"
+    },
+    "data": {
+      "cost": "two",
+      "category": "familiar",
+      "frequency": {
+        "max": 1,
+        "per": "ten-minutes"
+      }
+    }
+  },
+  {
+    "id": "12c8e7d9-c155-555f-80d8-3bf1ca606e9e",
+    "pack": "tian-xia-character-guide",
+    "kind": "action",
+    "slug": "action:play-dead",
+    "name": "Play Dead",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your familiar pretends to be inanimate, hiding its supernatural capabilities. It can Hide without any cover or concealment from creatures that don't realize it's alive, so long as it's in a location where it wouldn't seem out of place. If the familiar succeeds, onlookers still see it, but they mistake it for an inanimate object. After being fooled once, they realize your familiar is alive, and it can't Hide from them in that way again."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.pX73zPGaazVJ0lKO"
+    },
+    "data": {
+      "category": "familiar"
+    }
+  },
+  {
+    "id": "faa6ecb5-c60f-5106-9ad1-414eb126da43",
+    "pack": "tian-xia-character-guide",
+    "kind": "action",
+    "slug": "action:pot-of-tea",
+    "name": "Pot of Tea",
+    "rarity": "common",
+    "traits": ["healing"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your tapir sage is trained in the art of herbal medication and can prepare a pot of healing tea. Once per day, your familiar can spend 10 minutes to brew fine tea leaves and herbs. The tapir sage must focus on the tea during this time—if it performs any other action, the tea is ruined, though the tapir sage can start over again. Once the pot of tea is brewed, the tapir sage can serve two cups of tea with each of the below actions; each time, it gives 1 cup to an adjacent ally, and it drinks 1 cup itself. The three infusions must be poured and offered in order (for example, the tapir sage can't serve the second infusion until it has served the first). The tea remains good for 1 hour after brewing; if not drunk by this point, the pot goes cold, and any remaining tea loses its power."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "First Infusion",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "action-cost",
+                  "cost": "two"
+                },
+                {
+                  "type": "text",
+                  "text": " The infusion restores a number of Hit Points equal to 1d8 times half your level (minimum 1d8) and grants a +4 circumstance bonus to the next saving throw against disease or poison attempted within 24 hours."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Second Infusion",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "action-cost",
+                  "cost": "two"
+                },
+                {
+                  "type": "text",
+                  "text": " The infusion restores a number of Hit Points equal to 1d4 times half your level (minimum 1d4) and grants a +2 circumstance bonus to the next saving throw against disease or poison attempted within 24 hours."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Third Infusion",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "action-cost",
+                  "cost": "two"
+                },
+                {
+                  "type": "text",
+                  "text": " The infusion grants temporary Hit Points equal to your level for 1 hour."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.u4Sp4K4WOi461xo1"
+    },
+    "data": {
+      "category": "familiar"
+    }
+  },
+  {
+    "id": "311dad44-c8e9-564f-8389-cb39ab97a972",
+    "pack": "tian-xia-character-guide",
+    "kind": "action",
+    "slug": "action:seal-bearer",
+    "name": "Seal-Bearer",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "During your daily preparations, you can inscribe a symbol or seal upon your shikigami that corresponds to the air, earth, fire, metal, water, or wood element. If you use the shikigami's kindling ability that day, it applies to a spell that deals damage with the relevant trait to the chosen element, instead of only the fire trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.2GMAPffXVayRFsLM"
+    },
+    "data": {
+      "category": "familiar"
+    }
+  },
+  {
+    "id": "d7d7dde6-54ac-5552-b5e8-9f4dc5fd3c93",
+    "pack": "tian-xia-character-guide",
+    "kind": "action",
+    "slug": "action:shadow-projection",
+    "name": "Shadow Projection",
+    "rarity": "common",
+    "traits": ["shadow"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your makhluk wayang projects its shadow into a larger silhouette of itself, allowing it to grasp things outside of its obvious reach. It increases its reach to 10 feet for the purposes of taking non-hostile Interact actions until the end of your turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.yiIE9iWx6OLd61Qs"
+    },
+    "data": {
+      "cost": "one",
+      "category": "familiar"
+    }
+  },
+  {
+    "id": "10e9ec75-4ab8-52c4-9c2e-66c58b4ef7e6",
+    "pack": "tian-xia-character-guide",
+    "kind": "action",
+    "slug": "action:soul-bond",
+    "name": "Soul Bond",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your kinnars' spirits are intrinsically linked. While they're two beings, they're still considered a single creature, act as a single creature, use normal familiar statistics, and are subject to all of the normal effects that come with being a single creature. Their linked spirits allow them to stave off attacks against their mind. If your kinnars are subjected to a mental effect that allows a saving throw, they roll twice and take the higher result; this is a fortune effect."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.MGcVYSWZvaoEAISV"
+    },
+    "data": {
+      "category": "familiar"
+    }
+  },
+  {
+    "id": "f1083e00-afe8-5599-8d20-bfabfc85e927",
+    "pack": "tian-xia-character-guide",
+    "kind": "action",
+    "slug": "action:starlit-transformation",
+    "name": "Starlit Transformation",
+    "rarity": "common",
+    "traits": ["arcane"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Light swirls around you, transforming your armor, clothing, and a single weapon in your possession into a specific alternate outfit. While your equipment might look dramatically different, it functions as normal. If someone attempts to discern your identity, they must use a "
+          },
+          {
+            "type": "ref",
+            "id": "d45207be-e539-50ce-9463-f4edc3671076"
+          },
+          {
+            "type": "text",
+            "text": " action to attempt a Perception check against your Deception DC, as if you were using the "
+          },
+          {
+            "type": "ref",
+            "id": "9d26c6da-04e9-5491-86c1-7a4b23fe9da3"
+          },
+          {
+            "type": "text",
+            "text": " action. Your Deception DC against such attempts is 20 + your proficiency modifier instead of the normal DC. Unlike with Impersonate, you don't have to attempt a Deception check to interact with someone to conceal your identity—a check happens only if someone else specifically tries to uncover it. You remain in your sentinel form for 10 minutes or until you use Starlit Transformation again to change back to your normal form."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While you're in sentinel form, your transformed weapon shines with starlight and gains a +1 status bonus to damage rolls with the weapon. You can fling bolts of starlight from your weapon with a Strike action, using your melee attack modifier with the weapon. These bolts deal 1d4 force damage, have a range of 60 feet, are affected by your weapon runes, and have the arcane and force traits."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.M4ALaFXoQDJGxSsI"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction",
+      "frequency": {
+        "max": 1,
+        "per": "hour"
+      },
+      "selfEffect": "1cebbe1d-cee0-54e8-81fb-57f814081b89"
+    }
+  },
+  {
+    "id": "c1675936-3c4c-594e-8185-dcee584790fd",
+    "pack": "tian-xia-character-guide",
+    "kind": "action",
+    "slug": "action:stunning-flare",
+    "name": "Stunning Flare",
+    "rarity": "common",
+    "traits": ["fire", "light", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes;"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your lantern wisp unleashes a large burst of flame, casting an unnaturally bright light. Each creature within a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": " must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": {
+              "against": "class-or-spell-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC or spell DC, whichever is higher, or be "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round and then "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " for 2 rounds after."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.oOpppkBhLcfaKZN4"
+    },
+    "data": {
+      "cost": "one",
+      "category": "familiar",
+      "frequency": {
+        "max": 1,
+        "per": "ten-minutes"
+      }
+    }
+  },
+  {
+    "id": "02b1b3d2-fc66-5ca8-b958-69611523e397",
+    "pack": "tian-xia-character-guide",
+    "kind": "action",
+    "slug": "action:tactical-retreat",
+    "name": "Tactical Retreat",
+    "rarity": "common",
+    "traits": ["emotion", "fear", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain the frightened condition"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Realizing that discretion is the better part of valor, you opt to put some distance between you and a threat. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "f7fea8f9-c457-5b9f-9283-f567fa557184"
+          },
+          {
+            "type": "text",
+            "text": " condition until the beginning of your next turn, and you Stride."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.KInVpdfrxg0AqjRt"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You gain the frightened condition"
+            }
+          ]
+        }
+      ],
+      "frequency": {
+        "max": 1,
+        "per": "hour"
+      }
+    }
+  },
+  {
+    "id": "36092373-8c59-5954-940f-48937216ed14",
+    "pack": "tian-xia-character-guide",
+    "kind": "action",
+    "slug": "action:tap-the-past",
+    "name": "Tap the Past",
+    "rarity": "common",
+    "traits": ["fortune"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're about to attempt a check to Recall Knowledge"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You concentrate on the glimpses of a previous life to find a memory of a tome or an applicable lesson from your past. You roll a second time and use the higher result. If you roll a critical failure, you get a failure instead. If you roll a success, you get a critical success instead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.jsEBrm8SPcsokJLw"
+    },
+    "data": {
+      "cost": "free",
+      "category": "interaction",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You're about to attempt a check to Recall Knowledge"
+            }
+          ]
+        }
+      ],
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      },
+      "selfEffect": "b019a42a-f9e6-5abe-8d7d-5087d7571a10"
+    }
+  },
+  {
+    "id": "03189fb2-174e-5602-bd76-394d738e3678",
+    "pack": "tian-xia-character-guide",
+    "kind": "action",
+    "slug": "action:versatile-form",
+    "name": "Versatile Form",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The crafted body of your familiar allows you to make adjustments to it when required. Once per day, you can spend 10 minutes to change one familiar or master ability your familiar possesses. To select this ability, your familiar must be a construct, and you must be at least trained in Crafting."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.0rq3ufpxB9iHlIkd"
+    },
+    "data": {
+      "category": "familiar"
+    }
+  },
+  {
+    "id": "eafbd8d5-a6fd-51af-902b-d483a0798b1e",
+    "pack": "tian-xia-character-guide",
+    "kind": "action",
+    "slug": "action:vina-song",
+    "name": "Vina Song",
+    "rarity": "common",
+    "traits": ["auditory", "concentrate", "divine", "incapacitation", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour, see below"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your kinnari elegantly plays her instrument. Each creature within a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " must attempt a Will save against your class DC or spell DC, whichever is higher, or be "
+          },
+          {
+            "type": "ref",
+            "id": "88ca1b7b-d5de-5978-9ff4-258c9aadef1a"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round. A kinnar can use this ability again on the next round to continue the song and force affected creatures to attempt another Will save; on a failure, a creature is fascinated for an additional round. Once the kinnar stops playing, they can't use this ability again for 1 hour. A creature that succeeds at any save or has its fascination broken is temporarily immune to that kinnar's Vina Song for 24 hours. Kinnars are immune to this ability."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.nLrXleY20sESisoW"
+    },
+    "data": {
+      "cost": "two",
+      "category": "familiar",
+      "frequency": {
+        "max": 1,
+        "per": "hour"
+      }
+    }
+  }
+]

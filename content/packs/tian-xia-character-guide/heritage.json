@@ -1,0 +1,2769 @@
+[
+  {
+    "id": "9d27c10e-40a7-5688-8583-3fee11b7f7bc",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:ascetic-tanuki",
+    "name": "Ascetic Tanuki",
+    "rarity": "common",
+    "traits": ["tanuki"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "It's said your round form is the result of calmness and restraint, not indulgence. You gain scent as an imprecise sense with a range of 30 feet. The GM will usually double the range if you're downwind from something you're trying to smell or halve the range if you're upwind. In addition, you gain a +2 circumstance bonus to Perception checks whenever you're trying to locate food, drink, or a consumable item that's ingested (such as a potion or elixir) using your scent."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "279973df-e7b9-5fa1-9bb6-1cfdc54b82b6",
+        "acuity": "imprecise",
+        "range": 30
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "untyped",
+        "value": 2,
+        "predicate": ["option:locate-food-or-drink"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.L6FwEsrOK3Xno7qM"
+    },
+    "data": {
+      "ancestry": "0f0cb96c-b8c1-5be2-b5a1-3e0147bf2217"
+    }
+  },
+  {
+    "id": "85596c9d-052c-572a-a40f-d6a6f812480b",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:bakuwa-lizardfolk",
+    "name": "Bakuwa Lizardfolk",
+    "rarity": "uncommon",
+    "traits": ["lizardfolk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your body is covered in bony plates. Your plates are medium armor in the plate armor group that grant a +4 item bonus to AC, a Dex cap of +1, a check penalty of –2, a Speed penalty of –5 feet, a Strength value of +3, and have the aquadynamic and comfort traits. You can never wear other armor or remove your plates. You can etch armor runes onto your plates."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.OIW3UYrdaWLwUZCh"
+    },
+    "data": {
+      "ancestry": "d82fc8f3-fd76-5ccb-8b83-d94c4aec7aaa"
+    }
+  },
+  {
+    "id": "fa22988d-d8fc-5f4c-a2a6-bba9735ac2c7",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:born-of-animal",
+    "name": "Born of Animal",
+    "rarity": "common",
+    "traits": ["yaoguai"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You were a simple animal until the sun enlightened you."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Humanoid Form",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Animals can sense the power of your presence. You gain a +1 circumstance bonus to Intimidation checks against animals and beasts and don't take a penalty for attempting to Intimidate animals or beasts you don't share a language with."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Yaoguai Form",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You can dash like an animal. If you have both hands free, you can increase your Speed to 30 feet as you run on all fours."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:intimidation"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": [
+          "change-shape:humanoid",
+          {
+            "or": ["target:trait:animal", "target:trait:beast"]
+          }
+        ]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:on-all-fours",
+        "toggleable": true,
+        "predicate": ["change-shape:yaoguai"],
+        "priority": 70,
+        "display": {
+          "label": "Running on all fours"
+        }
+      },
+      {
+        "key": "Change",
+        "selector": "speed:land",
+        "mode": "upgrade",
+        "value": 30,
+        "predicate": ["option:on-all-fours"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.buGlGWcCrdNxfCr4"
+    },
+    "data": {
+      "ancestry": "e1e7633a-e183-5631-b9c4-d91a6f9fe46a"
+    }
+  },
+  {
+    "id": "6010a3c4-549e-52e2-91df-a3c22979143f",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:born-of-celestial",
+    "name": "Born of Celestial",
+    "rarity": "common",
+    "traits": ["yaoguai"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You were once a powerful celestial before an escape or great punishment left you trapped in a mortal shell, with only vague memories and limited power. Due to your residual divine power, the tradition of any spells or magical abilities you gain from a yaoguai heritage or ancestry feat is divine instead of its normal tradition (usually occult)."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Humanoid Form",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Fragments of divine memory still litter your mind. You gain a +1 circumstance bonus to Religion checks."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Yaoguai Form",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Celestial power flows through you. Choose one cantrip from the divine spell list. You can cast this spell as an innate divine cantrip at will. A cantrip is heightened to a spell rank equal to half your level rounded up."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:religion"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["change-shape:humanoid"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.Iaq8C3bbC9EzZhBJ"
+    },
+    "data": {
+      "ancestry": "e1e7633a-e183-5631-b9c4-d91a6f9fe46a"
+    }
+  },
+  {
+    "id": "084ee921-a5a4-51b3-860a-0c1dc16d11d2",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:born-of-elements",
+    "name": "Born of Elements",
+    "rarity": "common",
+    "traits": ["yaoguai"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You were an aspect of nature—the rain, the wind, a ray of light—until the wild essences gave you a soul. Due to your natural connection, the tradition of any spells or magical abilities you gain from a yaoguai heritage or ancestry feat is primal instead of its normal tradition (usually occult)."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Humanoid Form",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You remain attuned to the natural world. You gain a +1 circumstance bonus to Survival checks to "
+                },
+                {
+                  "type": "ref",
+                  "id": "d0498569-a787-5708-8a5f-39c521dd3df4"
+                },
+                {
+                  "type": "text",
+                  "text": ", and you don't take a penalty if you don't have a compass."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Yaoguai Form",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The power of nature flows through you, ready to lash out. Choose "
+                },
+                {
+                  "type": "ref",
+                  "id": "af70a0e9-8098-5ea9-9c72-12ee05e62eb1"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "4564025d-51b0-541a-a554-662ea3883cda"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "5f652603-de54-511c-aead-1966a7166ca8"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "cddbeecc-4905-5b2d-b2a4-cc0bdf597d99"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "16413e09-040a-521f-b5fa-6329981f41b4"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "b92c1136-d6c3-5b8d-bf30-0752b7da1f01"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "138a5162-8591-58ac-96a6-23587e9dd75e"
+                },
+                {
+                  "type": "text",
+                  "text": ", or "
+                },
+                {
+                  "type": "ref",
+                  "id": "7147051e-bfb2-53e0-a6f8-a8876e5e4aa5"
+                },
+                {
+                  "type": "text",
+                  "text": ". You can cast this spell as an innate primal cantrip at will. A cantrip is heightened to a spell rank equal to half your level rounded up."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:survival"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["action:sense-direction", "change-shape:humanoid"]
+      },
+      {
+        "key": "RollOption",
+        "domain": "skill-check",
+        "option": "option:compass-in-possession"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.RXn2y7QVHVB0XHr8"
+    },
+    "data": {
+      "ancestry": "e1e7633a-e183-5631-b9c4-d91a6f9fe46a"
+    }
+  },
+  {
+    "id": "e9150190-e4cb-5ef5-a716-4c2061804f19",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:born-of-item",
+    "name": "Born of Item",
+    "rarity": "common",
+    "traits": ["yaoguai"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You were an object until the moon breathed life into you. Choose one Lore skill related to what kind of tool you were; for instance, Cooking Lore for a cleaver or Farming Lore for a rake. You become trained in this skill."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Humanoid Form",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You retain memories of the tasks you performed as an object. You gain a +1 circumstance bonus to the Lore skill you obtained through this heritage."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Yaoguai Form",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Your time as a mindless object makes it harder to affect you mentally. If you roll a success on a mental effect, you gain a critical success instead."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["saving-throw"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "predicate": ["item:trait:mental", "change-shape:yaoguai"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.kHvlHDq5hs2JDG0Y"
+    },
+    "data": {
+      "ancestry": "e1e7633a-e183-5631-b9c4-d91a6f9fe46a"
+    }
+  },
+  {
+    "id": "4c876e50-d18d-58bc-be08-0602a41a5408",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:born-of-vegetation",
+    "name": "Born of Vegetation",
+    "rarity": "common",
+    "traits": ["yaoguai"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You were a plant or fungi until the rain gifted you a mind. You gain your choice of the plant or fungus trait."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Humanoid Form",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " With fresh vegetation, you can better aid those in need. You gain a +1 circumstance bonus to Medicine checks to "
+                },
+                {
+                  "type": "ref",
+                  "id": "e03baa02-2fea-552f-9996-c41bfa074713"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Yaoguai Form",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " When anyone uses the Medicine skill to "
+                },
+                {
+                  "type": "ref",
+                  "id": "18c1b923-595b-5203-a0be-010205e51c44",
+                  "label": "Treat your Wounds"
+                },
+                {
+                  "type": "text",
+                  "text": ", add your level to the Hit Points you regain from that treatment. Additionally, the creature attempting the check gains a +1 circumstance bonus if you have the plant trait and are in bright light, or the fungus trait and are in darkness."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "trait",
+        "choices": [
+          {
+            "value": "fungus",
+            "label": "Fungus"
+          },
+          {
+            "value": "plant",
+            "label": "Plant"
+          }
+        ],
+        "prompt": "Select a trait."
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:medicine"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["action:administer-first-aid", "change-shape:humanoid"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["healing-received"],
+        "type": "untyped",
+        "value": "@level",
+        "predicate": ["action:treat-wounds", "change-shape:yaoguai", "check:statistic:medicine"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.y87jU1yU8Plz4Yhq"
+    },
+    "data": {
+      "ancestry": "e1e7633a-e183-5631-b9c4-d91a6f9fe46a"
+    }
+  },
+  {
+    "id": "4f294471-ad04-552c-a8cd-8b2491c53232",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:chrysanthemum-leshy",
+    "name": "Chrysanthemum Leshy",
+    "rarity": "uncommon",
+    "traits": ["leshy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You look like a human child, though with a grand crown of chrysanthemums growing from your head, ornate as an emperor's. These petals have medicinal properties, granting you a +1 circumstance bonus to saving throws against poison."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Furthermore, during your daily preparations, you can harmlessly pluck a few petals from your head and steep them in fresh water to create a single "
+          },
+          {
+            "type": "ref",
+            "id": "8bd60703-f28d-52b4-a75e-62f1691b20cb",
+            "label": "Lesser Antidote"
+          },
+          {
+            "type": "text",
+            "text": ", which takes the form of a tea. At level 6, you instead create a "
+          },
+          {
+            "type": "ref",
+            "id": "ffe5f130-7c5f-587d-bd5b-62e257bc07d9",
+            "label": "Moderate Antidote"
+          },
+          {
+            "type": "text",
+            "text": "; at level 10, a "
+          },
+          {
+            "type": "ref",
+            "id": "b210ca89-dc7c-536f-8b4b-e3426838d7e3",
+            "label": "Greater Antidote"
+          },
+          {
+            "type": "text",
+            "text": "; and at level 14, a "
+          },
+          {
+            "type": "ref",
+            "id": "acce23a6-ddab-51c7-92dd-f653ba108f5b",
+            "label": "Major Antidote"
+          },
+          {
+            "type": "text",
+            "text": ". The tea loses its effectiveness if not consumed before your next daily preparations."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["item:trait:posion"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.CpjsxaXYjlkCI5nc"
+    },
+    "data": {
+      "ancestry": "54baa0f3-c686-58a5-91b3-4ccfa6b8d011"
+    }
+  },
+  {
+    "id": "ef4a9fd7-75ca-505f-966e-7469f089d2b0",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:courageous-tanuki",
+    "name": "Courageous Tanuki",
+    "rarity": "common",
+    "traits": ["tanuki"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your heart beats with the courage of those who came before you, giving you the kind of bravery only a tanuki can demonstrate. Whenever you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "f7fea8f9-c457-5b9f-9283-f567fa557184"
+          },
+          {
+            "type": "text",
+            "text": " condition, you also gain a +10-foot circumstance bonus to your Speeds that lasts as long as you're fleeing. When you have the fleeing condition, instead of having to spend all your actions trying to escape, you can act normally for one action but must still spend the remainder of your actions fleeing. You also gain the "
+          },
+          {
+            "type": "ref",
+            "id": "02b1b3d2-fc66-5ca8-b958-69611523e397"
+          },
+          {
+            "type": "text",
+            "text": " ability."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "02b1b3d2-fc66-5ca8-b958-69611523e397"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["speed"],
+        "type": "circumstance",
+        "value": 10,
+        "predicate": ["self:condition:fleeing"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.hqh4zKHYBtDE26g8"
+    },
+    "data": {
+      "ancestry": "0f0cb96c-b8c1-5be2-b5a1-3e0147bf2217"
+    }
+  },
+  {
+    "id": "7b116a7a-4b07-5468-8f38-a9d5cccdb740",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:deny-lady-nanbyos-charity",
+    "name": "Deny Lady Nanbyo's Charity",
+    "rarity": "common",
+    "traits": ["yaksha"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You swore a vow to release others from natural calamities. Your vow grants you the strength to carry 1 more Bulk than normal before becoming encumbered and up to a maximum of 2 more Bulk, as well as a +1 circumstance bonus to Athletics checks to "
+          },
+          {
+            "type": "ref",
+            "id": "26c3977f-44da-54f1-aaac-9dde108ba609"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "2ae74030-e87a-55ee-955c-fb9870392d44"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Edict",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " do your utmost to aid or rescue those trapped or affected by natural disasters"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["action:force-open", "action:escape"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.qeFCDRSgFRR2ElWK"
+    },
+    "data": {
+      "ancestry": "da555aee-4401-5418-9d95-f31ec167dd35"
+    }
+  },
+  {
+    "id": "8288d1b9-cef1-59f5-ab97-e1b163e25818",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:deny-the-firstborn-pursuit",
+    "name": "Deny the Firstborn Pursuit",
+    "rarity": "common",
+    "traits": ["yaksha"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You swore a vow to shelter others from the First World's cruelties. Wise to fey's mind-affecting abilities, your vow grants mental resistance equal to half your level (minimum 1), and a +2 circumstance bonus to Nature checks to Recall Knowledge about fey."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Edict",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " confront cruel fey you encounter (as long as you have a reasonable chance of success)"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["mental"],
+        "value": "max(1, floor(@level / 2))"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:nature"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["action:recall-knowledge", "target:trait:fey"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.AWLcCe69nzxZzWQc"
+    },
+    "data": {
+      "ancestry": "da555aee-4401-5418-9d95-f31ec167dd35"
+    }
+  },
+  {
+    "id": "d7895bf3-7123-5e3d-9571-9ffd8002904f",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:deny-the-traitors-rebirth",
+    "name": "Deny the Traitor's Rebirth",
+    "rarity": "common",
+    "traits": ["yaksha"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You swore a vow to deliver others from rakshasas and asuras, whom yaksha legends have condemned as corrupted kin. To counter their shadowy schemes, your vow grants you darkvision and a +1 circumstance bonus to Perception checks to "
+          },
+          {
+            "type": "ref",
+            "id": "d45207be-e539-50ce-9463-f4edc3671076"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "775b68f2-1542-5f47-bc0d-87d5884d7baa",
+            "label": "Sense the Motives"
+          },
+          {
+            "type": "text",
+            "text": " of rakshasas and asuras."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Edict",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " confront rakshasas and asuras you come across (as long as you have a reasonable chance of success); in the unlikely event you find a benevolent rakshasa or asura, you don't have to confront them"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "untyped",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["target:trait:asura", "target:trait:rakshasa"]
+          },
+          {
+            "or": ["action:seek", "action:sense-motive"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.YoDvQ5fvpbgcoG3V"
+    },
+    "data": {
+      "ancestry": "da555aee-4401-5418-9d95-f31ec167dd35"
+    }
+  },
+  {
+    "id": "d9411692-11fb-5195-8da5-33b5ae8baadd",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:dijiang",
+    "name": "Dijiang",
+    "rarity": "uncommon",
+    "traits": ["sprite"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have the form of a faceless, leathery ball with short fur, six legs, and a connection to primordial chaos. While you have no face, head, mouth, eyes, or ears, you can somehow hear, speak, see, eat, and breathe just fine (though it's unclear exactly how). Your erratic nature means you often react to stimuli in unpredictable ways."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you roll a failure (though not a critical failure) on a saving throw against an emotion effect, you get a success instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["saving-throw"],
+        "adjustment": {
+          "failure": "one-degree-better"
+        },
+        "predicate": ["item:trait:emotion"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.TXBsQbzDg1AjJnop"
+    },
+    "data": {}
+  },
+  {
+    "id": "5ab00314-3ac8-5516-b705-1b6c76cfdd76",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:dokkaebi-goblin",
+    "name": "Dokkaebi Goblin",
+    "rarity": "uncommon",
+    "traits": ["goblin"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your ancestors mastered illusion-based magic, giving you an innate understanding of it. You can cast "
+          },
+          {
+            "type": "ref",
+            "id": "d32836d8-9eeb-52c0-a7f8-6e0bc64ed7c7"
+          },
+          {
+            "type": "text",
+            "text": " as an innate occult cantrip at will. A cantrip is heightened to a spell rank equal to half your level rounded up. You also gain a +1 circumstance bonus to Will saves against illusions."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:will"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["item:trait:illusion"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.gf2CfXocpIQgRsCY"
+    },
+    "data": {
+      "ancestry": "054f4768-e40c-50b9-bf71-cebc5bd9064e"
+    }
+  },
+  {
+    "id": "45cb4cea-5183-549c-b9b6-aee2f141727d",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:even-tempered-tanuki",
+    "name": "Even-Tempered Tanuki",
+    "rarity": "common",
+    "traits": ["tanuki"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're possessed of a serenity uncommon to other tanuki, who always seem to be flying off the handle. You gain a +1 circumstance bonus to saving throws against emotion effects. If you roll a success at a saving throw against an emotion effect, you get a critical success instead, but when you roll a failure at a saving throw against an emotion effect, you get a critical failure instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["item:trait:emotion"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["saving-throw"],
+        "adjustment": {
+          "failure": "to-critical-failure",
+          "success": "to-critical-success"
+        },
+        "predicate": ["item:trait:emotion"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.uAo0wK1JL9kePcZb"
+    },
+    "data": {
+      "ancestry": "0f0cb96c-b8c1-5be2-b5a1-3e0147bf2217"
+    }
+  },
+  {
+    "id": "9d9a4b22-1722-5975-bd98-d6b3500d5d79",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:full-moon-sarangay",
+    "name": "Full Moon Sarangay",
+    "rarity": "common",
+    "traits": ["sarangay"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You were raised in a shamanic tradition transcending a single sarangay community or heritage. You spent your youth under the guidance of a shaman elder, who taught you to commune with spirits in the hope that you'll one day use that knowledge to advise and guide your people. Those from your tradition are priests or shamans who channel the spirits and see things others can't. You gain an ancestry attribute boost to Wisdom instead of Strength, and you gain an attribute flaw in Constitution instead of Wisdom. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "4cfa167d-1886-5ff6-91c9-c291bbf8a490"
+          },
+          {
+            "type": "text",
+            "text": " ancestry feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "4cfa167d-1886-5ff6-91c9-c291bbf8a490"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.6gK4A6dtN4LCpCXS"
+    },
+    "data": {
+      "ancestry": "af808b70-4ee0-51f5-bc73-96de677a553f"
+    }
+  },
+  {
+    "id": "e18df910-1b61-5d70-bea6-605fbe084bff",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:gandharva",
+    "name": "Gandharva",
+    "rarity": "uncommon",
+    "traits": ["sprite"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're descended from the self-proclaimed musicians, poets, and dancers of the gods, with a body that's part humanoid and part horse or bird. If you gain wings, they come in many different brilliant colors. Due to your celestial connection, the tradition of any spells or magical abilities you gain from a sprite heritage or ancestry feat is divine instead of its normal tradition."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You become trained in Performance (or another skill of your choice if you're already trained in Performance), and you can cast "
+          },
+          {
+            "type": "ref",
+            "id": "51e8ae51-66a8-530c-8c80-1332c8626cec"
+          },
+          {
+            "type": "text",
+            "text": " as a divine innate cantrip."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:performance",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.lBSO9RuEUv2P4rnp"
+    },
+    "data": {}
+  },
+  {
+    "id": "fb26f568-6b7c-5dec-b101-5cd701e5ebf1",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:half-moon-sarangay",
+    "name": "Half Moon Sarangay",
+    "rarity": "common",
+    "traits": ["sarangay"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You come from one of many traveling communities that migrate seasonally along Tian Xia's vast rivers and mountains, bringing news and tidings to villages along their path. Your people connect sarangay communities to one another across vast distances and are symbolized by the half moon, which conjoins the light and dark; so too do you conjoin the dark from the bright, the red from the blue, the wind from the sea. Your ancestors were tall and burly with shiny black fur, light spots or markings, and short, tightly curved horns. You become trained in two Lore skills of your choice, and you gain a +1 circumstance bonus to Recall Knowledge checks using those skills."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.ImdAt4Ma9GfaNuZW"
+    },
+    "data": {
+      "ancestry": "af808b70-4ee0-51f5-bc73-96de677a553f"
+    }
+  },
+  {
+    "id": "c376ce14-6010-5edf-93a0-dd20b548f87a",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:healer-samsaran",
+    "name": "Healer Samsaran",
+    "rarity": "common",
+    "traits": ["samsaran"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In seeking enlightenment, your past incarnations have wandered away from the ancestral homelands of Zi Ha, exploring the different nations of Tian Xia and elsewhere in Golarion. Your past incarnations had dangerous encounters while traveling, and you frequently have flashbacks to healing wounds. You become trained in Medicine. If you would automatically become trained in Medicine (from your background or class, for example), you instead become trained in a skill of your choice."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you use Medicine to "
+          },
+          {
+            "type": "ref",
+            "id": "18c1b923-595b-5203-a0be-010205e51c44"
+          },
+          {
+            "type": "text",
+            "text": " on yourself, you can use your special techniques to add your level to the Hit Points you regain from the treatment."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:medicine",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.NK88lPzi3SDAT8w5"
+    },
+    "data": {
+      "ancestry": "77dc4d69-5a47-5999-a119-71b0fb95a759"
+    }
+  },
+  {
+    "id": "484552cc-46a7-5a64-9836-711ae22432de",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:heavenscribe-kobold",
+    "name": "Heavenscribe Kobold",
+    "rarity": "uncommon",
+    "traits": ["kobold"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your connection to wise and celestial imperial dragons has led others to seek your advice. You can speak Draconic. Whenever you critically fail a Diplomacy check to "
+          },
+          {
+            "type": "ref",
+            "id": "722e5346-27c0-5157-b5a9-e6018df94150"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "bd7385d5-c754-542c-9518-060942de3701"
+          },
+          {
+            "type": "text",
+            "text": ", you get a failure instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill:diplomacy"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "predicate": [
+          {
+            "or": ["action:make-an-impression", "action:request"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.G61eBHmsQaPM4Xge"
+    },
+    "data": {
+      "ancestry": "e42e0bb3-3c3a-5c7f-a8be-ef4c3eae793b"
+    }
+  },
+  {
+    "id": "cc053c0c-7a31-57c6-8275-8eb062e43be9",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:hungerseed",
+    "name": "Hungerseed",
+    "rarity": "uncommon",
+    "traits": ["oni"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "One of your parents was an oni or a hungerseed. You possess a pair of horns, ranging in size from conical nubs to lengthy protrusions. You might have other signs of your parentage, such as colorful skin, fangs and claws, or a third eye in your forehead. You gain the oni trait. You gain a horns unarmed attack that deals 1d6 piercing damage and is in the brawling group. You can select from hungerseed feats and feats from your other parent's ancestry whenever you gain an ancestry feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "horns",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "piercing"
+        },
+        "display": {
+          "label": "Horns"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.9FlpW1nSczH8f85v"
+    },
+    "data": {}
+  },
+  {
+    "id": "fd806505-e18d-5c8e-aea4-630cd26497ef",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:kanchil",
+    "name": "Kanchil",
+    "rarity": "uncommon",
+    "traits": ["sprite"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have the head of a mouse deer and hooves instead of feet, with a reputation for being clever and persuasive—able to get yourself out of sticky situations with wordplay and a bit of luck. You become trained in Deception (or another skill if you were already trained in Deception). You gain a +1 circumstance bonus to Deception checks to Lie when specifically attempting to avoid danger or punishment (such as trying to convince a dragon not to eat you), to Deception DCs against "
+          },
+          {
+            "type": "ref",
+            "id": "775b68f2-1542-5f47-bc0d-87d5884d7baa"
+          },
+          {
+            "type": "text",
+            "text": " checks to uncover such lies, and to initiative rolls when you roll Deception for initiative."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": [
+          {
+            "or": [
+              {
+                "and": [
+                  {
+                    "or": ["action:lie", "action:sense-motive"]
+                  },
+                  "option:to-avoid-danger"
+                ]
+              },
+              "option:initiative"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:deception",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.5WkhF3JYISElgMLL"
+    },
+    "data": {}
+  },
+  {
+    "id": "66a3417e-b7bd-5a05-afe6-3010c30e4753",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:kijimuna-gnome",
+    "name": "Kijimuna Gnome",
+    "rarity": "uncommon",
+    "traits": ["gnome"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your ancestors lived in the trees and fished in all the waters of Tian Xia. You gain your choice of the following benefits. Once made, this choice can't be changed."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You can climb any banyan. You gain the "
+                },
+                {
+                  "type": "ref",
+                  "id": "8d47d4b9-3de6-5aca-9993-35356f13d1f6"
+                },
+                {
+                  "type": "text",
+                  "text": " feat, and if you roll a success on the Athletics check to Climb, you get a critical success instead."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You can catch any fish. You gain a swim Speed of 15 feet."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "kijimuna-gnome",
+        "choices": [
+          {
+            "value": "climb",
+            "label": "Climb"
+          },
+          {
+            "value": "swim",
+            "label": "Swim"
+          }
+        ],
+        "prompt": "Select a movement type.",
+        "rollOption": "kijimuna-gnome"
+      },
+      {
+        "key": "GrantItem",
+        "item": "8d47d4b9-3de6-5aca-9993-35356f13d1f6",
+        "predicate": ["kijimuna-gnome:climb"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill:athletics"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "predicate": ["action:climb", "kijimuna-gnome:climb"]
+      },
+      {
+        "key": "Change",
+        "selector": "speed:swim",
+        "mode": "upgrade",
+        "value": 15,
+        "predicate": ["kijimuna-gnome:swim"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.8Uw1E3L2Mgo6PxwB"
+    },
+    "data": {
+      "ancestry": "be1b027a-40cb-5267-ac66-7cdc1c0d7813"
+    }
+  },
+  {
+    "id": "905ffad1-7eb2-5d09-af29-2d596d20ebfc",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:leungli",
+    "name": "Leungli",
+    "rarity": "uncommon",
+    "traits": ["sprite"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have the head of a goldfish or carp and scales that come in an auspicious combination of stark white, black, orange, red, and gold. If you gain wings, they appear much like the wispy hairs of a dragon. You gain a swim Speed of 10 feet and the amphibious trait. Like all creatures with the amphibious trait, you can breathe both water and air."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:swim",
+        "mode": "upgrade",
+        "value": 10
+      },
+      {
+        "key": "ActorTraits",
+        "add": ["amphibious"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.wxQwFQGsg6yDiMmN"
+    },
+    "data": {}
+  },
+  {
+    "id": "b957f68b-b330-5a82-8bd7-9c3da71f9c4c",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:makari-lizardfolk",
+    "name": "Makari Lizardfolk",
+    "rarity": "uncommon",
+    "traits": ["lizardfolk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have a trunk-like snout and a connection to the divine. The tradition of any spells or magical abilities you gain from a lizardfolk heritage or ancestry feat is divine instead of its normal tradition (usually primal)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain your choice of the "
+          },
+          {
+            "type": "ref",
+            "id": "a593a292-4fca-5280-9857-56a2178b1618"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "87cbc7c8-756e-521d-baaf-9c09d1ddfb3c"
+          },
+          {
+            "type": "text",
+            "text": " cantrips, which you can cast as a divine innate cantrip at will. A cantrip is heightened to a spell rank equal to half your level rounded up. When you cast this cantrip, it loses the manipulate trait, as you cast purely by roaring and flaring your trunk."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.e6ykfotynKPzR2PT"
+    },
+    "data": {
+      "ancestry": "d82fc8f3-fd76-5ccb-8b83-d94c4aec7aaa"
+    }
+  },
+  {
+    "id": "cab7fa48-b90e-5328-a874-13d6a20515e0",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:mightyfall-kobold",
+    "name": "Mightyfall Kobold",
+    "rarity": "uncommon",
+    "traits": ["kobold"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your proximity to a mighty kaiju has caused you to grow strong and hardy. You gain 10 Hit Points from your ancestry instead of 6. Instead of the normal attribute boosts and flaws, you can choose to gain a boost to Strength, a boost to Charisma, and a flaw in Intelligence."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.SPcTcZgUMy5J4kzs"
+    },
+    "data": {
+      "ancestry": "e42e0bb3-3c3a-5c7f-a8be-ef4c3eae793b"
+    }
+  },
+  {
+    "id": "a38187af-ce24-59fc-8d83-362bc264e789",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:mountaineer-samsaran",
+    "name": "Mountaineer Samsaran",
+    "rarity": "common",
+    "traits": ["samsaran"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your past incarnations dwelled in the caves on the snowcapped mountains of Tian Xia, so your body has become adept at surviving frigid storms. You gain cold resistance equal to half your level (minimum 1). You treat environmental cold effects as if they were one step less extreme (incredible cold becomes extreme, extreme cold becomes severe, and so on)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["cold"],
+        "value": "max(1, floor(@level / 2))"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.IZqIVO1IOK3fAp30"
+    },
+    "data": {
+      "ancestry": "77dc4d69-5a47-5999-a119-71b0fb95a759"
+    }
+  },
+  {
+    "id": "1f0ca48d-d20e-55de-a1f4-ec2e7544b7a6",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:new-moon-sarangay",
+    "name": "New Moon Sarangay",
+    "rarity": "common",
+    "traits": ["sarangay"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Some people call you a dwarf sarangay and your kind \"hiding ones.\" Others whisper you go out with the moon when the moon \"goes hunting\"—a common folk saying for when the new moon vanishes from the sky. Your elusive ancestors built their lodgings in the shade of bamboo thickets, and your ancestral communities valued caution and independence, passing down the knowledge of walking lightly and moving like smoke through bamboo. Your ancestors had dark brown or gray fur with white markings and a V-shaped pair of flat, triangular horns. Your size is Small instead of Medium. You gain 10 Hit Points from your ancestry instead of 8 and gain a +2 circumstance bonus to Athletics checks to "
+          },
+          {
+            "type": "ref",
+            "id": "082b982f-3ed4-5d9c-9722-9ab10198523a"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "CreatureSize",
+        "value": "small"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["action:shove"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.H2mbY3aypl6ikaSR"
+    },
+    "data": {
+      "ancestry": "af808b70-4ee0-51f5-bc73-96de677a553f"
+    }
+  },
+  {
+    "id": "ea177fd4-aea3-5d4f-a581-9549f3b310c9",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:oracular-samsaran",
+    "name": "Oracular Samsaran",
+    "rarity": "common",
+    "traits": ["samsaran"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your past lives have provided heightened insight to the spiritual world and current and future events, as history repeats itself. Choose arcane, divine, or occult. You gain one cantrip from that magical tradition's spell list. You can Cast this Spell as an innate spell at will, as a spell of your chosen tradition. A cantrip is heightened to a spell rank equal to half your level rounded up."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.DR6okTFLHi3MYbzK"
+    },
+    "data": {
+      "ancestry": "77dc4d69-5a47-5999-a119-71b0fb95a759"
+    }
+  },
+  {
+    "id": "2b9f4c4b-82e4-57df-b969-9dfb7ea4d841",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:palace-echoes-kitsune",
+    "name": "Palace Echoes Kitsune",
+    "rarity": "common",
+    "traits": ["kitsune"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You descend from kitsune who possessed such compelling powers of persuasion that they could walk into a palace at sunrise and end up as the power behind the throne by nightfall. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "5bfd14f3-e10d-5de9-8fe0-476b1913dfea"
+          },
+          {
+            "type": "text",
+            "text": " action."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your alternate form is a common Medium humanoid ancestry prevalent where you grew up (typically human) called a tailless form."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "5bfd14f3-e10d-5de9-8fe0-476b1913dfea"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.SienSObWb4deLQig"
+    },
+    "data": {}
+  },
+  {
+    "id": "0f641343-cf70-5d49-a3b8-eef64b31d1de",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:peachchild-leshy",
+    "name": "Peachchild Leshy",
+    "rarity": "uncommon",
+    "traits": ["leshy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your leshy spirit took hold in a massive peach fruit before your body split forth from it, possibly emulating a past hero who was born in the same manner. You look like a human child, though with a perpetual flush of pink to your complexion and perhaps a few peach leaves growing from your body. The nature spirit inside you puts certain animals at ease."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can ask questions of and receive answers from household animals and livestock, such as dogs or pheasants, as well as use Diplomacy to Make an Impression on and Request things of them. Most domesticated animals have an indifferent or friendly starting attitude toward you and give you time to make your case, though other animals react to you like any other adventurer."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.G5U7zxwxDmERm3EY"
+    },
+    "data": {
+      "ancestry": "54baa0f3-c686-58a5-91b3-4ccfa6b8d011"
+    }
+  },
+  {
+    "id": "a9161161-0609-58c5-84ba-bec30455541e",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:respite-of-a-thousand-roofs",
+    "name": "Respite of a Thousand Roofs",
+    "rarity": "common",
+    "traits": ["yaksha"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You swore a vow to shelter and feed the poor. Your vow grants you adroitness with carpentry, cook pot, and cloth; you become trained in Crafting and Cooking Lore, and you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "cd5e8330-edd0-5d51-9115-44f647d664a4"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Edict",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " help the impoverished to the extent you're able by repairing their abodes and clothing or by feeding them"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:crafting",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "cd5e8330-edd0-5d51-9115-44f647d664a4"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.q7b4yu3Nty0jZLOi"
+    },
+    "data": {
+      "ancestry": "da555aee-4401-5418-9d95-f31ec167dd35"
+    }
+  },
+  {
+    "id": "bbdc33d7-3094-503e-b9c3-9ef2d74c8c04",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:respite-of-cloudless-paths",
+    "name": "Respite of Cloudless Paths",
+    "rarity": "common",
+    "traits": ["yaksha"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You swore a vow to protect the waylaid and the lost. Both environmental heat effects and environmental cold effects are one step less extreme for you (incredible heat becomes extreme, extreme cold becomes severe, and so on), and you gain a + 1 circumstance bonus to saving throws against environmental features or hazards, such as floods, rockslides, and sandstorms."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Edict",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " assist lost or incapacitated travelers"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["option:environmental-hazard"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.aPqNdvtKHv4amLcO"
+    },
+    "data": {
+      "ancestry": "da555aee-4401-5418-9d95-f31ec167dd35"
+    }
+  },
+  {
+    "id": "f6f22fce-cb1b-5a31-9ee6-c4343e53f04d",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:respite-of-loam-and-leaf",
+    "name": "Respite of Loam and Leaf",
+    "rarity": "common",
+    "traits": ["plant", "yaksha"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You swore a vow to preserve the very foundation of sanctuary: the great earth and all that grows upon it. Your vow grants you the land's spiritual power; you gain one cantrip from the primal spell list. You can cast this spell as an innate primal spell at will. A cantrip is heightened to a spell rank equal to half your level rounded up. Your roots in the world grant you the plant trait."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Edict",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " cure or remove blight and pollution from the plants and soil you encounter"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.WczVM4KQq7xybsPZ"
+    },
+    "data": {
+      "ancestry": "da555aee-4401-5418-9d95-f31ec167dd35"
+    }
+  },
+  {
+    "id": "51358909-ab25-5993-b73d-cd1f112bbfdc",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:sanctuary-samsaran",
+    "name": "Sanctuary Samsaran",
+    "rarity": "common",
+    "traits": ["samsaran"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your past incarnations were reborn in sanctuaries in northern Zi Ha, and you have recollections of being trained to concentrate and focus for long periods of time. Your hazy flashbacks also reveal useful scripture in the books your past lives had eagerly consumed. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "36092373-8c59-5954-940f-48937216ed14"
+          },
+          {
+            "type": "text",
+            "text": " action."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "36092373-8c59-5954-940f-48937216ed14"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.MoeWxhJEtteD3v9z"
+    },
+    "data": {
+      "ancestry": "77dc4d69-5a47-5999-a119-71b0fb95a759"
+    }
+  },
+  {
+    "id": "d854d328-7b72-5b5a-b44f-1008b9aba1db",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:shadow-of-the-courtier",
+    "name": "Shadow of the Courtier",
+    "rarity": "common",
+    "traits": ["wayang"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your shadow dances alongside you. You gain the Impressive Performance skill feat, allowing you to "
+          },
+          {
+            "type": "ref",
+            "id": "722e5346-27c0-5157-b5a9-e6018df94150"
+          },
+          {
+            "type": "text",
+            "text": " using Performance instead of Diplomacy. Once per day, if you fail, but not critically fail, a check to Make an Impression, you can play it off as part of a performance, allowing you to reroll the check; this is a fortune effect."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["skill:diplomacy"],
+        "title": "Shadow of the Courtier",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Once per day, if you fail, but not critically fail, a check to Make an Impression, you can play it off as part of a performance, allowing you to reroll the check; this is a fortune effect."
+              }
+            ]
+          }
+        ],
+        "outcome": ["criticalFailure"],
+        "predicate": ["action:make-an-impression"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "73f460e2-feec-5d78-983c-ecf0c7a4b1e8"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.GvtOzLp4kIuYfx1R"
+    },
+    "data": {
+      "ancestry": "3c044f14-e8cc-512b-b7f9-23f205d1d23c"
+    }
+  },
+  {
+    "id": "385dde78-161b-5787-924f-79d9e37c5348",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:shadow-of-the-hermit",
+    "name": "Shadow of the Hermit",
+    "rarity": "common",
+    "traits": ["wayang"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your shadow seems somehow full of secrets and mysteries—secrets that it shares with you. Choose one cantrip from the occult spell list. You can cast this spell as an occult innate spell at will. A cantrip is heightened to a spell rank equal to half your level rounded up."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.yxZtNE87im9yZFXk"
+    },
+    "data": {
+      "ancestry": "3c044f14-e8cc-512b-b7f9-23f205d1d23c"
+    }
+  },
+  {
+    "id": "12957e4c-e58b-583a-8ea8-934111e8fb2e",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:shadow-of-the-sailor",
+    "name": "Shadow of the Sailor",
+    "rarity": "common",
+    "traits": ["wayang"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your shadow flits across the surface of the water, and so do you. You can walk on the surface of still water and other non-damaging liquids, moving at half your normal Speed. You can attempt to walk along the surface of flowing water as well, still moving at half Speed, but to do so, you must succeed at an Acrobatics check to "
+          },
+          {
+            "type": "ref",
+            "id": "6fb6b45a-8b16-55e4-ba53-e23a62359b56"
+          },
+          {
+            "type": "text",
+            "text": " using the DC of a Swim check to move through the water; on a failure, you fall into the water. This Acrobatics check doesn't use an action."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.5apoJtHGL0lIz1cz"
+    },
+    "data": {
+      "ancestry": "3c044f14-e8cc-512b-b7f9-23f205d1d23c"
+    }
+  },
+  {
+    "id": "be885040-36c7-5a08-b7e1-3d9b4193ddf2",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:shadow-of-the-smith",
+    "name": "Shadow of the Smith",
+    "rarity": "common",
+    "traits": ["wayang"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your shadow is thick and liquid, like it could quench the finest ore. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "36fdb6fb-3c54-560d-ac63-7967463aa3a2"
+          },
+          {
+            "type": "text",
+            "text": " action."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.VHln8G1GNaSzNNHq"
+    },
+    "data": {
+      "ancestry": "3c044f14-e8cc-512b-b7f9-23f205d1d23c"
+    }
+  },
+  {
+    "id": "2068edc9-a997-5b4e-9ef4-36a3ae0e7e51",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:shadow-of-the-wanderer",
+    "name": "Shadow of the Wanderer",
+    "rarity": "common",
+    "traits": ["wayang"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your shadow blazes out ahead of you, clearing your path. Your Speed increases by 5 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "untyped",
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.fcsYmaIfMR9iXv06"
+    },
+    "data": {
+      "ancestry": "3c044f14-e8cc-512b-b7f9-23f205d1d23c"
+    }
+  },
+  {
+    "id": "2618ab40-4d1f-5a52-b200-428e1fd8b487",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:shimmertongue-nagaji",
+    "name": "Shimmertongue Nagaji",
+    "rarity": "common",
+    "traits": ["nagaji"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You were born with a keen sense for magic, able to taste its unique effects in the air. You gain magicsense as a vague sense that has a range of 30 feet—like all vague senses, it's only about as precise as an average human's sense of smell, meaning you generally can predict only if magic is present; however, each tradition of magic has a unique taste to you, allowing you to identify the tradition of magic present."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "2314b5ad-c0d5-592c-bca4-8c012c36bede",
+        "acuity": "vague",
+        "range": 30
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.Cmj0pI0GPHl7kBUB"
+    },
+    "data": {}
+  },
+  {
+    "id": "44f35c8d-fd2a-5f8f-992b-3747503aa4ed",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:steadfast-tanuki",
+    "name": "Steadfast Tanuki",
+    "rarity": "common",
+    "traits": ["tanuki"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your pride in your true tanuki form knows no bounds. You gain your choice of "
+          },
+          {
+            "type": "ref",
+            "id": "de5b72dd-71e6-5843-9466-6c67c79ce5bd"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "d0141c9e-f704-582c-8496-63331e5f383d"
+          },
+          {
+            "type": "text",
+            "text": " as a bonus ancestry feat."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.5gqcEsJ4gkE6W5jj"
+    },
+    "data": {
+      "ancestry": "0f0cb96c-b8c1-5be2-b5a1-3e0147bf2217"
+    }
+  },
+  {
+    "id": "85ec1781-aef2-5c3f-8105-d9eb214b7508",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:tsukumogami-poppet",
+    "name": "Tsukumogami Poppet",
+    "rarity": "uncommon",
+    "traits": ["poppet"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have the form and memories of a common tool. Choose one Lore skill related to what kind of tool you were; for instance, Cooking Lore for a kitchen knife or spoon. You're trained in this skill, and you gain a +2 circumstance bonus to checks to Aid with this skill. If you take the Helpful Poppet feat, the bonus increases to +3."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While most poppets are made of stuffing, cloth, or soft metals, some tsukumogami are made of other materials, changing the poppet weakness to fire. If your body is primarily wood or cloth, you have the normal poppet weakness to fire. If your body is primarily metal, you're instead weak to electricity; if its primarily ceramic, you're instead weak to cold."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "weakness",
+        "choices": [
+          {
+            "value": "fire",
+            "label": "Cloth or Wood"
+          },
+          {
+            "value": "electricity",
+            "label": "Metal"
+          },
+          {
+            "value": "cold",
+            "label": "Ceramic"
+          }
+        ],
+        "rollOption": "tsukumogami-poppet",
+        "display": {
+          "label": "Select a material."
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.cKgxEWnRVazFPi3M"
+    },
+    "data": {}
+  },
+  {
+    "id": "027e4209-7334-5ec8-be0e-e50f47d445c2",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:virtuous-tanuki",
+    "name": "Virtuous Tanuki",
+    "rarity": "common",
+    "traits": ["tanuki"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Many tanuki carry a gourd of alcohol to remind themselves to act with virtue, and by these standards, you're quite virtuous indeed. You gain poison resistance equal to half your level (minimum 1). You can eat and drink things when you're "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8"
+          },
+          {
+            "type": "text",
+            "text": ". You can't become incapacitated by conventional alcohol if you don't wish to be."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["poison"],
+        "value": "max(1, floor(@level / 2))"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.JtrZ2TcPXP1uIcmd"
+    },
+    "data": {
+      "ancestry": "0f0cb96c-b8c1-5be2-b5a1-3e0147bf2217"
+    }
+  },
+  {
+    "id": "97127494-bf4f-5729-bf7e-b7dd5be0ea17",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:waning-moon-sarangay",
+    "name": "Waning Moon Sarangay",
+    "rarity": "common",
+    "traits": ["sarangay"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your ancestors were named for the moon in transition, ever-changing and ephemeral. They're the keepers of secret arts, just as the waning moon hides its face, and their communities were highly regarded for their storytellers, performers, and artists. You lived among your community on the outskirts of forests or rivers, where many answers came as riddles, and you learned to see the world from different perspectives. Your people are often red or fawn colored, with prominent eyes and flat, compact horns. You become trained in your choice of Acrobatics, Crafting, or Performance."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Once per day, when you roll a critical failure with the chosen skill, you can reroll the check, taking the new result, even if it's worse. Rerolling in this way is a fortune effect."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "skill",
+        "choices": [
+          {
+            "value": "acrobatics",
+            "label": "Acrobatics"
+          },
+          {
+            "value": "crafting",
+            "label": "Crafting"
+          },
+          {
+            "value": "performance",
+            "label": "Performance"
+          }
+        ],
+        "prompt": "Select a skill."
+      },
+      {
+        "key": "Proficiency",
+        "selector": {
+          "choice": "skill",
+          "prefix": "skill"
+        },
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.MNeg7vI854rB6fmz"
+    },
+    "data": {
+      "ancestry": "af808b70-4ee0-51f5-bc73-96de677a553f"
+    }
+  },
+  {
+    "id": "8eb1378e-b099-579c-87ca-a11cbec1e1be",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:waxing-moon-sarangay",
+    "name": "Waxing Moon Sarangay",
+    "rarity": "common",
+    "traits": ["sarangay"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your ancestors dwelled in the swamps, fens, and flooded forests, where they contended with fierce predators and formed raiding parties to claim scarce resources. Blessed by the growing crescent, you're one of the eviscerators, and you can overcome threats that lurk in murky waters as well as those that hunt on land. You're a powerful swimmer with brown or gray fur and backward- or downward-curving horns. You gain a +2 circumstance bonus to Athletics checks to "
+          },
+          {
+            "type": "ref",
+            "id": "a76317a3-de3d-58c2-8b3e-5a73b09657be"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "890ca16b-87be-53af-b93c-ffddb037a2f8"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "untyped",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["action:high-jump", "action:swim"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.BHiOV3ETYSv6k7kF"
+    },
+    "data": {
+      "ancestry": "af808b70-4ee0-51f5-bc73-96de677a553f"
+    }
+  },
+  {
+    "id": "1e679bd9-f5c3-512d-886c-27b267530cf2",
+    "pack": "tian-xia-character-guide",
+    "kind": "heritage",
+    "slug": "heritage:wilderness-samsaran",
+    "name": "Wilderness Samsaran",
+    "rarity": "common",
+    "traits": ["samsaran"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your preceding lives have been reborn in various remote environments away from major settlements in Tian Xia and beyond. Your past manifestations have had to learn how to survive on their own, and you recall this will to survive while possessing very little resources. You become trained in Survival. If you would automatically become trained in Survival (from your background or class, for example), you instead become trained in a skill of your choice. You can ignore difficult terrain from trees, foliage, and undergrowth."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:survival",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.e4FaENGKRD3fxZeJ"
+    },
+    "data": {
+      "ancestry": "77dc4d69-5a47-5999-a119-71b0fb95a759"
+    }
+  }
+]

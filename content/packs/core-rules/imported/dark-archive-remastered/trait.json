@@ -1,0 +1,162 @@
+[
+  {
+    "id": "81809d60-5899-5d0c-a6dd-2829b70f3a44",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:aftermath",
+    "name": "Aftermath",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "feat"]
+    }
+  },
+  {
+    "id": "a2ce033b-5780-5cdf-95c0-add979cce81a",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:amp",
+    "name": "Amp",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "ritual", "spell"]
+    }
+  },
+  {
+    "id": "3db48bc5-c6ae-55bf-adc0-a01d042384fc",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:deviant",
+    "name": "Deviant",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "feat"]
+    }
+  },
+  {
+    "id": "085471aa-7723-5df5-a978-db784a00373d",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:esoterica",
+    "name": "Esoterica",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "feat"]
+    }
+  },
+  {
+    "id": "e0eec450-9f46-5e70-808f-85aff09c1df6",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:mindshift",
+    "name": "Mindshift",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["action", "ancestry-feature", "class-feature", "condition", "effect", "feat"]
+    }
+  },
+  {
+    "id": "1503d7bd-cd25-5fe0-a340-25c5f2960b7b",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:psyche",
+    "name": "Psyche",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry-feature",
+        "class-feature",
+        "condition",
+        "consumable",
+        "effect",
+        "feat",
+        "ritual",
+        "spell"
+      ]
+    }
+  },
+  {
+    "id": "e72063c4-7705-5e04-87e9-cb8e12ad1335",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:reflection",
+    "name": "Reflection",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  }
+]

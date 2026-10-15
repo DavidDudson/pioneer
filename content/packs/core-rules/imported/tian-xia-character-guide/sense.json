@@ -1,0 +1,20 @@
+[
+  {
+    "id": "2314b5ad-c0d5-592c-bca4-8c012c36bede",
+    "pack": "core-rules",
+    "kind": "sense",
+    "slug": "sense:magicsense",
+    "name": "Magicsense",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  }
+]

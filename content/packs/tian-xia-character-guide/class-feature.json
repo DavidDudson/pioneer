@@ -1,0 +1,401 @@
+[
+  {
+    "id": "32414127-6014-5107-96b9-cb43d601bdca",
+    "pack": "tian-xia-character-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:aloof-firmament",
+    "name": "Aloof Firmament",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["magus"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're a philosopher of the sword who codifies your study of qinggong along principles arcane and martial. Your blade teaches morality and immortality, and you illustrate its lessons with an academician's rigor. Through your training, you've learned to move about with grace and create opportunity to strike foes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "c3a8f7dc-3aca-50df-8358-827d0e215f7c"
+          },
+          {
+            "type": "text",
+            "text": " general feat, though you benefit from it only as long as you aren't using a shield and are wearing light or no armor."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While in Arcane Cascade stance, your steps become even lighter, giving you the benefits of the "
+          },
+          {
+            "type": "ref",
+            "id": "d84fa288-9b68-5be2-874c-113c1210b212"
+          },
+          {
+            "type": "text",
+            "text": " general feat. When you Fly, "
+          },
+          {
+            "type": "ref",
+            "id": "1a0bed3d-5eb7-554f-ad07-4c8630afd0c8"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "9b3d9121-5da3-57fe-a5d0-e0ff20210c41"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "a76317a3-de3d-58c2-8b3e-5a73b09657be"
+          },
+          {
+            "type": "text",
+            "text": " while in that stance, your movement doesn't trigger reactions. If you take one of these actions, the next Strike you make before the end of your turn with a one-handed weapon in the sword group has greater damage from Arcane Cascade. Increase the extra damage to 4; increase it to 6 if you have weapon specialization, or to 8 if you have greater weapon specialization. You must have your other hand completely free; the extra damage doesn't apply if you have a free-hand weapon or other item in that hand, even if you would normally be able to use the hand for other things."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Conflux Spell",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "4432dc12-8f94-5bf6-ad59-619561eae0cd"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Studious Spells",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 7th: "
+          },
+          {
+            "type": "ref",
+            "id": "62b9b05e-2f86-5c8b-bc12-2500cd4d9959"
+          },
+          {
+            "type": "text",
+            "text": "; 11th: "
+          },
+          {
+            "type": "ref",
+            "id": "ad0650c3-31d5-51c2-8226-045ac8442ae8"
+          },
+          {
+            "type": "text",
+            "text": "; 13th: "
+          },
+          {
+            "type": "ref",
+            "id": "3c0bd81e-ac5b-54b2-a3da-198bb730eda6"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "c3a8f7dc-3aca-50df-8358-827d0e215f7c"
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["strike-damage"],
+        "slug": "arcane-cascade-extra-damage",
+        "mode": "upgrade",
+        "value": 4,
+        "predicate": [
+          "option:aloof-flew-or-jumped",
+          {
+            "gte": ["hands-free:but-really", 1]
+          }
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["strike-damage"],
+        "slug": "arcane-cascade-extra-damage",
+        "mode": "upgrade",
+        "value": 6,
+        "predicate": [
+          "feature:weapon-specialization",
+          "option:aloof-flew-or-jumped",
+          {
+            "gte": ["hands-free:but-really", 1]
+          }
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["strike-damage"],
+        "slug": "arcane-cascade-extra-damage",
+        "mode": "upgrade",
+        "value": 8,
+        "predicate": [
+          "feature:greater-weapon-specialization",
+          "option:aloof-flew-or-jumped",
+          {
+            "gte": ["hands-free:but-really", 1]
+          }
+        ]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:aloof-flew-or-jumped",
+        "toggleable": true,
+        "predicate": ["self:effect:arcane-cascade"],
+        "display": {
+          "label": "Increase Arcane Cascade damage"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.9CC5Ek0Mq768Lhgx"
+    },
+    "data": {
+      "tags": ["magus-hybrid-study"]
+    }
+  },
+  {
+    "id": "fa80ec30-f4a4-5a45-907d-6b80422c2ff1",
+    "pack": "tian-xia-character-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:unfurling-brocade",
+    "name": "Unfurling Brocade",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["magus"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You disdain others' reliance on crude contrivances of iron, instead favoring the elegance of fabric, with thread and brocade your panoply. Your mastery of qinggong allows qi-infused fabric to tear flesh, bind blades, and pierce steel."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can create a special weapon, qi-infused fabric, by Interacting to grip a length of cloth of 1 Bulk or less and filling it with your qi. If you Interact to draw the object, you can do this as part of that action. For most unfurling brocade magi, this item is a scarf, sash, ribbon, or a similarly voluminous article of worn clothing, such as long sleeves. You can use the fabric as a "
+          },
+          {
+            "type": "ref",
+            "id": "954b6f55-5cd9-5580-8e80-a2d605e4ab9d"
+          },
+          {
+            "type": "text",
+            "text": ". Unlike a normal bladed scarf, you have the option to wield the fabric in one hand instead of two. Its damage die is d4 if held in one hand. If you're wearing "
+          },
+          {
+            "type": "ref",
+            "id": "30f44d19-1eec-5808-ae18-11a7bb4d8a59"
+          },
+          {
+            "type": "text",
+            "text": ", you can apply any of its runes to the fabric, provided those runes could be added to a bladed scarf. This begins when you wield the fabric and ends when you cease doing so."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While in Arcane Cascade stance, the magical energy flowing through your fabric partially animates it to accomplish an even greater range of tricks."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "If you critically succeed at an Athletics check to "
+                },
+                {
+                  "type": "ref",
+                  "id": "ef57a555-f9e9-53cc-b09b-b7432156cbf1"
+                },
+                {
+                  "type": "text",
+                  "text": ", you can spend a single action immediately afterward to flick your fabric, causing the disarmed object to fall to the ground in your space rather than in your opponent's."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Your fabric gains the grapple trait. If you succeed at an Athletics check to "
+                },
+                {
+                  "type": "ref",
+                  "id": "380d34f1-f6f6-5820-b9dd-c01ee4e19fd5"
+                },
+                {
+                  "type": "text",
+                  "text": " using your fabric, you can spend a single action immediately afterward to pull the creature 5 feet toward you."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "When you attempt to "
+                },
+                {
+                  "type": "ref",
+                  "id": "6257c7f0-f483-53d3-a791-d73a616cbce4"
+                },
+                {
+                  "type": "text",
+                  "text": " a foe using your fabric, the target can be two sizes larger than you instead of one."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Conflux Spell",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "a94ac73a-355b-5b51-a2c2-9c7af1ac486c"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Studious Spells",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 7th: "
+          },
+          {
+            "type": "ref",
+            "id": "9e63871b-e287-5e26-8383-f5c4c9fe2bc7"
+          },
+          {
+            "type": "text",
+            "text": "; 11th: "
+          },
+          {
+            "type": "ref",
+            "id": "4d39ab4c-6ac3-5c4a-a951-205bfbfd2c86"
+          },
+          {
+            "type": "text",
+            "text": "; 13th: "
+          },
+          {
+            "type": "ref",
+            "id": "c116ade1-041d-5bc1-a428-dcd37ab4e61e"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:qi-infused-fabric",
+        "toggleable": true,
+        "display": {
+          "label": "Qi-Infused Fabric"
+        }
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon", "item:base:bladed-scarf"],
+        "property": "traits",
+        "mode": "add",
+        "value": "grapple",
+        "predicate": ["self:effect:arcane-cascade", "option:qi-infused-fabric"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.y0WQzzshwGIymZsr"
+    },
+    "data": {
+      "tags": ["magus-hybrid-study"]
+    }
+  }
+]

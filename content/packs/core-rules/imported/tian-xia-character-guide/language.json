@@ -1,0 +1,236 @@
+[
+  {
+    "id": "b0d87fc0-fc6e-56a6-9b35-41b51a59b960",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:dziriak",
+    "name": "D'ziriak",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "8e9eb692-a3c5-505c-9a69-73426e3397f4",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:kitsune",
+    "name": "Kitsune",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "fe0fe728-5ecc-5115-93d1-145a66f0742a",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:minaten",
+    "name": "Minatan",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "5894e982-f57f-5b65-9c44-78c0471098e9",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:nagaji",
+    "name": "Nagaji",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "a547cbec-9812-5731-aace-b0f5f5a08607",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:pyric",
+    "name": "Pyric",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "75533c57-b1f0-5598-a072-80a8a8ba9191",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:samsaran",
+    "name": "Samsaran",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "c960afa4-f657-5917-8612-e95b449496cc",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:shadowtongue",
+    "name": "Shadowtongue",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "b12f2dea-17fb-58e9-871e-3ad0c28f05c7",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:sussuran",
+    "name": "Sussuran",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "b4a3c832-7651-5a7d-adc3-1cad60dfb279",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:tang",
+    "name": "Tang",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "f955497c-376a-56b4-87a1-2c2f6a3d7d0f",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:tanuki",
+    "name": "Tanuki",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "8769b431-977b-5ab0-9836-c62e1b62518f",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:vudrani",
+    "name": "Vudrani",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "c1976863-0905-5ab2-afa8-c6254c9cd977",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:wayang",
+    "name": "Wayang",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "2b1b9165-43fd-5875-bc19-888430d2080d",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:yaksha",
+    "name": "Yaksha",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  }
+]

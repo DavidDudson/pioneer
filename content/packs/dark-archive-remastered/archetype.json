@@ -1,0 +1,666 @@
+[
+  {
+    "id": "54c4bbf9-8c89-5670-a0c2-5fffd4e0325a",
+    "pack": "dark-archive-remastered",
+    "kind": "archetype",
+    "slug": "archetype:alter-ego",
+    "name": "Alter Ego",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A highly guarded castle in the middle of an extravagant ball, the headquarters of a city's infamous thieves' guild, the locked room in the back of a cultist hideout—all perfect targets for you to use your expertise at blending in. Rather than skulking through the shadows, you use your training and latent supernatural abilities to become a mirror, playing on the perceptions of others and taking on whatever role necessary to get in and out of your destination before anyone has a chance to think something is amiss."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Performing as an alter ego means going unregarded. Passing as just a face in the crowd is crucial, and accolades come as the gratitude from your leaders or coin from your clients, rather than the awed adoration from a crowd. This arrangement might suit you fine, as you thrive in a job well done and subsist on the thrill of walking flagrantly past your duped adversaries. Or you might find your lack of acclaim festers, a knot of pent-up underappreciation that grows until you can't resist a dramatic reveal or a signature calling card that shows you were there. One final word before speeding away from the castle, a gloating message left behind, or some other sign reveals your skill—usually too late for your victims to do anything about it."
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Alter Egos in Golarion"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "While some alter egos work independently as freelancers, they're especially popular in all sorts of espionage and intelligence agencies throughout the Inner Sea and beyond. The Lion Blades of Taldor, Twilight Talons of Andoran, Silver Ravens of Ravounel, and various Chelaxian secret police use alter egos to keep abreast of situations throughout the Shining Kingdoms and Old Cheliax. Meanwhile, powerful mercantile groups, like the Golden League in Tian Xia or the Aspis Consortium, employ alter egos for corporate espionage, making sure they always stay one step ahead of the competition. In Mzali in the Mwangi Expanse, the rebels known as the Bright Lions often seek the aid of alter egos to escape the notice of the mummified child god Walkena."
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.HZHzpATOyhTjUDrR"
+    },
+    "data": {
+      "dedication": "d252e299-73d8-53eb-bd76-817e0d04fd36"
+    }
+  },
+  {
+    "id": "4f70fa72-5f6b-5b85-a3e4-f7f2f3d50d7e",
+    "pack": "dark-archive-remastered",
+    "kind": "archetype",
+    "slug": "archetype:chronoskimmer",
+    "name": "Chronoskimmer",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Rare"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The flow of time is an unstoppable force. Most are carried downstream inexorably, like a leaf floating on a river. You, however, somehow fell out of the flow of time, if only for an instant, but in doing so gained a perspective that few others have."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Now you stand on the banks of the river, watching the flow, choosing where to dive in, or even defying the current, at least for a short while, as you skim its surface and skip from moment to moment. As a chronoskimmer, time is yours to exploit."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have the means to see the timelines of all creatures, including your own. You can use this insight to manipulate the flow of time for creatures, much like you can pluck the leaf from the river and place it elsewhere. Manipulating timelines can be dangerous, however, and the Dimension of Time isn't wont to allow these transgressions against time to stand forever. The threat always looms of time dimensionals coming to correct your actions or of you becoming removed from time forever."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.xgk1Qc6nzGNJ7LSz"
+    },
+    "data": {
+      "dedication": "357df960-cfe0-5ee8-a534-b6498d7f4817"
+    }
+  },
+  {
+    "id": "4cdcde91-1753-56e6-be7a-e42b900678a7",
+    "pack": "dark-archive-remastered",
+    "kind": "archetype",
+    "slug": "archetype:curse-maelstrom",
+    "name": "Curse Maelstrom",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Rare"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Some folks are ridden with bad luck: the rations they were counting on turn out to be spoiled, the ship they were hoping to catch sinks in the harbor, or the new home they bought is destroyed by a rampaging golem. Most know that they are cursed, feeling an emptiness in their soul that weighs upon them, gnawing at their confidence and shrouding their ambitions. Sometimes, these curse maelstroms learn to control and channel their curse; you are one such unfortunate soul."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have a powerful curse living deep within you. You might have been able to restrain your curse for the most part, but it flares up occasionally and tempts you with the power to curse your foes, should you allow it to exert itself. Why should you be the only one who has to endure a cursed life when others have so clearly earned such woe?"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Living with a curse every day, you become intimately familiar with the workings of curses, getting a sense of when bad luck is about to befall those around you. You might try to avoid further bad fortune—which rarely pans out as you'd like—or you could come to terms with your lot in life and regard your curse as something akin to an old friend. Either way, fate cares little."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Misery loves company, so your curse can even be a beacon for more misfortune. You might have multiple curses all tied to you, all fighting to make your life as hellish as possible."
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Manifestations"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "Those at the center of a storm of curses often have peculiar manifestations that mark them as one of the unfortunate. Over time, even the places that they inhabit will begin to show signs of their presence: plants with bizarre growths, dust clouds that form strange symbols in the light, and floors that creak and groan even when no one is walking across them."
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.KRUWPDzuwG0LC26d"
+    },
+    "data": {
+      "dedication": "7b305a7c-8405-5049-ad5f-c5338019cb96"
+    }
+  },
+  {
+    "id": "87db4f0e-9cc3-5f53-9e69-27991b1db6a3",
+    "pack": "dark-archive-remastered",
+    "kind": "archetype",
+    "slug": "archetype:living-vessel",
+    "name": "Living Vessel",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Rare"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "With the dawning of a new era comes the need for a new seat of power, and what better way to show your coming master your devotion than by sacrificing your entire being for their use? You presented yourself before their altar and they answered your call, flooding your body with their power and granting you the gift of their original form. Or maybe you were abducted in the dark, on a night that the moon refused to shine, when you were taken to a profane location where a mysterious cult bound you to their master against your will. Now you have powers you didn't before and you have new features that scare (and maybe, in a small dark part of your heart, thrill) you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You might have even become a living vessel through a strange bargain. For instance, perhaps at the brink of death, you received an offer from an entity to spare your life in exchange for inhabiting you. Or you might have offered yourself to the entity in exchange for saving a loved one, for riches, or to fulfill a lifelong dream."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Beings of any alignment can inhabit a living vessel. Evil-aligned beings, especially demons, are most likely to be interested in such an arrangement, especially if it involves forcefully taking over and changing the body and mind of a sapient being. Part of being a living vessel is learning more about your entity and finding what assuages them best and what their ultimate plans might be for your body and the world. Few vessels can fully dictate the terms of the arrangement, but the fact that you give the entity a corporeal form does give you some amount of leverage. Use it wisely."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your GM might determine that you can take a pact feat from the pactbinder archetype as an additional feat, as long as the pact is made to the entity within you. For instance, if you're hosting a fey, you could make a pact involving fey. These pact feats are at the same level as for a pactbinder."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.LgkfmZnFP3TWtkuy"
+    },
+    "data": {
+      "dedication": "32447860-488a-55da-9ad7-e38e607834fc"
+    }
+  },
+  {
+    "id": "694e3901-695f-591f-8679-1bc6e978cc6a",
+    "pack": "dark-archive-remastered",
+    "kind": "archetype",
+    "slug": "archetype:mind-smith",
+    "name": "Mind Smith",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "\"The mind makes it real.\" Though uttered in many parts of Golarion, nowhere is this more literal than perhaps among mind smiths—those with a mysterious mental talent that allows them to manifest their mind into a physical object. Some gain this power through magical training from an ancestor or mentor, while others earn it as a gift or reward from some greater being, or by inexplicable chance. Whatever the source, you have mastered the ability to form a mental image into a corporeal figment solid enough to affect the physical world. You trained the power to aid you in battle by shaping itself into a potent weapon, bound by only the reaches of your own imagination."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.mXywYJJCM9IVItZz"
+    },
+    "data": {
+      "dedication": "9951de90-0e3f-5e19-bfc3-178a2c1dc83d"
+    }
+  },
+  {
+    "id": "f4109a54-751b-5769-847a-39c88db7951c",
+    "pack": "dark-archive-remastered",
+    "kind": "archetype",
+    "slug": "archetype:pactbinder",
+    "name": "Pactbinder",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Some people feel that the universe is a constant struggle. Good against evil, law against chaos, civilization against nature, life against death against undeath. But why fight what you can't change? You prefer to bargain."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As a pactbinder, you make deals with strange entities, otherworldly beings, and all sorts of multiversal denizens, amiable and unapproachable alike. Over the course of your many negotiations, you've learned something important: while such beings always seek a bargain tilted in their own favor, sometimes your definition of value differs enough from theirs that you can still come out ahead. In fact, sometimes, those who don't understand pacts like you do might mistake the payment for the benefit, or vice versa. Perhaps an ancient being of nightmare demanded to consume something you sought to be rid of, like a painful memory or a negative personality trait, priding itself on how it was taking something personal from you. Little did it know, you let it win on haggling your end of the deal. Of course, this practice isn't without its own risks, as who knows what you might become without that part of you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "All these things, you can and must consider in every pact. In addition to pacts, you might also pursue magical contracts. While less of a metaphysical commitment than a pact, contracts offer similar benefits you just can't resist— and you can employ your skill set as a pactbinder to manipulate the precise wording of the bargain."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.0UrqPv7XLDDRwZ13"
+    },
+    "data": {
+      "dedication": "fbbec3c9-19e0-5fdd-8264-8a8ab7b0ba77"
+    }
+  },
+  {
+    "id": "cda22ae5-8615-5c97-b350-d8103a53acf0",
+    "pack": "dark-archive-remastered",
+    "kind": "archetype",
+    "slug": "archetype:psychic-duelist",
+    "name": "Psychic Duelist",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Rare"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The mental landscape of the psychic duel rises to meet your steps and reshapes at your touch. You understand the binary mindscape links two minds, making its foundation only as strong as the wills of those involved. Two psychic castles in a siege—patch every loose brick in your walls and single out every flaw in your foe's defenses."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.uA6XIArPfGSwBvZi"
+    },
+    "data": {
+      "dedication": "85685b5a-48bd-5535-a0e7-c8c32b8c1f44"
+    }
+  },
+  {
+    "id": "729f6514-302f-5856-8332-19ce843c97de",
+    "pack": "dark-archive-remastered",
+    "kind": "archetype",
+    "slug": "archetype:sleepwalker",
+    "name": "Sleepwalker",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Many think of mental realms and mindscapes as rare and elaborate constructions, forgetting that everyone creates their own mental realm when they sleep, one where even the strangest occurrences seem perfectly normal. Anything is possible inside these dreamscapes, but few sapient creatures have the will and insight to take control and truly explore their unconscious mind."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sleepwalkers dedicate themselves to unlocking the secrets of the sleeping mind, taking control of their dreams and walking through the slumbering vistas of others. Some are nefarious manipulators, whispering to the slumbering for personal gain. Others use their powers for good, seeking evildoers and those who corrupt dreams to nightmares. As their power grows, a sleepwalker's appearance gradually becomes slightly indistinct, as though they were blurred around the edges, and those who encounter them find it difficult to recall exact details about their appearance."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.OBTmo8rD2x8kFzeH"
+    },
+    "data": {
+      "dedication": "94a24572-9c00-5aaf-b1d0-4c409725946c"
+    }
+  },
+  {
+    "id": "842ef1b4-53d2-5df6-8635-58874594d89b",
+    "pack": "dark-archive-remastered",
+    "kind": "archetype",
+    "slug": "archetype:thaumaturge",
+    "name": "Thaumaturge",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Scraps of knowledge have taught you how to exploit the vulnerabilities of creatures and the powers of mystical objects."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.K9Krytj8OtUvQxoc"
+    },
+    "data": {
+      "dedication": "71d42745-aea8-52ab-ac5e-22c61f4b3766",
+      "multiclass": "46a4174e-4491-5113-b9ff-ceb64fe34cb1"
+    }
+  },
+  {
+    "id": "a5995921-8e20-5b23-b313-7ce85b430c08",
+    "pack": "dark-archive-remastered",
+    "kind": "archetype",
+    "slug": "archetype:time-mage",
+    "name": "Time Mage",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Magic leaves its brand on those who practice it. The veteran pyromancer bears the scorch marks of lessons learned. The archdruid grows to resemble plants or animals in their domain or grove. The professional reanimator can never quite cover up the stench of their grim work."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The mark left by the practice of time magic is less obvious but no less indelible. With other disciplines, the marks of experience accumulate as magic is learned, creating an equilibrium of sorts between the exercise of power and the necessary consequences. Time magic suffers no such limitations of cause and effect. Distortions and anachronistic thoughts echo back throughout a time mage's entire life, providing a nonlinear perspective that others can find distracting or even alien. The threat of creating a paradox is ever looming. Many a reckless time mage has inadvertently erased themselves from existence, glimpsed a future they now have no choice but to enact, or attracted the attentions of temporal creatures, such as iriis or siktemporas."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For these reasons, most mages merely dabble in time magic, learning a spell or two here and there. Despite the dangers, a brave few embrace the discipline, for it offers the allure of changing what was and controlling what will be."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "10th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Read Disaster; "
+          },
+          {
+            "type": "text",
+            "text": "16th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Plot the Future; "
+          },
+          {
+            "type": "text",
+            "text": "20th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Echoing Spell"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.ydELQFQq0lGLTvrA"
+    },
+    "data": {
+      "dedication": "50f5e5ac-5021-58c9-a66c-0448bd339b9f"
+    }
+  }
+]
