@@ -3,6 +3,7 @@ import { issueParams, message, Pg } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { ContentId, Slug } from './content-id';
+import { DamageTypeSchema } from './damage';
 import { RulesMessage } from './messages';
 import { physicalFields } from './physical-item';
 import { uniqueItems } from './unique-items';
@@ -25,6 +26,12 @@ const PROPERTY_RUNES_MAX = RUNE_GRADE_MAX + 1;
  * later, but a specific item may come with more (a returning starknife has no potency rune).
  */
 export const PropertyRunes = z.array(ContentId).max(PROPERTY_RUNES_MAX).readonly().check(uniqueItems);
+
+/**
+ * The energy a specific item's property runes are etched for, by rune: an energy-resistant rune is made for one damage
+ * type (GM Core), and the item prints it (`greater acid-resistant`). Only runes that take a type are listed.
+ */
+export const PropertyRuneEnergies = z.record(ContentId, DamageTypeSchema).readonly();
 
 export const RuneType = { Fundamental: 'fundamental', Property: 'property' } as const;
 export type RuneType = ValueOf<typeof RuneType>;

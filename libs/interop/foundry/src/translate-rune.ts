@@ -1,4 +1,4 @@
-import { ContentKind, FundamentalRune, RunedItem, RuneType } from '@pioneer/rules/sdk';
+import { ContentKind, DamageType, FundamentalRune, RunedItem, RuneType } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
 
 import { resolveSlug } from './entry-references';
@@ -141,13 +141,56 @@ export function runeSlug(key: string): string {
     : words.join('-');
 }
 
+/** The energies an energy-resistant rune is made for (GM Core); Foundry's legacy keys name one (`fireResistant`). */
+const RUNE_ENERGIES: readonly DamageType[] = [
+  DamageType.Acid,
+  DamageType.Cold,
+  DamageType.Electricity,
+  DamageType.Fire,
+];
+
+/** A legacy energy-resistant key (`greaterAcidResistant`): its grade and the energy it names. */
+const LEGACY_ENERGY_KEY = /^(?<grade>greater)?(?<energy>acid|cold|electricity|fire)Resistant$/iu;
+
+/** The remaster rune a legacy energy-resistant key is, and the energy it was made for. */
+interface LegacyEnergy {
+  readonly slug: string;
+  readonly energy: DamageType;
+}
+
+function legacyEnergy(key: string): LegacyEnergy | undefined {
+  const { grade, energy } = LEGACY_ENERGY_KEY.exec(key)?.groups ?? {};
+  const named = RUNE_ENERGIES.find((each) => each === energy?.toLowerCase());
+  return named === undefined
+    ? undefined
+    : { slug: grade === undefined ? 'energy-resistant' : 'energy-resistant-greater', energy: named };
+}
+
+/** The property runes of an item: the `rune` entries Foundry's keys name, and the energy of those made for one. */
+export interface PropertyRuneKeys {
+  readonly property: ContentId[];
+  readonly energy: Record<ContentId, DamageType>;
+}
+
 /** The `rune` entries Foundry's property rune keys name; one that names no entry is reported against `field`. */
-export function propertyRunes(keys: readonly string[], field: string, { references, log }: KindInput): ContentId[] {
-  return keys.flatMap((key) => {
-    const rune = resolveSlug(references, ContentKind.Rune, runeSlug(key));
+export function propertyRunes(
+  keys: readonly string[],
+  field: string,
+  { references, log }: KindInput,
+): PropertyRuneKeys {
+  const property: ContentId[] = [];
+  const energy: Record<ContentId, DamageType> = {};
+  for (const key of keys) {
+    const legacy = legacyEnergy(key);
+    const rune = resolveSlug(references, ContentKind.Rune, legacy?.slug ?? runeSlug(key));
     if (rune === undefined) {
       report(log, { reason: KindDataGapReason.UnresolvedReference, field, raw: key });
+    } else {
+      property.push(rune);
+      if (legacy !== undefined) {
+        energy[rune] = legacy.energy;
+      }
     }
-    return rune === undefined ? [] : [rune];
-  });
+  }
+  return { property, energy };
 }

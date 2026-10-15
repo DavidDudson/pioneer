@@ -6,7 +6,7 @@ import { AttributeModifier } from './attribute';
 import { Slug } from './content-id';
 import { Hardness, physicalFields } from './physical-item';
 import { ArmorCategory } from './rule-element-proficiency';
-import { PropertyRunes, ReinforcingGrade, RuneGrade } from './rune';
+import { PropertyRuneEnergies, PropertyRunes, ReinforcingGrade, RuneGrade } from './rune';
 import { Feet, HitPoints } from './units';
 import { WeaponRunes } from './weapon';
 
@@ -49,6 +49,7 @@ const ArmorRunes = z.strictObject({
   potency: RuneGrade.optional(),
   resilient: RuneGrade.optional(),
   property: PropertyRunes,
+  propertyEnergy: PropertyRuneEnergies.optional(),
 });
 
 /**

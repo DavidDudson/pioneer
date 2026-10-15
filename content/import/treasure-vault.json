@@ -430,12 +430,6 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.o4U9Nt7ac7AlolNQ",
       "gaps": [
         {
-          "type": "field",
-          "reason": "unresolved-reference",
-          "field": "runes.property",
-          "raw": "greaterAcidResistant"
-        },
-        {
           "type": "enricher",
           "enricher": "@Damage[options]"
         },
@@ -503,12 +497,6 @@
       "slug": "armor:smoldering-armor",
       "foundry": "Compendium.pf2e.equipment-srd.Item.oE6tZBBbP59DOWFM",
       "gaps": [
-        {
-          "type": "field",
-          "reason": "unresolved-reference",
-          "field": "runes.property",
-          "raw": "fireResistant"
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
@@ -4314,7 +4302,10 @@
           "type": "field",
           "reason": "unresolved-reference",
           "field": "spell",
-          "raw": "cinder-swarm"
+          "raw": {
+            "spell": "cinder-swarm",
+            "book": "Pathfinder Rage of Elements"
+          }
         },
         {
           "type": "enricher",
@@ -4352,7 +4343,10 @@
           "type": "field",
           "reason": "unresolved-reference",
           "field": "spell",
-          "raw": "chromatic-armor"
+          "raw": {
+            "spell": "chromatic-armor",
+            "book": "Pathfinder Secrets of Magic"
+          }
         },
         {
           "type": "enricher",
@@ -4382,7 +4376,10 @@
           "type": "field",
           "reason": "unresolved-reference",
           "field": "spell",
-          "raw": "chromatic-armor"
+          "raw": {
+            "spell": "chromatic-armor",
+            "book": "Pathfinder Secrets of Magic"
+          }
         },
         {
           "type": "enricher",
@@ -4400,7 +4397,10 @@
           "type": "field",
           "reason": "unresolved-reference",
           "field": "spell",
-          "raw": "frigid-flurry"
+          "raw": {
+            "spell": "frigid-flurry",
+            "book": "Pathfinder Secrets of Magic"
+          }
         },
         {
           "type": "enricher",
@@ -4418,7 +4418,10 @@
           "type": "field",
           "reason": "unresolved-reference",
           "field": "spell",
-          "raw": "frigid-flurry"
+          "raw": {
+            "spell": "frigid-flurry",
+            "book": "Pathfinder Secrets of Magic"
+          }
         },
         {
           "type": "enricher",
@@ -4436,7 +4439,10 @@
           "type": "field",
           "reason": "unresolved-reference",
           "field": "spell",
-          "raw": "frigid-flurry"
+          "raw": {
+            "spell": "frigid-flurry",
+            "book": "Pathfinder Secrets of Magic"
+          }
         },
         {
           "type": "enricher",
@@ -4598,7 +4604,10 @@
           "type": "field",
           "reason": "unresolved-reference",
           "field": "spell",
-          "raw": "impending-doom"
+          "raw": {
+            "spell": "impending-doom",
+            "book": "Pathfinder Secrets of Magic"
+          }
         },
         {
           "type": "enricher",
@@ -4620,7 +4629,10 @@
           "type": "field",
           "reason": "unresolved-reference",
           "field": "spell",
-          "raw": "impending-doom"
+          "raw": {
+            "spell": "impending-doom",
+            "book": "Pathfinder Secrets of Magic"
+          }
         },
         {
           "type": "enricher",
@@ -4642,7 +4654,10 @@
           "type": "field",
           "reason": "unresolved-reference",
           "field": "spell",
-          "raw": "impending-doom"
+          "raw": {
+            "spell": "impending-doom",
+            "book": "Pathfinder Secrets of Magic"
+          }
         },
         {
           "type": "enricher",
@@ -4664,7 +4679,10 @@
           "type": "field",
           "reason": "unresolved-reference",
           "field": "spell",
-          "raw": "impending-doom"
+          "raw": {
+            "spell": "impending-doom",
+            "book": "Pathfinder Secrets of Magic"
+          }
         },
         {
           "type": "enricher",
@@ -4686,7 +4704,10 @@
           "type": "field",
           "reason": "unresolved-reference",
           "field": "spell",
-          "raw": "impending-doom"
+          "raw": {
+            "spell": "impending-doom",
+            "book": "Pathfinder Secrets of Magic"
+          }
         },
         {
           "type": "enricher",
@@ -4708,7 +4729,10 @@
           "type": "field",
           "reason": "unresolved-reference",
           "field": "spell",
-          "raw": "impending-doom"
+          "raw": {
+            "spell": "impending-doom",
+            "book": "Pathfinder Secrets of Magic"
+          }
         },
         {
           "type": "enricher",
@@ -4730,7 +4754,10 @@
           "type": "field",
           "reason": "unresolved-reference",
           "field": "spell",
-          "raw": "impending-doom"
+          "raw": {
+            "spell": "impending-doom",
+            "book": "Pathfinder Secrets of Magic"
+          }
         },
         {
           "type": "enricher",
@@ -5032,7 +5059,10 @@
           "type": "field",
           "reason": "unresolved-reference",
           "field": "spell",
-          "raw": "chromatic-ray"
+          "raw": {
+            "spell": "chromatic-ray",
+            "book": "Pathfinder Secrets of Magic"
+          }
         },
         {
           "type": "enricher",
@@ -5050,7 +5080,10 @@
           "type": "field",
           "reason": "unresolved-reference",
           "field": "spell",
-          "raw": "chromatic-ray"
+          "raw": {
+            "spell": "chromatic-ray",
+            "book": "Pathfinder Secrets of Magic"
+          }
         },
         {
           "type": "enricher",

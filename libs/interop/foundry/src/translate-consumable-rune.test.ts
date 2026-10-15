@@ -5,10 +5,39 @@ import { dataIn, gapKeys, slugIn } from './testing/build-helpers';
 import { EQUIPMENT, HEALING_POTION, physical } from './testing/equipment-fixtures';
 import { idOf, translate } from './testing/import-fixtures';
 import type { DocumentFixture } from './testing/import-fixtures';
+import { gapsOf } from './testing/kind-fixtures';
 
 const translation = translate(EQUIPMENT);
 
 describe('translateKindData: consumables and ammunition', () => {
+  test('a held spell with no entry is reported with the book it is printed in', () => {
+    const wand = physical(
+      { id: 'wAnDoFcInDeR0001', name: 'Magic Wand (4th-Rank Spell)', type: 'consumable' },
+      {
+        bulk: { value: 0.1 },
+        category: 'wand',
+        level: { value: 8 },
+        price: { per: 1, value: { gp: 700 } },
+        spell: {
+          name: 'Cinder Swarm',
+          system: {
+            level: { value: 4 },
+            publication: { license: 'ORC', remaster: true, title: 'Pathfinder Rage of Elements' },
+            slug: 'cinder-swarm',
+          },
+        },
+        usage: { value: 'held-in-one-hand' },
+        uses: { autoDestroy: false, max: 1, value: 1 },
+      },
+    );
+
+    expect(gapsOf(translate([wand]))).toContainEqual({
+      reason: KindDataGapReason.UnresolvedReference,
+      field: 'spell',
+      raw: { spell: 'cinder-swarm', book: 'Pathfinder Rage of Elements' },
+    });
+  });
+
   test('a potion has its healing', () => {
     expect(dataIn(translation, 'healing-potion-minor')).toEqual({
       price: { coins: { gp: 4 } },

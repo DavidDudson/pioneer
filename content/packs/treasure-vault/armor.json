@@ -4927,7 +4927,10 @@
       "runes": {
         "potency": 3,
         "resilient": 2,
-        "property": []
+        "property": ["abd6dd1c-4436-567f-861f-f1ad0decda68"],
+        "propertyEnergy": {
+          "abd6dd1c-4436-567f-861f-f1ad0decda68": "acid"
+        }
       }
     }
   },
@@ -5947,7 +5950,10 @@
       "runes": {
         "potency": 1,
         "resilient": 1,
-        "property": []
+        "property": ["bbde19bb-8ae2-57c1-90f8-0606b6550f08"],
+        "propertyEnergy": {
+          "bbde19bb-8ae2-57c1-90f8-0606b6550f08": "fire"
+        }
       }
     }
   },

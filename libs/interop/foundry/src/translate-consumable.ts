@@ -40,6 +40,8 @@ const AMMUNITION_MAX = 8;
 const FoundryUses = z.looseObject({ max: z.number().nullish(), autoDestroy: z.boolean().nullish() }).nullish();
 type FoundryUses = z.infer<typeof FoundryUses>;
 
+const FoundryPublication = z.looseObject({ title: z.string().max(NAME_MAX).nullish() });
+
 /** The spell a scroll or wand holds: Foundry embeds the whole spell document, with the rank it is cast at. */
 const FoundrySpellLevel = z.looseObject({ value: z.number() });
 const FoundrySpellLocation = z.looseObject({ heightenedLevel: z.number().nullish() });
@@ -49,6 +51,7 @@ const FoundryHeldSpell = z.looseObject({
     slug: z.string().max(NAME_MAX).nullish(),
     level: FoundrySpellLevel,
     location: FoundrySpellLocation.nullish(),
+    publication: FoundryPublication.nullish(),
   }),
 });
 type FoundryHeldSpell = z.infer<typeof FoundryHeldSpell>;
@@ -96,12 +99,19 @@ function damageOf(damage: FoundryConsumableDamage, log: GapLog): object | undefi
   return { formula: fromFoundryFormula(damage.formula), damageType: damageType.data, kind: damage.kind };
 }
 
-/** The held spell as its `spell` entry, at the rank it is cast; one that names no entry is reported. */
+/**
+ * The held spell as its `spell` entry, at the rank it is cast; one that names no entry is reported with the book the
+ * spell is printed in, which says which import it waits for.
+ */
 function spellOf(held: FoundryHeldSpell, { references, log }: KindInput): object | undefined {
   const slug = asciiNameSlug(held.system.slug ?? held.name);
   const spell = resolveSlug(references, ContentKind.Spell, slug);
   if (spell === undefined) {
-    report(log, { reason: KindDataGapReason.UnresolvedReference, field: 'spell', raw: slug });
+    report(log, {
+      reason: KindDataGapReason.UnresolvedReference,
+      field: 'spell',
+      raw: { spell: slug, book: held.system.publication?.title ?? undefined },
+    });
     return undefined;
   }
   return { spell, rank: held.system.location?.heightenedLevel ?? held.system.level.value };

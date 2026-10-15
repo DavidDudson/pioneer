@@ -7,7 +7,7 @@ import { DamageTypeSchema } from './damage';
 import { DamageFormula } from './damage-formula';
 import { ItemCount, physicalFields, Usage } from './physical-item';
 import { WeaponCategory } from './rule-element-proficiency';
-import { PropertyRunes, RuneGrade } from './rune';
+import { PropertyRuneEnergies, PropertyRunes, RuneGrade } from './rune';
 import { DamageAmount, Feet } from './units';
 
 /** Remaster weapon groups, Foundry pf2e's less Starfinder's. */
@@ -87,6 +87,7 @@ export const WeaponRunes = z.strictObject({
   potency: RuneGrade.optional(),
   striking: RuneGrade.optional(),
   property: PropertyRunes,
+  propertyEnergy: PropertyRuneEnergies.optional(),
 });
 
 /**

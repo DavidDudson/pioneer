@@ -43,6 +43,7 @@ export {
   EtchingRestriction,
   FUNDAMENTAL_RUNE_ITEMS,
   FundamentalRune,
+  PropertyRuneEnergies,
   PropertyRunes,
   ReinforcingGrade,
   RuneData,
