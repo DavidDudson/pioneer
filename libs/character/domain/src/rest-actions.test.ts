@@ -49,6 +49,7 @@ const LIMITS: PlayLimits = {
   counted: COUNTED,
   staff: NO_STAFF,
   valued: new Map(),
+  effects: new Map(),
 };
 
 const FIRST = ConditionInstanceId.parse('11111111-1111-4111-8111-111111111111');

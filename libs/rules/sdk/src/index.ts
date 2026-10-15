@@ -29,7 +29,7 @@ export {
   Sanctification,
   SanctificationModal,
 } from './deity';
-export { EffectBadgeType, EffectCategory, EffectData, EffectDurationType } from './effect';
+export { EffectBadgeType, EffectCategory, EffectData, EffectDurationType, EffectExpiry } from './effect';
 export { RitualCheckPick, RitualData } from './ritual';
 export { ArmorData, CheckPenalty, ArmorGroup, ArmorItemCategory, ShieldData } from './armor';
 export { ConsumableCategory, ConsumableData } from './consumable';

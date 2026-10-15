@@ -13,6 +13,12 @@ import {
   StaffProblem,
   staffProblem,
   conditionProblem,
+  effectContent,
+  EffectProblem,
+  effectProblem,
+  isEffectCommand,
+  needsEffectContent,
+  NO_EFFECTS,
   isConditionCommand,
   conditionValued,
   itemActivations,
@@ -37,6 +43,7 @@ import type {
   CharacterPlay,
   PatchPlayBody,
   ConditionValued,
+  EffectContent,
   PlayCommand,
   PlayLimits,
   SlotContent,
@@ -60,6 +67,14 @@ const NO_MAX_HIT_POINTS = HitPoints.parse(0);
 
 /** The condition content handed to edits that don't read it. */
 const NO_VALUED: ConditionValued = new Map();
+
+/** The message each refused effect edit answers with. */
+const EFFECT_MESSAGES = {
+  [EffectProblem.Unknown]: 'character.validation.effectUnknown',
+  [EffectProblem.Missing]: 'character.validation.effectMissing',
+  [EffectProblem.Full]: 'character.validation.effectFull',
+  [EffectProblem.Badge]: 'character.validation.effectBadge',
+} as const satisfies Record<EffectProblem, string>;
 
 /** The message each refused condition edit answers with. */
 const CONDITION_MESSAGES = {
@@ -130,8 +145,19 @@ export class PlayService {
     checkStaff(command, staff);
     const valued = needsConditionContent(command) ? await this.#valued(character) : NO_VALUED;
     checkCondition(play, command, valued);
+    const effects = needsEffectContent(command) ? await this.#effects(character) : NO_EFFECTS;
+    checkEffect(play, command, effects);
     const healing = needsRestContent(command) ? await this.#healing(character) : NO_MAX_HIT_POINTS;
-    const limits: PlayLimits = { hitPoints, healing, recovery: RECOVERY_CONDITIONS, resources, counted, staff, valued };
+    const limits: PlayLimits = {
+      hitPoints,
+      healing,
+      recovery: RECOVERY_CONDITIONS,
+      resources,
+      counted,
+      staff,
+      valued,
+      effects,
+    };
     return applyPlayCommand(play, command, limits);
   }
 
@@ -175,6 +201,11 @@ export class PlayService {
   /** Which conditions the server's content has, and which carry a value. */
   async #valued(character: Character): Promise<ConditionValued> {
     return conditionValued(await this.#contentOf(character).registry());
+  }
+
+  /** Which effects the server's content has, and the clock and badge each starts from. */
+  async #effects(character: Character): Promise<EffectContent> {
+    return effectContent(await this.#contentOf(character).registry());
   }
 
   async #maxHitPoints(character: Character, play: PlayState): Promise<HitPoints> {
@@ -235,5 +266,13 @@ function checkStaff(command: PlayCommand, staff: StaffLimits): void {
   const problem = isDailyPreparations(command) ? staffProblem(command, staff) : undefined;
   if (problem !== undefined) {
     throw new ValidationError([{ path: ['command'], message: message(STAFF_MESSAGES[problem]) }]);
+  }
+}
+
+/** Refuses an effect edit the content or the character's effects rule out. */
+function checkEffect(play: PlayState, command: PlayCommand, content: EffectContent): void {
+  const problem = isEffectCommand(command) ? effectProblem(play.effects, command, content) : undefined;
+  if (problem !== undefined) {
+    throw new ValidationError([{ path: ['command'], message: message(EFFECT_MESSAGES[problem]) }]);
   }
 }
