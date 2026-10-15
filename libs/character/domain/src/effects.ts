@@ -1,3 +1,5 @@
+import { DiceExpressionText, parseDiceExpression, rollDice } from '@pioneer/rules/dice';
+import type { RandomSource } from '@pioneer/rules/dice';
 import type { GrantRoot } from '@pioneer/rules/grants';
 import {
   ContentId,
@@ -8,7 +10,7 @@ import {
   EffectExpiry,
   OriginHopKind,
 } from '@pioneer/rules/sdk';
-import type { ContentRegistry, DamageFormula, DurationCount, EffectData } from '@pioneer/rules/sdk';
+import type { BadgeReevaluation, ContentRegistry, DamageFormula, DurationCount, EffectData } from '@pioneer/rules/sdk';
 import { Pg, Uuid } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
@@ -97,7 +99,12 @@ export type EffectBadgeTerms =
       readonly max: EffectBadgeValue | undefined;
       readonly loop: boolean;
     }
-  | { readonly type: typeof EffectBadgeType.Formula; readonly formula: DamageFormula };
+  | {
+      readonly type: typeof EffectBadgeType.Formula;
+      readonly formula: DamageFormula;
+      /** When the badge rolls again, if it does. */
+      readonly reevaluate?: BadgeReevaluation;
+    };
 
 /** A counter badge's terms. */
 export type CounterTerms = Extract<EffectBadgeTerms, { type: typeof EffectBadgeType.Counter }>;
@@ -136,7 +143,11 @@ function badgeTerms(badge: EffectData['badge']): EffectBadgeTerms | undefined {
   }
   return badge.type === EffectBadgeType.Counter
     ? counterTerms(badge)
-    : { type: EffectBadgeType.Formula, formula: badge.formula };
+    : {
+        type: EffectBadgeType.Formula,
+        formula: badge.formula,
+        ...(badge.reevaluate === undefined ? {} : { reevaluate: badge.reevaluate }),
+      };
 }
 
 /**
@@ -201,4 +212,18 @@ export function steppedBadge(terms: CounterTerms, value: EffectBadgeValue, up: b
     return EffectBadgeValue.parse(loop && max !== undefined ? max : min);
   }
   return EffectBadgeValue.parse(next);
+}
+
+/** Whether `formula` is a plain dice expression that `rollBadge` can roll. */
+export function canRollBadge(formula: DamageFormula): boolean {
+  return parseDiceExpression(DiceExpressionText.parse(formula)).ok;
+}
+
+/**
+ * What a formula badge rolls. A formula that reads the character (`@attr.str`) is not a plain dice expression, so it is
+ * not rolled here and has no value.
+ */
+export function rollBadge(formula: DamageFormula, random: RandomSource): EffectBadgeValue | undefined {
+  const parsed = parseDiceExpression(DiceExpressionText.parse(formula));
+  return parsed.ok ? EffectBadgeValue.safeParse(rollDice(parsed.expression, random).total).data : undefined;
 }

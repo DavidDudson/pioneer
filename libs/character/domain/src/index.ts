@@ -73,6 +73,8 @@ export {
   EffectInstanceId,
   EffectRounds,
   effectRoots,
+  canRollBadge,
+  rollBadge,
   EffectSourceKind,
   EffectSourceSchema,
   type EffectSource,
@@ -513,3 +515,13 @@ export {
   type StaffSourceSpell,
   staffSources,
 } from './staff-sources';
+export {
+  conditionEnded,
+  effectExpired,
+  healedEvent,
+  type TurnEvent,
+  TurnEventKind,
+  TurnMessage,
+  turnStarted,
+} from './turn-events';
+export { reevaluateBadges, type Reevaluation, startTurn, type TurnInputs, type TurnOutcome } from './turn-start';
