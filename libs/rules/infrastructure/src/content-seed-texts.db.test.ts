@@ -97,7 +97,7 @@ describe.skipIf(adminUrl === undefined)('seeded descriptions (postgres)', () => 
     await seed(trimmed, laterSeed);
 
     const texts = await storedTexts(trimmed);
-    expect(texts.map(({ entryId }) => entryId)).toStrictEqual([trimmed.entries[0]?.id]);
+    expect(texts.map(({ entryId }) => entryId)).toStrictEqual(trimmed.entries.slice(0, 1).map(({ id }) => id));
   });
 
   test('the backfill migration restores deleted rows and leaves existing ones alone', async () => {
@@ -128,6 +128,6 @@ describe.skipIf(adminUrl === undefined)('seeded descriptions (postgres)', () => 
     await seed(languagePack('texts-cascade', [SPOKEN]), laterSeed);
 
     const texts = await storedTexts(pack);
-    expect(texts.map(({ entryId }) => entryId)).toStrictEqual([pack.entries[0]?.id]);
+    expect(texts.map(({ entryId }) => entryId)).toStrictEqual(pack.entries.slice(0, 1).map(({ id }) => id));
   });
 });
