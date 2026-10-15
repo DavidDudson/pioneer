@@ -1,0 +1,511 @@
+[
+  {
+    "id": "60d7383a-28d2-5aad-8763-c7e81dd28bbc",
+    "pack": "howl-of-the-wild",
+    "kind": "class-feature",
+    "slug": "class-feature:devourer-of-decay",
+    "name": "Devourer of Decay",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["witch"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your patron appeared at the end or near the end of a life, flickering in feverish visions or glinting mysteriously in the eyes of waiting scavengers. Although horrifying to many, decay creates the resources needed for new life. This fate awaits you and possibly even your patron, whether they're a towering arboreal, a subterranean fungus creature, or one of the psychopomps that shepherds the entire process along."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Spell List",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " primal"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Patron Skill",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Nature"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Lesson of the Hungry Scavenger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your patron teaches ways to convert death into new life. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "62eccc11-67bb-54b4-9d94-8a77ef1f693c"
+          },
+          {
+            "type": "text",
+            "text": " hex cantrip, and your familiar learns Enfeeble."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Familiar of Parasitic Might",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your familiar appears gaunt and malnourished or otherwise on the brink of death, even though it's quite healthy. When you Cast or Sustain a hex, your familiar can draw on the waning strength of another to sustain itself. One creature within 15 feet of your familiar with less than half of its maximum Hit Points becomes Sickened 1 unless it succeeds at a Fortitude saving throw against your spell DC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:nature",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.T9wA833bzZVlB3Lo"
+    },
+    "data": {
+      "tags": ["witch-elementalist-patron", "witch-patron"]
+    }
+  },
+  {
+    "id": "37165397-c78e-57a3-b27f-9013287ba840",
+    "pack": "howl-of-the-wild",
+    "kind": "class-feature",
+    "slug": "class-feature:lesson-of-decay",
+    "name": "Lesson of Decay",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["witch"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "All living things eventually decay, feeding fungus and insect. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "8f56c198-00e6-5a16-8bfb-90c2b4b20db6"
+          },
+          {
+            "type": "text",
+            "text": " hex, and your familiar learns Insect Form."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.hEsmQcEryweYweis"
+    },
+    "data": {
+      "tags": ["witch-lesson"]
+    }
+  },
+  {
+    "id": "dffc1f37-9d62-5458-a330-3a718a377968",
+    "pack": "howl-of-the-wild",
+    "kind": "class-feature",
+    "slug": "class-feature:lesson-of-the-flock",
+    "name": "Lesson of the Flock",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["witch"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Power flows when many work as one. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "52b5077e-d250-5e46-84af-e2e65e42ba2c"
+          },
+          {
+            "type": "text",
+            "text": " hex, and your familiar learns Levitate."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.JjseD5wylg4Hg9O2"
+    },
+    "data": {
+      "tags": ["witch-lesson"]
+    }
+  },
+  {
+    "id": "33d70801-d14e-5eee-a9db-d5f8c1aff1f7",
+    "pack": "howl-of-the-wild",
+    "kind": "class-feature",
+    "slug": "class-feature:lesson-of-the-shark",
+    "name": "Lesson of the Shark",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["witch"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Learn the ways of this deadly oceanic predator. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "712ea6b7-ef2a-5241-bd7b-63e75bbf27a3"
+          },
+          {
+            "type": "text",
+            "text": " hex, and your familiar learns Feet to Fins."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.LP6PfKqwyRJmWqOJ"
+    },
+    "data": {
+      "tags": ["witch-lesson"]
+    }
+  },
+  {
+    "id": "6f93cd62-2b40-5d6d-abc5-296475a39c1c",
+    "pack": "howl-of-the-wild",
+    "kind": "class-feature",
+    "slug": "class-feature:ripple-in-the-deep",
+    "name": "Ripple in the Deep",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["witch"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When your patron appeared, it was as an unfathomably large shadow beneath the waves, possibly as an ancient denizen of the vast waters like a kraken. Whether channeling the lethal terror of an oceanic predator or singing the ancestral wisdom of its gentle giants, your leviathan patron brings you lessons from the unplumbed depths of the world."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Spell List",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " primal"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Patron Skill",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Nature"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Lesson of Surface and Seas",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your patron teaches of the dangers and wonders of its domain, even at the very edges of the water. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "fff40827-5581-5c28-ae3a-4759e4c1498b"
+          },
+          {
+            "type": "text",
+            "text": " hex cantrip, and your familiar learns Dizzying Colors or Grease."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Familiar of Overwhelming Tides",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your familiar constantly drips with ocean water. When you Cast or Sustain a hex, you can cause a small wave to surge forth from your familiar. One creature within 10 feet of your familiar is pushed 5 feet away from your familiar."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:nature",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.lgv4VIoj5TLhm9u0"
+    },
+    "data": {
+      "tags": ["witch-elementalist-patron", "witch-patron"]
+    }
+  },
+  {
+    "id": "63e4e1e4-daf4-543f-8c7c-7da2779f3061",
+    "pack": "howl-of-the-wild",
+    "kind": "class-feature",
+    "slug": "class-feature:whisper-of-wings",
+    "name": "Whisper of Wings",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["witch"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Wings and swirling winds announced the approach of your patron. The wings might have been radiantly feathered, jeweled like a dragonfly's, strangely mechanical, or leathery with the scent of sulfur, but the controlled chaos of their movements contained countless teachings."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Spell List",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " primal"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Patron Skill",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Nature"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Lesson of the Observed Sky",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your patron teaches that the sky can guide you anywhere you let it. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "b82280a4-4586-50fc-be8b-f0b932dda203"
+          },
+          {
+            "type": "text",
+            "text": " hex cantrip, and your familiar learns Gentle Landing."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Familiar of Nimble Flight",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Even if your familiar doesn't have wings, it can sometimes move as if carried aloft by the wind. When you Cast or Sustain a hex, your familiar can Fly up to 15 feet; this movement doesn't trigger reactions."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:nature",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.4zE3seVFtLPNw9EQ"
+    },
+    "data": {
+      "tags": ["witch-elementalist-patron", "witch-patron"]
+    }
+  },
+  {
+    "id": "57eee395-8893-573c-824d-deab8fc7f7d0",
+    "pack": "howl-of-the-wild",
+    "kind": "class-feature",
+    "slug": "class-feature:zoophonia",
+    "name": "Zoophonia",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["bard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your muse is a master of birdsong, wolf howls, trumpeting elephants, and other animal communication, pushing you to new heights and encouraging your connections with nature. If your muse is a creature, it might be an enlightened animal or a spirit guide. If it's a deity, it might be one of the Wardens of the Wild, Gozreh, or another representative of nature."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Muse Feat",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "6719cc59-fda1-57a7-90e5-779f30fb1923"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Muse Spell",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Summon Animal"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "6719cc59-fda1-57a7-90e5-779f30fb1923"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.jHOlcSnGyjCnwoPP"
+    },
+    "data": {
+      "tags": ["bard-muse"]
+    }
+  }
+]

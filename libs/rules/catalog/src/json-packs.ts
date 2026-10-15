@@ -27,6 +27,8 @@ export async function coreRulesPack(): Promise<PackContents> {
     import('@pioneer/content/packs/core-rules/imported/player-core/trait.json'),
     import('@pioneer/content/packs/core-rules/imported/divine-mysteries/trait.json'),
     import('@pioneer/content/packs/core-rules/imported/treasure-vault/trait.json'),
+    import('@pioneer/content/packs/core-rules/imported/howl-of-the-wild/language.json'),
+    import('@pioneer/content/packs/core-rules/imported/howl-of-the-wild/trait.json'),
     import('@pioneer/content/packs/core-rules/imported/gm-core/trait.json'),
   ]);
 }
@@ -81,6 +83,25 @@ export async function gmCorePack(): Promise<PackContents> {
     import('@pioneer/content/packs/gm-core/spell.json'),
     import('@pioneer/content/packs/gm-core/treasure.json'),
     import('@pioneer/content/packs/gm-core/weapon.json'),
+  ]);
+}
+
+export async function howlOfTheWildPack(): Promise<PackContents> {
+  return pack(import('@pioneer/content/packs/howl-of-the-wild/pack.json'), [
+    import('@pioneer/content/packs/howl-of-the-wild/action.json'),
+    import('@pioneer/content/packs/howl-of-the-wild/ancestry-feature.json'),
+    import('@pioneer/content/packs/howl-of-the-wild/ancestry.json'),
+    import('@pioneer/content/packs/howl-of-the-wild/archetype.json'),
+    import('@pioneer/content/packs/howl-of-the-wild/armor.json'),
+    import('@pioneer/content/packs/howl-of-the-wild/class-feature.json'),
+    import('@pioneer/content/packs/howl-of-the-wild/consumable.json'),
+    import('@pioneer/content/packs/howl-of-the-wild/effect.json'),
+    import('@pioneer/content/packs/howl-of-the-wild/equipment.json'),
+    import('@pioneer/content/packs/howl-of-the-wild/feat.json'),
+    import('@pioneer/content/packs/howl-of-the-wild/heritage.json'),
+    import('@pioneer/content/packs/howl-of-the-wild/shield.json'),
+    import('@pioneer/content/packs/howl-of-the-wild/spell.json'),
+    import('@pioneer/content/packs/howl-of-the-wild/weapon.json'),
   ]);
 }
 

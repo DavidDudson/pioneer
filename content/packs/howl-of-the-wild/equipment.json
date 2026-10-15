@@ -1,0 +1,4423 @@
+[
+  {
+    "id": "25fa6100-7436-5246-a082-2a73bda75804",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:alluring-lantern",
+    "name": "Alluring Lantern",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["graft", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An antenna with a bioluminescent lure protrudes from your head, drawing enemies' attention. When not activated, the antenna lays flat and blends in with your hair or skin."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Raise Lure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate, mental, visual)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Until the beginning of your next turn, the lure raises above your head and lights up with multicolored flashes that draws creatures closer. Any creature that begins its turn within "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 20
+          },
+          {
+            "type": "text",
+            "text": " of you must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 23
+          },
+          {
+            "type": "text",
+            "text": " save or become Fascinated by the lure and must spend at least one of its actions to move toward you. The fascination ends at the end of the creature's turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.AoTTRsojnlfrTIe4"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 450
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "raise-lure",
+          "name": "Raise Lure",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "implanted"
+      }
+    }
+  },
+  {
+    "id": "f9bcc08e-b9b0-5237-aba0-2e6fd75321a6",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:amulet-of-the-hellcat",
+    "name": "Amulet of the Hellcat",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This glass amulet is set on a steel backing shaped like a cage and flickers with an eerie crimson glow. Magically sealed within is a portion of a hellcat's ever-burning heart. While wearing the amulet, you gain a +1 item bonus to Stealth checks made while in bright light, and you can cast the Light cantrip emanating from the amulet as an innate divine spell."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Invisible Pounce",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are in bright light"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You become Invisible, Stride up to your speed, and then make a melee Strike at the end of that movement. After making the Strike, you are no longer invisible. If at any point during your Stride, you pass out of bright light, you are no longer invisible and must stop moving. You may make a melee Strike if you have a target within reach."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include the heart of a hellcat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["lighting:bright-light"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.xqnADOBdW77FvzNu"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 350
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "invisible-pounce",
+          "name": "Invisible Pounce",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "e6a39c53-223d-5e6d-b3ea-43a3a2098710",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:animal-blind",
+    "name": "Animal Blind",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Simple blinds consist of a series of poles with a cloth to cover them. The cloth covering is styled to represent the natural surroundings such as green and brown leaf and wood patterns for forests, or gray rocks for underground environments. This cloth is either sheer enough to be seen through on one side, or sometimes has small slits cut in it, allowing someone behind it to see what is going on outside while remaining Hidden. While not the most convincing camouflage, it's good enough to fool many animals and creatures with lower intelligence."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Animal blinds take 1 minute to set up. Up to two Medium creatures or one Large creature may use the blinds at the same time. You can Take Cover behind the blind to gain standard cover. If the environment matches the terrain depicted on the blind, your circumstance bonus on Stealth checks to Hide increases to +4."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "745234d9-3842-54c4-8a4a-2627ff9b0fb0"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.40T4HrQdIIwGHMDq"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": 2,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "894abaaf-de80-5166-9f0f-38d327a4f0cf",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:animal-call",
+    "name": "Animal Call",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Animal calls are often whistles or similar devices that imitate the calls of animals. Each call is for a specific type of animal, such as a duck or bear. When you use the call, it gives you a +1 item bonus to Command an Animal, provided the animal is of the type as the call. You also do not take a circumstance penalty when attempting to Demoralize that animal for not sharing a language."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "skill-check",
+        "option": "option:animal-call",
+        "toggleable": true
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["action:command-an-animal", "option:animal-call"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.pr2xsD4tk0mzWhms"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 5
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "91394a92-a7f1-5827-abfa-e48275dd5913",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:arachnolute",
+    "name": "Arachnolute",
+    "level": 11,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The strings of this spider-shaped lute are made from the webbing of a goliath spider and the tuning pegs are crafted from the spider's spinnerets. An "
+          },
+          {
+            "type": "text",
+            "text": "arachnolute",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " grants you a +2 item bonus to Performance checks while playing music with the instrument."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Web Chord",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Sticky webbing sprays in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " as you strum the lute's strings. Each creature in the area of the webbing is Immobilized unless it succeeds at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 29
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial materials must include the spinnerets of a goliath spider, as well as a spool of its webbing."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "skill:performance",
+        "option": "option:playing",
+        "toggleable": true,
+        "display": {
+          "label": "Playing Arachnolute"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:performance"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["option:playing"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.DP1ONNSs427HjgVc"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1300
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "web-chord",
+          "name": "Web Chord",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "53c058da-43b2-5cb7-8016-6e31b743a968",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:atmospheric-breathing-suit",
+    "name": "Atmospheric Breathing Suit",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A combination of waterproof leather, durable glass, and a system of copper tubes allows aquatic creatures who wear this suit to be able to spend time on land. They're custom-tailored to fit a wide variety of body types and needs. Part of the system of tubes is set up in a way to allow the wearer to speak and hear as well as they normally would with creatures outside the suit. Water, either fresh or salt, is kept moving throughout the system to keep the wearer moisturized. The moving water allows for easier flow to the gills or breathing apparatus of the creature. It also means that the water will slowly run out. Each suit must be refilled with the proper type of water for a creature every 24 hours. It takes 2 gallons of water to refill a suit."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.kyTJrlBDdil7mA5d"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 100
+        }
+      },
+      "bulk": 2,
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "bff1c8e9-18e5-5592-8b91-637a30ad7d56",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:bioluminescent-stripes",
+    "name": "Bioluminescent Stripes",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["graft", "invested", "light", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A line of glands embedded in your skin secretes a chemical that glows when it interacts with the air. As a single action, you can activate your bioluminescent stripes to glow with a bright light in a 20-foot radius and dim light for the next 20 feet. While you are glowing, you can't be Undetected and you take a –4 item penalty to Stealth checks to Hide and Sneak. You can Dismiss the glow as a free action."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:bioluminescent-stripes",
+        "toggleable": true
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "item",
+        "value": -4,
+        "predicate": [
+          "option:bioluminescent-stripes",
+          {
+            "or": ["action:hide", "action:sneak"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.kLQdzIl2lfGIR3sy"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "implanted"
+      }
+    }
+  },
+  {
+    "id": "9f015ad8-ad64-565e-b3fa-6956b5adfbbb",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:bleeding-canines",
+    "name": "Bleeding Canines",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["graft", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Some of your teeth have been replaced with those of a larger meat-eating predator. You gain a jaws unarmed attack that deals 1d8 piercing damage. These jaws are in the brawling group. Whenever you score a critical hit with your jaws, your target takes 1 persistent bleed damage per weapon damage die."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "jaws",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d8",
+          "damageType": "piercing"
+        },
+        "display": {
+          "label": "Jaws"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.HSrZ0rm4GOPLmUNK"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 320
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "implanted"
+      }
+    }
+  },
+  {
+    "id": "72909964-65b4-5072-9ea8-4ad9da1e7190",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:bristling-spines-greater",
+    "name": "Bristling Spines (Greater)",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["graft", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your exposed skin is covered in fine, needle-like hairs that you can flick into the eyes of enemies."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Urticating Burst",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You flick tiny spines in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": ", dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "5d8",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to all creatures in the area with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 23,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save. On a critical failure, the creature is also Blinded until the end of their next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.sTs1xUtk0PoeAtes"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 360
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "urticating-burst",
+          "name": "Urticating Burst",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "implanted"
+      }
+    }
+  },
+  {
+    "id": "c48e4e82-0d37-5b36-9d09-e7d60a474f7b",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:bristling-spines-lesser",
+    "name": "Bristling Spines (Lesser)",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["graft", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your exposed skin is covered in fine, needle-like hairs that you can flick into the eyes of enemies."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Urticating Burst",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You flick tiny spines in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": ", dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d8",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to all creatures in the area with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 15,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save. On a critical failure, the creature is also Dazzled until the end of their next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.4Pb2znon7PTxVtqM"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "urticating-burst",
+          "name": "Urticating Burst",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "implanted"
+      }
+    }
+  },
+  {
+    "id": "4d080393-7bdb-5545-8dfc-5450089e60bb",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:bristling-spines-moderate",
+    "name": "Bristling Spines (Moderate)",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["graft", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your exposed skin is covered in fine, needle-like hairs that you can flick into the eyes of enemies."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Urticating Burst",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You flick tiny spines in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": ", dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d8",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to all creatures in the area with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 18,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save. On a critical failure, the creature is also Dazzled until the end of their next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.3qTVRohDdcCyDA0w"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 60
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "urticating-burst",
+          "name": "Urticating Burst",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "implanted"
+      }
+    }
+  },
+  {
+    "id": "ea08cfdd-fb78-5776-8c07-e4dcbc20e855",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:camouflaging-chromatophores-greater",
+    "name": "Camouflaging Chromatophores (Greater)",
+    "level": 9,
+    "rarity": "uncommon",
+    "traits": ["graft", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special cells in your skin can change color to help you blend in with your environment. You gain a +2 item bonus to Stealth checks to Sneak and Hide."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Background Adaptation",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " For 1 minute, you can Hide without needing cover or concealment to do so. This doesn't allow you to Sneak without ending your movement in cover or concealment, however, as your skin's attempts to match the background as you move produce noticeable rippling waves of color."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "item",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["action:hide", "action:sneak"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.v2aOpKhNP0uIZFER"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 665
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "background-adaptation",
+          "name": "Background Adaptation",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "implanted"
+      }
+    }
+  },
+  {
+    "id": "11456812-136a-578c-9602-0646081e0616",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:camouflaging-chromatophores-lesser",
+    "name": "Camouflaging Chromatophores (Lesser)",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["graft", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special cells in your skin can change color to help you blend in with your environment. You gain a +1 item bonus to Stealth checks to Sneak and Hide."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Background Adaptation",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " For 1 minute, you can Hide without needing cover or concealment to do so. This doesn't allow you to Sneak without ending your movement in cover or concealment, however, as your skin's attempts to match the background as you move produce noticeable rippling waves of color."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "item",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["action:hide", "action:sneak"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.RmIA4czgAOH8Ml7e"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 95
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "background-adaptation",
+          "name": "Background Adaptation",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "implanted"
+      }
+    }
+  },
+  {
+    "id": "daac0c60-ba7f-524f-9068-5e5f7a4ae0ef",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:catch-pole",
+    "name": "Catch Pole",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This sturdy pole has a rope attached to one end in a loop with the other end extending to the handle. You can pull the handle side of the rope to tighten the loop. Using this loop, you can Grapple without having a free hand. A creature grabbed this way receives a –2 circumstance penalty to attack rolls when Striking with an unarmed attack. Due to limitations in the size of the loop, a catch pole can only be used on creatures sized Medium or smaller."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "95992ad2-c08c-54e0-8c15-a3781e4ead40"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.LSx0quwrsOtdcHL2"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "256e9fca-957e-51ba-8e58-54127a56b2f4",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:cauthooj-bagpipes",
+    "name": "Cauthooj Bagpipes",
+    "level": 13,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The main portion of this set of bagpipes is fashioned from the dried skin of a cauthooj, with the feathers still attached. The bird's vocal cords are crafted into the instrument's reeds. The pipes grant a +2 item bonus to Performance checks while playing music with them."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Disorienting Fugue",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": "(auditory, incapacitation, manipulation, mental)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You play several notes on the pipes, quickly altering their pitch and tone. Each creature within a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 20
+          },
+          {
+            "type": "text",
+            "text": " must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 31
+          },
+          {
+            "type": "text",
+            "text": " save to resist the song. Creatures that attempt this save become temporarily immune to Disorienting Fugue for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected and its temporary immunity to Disorienting Fugue increases to 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is Confused for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is confused for 1 round and immediately attacks itself (in the normal fashion for attacking oneself while confused). This Strike doesn't give the creature a flat check to recover from the confusion."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Throw Song",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (auditory, mental)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature within 30 feet attempts a melee Strike against you or an ally"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You let loose a staccato chirp from the pipes that appears to come from somewhere else. The triggering creature must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 31
+          },
+          {
+            "type": "text",
+            "text": " save. On a failure, the creature redirects the Strike to another creature of your choice within reach of the melee Strike. If no other creatures are within range, the affected creature instead takes a –2 penalty to the Strike."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include the skin and vocal cords of a cauthooj."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "skill:performance",
+        "option": "option:playing",
+        "toggleable": true,
+        "display": {
+          "label": "Playing Cauthooj Bagpipes"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:performance"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["option:playing"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.C7LDHqjqxpmhn8QY"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2600
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "disorienting-fugue",
+          "name": "Disorienting Fugue",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "6c5fc9f3-e1bc-5b98-ab88-84150bf4ad1f",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:clothing-desert",
+    "name": "Clothing (Desert)",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Desert clothing is made up of loose-fitting, light, breathable clothes that protect your head and body from the sun and allow you to cool off easily. They allow you to negate the damage from severe environmental heat and reduce the damage from extreme heat to that of severe heat. This effect is negated if the clothing is worn with any armor, except armor that is especially cooling at the GM's discretion."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.eH9QuNtPi5BkeKO7"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 4
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "worn",
+        "slot": "clothing"
+      }
+    }
+  },
+  {
+    "id": "cf279ec3-cb84-5610-982b-34848997597f",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:compound-eyes",
+    "name": "Compound Eyes",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["fortune", "graft", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You replace your eyes with ones similar to an insect's or a crustacean's, which allow you to better pinpoint movement. Once per day when you attempt a flat check to target a creature that's Concealed from you, you can roll twice and take the better result."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.EV97k4OZ3tDesk8X"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 75
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "implanted"
+      }
+    }
+  },
+  {
+    "id": "584178a5-89e4-54da-97b9-42b446c3cc61",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:constricting-whip-tail",
+    "name": "Constricting Whip Tail",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["graft", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have a strong, prehensile tail. You gain a tail unarmed attack that deals 1d6 bludgeoning damage. This tail is in the brawling group. You gain a +1 item bonus to Acrobatics checks to Balance and to Athletics checks to Climb. You can also use your tail for the Grab an Edge action, even if your hands are otherwise occupied."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can use your tail unarmed attack to Grapple even if you don't have a free hand. You gain a +2 item bonus to Athletics checks to Grapple."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "tail",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "bludgeoning"
+        },
+        "display": {
+          "label": "Tail"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics", "skill:acrobatics"],
+        "type": "item",
+        "value": 1,
+        "slug": "whip-tail-balance-or-climb",
+        "predicate": [
+          {
+            "or": ["action:balance", "action:climb"]
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "item",
+        "value": 2,
+        "slug": "whip-tail-grapple",
+        "predicate": ["action:grapple"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.bYrcZ0Oj3c10FZzP"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 320
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "implanted"
+      }
+    }
+  },
+  {
+    "id": "b0c712e1-9446-5a39-a3a3-68164c22e174",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:deadly-slashing-claws",
+    "name": "Deadly Slashing Claws",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["graft", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sharp claws have been grafted to your hands or feet, perhaps extending from your knuckles or the tips of your toes. You gain a claw unarmed attack that deals 1d6 slashing damage. These claws are in the brawling group and have the agile, deadly d8, and finesse traits."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "claw",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["agile", "deadly-d8", "finesse", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "slashing"
+        },
+        "display": {
+          "label": "Claw"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.wQUGBFZ5QNWXodU7"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 320
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "implanted"
+      }
+    }
+  },
+  {
+    "id": "6925e890-1038-5902-8664-d48a30a111a1",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:distracting-carapace",
+    "name": "Distracting Carapace",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["graft", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your skin is studded with pieces of iridescent chitin that ripple like oil on water. When you move your body in a distracting way, your allies can take advantage to move stealthily. When you Aid an ally who is trying to Create a Diversion, instead of the usual effects of Aid, you can roll an Acrobatics or Performance check and use that result to determine the outcome of the diversion, instead of attempting a Deception check."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.KUMWjgUXxB2iurBP"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 80
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "implanted"
+      }
+    }
+  },
+  {
+    "id": "b1afdc75-7e11-5f86-91b0-39867b6de3c0",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:dweomerveil",
+    "name": "Dweomerveil",
+    "level": 8,
+    "rarity": "rare",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This soft covering for the mouth and nose is made from the sleek fur of a dweomercat and is fastened with two gnarled teeth of the same beast. Each day during daily preparations, you must brush and oil the veil. At the conclusion of the activity, select one tradition of magic (arcane, divine, occult, or primal). You gain a +1 item bonus to all saves against magic from that tradition until your next daily preparations."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Dimension Leap",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentration, teleportation)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You succeed at a saving throw against a spell from the chosen tradition"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your veil billows out and you disappear behind it. You use the traces of dweomercat magic to teleport yourself instantly to any unoccupied square within 30 feet. If you critically succeeded at the triggering save, you can instead teleport within 45 feet."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include the hide and teeth of a dweomercat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "saving-throw",
+        "option": "option:dweomerveil-tradition",
+        "toggleable": true,
+        "suboptions": [
+          {
+            "value": "arcane",
+            "label": "Arcane"
+          },
+          {
+            "value": "divine",
+            "label": "Divine"
+          },
+          {
+            "value": "occult",
+            "label": "Occult"
+          },
+          {
+            "value": "primal",
+            "label": "Primal"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.2MQsz2hdqyYiXq0O"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 550
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "dimension-leap",
+          "name": "Dimension Leap",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "mask"
+      }
+    }
+  },
+  {
+    "id": "9a508d18-08cb-5415-8746-7b88cfe99b9f",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:echo-receptors",
+    "name": "Echo Receptors",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["graft", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can sense your surroundings using sonic pings rather than relying on your vision. You gain echolocation at 40 feet, allowing you to use hearing as a precise sense."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "dcc259e0-6067-5c06-87f7-e21937f70801",
+        "range": 40
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TXANyCI2y2PsaoxJ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 950
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "implanted"
+      }
+    }
+  },
+  {
+    "id": "4b95e573-97bc-5264-8f93-0c794815ed81",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:field-guide",
+    "name": "Field Guide",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This book contains illustrations and information on edible and dangerous plants. Most field guides tend to be region specific, such as the Mindspin Mountains or Osirian desert. If you are attempting to Subsist in the field guide's region with a skill you're untrained in, consulting the book gives you a +2 circumstance bonus to the skill check."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "skill-check",
+        "option": "option:field-guide",
+        "toggleable": true
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["action:subsist", "option:field-guide", "proficiency:untrained"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.yxKnUBe6W3yuRiMl"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "e14ae3af-2118-5944-a4e1-7dd8b13ce08d",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:flash-beetle-lantern",
+    "name": "Flash Beetle Lantern",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This unassuming hooded lantern contains a mass of flash beetle eggs suspended in a magical solution. It sheds light on a 45-foot radius (and dim light in the next 45 feet)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Spotlight",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (light, manipulate, visual)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Flipping a concealed lever in the lantern's handle triggers a small current to pass through the solution. The eggs brighten and emit a series of brilliant flashes in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": ". Each creature in the area of effect must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 18
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is Dazzled for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is Blinded for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is blinded for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include the eggs of a flash beetle."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.vk8ruSuKiv6pUtlK"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "spotlight",
+          "name": "Spotlight",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "d15d5a03-60dc-518e-a08c-705542cd6876",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:flower-press",
+    "name": "Flower Press",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A flower press resembles a book with wooden covers and straps that tighten down to apply pressure. There are individual pages for multiple plants. Pressing flowers and other plants in this way allows them to be preserved for future study or as ornamentation. It can also be used to make impressions of plants for inclusion in journals and guidebooks instead of illustrations. Most flower presses can contain a dozen or so flowers at a time, each one on a different layer."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.lsIRKHX2gZFCn8zt"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 6
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "452237db-109b-5519-be36-2ab78559e1e2",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:giant-catch-pole",
+    "name": "Giant Catch Pole",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This sturdy pole has a rope attached to one end in a loop with the other end extending to the handle. You can pull the handle side of the rope to tighten the loop. Using this loop, you can Grapple without having a free hand. A creature grabbed this way receives a –2 circumstance penalty to attack rolls when Striking with an unarmed attack. Due to limitations in the size of the loop, a catch pole can only be used on creatures sized Medium or smaller."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A giant catch pole is made from thicker steel and heavier rope. It functions the same as a catch pole but can be used to Grapple creatures up to your normal size limit. However, the implement is so ungainly that you are Clumsy 1 while wielding it."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "95992ad2-c08c-54e0-8c15-a3781e4ead40"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "69f88e3c-d871-5fb9-82c6-120348a7c0e8"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.qrOs3jNXJol6tWS4"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": 2,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "f8bf13f3-e99d-5bd5-b8e1-864a299d4673",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:gills",
+    "name": "Gills",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["graft", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Delicate folds in the skin just behind your ears ripple as water flows over them. You can breathe underwater."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.RiChMr22ar4ThfGF"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 450
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "implanted"
+      }
+    }
+  },
+  {
+    "id": "e33f6e82-a7a0-59f3-88bf-a86ec1ca9eaa",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:gliding-membranes-greater",
+    "name": "Gliding Membranes (Greater)",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["graft", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Membranes that stretch between your arms and torso help you convert a fall into a glide. Treat falls as 50 feet shorter. Even if you take fall damage, you can land on your feet by succeeding at a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:acrobatics",
+            "dc": 15
+          },
+          {
+            "type": "text",
+            "text": " check."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.aoQ1zaJCgbjaGb3S"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 340
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "implanted"
+      }
+    }
+  },
+  {
+    "id": "e92368a7-9248-5d41-8146-3c4228dbeabb",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:gliding-membranes-lesser",
+    "name": "Gliding Membranes (Lesser)",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["graft", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Membranes that stretch between your arms and torso help you convert a fall into a glide. Treat falls as 25 feet shorter. Even if you take fall damage, you can land on your feet by succeeding at a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:acrobatics",
+            "dc": 15
+          },
+          {
+            "type": "text",
+            "text": " check."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.bKnEt5fSc0Swz1p5"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "implanted"
+      }
+    }
+  },
+  {
+    "id": "ac71d14c-caef-5d3b-a3b1-e36b55b29cc0",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:goring-horn",
+    "name": "Goring Horn",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["graft", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A beast's horn or horns have been grafted onto your skull. You gain a horn unarmed attack that deals 1d8 piercing damage. This horn is in the brawling group and has the forceful and shove traits."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "horn",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["forceful", "shove", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d8",
+          "damageType": "piercing"
+        },
+        "display": {
+          "label": "Horn"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Roxn4bShFBRcU2Yt"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 320
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "implanted"
+      }
+    }
+  },
+  {
+    "id": "64c37f91-4fc1-5708-af24-1c1c856ec09c",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:high-contrast-goggles",
+    "name": "High-contrast Goggles",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Made with a brightly colored leather strap, these goggles have a series of overlapping lenses in an array of colors spanning the spectrum of visible light. The effect of this is that every color is more vibrant and similar shades have higher contrast. This means that shapes of even similar colors tend to stand out more, allowing the wearer to see even camouflage easier. As an Interact action, you can set the lenses to make things stand out at your current location. Until you move, you gain a +1 item bonus to Perception checks when you Seek."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:high-contrast-goggles",
+        "toggleable": true
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["action:seek", "option:high-contrast-goggles"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.P8mILknZPnolGHQq"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 80
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn",
+        "slot": "eyepiece"
+      }
+    }
+  },
+  {
+    "id": "8fc94e1e-4543-592c-8ed1-6795ee90cfee",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:land-delvers-chair",
+    "name": "Land-delver's Chair",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A supramarine chair is a wheeled, water-filled bath or tank, originally designed by merfolk, for assisting aquatic people's mobility on land. The heavier-duty land-delver's chair functions as a Traveler's Chair."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You increase your Speed to 20 feet or your swim Speed, whichever is lower."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:in-the-chair",
+        "toggleable": true,
+        "value": true,
+        "display": {
+          "label": "In the chair"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.DDkXLxbejG4g6X54"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": 2,
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "6135169e-d454-534d-bd8a-a88e4a5c2c25",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:mantle-of-the-tikbalang",
+    "name": "Mantle of the Tikbalang",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This long hide cloak is stitched with patches of the ebony hair of a tikbalang. While wearing this cloak, you take a –2 item penalty to saves against illusions but gain a +2 item bonus to Deception checks."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Illusory Thrash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, illusion, manipulate, mental)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You wrap the mantle around your body, causing you to briefly appear much larger than you are. Make a melee Strike. This Strike deals an additional 4d6 mental damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include the hide of a tikbalang."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "item",
+        "value": -2,
+        "predicate": ["item:trait:illusion"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "item",
+        "value": 2
+      },
+      {
+        "key": "RollOption",
+        "option": "option:illusory-thrash",
+        "toggleable": true,
+        "display": {
+          "label": "Mantle of the Tikbalang — Illusory Thrash"
+        }
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["melee-strike-damage"],
+        "diceNumber": 4,
+        "dieSize": "d6",
+        "damageType": "mental",
+        "predicate": ["option:illusory-thrash"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.iljqRzp23l8BdqVv"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 425
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "illusory-thrash",
+          "name": "Illusory Thrash",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "cloak"
+      }
+    }
+  },
+  {
+    "id": "a5d45af4-6b9f-5eaa-85c2-8a01fa07ef25",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:oilskin-pouch",
+    "name": "Oilskin Pouch",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Treated with oil and animal fats, the leather of this pouch is more resistant to water but is also stiffer. Many makers and travelers decorate their oilskin pouches with symbols of the ocean and sailing. Often used to store scrolls or other paper documents when a traveler knows they will be in an area of heavy rain or near water. While not entirely waterproof, an oilskin pouch seals with sturdy leather ties, allowing it to resist anything other than total submersion. Even completely underwater, it will protect its contents for up to 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An oilskin pouch can protect up to 1 Bulk of items."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Kd1WUWQnhagZGzjQ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 5
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "worn"
+      },
+      "container": {
+        "capacity": 1
+      }
+    }
+  },
+  {
+    "id": "1457f00a-3675-5541-a737-4896f46dab82",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:orm-choker",
+    "name": "Orm Choker",
+    "level": 10,
+    "rarity": "rare",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This elaborate choker is fashioned from the treated hide of a water orm. Its interior is lined with the creature's silky hair. While wearing an "
+          },
+          {
+            "type": "text",
+            "text": "orm choker",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", your form blurs slightly around the edges, granting you a +1 item bonus to saving throws against detection, revelation, and scrying effects."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Watery Form",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (concentration, water)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You dissolve into liquid, appearing only as a stretch of flowing water. While in this form, you gain a swim Speed of 45 feet, you automatically succeed at Athletics checks to Swim, and you gain a +4 circumstance bonus to Stealth checks in water. However, you can't speak, use any of your other items or abilities, or enter a body of salt water while in this form. You can remain in this form for up to 1 hour, though you can return to your normal form using a single action that has the concentrate trait."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "7cf54671-aa4c-5d1c-b17f-8f7f3a030e2a"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include the hide and hair of a water orm."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "item",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["item:trait:detection", "item:trait:revelation", "item:trait:scrying"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.glAmMnHZEmlK7PB0"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 950
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "watery-form",
+          "name": "Watery Form",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "collar"
+      }
+    }
+  },
+  {
+    "id": "07a2ce8a-9006-5620-a953-fd2f27c6e3dd",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:pelagic-helmet",
+    "name": "Pelagic Helmet",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Most merfolk have no problem surfacing for a while, but constant existence in the air is exhausting and demoralizing. A clever artisan off the coast of Arcadia came up with this solution—a sturdy frame that goes on the shoulders and supports a bubble-like helmet filled with water. A mouthpiece lets the wearer speak to the outside world, and a plant-based filtration system keeps the water at the appropriate level of freshness or brackishness for the wearer. Over the years, these contraptions have spread to most of the world's oceans, though many merfolk don't use them—some find the devices just too heavy and would rather deal with the dryness. The helms are especially popular with abyssal merfolk, who tint the glass dark to protect from the too-bright surface."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.cSnXSIoIMkDYSpSP"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "worn",
+        "slot": "headwear"
+      }
+    }
+  },
+  {
+    "id": "fbc87b0b-a772-55e1-8ed8-a2f73fb4ad60",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:piercing-horn",
+    "name": "Piercing Horn",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["graft", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A beast's horn or horns have been grafted onto your skull. You gain a horn unarmed attack that deals 1d8 piercing damage. This horn is in the brawling group."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "horn",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d8",
+          "damageType": "piercing"
+        },
+        "display": {
+          "label": "Horn"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ovXO1mVLO1Y3H5Oc"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 52
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "implanted"
+      }
+    }
+  },
+  {
+    "id": "836ffcd7-b172-5bbb-b1d4-e1b63ab84a0d",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:portable-animal-blind",
+    "name": "Portable Animal Blind",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Simple blinds consist of a series of poles with a cloth to cover them. The cloth covering is styled to represent the natural surroundings such as green and brown leaf and wood patterns for forests, or gray rocks for underground environments. This cloth is either sheer enough to be seen through on one side, or sometimes has small slits cut in it, allowing someone behind it to see what is going on outside while remaining Hidden. While not the most convincing camouflage, it's good enough to fool many animals and creatures with lower intelligence."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Portable blinds are made of a wooden frame with camouflage material stretched over them, resembling a large kite. A hole in the center allows for a one-handed ranged weapon to be fired without obstruction. A single person can use the Take Cover action while carrying a portable blind. When you do so, you gain a +2 circumstance bonus to Stealth checks to Hide instead of the normal benefits of standard cover."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "441d07e9-61d4-5a0d-a257-fbef7eaf8f85"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.fOfNBgb6xbu8eA4e"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 20
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "7f74c400-d9e3-5289-9b57-43e9d745dd8e",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:sharpened-canines",
+    "name": "Sharpened Canines",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["graft", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Some of your teeth have been replaced with those of a larger meat-eating predator. You gain a jaws unarmed attack that deals 1d6 piercing damage. These jaws are in the brawling group."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "jaws",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "piercing"
+        },
+        "display": {
+          "label": "Jaws"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.CWoEVroYgXBYtYaU"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "implanted"
+      }
+    }
+  },
+  {
+    "id": "d73de36f-38b1-549b-9b8f-d87e627f413c",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:sifting-pan",
+    "name": "Sifting Pan",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A simple circular or rectangle pan with a mesh on the bottom. Often used for sifting through dirt or mud to find gold, sifting pans can be used to search for many materials, depending on the size of the holes in the mesh."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Ktqezky8OHQKFrXi"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 3
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "a16353df-af9d-5e66-9aa4-27cbe6c4753d",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:slashing-claws",
+    "name": "Slashing Claws",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["graft", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sharp claws have been grafted to your hands or feet, perhaps extending from your knuckles or the tips of your toes. You gain a claw unarmed attack that deals 1d4 slashing damage. These claws are in the brawling group and have the agile and finesse traits."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "claw",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["agile", "finesse", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d4",
+          "damageType": "slashing"
+        },
+        "display": {
+          "label": "Claw"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.pze7NQzMOhUxvkoM"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "implanted"
+      }
+    }
+  },
+  {
+    "id": "f2c05f78-f190-5195-ae36-877c738bc0b6",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:spry-sinews-greater",
+    "name": "Spry Sinews (Greater)",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["graft", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The tendons in your legs are uncommonly stretchy. When you Leap, you increase the horizontal distance of your Leap by 10 feet and the vertical distance by 6 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.dFoQzB7B1cA9dwMc"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1300
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "implanted"
+      }
+    }
+  },
+  {
+    "id": "fa5d0850-5e78-50eb-8b26-c25ea024def9",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:spry-sinews-lesser",
+    "name": "Spry Sinews (Lesser)",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["graft", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The tendons in your legs are uncommonly stretchy. When you Leap, you increase the horizontal distance of your Leap by 5 feet and the vertical distance by 3 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.giDq25tzS7rWG9ch"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 55
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "implanted"
+      }
+    }
+  },
+  {
+    "id": "c34ec24e-1a52-5b09-8fea-3c5ce90bf56b",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:squid-ink-sac",
+    "name": "Squid Ink Sac",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["graft", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sacs full of dark ink have been implanted inside your mouth, allowing you to spit it forth."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Spray Ink",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You splatter ink in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": ", covering creatures and revealing Invisible ones. Each creature in the area must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 20
+          },
+          {
+            "type": "text",
+            "text": " save or become covered in ink. If a creature has its invisibility negated by this ink, it is Concealed instead of invisible. A creature can negate the effects of the ink by spending two Interact actions to wipe off the ink."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target's invisibility is negated for 2 rounds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is Blinded for 1 round. Its invisibility is negated for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is blinded for 10 minutes. Its invisibility is negated for 10 minutes."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If this graft is used underwater, you can instead choose to release the ink in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": ". The resulting ink cloud lasts for 10 minutes. All creatures in the ink cloud become concealed, and all creatures outside the ink cloud become concealed to creatures within it."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.OhCgwW4g6A1mbjmH"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 160
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "spray-ink",
+          "name": "Spray Ink",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "implanted"
+      }
+    }
+  },
+  {
+    "id": "7a198672-64a5-5fd4-b226-ca02842c5ed1",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:superior-catch-pole",
+    "name": "Superior Catch Pole",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This sturdy pole has a rope attached to one end in a loop with the other end extending to the handle. You can pull the handle side of the rope to tighten the loop. Using this loop, you can Grapple without having a free hand. A creature grabbed this way receives a –2 circumstance penalty to attack rolls when Striking with an unarmed attack. Due to limitations in the size of the loop, a catch pole can only be used on creatures sized Medium or smaller."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A superior catch pole has a pole made of dawnsilver, and the loop at the end is silk rope, making it sturdier and more agile. It functions the same as a catch pole but gives you a +1 item bonus to Athletics checks made to Grapple with it."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "95992ad2-c08c-54e0-8c15-a3781e4ead40"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "skill-check",
+        "option": "option:superior-catch-pole",
+        "toggleable": true
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["action:grapple", "option:superior-catch-pole"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.752IrectHHkJwxd0"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 80
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "6fbe4742-fb18-5ef2-ae84-29d680dad700",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:supramarine-chair",
+    "name": "Supramarine Chair",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A supramarine chair is a wheeled, water-filled bath or tank, originally designed by merfolk, for assisting aquatic people's mobility on land. A supramarine chair functions as a Wheelchair."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You increase your Speed to 20 feet or your swim Speed, whichever is lower."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:in-the-chair",
+        "toggleable": true,
+        "value": true,
+        "display": {
+          "label": "In the chair"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.4aK5kCliPesu3nIK"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 5
+        }
+      },
+      "bulk": 2,
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "f1a79f89-4edb-5595-9b90-ce055b49d3b0",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:swooping-wings",
+    "name": "Swooping Wings",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["graft", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A pair of feathered wings are anchored to your shoulder bones. You gain a 25-foot fly Speed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": 25
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ea3GR5yMleIWZmfZ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15000
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "implanted"
+      }
+    }
+  },
+  {
+    "id": "9ed2690f-b9a5-50b3-a189-027e5724ed94",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:toxic-blood",
+    "name": "Toxic Blood",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["graft", "invested", "magical", "poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your blood flows with tetrodotoxin or a similar toxin, poisoning enemies who dare to bite you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Creatures that damage you with an attack using their mouths (such as a jaws or fang Strike) must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 26
+          },
+          {
+            "type": "text",
+            "text": " saving throw."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is Sickened 1."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and is sickened 1."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and is Sickened 2."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.P21m8mTOynuoJXaR"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 650
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "implanted"
+      }
+    }
+  },
+  {
+    "id": "e247bb3f-202e-5682-be1f-812c9895fd28",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:tracking-tag",
+    "name": "Tracking Tag",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Small and unobtrusive tags made from a durable material, often leather or hardwood, tracking tags are attached to wild animals, usually by a collar, to track their movements. They also serve as a way to let others know that someone is keeping track of this animal. Each tag is also inscribed with a unique label so individual creatures can be more easily identified among a herd."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.kD9pDXNDctW6smjU"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 1
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "affixed",
+        "to": "a-creature"
+      }
+    }
+  },
+  {
+    "id": "bb1def2c-bc63-539f-8ad9-7df1d4d64f60",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:trundle-wheel",
+    "name": "Trundle Wheel",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A trundle wheel is used to measure distance. It is a wheel attached to a handle so that it rolls along the ground. The wheel is often covered with leather or a rough metal to allow better grip on a surface and ensure it maintains traction. It's of an exact circumference, usually a yard or five feet. Each time it makes a complete rotation it makes an audible click so the user knows they have gone exactly that distance and can count the clicks to determine a longer distance traveled."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.OLM87MUxqc0ZISHr"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "ba4a0d24-c783-54f5-8445-808871164525",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:tubeworm-gland",
+    "name": "Tubeworm Gland",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["graft", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Thanks to a graft from a hardy deep-sea invertebrate in your stomach, you can ingest food and water that would be toxic to others. You gain a +2 item bonus to Fortitude saving throws against ingested diseases and poisons."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:fortitude"],
+        "type": "item",
+        "value": 2,
+        "predicate": [
+          "item:trait:ingested",
+          {
+            "or": ["item:trait:disease", "item:trait:poison"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.aFi3p8CEYEM8ZNTT"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 330
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "implanted"
+      }
+    }
+  },
+  {
+    "id": "eee636ff-527c-52c5-91aa-e6dfaa45e318",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:venom-glands",
+    "name": "Venom Glands",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["graft", "invested", "magical", "poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your salivary glands are modified to be capable of spraying a deadly venom. You gain a poison spray unarmed ranged attack with a range increment of 10 feet that deals 1d4 poison damage. On a critical hit, the target is also Sickened 1."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "poison-spray",
+        "category": "unarmed",
+        "traits": ["unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d4",
+          "damageType": "poison"
+        },
+        "range": 10,
+        "display": {
+          "label": "Poison Spray"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.oYFeq5nbGKx7VfuF"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 55
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "implanted"
+      }
+    }
+  },
+  {
+    "id": "a2a3f37d-581e-5bf3-b2e8-490645ea903d",
+    "pack": "howl-of-the-wild",
+    "kind": "equipment",
+    "slug": "equipment:whip-tail",
+    "name": "Whip Tail",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["graft", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have a strong, prehensile tail. You gain a tail unarmed attack that deals 1d6 bludgeoning damage. This tail is in the brawling group. You gain a +1 item bonus to Acrobatics checks to Balance and to Athletics checks to Climb. You can also use your tail for the Grab an Edge action, even if your hands are otherwise occupied."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "tail",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "bludgeoning"
+        },
+        "display": {
+          "label": "Tail"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics", "skill:acrobatics"],
+        "type": "item",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["action:balance", "action:climb"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ACdeqHG0cnSHoaOB"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 45
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "implanted"
+      }
+    }
+  }
+]

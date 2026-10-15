@@ -1,0 +1,5649 @@
+[
+  {
+    "id": "5a7da85e-d7a1-5180-892c-0d11cae4c13e",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:aura-fuming-cloak",
+    "name": "Aura: Fuming Cloak",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "a151871a-37c3-5dbd-b54f-be5d978dd940"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The "
+          },
+          {
+            "type": "text",
+            "text": "nightmare's lament",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " continually vents thick, black smoke that creates concealment in a 15-foot aura around the gun's wielder."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Aura",
+        "slug": "fuming-cloak",
+        "radius": 15,
+        "traits": [],
+        "effects": [
+          {
+            "effect": "c1569b5c-45aa-531e-a927-d2601935d942",
+            "affects": "all",
+            "events": ["enter"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.fElGbAOJJm4Iv9rU"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "cd044c07-29b2-5428-b924-99a8b4f17442",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-all-are-one",
+    "name": "Effect: All Are One",
+    "level": 22,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The area of bioluminescent maelstrom and the reach of their tentacle Strike increase by 10 feet, to a maximum of an additional 30 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.Rs64h4dLbYVWvFJe"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "bb1f16e0-57ba-5ed6-a626-b6a2b364f0c6",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-amphisbaena-spittle",
+    "name": "Effect: Amphisbaena Spittle",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "91a73cf5-cd8a-5a4e-87ca-73eccaabfe6b"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The target cannot be flanked until the start of its next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.s0Qfrd9asEgT9wUL"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "745234d9-3842-54c4-8a4a-2627ff9b0fb0",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-animal-blind",
+    "name": "Effect: Animal Blind",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "e6a39c53-223d-5e6d-b3ea-43a3a2098710"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +4 circumstance bonus to Stealth checks to Hide."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "circumstance",
+        "value": 4,
+        "predicate": ["action:hide"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.TJXXAp7MunXcZTCP"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "1387d792-2d33-57bd-a7a2-ad3a7f9691cf",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-bolstering-croak",
+    "name": "Effect: Bolstering Croak",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1dbc786d-af3e-5175-8ada-97067f113e87"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Allies gain a +1 status bonus to saves against fear effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["item:trait:fear"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.lgs9NGaWM53EEawX"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "95992ad2-c08c-54e0-8c15-a3781e4ead40",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-catch-pole",
+    "name": "Effect: Catch Pole",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "daac0c60-ba7f-524f-9068-5e5f7a4ae0ef"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "452237db-109b-5519-be36-2ab78559e1e2"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "7a198672-64a5-5fd4-b226-ca02842c5ed1"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A creature grabbed by the catch pole receives a –2 circumstance penalty to attack rolls when Striking with an unarmed attack."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll"],
+        "type": "circumstance",
+        "value": -2,
+        "predicate": ["item:category:unarmed"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.BJLvQd1xCagDFxwy"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "72cb86f0-04e3-535e-b04b-a6831a14ff8a",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-caustic-jabs",
+    "name": "Effect: Caustic Jabs",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "a6f92ad7-d6ae-5e4f-80a9-0f8fb499b19c"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your Strikes with the "
+          },
+          {
+            "type": "text",
+            "text": "ankhrav duster",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " deal an additional 1d6 persistent acid damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["ankhrav-duster-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "acid",
+        "category": "persistent"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.0YkzZEywOgVdcMHc"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "1e11ae6a-f022-5ac8-a6b4-6e47b858c2bb",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-change-shape-werecreature",
+    "name": "Effect: Change Shape (Werecreature)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by Change Shape"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform into your hybrid or animal shape. Your equipment transforms with you and continues to provide bonuses, but your animal shape cannot use weapons, shields, or other held items and cannot use manipulate actions. You gain a movement speed, unarmed attacks, and potentially other abilities based on your werecreature type. These unarmed attacks are in the brawling group. You can Dismiss the effect to return to your humanoid shape, and you resume your humanoid shape automatically if you're reduced to 0 Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-change-shape-werecreature",
+        "choices": [
+          {
+            "value": "animal",
+            "label": "Animal"
+          },
+          {
+            "value": "hybrid",
+            "label": "Hybrid"
+          }
+        ],
+        "rollOption": "change-shape",
+        "display": {
+          "label": "Current Form"
+        }
+      },
+      {
+        "key": "Change",
+        "selector": "speed:land",
+        "mode": "upgrade",
+        "value": 10,
+        "predicate": ["werecreature:werebat"]
+      },
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": 15,
+        "predicate": ["werecreature:werebat"]
+      },
+      {
+        "key": "Change",
+        "selector": "speed:land",
+        "mode": "upgrade",
+        "value": 25,
+        "predicate": [
+          {
+            "or": [
+              "werecreature:werebear",
+              "werecreature:werecrocodile",
+              "werecreature:weremoose",
+              "werecreature:wererat",
+              "werecreature:weretiger"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "Change",
+        "selector": "speed:land",
+        "mode": "upgrade",
+        "value": 30,
+        "predicate": [
+          {
+            "or": ["werecreature:wereboar", "werecreature:werewolf"]
+          }
+        ]
+      },
+      {
+        "key": "Change",
+        "selector": "speed:swim",
+        "mode": "upgrade",
+        "value": 15,
+        "predicate": ["werecreature:werecrocodile"]
+      },
+      {
+        "key": "Change",
+        "selector": "speed:land",
+        "mode": "upgrade",
+        "value": 15,
+        "predicate": ["werecreature:wereshark", "change-shape:hybrid"]
+      },
+      {
+        "key": "Change",
+        "selector": "speed:swim",
+        "mode": "upgrade",
+        "value": 25,
+        "predicate": ["werecreature:wereshark", "change-shape:hybrid"]
+      },
+      {
+        "key": "Strike",
+        "slug": "fangs",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d8",
+          "damageType": "piercing"
+        },
+        "predicate": ["werecreature:werebat"],
+        "display": {
+          "label": "Fangs"
+        }
+      },
+      {
+        "key": "Strike",
+        "slug": "jaws",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d8",
+          "damageType": "piercing"
+        },
+        "predicate": [
+          {
+            "or": ["werecreature:werebear", "werecreature:weretiger"]
+          }
+        ],
+        "display": {
+          "label": "Jaws"
+        }
+      },
+      {
+        "key": "Strike",
+        "slug": "claw",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["agile", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "slashing"
+        },
+        "predicate": [
+          {
+            "or": ["werecreature:werebear", "werecreature:weretiger"]
+          }
+        ],
+        "display": {
+          "label": "Claw"
+        }
+      },
+      {
+        "key": "Strike",
+        "slug": "tusk",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["sweep", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d8",
+          "damageType": "slashing"
+        },
+        "predicate": ["werecreature:wereboar"],
+        "display": {
+          "label": "Tusk"
+        }
+      },
+      {
+        "key": "Strike",
+        "slug": "jaws",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["grapple", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d8",
+          "damageType": "piercing"
+        },
+        "predicate": [
+          {
+            "or": ["werecreature:werecrocodile", "werecreature:wereshark"]
+          }
+        ],
+        "display": {
+          "label": "Jaws"
+        }
+      },
+      {
+        "key": "Strike",
+        "slug": "antler",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["shove", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d8",
+          "damageType": "piercing"
+        },
+        "predicate": ["werecreature:weremoose"],
+        "display": {
+          "label": "Antler"
+        }
+      },
+      {
+        "key": "Strike",
+        "slug": "jaws",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["finesse", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "piercing"
+        },
+        "predicate": ["werecreature:wererat"],
+        "display": {
+          "label": "Jaws"
+        }
+      },
+      {
+        "key": "Strike",
+        "slug": "claw",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["agile", "finesse", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d4",
+          "damageType": "slashing"
+        },
+        "predicate": ["werecreature:wererat"],
+        "display": {
+          "label": "Claw"
+        }
+      },
+      {
+        "key": "Strike",
+        "slug": "jaws",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["trip", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d8",
+          "damageType": "piercing"
+        },
+        "predicate": ["werecreature:werewolf"],
+        "display": {
+          "label": "Jaws"
+        }
+      },
+      {
+        "key": "CreatureSize",
+        "value": "small",
+        "predicate": ["werecreature:wererat", "change-shape:animal"]
+      },
+      {
+        "key": "ActorTraits",
+        "add": ["amphibious"],
+        "predicate": ["werecreature:wereshark", "change-shape:hybrid"]
+      },
+      {
+        "key": "ActorTraits",
+        "add": ["aquatic"],
+        "predicate": ["werecreature:wereshark", "change-shape:animal"]
+      },
+      {
+        "key": "Change",
+        "selector": "speed:swim",
+        "mode": "upgrade",
+        "value": 35,
+        "predicate": ["werecreature:wereshark", "change-shape:animal"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.Q8pD29NcGGuRxWwh"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "937dd5bf-498a-5643-9fd9-969a8abe0f86",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-conduct",
+    "name": "Effect: Conduct",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The concert frog and all allies within 60 feet gain one of the following three effects until the beginning of the concert frog's next turn."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Red",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Grants a +10-foot status bonus to their Speeds."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Blue",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Grants a +1 status bonus to AC and Fortitude saving throws."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Yellow",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Allies gain a +1 status bonus to attack rolls and deal an additional 1d4 sonic damage on successful melee Strikes."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-conduct",
+        "choices": [
+          {
+            "value": "blue",
+            "label": "Blue"
+          },
+          {
+            "value": "red",
+            "label": "Red"
+          },
+          {
+            "value": "yellow",
+            "label": "Yellow"
+          }
+        ],
+        "rollOption": "conduct"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "save:fortitude"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["conduct:blue"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["speed"],
+        "type": "status",
+        "value": 10,
+        "predicate": ["conduct:red"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["conduct:yellow"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 1,
+        "dieSize": "d4",
+        "damageType": "sonic",
+        "predicate": ["conduct:yellow"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.I4C55X7AzchlF9FM"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "729ba2d6-c594-5cbd-aea3-cdd06c8bbcdf",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-deceptive-heads",
+    "name": "Effect: Deceptive Heads",
+    "level": 11,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The number of deceptive heads the tyrafdir currently has."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.NZ3MrmXkmfQuJp7S"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      },
+      "badge": {
+        "type": "counter",
+        "value": 1
+      }
+    }
+  },
+  {
+    "id": "a7cc4221-792b-53df-9a13-4177d12e5e14",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-echolocation",
+    "name": "Effect: Echolocation",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "d81e649f-15e4-552b-9d66-7973af9fd31a"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can use hearing as a precise sense with a range of 40 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "dcc259e0-6067-5c06-87f7-e21937f70801",
+        "range": 40
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.8uXXaQ3Y5FP2mwn6"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "68889bba-3969-5dc6-b80c-d760a1f3ce05",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-feel-no-pain",
+    "name": "Effect: Feel No Pain",
+    "level": 11,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The swarm gains 10 temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.4EeKKdeKIO8Wc4jf"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "c82ce3a0-8ce4-5b48-8055-823b620229fb",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-force-of-nature-silver-damage",
+    "name": "Effect: Force of Nature (Silver Damage)",
+    "level": 16,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "6350aa11-934f-5bc6-ba6f-d14cbc1b24a6"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your fast healing deactivates."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.PD1tyMvE75VU2qVi"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "54a74c1b-2321-5545-b82d-6a1f0af2db44",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-foxs-wager",
+    "name": "Effect: Fox's Wager",
+    "level": 22,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The target gains a +1 status bonus to attack rolls and a +5 status bonus to damage against constructs, objects, and structures constructed by humanoids. It also gains a +2 status bonus to Stealth checks against humanoids."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:foxs-wager",
+        "toggleable": true
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["option:foxs-wager"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["damage"],
+        "type": "status",
+        "value": 5,
+        "predicate": ["option:foxs-wager"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["option:foxs-wager"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.Hc0BhuLHaldO3vqG"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "c1569b5c-45aa-531e-a927-d2601935d942",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-fuming-cloak",
+    "name": "Effect: Fuming Cloak",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "a151871a-37c3-5dbd-b54f-be5d978dd940"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Everything within the aura is concealed by thick, black smoke."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "f410da96-b56a-5c7c-857b-7096defec0a1"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.WuWktq2gkRSCzfBp"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "bc2bd9a4-f5ce-5b6a-8384-6f7479cb40c0",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-grab-debris",
+    "name": "Effect: Grab Debris",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The scroungefeather gains access to the listed abilities until it uses Tossed Scraps to discard the debris or until it Releases the debris. The scroungefeather can't use its beak attack while it is using its beak to Grab Debris."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": true,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Armor scrap",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The scroungefeather gains a +2 circumstance bonus to its AC."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Shattered blade",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The scroungefeather gains a broken blade melee Strike with a +12 attack modifier that deals 2d10+6 slashing damage."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Unexploded bomb",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " When the scroungefeather throws this with Tossed Scraps, all the damage is fire damage, and the bomb also deals 3 fire splash damage."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Faulty wand",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The scroungefeather gains a magic bolt ranged Strike with a +14 attack modifier that deals 2d6+6 force damage."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["self:effect:grab-debris:1"]
+      },
+      {
+        "key": "DamageAlteration",
+        "selectors": ["inline-damage"],
+        "property": "damage-type",
+        "mode": "override",
+        "value": "fire",
+        "predicate": ["item:slug:tossed-scraps", "self:effect:grab-debris:3"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.bhSG1uP41ilmyzPu"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      },
+      "badge": {
+        "type": "formula",
+        "formula": "1d4"
+      }
+    }
+  },
+  {
+    "id": "4e57e4e3-e8c4-546e-b15b-53d7edc92a66",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-grasp-of-the-deep",
+    "name": "Effect: Grasp of the Deep",
+    "level": 22,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains cold weakness 10 and take a –2 status penalty to Fortitude saves."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Weakness",
+        "type": ["cold"],
+        "value": 10
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:fortitude"],
+        "type": "status",
+        "value": -2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.HzPg4iUmO3F6tbK6"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "e6e85915-781c-528c-82f6-64b59ab44924",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-hopeful-athamaru",
+    "name": "Effect: Hopeful Athamaru",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "39ea47c2-8cf0-52f6-8cb4-539e7170beaa"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to saving throws against fear."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["item:trait:fear"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.bmcvernfk6l4EbAG"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "0ad0a841-c635-573a-91fa-1009e87b838f",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-hydra-mutagen",
+    "name": "Effect: Hydra Mutagen",
+    "level": 13,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "9460da9a-9672-5a70-af82-287f16b18cca"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain all-around vision and a +3 item bonus to all Intelligence- and Wisdom-based skill checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drawback",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are clumsy 1."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["int-skill-check", "wis-skill-check"],
+        "type": "item",
+        "value": 3
+      },
+      {
+        "key": "GrantItem",
+        "item": "69f88e3c-d871-5fb9-82c6-120348a7c0e8"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.jJ038JXfHdvDindo"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "d82f96e4-c814-5d2d-8990-d08a06213d77",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-kettle-up-boiling",
+    "name": "Effect: Kettle Up (Boiling)",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –2 penalty to Perception checks to hear sources other than the flynkett."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "circumstance",
+        "value": -2,
+        "predicate": [
+          {
+            "lte": ["target:distance", 30]
+          },
+          "target:audible"
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.zNdEXVVMbC9i4Yox"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "02047983-f8e1-5593-b0b0-2d0cea1d8cf7",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-lightning-rod",
+    "name": "Effect: Lightning Rod",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "127e9bf6-0759-5cb2-a87d-f7849668e7b5"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The next melee Strike you make with the "
+          },
+          {
+            "type": "text",
+            "text": "fulmination fang",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " deals an additional 1d6 electricity damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["fulmination-fang-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "electricity",
+        "predicate": ["item:melee"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.f3I8KyhABpDBwdwB"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "60c53eba-abda-5f9a-b73c-1b4f63cf4a44",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-luminous-lure",
+    "name": "Effect: Luminous Lure",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c4eff0a1-a3de-57f5-bffe-c46309e90d8b"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The "
+          },
+          {
+            "type": "text",
+            "text": "mamlambo scale",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " sheds dim light in a 20-foot emanation."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Aura",
+        "slug": "luminous-lure",
+        "radius": 20,
+        "traits": []
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.fUTRC90zRQiXJ1k1"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "2438e181-6e73-5c4d-88e7-7e43c1e08c89",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-mammoth-land-star-limbs",
+    "name": "Effect: Mammoth Land Star Limbs",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The number of limbs the mammoth land star currently has."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.Dby3ecpqPheBrgnT"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      },
+      "badge": {
+        "type": "counter",
+        "value": 1
+      }
+    }
+  },
+  {
+    "id": "4cdc6c59-d235-5c15-8924-2be28dfa34d9",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-mentor-of-legends",
+    "name": "Effect: Mentor of Legends",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "4c6fe8af-4162-565b-bf96-ece7089aece0"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The target gains temporary Hit Points equal to half your level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.jw5uOE1sJ9o9bUEb"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "9abffb71-ac00-5e40-97ec-145bc27aa913",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-misty-chill",
+    "name": "Effect: Misty Chill",
+    "level": 12,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "41ff8636-99b8-5bcd-a503-d87755e941e1"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You Raise the Shield and you gain resistance 5 to cold."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "6d28ce6a-b876-5711-b183-9f1528122d4b"
+      },
+      {
+        "key": "Resistance",
+        "type": ["cold"],
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.WFwdWcD1xhO44n2d"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "7e32a71b-40ae-5456-8d58-f6c4619b8891",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-noxious-exhalation",
+    "name": "Effect: Noxious Exhalation",
+    "level": 11,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains weakness to mental 10 and a –1 status penalty to Will saves."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Weakness",
+        "type": ["mental"],
+        "value": 10
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:will"],
+        "type": "status",
+        "value": -1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.G1pvduwOVRz4YFUF"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 24,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "0e9f67c3-47e5-54ea-965b-ae8331d11c17",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-ommatophoric-mutagen",
+    "name": "Effect: Ommatophoric Mutagen",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "2d7a64c0-6a0a-570e-9199-9e403c567110"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain all-around vision, a +2 item bonus to visual Perception checks, and low-light vision if you don't already have it."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drawback",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take a –2 penalty to saving throws against effects that have the visual trait."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["option:visual"]
+      },
+      {
+        "key": "Sense",
+        "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "untyped",
+        "value": -2,
+        "predicate": ["option:visual"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.ZxT8Shp8NZaQRjlQ"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "c7eda721-3d20-5e94-a7c6-bce7a5ea1a09",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-paired-spikes",
+    "name": "Effect: Paired Spikes",
+    "level": 18,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains weakness 15 to electricity damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Weakness",
+        "type": ["electricity"],
+        "value": 15
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.nW9GbEP1NqFodqE0"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "43e36143-d2ad-5be9-914b-3f14e22f9dd9",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-pallesthetic-mutagen",
+    "name": "Effect: Pallesthetic Mutagen",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "af0d42bd-7554-57d0-b6d7-5b21fa05731a"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain precise echolocation out to 40 feet, imprecise tremorsense out to 60 feet, and a +2 item bonus to Perception checks using either of these senses."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drawback",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are blinded."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "dcc259e0-6067-5c06-87f7-e21937f70801",
+        "range": 40
+      },
+      {
+        "key": "Sense",
+        "sense": "367b9fa7-8944-5208-9949-9457984b7c59",
+        "acuity": "imprecise",
+        "range": 60
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "item",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["option:using-echolocation", "option:using-tremorsense"]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.weKnwX64fD5fuPjy"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "441d07e9-61d4-5a0d-a257-fbef7eaf8f85",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-portable-animal-blind",
+    "name": "Effect: Portable Animal Blind",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "836ffcd7-b172-5bbb-b1d4-e1b63ab84a0d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to Stealth checks to Hide."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["action:hide"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.lpEPfVGRArMYFM2W"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "b9e5b6d6-8f05-5240-9ba3-d4ab30cbadf8",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-portents-of-the-haruspex",
+    "name": "Effect: Portents of the Haruspex",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "9e97a4e6-9216-5f3b-a0f1-f8adf0c2ecac"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Roll 1d12 to determine the damage type. The next time before the end of your next turn that you or your allies deals that damage type to an enemy, that enemy has weakness equal to your level against that damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.l5NDN9V3DwFYPIsD"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      },
+      "badge": {
+        "type": "formula",
+        "formula": "1d12"
+      }
+    }
+  },
+  {
+    "id": "43ceddea-6956-50f2-b3aa-8dc0b1d5bc20",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-proud-mentor",
+    "name": "Effect: Proud Mentor",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c7732144-bd0b-5ed0-ba2c-bc54cbe60624"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points equal to your level."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@level"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.D7JhDc4dcWhORY9h"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "870dca91-c877-5c5e-860e-2d03390163f2",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-repel-ambient-magic",
+    "name": "Effect: Repel Ambient Magic",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "430e3401-bc93-5ab6-9789-3302e6eeefcc"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to AC and saving throws against the next magical attack, cantrip, or spell that targets you. This bonus increases to +2 at 12th level."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "saving-throw"],
+        "type": "circumstance",
+        "value": "ternary(gte(@level, 12), 2, 1)"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.wnCKvlOecXAmtWII"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "27f3c4f6-58e1-51bc-9ea2-884cea8be61f",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-shielding-wave",
+    "name": "Effect: Shielding Wave",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "77327f2d-3fd3-585f-83ee-96418b04e301"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance to acid or fire damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "resistance",
+        "choices": [
+          {
+            "value": "acid",
+            "label": "Acid"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          }
+        ],
+        "prompt": "Select a resistance."
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.xYCoyHRLdOXm8Ndr"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "2533505b-49c8-5bfe-9075-bd990376116b",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-siphon-torment",
+    "name": "Effect: Siphon Torment",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f541023e-75f6-5dc2-a4f5-6f71f7288208"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points equal to the origin's level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.cmwlVYHtp3a1OipU"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 5,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "63426b93-f45d-5384-b5b4-e62b3c1bbb48",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-song-of-the-skies",
+    "name": "Effect: Song of the Skies",
+    "level": 22,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a fly speed of 60 ft."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": 60
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.dZDpfgU63rXbBHpe"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "518b38ff-6544-54ff-9483-7344b6a00106",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-starshot-arrow",
+    "name": "Effect: Starshot Arrow",
+    "level": 17,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "ddf70340-2800-5084-a8d0-1e4af832bff8"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –10-foot circumstance penalty to your Speeds or become immobilized if the Strike was a critical hit."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Note: Adjust duration based on roll results.",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-starshot-arrow",
+        "choices": [
+          {
+            "value": "success",
+            "label": "Hit",
+            "predicate": [
+              {
+                "or": [
+                  "parent:context:check:outcome:2",
+                  {
+                    "not": {
+                      "gte": ["parent:context:check:outcome", 0]
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "critical-success",
+            "label": "Critical Hit",
+            "predicate": [
+              {
+                "or": [
+                  "parent:context:check:outcome:3",
+                  {
+                    "not": {
+                      "gte": ["parent:context:check:outcome", 0]
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select the degree of success.",
+        "rollOption": "effect-starshot-arrow"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "circumstance",
+        "value": -10,
+        "predicate": ["effect-starshot-arrow:success"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "64278392-4910-5a32-b819-56f6e54952dd",
+        "predicate": ["effect-starshot-arrow:critical-success"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.DlCxZAOFmppft3Lh"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 8,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "89bc611c-7fd0-5dc2-b638-f8672744741d",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-static-field",
+    "name": "Effect: Static Field",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Plant creatures gain 5 temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 5,
+        "predicate": ["self:trait:plant"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.MGlENdqYCAwBkyXt"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "d9d4140e-4456-5872-b4ac-0526fd6f991c",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-turn-aside-ambient-magic",
+    "name": "Effect: Turn Aside Ambient Magic",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "65f76828-951a-591f-babe-c47919ddce74"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose acid, cold, electricity, fire, or sonic damage. You gain resistance against the chosen damage type equal to half your level."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "damage",
+        "choices": [
+          {
+            "value": "acid",
+            "label": "Acid"
+          },
+          {
+            "value": "cold",
+            "label": "Cold"
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "sonic",
+            "label": "Sonic"
+          }
+        ],
+        "prompt": "Select a damage type."
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.uRwnbZ0xWrB5ZzZ9"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "8628af6c-0e99-521f-a1c9-dc17442a3637",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-viperous-elixir-greater",
+    "name": "Effect: Viperous Elixir (Greater)",
+    "level": 11,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "6f2c00bb-e8b7-5d46-a959-e373d890c181"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a fangs unarmed attack that deals 1d6 piercing damage. You gain a +3 item bonus to unarmed attack and damage rolls when you Strike with your fangs or another bite attack."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "fangs",
+        "category": "unarmed",
+        "traits": ["unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "piercing"
+        },
+        "display": {
+          "label": "Fangs"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["bite-attack", "bite-damage", "fangs-attack", "fangs-damage", "jaws-attack", "jaws-damage"],
+        "type": "item",
+        "value": 3
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.zW8adCNIRo46mfEH"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "62d349ef-1f58-5201-bdb5-08bbe97fdf37",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-viperous-elixir-lesser",
+    "name": "Effect: Viperous Elixir (Lesser)",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "78e91d8e-29bb-5cfa-8cc2-caee7a66202c"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a fangs unarmed attack that deals 1d6 piercing damage. You gain a +1 item bonus to unarmed attack and damage rolls when you Strike with your fangs or another bite attack."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "fangs",
+        "category": "unarmed",
+        "traits": ["unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "piercing"
+        },
+        "display": {
+          "label": "Fangs"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["bite-attack", "bite-damage", "fangs-attack", "fangs-damage", "jaws-attack", "jaws-damage"],
+        "type": "item",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.zao2sENSQlMLYhyr"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "e48a2450-314f-5522-9f78-42af4dadcf94",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-viperous-elixir-moderate",
+    "name": "Effect: Viperous Elixir (Moderate)",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "ea6e571f-7d7e-5f77-b562-ac610e5b6baa"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a fangs unarmed attack that deals 1d6 piercing damage. You gain a +2 item bonus to unarmed attack and damage rolls when you Strike with your fangs or another bite attack."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "fangs",
+        "category": "unarmed",
+        "traits": ["unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "piercing"
+        },
+        "display": {
+          "label": "Fangs"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["bite-attack", "bite-damage", "fangs-attack", "fangs-damage", "jaws-attack", "jaws-damage"],
+        "type": "item",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.FgwkowiWGfZpnIAc"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "7cf54671-aa4c-5d1c-b17f-8f7f3a030e2a",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-watery-form",
+    "name": "Effect: Watery Form",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1457f00a-3675-5541-a737-4896f46dab82"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a swim Speed of 45 feet, and you gain a +4 circumstance bonus to Stealth checks in water."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:swim",
+        "mode": "upgrade",
+        "value": 45
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "circumstance",
+        "value": 4,
+        "predicate": ["terrain:water"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.lj1Oju2DvOTvByMa"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "289b3147-2138-5833-b990-bc8d35b4f15f",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-web",
+    "name": "Effect: Web",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The target takes a –10-foot circumstance penalty to its Speeds."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "circumstance",
+        "value": -10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.tCMVyxQhzYCjBQtK"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "489b4b39-d9d8-55b9-aaf3-e65676e9cb07",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-wemmuth-trinket",
+    "name": "Effect: Wemmuth Trinket",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "7ca873d8-ddb7-5883-ba18-11188a829cde"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Creatures who fail or critically fail their Reflex saves against "
+          },
+          {
+            "type": "text",
+            "text": "entangling flora",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " also take piercing damage equal to the spell's rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.mS82CkuoGfOfQ9Jt"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "b72cb1cd-6ac4-51be-b600-3fe04c42200f",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-wild-mimic-dedication",
+    "name": "Effect: Wild Mimic Dedication",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "de945fbc-b25f-54f0-9c5d-cfb409f9a4dd"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to your saving throws against the next attack or ability that the subject of your Recall Knowledge targets you with."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.G6ytTRTwu9kBi59S"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "59ce6178-3334-5fc2-9f0b-6cb3f20d8cb0",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-wild-stride",
+    "name": "Effect: Wild Stride",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "e66c3a85-3ca5-591a-bd78-280113352167"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +5-foot circumstance bonus to your Speed if you have a free hand, or a +10-foot circumstance bonus if you have two hands free."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "circumstance",
+        "value": 5,
+        "slug": "wild-stride-bonus",
+        "predicate": [
+          {
+            "gte": ["option:hands-free", 1]
+          }
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["land-speed"],
+        "slug": "wild-stride-bonus",
+        "mode": "upgrade",
+        "value": 10,
+        "predicate": [
+          {
+            "gte": ["option:hands-free", 2]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.0b8l2a8FE7TasOiQ"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "bb34df6b-0537-52c7-b80a-a09a3555d328",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:spell-effect-albatross-curse",
+    "name": "Spell Effect: Albatross Curse",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "81ba1d12-bf5b-5f02-8d55-49194615101b"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You and allies within 30 feet of the target gain a +1 circumstance bonus to attacks against the target."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.b8BZHeuz5jH8E2SG"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "b0ede304-aee2-5735-b25c-dc809cdbe06b",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:spell-effect-albatross-curse-circumstance-bonus",
+    "name": "Spell Effect: Albatross Curse (Circumstance Bonus)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "81ba1d12-bf5b-5f02-8d55-49194615101b"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to attacks against the target of the Albatross Curse."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": [
+          "target:enemy",
+          {
+            "lte": ["target:distance", 30]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.QFeJq767fymcw6LA"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "cdb43c9b-e2ef-5bb5-88cb-9dafbf85a8fd",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:spell-effect-albatross-curse-critical-failure",
+    "name": "Spell Effect: Albatross Curse (Critical Failure)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "81ba1d12-bf5b-5f02-8d55-49194615101b"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You must roll twice and take the worse result on your next Will save."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollTwice",
+        "selectors": ["save:will"],
+        "keep": "lower"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.jSvpjSGnIVBAuFDu"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "5acd7e1d-9a36-5533-b637-07eb0fa9c28c",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:spell-effect-albatross-curse-failure",
+    "name": "Spell Effect: Albatross Curse (Failure)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "81ba1d12-bf5b-5f02-8d55-49194615101b"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You must roll twice and take the worse result on your next Will save."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollTwice",
+        "selectors": ["save:will"],
+        "keep": "lower"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.Y8OGpgAEgISpTwYd"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "0682eebd-2b93-563f-a305-8fe2336758c7",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:spell-effect-animal-form-crab",
+    "name": "Spell Effect: Animal Form (Crab)",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by Animal Form"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform yourself into a Medium animal battle form. While in this form, you gain the animal trait. You gain the following statistics and abilities regardless of which battle form you choose:"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "AC = 16 + your level. Ignore your armor's check penalty and Speed reduction."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "5 temporary Hit Points."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Low-light vision and imprecise scent 30 feet."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "One or more unarmed melee attacks specific to the battle form you choose, which are the only attacks you can Strike with. You're trained with them. Your attack modifier is +9, and your damage bonus is +1. These attacks are Strength based (for the purpose of the Enfeebled condition, for example). If your unarmed attack bonus is higher, you can use it instead."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Athletics modifier of +9, unless your own modifier is higher."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You also gain specific abilities based on the type of animal you choose:"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Crab",
+                  "marks": ["strong"]
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Speed 25 feet, swim Speed 15 feet;"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Melee",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "action-cost",
+                        "cost": "one"
+                      },
+                      {
+                        "type": "text",
+                        "text": " big claw, "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Damage",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " 2d8 piercing;"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Melee",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "action-cost",
+                        "cost": "one"
+                      },
+                      {
+                        "type": "text",
+                        "text": " little claw (agile), "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Damage",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " 2d4 piercing."
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "can breathe in water and in air."
+                      }
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (3rd)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You instead gain 10 temporary HP, AC = 17 + your level, attack modifier +14, damage bonus +5, and Athletics +14."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (4th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your battle form is Large and your attacks have 10-foot reach. You must have enough space to expand into or the spell is lost. You instead gain 15 temporary HP, AC = 18 + your level, attack modifier +16, damage bonus +9, and Athletics +16."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (5th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your battle form is Huge and your attacks have 15-foot reach. You must have enough space to expand into or the spell is lost. You instead gain 20 temporary HP, AC = 18 + your level, attack modifier +18, damage bonus +7 and double the number of damage dice, and Athletics +20."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.1Gax900IAwhLCi4q"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "406ccf57-4c52-584b-8acd-aa351b728074",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:spell-effect-animal-form-crocodile",
+    "name": "Spell Effect: Animal Form (Crocodile)",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by Animal Form"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform yourself into a Medium animal battle form. While in this form, you gain the animal trait. You gain the following statistics and abilities regardless of which battle form you choose:"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "AC = 16 + your level. Ignore your armor's check penalty and Speed reduction."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "5 temporary Hit Points."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Low-light vision and imprecise scent 30 feet."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "One or more unarmed melee attacks specific to the battle form you choose, which are the only attacks you can Strike with. You're trained with them. Your attack modifier is +9, and your damage bonus is +1. These attacks are Strength based (for the purpose of the Enfeebled condition, for example). If your unarmed attack bonus is higher, you can use it instead."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Athletics modifier of +9, unless your own modifier is higher."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You also gain specific abilities based on the type of animal you choose:"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Crocodile",
+                  "marks": ["strong"]
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Speed 25 feet, swim Speed 30 feet;"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Melee",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "action-cost",
+                        "cost": "one"
+                      },
+                      {
+                        "type": "text",
+                        "text": " jaws, "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Damage",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " 2d8 piercing;"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Melee",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "action-cost",
+                        "cost": "one"
+                      },
+                      {
+                        "type": "text",
+                        "text": " tail (agile), "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Damage",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " 1d8 bludgeoning."
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "can hold your breath for the duration of the transformation."
+                      }
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (3rd)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You instead gain 10 temporary HP, AC = 17 + your level, attack modifier +14, damage bonus +5, and Athletics +14."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (4th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your battle form is Large and your attacks have 10-foot reach. You must have enough space to expand into or the spell is lost. You instead gain 15 temporary HP, AC = 18 + your level, attack modifier +16, damage bonus +9, and Athletics +16."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (5th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your battle form is Huge and your attacks have 15-foot reach. You must have enough space to expand into or the spell is lost. You instead gain 20 temporary HP, AC = 18 + your level, attack modifier +18, damage bonus +7 and double the number of damage dice, and Athletics +20."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.0B3noZtrBfeHC7ye"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "fd4837d5-71f7-5d8b-9587-e9d786507870",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:spell-effect-animal-form-orca",
+    "name": "Spell Effect: Animal Form (Orca)",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by Animal Form"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You call upon primal energy to transform yourself into a Medium animal battle form. When you first cast this spell, choose a form."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can decide the specific type of animal (such as lion or snow leopard for cat), but this has no effect on the form's Size or statistics. While in this form, you gain the animal trait. You can Dismiss the spell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the following statistics and abilities regardless of which battle form you choose:"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "AC = 16 + your level. Ignore your armor's check penalty and Speed reduction."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "5 temporary Hit Points."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Low-light vision and imprecise scent 30 feet."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "One or more unarmed melee attacks specific to the battle form you choose, which are the only attacks you can Strike with. You're trained with them. Your attack modifier is +9, and your damage bonus is +1. These attacks are Strength based (for the purpose of the Enfeebled condition, for example). If your unarmed attack bonus is higher, you can use it instead."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Athletics modifier of +9, unless your own modifier is higher."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You also gain specific abilities based on the type of animal you choose:"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Orca",
+                  "marks": ["strong"]
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "swim Speed 35 feet;"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Melee",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "action-cost",
+                        "cost": "one"
+                      },
+                      {
+                        "type": "text",
+                        "text": " jaws, "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Damage",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " 2d8 piercing;"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "can hold your breath for the duration of the transformation."
+                      }
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (3rd)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You instead gain 10 temporary HP, AC = 17 + your level, attack modifier +14, damage bonus +5, and Athletics +14."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (4th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your battle form is Large and your attacks have 10-foot reach. You must have enough space to expand into or the spell is lost. You instead gain 15 temporary HP, AC = 18 + your level, attack modifier +16, damage bonus +9, and Athletics +16."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (5th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your battle form is Huge and your attacks have 15-foot reach. You must have enough space to expand into or the spell is lost. You instead gain 20 temporary HP, AC = 18 + your level, attack modifier +18, damage bonus +7 and double the number of damage dice, and Athletics +20."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.rmtCkBCEwyg919N0"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "1fa0673f-2f7e-5a10-8b9b-d486b6029f22",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:spell-effect-animal-form-seal",
+    "name": "Spell Effect: Animal Form (Seal)",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by Animal Form"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You call upon primal energy to transform yourself into a Medium animal battle form. When you first cast this spell, choose a form."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can decide the specific type of animal (such as lion or snow leopard for cat), but this has no effect on the form's Size or statistics. While in this form, you gain the animal trait. You can Dismiss the spell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the following statistics and abilities regardless of which battle form you choose:"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "AC = 16 + your level. Ignore your armor's check penalty and Speed reduction."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "5 temporary Hit Points."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Low-light vision and imprecise scent 30 feet."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "One or more unarmed melee attacks specific to the battle form you choose, which are the only attacks you can Strike with. You're trained with them. Your attack modifier is +9, and your damage bonus is +1. These attacks are Strength based (for the purpose of the Enfeebled condition, for example). If your unarmed attack bonus is higher, you can use it instead."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Athletics modifier of +9, unless your own modifier is higher."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You also gain specific abilities based on the type of animal you choose:"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Seal",
+                  "marks": ["strong"]
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Speed 20 feet, swim Speed 30 feet;"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Melee",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "action-cost",
+                        "cost": "one"
+                      },
+                      {
+                        "type": "text",
+                        "text": " jaws (grapple), "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Damage",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " 2d6 piercing;"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "can hold your breath for the duration of the transformation."
+                      }
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (3rd)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You instead gain 10 temporary HP, AC = 17 + your level, attack modifier +14, damage bonus +5, and Athletics +14."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (4th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your battle form is Large and your attacks have 10-foot reach. You must have enough space to expand into or the spell is lost. You instead gain 15 temporary HP, AC = 18 + your level, attack modifier +16, damage bonus +9, and Athletics +16."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (5th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your battle form is Huge and your attacks have 15-foot reach. You must have enough space to expand into or the spell is lost. You instead gain 20 temporary HP, AC = 18 + your level, attack modifier +18, damage bonus +7 and double the number of damage dice, and Athletics +20."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.tUelWvSaNZBng42K"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "cff13282-5fcb-5e13-8af6-2e34727523c3",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:spell-effect-canopy-crawler",
+    "name": "Spell Effect: Canopy Crawler",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "bd9c5757-1239-5526-8d7c-08b4dd150770"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a climb Speed equal to your highest Speed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:climb",
+        "mode": "upgrade",
+        "value": "@stat.speed.land"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.mojpoFI7eni1RaRB"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "a326c55a-6c07-5884-b566-cee6b19e61fe",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:spell-effect-claws-of-the-otter",
+    "name": "Spell Effect: Claws of the Otter",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "6782683b-90b6-5cf5-a626-79fac78419a1"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to Athletics checks to Swim and you gain a claws unarmed attack. They're an agile, finesse, unarmed attack that deals slashing damage and additional cold damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["action:swim"]
+      },
+      {
+        "key": "Strike",
+        "slug": "claws-of-the-otter",
+        "category": "unarmed",
+        "traits": ["agile", "finesse", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d4",
+          "damageType": "slashing"
+        },
+        "display": {
+          "label": "Claw"
+        }
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["claws-of-the-otter-damage"],
+        "diceNumber": "ternary(gte(@item.level, 8), 3, ternary(gte(@item.level, 5), 2, 1))",
+        "dieSize": "d6",
+        "damageType": "cold"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.UPisuG2cfjMIJOPa"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "856ea87e-b6e1-5ae6-8424-29d3e3977566",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:spell-effect-distracting-decoy",
+    "name": "Spell Effect: Distracting Decoy",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1a9c50f3-df81-5ad9-8e8e-95ed9d900a8b"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is off-guard until the start of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but the creature also takes a –2 circumstance penalty to attacks while it's off-guard."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "spell-effect-distracting-decoy",
+        "choices": [
+          {
+            "value": "failure",
+            "label": "Failure"
+          },
+          {
+            "value": "critical-failure",
+            "label": "Critical Failure"
+          }
+        ],
+        "prompt": "Select the degree of success.",
+        "rollOption": "distracting-decoy"
+      },
+      {
+        "key": "GrantItem",
+        "item": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack"],
+        "type": "circumstance",
+        "value": -2,
+        "predicate": ["distracting-decoy:critical-failure"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.iwzKtzNV5t1op2xs"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "74286249-a60d-5e9e-a351-17e3ef675edd",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:spell-effect-hidebound",
+    "name": "Spell Effect: Hidebound",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "2c68ae19-65ac-5aca-9ddd-082561d22353"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance to physical damage, except adamantine, until the beginning of its next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["physical"],
+        "value": "2 + 3 * floor(@item.level / 2)",
+        "exceptions": ["adamantine"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.70tKwsgD8aOj9SxG"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "9e430f5d-128a-5713-9569-497f922fae51",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:spell-effect-hippocampus-retreat",
+    "name": "Spell Effect: Hippocampus Retreat",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "9a81d89f-9cc4-57c7-966c-49c629901cb1"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you already have a swim Speed, you can Swim up to your Speed with a +10-foot circumstance bonus. You gain a +2 circumstance bonus to your AC against reactions triggered by this movement."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["swim-speed"],
+        "type": "circumstance",
+        "value": 10
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.85S2TWoiPwtFsDT3"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "9757aebd-f493-56fc-a2fe-8ff906044f0d",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:spell-effect-imitate-fauna",
+    "name": "Spell Effect: Imitate Fauna",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "df60ac7d-7e21-544e-b50f-97cc982ce42d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +4 status bonus to Deception checks to prevent other animals from seeing through their disguise"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "status",
+        "value": 4,
+        "predicate": ["action:impersonate", "target:trait:animal"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.yGedCb78XX6TtTq3"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "385e25d2-f28b-571c-bea9-a76e823766b2",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:spell-effect-keen-smell",
+    "name": "Spell Effect: Keen Smell",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "e8c183b7-48ca-5f2f-9409-3ade4e64e038"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For the spell's duration, you gain scent as an imprecise sense."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.VzokjUa8RMYo5Id6"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "99d7bf1a-a352-5d8b-9375-fda60e1b54fa",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:spell-effect-murmuration",
+    "name": "Spell Effect: Murmuration",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "b82280a4-4586-50fc-be8b-f0b932dda203"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –2 status penalty to your attack roll or hostile skill check."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.rZRCgogKkUERRy6Q"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "aceb4b99-294d-5fd0-98a3-60a5dfa2cfde",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:spell-effect-snake-fangs",
+    "name": "Spell Effect: Snake Fangs",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "d7ec85ac-ef3e-51e9-8180-0ba0df6a899a"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a fangs unarmed attack. They're a finesse, grapple, unarmed attack that deals piercing damage and extra poison damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "snake-fangs",
+        "category": "unarmed",
+        "traits": ["finesse", "grapple", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d8",
+          "damageType": "slashing"
+        },
+        "display": {
+          "label": "Fangs"
+        }
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["snake-fangs-damage"],
+        "diceNumber": "ternary(gte(@item.level, 10), 4, ternary(gte(@item.level, 7), 3, 2))",
+        "dieSize": "d10",
+        "damageType": "poison"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.ubKx634Kbl1hHzL9"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "fa15275f-90ed-5e0a-9834-89c964dd7520",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:spell-effect-spirit-of-the-beast",
+    "name": "Spell Effect: Spirit of the Beast",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "9a68396e-039f-5db1-9d1b-1ebf9fded840"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Select from one of the following aspects."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Aspect of Might:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You gain a status bonus to Athletics checks, Intimidation checks to Demoralize, and Fortitude saves."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Aspect of Swiftness:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You gain a status bonus to Acrobatics checks, Stealth checks to Hide or Sneak, and Reflex saves."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Aspect of Insight:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You gain a status bonus to Perception checks to Seek, Survival checks to Sense Direction or Track, and Will saves."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "spell-effect-spirit-of-the-beast",
+        "choices": [
+          {
+            "value": "might",
+            "label": "Aspect of Might"
+          },
+          {
+            "value": "swiftness",
+            "label": "Aspect of Swiftness"
+          },
+          {
+            "value": "insight",
+            "label": "Aspect of Insight"
+          }
+        ],
+        "rollOption": "spirit-of-the-beast"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics", "save:fortitude"],
+        "type": "status",
+        "value": "ternary(gte(@item.level, 8), 3, ternary(gte(@item.level, 5), 2, 1))",
+        "predicate": ["spirit-of-the-beast:might"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:intimidation"],
+        "type": "status",
+        "value": "ternary(gte(@item.level, 8), 3, ternary(gte(@item.level, 5), 2, 1))",
+        "predicate": ["spirit-of-the-beast:might", "action:demoralize"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:acrobatics", "save:reflex"],
+        "type": "status",
+        "value": "ternary(gte(@item.level, 8), 3, ternary(gte(@item.level, 5), 2, 1))",
+        "predicate": ["spirit-of-the-beast:swiftness"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "status",
+        "value": "ternary(gte(@item.level, 8), 3, ternary(gte(@item.level, 5), 2, 1))",
+        "predicate": [
+          "spirit-of-the-beast:swiftness",
+          {
+            "or": ["action:hide", "action:sneak"]
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:will", "perception", "skill:survival"],
+        "type": "status",
+        "value": "ternary(gte(@item.level, 8), 3, ternary(gte(@item.level, 5), 2, 1))",
+        "predicate": [
+          "spirit-of-the-beast:insight",
+          {
+            "or": [
+              {
+                "and": ["check:statistic:perception", "action:seek"]
+              },
+              {
+                "and": [
+                  "check:statistic:survival",
+                  {
+                    "or": ["action:sense-direction", "action:track"]
+                  }
+                ]
+              },
+              "check:statistic:will"
+            ]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.l9kHsnm7dBQx52JI"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "752d2336-2d64-5057-aed6-098e5d4770fb",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:spell-effect-sting-of-the-sea",
+    "name": "Spell Effect: Sting of the Sea",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "fff40827-5581-5c28-ae3a-4759e4c1498b"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The target takes a –2 penalty to Perception checks involving vision."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "circumstance",
+        "value": -2,
+        "predicate": ["option:visual"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.GA8SSGtpuyUunP4D"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "ee8b9a3f-89b3-5967-b344-bb94dd3f289e",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:stance-claw-stance",
+    "name": "Stance: Claw Stance",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "cb4c0321-a860-5a97-bfa1-e667b2dbcc63"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The only Strikes you can make are frenzied claw unarmed attacks. These deal 1d6 slashing damage, are in the brawling group, and have the agile, finesse, grapple, unarmed, and versatile piercing traits."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.CxT12G5HXpGL6xu0"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  },
+  {
+    "id": "cd5d7614-619a-5890-b132-80e2e10e1cb6",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:stance-stretching-reach",
+    "name": "Stance: Stretching Reach",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "aee3f91a-68c5-5772-9b57-924e61de7feb"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you wield a melee weapon that requires two hands and doesn't have reach, the weapon gains a reach of 10 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon", "item:equipped", "item:melee", "item:usage:hands:2"],
+        "property": "traits",
+        "mode": "add",
+        "value": "reach"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.IhwcqxPt1SkgXQB0"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  },
+  {
+    "id": "6b607777-f179-55af-b7e2-b26248f20a26",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:stance-talon-stance",
+    "name": "Stance: Talon Stance",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "6d96b070-1aef-5fcf-82e8-ff5590e47487"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The only Strikes you can make are spinning talon unarmed attacks. These deal 1d8 slashing damage, are in the brawling group, and have the finesse, sweep, and unarmed traits. You don't need a free hand to use spinning talon strikes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.cvIwUEempg0cfhFB"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  }
+]

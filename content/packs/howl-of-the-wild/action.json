@@ -1,0 +1,2012 @@
+[
+  {
+    "id": "8d2da30e-a019-568e-84bb-f5df1a9a9048",
+    "pack": "howl-of-the-wild",
+    "kind": "action",
+    "slug": "action:administer-ambient-magic",
+    "name": "Administer Ambient Magic",
+    "rarity": "common",
+    "traits": ["healing"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your ostilli pulses a calm lavender color as it converts stored magic into a curative balm. You regain "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(2*floor(@level/4))d4"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points, and you can immediately attempt a flat check to recover from persistent bleed damage with the DC reduced to 10. This healing increases by 2d4 at 8th level and every 4 levels thereafter."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.PWNi3h0F9EsttE2p"
+    },
+    "data": {
+      "cost": "one",
+      "category": "defensive",
+      "frequency": {
+        "max": 1,
+        "per": "hour"
+      }
+    }
+  },
+  {
+    "id": "0018faa1-56cd-5fa4-8543-5559d04a09bb",
+    "pack": "howl-of-the-wild",
+    "kind": "action",
+    "slug": "action:bite-and-sting",
+    "name": "Bite and Sting",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your swarm is outside your body"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Each creature in your swarm's space takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(floor(@level/2))d4",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": {
+              "against": "class-or-spell-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC or spell DC, whichever is higher. At 4th level and every 2 levels thereafter, the damage increases by 1d4."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.k6ML9SPMxaGJyjqO"
+    },
+    "data": {
+      "cost": "one",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your swarm is outside your body"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "cb4c0321-a860-5a97-bfa1-e667b2dbcc63",
+    "pack": "howl-of-the-wild",
+    "kind": "action",
+    "slug": "action:claw-stance",
+    "name": "Claw Stance",
+    "rarity": "common",
+    "traits": ["stance"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You extend the claws in your hands and focus your attention to take down single targets. The only Strikes you can make are frenzied claw unarmed attacks. These deal "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "slashing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, are in the brawling group, and have the agile, finesse, grapple, unarmed, and versatile piercing traits."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.zs4ZMcH9oFSCgkBx"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "selfEffect": "ee8b9a3f-89b3-5967-b344-bb94dd3f289e"
+    }
+  },
+  {
+    "id": "c38e56e8-d99b-56de-a98e-ee03b7d26ac2",
+    "pack": "howl-of-the-wild",
+    "kind": "action",
+    "slug": "action:dampening-harmonics",
+    "name": "Dampening Harmonics",
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You establish a force field that grants you resistance 10 to damage dealt by spells and magical abilities with the trait of your magiphage ability, except for force damage. The force field lasts for 10 minutes. Each time the field prevents damage, the duration decreases by 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.cczvLO5r7QuHaXwx"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "hour"
+      }
+    }
+  },
+  {
+    "id": "91401537-4788-5459-b71c-7ce3e3f93b15",
+    "pack": "howl-of-the-wild",
+    "kind": "action",
+    "slug": "action:dazzle-seeker",
+    "name": "Dazzle Seeker",
+    "rarity": "common",
+    "traits": ["misfortune"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature attempts a flat check to target you due to you being Concealed from it"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You flash your bright scales in the creature's eyes, making it hard for them to pinpoint your exact location. The creature must roll the flat check twice and take the worse result."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.0LwQufKtXfRda0BR"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A creature attempts a flat check to target you due to you being Concealed from it"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "d8a640fe-5191-557d-8f26-7b865f1bd034",
+    "pack": "howl-of-the-wild",
+    "kind": "action",
+    "slug": "action:death-drone",
+    "name": "Death Drone",
+    "rarity": "common",
+    "traits": ["auditory", "flourish", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The cicadas in your swarm make a droning sound that stimulates a fear response. Each creature within your swarm's space takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d4",
+                "damageType": "mental"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-or-spell-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC or spell DC, whichever is higher."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creatures takes half damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes full damage, is Frightened 1, and takes a –2 circumstance penalty to Perception checks that require hearing."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes double damage, is Frightened 2, and is Deafened until the start of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.6iGoVnEJuBHJqgpi"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "dbbc10bf-11ea-5610-8fbd-6aca77e6e6a9",
+    "pack": "howl-of-the-wild",
+    "kind": "action",
+    "slug": "action:devour-ambient-magic",
+    "name": "Devour Ambient Magic",
+    "rarity": "common",
+    "traits": ["concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature Casts a Spell with you as the only target"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your ostilli radiates cyan light as its tentacle-like filters attempt to consume the magical effect. You can attempt to counteract the triggering spell with an "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:arcana"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:nature"
+          },
+          {
+            "type": "text",
+            "text": " check and a counteract rank equal to half your level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.3sgY9afTTBhZXE8V"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A creature Casts a Spell with you as the only target"
+            }
+          ]
+        }
+      ],
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "c39e8218-bcf7-5657-aeba-362c8c4b5a37",
+    "pack": "howl-of-the-wild",
+    "kind": "action",
+    "slug": "action:drape-ambient-magic",
+    "name": "Drape Ambient Magic",
+    "rarity": "common",
+    "traits": ["illusion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per round"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your ostilli turns clear as it converts its stored magic into a bubble of refracting light around you. You become Hidden to all creatures until the end of your turn. If you Strike a creature, that creature is Off-Guard against that attack, and you then become observed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.GKIKJNInDev72qai"
+    },
+    "data": {
+      "cost": "one",
+      "category": "defensive",
+      "frequency": {
+        "max": 1,
+        "per": "round"
+      }
+    }
+  },
+  {
+    "id": "190927c8-cdd9-57a1-919c-bc24e9413234",
+    "pack": "howl-of-the-wild",
+    "kind": "action",
+    "slug": "action:familiar-of-nimble-flight",
+    "name": "Familiar of Nimble Flight",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Even if your familiar doesn't have wings, it can sometimes move as if carried aloft by the wind. When you Cast or Sustain a hex, your familiar can Fly up to 15 feet; this movement doesn't trigger reactions."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.uFsWy6Ii1WxA0u0w"
+    },
+    "data": {
+      "category": "familiar"
+    }
+  },
+  {
+    "id": "f2a717c9-7cf5-53ba-8999-179199103789",
+    "pack": "howl-of-the-wild",
+    "kind": "action",
+    "slug": "action:familiar-of-overwhelming-tides",
+    "name": "Familiar of Overwhelming Tides",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your familiar constantly drips with ocean water. When you Cast or Sustain a hex, you can cause a small wave to surge forth from your familiar. One creature within 10 feet of your familiar is pushed 5 feet away from your familiar."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.xH7lvZkYYAAuxR62"
+    },
+    "data": {
+      "category": "familiar"
+    }
+  },
+  {
+    "id": "d7cec131-515c-5a12-9196-2ab725625b56",
+    "pack": "howl-of-the-wild",
+    "kind": "action",
+    "slug": "action:familiar-of-parasitic-might",
+    "name": "Familiar of Parasitic Might",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your familiar appears gaunt and malnourished or otherwise on the brink of death, even though it's quite healthy. When you Cast or Sustain a hex, your familiar can draw on the waning strength of another to sustain itself. One creature within 15 feet of your familiar with less than half of its maximum Hit Points becomes Sickened 1 unless it succeeds at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude"
+          },
+          {
+            "type": "text",
+            "text": " saving throw against your spell DC."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.J5Wyh1EPmk848ivR"
+    },
+    "data": {
+      "category": "familiar"
+    }
+  },
+  {
+    "id": "1fb78b7d-dbe9-56f8-b4e5-ebab82b5a4a5",
+    "pack": "howl-of-the-wild",
+    "kind": "action",
+    "slug": "action:i-defy-you",
+    "name": "I Defy You!",
+    "rarity": "common",
+    "traits": ["fortune", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail a save against a mental effect"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You reroll the triggering save and must take the second result."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.wKPtG0pzARZLGHZT"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You fail a save against a mental effect"
+            }
+          ]
+        }
+      ],
+      "frequency": {
+        "max": 1,
+        "per": "hour"
+      }
+    }
+  },
+  {
+    "id": "d824cd36-08d2-5b85-ae7c-9f17d5ae02bb",
+    "pack": "howl-of-the-wild",
+    "kind": "action",
+    "slug": "action:lantern-beam",
+    "name": "Lantern Beam",
+    "rarity": "common",
+    "traits": ["fire", "light", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your lantern light is shining"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your lenses focus your light into a searing beam. You deal "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(max(5,ceil(@level/2)))d4",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to all creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "line",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": ", with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": {
+              "against": "class-or-spell-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " saving throw against the higher of your class DC or spell DC. Your lantern light then extinguishes, and you can't use this ability or use your lantern light again for 1d4 rounds. At 11th level and every two levels thereafter, the damage increases by 1d4."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.ako5zZwC6o26cfCQ"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your lantern light is shining"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "e662a314-e0b5-5a45-ad60-89269708094b",
+    "pack": "howl-of-the-wild",
+    "kind": "action",
+    "slug": "action:lantern-strobe",
+    "name": "Lantern Strobe",
+    "rarity": "common",
+    "traits": ["light", "magical", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As you pulse your lantern, your emitters flash erratically, disorienting your opponents that see it. Each opponent in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": " must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": {
+              "against": "class-or-spell-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC or spell DC (whichever is higher). On a failure, the creature is Dazzled for 1 round. On a critical failure, the creature is Blinded for 1 round and dazzled for the following round."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.aVGNaNgG6cYNRp5A"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "hour"
+      }
+    }
+  },
+  {
+    "id": "c63e1a93-6bf3-5c35-8216-7527f25efcf0",
+    "pack": "howl-of-the-wild",
+    "kind": "action",
+    "slug": "action:raise-slabs",
+    "name": "Raise Slabs",
+    "rarity": "common",
+    "traits": ["divine", "earth"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Thick slabs of stone rise around you before tilting over. You deal "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "ceil(@level/2)d6",
+                "damageType": "bludgeoning"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to all adjacent creatures ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": {
+              "against": "class-or-spell-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " against your class DC or spell DC, whichever is higher). On a critical failure, the creature is also knocked Prone. At 3rd level, and every 2 levels thereafter, this damage increases by 1d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.0VwLAKI7QP6mib88"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "430e3401-bc93-5ab6-9789-3302e6eeefcc",
+    "pack": "howl-of-the-wild",
+    "kind": "action",
+    "slug": "action:repel-ambient-magic",
+    "name": "Repel Ambient Magic",
+    "rarity": "common",
+    "traits": ["concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your ostilli glows green as it absorbs magic. Until the start of your next turn, you gain a +1 circumstance bonus to AC and saving throws against the next magical attack, cantrip, or spell that targets you. This bonus increases to +2 at 12th level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.SN3sVsU7rD2eBfkf"
+    },
+    "data": {
+      "cost": "one",
+      "category": "defensive",
+      "selfEffect": "870dca91-c877-5c5e-860e-2d03390163f2"
+    }
+  },
+  {
+    "id": "77327f2d-3fd3-585f-83ee-96418b04e301",
+    "pack": "howl-of-the-wild",
+    "kind": "action",
+    "slug": "action:shielding-wave",
+    "name": "Shielding Wave",
+    "rarity": "common",
+    "traits": ["primal", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You raise a magical barrier of twisting currents. Until the start of your next turn, the first time you take acid or fire damage, you gain resistance to that damage equal to half your level (minimum 1). The resistance is equal to your level instead if you're submerged in water, if you already Cast a Spell with the water trait, or if you used another ability with the water trait this turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.yOk8s1pftOe5I9Sg"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "selfEffect": "27f3c4f6-58e1-51bc-9ea2-884cea8be61f"
+    }
+  },
+  {
+    "id": "29f4ee56-1863-5a7c-9bdc-58b9562a5247",
+    "pack": "howl-of-the-wild",
+    "kind": "action",
+    "slug": "action:spit-ambient-magic",
+    "name": "Spit Ambient Magic",
+    "rarity": "common",
+    "traits": ["concentrate", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per round"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your ostilli flashes red as it regurgitates a dart of magic at a target within 30 feet. This magical dart deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(1+floor((@level -2)/4))d6",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": {
+              "against": "class-or-spell-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save against the higher of your class DC or spell DC). This damage increases by 1d6 at 6th level and every 4 levels thereafter."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.dwA0wfUaRf4aT0eB"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "turn"
+      }
+    }
+  },
+  {
+    "id": "bb34f890-a911-51ea-928c-1bc0736c2701",
+    "pack": "howl-of-the-wild",
+    "kind": "action",
+    "slug": "action:stargut-hydra-skymetal-metamorphosis-abysium",
+    "name": "(Stargut Hydra) Skymetal Metamorphosis (Abysium)",
+    "rarity": "common",
+    "traits": ["aura", "poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each stargut hydra has at least one metamorphosis resulting from consuming a specific skymetal and internalizing its properties."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Abysium",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (aura, poison) The stargut hydra emits an aura of nauseating radiation from the abysium in its body. Any creature that begins its turn within 30 feet of the stargut hydra is Sickened 1."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Aura",
+        "slug": "skymetal-metamorphosis-abysium",
+        "radius": 30,
+        "traits": ["poison"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.lFRU108HnGlnMwqS"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "17bffc2c-6ef2-50e8-aed3-db7e5fa01db3",
+    "pack": "howl-of-the-wild",
+    "kind": "action",
+    "slug": "action:stargut-hydra-skymetal-metamorphosis-adamantine",
+    "name": "(Stargut Hydra) Skymetal Metamorphosis (Adamantine)",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each stargut hydra has at least one metamorphosis resulting from consuming a specific skymetal and internalizing its properties."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Adamantine",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The stargut hydra's Strikes bypass Hardness and are treated as adamantine. The stargut hydra gains resistance 10 to physical damage (except adamantine)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["physical"],
+        "value": 10,
+        "exceptions": ["adamantine"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.Bds5RP9grJxhZALW"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "0a54b166-51d1-57cd-8643-5b39ff69f324",
+    "pack": "howl-of-the-wild",
+    "kind": "action",
+    "slug": "action:stargut-hydra-skymetal-metamorphosis-djezet",
+    "name": "(Stargut Hydra) Skymetal Metamorphosis (Djezet)",
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each stargut hydra has at least one metamorphosis resulting from consuming a specific skymetal and internalizing its properties."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Djezet",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (magical) The stargut hydra gains a +2 status bonus to saves against magic."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["option:magical"],
+        "display": {
+          "label": "Skymetal Metamorphosis (Djezet)"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.N4l6y6v9pKy8Nj5i"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "6b0595c6-1535-50d1-b004-4690a5a1e2b0",
+    "pack": "howl-of-the-wild",
+    "kind": "action",
+    "slug": "action:stargut-hydra-skymetal-metamorphosis-inubrix",
+    "name": "(Stargut Hydra) Skymetal Metamorphosis (Inubrix)",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each stargut hydra has at least one metamorphosis resulting from consuming a specific skymetal and internalizing its properties."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Inubrix",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The stargut hydra's Strikes ignore resistance to damage from metal armor's armor specialization effects and do not trigger the Shield Block reaction or reactions from armor property runes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.5bRdhgghjtWF1Vuu"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "0643e364-8b50-5cfa-a59e-b4d0bd62ee64",
+    "pack": "howl-of-the-wild",
+    "kind": "action",
+    "slug": "action:stargut-hydra-skymetal-metamorphosis-noqual",
+    "name": "(Stargut Hydra) Skymetal Metamorphosis (Noqual)",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each stargut hydra has at least one metamorphosis resulting from consuming a specific skymetal and internalizing its properties."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Noqual",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The stargut hydra's Strikes and abilities gain a +2 status bonus to damage against creatures with the ability to Cast a Spell."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-damage"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["target:caster"],
+        "display": {
+          "label": "Skymetal Metamorphosis (Noqual)"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.sTlptNnUX2eA0DIH"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "9cecd49a-d398-5dbe-b7cc-d45a6f73b940",
+    "pack": "howl-of-the-wild",
+    "kind": "action",
+    "slug": "action:stargut-hydra-skymetal-metamorphosis-orichalcum",
+    "name": "(Stargut Hydra) Skymetal Metamorphosis (Orichalcum)",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each stargut hydra has at least one metamorphosis resulting from consuming a specific skymetal and internalizing its properties."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Orichalcum",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " When the stargut hydra has only two heads remaining, it is Quickened. It can use the extra action only to Stride or Strike."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "6517bbf2-8085-534b-be6a-187d52739fa0",
+        "predicate": [
+          {
+            "lte": ["self:effect:hydra-heads", 2]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.6Z0v9Tsthm9hyzb3"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "2b06e20c-e03f-5625-963d-d50d13516872",
+    "pack": "howl-of-the-wild",
+    "kind": "action",
+    "slug": "action:stargut-hydra-skymetal-metamorphosis-siccatite",
+    "name": "(Stargut Hydra) Skymetal Metamorphosis (Siccatite)",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each stargut hydra has at least one metamorphosis resulting from consuming a specific skymetal and internalizing its properties."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Siccatite",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " After the stargut hydra takes fire damage, it becomes superheated, gaining immunity to fire and weakness 10 to cold. While superheated, cold damage can be used to cauterize a stump. After the stargut hydra takes cold damage, it becomes chilled, gaining immunity to cold and weakness 10 to fire."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "skymetal-metamorphosis:siccatite",
+        "toggleable": true,
+        "suboptions": [
+          {
+            "value": "superheated",
+            "label": "Superheated"
+          },
+          {
+            "value": "chilled",
+            "label": "Chilled"
+          }
+        ],
+        "display": {
+          "label": "Skymetal Metamorphosis (Siccatite)"
+        }
+      },
+      {
+        "key": "Immunity",
+        "type": ["fire"],
+        "predicate": ["skymetal-metamorphosis:siccatite:superheated"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["cold"],
+        "value": 10,
+        "predicate": ["skymetal-metamorphosis:siccatite:superheated"]
+      },
+      {
+        "key": "Immunity",
+        "type": ["cold"],
+        "predicate": ["skymetal-metamorphosis:siccatite:chilled"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["fire"],
+        "value": 10,
+        "predicate": ["skymetal-metamorphosis:siccatite:chilled"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.SXJRjw4R8m7NPDGc"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "bb9b6b5d-6218-5519-a140-b2dc44d6197b",
+    "pack": "howl-of-the-wild",
+    "kind": "action",
+    "slug": "action:stridulating-song",
+    "name": "Stridulating Song",
+    "rarity": "common",
+    "traits": ["auditory", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You circulate magic through your wings, causing them to vibrate at high speeds such that their scraping produces disruptive sounds. You focus the sound at one creature within 30 feet who must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": {
+              "against": "class-or-spell-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC or spell DC (whichever is higher) or become Sickened 1, or Sickened 2 on a critical failure, as the vibrations disrupt its inner equilibrium. You can Sustain the effect for up to 1 minute; the creature can't recover from the sickened condition as long as you continue your song and it can hear you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.VPl4pifKcq7ecK87"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "a72b8c6e-2772-52d5-8bde-698d2b11471c",
+    "pack": "howl-of-the-wild",
+    "kind": "action",
+    "slug": "action:swarm-forth",
+    "name": "Swarm Forth",
+    "rarity": "common",
+    "traits": ["concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your swarm is within your body"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your swarm boils forth from your body into a space adjacent to yours. (Its space can overlap yours.) It remains separate from you until the end of your next turn, but you can Sustain the effect up to 1 minute. The effect also ends if you end your turn more than 60 feet away from the swarm. When you use Swarm Forth and each time you Sustain the effect, you can have the swarm Stride."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.E48YTUyreo1kc9GM"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your swarm is within your body"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "6d96b070-1aef-5fcf-82e8-ff5590e47487",
+    "pack": "howl-of-the-wild",
+    "kind": "action",
+    "slug": "action:talon-stance",
+    "name": "Talon Stance",
+    "rarity": "common",
+    "traits": ["stance"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You sway in a loose stance that lets you sweep in wide arcs with the claws on your feet. The only Strikes you can make are spinning talon unarmed attacks. These deal "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d8",
+                "damageType": "slashing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, are in the brawling group, and have the finesse, sweep, and unarmed traits. You don't need a free hand to use spinning talon strikes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.IR95FFdO7MtC8C0E"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "selfEffect": "6b607777-f179-55af-b7e2-b26248f20a26"
+    }
+  },
+  {
+    "id": "17cec43f-4572-5029-a6b1-23a29f099a60",
+    "pack": "howl-of-the-wild",
+    "kind": "action",
+    "slug": "action:trench-digging",
+    "name": "Trench Digging",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're subjected to forced movement"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You deploy your claw spikes to churn the earth asunder, creating difficult terrain in each square of ground you're moved through."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.kWrks0NxMQH39JHD"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You're subjected to forced movement"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "65f76828-951a-591f-babe-c47919ddce74",
+    "pack": "howl-of-the-wild",
+    "kind": "action",
+    "slug": "action:turn-aside-ambient-magic",
+    "name": "Turn Aside Ambient Magic",
+    "rarity": "common",
+    "traits": ["concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your ostilli glows a faint yellow as it establishes a barrier. Choose acid, cold, electricity, fire, or sonic damage. Until the beginning of your next turn, you gain resistance against the chosen damage type equal to half your level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.5g0gCXJnUVipYtW0"
+    },
+    "data": {
+      "cost": "one",
+      "category": "defensive",
+      "selfEffect": "d9d4140e-4456-5872-b4ac-0526fd6f991c"
+    }
+  },
+  {
+    "id": "4eb2460b-98d2-599a-908c-5acb77cfdfd3",
+    "pack": "howl-of-the-wild",
+    "kind": "action",
+    "slug": "action:warden-of-the-wild-voice-of-nature",
+    "name": "(Warden of the Wild) Voice of Nature",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Though the Wardens of the Wild do not speak in words, they can communicate complex concepts flawlessly and wordlessly with any animal, beast, plant, or other creature of the natural world through prolonged eye contact. Sapient creatures with strong ties to the natural world, such as animal instinct barbarians or druids who speak the Wildsong, can somewhat understand a Warden of the Wild, though the meaning can be vague."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.QOwFuM3LwNzOSb6B"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "e0cda7f7-5aed-5fcd-8924-dbd4b9a31751",
+    "pack": "howl-of-the-wild",
+    "kind": "action",
+    "slug": "action:warden-of-the-wild-wardens-crown",
+    "name": "(Warden of the Wild) Warden's Crown",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A Warden of the Wild's horned crown commands respect from wild creatures. Wild creatures native to a warden's biome automatically improve their attitude toward it by one step (up to friendly) and typically do not take hostile actions towards each other while in the warden's presence."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.b0MH9TC5Cdnc9c0i"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  }
+]

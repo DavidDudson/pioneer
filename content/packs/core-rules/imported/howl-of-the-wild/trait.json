@@ -1,0 +1,333 @@
+[
+  {
+    "id": "e3446035-7405-5e04-86be-7af2084f5a95",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:amphibious",
+    "name": "Amphibious",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["ancestry", "creature", "heritage"]
+    }
+  },
+  {
+    "id": "c71c53f1-d05f-50de-9b65-992448c984c3",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:athamaru",
+    "name": "Athamaru",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "ab6a8024-5748-5015-8ff5-ef026cc1d8d6",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:awakened-animal",
+    "name": "Awakened Animal",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "01b05611-7a70-59fa-b52f-0c7f252ad8c4",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:beast",
+    "name": "Beast",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "consumable",
+        "creature",
+        "feat",
+        "heritage",
+        "ritual",
+        "spell"
+      ]
+    }
+  },
+  {
+    "id": "0adb6439-0ab7-5447-b962-132e130efdfd",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:centaur",
+    "name": "Centaur",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "90c53290-8117-5475-b6db-68c70bfdc7f4",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:graft",
+    "name": "Graft",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["equipment"]
+    }
+  },
+  {
+    "id": "2fcaccbc-f903-5139-b852-552b5964bfe2",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:incarnate",
+    "name": "Incarnate",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry-feature",
+        "class-feature",
+        "condition",
+        "consumable",
+        "effect",
+        "feat",
+        "ritual",
+        "spell"
+      ]
+    }
+  },
+  {
+    "id": "0661a3c4-bf30-5c52-95a2-1ed46da1bfa6",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:merfolk",
+    "name": "Merfolk",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "65271ce2-b201-5a4e-b25d-fb33fb07e233",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:minotaur",
+    "name": "Minotaur",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "7c8a29ca-76d6-57a6-874f-0f416a7605ed",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:rage",
+    "name": "Rage",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry-feature",
+        "class-feature",
+        "condition",
+        "consumable",
+        "effect",
+        "feat",
+        "ritual",
+        "spell"
+      ]
+    }
+  },
+  {
+    "id": "50294257-eda8-5ec1-b9dd-7598244142ea",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:scatter-5",
+    "name": "Scatter 5",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  },
+  {
+    "id": "c6890405-f18a-5d15-99c2-d1fd68d9b46d",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:surki",
+    "name": "Surki",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  }
+]

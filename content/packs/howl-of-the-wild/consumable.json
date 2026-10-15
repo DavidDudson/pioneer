@@ -1,0 +1,3871 @@
+[
+  {
+    "id": "585dda67-8d9e-541f-824b-5524de0b6cd0",
+    "pack": "howl-of-the-wild",
+    "kind": "consumable",
+    "slug": "consumable:alicorn-hair",
+    "name": "Alicorn Hair",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell (add 1 action)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Hair shed from an alicorn's mane glows when it comes into contact with a living creature. A Stabilize spell empowered with an "
+          },
+          {
+            "type": "text",
+            "text": "alicorn hair",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " allows you to target 1 additional creature."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.dXhHBfDg1OxtSaOg"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "negligible",
+      "category": "catalyst",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "91a73cf5-cd8a-5a4e-87ca-73eccaabfe6b",
+    "pack": "howl-of-the-wild",
+    "kind": "consumable",
+    "slug": "consumable:amphisbaena-spittle",
+    "name": "Amphisbaena Spittle",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Hardened clumps of "
+          },
+          {
+            "type": "text",
+            "text": "amphisbaena spittle",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can be harvested from the dual-headed snake's hunting grounds. When a casting of Web of Eyes is empowered with this catalyst, you can place an additional scrying sensor on the back of each target's head, in the shape of a closed snake's eye. When a target shares their vision with the others affected by the spell, the eye blinks open, preventing the target from being flanked until the start of its next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "bb1f16e0-57ba-5ed6-a626-b6a2b364f0c6"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Hoe17WNDQ2PQd9JZ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 21
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "04968f44-035c-5aee-87f0-240b8253aedd",
+    "pack": "howl-of-the-wild",
+    "kind": "consumable",
+    "slug": "consumable:animal-pheromones-greater",
+    "name": "Animal Pheromones (Greater)",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "olfactory"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute (Interact)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These chemicals convey myriad signals. Many varieties of these alchemical cocktails exist, each tailored for the unique chemistry of a specific type of animal. You can, for example, make wolf pheromones, but not pheromones that affect all animals. The pheromones don't work on creatures that are similar to the specific kind of animal, but aren't actually animals—for example, wolf pheromones don't work on werewolves. When you learn the formula for animal pheromones, you learn the formulas for all common animals. If no animals of a kind are common, you must learn the formula for it separately, and the formula has the same rarity as the least-rare creature of that kind."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You Activate animal pheromones by rubbing them on yourself or a creature within reach. The pheromones last for 24 hours or until scrubbed clean with 1 minute of work (consisting of multiple Interact actions). During this time, the pheromones exude a subtle aroma in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": " that calms and influences the designated animals. A designated animal that ends its turn within the affected area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 35
+          },
+          {
+            "type": "text",
+            "text": " saving throw with the following effects. The animal is then temporarily immune to the pheromones for 24 hours. The effect lasts for the duration of the pheromones, even after the creature leaves the affected area."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The animal is unaffected. It doesn't necessarily become aware of the pheromones, although intelligent animals might become suspicious if they observe others of their kind being affected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The animal's attitude toward the affected creature improves by one step. If this improves its attitude to at least indifferent, it can't take hostile actions against the affected creature, though the change in attitude ends as soon as the affected creature takes a hostile action against the animal or its allies."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but the attitude increases by two steps."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but the attitude increases to helpful."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.GxVwATDdSGbZbx9B"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "1e9f7c0d-81d8-5d41-bffb-7cf099b65dd4",
+    "pack": "howl-of-the-wild",
+    "kind": "consumable",
+    "slug": "consumable:animal-pheromones-lesser",
+    "name": "Animal Pheromones (Lesser)",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "olfactory"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute (Interact)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These chemicals convey myriad signals. Many varieties of these alchemical cocktails exist, each tailored for the unique chemistry of a specific type of animal. You can, for example, make wolf pheromones, but not pheromones that affect all animals. The pheromones don't work on creatures that are similar to the specific kind of animal, but aren't actually animals—for example, wolf pheromones don't work on werewolves. When you learn the formula for animal pheromones, you learn the formulas for all common animals. If no animals of a kind are common, you must learn the formula for it separately, and the formula has the same rarity as the least-rare creature of that kind."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You Activate animal pheromones by rubbing them on yourself or a creature within reach. The pheromones last for 24 hours or until scrubbed clean with 1 minute of work (consisting of multiple Interact actions). During this time, the pheromones exude a subtle aroma in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": " that calms and influences the designated animals. A designated animal that ends its turn within the affected area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 19
+          },
+          {
+            "type": "text",
+            "text": " saving throw with the following effects. The animal is then temporarily immune to the pheromones for 24 hours. The effect lasts for the duration of the pheromones, even after the creature leaves the affected area."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The animal is unaffected. It doesn't necessarily become aware of the pheromones, although intelligent animals might become suspicious if they observe others of their kind being affected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The animal's attitude toward the affected creature improves by one step. If this improves its attitude to at least indifferent, it can't take hostile actions against the affected creature, though the change in attitude ends as soon as the affected creature takes a hostile action against the animal or its allies."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but the attitude increases by two steps."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but the attitude increases to helpful."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.HHsMAKU0fPgYWspm"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 30
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "ffe9cd91-ff29-5d9f-a0b5-c75eac689843",
+    "pack": "howl-of-the-wild",
+    "kind": "consumable",
+    "slug": "consumable:animal-pheromones-moderate",
+    "name": "Animal Pheromones (Moderate)",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "olfactory"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute (Interact)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These chemicals convey myriad signals. Many varieties of these alchemical cocktails exist, each tailored for the unique chemistry of a specific type of animal. You can, for example, make wolf pheromones, but not pheromones that affect all animals. The pheromones don't work on creatures that are similar to the specific kind of animal, but aren't actually animals—for example, wolf pheromones don't work on werewolves. When you learn the formula for animal pheromones, you learn the formulas for all common animals. If no animals of a kind are common, you must learn the formula for it separately, and the formula has the same rarity as the least-rare creature of that kind."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You Activate animal pheromones by rubbing them on yourself or a creature within reach. The pheromones last for 24 hours or until scrubbed clean with 1 minute of work (consisting of multiple Interact actions). During this time, the pheromones exude a subtle aroma in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": " that calms and influences the designated animals. A designated animal that ends its turn within the affected area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 27
+          },
+          {
+            "type": "text",
+            "text": " saving throw with the following effects. The animal is then temporarily immune to the pheromones for 24 hours. The effect lasts for the duration of the pheromones, even after the creature leaves the affected area."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The animal is unaffected. It doesn't necessarily become aware of the pheromones, although intelligent animals might become suspicious if they observe others of their kind being affected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The animal's attitude toward the affected creature improves by one step. If this improves its attitude to at least indifferent, it can't take hostile actions against the affected creature, though the change in attitude ends as soon as the affected creature takes a hostile action against the animal or its allies."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but the attitude increases by two steps."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but the attitude increases to helpful."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.erLH6cQYhyZB5CLM"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 300
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "3dd1eddb-6830-5f01-97ba-bede0ec82e5d",
+    "pack": "howl-of-the-wild",
+    "kind": "consumable",
+    "slug": "consumable:aroma-concealer",
+    "name": "Aroma Concealer",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "oil"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute (Interact)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This oily mix of herbs and natural detergents can be applied to a creature to reduce and cover any ordinary odors they produce. The creature receives a +2 item bonus to Stealth checks to Hide or Sneak against creatures using primarily smell. This bonus also applies to the DC to Track the creature by scent. The listed amount is enough to cover one Medium or smaller creature and takes 1 minute to apply. The effect lasts for 1 hour after applying."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.poHyu9ZhQPudhPPu"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": "light",
+      "category": "oil",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "bc16de84-2fdc-51f3-96d0-b6a5dfc5f863",
+    "pack": "howl-of-the-wild",
+    "kind": "consumable",
+    "slug": "consumable:broken-rams-thorn",
+    "name": "Broken Ram's Thorn",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell (add 1 action)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The thorny growths on a rosethorn ram's horns break off into jagged pieces when these animals fight. When used to enhance the two-action version of a Howling Blizzard spell, these thorns cause the squares directly adjacent to every creature within the spell's area of effect to become littered with icy caltrops. The first creature that moves into each affected square must succeed at an "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:acrobatics"
+          },
+          {
+            "type": "text",
+            "text": " check with a DC equal to spell's save DC or take an amount of cold damage equal to the spell's rank. When a creature takes damage from the icy caltrops, enough are damaged that other creatures moving into that square are safe."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.oJTIjBsOu9vLBjBD"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 150
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "6101a4ed-5051-5a12-9d92-4bf9629c9423",
+    "pack": "howl-of-the-wild",
+    "kind": "consumable",
+    "slug": "consumable:chaos-falcon-feather",
+    "name": "Chaos Falcon Feather",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When used as catalysts, "
+          },
+          {
+            "type": "text",
+            "text": "chaos falcon feathers",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " lend flexibility to spells that deal with elemental energy. For the duration of a catalyzed Resist Energy spell, you can Sustain the Spell on an adjacent target, touching them and changing the type of energy to which they have resistance. This reduces the remaining duration of the spell by 1 minute; if the spell has less than a minute remaining, it reduces the duration to 1 round."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.gUdXcEZQ7mGB8JW1"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "cbb3f31d-0939-5260-afec-c5db06d9a64a",
+    "pack": "howl-of-the-wild",
+    "kind": "consumable",
+    "slug": "consumable:dischoran-rubble",
+    "name": "Dischoran Rubble",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell (add 1 action)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Rock fragments exposed to any dischoran's sonic blasts can sometimes retain a portion of the attack's energy, trembling slightly whenever they are touched. When you cast Noise Blast using a piece of "
+          },
+          {
+            "type": "text",
+            "text": "dischoran rubble",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", the cacophony reverberates through the targets' forms for 1 round. If a creature that failed or critically failed its initial saving throw moves 10 feet or more on their next turn, it takes an additional "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d10",
+                "damageType": "sonic"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.BXb0tzJHOAB8whWB"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 18
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "d8675d2f-a834-57b8-8829-516242fecfca",
+    "pack": "howl-of-the-wild",
+    "kind": "consumable",
+    "slug": "consumable:essence-of-mandragora",
+    "name": "Essence of Mandragora",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "injury", "poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This poison is extracted carefully from a mandragora's thorny vines in a process that, due to the mandragora's humanoid form, eerily mirrors drawing blood."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Saving Throw",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 21
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Maximum Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 6 rounds"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and Stupefied 1 (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1d6 poison damage, Confused, and stupefied 1 (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, confused, and stupefied 1 (1 round)"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.xAgcrpDlBU77FNlf"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 20
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "1ecd4145-0a10-58f8-89a2-50fe2e2292f5",
+    "pack": "howl-of-the-wild",
+    "kind": "consumable",
+    "slug": "consumable:frogskin-tincture",
+    "name": "Frogskin Tincture",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir", "poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Once you imbibe this bitter elixir, your skin exudes a toxin for 1 hour, affecting any creature that hits you with a jaws Strike or other bite attack. If you are Swallowed Whole by another creature, they are automatically exposed to the poison every round and take a –2 penalty to their saving throw against it."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frogskin Tincture Poison",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (poison)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Saving Throw",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 22
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Maximum Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 6 rounds"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d4",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and Enfeebled 2 (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, Enfeebled 3, and Sickened 1 (1 round)"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.oEOfOdcxkSnzSHPC"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": "light",
+      "category": "elixir",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "53a8aa76-6459-51a8-8554-5d68f7983b11",
+    "pack": "howl-of-the-wild",
+    "kind": "consumable",
+    "slug": "consumable:hippogriff-feather",
+    "name": "Hippogriff Feather",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Tawny-colored hippogriff feathers can be up to 2 feet long. Used as a catalyst with a Ghostly Carrier spell, a single "
+          },
+          {
+            "type": "text",
+            "text": "hippogriff feather",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " grants the hand semicorporeal wings that increase the hand's maneuverability. The hand has a range of only 60 feet, but its increased agility grants it a +1 status bonus to its AC and Reflex saves."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.7k0lrb4I47mDIBj1"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 12
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "925217db-6b36-56c4-9bfe-92cf007d241e",
+    "pack": "howl-of-the-wild",
+    "kind": "consumable",
+    "slug": "consumable:hive-mother-bottle",
+    "name": "Hive Mother Bottle",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable", "expandable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This bottle is packed with dirt, though the shrunken corpse of an ankhrav hive mother is buried within. When you open the bottle, the effigy of a Huge ankhrav hive mother emerges, burrows up to 20 feet, and then erupts from the ground spraying acid, creating a "
+          },
+          {
+            "type": "template",
+            "shape": "square",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": " pit that's 10 feet deep. Creatures standing in this area take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6",
+                "damageType": "acid"
+              },
+              {
+                "formula": "1d6",
+                "damageType": "acid",
+                "category": "persistent"
+              }
+            ],
+            "label": "6d6 acid damage and 1d6 persistent acid damage"
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 24,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save). A success or critical success means the creature also leaps to safety, landing in the nearest space adjacent to the pit. A failure or critical failure means the creature falls into the pit. Climbing out of the pit requires a successful "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:athletics",
+            "dc": 22
+          },
+          {
+            "type": "text",
+            "text": " check."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply the corpse of an ankhrav hive mother."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.cmiWGrdUFyd8ihf1"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 100
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "9460da9a-9672-5a70-af82-287f16b18cca",
+    "pack": "howl-of-the-wild",
+    "kind": "consumable",
+    "slug": "consumable:hydra-mutagen",
+    "name": "Hydra Mutagen",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "mutagen", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You sprout a second head, increasing your awareness, intuition, and cognitive ability but also causing your physical capabilities to be impaired as both minds struggle to control a single body."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " For 10 minutes, you gain all-around vision and a +3 item bonus to all Intelligence- and Wisdom-based skill checks. Once during the mutagen's effect, if you fail or critically fail a Will saving throw against a mental effect, you can treat the result as one degree of success better."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drawback",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are Clumsy 1 for 10 minutes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "0ad0a841-c635-573a-91fa-1009e87b838f"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.iN4giDBCWlc19Jsc"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 600
+        }
+      },
+      "bulk": "light",
+      "category": "mutagen",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "93c776bf-724f-5163-be87-85dc7fffae23",
+    "pack": "howl-of-the-wild",
+    "kind": "consumable",
+    "slug": "consumable:kirin-echo-chime",
+    "name": "Kirin Echo Chime",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell (add 1 action)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The echo of kirin's song can be captured within this small glass chime, which shatters and calls up a meandering breeze of its own when rung. Adding this catalyst to a Gust of Wind spell causes any flying creatures that would be pushed by the spell's effects to be pushed 30 feet in a direction of your choice, rather than 30 feet in the direction of the spell."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Ia3z1nC3LBulMFMs"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "710ad50d-ea23-5f52-ac49-645838c2a8ee",
+    "pack": "howl-of-the-wild",
+    "kind": "consumable",
+    "slug": "consumable:kushtaka-relic",
+    "name": "Kushtaka Relic",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell (add one action)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These relics come in many forms, as the only requirement is they were owned by a human who transformed into a kushtaka. Used as a catalyst for Spirit Blast against a target possessing another creature, a "
+          },
+          {
+            "type": "text",
+            "text": "kushtaka relic",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " attempts to banish such a spirit. A creature who fails the Fortitude save against "
+          },
+          {
+            "type": "text",
+            "text": "spirit blast",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has its grasp on its possessed target weakened. The result of the possessed creature's next Will save against the possession effect is improved by one degree. A creature who is possessing another and critically fails the Fortitude save against "
+          },
+          {
+            "type": "text",
+            "text": "spirit blast",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " takes damage and then is banished from the body it was possessing."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.EBAgEC9YyNC9NTmY"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 525
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "bd800b97-7e7a-594a-b66f-f48156832ec6",
+    "pack": "howl-of-the-wild",
+    "kind": "consumable",
+    "slug": "consumable:ogre-spider-filament",
+    "name": "Ogre Spider Filament",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This delicate strand of spiderweb sticks to the target of a Spider Sting spell, hampering their movement. Using this catalyst causes a creature afflicted with spider venom to become Clumsy instead of Enfeebled."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.jnw6iyevvDSISGsn"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "2d7a64c0-6a0a-570e-9199-9e403c567110",
+    "pack": "howl-of-the-wild",
+    "kind": "consumable",
+    "slug": "consumable:ommatophoric-mutagen",
+    "name": "Ommatophoric Mutagen",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable", "elixir", "mutagen", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eyes bulge from their sockets and extend upwards from your head on long, prehensile stalks, greatly enhancing your eyesight and field of view but leaving you unable to close your eyes, increasing your vulnerability to harmful visual effects."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain all-around vision, a +2 item bonus to visual Perception checks, and low-light vision if you don't already have it. These effects last for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drawback",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " For 1 minute, you take a –2 penalty to saving throws against effects that have the visual trait."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "0e9f67c3-47e5-54ea-965b-ae8331d11c17"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.I1GapZnTPSlbvX2Z"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 65
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "af0d42bd-7554-57d0-b6d7-5b21fa05731a",
+    "pack": "howl-of-the-wild",
+    "kind": "consumable",
+    "slug": "consumable:pallesthetic-mutagen",
+    "name": "Pallesthetic Mutagen",
+    "level": 9,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable", "elixir", "mutagen", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain unparalleled sensitivity to the tiniest of vibrations through solid surfaces and even the very air around you, but your eyes become useless."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " For 1 minute, you gain precise echolocation out to 40 feet, imprecise tremorsense out to 60 feet, and a +2 item bonus to Perception checks using either of these senses."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drawback",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are Blinded for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "43e36143-d2ad-5be9-914b-3f14e22f9dd9"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.vLBXDJfFvXAkuCYc"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 150
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "9929644d-baa8-5cb0-8fee-d4be1284b6c3",
+    "pack": "howl-of-the-wild",
+    "kind": "consumable",
+    "slug": "consumable:pheromone-flare-greater",
+    "name": "Pheromone Flare (Greater)",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "olfactory"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This alchemical candle is attached to a tall pole and grounding stake. When the flare is lit, it sprays a concentrated cloud of pheromones to attract the attention of a specific kind of animal (see "
+          },
+          {
+            "type": "ref",
+            "id": "04968f44-035c-5aee-87f0-240b8253aedd",
+            "label": "alchemical pheromones"
+          },
+          {
+            "type": "text",
+            "text": "). Similar to animal pheromones, when you learn the formula for a pheromone flare, you learn the formulas for all common animals."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A pheromone flare has a built-in delayed activation timer of up to 1 hour. When it's activated, the flare releases a cloud of pheromones in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": " that lasts for 1 hour. A strong wind reduces the emanation to "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": " for as long as the wind lasts. Moving the flare after it has been activated ends the effect. A designated animal that enters the area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 35
+          },
+          {
+            "type": "text",
+            "text": " save with the following effects. Animals with an Intelligence modifier of –3 or higher increase the result of their save by one step."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The animal is unaffected and temporarily immune for 24 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The animal is unaffected but must attempt a new save every 10 minutes it remains within the area."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The animal is attracted by the pheromones, following the cloud to its source. The creature becomes Fascinated until it reaches the flare and spends 1 round investigating it. After this, it becomes temporarily immune for 24 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, except the fascination lasts for up to 1 hour, though the animal can attempt a new save against the effect every 10 minutes. The animal takes a –1 status penalty to this save that increases by 1 with each subsequent failure or critical failure, up to a maximum of a –3 status penalty"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.p2bU2w6qbtgrBchc"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": 1,
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "89757fbb-eb87-528d-b9c4-4e8ed33ddbfe",
+    "pack": "howl-of-the-wild",
+    "kind": "consumable",
+    "slug": "consumable:pheromone-flare-lesser",
+    "name": "Pheromone Flare (Lesser)",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "olfactory"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This alchemical candle is attached to a tall pole and grounding stake. When the flare is lit, it sprays a concentrated cloud of pheromones to attract the attention of a specific kind of animal (see "
+          },
+          {
+            "type": "ref",
+            "id": "1e9f7c0d-81d8-5d41-bffb-7cf099b65dd4",
+            "label": "alchemical pheromones"
+          },
+          {
+            "type": "text",
+            "text": "). Similar to animal pheromones, when you learn the formula for a pheromone flare, you learn the formulas for all common animals."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A pheromone flare has a built-in delayed activation timer of up to 1 hour. When it's activated, the flare releases a cloud of pheromones in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": " that lasts for 1 hour. A strong wind reduces the emanation to "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": " for as long as the wind lasts. Moving the flare after it has been activated ends the effect. A designated animal that enters the area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 19
+          },
+          {
+            "type": "text",
+            "text": " save with the following effects. Animals with an Intelligence modifier of –3 or higher increase the result of their save by one step."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The animal is unaffected and temporarily immune for 24 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The animal is unaffected but must attempt a new save every 10 minutes it remains within the area."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The animal is attracted by the pheromones, following the cloud to its source. The creature becomes Fascinated until it reaches the flare and spends 1 round investigating it. After this, it becomes temporarily immune for 24 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, except the fascination lasts for up to 1 hour, though the animal can attempt a new save against the effect every 10 minutes. The animal takes a –1 status penalty to this save that increases by 1 with each subsequent failure or critical failure, up to a maximum of a –3 status penalty"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.5QuImSHXH5QTDju1"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 30
+        }
+      },
+      "bulk": 1,
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "61d58986-a537-5cf9-8b79-b06d6b549770",
+    "pack": "howl-of-the-wild",
+    "kind": "consumable",
+    "slug": "consumable:pheromone-flare-moderate",
+    "name": "Pheromone Flare (Moderate)",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "olfactory"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This alchemical candle is attached to a tall pole and grounding stake. When the flare is lit, it sprays a concentrated cloud of pheromones to attract the attention of a specific kind of animal (see "
+          },
+          {
+            "type": "ref",
+            "id": "ffe9cd91-ff29-5d9f-a0b5-c75eac689843",
+            "label": "alchemical pheromones"
+          },
+          {
+            "type": "text",
+            "text": "). Similar to animal pheromones, when you learn the formula for a pheromone flare, you learn the formulas for all common animals."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A pheromone flare has a built-in delayed activation timer of up to 1 hour. When it's activated, the flare releases a cloud of pheromones in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": " that lasts for 1 hour. A strong wind reduces the emanation to "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": " for as long as the wind lasts. Moving the flare after it has been activated ends the effect. A designated animal that enters the area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 27
+          },
+          {
+            "type": "text",
+            "text": " save with the following effects. Animals with an Intelligence modifier of –3 or higher increase the result of their save by one step."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The animal is unaffected and temporarily immune for 24 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The animal is unaffected but must attempt a new save every 10 minutes it remains within the area."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The animal is attracted by the pheromones, following the cloud to its source. The creature becomes Fascinated until it reaches the flare and spends 1 round investigating it. After this, it becomes temporarily immune for 24 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, except the fascination lasts for up to 1 hour, though the animal can attempt a new save against the effect every 10 minutes. The animal takes a –1 status penalty to this save that increases by 1 with each subsequent failure or critical failure, up to a maximum of a –3 status penalty"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.1AxZlZmCuOK3NtVs"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 300
+        }
+      },
+      "bulk": 1,
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "3748c9fe-c51d-508c-9cd8-bcd0a0bb1c6c",
+    "pack": "howl-of-the-wild",
+    "kind": "consumable",
+    "slug": "consumable:sargassum-phial",
+    "name": "Sargassum Phial",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "expandable", "incapacitation", "mental", "poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A layer of vapor swirls just below the surface of this glass container holding a large, dried heap of fungal-encrusted seaweed. You can throw the phial up to 30 feet when you Activate it. When opened or thrown, a Medium sargassum heap effigy reconstitutes to release a hallucinogenic cloud in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": ", forcing each creature to attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 20
+          },
+          {
+            "type": "text",
+            "text": " save. On a failure, a creature rolls 1d4 to determine what it is hallucinating for the next 1d4 rounds (unless otherwise noted). At the beginning of their turn, an affected creature attempts a new save."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target thinks they are sinking through the floor. It falls Prone and spends 1 action on its next turn flailing its limbs as if attempting to swim."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target thinks an item they are holding turns into a viper. The target Releases the item and spends its next turn Fleeing from it."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target thinks they have shrunk to 1/10 their normal size. For 1 round, it is Slowed 2, Enfeebled 2, and takes a –10-foot status penalty to its Speed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "4",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target believes they are melting. It drops everything it's holding and becomes slowed 2 and Clumsy 2 for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply the corpse of a sargassum heap."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.hyZQx9PlWgmF9RAw"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "8ec0ce8b-7fc7-5ae6-8648-9b622332a68a",
+    "pack": "howl-of-the-wild",
+    "kind": "consumable",
+    "slug": "consumable:silvered-marp-fur",
+    "name": "Silvered Marp Fur",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A marp that gnaws on silver rather than gold grows fur tipped with silver that can be further processed into a versatile spell catalyst. A spellcaster who uses "
+          },
+          {
+            "type": "text",
+            "text": "silvered marp fur",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " with an Impaling Spike spell creates a silver spike rather than a cold iron one."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Xd96IsYFLmjWnWHk"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 110
+        }
+      },
+      "bulk": "negligible",
+      "category": "catalyst",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "b18288c4-da8a-5133-9343-3fd0b2aac6a7",
+    "pack": "howl-of-the-wild",
+    "kind": "consumable",
+    "slug": "consumable:skyfisher-vapors",
+    "name": "Skyfisher Vapors",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Skyfisher vapors",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " are only visible via their effect on a Toxic Cloud spell, or apparent lack thereof. These gases cause the conjured cloud to be as transparent as a skyfisher. The cloud is invisible, meaning it does not provide concealment, but it requires a successful "
+          },
+          {
+            "type": "check",
+            "statistic": "perception"
+          },
+          {
+            "type": "text",
+            "text": " check against your spell DC to notice the cloud by faint distortions in the air. Your magical connection to the cloud means you always know where it is. This has no effect on its damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.keaNrIPYQYP02acm"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "f9b109b7-d967-5743-ab9c-4164786e5ae4",
+    "pack": "howl-of-the-wild",
+    "kind": "consumable",
+    "slug": "consumable:sportlebore-capsule",
+    "name": "Sportlebore Capsule",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "ingested", "poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This tiny capsule of soluble material is filled with a flavorless clear powder mixed with thousands of microscopic eggs laid by insidious parasites known as sportlebores. If the capsule or its contents are swallowed by an unwitting victim, the eggs rapidly hatch inside their unfortunate host, causing great abdominal pain. The target can't recover from the poison's enfeebled or sickened condition except by magic. After stage 3, the target returns to stage 1, but if it progresses to stage 3 a second time, the damage is doubled."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Saving Throw",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 22
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Onset",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Maximum Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 6 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Sickened 1 (1 minute)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Enfeebled 1 and sickened 1 (1 minute)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "bludgeoning"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 23,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save) and Enfeebled 2 as the affected target painfully vomits (1 minute)"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Ary0uHNPkoFHX40N"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 70
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "1dc8ab91-cae9-5621-96a0-3f86b7304d22",
+    "pack": "howl-of-the-wild",
+    "kind": "consumable",
+    "slug": "consumable:tarantula-ampoule",
+    "name": "Tarantula Ampoule",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable", "expandable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The dried, shrunken corpse of a giant tarantula inside this smoked glass bottle is obscured by swirling vapor and cobwebs. You can throw the ampoule up to 30 feet when you Activate it. When you open or throw the ampoule, a Large giant tarantula effigy bursts forth and lunges at one adjacent creature. If the target fails a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 21
+          },
+          {
+            "type": "text",
+            "text": " save, it takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d10+4",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. If the target critically fails the save, it's also exposed to tarantula venom."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Giant Tarantula Venom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (poison)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Saving Throw",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 23
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Maximum Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 8 rounds"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d10",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d12",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, Clumsy 1, and Off-Guard (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, Clumsy 2, and off-guard (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 4",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 2d6 poison damage and Paralyzed (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply the corpse of a giant tarantula."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.aP6dJkd3pBNGXwiy"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 45
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "04c90889-26be-5954-8c21-bc3d0baf77b2",
+    "pack": "howl-of-the-wild",
+    "kind": "consumable",
+    "slug": "consumable:tatzlwyrms-gasp",
+    "name": "Tatzlwyrm's Gasp",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "inhaled", "poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Brave alchemists take great care to capture a tatzlwyrm's poisonous vapor in small vials, typically through a system of compressors that can concentrate their exhalations."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Saving Throw",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 15
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Maximum Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 3 rounds"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Sickened 1 (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and Enfeebled 1 (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and enfeebled 1 (1 round)"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.V3f0hQdWoWMWF5RU"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "6f2c00bb-e8b7-5d46-a959-e373d890c181",
+    "pack": "howl-of-the-wild",
+    "kind": "consumable",
+    "slug": "consumable:viperous-elixir-greater",
+    "name": "Viperous Elixir (Greater)",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir", "morph", "poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your teeth elongate into fangs with grooves that can channel a deadly venom. You gain a fangs unarmed attack that deals 1d6 piercing damage, unless you already have an unarmed bite attack that deals more damage. You gain the listed item bonus to unarmed attack and damage rolls when you Strike with your fangs or another bite attack."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The bonus is +3, your fangs inflict Wyvern Poison, and the duration is 10 minutes or until you hit and deal damage with your fangs three times, whichever comes first."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "8628af6c-0e99-521f-a1c9-dc17442a3637"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.avCckBXMRbzAudZG"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 225
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "78e91d8e-29bb-5cfa-8cc2-caee7a66202c",
+    "pack": "howl-of-the-wild",
+    "kind": "consumable",
+    "slug": "consumable:viperous-elixir-lesser",
+    "name": "Viperous Elixir (Lesser)",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir", "morph", "poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your teeth elongate into fangs with grooves that can channel a deadly venom. You gain a fangs unarmed attack that deals 1d6 piercing damage, unless you already have an unarmed bite attack that deals more damage. You gain the listed item bonus to unarmed attack and damage rolls when you Strike with your fangs or another bite attack."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The bonus is +1 item, your fangs inflict Black Adder Venom, and the duration is 1 minute or until you hit and deal damage with your fangs, whichever comes first."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "62d349ef-1f58-5201-bdb5-08bbe97fdf37"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.LmNp6og59w1KhlIX"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "ea6e571f-7d7e-5f77-b562-ac610e5b6baa",
+    "pack": "howl-of-the-wild",
+    "kind": "consumable",
+    "slug": "consumable:viperous-elixir-moderate",
+    "name": "Viperous Elixir (Moderate)",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir", "morph", "poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your teeth elongate into fangs with grooves that can channel a deadly venom. You gain a fangs unarmed attack that deals 1d6 piercing damage, unless you already have an unarmed bite attack that deals more damage. You gain the listed item bonus to unarmed attack and damage rolls when you Strike with your fangs or another bite attack."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The bonus is +2, your fangs inflict Giant Scorpion Venom, and the duration is 10 minutes or until you hit and deal damage with your fangs twice, whichever comes first."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "e48a2450-314f-5522-9f78-42af4dadcf94"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.HwDlOobl1bsTG5mA"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 85
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "7ca873d8-ddb7-5883-ba18-11188a829cde",
+    "pack": "howl-of-the-wild",
+    "kind": "consumable",
+    "slug": "consumable:wemmuth-trinket",
+    "name": "Wemmuth Trinket",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell (add 1 action)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The baubles wemmuths use to lure victims to their hunting grounds are dangerous to retrieve and often stained by blood. One of these trinkets covers the plant matter created by Entangling Flora with blood-drinking thorns. Creatures who fail or critically fail their Reflex saves against "
+          },
+          {
+            "type": "text",
+            "text": "entangling flora",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " also take piercing damage equal to the spell's rank."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "489b4b39-d9d8-55b9-aaf3-e65676e9cb07"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.jdBSk1eH1qPsCNi6"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 12
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "f5f3f8b4-36cc-58ff-aaee-a0506a3f717d",
+    "pack": "howl-of-the-wild",
+    "kind": "consumable",
+    "slug": "consumable:witchwarg-fur",
+    "name": "Witchwarg Fur",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The pelt of a witchwarg stays cold long after it leaves the creature's body. A tuft of this fur can freeze a Fire Shield spell into solid ice, inverting its usual effects. The spell's fire trait is replaced with the cold trait, you gain resistance to fire damage and environmental heat effects (instead of cold effects), the shield is immune to cold damage instead of fire damage, and its Hardness is halved against fire effects. The damage you deal to creatures that touch you or hit you with a melee or unarmed attack has its type changed to cold."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.vmAZrNtftTBOyTVx"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 52
+        }
+      },
+      "bulk": "negligible",
+      "category": "catalyst",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "fabc2223-9809-56a3-9450-193088211c1a",
+    "pack": "howl-of-the-wild",
+    "kind": "consumable",
+    "slug": "consumable:wolliped-fleece",
+    "name": "Wolliped Fleece",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell (add one action)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A small bundle of "
+          },
+          {
+            "type": "text",
+            "text": "wolliped fleece",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " contains the memory of winter snows. Adding this catalyst to a casting of Chilling Spray coats all squares within the area of effect with a thin layer of ice. These squares become difficult terrain until the beginning of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.GzcCAMqagCxy18tF"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "negligible",
+      "category": "catalyst",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]
