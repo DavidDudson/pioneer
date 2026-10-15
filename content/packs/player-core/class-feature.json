@@ -7127,7 +7127,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RepertoireCount",
+        "entry": "bard",
+        "rank": 10,
+        "value": 2
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.NjsOpWbbzUY2Hpk3"
     },

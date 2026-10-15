@@ -169,9 +169,9 @@ export {
   type PreparedRank,
   type PreparedPool,
   type PreparedSlot,
-  PreparedPickProblem,
   preparedSlots,
 } from './prepared-spells';
+export { PreparedPickProblem } from './prepared-pick-problem';
 export { SpellAccessProblem, spellAccessProblem } from './spell-access';
 export {
   castRanks,

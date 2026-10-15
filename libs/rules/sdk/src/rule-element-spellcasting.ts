@@ -148,6 +148,23 @@ export const RepertoireSpellsElement = z.strictObject({
 });
 export type RepertoireSpellsElement = z.infer<typeof RepertoireSpellsElement>;
 
+/**
+ * Adds spells of one rank to a spontaneous entry's repertoire, apart from its slots (ADR-0063): a bard's Magnum Opus,
+ * a sorcerer's Bloodline Paragon and an oracle's Oracular Clarity each add two 10th-rank spells to a single 10th-rank
+ * slot. Below 10th rank a repertoire holds as many spells as the entry has slots plus these; at 10th rank its slots
+ * never size it, so it holds these alone. Those of every element in play for an entry add up per rank. One for an entry
+ * not in play, or a prepared, innate or focus one, adds none. A Pioneer element with no Foundry counterpart, like
+ * `SpellSlots`.
+ */
+export const RepertoireCountElement = z.strictObject({
+  key: z.literal(RuleElementKey.RepertoireCount),
+  entry: EntrySourceSlug,
+  rank: SpellRank,
+  value: SlotCount,
+  ...ruleElementBase,
+});
+export type RepertoireCountElement = z.infer<typeof RepertoireCountElement>;
+
 /** The most spells a `FocusSpells` element names: a feature grants one or two. */
 const FOCUS_SPELLS_MAX = 8;
 

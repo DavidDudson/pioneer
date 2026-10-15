@@ -33,6 +33,7 @@ export const RuleElementKey = {
   SignatureSpells: 'SignatureSpells',
   FocusSpells: 'FocusSpells',
   RepertoireSpells: 'RepertoireSpells',
+  RepertoireCount: 'RepertoireCount',
   Language: 'Language',
   ActorTraits: 'ActorTraits',
   Strike: 'Strike',

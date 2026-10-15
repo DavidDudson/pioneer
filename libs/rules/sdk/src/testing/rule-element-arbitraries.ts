@@ -217,6 +217,11 @@ const repertoireSpells = element('RepertoireSpells', {
   entry: slugText,
   spells: uniqueArray(grantedSpell, { minLength: 1, maxLength: LIST_MAX }),
 });
+const repertoireCount = element('RepertoireCount', {
+  entry: slugText,
+  rank: integer({ min: 1, max: SPELL_RANK_MAX }),
+  value: integer({ min: 1, max: SLOTS_MAX }),
+});
 
 const languageAccess = constantFrom('common', 'uncommon', 'rare');
 const grantedLanguages = uniqueArray(uuid(), { minLength: 1, maxLength: LIST_MAX });
@@ -258,6 +263,7 @@ export const ruleElementJson: Arbitrary<object> = oneof(
   deitySpells,
   signatureSpells,
   repertoireSpells,
+  repertoireCount,
   focusSpells,
   language,
   actorTraits,

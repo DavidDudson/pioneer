@@ -349,6 +349,7 @@ export {
   FocusSpellsElement,
   GrantedSpell,
   PoolSpellsElement,
+  RepertoireCountElement,
   RepertoireSpellsElement,
   SignatureSpellsElement,
   SLOT_COUNT_MAX,
