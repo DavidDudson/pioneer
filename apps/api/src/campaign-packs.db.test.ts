@@ -174,11 +174,12 @@ describe.skipIf(adminUrl === undefined)('CampaignPackService over postgres', () 
     expect(await unindexedQueries(database.db, recorder)).toStrictEqual([]);
   });
 
-  test('deleting the campaign, the pack or the user who enabled it', async () => {
+  test('a pack or campaign cannot be deleted; deleting the user who enabled it clears the mark', async () => {
     await service.enable(amiri, campaignId, { packId: EnabledPackId.parse(feats.id) });
-    await database.db.execute(sql`delete from content_packs where id = ${feats.id}`);
+    const packRefused = await rejection(database.db.execute(sql`delete from content_packs where id = ${feats.id}`));
+    expect(packRefused).toBeInstanceOf(Error);
     const afterPack = await stored();
-    expect(afterPack.map((row) => row.packId)).toStrictEqual([spells.id]);
+    expect(afterPack.map((row) => row.packId).toSorted()).toStrictEqual([feats.id, spells.id].toSorted());
 
     const stranger = UserId.parse(newId());
     await database.db.execute(

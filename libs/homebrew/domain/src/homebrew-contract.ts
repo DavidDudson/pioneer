@@ -34,6 +34,15 @@ export const HomebrewContract = {
     body: NoBody,
     response: z.array(HomebrewPack.codec),
   }),
+  /** The actor's archived packs (ADR-0062), newest first. */
+  archived: new Endpoint({
+    method: HttpMethod.Get,
+    path: '/homebrew/packs/archived',
+    params: NoParams,
+    query: NoQuery,
+    body: NoBody,
+    response: z.array(HomebrewPack.codec),
+  }),
   /** A pack the actor may read: their own, or one shared with them. Any other is a 404. */
   get: new Endpoint({
     method: HttpMethod.Get,
@@ -62,6 +71,31 @@ export const HomebrewContract = {
     params: ById,
     query: NoQuery,
     body: SetPackVisibilityBody,
+    response: HomebrewPack.codec,
+  }),
+  /**
+   * Owner only (403 for another reader, 404 for anyone who cannot read the pack): archives the pack, which then is
+   * not offered, read or in force for anyone, and can be restored. Packs that still extend it are a 409. Archiving it
+   * twice is harmless.
+   */
+  archive: new Endpoint({
+    method: HttpMethod.Post,
+    path: '/homebrew/packs/:id/archive',
+    params: ById,
+    query: NoQuery,
+    body: NoBody,
+    response: HomebrewPack.codec,
+  }),
+  /**
+   * Owner only: brings an archived pack back as it was. One that extends an archived pack is a 409. Restoring a live
+   * one is harmless.
+   */
+  restore: new Endpoint({
+    method: HttpMethod.Post,
+    path: '/homebrew/packs/:id/restore',
+    params: ById,
+    query: NoQuery,
+    body: NoBody,
     response: HomebrewPack.codec,
   }),
   /** The packs this one extends, and the ones its owner could add. Readable by anyone who can read the pack. */

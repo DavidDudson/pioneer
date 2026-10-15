@@ -1,14 +1,18 @@
 import { HomebrewPackRepository } from '@pioneer/homebrew/application';
+import type { GuardedChange } from '@pioneer/homebrew/application';
 import { EntryCount, HomebrewPack } from '@pioneer/homebrew/domain';
 import { contentEntries, contentHash, contentPacks } from '@pioneer/rules/infrastructure';
 import type { ContentPackFile, ContentPackId } from '@pioneer/rules/sdk';
 import { Temporal } from '@pioneer/shared/kernel';
 import type { UserId } from '@pioneer/shared/kernel';
 import { stampAudit } from '@pioneer/shared/server';
-import { and, count, eq, inArray, isNotNull } from 'drizzle-orm';
+import { and, count, eq, inArray, isNotNull, isNull, sql } from 'drizzle-orm';
+import type { SQL } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 
 type PackRow = typeof contentPacks.$inferSelect;
+/** What a save writes: never `archivedAt`, which only archive and restore touch. */
+type SavedRow = Omit<PackRow, 'archivedAt'>;
 
 /** Name the commands on the audit rows they write, as a service use case names a command. */
 const CREATE_COMMAND = 'create-homebrew-pack';
@@ -37,7 +41,7 @@ function newestFirst(left: HomebrewPack, right: HomebrewPack): number {
   return Temporal.Instant.compare(right.updatedAt, left.updatedAt) || left.id.localeCompare(right.id);
 }
 
-function toRow(pack: HomebrewPack): PackRow {
+function toRow(pack: HomebrewPack): SavedRow {
   const file: ContentPackFile = {
     id: pack.slug,
     title: pack.title,
@@ -68,7 +72,15 @@ export class DrizzleHomebrewPackRepository extends HomebrewPackRepository {
   }
 
   public override async listOwnedBy(ownerId: UserId): Promise<readonly HomebrewPack[]> {
-    const rows = await this.#db.select().from(contentPacks).where(eq(contentPacks.ownerId, ownerId));
+    return this.#listFor(and(eq(contentPacks.ownerId, ownerId), isNull(contentPacks.archivedAt)));
+  }
+
+  public override async listArchivedOwnedBy(ownerId: UserId): Promise<readonly HomebrewPack[]> {
+    return this.#listFor(and(eq(contentPacks.ownerId, ownerId), isNotNull(contentPacks.archivedAt)));
+  }
+
+  async #listFor(where: SQL | undefined): Promise<readonly HomebrewPack[]> {
+    const rows = await this.#db.select().from(contentPacks).where(where);
     const counts = await this.#entryCounts(rows.map((row) => row.id));
     const packs = rows.flatMap((row): HomebrewPack[] => {
       const pack = toPack(row, counts.get(row.id) ?? EntryCount.parse(0));
@@ -78,16 +90,54 @@ export class DrizzleHomebrewPackRepository extends HomebrewPackRepository {
   }
 
   public override async findById(id: ContentPackId): Promise<HomebrewPack | undefined> {
-    const [row] = await this.#db
-      .select()
-      .from(contentPacks)
-      .where(and(eq(contentPacks.id, id), isNotNull(contentPacks.ownerId)))
-      .limit(1);
+    return this.#findOne(
+      and(eq(contentPacks.id, id), isNotNull(contentPacks.ownerId), isNull(contentPacks.archivedAt)),
+    );
+  }
+
+  public override async findArchivedById(id: ContentPackId): Promise<HomebrewPack | undefined> {
+    return this.#findOne(
+      and(eq(contentPacks.id, id), isNotNull(contentPacks.ownerId), isNotNull(contentPacks.archivedAt)),
+    );
+  }
+
+  async #findOne(where: SQL | undefined): Promise<HomebrewPack | undefined> {
+    const [row] = await this.#db.select().from(contentPacks).where(where).limit(1);
     if (row === undefined) {
       return undefined;
     }
-    const counts = await this.#entryCounts([id]);
-    return toPack(row, counts.get(id) ?? EntryCount.parse(0));
+    const counts = await this.#entryCounts([row.id]);
+    return toPack(row, counts.get(row.id) ?? EntryCount.parse(0));
+  }
+
+  public override async archive(id: ContentPackId, now: Temporal.Instant, guarded: GuardedChange): Promise<void> {
+    await this.#setArchived(and(eq(contentPacks.id, id), isNull(contentPacks.archivedAt)), now.toString(), guarded);
+  }
+
+  public override async restore(id: ContentPackId, guarded: GuardedChange): Promise<void> {
+    await this.#setArchived(and(eq(contentPacks.id, id), isNotNull(contentPacks.archivedAt)), sql`null`, guarded);
+  }
+
+  /**
+   * Stamps or clears `archivedAt` on the homebrew pack `where` matches, with the audit context. The row is locked first,
+   * as a visibility change and a new dependency lock it, so `whileLocked` sees every change that committed. Version and
+   * `updatedAt` stay: nothing about the pack's content changed.
+   */
+  async #setArchived(
+    where: SQL | undefined,
+    archivedAt: SQL | string,
+    { audit, whileLocked }: GuardedChange,
+  ): Promise<void> {
+    await this.#db.transaction(async (tx) => {
+      await stampAudit(tx, audit);
+      const mine = and(where, isNotNull(contentPacks.ownerId));
+      const [locked] = await tx.select({ id: contentPacks.id }).from(contentPacks).where(mine).for('update');
+      if (locked === undefined) {
+        return;
+      }
+      await whileLocked?.();
+      await tx.update(contentPacks).set({ archivedAt }).where(mine);
+    });
   }
 
   public override async insert(pack: HomebrewPack): Promise<HomebrewPack | undefined> {
@@ -114,7 +164,9 @@ export class DrizzleHomebrewPackRepository extends HomebrewPackRepository {
       const [locked] = await tx
         .select({ id: contentPacks.id })
         .from(contentPacks)
-        .where(and(eq(contentPacks.id, pack.id), eq(contentPacks.ownerId, pack.ownerId)))
+        .where(
+          and(eq(contentPacks.id, pack.id), eq(contentPacks.ownerId, pack.ownerId), isNull(contentPacks.archivedAt)),
+        )
         .for('update');
       if (locked === undefined) {
         return [];

@@ -164,14 +164,18 @@ describe.skipIf(adminUrl === undefined)('pack dependencies (postgres)', () => {
     expect(await edgesOf(mine)).toStrictEqual([]);
   });
 
-  test('deleting a pack takes its dependencies with it, but one other packs depend on cannot be deleted', async () => {
+  test('a pack cannot be deleted, so its dependencies stay; archiving it leaves them as they are', async () => {
     const base = await pack('dep-base');
     const extension = await pack('dep-extension');
     await connect({ pack: extension, dependsOn: base });
     const blocked = await rejection(database.db.execute(sql`delete from content_packs where id = ${base}`));
     expect(blocked).toBeInstanceOf(Error);
-    await database.db.execute(sql`delete from content_packs where id = ${extension}`);
-    expect(await edgesOf(extension)).toStrictEqual([]);
+    const extensionDeleted = await rejection(
+      database.db.execute(sql`delete from content_packs where id = ${extension}`),
+    );
+    expect(extensionDeleted).toBeInstanceOf(Error);
+    await database.db.execute(sql`update content_packs set archived_at = now() where id = ${extension}`);
+    expect(await edgesOf(extension)).toStrictEqual([{ pack: extension, dependsOn: base }]);
   });
 
   test('add holds both packs locked while it checks, and stores nothing if the check throws', async () => {

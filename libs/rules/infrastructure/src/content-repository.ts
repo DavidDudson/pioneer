@@ -13,6 +13,7 @@ type Reader = Pick<Database, 'select'>;
 /**
  * The homebrew packs among `roots` and every pack they extend, each once and after the packs it extends, so registering
  * them in this order resolves a pack's references as it goes. Official packs are left out: a registry holds them already.
+ * An archived pack is left out (ADR-0062): it is not in force.
  */
 async function homebrewOrder(reader: Reader, roots: readonly ContentPackId[]): Promise<readonly ContentPackId[]> {
   const edges = await reader
@@ -26,7 +27,7 @@ async function homebrewOrder(reader: Reader, roots: readonly ContentPackId[]): P
   const homebrew = await reader
     .select({ id: contentPacks.id })
     .from(contentPacks)
-    .where(and(inArray(contentPacks.id, ordered), isNotNull(contentPacks.ownerId)));
+    .where(and(inArray(contentPacks.id, ordered), isNotNull(contentPacks.ownerId), isNull(contentPacks.archivedAt)));
   const kept = new Set(homebrew.map((row) => row.id));
   return ordered.filter((id) => kept.has(id));
 }
@@ -98,7 +99,7 @@ export class ContentRepository {
             const [pack] = await tx
               .select({ data: contentPacks.data })
               .from(contentPacks)
-              .where(eq(contentPacks.id, id));
+              .where(and(eq(contentPacks.id, id), isNull(contentPacks.archivedAt)));
             if (pack === undefined) {
               return undefined;
             }

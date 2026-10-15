@@ -8,7 +8,7 @@ import type { Rule } from 'eslint';
  * Drizzle table names (the exported const) whose rows are archived. A table joins this list in the same change that
  * adds its `archived_at` column and `archive.protect` trigger.
  */
-export const ARCHIVABLE_TABLES: ReadonlySet<string> = new Set(['characters', 'campaigns']);
+export const ARCHIVABLE_TABLES: ReadonlySet<string> = new Set(['characters', 'campaigns', 'contentPacks']);
 
 interface DeleteCallShape {
   readonly callee?: { readonly type?: string; readonly property?: { readonly name?: unknown } };

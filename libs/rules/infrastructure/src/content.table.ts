@@ -21,8 +21,8 @@ import { index, integer, jsonb, pgTable, smallint, text, timestamp, uniqueIndex,
 
 /**
  * Drizzle schema for content storage (content-model.md, "Packs and storage"). Migrations live in apps/api/migrations.
- * The book registry is code, not a table (ADR-0024). The foreign key from `content_packs.owner_id` to users (on
- * delete cascade) is in migration 0011, not here: identity's tables are outside this context's module boundary.
+ * The book registry is code, not a table (ADR-0024). The foreign key from `content_packs.owner_id` to users
+ * (migration 0011, restrict since 0025) is in the migrations, not here: identity's tables are outside this context's module boundary.
  */
 export const contentPacks = pgTable(
   'content_packs',
@@ -45,8 +45,12 @@ export const contentPacks = pgTable(
     data: jsonb().$type<ContentPackFile>().notNull(),
     // Strings, not Date: Date is banned.
     updatedAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
+    // Set when the owner archives a homebrew pack (ADR-0062); null is live, and official packs stay null.
+    // A row is never deleted. The owner's foreign key to users (migration 0025) is restrict.
+    // Never written by the content seed.
+    archivedAt: timestamp({ withTimezone: true, mode: 'string' }),
   },
-  // Serves the cascade when the owner's user is deleted, and later a user's own packs.
+  // Serves the restrict when the owner's user is deleted, and a user's own packs.
   (table) => [index('content_packs_owner_id_idx').on(table.ownerId)],
 );
 

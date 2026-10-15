@@ -4,6 +4,7 @@ import { InMemoryPackEnablementDirectory } from '@pioneer/homebrew/application';
 import { ContentPackId } from '@pioneer/rules/sdk';
 import { newId } from '@pioneer/shared/kernel';
 import type { Problem } from '@pioneer/shared/kernel';
+import type { AnyElysia } from 'elysia';
 
 import {
   amiri,
@@ -156,5 +157,43 @@ describe('homebrew routes', () => {
       );
       expect(response.status).toBe(422);
     });
+  });
+});
+
+async function statusOf(api: AnyElysia, sent: Request): Promise<number> {
+  const response = await api.handle(sent);
+  return response.status;
+}
+
+async function idsFrom(api: AnyElysia, path: string): Promise<readonly string[]> {
+  const response = await api.handle(request('GET', path));
+  const packs = (await response.json()) as PackJson[];
+  return packs.map(({ id }) => id);
+}
+
+describe('archived homebrew pack routes (ADR-0062)', () => {
+  test('archive hides the pack, restore brings it back', async () => {
+    const api = app();
+    const pack = await makePack(api);
+    expect(await statusOf(api, request('POST', `/homebrew/packs/${pack.id}/archive`))).toBe(200);
+    expect(await statusOf(api, request('GET', `/homebrew/packs/${pack.id}`))).toBe(404);
+    expect(await idsFrom(api, '/homebrew/packs')).toStrictEqual([]);
+    expect(await idsFrom(api, '/homebrew/packs/archived')).toStrictEqual([pack.id]);
+    const patched = request('PATCH', visibilityPath(pack), { body: shareWithAll });
+    expect(await statusOf(api, patched)).toBe(404);
+
+    expect(await statusOf(api, request('POST', `/homebrew/packs/${pack.id}/restore`))).toBe(200);
+    expect(await statusOf(api, request('GET', `/homebrew/packs/${pack.id}`))).toBe(200);
+    expect(await idsFrom(api, '/homebrew/packs/archived')).toStrictEqual([]);
+  });
+
+  test('another user’s pack is 404, one they may read is 403, and signed out is 401', async () => {
+    const api = app();
+    const pack = await makePack(api);
+    expect(await statusOf(api, request('POST', `/homebrew/packs/${pack.id}/archive`, { as: ezren }))).toBe(404);
+    await api.handle(request('PATCH', visibilityPath(pack), { body: shareWithAll }));
+    expect(await statusOf(api, request('POST', `/homebrew/packs/${pack.id}/archive`, { as: ezren }))).toBe(403);
+    expect(await statusOf(api, request('POST', `/homebrew/packs/${pack.id}/archive`, { as: anonymous }))).toBe(401);
+    expect(await statusOf(api, request('GET', '/homebrew/packs/archived', { as: anonymous }))).toBe(401);
   });
 });

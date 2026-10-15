@@ -2,7 +2,7 @@ import { PackDirectory } from '@pioneer/homebrew/application';
 import type { ListedPack } from '@pioneer/homebrew/application';
 import { contentPacks } from '@pioneer/rules/infrastructure';
 import type { ContentPackId } from '@pioneer/rules/sdk';
-import { asc, eq } from 'drizzle-orm';
+import { and, asc, eq, isNull } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 
 type PackRow = typeof contentPacks.$inferSelect;
@@ -33,13 +33,21 @@ export class DrizzlePackDirectory extends PackDirectory {
   }
 
   public override async findById(id: ContentPackId): Promise<ListedPack | undefined> {
-    const [row] = await this.#db.select().from(contentPacks).where(eq(contentPacks.id, id)).limit(1);
+    const [row] = await this.#db
+      .select()
+      .from(contentPacks)
+      .where(and(eq(contentPacks.id, id), isNull(contentPacks.archivedAt)))
+      .limit(1);
     return row === undefined ? undefined : toListed(row);
   }
 
   public override async all(): Promise<readonly ListedPack[]> {
     // In primary key order, which the index serves; re-sorted by title here, as there are few packs.
-    const rows = await this.#db.select().from(contentPacks).orderBy(asc(contentPacks.id));
+    const rows = await this.#db
+      .select()
+      .from(contentPacks)
+      .where(isNull(contentPacks.archivedAt))
+      .orderBy(asc(contentPacks.id));
     return rows
       .map((row) => toListed(row))
       .toSorted(
