@@ -44,14 +44,18 @@ async function insertUser(database: TestDatabase, id: UserId): Promise<void> {
   );
 }
 
-/** An invite to `campaign` made by its GM at `now`, with a hash no other invite shares. */
-async function invite(campaign: Campaign, now: Temporal.Instant = at): Promise<CampaignInvite> {
+/** An invite to `campaign` made by `createdBy` (its GM by default) at `now`, with a hash no other invite shares. */
+async function invite(
+  campaign: Campaign,
+  now: Temporal.Instant = at,
+  createdBy: UserId = campaign.gmId,
+): Promise<CampaignInvite> {
   const tokenHash = InviteTokenHash.parse(await sha256Hex(newId()));
   return CampaignInvite.issue({
     id: CampaignInviteId.parse(newId()),
     campaignId: campaign.id,
     tokenHash,
-    createdBy: campaign.gmId,
+    createdBy,
     now,
   });
 }
@@ -119,18 +123,19 @@ describe.skipIf(adminUrl === undefined)('DrizzleCampaignInviteRepository (postgr
     expect(String((error as Error).cause)).toContain('campaign_invites_token_hash_idx');
   });
 
-  test('deleting the campaign, or the user who made an invite, deletes it', async () => {
+  test('a campaign with invites cannot be deleted; deleting the user who made one deletes it', async () => {
     const gm = UserId.parse(newId());
-    await insertUser(database, gm);
+    const maker = UserId.parse(newId());
+    await Promise.all([gm, maker].map(async (id) => insertUser(database, id)));
     const party = await campaigns.insert(new CampaignBuilder().named('Blood Lords').ranBy(gm).build());
     const issued = await repository.insert(await invite(party));
-    await database.db.execute(sql`delete from campaigns where id = ${party.id}`);
-    expect(await repository.findById(issued.id)).toBeUndefined();
+    const refused = await rejection(database.db.execute(sql`delete from campaigns where id = ${party.id}`));
+    expect(refused).toBeInstanceOf(Error);
+    expect(await repository.findById(issued.id)).toBeDefined();
 
-    const other = await campaigns.insert(new CampaignBuilder().named('Season of Ghosts').ranBy(gm).build());
-    const fromGm = await repository.insert(await invite(other));
-    await database.db.execute(sql`delete from users where id = ${gm}`);
-    expect(await repository.findById(fromGm.id)).toBeUndefined();
+    const fromMaker = await repository.insert(await invite(party, at, maker));
+    await database.db.execute(sql`delete from users where id = ${maker}`);
+    expect(await repository.findById(fromMaker.id)).toBeUndefined();
   });
 
   test('joining through an open invite adds a player once and bumps the version once', async () => {

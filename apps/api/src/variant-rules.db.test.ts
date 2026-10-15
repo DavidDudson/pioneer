@@ -224,7 +224,8 @@ describe.skipIf(adminUrl === undefined)('variant rules over postgres', () => {
     const refused = await rejection(database.db.execute(sql`delete from characters where id = ${kyra}`));
     expect(refused).toBeInstanceOf(Error);
     expect(await stored()).not.toStrictEqual([]);
-    await database.db.execute(sql`delete from campaigns where id = ${campaignId}`);
-    expect(await campaignVariants.listForCampaign(campaignId)).toStrictEqual([]);
+    const campaignRefused = await rejection(database.db.execute(sql`delete from campaigns where id = ${campaignId}`));
+    expect(campaignRefused).toBeInstanceOf(Error);
+    expect(await campaignVariants.listForCampaign(campaignId)).not.toStrictEqual([]);
   });
 });

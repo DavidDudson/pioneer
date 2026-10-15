@@ -5,7 +5,7 @@ import { AttachedCampaignName, CampaignAlly } from '@pioneer/character/domain';
 import type { CharacterId } from '@pioneer/character/domain';
 import { characters } from '@pioneer/character/infrastructure';
 import { VariantRuleId } from '@pioneer/rules/sdk';
-import { and, eq, ne } from 'drizzle-orm';
+import { and, eq, isNull, ne } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 
 /**
@@ -25,7 +25,7 @@ export class CampaignPackDirectory extends AttachedCampaignPacks {
       .select({ id: campaigns.id, name: campaigns.name })
       .from(campaignCharacters)
       .innerJoin(campaigns, eq(campaigns.id, campaignCharacters.campaignId))
-      .where(eq(campaignCharacters.characterId, characterId))
+      .where(and(eq(campaignCharacters.characterId, characterId), isNull(campaigns.archivedAt)))
       .limit(1);
     if (attached === undefined) {
       return undefined;

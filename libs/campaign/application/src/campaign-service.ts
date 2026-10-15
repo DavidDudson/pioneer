@@ -1,10 +1,10 @@
-import { Campaign, CampaignId, CampaignMemberId, CampaignRole } from '@pioneer/campaign/domain';
+import { Campaign, CampaignCommand, CampaignId, CampaignMemberId, CampaignRole } from '@pioneer/campaign/domain';
 import type { CampaignRoster, CreateCampaignBody, NamedMember, TransferGmBody } from '@pioneer/campaign/domain';
 import { ForbiddenError, message, newId, NotFoundError } from '@pioneer/shared/kernel';
 import type { Clock, UserId } from '@pioneer/shared/kernel';
 
 import type { CampaignInviteRepository } from './campaign-invite-repository';
-import { mayLeaveCampaign, mayManageMembers, mayViewCampaign } from './campaign-policy';
+import { mayArchiveCampaign, mayLeaveCampaign, mayManageMembers, mayViewCampaign } from './campaign-policy';
 import type { CampaignRepository } from './campaign-repository';
 import type { MemberDirectory } from './member-directory';
 import { MemberMessage } from './member-message';
@@ -15,6 +15,17 @@ export interface CampaignPorts {
   /** Removing a member revokes the campaign's open invites. */
   readonly invites: CampaignInviteRepository;
   readonly directory: MemberDirectory;
+}
+
+/** The campaign, when the actor is its GM; a member who is not: 403; anyone else: 404 (ADR-0007). */
+function archivable(actor: UserId, campaign: Campaign): Campaign {
+  if (!mayViewCampaign(actor, campaign)) {
+    throw new NotFoundError('Campaign', campaign.id);
+  }
+  if (!mayArchiveCampaign(actor, campaign)) {
+    throw new ForbiddenError(`Only the GM archives or restores campaign ${campaign.id}`);
+  }
+  return campaign;
 }
 
 /**
@@ -37,6 +48,11 @@ export class CampaignService {
   /** Every campaign the actor is a member of, as GM or player. */
   public async list(actor: UserId): Promise<readonly Campaign[]> {
     return this.#repository.listForMember(actor);
+  }
+
+  /** The campaigns the actor runs and has archived (ADR-0062); nobody else's are listed. */
+  public async listArchived(actor: UserId): Promise<readonly Campaign[]> {
+    return this.#repository.listArchivedForGm(actor);
   }
 
   /** One of the actor's campaigns. One they are not in is a 404, the same as a missing one. */
@@ -105,6 +121,41 @@ export class CampaignService {
       throw new ForbiddenError(`The GM of campaign ${id} can't leave it`, message(MemberMessage.GmCannotLeave));
     }
     await this.#repository.updateMembers(campaign.withoutMember(member.id), campaign.version);
+  }
+
+  /**
+   * The GM archives their campaign (ADR-0062): it reads as missing to everyone, themselves included, until restored.
+   * Archiving an archived one is harmless. A player gets a 403 as they can see it; a stranger, or a missing one, a 404.
+   */
+  public async archive(actor: UserId, id: CampaignId): Promise<Campaign> {
+    const live = await this.#repository.findById(id);
+    if (live === undefined) {
+      return this.#archivedOf(actor, id);
+    }
+    const campaign = archivable(actor, live);
+    await this.#repository.archive(id, this.#clock.now(), { actor, command: CampaignCommand.ArchiveCampaign });
+    return campaign;
+  }
+
+  /** Brings the GM's archived campaign back as it was. Restoring a live one is harmless. */
+  public async restore(actor: UserId, id: CampaignId): Promise<Campaign> {
+    const archived = await this.#repository.findArchivedById(id);
+    if (archived === undefined) {
+      const live = await this.get(actor, id);
+      return archivable(actor, live);
+    }
+    const campaign = archivable(actor, archived);
+    await this.#repository.restore(id, { actor, command: CampaignCommand.RestoreCampaign });
+    return campaign;
+  }
+
+  /** The actor's archived campaign, or a 404. */
+  async #archivedOf(actor: UserId, id: CampaignId): Promise<Campaign> {
+    const archived = await this.#repository.findArchivedById(id);
+    if (archived === undefined) {
+      throw new NotFoundError('Campaign', id);
+    }
+    return archivable(actor, archived);
   }
 
   /** The campaign's members with their names, as the actor sees them. */

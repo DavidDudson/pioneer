@@ -4,6 +4,7 @@ import { nextVersion, VersionConflictError } from '@pioneer/shared/kernel';
 import type { Temporal, UserId, Version } from '@pioneer/shared/kernel';
 
 import { CampaignRepository } from './campaign-repository';
+import type { CampaignAudit } from './campaign-repository';
 
 /** A campaign with the moment the listing member joined it. */
 interface Joined {
@@ -14,9 +15,26 @@ interface Joined {
 /** Repository adapter for tests and local experiments. */
 export class InMemoryCampaignRepository extends CampaignRepository {
   readonly #rows = new Map<CampaignId, Campaign>();
+  readonly #archived = new Set<CampaignId>();
+  readonly #audits: CampaignAudit[] = [];
+
+  /** What archive and restore were stamped with, in order. */
+  public get audits(): readonly CampaignAudit[] {
+    return this.#audits;
+  }
 
   public override async listForMember(userId: UserId): Promise<readonly Campaign[]> {
+    return this.#joinedBy(userId, (campaign) => !this.#archived.has(campaign.id));
+  }
+
+  public override async listArchivedForGm(gmId: UserId): Promise<readonly Campaign[]> {
+    return this.#joinedBy(gmId, (campaign) => this.#archived.has(campaign.id) && campaign.gmId === gmId);
+  }
+
+  /** The campaigns `userId` is a member of that `keep` accepts, in the order they joined; campaign id breaks ties. */
+  #joinedBy(userId: UserId, keep: (campaign: Campaign) => boolean): readonly Campaign[] {
     return [...this.#rows.values()]
+      .filter((campaign) => keep(campaign))
       .flatMap((campaign): Joined[] => {
         const member = campaign.members.find((candidate) => candidate.userId === userId);
         return member === undefined ? [] : [{ campaign, joinedAt: member.joinedAt }];
@@ -30,7 +48,23 @@ export class InMemoryCampaignRepository extends CampaignRepository {
   }
 
   public override async findById(id: CampaignId): Promise<Campaign | undefined> {
-    return this.#rows.get(id);
+    return this.#archived.has(id) ? undefined : this.#rows.get(id);
+  }
+
+  public override async findArchivedById(id: CampaignId): Promise<Campaign | undefined> {
+    return this.#archived.has(id) ? this.#rows.get(id) : undefined;
+  }
+
+  public override async archive(id: CampaignId, _now: Temporal.Instant, audit: CampaignAudit): Promise<void> {
+    this.#audits.push(audit);
+    if (this.#rows.has(id)) {
+      this.#archived.add(id);
+    }
+  }
+
+  public override async restore(id: CampaignId, audit: CampaignAudit): Promise<void> {
+    this.#audits.push(audit);
+    this.#archived.delete(id);
   }
 
   public override async insert(campaign: Campaign): Promise<Campaign> {
@@ -40,7 +74,7 @@ export class InMemoryCampaignRepository extends CampaignRepository {
 
   /** Stores the member as given; checking the invite is left to the service, as nothing here races. */
   public override async joinByInvite(invite: CampaignInvite, member: CampaignMember): Promise<Campaign | undefined> {
-    const campaign = this.#rows.get(invite.campaignId);
+    const campaign = this.#archived.has(invite.campaignId) ? undefined : this.#rows.get(invite.campaignId);
     if (campaign === undefined) {
       return undefined;
     }
@@ -61,7 +95,7 @@ export class InMemoryCampaignRepository extends CampaignRepository {
 
   public override async updateMembers(campaign: Campaign, expectedVersion: Version): Promise<Campaign> {
     const stored = this.#rows.get(campaign.id);
-    if (stored?.version !== expectedVersion) {
+    if (stored?.version !== expectedVersion || this.#archived.has(campaign.id)) {
       throw new VersionConflictError('Campaign', campaign.id);
     }
     this.#rows.set(campaign.id, campaign);

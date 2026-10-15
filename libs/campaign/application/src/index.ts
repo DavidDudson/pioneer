@@ -4,7 +4,7 @@ export { CampaignPackRepository, type PackEnablement } from './campaign-pack-rep
 export { CampaignPackService } from './campaign-pack-service';
 export { CampaignPartyRepository } from './campaign-party-repository';
 export { CampaignPartyService } from './campaign-party-service';
-export { CampaignRepository } from './campaign-repository';
+export { type CampaignAudit, CampaignRepository } from './campaign-repository';
 export { CampaignService } from './campaign-service';
 export { CharacterDirectory, type CharacterSummary } from './character-directory';
 export { InMemoryCampaignInviteRepository } from './in-memory-campaign-invite-repository';

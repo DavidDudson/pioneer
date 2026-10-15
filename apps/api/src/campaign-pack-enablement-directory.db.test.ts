@@ -108,6 +108,17 @@ describe.skipIf(adminUrl === undefined)('CampaignPackEnablementDirectory (postgr
     expect(await directory.belongsToCampaignEnabling(amiri, pack)).toBe(false);
   });
 
+  test('an archived campaign still blocks changes to the pack but no longer lets its members read it', async () => {
+    await enable(runelords);
+    await database.db.execute(sql`update campaigns set archived_at = ${at} where id = ${runelords}`);
+    expect(await directory.campaignsEnabling(pack)).toStrictEqual([
+      EnablingCampaignName.parse('Rise of the Runelords'),
+    ]);
+    expect(await directory.belongsToCampaignEnabling(ezren, pack)).toBe(false);
+    await database.db.execute(sql`update campaigns set archived_at = null where id = ${runelords}`);
+    expect(await directory.belongsToCampaignEnabling(ezren, pack)).toBe(true);
+  });
+
   test('every lookup is served by an index', async () => {
     await enable(runelords);
     await directory.campaignsEnabling(pack);

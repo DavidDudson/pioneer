@@ -189,7 +189,8 @@ describe.skipIf(adminUrl === undefined)('CampaignPackService over postgres', () 
     const afterUser = await stored();
     expect(afterUser[0]?.enabledBy).toBeUndefined();
 
-    await database.db.execute(sql`delete from campaigns where id = ${campaignId}`);
-    expect(await stored()).toStrictEqual([]);
+    const refused = await rejection(database.db.execute(sql`delete from campaigns where id = ${campaignId}`));
+    expect(refused).toBeInstanceOf(Error);
+    expect(await stored()).not.toStrictEqual([]);
   });
 });

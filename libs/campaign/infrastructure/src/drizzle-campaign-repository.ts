@@ -1,14 +1,19 @@
 import { CampaignRepository } from '@pioneer/campaign/application';
+import type { CampaignAudit } from '@pioneer/campaign/application';
 import { Campaign, CampaignRole } from '@pioneer/campaign/domain';
 import type { CampaignId, CampaignInvite, CampaignMember } from '@pioneer/campaign/domain';
 import { Temporal, VersionConflictError } from '@pioneer/shared/kernel';
 import type { UserId, Version } from '@pioneer/shared/kernel';
-import { and, asc, eq, gt, inArray, isNull, ne, notInArray, sql } from 'drizzle-orm';
+import { stampAudit } from '@pioneer/shared/server';
+import { and, asc, eq, gt, inArray, isNotNull, isNull, ne, notInArray, sql } from 'drizzle-orm';
+import type { SQL } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 
 import { campaignInvites, campaignMembers, campaigns } from './campaign.table';
 
 type CampaignRow = typeof campaigns.$inferSelect;
+/** What an insert writes: never `archivedAt`, which only archive and restore touch. */
+type SavedRow = Omit<CampaignRow, 'archivedAt'>;
 type MemberRow = typeof campaignMembers.$inferSelect;
 
 function toMember(row: MemberRow): CampaignMember {
@@ -31,7 +36,7 @@ function toCampaign(row: CampaignRow, members: readonly MemberRow[]): Campaign {
   });
 }
 
-function toRow(campaign: Campaign): CampaignRow {
+function toRow(campaign: Campaign): SavedRow {
   return {
     id: campaign.id,
     version: campaign.version,
@@ -60,23 +65,57 @@ export class DrizzleCampaignRepository extends CampaignRepository {
   }
 
   public override async listForMember(userId: UserId): Promise<readonly Campaign[]> {
+    return this.#listFor(and(eq(campaignMembers.userId, userId), isNull(campaigns.archivedAt)));
+  }
+
+  public override async listArchivedForGm(gmId: UserId): Promise<readonly Campaign[]> {
+    return this.#listFor(
+      and(eq(campaignMembers.userId, gmId), eq(campaigns.gmId, gmId), isNotNull(campaigns.archivedAt)),
+    );
+  }
+
+  async #listFor(where: SQL | undefined): Promise<readonly Campaign[]> {
     const rows = await this.#db
       .select({ campaign: campaigns })
       .from(campaignMembers)
       .innerJoin(campaigns, eq(campaigns.id, campaignMembers.campaignId))
-      .where(eq(campaignMembers.userId, userId))
+      .where(where)
       .orderBy(asc(campaignMembers.joinedAt), asc(campaignMembers.campaignId));
     const members = await this.#membersOf(rows.map(({ campaign }) => campaign.id));
     return rows.map(({ campaign }) => toCampaign(campaign, members.get(campaign.id) ?? []));
   }
 
   public override async findById(id: CampaignId): Promise<Campaign | undefined> {
-    const [row] = await this.#db.select().from(campaigns).where(eq(campaigns.id, id)).limit(1);
+    return this.#findOne(and(eq(campaigns.id, id), isNull(campaigns.archivedAt)));
+  }
+
+  public override async findArchivedById(id: CampaignId): Promise<Campaign | undefined> {
+    return this.#findOne(and(eq(campaigns.id, id), isNotNull(campaigns.archivedAt)));
+  }
+
+  async #findOne(where: SQL | undefined): Promise<Campaign | undefined> {
+    const [row] = await this.#db.select().from(campaigns).where(where).limit(1);
     if (row === undefined) {
       return undefined;
     }
-    const members = await this.#membersOf([id]);
-    return toCampaign(row, members.get(id) ?? []);
+    const members = await this.#membersOf([row.id]);
+    return toCampaign(row, members.get(row.id) ?? []);
+  }
+
+  public override async archive(id: CampaignId, now: Temporal.Instant, audit: CampaignAudit): Promise<void> {
+    await this.#setArchived(and(eq(campaigns.id, id), isNull(campaigns.archivedAt)), now.toString(), audit);
+  }
+
+  public override async restore(id: CampaignId, audit: CampaignAudit): Promise<void> {
+    await this.#setArchived(and(eq(campaigns.id, id), isNotNull(campaigns.archivedAt)), sql`null`, audit);
+  }
+
+  /** Stamps or clears `archivedAt` on the rows `where` matches, with the audit context. Version stays: nothing about the members changed. */
+  async #setArchived(where: SQL | undefined, archivedAt: SQL | string, audit: CampaignAudit): Promise<void> {
+    await this.#db.transaction(async (tx) => {
+      await stampAudit(tx, audit);
+      await tx.update(campaigns).set({ archivedAt }).where(where);
+    });
   }
 
   public override async insert(campaign: Campaign): Promise<Campaign> {
@@ -109,6 +148,15 @@ export class DrizzleCampaignRepository extends CampaignRepository {
       if (stillOpen === undefined) {
         return false;
       }
+      // A campaign archived since the invite was read takes no one, as if the invite were gone.
+      const [live] = await tx
+        .select({ id: campaigns.id })
+        .from(campaigns)
+        .where(and(eq(campaigns.id, invite.campaignId), isNull(campaigns.archivedAt)))
+        .for('share');
+      if (live === undefined) {
+        return false;
+      }
       const inserted = await tx
         .insert(campaignMembers)
         .values(toMemberRow(invite.campaignId, member))
@@ -135,7 +183,7 @@ export class DrizzleCampaignRepository extends CampaignRepository {
       const [updated] = await tx
         .update(campaigns)
         .set({ version: campaign.version, gmId: campaign.gmId })
-        .where(and(eq(campaigns.id, campaign.id), eq(campaigns.version, expectedVersion)))
+        .where(and(eq(campaigns.id, campaign.id), eq(campaigns.version, expectedVersion), isNull(campaigns.archivedAt)))
         .returning({ id: campaigns.id });
       if (updated === undefined) {
         throw new VersionConflictError('Campaign', campaign.id);

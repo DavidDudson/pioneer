@@ -19,7 +19,7 @@ import { index, integer, pgTable, text, timestamp, uniqueIndex, uuid } from 'dri
 /**
  * Drizzle schema for the campaign aggregate. Migrations live in apps/api/migrations. Every lookup a
  * repository issues is served by an index here; the query-plan guard in the repository tests
- * enforces it. Foreign keys to users (on delete cascade) are in migration 0007, not here: identity's
+ * enforces it. Foreign keys to users (on delete cascade; restrict for the GM, migration 0024) are in migration 0007, not here: identity's
  * tables are outside this context's module boundary.
  */
 export const campaigns = pgTable(
@@ -32,8 +32,11 @@ export const campaigns = pgTable(
     gmId: uuid().$type<UserId>().notNull(),
     // Strings, not Date: Date is banned; rows are converted to Temporal.Instant.
     createdAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
+    // Set when the GM archives the campaign (ADR-0062); null is live. A row is never deleted.
+    // The GM's foreign key to users (migration 0024) is restrict. Never written by a membership change.
+    archivedAt: timestamp({ withTimezone: true, mode: 'string' }),
   },
-  // Serves the cascade when the GM's user is deleted.
+  // Serves the restrict when the GM's user is deleted.
   (table) => [index('campaigns_gm_id_idx').on(table.gmId)],
 );
 
