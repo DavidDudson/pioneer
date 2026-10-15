@@ -24,7 +24,7 @@ const SPOKEN: Language = { ...COMMON, text: 'Spoken across the Inner Sea.' };
 const SUNG: Language = { ...ELVEN, text: 'Sung, not said.' };
 const SUNG_AGAIN: Language = { ...ELVEN, text: 'Sung, never said.' };
 
-const BACKFILL = new URL('../../../../apps/api/migrations/0024_content_entry_texts_backfill.sql', import.meta.url)
+const BACKFILL = new URL('../../../../apps/api/migrations/0028_content_entry_texts_backfill.sql', import.meta.url)
   .pathname;
 
 type TextRow = typeof contentEntryTexts.$inferSelect;
