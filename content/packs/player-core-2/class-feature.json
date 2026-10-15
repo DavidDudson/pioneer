@@ -5634,6 +5634,50 @@
         "predicate": ["draconic-exemplar:primal"]
       },
       {
+        "key": "Proficiency",
+        "selector": "skill:arcana",
+        "rank": "trained",
+        "predicate": [
+          "draconic-exemplar:arcane",
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          }
+        ]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:religion",
+        "rank": "trained",
+        "predicate": [
+          "draconic-exemplar:divine",
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          }
+        ]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:occultism",
+        "rank": "trained",
+        "predicate": [
+          "draconic-exemplar:occult",
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          }
+        ]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:nature",
+        "rank": "trained",
+        "predicate": [
+          "draconic-exemplar:primal",
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          }
+        ]
+      },
+      {
         "key": "RepertoireSpells",
         "entry": "sorcerer",
         "spells": [

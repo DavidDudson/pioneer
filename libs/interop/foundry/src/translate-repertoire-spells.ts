@@ -27,11 +27,13 @@ const DIVINE_ACCESS_LEVEL = 11;
 const Gift = z.tuple([z.union([z.literal('cantrip'), z.number()]), z.string()]);
 type Gift = z.infer<typeof Gift>;
 
-/** One option of a choice: its value, its label, the tradition it names, if any, and the gifts it adds. */
+/** One option of a choice: its value, its label, the tradition and skill it names, if any, and the gifts it adds. */
 const Option = z.object({
   value: z.string(),
   label: z.string(),
   tradition: z.string().optional(),
+  /** The skill the option trains, if any: a draconic exemplar's bloodline skill. */
+  skill: z.string().optional(),
   gifts: z.array(Gift),
 });
 
@@ -93,6 +95,22 @@ function pickedEntries({ flag, options }: Pick): readonly object[] {
   return options.map(({ value, tradition }) => sorcererEntry(tradition ?? PRIMAL, [`${flag}:${value}`]));
 }
 
+/** The skills the picks train, as the bloodline trains its own: not when Crossblooded Evolution borrows the bloodline. */
+function pickedSkills({ flag, options }: Pick): readonly object[] {
+  return options.flatMap(({ value, skill }) =>
+    skill === undefined
+      ? []
+      : [
+          {
+            key: RuleElementKey.Proficiency,
+            selector: `skill:${skill}`,
+            rank: 'trained',
+            predicate: [`${flag}:${value}`, { not: 'parent:granter:slug:crossblooded-evolution' }],
+          },
+        ],
+  );
+}
+
 /** A `RepertoireSpells` element for `spells`, if any resolved, holding while `predicate` does. */
 function repertoire(entry: string, spells: readonly Named[], predicate?: readonly unknown[]): readonly object[] {
   return spells.length === 0
@@ -127,6 +145,7 @@ function elements({ entry, tradition, gifts, pick, domains }: Source, resolve: R
     ...fixed,
     ...(pick === undefined ? [] : [choiceSet(pick)]),
     ...picked,
+    ...(pick === undefined ? [] : pickedSkills(pick)),
     ...repertoire(entry, resolve(gifts)),
     ...more,
     ...(domains === undefined ? [] : [divineAccessDeity(domains)]),
