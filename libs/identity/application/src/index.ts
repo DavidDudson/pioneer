@@ -1,3 +1,6 @@
+export { BugReportRepository } from './bug-report-repository';
+export { BUG_REPORT_LIMIT, BUG_REPORT_WINDOW, BugReportService } from './bug-report-service';
+export { InMemoryBugReportRepository } from './in-memory-bug-report-repository';
 export {
   type Authenticated,
   IdentityService,

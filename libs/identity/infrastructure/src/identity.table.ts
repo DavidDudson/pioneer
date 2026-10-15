@@ -1,15 +1,21 @@
 import type {
+  AppVersion,
   AvatarUrl,
+  BugReportId,
+  BugReportStatus,
   DisplayName,
   EmailAddress,
   OAuthAccountId,
   OAuthProvider,
   ProviderSubject,
+  ReportedRoute,
+  ReportText,
   SessionId,
   TokenHash,
+  UserAgent,
   UserId,
 } from '@pioneer/identity/domain';
-import type { DistanceUnit, Locale } from '@pioneer/shared/kernel';
+import type { DistanceUnit, Locale, Uuid } from '@pioneer/shared/kernel';
 import { sql } from 'drizzle-orm';
 import { boolean, index, pgTable, text, timestamp, uniqueIndex, uuid } from 'drizzle-orm/pg-core';
 
@@ -95,3 +101,29 @@ export const userPreferences = pgTable('user_preferences', {
   distanceUnit: text().$type<DistanceUnit>(),
   updatedAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
 });
+
+/**
+ * Bug reports (the report form, ADR-0004 snapshot to follow). `characterId` is a plain reference with no
+ * foreign key: a report outlives the character it names. The one lookup beyond the primary key is a
+ * reporter's recent reports, for the rate limit.
+ */
+export const bugReports = pgTable(
+  'bug_reports',
+  {
+    id: uuid().$type<BugReportId>().primaryKey(),
+    reporter: uuid()
+      .$type<UserId>()
+      .notNull()
+      .references(() => users.id, { onDelete: 'cascade' }),
+    createdAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
+    route: text().$type<ReportedRoute>().notNull(),
+    appVersion: text().$type<AppVersion>().notNull(),
+    locale: text().$type<Locale>().notNull(),
+    userAgent: text().$type<UserAgent>().notNull(),
+    description: text().$type<ReportText>().notNull(),
+    steps: text().$type<ReportText>().notNull(),
+    characterId: uuid().$type<Uuid>(),
+    status: text().$type<BugReportStatus>().notNull(),
+  },
+  (table) => [index('bug_reports_reporter_created_idx').on(table.reporter, table.createdAt)],
+);

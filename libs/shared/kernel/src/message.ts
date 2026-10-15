@@ -27,6 +27,7 @@ export const ProblemMessage = {
   RouteNotFound: 'problem.routeNotFound',
   VersionConflict: 'problem.versionConflict',
   Validation: 'problem.validation',
+  RateLimited: 'problem.rateLimited',
   Internal: 'problem.internal',
   Unreachable: 'problem.unreachable',
 } as const;

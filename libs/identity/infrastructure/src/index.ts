@@ -1,5 +1,7 @@
+export { bugReportRoutes } from './bug-report-routes';
 export { csrfGuard } from './csrf-guard';
 export { DiscordProvider } from './discord-provider';
+export { DrizzleBugReportRepository } from './drizzle-bug-report-repository';
 export { DrizzlePreferencesRepository } from './drizzle-preferences-repository';
 export { DrizzleSessionRepository } from './drizzle-session-repository';
 export { DrizzleUserRepository } from './drizzle-user-repository';
@@ -9,6 +11,6 @@ export { identityRoutes } from './identity-routes';
 export { preferenceRoutes } from './preference-routes';
 export { SessionAuthenticator } from './session-authenticator';
 export { sessionSweep } from './session-sweep';
-export { oauthAccounts, sessions, userPreferences, users } from './identity.table';
+export { bugReports, oauthAccounts, sessions, userPreferences, users } from './identity.table';
 export type { OAuthCredentials } from './provider-http';
 export { type CookiePolicy, sessionCookie, sessionToken } from './session-cookie';

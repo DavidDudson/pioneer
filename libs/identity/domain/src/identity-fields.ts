@@ -11,6 +11,9 @@ export type OAuthAccountId = z.infer<typeof OAuthAccountId>;
 export const SessionId = Uuid.brand<'SessionId'>();
 export type SessionId = z.infer<typeof SessionId>;
 
+export const BugReportId = Uuid.brand<'BugReportId'>();
+export type BugReportId = z.infer<typeof BugReportId>;
+
 export const DISPLAY_NAME_MAX_LENGTH = 80;
 /** A provider's user id (OIDC `sub`): opaque, unique per provider. GitHub and Discord send numbers, Google digit strings. */
 const SUBJECT_MAX_LENGTH = 255;

@@ -20,6 +20,7 @@ const TITLE: Readonly<Record<ProblemType, string>> = {
   [ProblemType.Conflict]: 'Conflict',
   [ProblemType.VersionConflict]: 'Version conflict',
   [ProblemType.Validation]: 'The request is invalid',
+  [ProblemType.RateLimited]: 'Too many requests',
   [ProblemType.Internal]: 'Internal error',
 };
 

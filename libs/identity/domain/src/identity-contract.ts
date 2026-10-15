@@ -1,6 +1,7 @@
 import { Endpoint, HttpMethod, NoBody, NoParams, NoQuery } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
+import { BugReport, BugReportSubmission } from './bug-report';
 import { OAuthProviderSchema, SessionId } from './identity-fields';
 import type { OAuthProvider } from './identity-fields';
 import { Preferences } from './preferences';
@@ -88,6 +89,15 @@ export const IdentityContract = {
     query: NoQuery,
     body: PreferencesChange,
     response: Preferences,
+  }),
+  /** Files a bug report as the signed-in user; 429 once they have sent too many in an hour. */
+  reportBug: new Endpoint({
+    method: HttpMethod.Post,
+    path: '/me/bug-reports',
+    params: NoParams,
+    query: NoQuery,
+    body: BugReportSubmission,
+    response: BugReport,
   }),
 } as const;
 

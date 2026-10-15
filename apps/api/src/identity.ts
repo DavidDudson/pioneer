@@ -1,9 +1,11 @@
-import { IdentityService, PreferencesService } from '@pioneer/identity/application';
+import { BugReportService, IdentityService, PreferencesService } from '@pioneer/identity/application';
 import type { OAuthProviderPort } from '@pioneer/identity/application';
 import { AuthPath, OAuthProvider } from '@pioneer/identity/domain';
 import {
+  bugReportRoutes,
   csrfGuard,
   DiscordProvider,
+  DrizzleBugReportRepository,
   DrizzlePreferencesRepository,
   DrizzleSessionRepository,
   DrizzleUserRepository,
@@ -71,7 +73,7 @@ function providers(env: Env): OAuthProviderPort[] {
 
 /** Identity as the rest of the app uses it. */
 export interface Identity {
-  /** Sign-in, session, account and preference routes, plus an hourly sweep of expired sessions while the server runs. */
+  /** Sign-in, session, account, preference and bug report routes, plus an hourly sweep of expired sessions while the server runs. */
   readonly routes: Elysia;
   /** Who sent a request, for every other context's routes. */
   readonly authenticator: RequestAuthenticator;
@@ -85,6 +87,7 @@ export interface Identity {
 export function identity(db: Database, env: Env, clock: Clock): Identity {
   const service = new IdentityService(new DrizzleUserRepository(db), new DrizzleSessionRepository(db), clock);
   const preferences = new PreferencesService(new DrizzlePreferencesRepository(db), clock);
+  const bugReports = new BugReportService(new DrizzleBugReportRepository(db), clock);
   // Secure cookies unless the public origin is plain http (local development).
   const secure = env.PUBLIC_ORIGIN?.startsWith('https:') ?? true;
   const policy: CookiePolicy = { secure };
@@ -92,6 +95,7 @@ export function identity(db: Database, env: Env, clock: Clock): Identity {
   return {
     routes: identityRoutes(service, providers(env), policy)
       .use(preferenceRoutes(preferences, authenticator))
+      .use(bugReportRoutes(bugReports, authenticator))
       .use(sessionSweep(service, SESSION_SWEEP_INTERVAL)),
     authenticator,
     service,

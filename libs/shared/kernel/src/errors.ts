@@ -12,6 +12,7 @@ export const HttpStatus = {
   Conflict: 409,
   Gone: 410,
   UnprocessableContent: 422,
+  TooManyRequests: 429,
   InternalServerError: 500,
 } as const;
 export type HttpStatus = ValueOf<typeof HttpStatus>;
@@ -25,6 +26,7 @@ export const ProblemType = {
   Conflict: 'conflict',
   VersionConflict: 'version-conflict',
   Validation: 'validation',
+  RateLimited: 'rate-limited',
   Internal: 'internal',
 } as const;
 export type ProblemType = ValueOf<typeof ProblemType>;
@@ -139,6 +141,14 @@ export class ValidationError extends DomainError {
     );
     this.issues = issues;
   }
+}
+
+/** The signed-in user sent more of something than the server allows in a window; retrying later works. */
+export class RateLimitedError extends DomainError {
+  public override readonly name = 'RateLimitedError';
+  public readonly status = HttpStatus.TooManyRequests;
+  public readonly type = ProblemType.RateLimited;
+  public readonly descriptor = message(ProblemMessage.RateLimited);
 }
 
 /**
