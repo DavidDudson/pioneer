@@ -11,12 +11,14 @@ import { textOf } from '../../testing/sheet-tabs-testing';
 import { cutTo } from '../../testing/test-packs';
 
 const PLAY_URL = `/api/characters/${id}/play`;
+const ALLIES_URL = `/api/characters/${id}/allies`;
 
 /** Player Core's character kinds and the effects of Divine Mysteries. */
 const PACKS = cutTo([...CHARACTER_CONTENT_KINDS, ContentKind.Effect]);
 
 const EMPOWERED_ONSLAUGHT = '963ae779-6771-5e53-a0a5-668aa2ee79ca';
 const CONSULT_THE_SPIRITS = '129b46b6-7a1e-5ab5-a7a6-dc34edcdcb5f';
+const SEONI = '11111111-1111-4111-8111-111111111111';
 const FIRST = '00000000-0000-4000-8000-000000000001';
 
 /** The play state of a full-health character with `effects` on it, at `revision`. */
@@ -50,6 +52,21 @@ async function pick(root: HTMLElement, index: number, name: string): Promise<voi
   );
   option.click();
   await TestBed.inject(ApplicationRef).whenStable();
+}
+
+/** Answers the read of the party, which the picker makes once an ally is the source. */
+async function answerAllies(allies: object): Promise<void> {
+  await vi.waitFor(() => {
+    TestBed.inject(HttpTestingController).expectOne({ method: 'GET', url: ALLIES_URL }).flush(allies);
+  });
+  await TestBed.inject(ApplicationRef).whenStable();
+}
+
+/** Waits for the party's picker, which renders once the read of the party is in. */
+async function partyShown(root: HTMLElement): Promise<void> {
+  await vi.waitFor(() => {
+    expect(effectsOf(root).querySelectorAll('fr-select')).toHaveLength(3);
+  });
 }
 
 describe('CharacterSheetPage effects', () => {
@@ -134,6 +151,7 @@ describe('CharacterSheetPage effects', () => {
     await pick(root, 0, 'Effect: Consult the Spirits');
     expect(buttonOf(root, 'Apply').disabled).toBe(false);
     await pick(root, 1, 'An ally');
+    await answerAllies({ allies: [] });
     expect(buttonOf(root, 'Apply').disabled).toBe(true);
     const name = present(effectsOf(root).querySelector<HTMLInputElement>('input'));
     name.value = 'Seoni';
@@ -152,5 +170,49 @@ describe('CharacterSheetPage effects', () => {
       });
       request.flush(playWith([], 2));
     });
+  });
+
+  it('applies the effect from a character in the campaign, recording who', async () => {
+    const { root } = await openSheet(undefined, { play: playWith([]), packs: PACKS });
+    await vi.waitFor(() => {
+      expect(textOf(effectsOf(root))).toContain('No effects');
+    });
+    await pick(root, 0, 'Effect: Consult the Spirits');
+    await pick(root, 1, 'An ally');
+    await answerAllies({
+      campaign: 'Abomination Vaults',
+      allies: [{ characterId: SEONI, name: 'Seoni' }],
+    });
+    await partyShown(root);
+    expect(buttonOf(root, 'Apply').disabled).toBe(true);
+    expect(effectsOf(root).querySelector('input')).toBeNull();
+
+    await pick(root, 2, 'Seoni');
+    expect(buttonOf(root, 'Apply').disabled).toBe(false);
+    buttonOf(root, 'Apply').click();
+
+    await vi.waitFor(() => {
+      const request = TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: PLAY_URL });
+      expect(request.request.body).toMatchObject({
+        command: { field: 'applyEffect', source: { kind: 'ally', name: 'Seoni', characterId: SEONI } },
+      });
+      request.flush(playWith([], 2));
+    });
+  });
+
+  it('types the name of someone outside the party', async () => {
+    const { root } = await openSheet(undefined, { play: playWith([]), packs: PACKS });
+    await vi.waitFor(() => {
+      expect(textOf(effectsOf(root))).toContain('No effects');
+    });
+    await pick(root, 0, 'Effect: Consult the Spirits');
+    await pick(root, 1, 'An ally');
+    await answerAllies({ campaign: 'Abomination Vaults', allies: [{ characterId: SEONI, name: 'Seoni' }] });
+    await partyShown(root);
+
+    await pick(root, 2, 'Someone else');
+
+    expect(buttonOf(root, 'Apply').disabled).toBe(true);
+    expect(effectsOf(root).querySelector('input')).not.toBeNull();
   });
 });

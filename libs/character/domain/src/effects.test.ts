@@ -11,7 +11,9 @@ import {
   HitPoints,
   OriginHopKind,
 } from '@pioneer/rules/sdk';
+import { newId } from '@pioneer/shared/kernel';
 
+import { CharacterId } from './character-fields';
 import { applyEffectCommand, EffectCommandField, EffectProblem, effectProblem } from './effect-commands';
 import type { EffectCommand } from './effect-commands';
 import {
@@ -128,6 +130,13 @@ describe('effect commands', () => {
       kind: 'ally',
       name: EffectAllyName.parse('Seoni'),
     });
+  });
+
+  test('an ally picked from the campaign is recorded with its character', () => {
+    const characterId = CharacterId.parse(newId());
+    const source = { kind: EffectSourceKind.Ally, name: EffectAllyName.parse('Seoni'), characterId };
+    const command: EffectCommand = { field: EffectCommandField.ApplyEffect, id: FIRST, effect: BLESSING, source };
+    expect(applyPlayCommand(FRESH_PLAY, command, LIMITS).effects[0]?.source).toEqual(source);
   });
 
   test('a counter badge starts at the content value and a formula badge at what was rolled', () => {

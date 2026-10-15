@@ -4,6 +4,7 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { Character } from './character';
+import { CharacterAllies } from './character-allies';
 import { SheetDeity } from './character-deity';
 import { CharacterId, CharacterName } from './character-fields';
 import { CharacterLanguages } from './character-languages';
@@ -136,6 +137,15 @@ export const CharacterContract = {
     query: NoQuery,
     body: SetFeatDisplayBody,
     response: FeatDisplayChoice,
+  }),
+  /** The rest of the party of the campaign this character is in, who may be named as the giver of an effect. Owner only. */
+  allies: new Endpoint({
+    method: HttpMethod.Get,
+    path: '/characters/:id/allies',
+    params: ById,
+    query: NoQuery,
+    body: NoBody,
+    response: CharacterAllies,
   }),
   /** The packs this character uses, and who decides them: its owner, or the campaign it is attached to. */
   packs: new Endpoint({

@@ -289,6 +289,8 @@
       "sourceAlly": "An ally",
       "sourceGm": "The GM",
       "allyName": "Ally's name",
+      "allyPick": "Which ally",
+      "allyOther": "Someone else",
       "add": "Apply",
       "raise": "Raise",
       "lower": "Lower",

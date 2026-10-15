@@ -12,6 +12,7 @@ export { featDisplayRoutes } from './feat-display-routes';
 export { pioneerFileRoutes } from './pioneer-file-routes';
 export { characterPacks, characterVariantRules } from './character.table';
 export { DrizzleCharacterPackRepository } from './drizzle-character-pack-repository';
+export { characterAllyRoutes } from './character-ally-routes';
 export { characterPackRoutes } from './character-pack-routes';
 export { DrizzleCharacterVariantRepository } from './drizzle-character-variant-repository';
 export { characterVariantRoutes } from './character-variant-routes';

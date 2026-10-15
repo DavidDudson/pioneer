@@ -13,6 +13,8 @@ import { Pg, Uuid } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
+import { CharacterId } from './character-fields';
+
 /** The most effects a character has active at once, however many sources they come from. */
 export const EFFECTS_MAX = 64;
 
@@ -49,7 +51,12 @@ export type EffectSourceKind = ValueOf<typeof EffectSourceKind>;
 
 export const EffectSourceSchema = z.discriminatedUnion('kind', [
   z.strictObject({ kind: z.literal(EffectSourceKind.Self) }),
-  z.strictObject({ kind: z.literal(EffectSourceKind.Ally), name: EffectAllyName }),
+  z.strictObject({
+    kind: z.literal(EffectSourceKind.Ally),
+    name: EffectAllyName,
+    /** The campaign character the buff came from, when it was picked from the party rather than typed. */
+    characterId: CharacterId.optional(),
+  }),
   z.strictObject({ kind: z.literal(EffectSourceKind.Gm) }),
 ]);
 export type EffectSource = z.infer<typeof EffectSourceSchema>;

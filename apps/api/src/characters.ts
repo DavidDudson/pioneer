@@ -1,5 +1,6 @@
 import {
   CharacterContent,
+  CharacterAllyService,
   CharacterPackService,
   CharacterVariantService,
   CharacterService,
@@ -10,6 +11,7 @@ import {
   SheetModeService,
 } from '@pioneer/character/application';
 import {
+  characterAllyRoutes,
   characterPackRoutes,
   characterVariantRoutes,
   characterRoutes,
@@ -40,6 +42,7 @@ import { PioneerEmbeddedHomebrew } from './pioneer-embedded-homebrew';
 /** What a character is worked out over beyond the build: the homebrew packs it uses and the variant rules enabled. */
 interface PackServices {
   readonly packs: CharacterPackService;
+  readonly allies: CharacterAllyService;
   readonly variants: CharacterVariantService;
 }
 
@@ -65,7 +68,8 @@ function packServices(db: Database, clock: Clock, { content, repository }: Chara
     { characters: repository, variants: new DrizzleCharacterVariantRepository(db), content, packs, campaigns },
     clock,
   );
-  return { packs, variants };
+  const allies = new CharacterAllyService({ characters: repository, campaigns });
+  return { packs, variants, allies };
 }
 
 /**
@@ -75,7 +79,7 @@ function packServices(db: Database, clock: Clock, { content, repository }: Chara
 export function characters(db: Database, clock: Clock, authenticator: RequestAuthenticator): ContractRouter['app'] {
   const content = new StoredContentSource(new ContentRepository(db));
   const repository = new DrizzleCharacterRepository(db);
-  const { packs, variants } = packServices(db, clock, { content, repository });
+  const { packs, variants, allies } = packServices(db, clock, { content, repository });
   const characterContent = new CharacterContent(content, packs, variants);
   const service = new CharacterService(repository, characterContent, clock);
   const importer = new PathbuilderImportService(
@@ -96,6 +100,7 @@ export function characters(db: Database, clock: Clock, authenticator: RequestAut
     .use(pioneerFileRoutes(pioneerFiles, authenticator))
     .use(sheetModeRoutes(sheetModes, authenticator))
     .use(featDisplayRoutes(featDisplay, authenticator))
+    .use(characterAllyRoutes(allies, authenticator))
     .use(characterPackRoutes(packs, authenticator))
     .use(characterVariantRoutes(variants, authenticator))
     .use(playRoutes(play, authenticator));

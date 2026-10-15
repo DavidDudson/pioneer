@@ -1,10 +1,11 @@
 import { campaignCharacters, campaignPacks, campaigns, campaignVariantRules } from '@pioneer/campaign/infrastructure';
 import { AttachedCampaignPacks } from '@pioneer/character/application';
 import type { AttachedCampaign } from '@pioneer/character/application';
-import { AttachedCampaignName } from '@pioneer/character/domain';
+import { AttachedCampaignName, CampaignAlly } from '@pioneer/character/domain';
 import type { CharacterId } from '@pioneer/character/domain';
+import { characters } from '@pioneer/character/infrastructure';
 import { VariantRuleId } from '@pioneer/rules/sdk';
-import { eq } from 'drizzle-orm';
+import { and, eq, ne } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 
 /**
@@ -42,5 +43,24 @@ export class CampaignPackDirectory extends AttachedCampaignPacks {
       packs: rows.map((row) => row.packId),
       variants: variants.map((row) => VariantRuleId.parse(row.variantId)),
     };
+  }
+
+  public override async alliesOf(characterId: CharacterId): Promise<readonly CampaignAlly[]> {
+    const [attached] = await this.#db
+      .select({ campaignId: campaignCharacters.campaignId })
+      .from(campaignCharacters)
+      .where(eq(campaignCharacters.characterId, characterId))
+      .limit(1);
+    if (attached === undefined) {
+      return [];
+    }
+    const rows = await this.#db
+      .select({ characterId: characters.id, name: characters.name })
+      .from(campaignCharacters)
+      .innerJoin(characters, eq(characters.id, campaignCharacters.characterId))
+      .where(
+        and(eq(campaignCharacters.campaignId, attached.campaignId), ne(campaignCharacters.characterId, characterId)),
+      );
+    return rows.map((row) => CampaignAlly.parse(row));
   }
 }

@@ -445,6 +445,7 @@ export {
   type RestOutcome,
   type RestPlay,
 } from './rest-types';
+export { CampaignAlly, CharacterAllies } from './character-allies';
 export {
   AttachedCampaignName,
   type CharacterPack,
