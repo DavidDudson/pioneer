@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1792073987671,
+  "lastUpdate": 1792099677206,
   "repoUrl": "https://github.com/DavidDudson/pioneer",
   "entries": {
     "Pioneer benchmarks": [
@@ -2538,6 +2538,168 @@ window.BENCHMARK_DATA = {
             "value": 0.473,
             "unit": "ms",
             "extra": "median 0.878 ms, 51 runs after 20 warm-up, budget 3 ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "DavidDudson@users.noreply.github.com",
+            "name": "David Dudson",
+            "username": "DavidDudson"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "26d2e51cd384d94793f0aadf64fcd0609d81baa6",
+          "message": "feat(homebrew): archive and restore a homebrew pack (closes #883) (#908)\n\n* feat(homebrew): archive and restore a homebrew pack\n\nHomebrew packs are archived, never deleted (ADR-0062). Adds archived_at,\nPOST /homebrew/packs/:id/archive and /restore, GET /homebrew/packs/archived,\nowner only. An archived pack reads as missing, is out of the pack directory\nand so no longer offered or in force for characters and campaigns, is left\nout of loaded registries, exports and imports, and is audited by command.\nA pack other live packs extend can't be archived, and one that extends an\narchived pack can't be restored. Owner FK to users is restrict and\narchive.protect blocks DELETE on content_packs.\n\nCloses #883\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* fix(homebrew): recheck visibility on restore, serialise archive with the graph\n\nRestore now refuses a pack that would come back wider than a pack it\nextends, and archive/restore take the dependency graph advisory lock so\na live pack is never left extending an archived one. Adds tests for both,\nfor archived packs dropping out of stored content, and for a campaign\nno longer listing an archived pack.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* test(api): archive the ally character instead of deleting it\n\nCharacters cannot be deleted since the archive guard; the ally test\nadded on main deleted one.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Sonnet 5.5 <noreply@anthropic.com>",
+          "timestamp": "2026-10-16T07:25:51+10:00",
+          "tree_id": "fcac32b9ccacfb3789a193a0b9545f937753307c",
+          "url": "https://github.com/DavidDudson/pioneer/commit/26d2e51cd384d94793f0aadf64fcd0609d81baa6"
+        },
+        "date": 1792099676434,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "character: level 20 Bard with every slot and its gear filled",
+            "value": 21.145,
+            "unit": "ms",
+            "extra": "median 22.67 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Cleric with every slot and its gear filled",
+            "value": 29.012,
+            "unit": "ms",
+            "extra": "median 31.298 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Druid with every slot and its gear filled",
+            "value": 22.215,
+            "unit": "ms",
+            "extra": "median 23.237 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Fighter with every slot and its gear filled",
+            "value": 19.354,
+            "unit": "ms",
+            "extra": "median 20.245 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Ranger with every slot and its gear filled",
+            "value": 23.522,
+            "unit": "ms",
+            "extra": "median 24.598 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Rogue with every slot and its gear filled",
+            "value": 23.195,
+            "unit": "ms",
+            "extra": "median 24.067 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Witch with every slot and its gear filled",
+            "value": 23.359,
+            "unit": "ms",
+            "extra": "median 24.814 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Wizard with every slot and its gear filled",
+            "value": 21.685,
+            "unit": "ms",
+            "extra": "median 22.592 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Alchemist with every slot and its gear filled",
+            "value": 21.097,
+            "unit": "ms",
+            "extra": "median 21.912 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Barbarian with every slot and its gear filled",
+            "value": 25.956,
+            "unit": "ms",
+            "extra": "median 26.958 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Champion with every slot and its gear filled",
+            "value": 25.531,
+            "unit": "ms",
+            "extra": "median 27.498 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Investigator with every slot and its gear filled",
+            "value": 23.314,
+            "unit": "ms",
+            "extra": "median 24.61 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Monk with every slot and its gear filled",
+            "value": 19.797,
+            "unit": "ms",
+            "extra": "median 21.126 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Oracle with every slot and its gear filled",
+            "value": 23.194,
+            "unit": "ms",
+            "extra": "median 25.724 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Sorcerer with every slot and its gear filled",
+            "value": 20.742,
+            "unit": "ms",
+            "extra": "median 21.781 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Swashbuckler with every slot and its gear filled",
+            "value": 27.292,
+            "unit": "ms",
+            "extra": "median 28.699 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Animist with every slot and its gear filled",
+            "value": 18.922,
+            "unit": "ms",
+            "extra": "median 19.963 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Exemplar with every slot and its gear filled",
+            "value": 28.123,
+            "unit": "ms",
+            "extra": "median 29.853 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "catalog: level 20 Fighter derives grants and every statistic",
+            "value": 5.415,
+            "unit": "ms",
+            "extra": "median 7.013 ms, 51 runs after 20 warm-up, budget 10 ms"
+          },
+          {
+            "name": "catalog: level 20 Fighter with Proficiency Without Level and a homebrew pack restating Perception",
+            "value": 5.381,
+            "unit": "ms",
+            "extra": "median 6.139 ms, 51 runs after 20 warm-up, budget 10 ms"
+          },
+          {
+            "name": "grants: a query over 1000 entries",
+            "value": 0.798,
+            "unit": "ms",
+            "extra": "median 1.016 ms, 51 runs after 20 warm-up, budget 2 ms"
+          },
+          {
+            "name": "grants: level 20 character with every slot picked over 1000 more feats",
+            "value": 0.955,
+            "unit": "ms",
+            "extra": "median 1.131 ms, 51 runs after 20 warm-up, budget 3 ms"
+          },
+          {
+            "name": "grants: level 20 Fighter resolves to a fixpoint",
+            "value": 0.504,
+            "unit": "ms",
+            "extra": "median 1.066 ms, 51 runs after 20 warm-up, budget 3 ms"
           }
         ]
       }
