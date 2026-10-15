@@ -41,7 +41,9 @@
     "dependencyNarrower": "This pack is visible to more people than {dependency}. Narrow who can see this pack first.",
     "dependencyInUse": "These entries still use it: {entries}. Remove those references first.",
     "widerThanDependencies": "This pack extends {packs}, which fewer people can see. It cannot be visible to more people than what it extends.",
-    "narrowerThanDependents": "{count, plural, one {# pack that extends this one is} other {# packs that extend this one are}} visible to more people than this. Narrow {count, plural, one {it} other {them}} first."
+    "narrowerThanDependents": "{count, plural, one {# pack that extends this one is} other {# packs that extend this one are}} visible to more people than this. Narrow {count, plural, one {it} other {them}} first.",
+    "extendedByPacks": "{count, plural, one {# pack extends this one} other {# packs extend this one}}. Archive {count, plural, one {it} other {them}} first, or stop them extending it.",
+    "dependsOnArchived": "{count, plural, one {# pack this one extends is} other {# packs this one extends are}} archived. Restore {count, plural, one {it} other {them}} first."
   },
   "dependencies": {
     "heading": "Extends",

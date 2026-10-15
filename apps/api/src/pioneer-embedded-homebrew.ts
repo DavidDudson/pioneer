@@ -10,7 +10,7 @@ import type { ContentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { nextVersion } from '@pioneer/shared/kernel';
 import type { Clock, UserId } from '@pioneer/shared/kernel';
 import { stampAudit } from '@pioneer/shared/server';
-import { and, eq, inArray } from 'drizzle-orm';
+import { and, eq, inArray, isNull } from 'drizzle-orm';
 
 import type { Database } from './database';
 
@@ -25,9 +25,10 @@ function readable(row: PackRow): ReadablePack {
 
 /**
  * The character context's `EmbeddedHomebrew` over the content tables. It lives in the composition root because
- * neither the character nor the homebrew context may import the other. A pack the actor may not read is treated as
- * absent when exporting and as held by someone else, with no entries to compare, when importing, so a file can't be
- * used to probe it.
+ * neither the character nor the homebrew context may import the other. An archived pack is treated as absent too
+ * (ADR-0062), and as held by someone else when importing, so a file never writes into it. A pack the actor may not
+ * read is treated as absent when exporting and as held by someone else, with no entries to compare, when importing,
+ * so a file can't be used to probe it.
  */
 export class PioneerEmbeddedHomebrew extends EmbeddedHomebrew {
   readonly #db: Database;
@@ -51,7 +52,7 @@ export class PioneerEmbeddedHomebrew extends EmbeddedHomebrew {
       .select({ pack: contentPacks, entry: contentEntries.data })
       .from(contentEntries)
       .innerJoin(contentPacks, eq(contentPacks.id, contentEntries.packId))
-      .where(inArray(contentEntries.id, [...ids]));
+      .where(and(inArray(contentEntries.id, [...ids]), isNull(contentPacks.archivedAt)));
     const byPack = new Map<PackRow['id'], { pack: PackRow; entries: ContentEntry[] }>();
     for (const { pack, entry } of rows) {
       const held = byPack.get(pack.id) ?? { pack, entries: [] };
@@ -87,7 +88,10 @@ export class PioneerEmbeddedHomebrew extends EmbeddedHomebrew {
         const mayRead = row.ownerId === null || (await this.#policy.mayRead(actor, readable(row)));
         return [
           row.slug,
-          { ownedByImporter: row.ownerId === actor, entries: mayRead ? await this.#entriesOf(row) : new Map() },
+          {
+            ownedByImporter: row.ownerId === actor && row.archivedAt === null,
+            entries: mayRead && row.archivedAt === null ? await this.#entriesOf(row) : new Map(),
+          },
         ];
       }),
     );
@@ -137,7 +141,11 @@ export class PioneerEmbeddedHomebrew extends EmbeddedHomebrew {
     const at = this.#clock.now().toString();
     await this.#db.transaction(async (tx) => {
       await stampAudit(tx, { actor, command: IMPORT_COMMAND });
-      const mine = and(eq(contentPacks.id, contentPackId(embedded.pack.id)), eq(contentPacks.ownerId, actor));
+      const mine = and(
+        eq(contentPacks.id, contentPackId(embedded.pack.id)),
+        eq(contentPacks.ownerId, actor),
+        isNull(contentPacks.archivedAt),
+      );
       const [locked] = await tx.select().from(contentPacks).where(mine).for('update');
       if (locked === undefined) {
         return;

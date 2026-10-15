@@ -1,4 +1,4 @@
-import { HomebrewPack, isWiderThan } from '@pioneer/homebrew/domain';
+import { HomebrewCommand, HomebrewPack, isWiderThan } from '@pioneer/homebrew/domain';
 import type { CreateHomebrewPackBody } from '@pioneer/homebrew/domain';
 import { contentPackId, PackVisibility } from '@pioneer/rules/sdk';
 import type { ContentPackId } from '@pioneer/rules/sdk';
@@ -12,6 +12,14 @@ import { PackAccessPolicy } from './pack-access-policy';
 import type { PackDependencyRepository } from './pack-dependency-repository';
 import type { PackDirectory } from './pack-directory';
 import type { PackEnablementDirectory } from './pack-enablement-directory';
+
+/** The actor's archived pack: nobody else sees one, so another user's is a 404. */
+function archivedOwnedBy(actor: UserId, archived: HomebrewPack): HomebrewPack {
+  if (!PackAccessPolicy.owns(actor, archived)) {
+    throw new NotFoundError('HomebrewPack', archived.id);
+  }
+  return archived;
+}
 
 /** The ports `HomebrewPackService` works through. */
 export interface HomebrewPackPorts {
@@ -48,6 +56,11 @@ export class HomebrewPackService {
   /** Every pack the actor owns, newest first. */
   public async list(actor: UserId): Promise<readonly HomebrewPack[]> {
     return this.#packs.listOwnedBy(actor);
+  }
+
+  /** The actor's archived packs (ADR-0062); nobody else's are listed. */
+  public async listArchived(actor: UserId): Promise<readonly HomebrewPack[]> {
+    return this.#packs.listArchivedOwnedBy(actor);
   }
 
   /** A pack the actor may read. Any other is a 404, the same as a missing one. */
@@ -106,6 +119,95 @@ export class HomebrewPackService {
       throw new NotFoundError('HomebrewPack', id);
     }
     return changed;
+  }
+
+  /**
+   * Archives a pack the actor owns (ADR-0062): it is no longer offered, read or in force until restored. Another reader
+   * is refused (403), anyone else gets a 404. Packs that still extend it are a conflict, so none loses what it
+   * references; campaigns and characters using it just stop having it in force. Archiving it twice is harmless.
+   */
+  public async archive(actor: UserId, id: ContentPackId): Promise<HomebrewPack> {
+    const live = await this.#packs.findById(id);
+    if (live === undefined) {
+      return this.#archivedOf(actor, id);
+    }
+    const pack = await this.#owned(actor, live);
+    const audit = { actor, command: HomebrewCommand.ArchivePack };
+    // Checked with the pack locked, so a pack cannot start extending it in between.
+    await this.#packs.archive(id, this.#clock.now(), {
+      audit,
+      whileLocked: async () => this.#refuseWhileExtended(pack),
+    });
+    return pack;
+  }
+
+  /**
+   * Brings one of the actor's archived packs back as it was. One that extends an archived pack is a conflict, as it
+   * would have nothing to reference. Restoring a live one is harmless.
+   */
+  public async restore(actor: UserId, id: ContentPackId): Promise<HomebrewPack> {
+    const archived = await this.#packs.findArchivedById(id);
+    if (archived === undefined) {
+      const live = await this.#readable(actor, id);
+      return this.#owned(actor, live);
+    }
+    const pack = archivedOwnedBy(actor, archived);
+    const audit = { actor, command: HomebrewCommand.RestorePack };
+    await this.#packs.restore(id, {
+      audit,
+      whileLocked: async () => {
+        await this.#refuseWhileExtending(pack);
+        // A pack it extends may have been narrowed while this one was archived.
+        await this.#refuseBeyondDependencies(pack, pack.visibility);
+      },
+    });
+    return pack;
+  }
+
+  /** The pack, when the actor owns it; another reader who may see it: 403. */
+  async #owned(actor: UserId, live: HomebrewPack): Promise<HomebrewPack> {
+    const pack = await this.#readable(actor, live.id);
+    if (!PackAccessPolicy.owns(actor, pack)) {
+      throw new ForbiddenError(`User ${actor} does not own pack ${live.id}`);
+    }
+    return pack;
+  }
+
+  /** The actor's archived pack, or a 404: nobody else sees it. */
+  async #archivedOf(actor: UserId, id: ContentPackId): Promise<HomebrewPack> {
+    const archived = await this.#packs.findArchivedById(id);
+    if (archived === undefined) {
+      throw new NotFoundError('HomebrewPack', id);
+    }
+    return archivedOwnedBy(actor, archived);
+  }
+
+  /** No live pack may extend a pack that is archived: counted, not named, as their owners may be others. */
+  async #refuseWhileExtended(pack: HomebrewPack): Promise<void> {
+    const dependentIds = await this.#dependencies.dependentsOf(pack.id);
+    const found = await Promise.all(dependentIds.map(async (id) => this.#directory.findById(id)));
+    const live = found.filter((dependent) => dependent !== undefined);
+    if (live.length > 0) {
+      throw new ConflictError(
+        `${live.length} pack(s) still extend ${pack.id}`,
+        message(HomebrewMessage.ExtendedByPacks, { count: live.length }),
+      );
+    }
+  }
+
+  /** A pack comes back only with the packs it extends. A live pack is found by the directory; an archived one is not. */
+  async #refuseWhileExtending(pack: HomebrewPack): Promise<void> {
+    const edges = await this.#dependencies.edges();
+    const found = await Promise.all(
+      edges.filter((edge) => edge.pack === pack.id).map(async (edge) => this.#directory.findById(edge.dependsOn)),
+    );
+    const archived = found.filter((dependency) => dependency === undefined);
+    if (archived.length > 0) {
+      throw new ConflictError(
+        `${archived.length} pack(s) extended by ${pack.id} are archived`,
+        message(HomebrewMessage.DependsOnArchived, { count: archived.length }),
+      );
+    }
   }
 
   async #readable(actor: UserId, id: ContentPackId): Promise<HomebrewPack> {

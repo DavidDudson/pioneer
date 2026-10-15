@@ -19,11 +19,14 @@ export function homebrewRoutes(
 ): ContractRouter['app'] {
   return new ContractRouter('homebrew-routes')
     .handleSignedIn(HomebrewContract.list, auth, async ({ actor }) => [...(await packs.list(actor))])
+    .handleSignedIn(HomebrewContract.archived, auth, async ({ actor }) => [...(await packs.listArchived(actor))])
     .handleSignedIn(HomebrewContract.get, auth, async ({ actor, params }) => packs.get(actor, params.id))
     .handleSignedIn(HomebrewContract.create, auth, async ({ actor, body }) => packs.create(actor, body))
     .handleSignedIn(HomebrewContract.setVisibility, auth, async ({ actor, params, body }) =>
       packs.setVisibility(actor, params.id, body.visibility),
     )
+    .handleSignedIn(HomebrewContract.archive, auth, async ({ actor, params }) => packs.archive(actor, params.id))
+    .handleSignedIn(HomebrewContract.restore, auth, async ({ actor, params }) => packs.restore(actor, params.id))
     .handleSignedIn(HomebrewContract.dependencies, auth, async ({ actor, params }) =>
       dependencies.list(actor, params.id),
     )

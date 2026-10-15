@@ -211,7 +211,7 @@ describe.skipIf(adminUrl === undefined)('CharacterPackService over postgres', ()
     );
     const allies = await directory.alliesOf(kyra);
     await database.db.execute(sql`delete from campaign_characters where character_id = ${seoni.id}`);
-    await database.db.execute(sql`delete from characters where id = ${seoni.id}`);
+    await database.db.execute(sql`update characters set archived_at = ${at} where id = ${seoni.id}`);
 
     expect(allies.map(({ characterId, name }) => [characterId, String(name)])).toStrictEqual([[seoni.id, 'Seoni']]);
   });
@@ -225,11 +225,12 @@ describe.skipIf(adminUrl === undefined)('CharacterPackService over postgres', ()
     expect(await unindexedQueries(database.db, recorder)).toStrictEqual([]);
   });
 
-  test('deleting the pack, the user who enabled it or the character', async () => {
+  test('a pack or character cannot be deleted; deleting the user who enabled it clears the mark', async () => {
     await service.enable(amiri, kyra, { packId: ContentPackId.parse(feats.id) });
-    await database.db.execute(sql`delete from content_packs where id = ${feats.id}`);
+    const packRefused = await rejection(database.db.execute(sql`delete from content_packs where id = ${feats.id}`));
+    expect(packRefused).toBeInstanceOf(Error);
     const afterPack = await stored();
-    expect(afterPack.map((row) => row.packId)).toStrictEqual([spells.id]);
+    expect(afterPack.map((row) => row.packId).toSorted()).toStrictEqual([feats.id, spells.id].toSorted());
 
     const stranger = UserId.parse(newId());
     await database.db.execute(

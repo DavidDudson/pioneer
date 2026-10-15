@@ -1,3 +1,4 @@
+export { HomebrewCommand } from './homebrew-command';
 export {
   AddPackDependencyBody,
   HomebrewContract,

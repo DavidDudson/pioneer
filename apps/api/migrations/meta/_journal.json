@@ -183,6 +183,13 @@
       "when": 1792073257022,
       "tag": "0025_archive_campaigns",
       "breakpoints": true
+    },
+    {
+      "idx": 26,
+      "version": "7",
+      "when": 1792073269484,
+      "tag": "0026_archive_packs",
+      "breakpoints": true
     }
   ]
 }

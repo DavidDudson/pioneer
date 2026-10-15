@@ -7,8 +7,11 @@ import { stampAudit } from '@pioneer/shared/server';
 import { and, asc, eq, inArray, sql } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 
-/** Key of the advisory lock every addition holds, so two cannot each pass a cycle check and then close one together. */
-const GRAPH_LOCK = 109_003;
+/**
+ * Key of the advisory lock every addition holds, so two cannot each pass a cycle check and then close one together.
+ * An archive or restore holds it too, so a live pack is never left extending an archived one.
+ */
+export const GRAPH_LOCK = 109_003;
 /** Name the commands on the audit rows they write, as a service use case names a command. */
 const ADD_COMMAND = 'add-homebrew-pack-dependency';
 const REMOVE_COMMAND = 'remove-homebrew-pack-dependency';
