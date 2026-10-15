@@ -45,7 +45,7 @@ function actionsOf(document: CharacterDocument): readonly AvailableAction[] {
   const slots = slotContent(registry);
   return characterActions(
     document,
-    { registry, slots, inputs: characterStatisticInputs(registry, document, slots) },
+    { registry, slots, inputs: characterStatisticInputs(registry, document, slots), variants: [] },
     NO_SPENT,
   );
 }
