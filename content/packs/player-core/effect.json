@@ -3922,6 +3922,18 @@
             "or": ["emblazon-armament:item:shield", "option:shield-religious-symbol"]
           }
         ]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["saving-throw"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "predicate": [
+          {
+            "or": ["option:vitality", "option:void"]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -9228,6 +9240,12 @@
         "option": "option:bit-of-luck",
         "toggleable": true,
         "value": true
+      },
+      {
+        "key": "RollTwice",
+        "selectors": ["saving-throw"],
+        "keep": "higher",
+        "predicate": ["option:bit-of-luck"]
       }
     ],
     "externalIds": {
@@ -14367,6 +14385,18 @@
         ],
         "prompt": "Select the degree of success.",
         "rollOption": "ill-omen"
+      },
+      {
+        "key": "RollTwice",
+        "selectors": ["attack-roll", "skill-check"],
+        "keep": "lower",
+        "predicate": ["ill-omen:failure"]
+      },
+      {
+        "key": "RollTwice",
+        "selectors": ["attack-roll", "skill-check"],
+        "keep": "lower",
+        "predicate": ["ill-omen:critical-failure"]
       }
     ],
     "externalIds": {
@@ -14623,7 +14653,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollTwice",
+        "selectors": ["skill-check"],
+        "keep": "higher",
+        "predicate": ["action:recall-knowledge"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.ZmoLNdkOWwZgSrti"
     },
@@ -16586,7 +16623,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollTwice",
+        "selectors": ["skill:deception", "skill:diplomacy", "skill:intimidation", "skill:performance"],
+        "keep": "lower"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.QccOlLHtnVEmD67m"
     },
@@ -16636,7 +16679,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollTwice",
+        "selectors": ["skill:deception", "skill:diplomacy", "skill:intimidation", "skill:performance"],
+        "keep": "lower"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.hlgCesYXXHG8r9X4"
     },
@@ -19900,6 +19949,14 @@
             ]
           }
         ]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["saving-throw"],
+        "adjustment": {
+          "failure": "one-degree-worse",
+          "success": "one-degree-better"
+        }
       }
     ],
     "externalIds": {
@@ -20253,6 +20310,12 @@
         "selectors": ["attack-roll"],
         "suppress": true,
         "predicate": ["penalty:type:circumstance", "target:mark:true-target"]
+      },
+      {
+        "key": "RollTwice",
+        "selectors": ["attack-roll"],
+        "keep": "higher",
+        "predicate": ["target:mark:true-target"]
       }
     ],
     "externalIds": {
@@ -20695,7 +20758,32 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill:performance"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "predicate": [
+          {
+            "lte": ["skill:performance:rank", 3]
+          }
+        ]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill:performance"],
+        "adjustment": {
+          "all": "to-critical-success"
+        },
+        "predicate": [
+          {
+            "gte": ["skill:performance:rank", 4]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.ITErgFRfydm1xmnW"
     },

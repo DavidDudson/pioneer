@@ -1935,6 +1935,34 @@
             }
           }
         ]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill-check"],
+        "adjustment": {
+          "all": "one-degree-better"
+        },
+        "predicate": [
+          "option:ageless-patience",
+          "check:total:natural:1",
+          {
+            "gte": ["check:total:delta", -9]
+          }
+        ]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["perception"],
+        "adjustment": {
+          "all": "one-degree-better"
+        },
+        "predicate": [
+          "option:ageless-patience",
+          "check:total:natural:1",
+          {
+            "gte": ["check:total:delta", -9]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -3616,6 +3644,13 @@
             "not": "bonus:type:proficiency"
           }
         ]
+      },
+      {
+        "key": "SubstituteRoll",
+        "selectors": ["skill-check"],
+        "slug": "assured-knowledge",
+        "value": 10,
+        "predicate": ["action:recall-knowledge"]
       }
     ],
     "externalIds": {
@@ -3694,6 +3729,19 @@
             ]
           }
         ],
+        "predicate": [
+          {
+            "or": ["action:climb", "action:swim"]
+          }
+        ]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill:athletics"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "checkType": "skill",
         "predicate": [
           {
             "or": ["action:climb", "action:swim"]
@@ -6871,6 +6919,14 @@
         "type": "circumstance",
         "value": 1,
         "predicate": ["item:trait:inhaled"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["saving-throw"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "predicate": ["item:trait:inhaled"]
       }
     ],
     "externalIds": {
@@ -6931,6 +6987,15 @@
           }
         ],
         "outcome": ["success"],
+        "predicate": ["action:swim"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill:athletics"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "checkType": "save",
         "predicate": ["action:swim"]
       }
     ],
@@ -7593,6 +7658,15 @@
           }
         ],
         "outcome": ["success"],
+        "predicate": ["option:mental", "inflicts:controlled"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["saving-throw"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "checkType": "save",
         "predicate": ["option:mental", "inflicts:controlled"]
       }
     ],
@@ -10688,7 +10762,22 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill-check"],
+        "adjustment": {
+          "criticalFailure": "to-success",
+          "failure": "to-success"
+        },
+        "predicate": [
+          "action:aid",
+          {
+            "or": ["proficiency:expert", "proficiency:master", "proficiency:legendary"]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.Z2EiYMtGoNnwW6Tk"
     },
@@ -16713,6 +16802,15 @@
           }
         ],
         "predicate": ["action:make-an-impression", "target:trait:elf"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill:performance"],
+        "adjustment": {
+          "criticalFailure": "one-degree-better"
+        },
+        "checkType": "skill",
+        "predicate": ["action:make-an-impression", "target:trait:elf"]
       }
     ],
     "externalIds": {
@@ -18897,6 +18995,15 @@
             "or": ["proficiency:expert", "proficiency:master", "proficiency:legendary"]
           }
         ]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["lore-skill-check"],
+        "adjustment": {
+          "criticalFailure": "one-degree-better"
+        },
+        "checkType": "skill",
+        "predicate": ["action:earn-income"]
       }
     ],
     "externalIds": {
@@ -21926,6 +22033,15 @@
           }
         ],
         "predicate": ["action:subsist"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill:survival"],
+        "adjustment": {
+          "criticalFailure": "to-success",
+          "failure": "to-success"
+        },
+        "predicate": ["action:subsist"]
       }
     ],
     "externalIds": {
@@ -22096,6 +22212,15 @@
         ],
         "outcome": ["success"],
         "predicate": ["item:trait:emotion"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["saving-throw"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "checkType": "save",
+        "predicate": ["option:emotion"]
       }
     ],
     "externalIds": {
@@ -24619,7 +24744,17 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["save:will"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "checkType": "save",
+        "predicate": ["option:mental", "inflicts:controlled"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.RmiMUZlae6yGUyXY"
     },
@@ -25454,7 +25589,21 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill:diplomacy"],
+        "adjustment": {
+          "criticalFailure": "one-degree-better"
+        },
+        "predicate": [
+          {
+            "gte": ["skill:diplomacy:rank", 3]
+          },
+          "action:gather-information"
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.4RjDxgvNXNl5GG9d"
     },
@@ -28664,7 +28813,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["saving-throw"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "predicate": ["item:trait:emotion"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["saving-throw"],
+        "adjustment": {
+          "criticalFailure": "one-degree-better"
+        },
+        "predicate": ["item:trait:emotion", "self:heritage:gutsy-halfling"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.cRMUYCnkkE9lSEhh"
     },
@@ -29111,6 +29277,15 @@
           }
         ],
         "outcome": ["success"],
+        "predicate": ["option:emotion"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["saving-throw"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "checkType": "save",
         "predicate": ["option:emotion"]
       }
     ],
@@ -31330,6 +31505,14 @@
           }
         ],
         "outcome": ["criticalFailure", "failure"],
+        "predicate": ["action:learn-a-spell"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill-check"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
         "predicate": ["action:learn-a-spell"]
       }
     ],
@@ -34073,6 +34256,33 @@
             ]
           }
         ],
+        "predicate": ["action:escape"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["attack-roll"],
+        "adjustment": {
+          "criticalFailure": "one-degree-better",
+          "success": "one-degree-better"
+        },
+        "predicate": ["action:escape"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill:athletics"],
+        "adjustment": {
+          "criticalFailure": "one-degree-better",
+          "success": "one-degree-better"
+        },
+        "predicate": ["action:escape"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill:acrobatics"],
+        "adjustment": {
+          "criticalFailure": "one-degree-better",
+          "success": "one-degree-better"
+        },
         "predicate": ["action:escape"]
       }
     ],
@@ -43837,6 +44047,20 @@
           }
         ],
         "predicate": ["action:balance"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill:acrobatics"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "checkType": "save",
+        "predicate": [
+          "action:balance",
+          {
+            "or": ["terrain:stone", "terrain:earth"]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -44533,7 +44757,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["strike-attack-roll"],
+        "adjustment": {
+          "success": "to-critical-success"
+        },
+        "predicate": ["check:roll:total:natural:19", "item:proficiency:rank:4"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.v88bFLoJEF3YfJKb"
     },
@@ -48087,7 +48320,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill:stealth"],
+        "adjustment": {
+          "failure": "to-success"
+        },
+        "predicate": ["action:sneak"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.2Nu4ZdKQM8hx8x5D"
     },
@@ -49536,6 +49778,14 @@
       {
         "key": "GrantItem",
         "item": "636b2a28-e379-5443-a453-2f019328b01a"
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill-check"],
+        "adjustment": {
+          "criticalFailure": "one-degree-better"
+        },
+        "predicate": ["action:learn-a-spell"]
       }
     ],
     "externalIds": {
@@ -49980,6 +50230,15 @@
             ]
           }
         ],
+        "predicate": ["action:balance"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill:acrobatics"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "checkType": "skill",
         "predicate": ["action:balance"]
       }
     ],
@@ -50915,6 +51174,22 @@
         "key": "RollOption",
         "option": "option:student-of-the-canon",
         "toggleable": true
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill:religion"],
+        "adjustment": {
+          "failure": "one-degree-better"
+        },
+        "predicate": ["action:decipher-writing", "option:student-of-the-canon"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill:religion"],
+        "adjustment": {
+          "all": "one-degree-better"
+        },
+        "predicate": ["action:recall-knowledge", "option:student-of-the-canon"]
       }
     ],
     "externalIds": {
@@ -51466,6 +51741,22 @@
             ]
           }
         ],
+        "predicate": ["action:climb"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill:acrobatics"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "predicate": ["action:balance"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill:athletics"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
         "predicate": ["action:climb"]
       }
     ],
@@ -55449,6 +55740,15 @@
         ],
         "outcome": ["success"],
         "predicate": ["item:trait:emotion"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["saving-throw"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "checkType": "save",
+        "predicate": ["option:emotion"]
       }
     ],
     "externalIds": {
@@ -55727,7 +56027,36 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["saving-throw"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "predicate": [
+          {
+            "or": ["inflicts:grabbed", "inflicts:immobilized", "inflicts:restrained"]
+          }
+        ]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill-check"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "predicate": ["action:escape"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["attack-roll"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "predicate": ["action:escape"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.uuD8Z9jUG61GmenX"
     },
@@ -55954,6 +56283,15 @@
             ]
           }
         ],
+        "predicate": ["action:recall-knowledge"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["lore-skill-check"],
+        "adjustment": {
+          "criticalFailure": "one-degree-better"
+        },
+        "checkType": "skill",
         "predicate": ["action:recall-knowledge"]
       }
     ],
@@ -56265,6 +56603,15 @@
             ]
           }
         ],
+        "predicate": ["option:sleep"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["saving-throw"],
+        "adjustment": {
+          "all": "one-degree-better"
+        },
+        "checkType": "save",
         "predicate": ["option:sleep"]
       }
     ],

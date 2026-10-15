@@ -603,7 +603,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollTwice",
+        "selectors": ["attack-roll"],
+        "keep": "higher"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.9hIzh4UvjSTyYBby"
     },

@@ -455,6 +455,14 @@
       {
         "key": "Immunity",
         "type": ["auditory"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["perception"],
+        "adjustment": {
+          "all": "to-critical-failure"
+        },
+        "predicate": ["item:trait:auditory"]
       }
     ],
     "externalIds": {

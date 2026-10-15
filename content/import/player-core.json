@@ -599,25 +599,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "class-feature:agile-mind",
-      "foundry": "Compendium.pf2e.classfeatures.Item.xmZ7oeTDcQVXegUP",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "success": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "selector": "will"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "class-feature:anathema-cleric",
       "foundry": "Compendium.pf2e.classfeatures.Item.UV1HlClbWCNcaKBZ",
       "gaps": [
@@ -798,45 +779,6 @@
                 ]
               }
             ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "class-feature:battle-hardened",
-      "foundry": "Compendium.pf2e.classfeatures.Item.gdSmSTaGDxf4g2d8",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "success": "to-critical-success"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "selector": "fortitude"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "class-feature:bravery",
-      "foundry": "Compendium.pf2e.classfeatures.Item.GJKJafDGuX4BeAeN",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "success": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": ["item:trait:fear"],
-            "selector": "will"
           }
         }
       ]
@@ -1170,25 +1112,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "class-feature:evasive-reflexes",
-      "foundry": "Compendium.pf2e.classfeatures.Item.oa3TJpPnvL98EUHh",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "success": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "selector": "reflex"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "class-feature:experimental-spellshaping",
       "foundry": "Compendium.pf2e.classfeatures.Item.89zWKD2CN7nRu2xp",
       "gaps": [
@@ -1324,25 +1247,6 @@
           "raw": {
             "key": "GrantItem",
             "uuid": "{actor|flags.system.cleric.fifthDoctrine}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "class-feature:fifth-doctrine-warpriest",
-      "foundry": "Compendium.pf2e.classfeatures.Item.kmimy4VOaoEOgOiQ",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "success": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "selector": "fortitude"
           }
         }
       ]
@@ -1616,63 +1520,6 @@
           "raw": {
             "key": "CriticalSpecialization",
             "predicate": ["item:deity-favored"]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "class-feature:greater-natural-reflexes",
-      "foundry": "Compendium.pf2e.classfeatures.Item.rpLPCkTXCZlQ51SR",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "criticalFailure": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "selector": "reflex"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "class-feature:greater-performers-heart",
-      "foundry": "Compendium.pf2e.classfeatures.Item.mRobjNNsABQdUUZq",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "criticalFailure": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "selector": "will"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "class-feature:greater-rogue-reflexes",
-      "foundry": "Compendium.pf2e.classfeatures.Item.BTpL6XvMk4jvVYYJ",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "criticalFailure": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "selector": "reflex"
           }
         }
       ]
@@ -2064,25 +1911,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "class-feature:natural-reflexes",
-      "foundry": "Compendium.pf2e.classfeatures.Item.7dMDxvzGKbqoEAdX",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "success": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "selector": "reflex"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "class-feature:outwit",
       "foundry": "Compendium.pf2e.classfeatures.Item.NBHyoTrI8q62uDsU",
       "gaps": [
@@ -2197,25 +2025,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "class-feature:performers-heart",
-      "foundry": "Compendium.pf2e.classfeatures.Item.nPwYSuMLkJWMB4CH",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "success": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "selector": "will"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "class-feature:precision",
       "foundry": "Compendium.pf2e.classfeatures.Item.u6cBjqz2fiRBadBt",
       "gaps": [
@@ -2314,25 +2123,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "class-feature:prodigious-will",
-      "foundry": "Compendium.pf2e.classfeatures.Item.j5TZw3xoIo6Lz0Re",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "success": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "selector": "will"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "class-feature:ranger-weapon-expertise",
       "foundry": "Compendium.pf2e.classfeatures.Item.QhoW8ivPvYmWzyEZ",
       "gaps": [
@@ -2347,44 +2137,6 @@
                 "or": ["item:category:simple", "item:category:martial", "item:category:unarmed"]
               }
             ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "class-feature:resolute-faith",
-      "foundry": "Compendium.pf2e.classfeatures.Item.0TjNGzs0FuD7JBf4",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "success": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "selector": "will"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "class-feature:rogue-resilience",
-      "foundry": "Compendium.pf2e.classfeatures.Item.fMHYzXEUMoWskKMF",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "success": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "selector": "fortitude"
           }
         }
       ]
@@ -2789,25 +2541,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "class-feature:tempered-reflexes",
-      "foundry": "Compendium.pf2e.classfeatures.Item.2ImD2TB0RVic1VUc",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "success": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "selector": "reflex"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "class-feature:the-inscribed-one",
       "foundry": "Compendium.pf2e.classfeatures.Item.FdLx4VODZEYLGOK9",
       "gaps": [
@@ -2986,25 +2719,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "class-feature:wardens-endurance",
-      "foundry": "Compendium.pf2e.classfeatures.Item.gc6OMDRxTpSfsVtk",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "success": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "selector": "fortitude"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "class-feature:warpriest",
       "foundry": "Compendium.pf2e.classfeatures.Item.0Aocw3igLwna9cjp",
       "gaps": [
@@ -3161,25 +2875,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "class-feature:wild-willpower",
-      "foundry": "Compendium.pf2e.classfeatures.Item.yqaRnXFjRnFWsWvY",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "success": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "selector": "will"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "class-feature:wilding-steward",
       "foundry": "Compendium.pf2e.classfeatures.Item.e0VhUyjz1clW3sC4",
       "gaps": [
@@ -3212,25 +2907,6 @@
                 "text": "@UUID[Compendium.pf2e.feat-effects.Item.Effect: Familiar of Keen Senses]"
               }
             ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "class-feature:will-of-the-pupil",
-      "foundry": "Compendium.pf2e.classfeatures.Item.FuVO8ksHI1B5ozVI",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "success": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "selector": "will"
           }
         }
       ]
@@ -3654,18 +3330,6 @@
                 "text": "PF2E.condition.deafened.note"
               }
             ]
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "all": "to-critical-failure"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": ["item:trait:auditory"],
-            "selector": "perception"
           }
         }
       ]
@@ -5769,15 +5433,6 @@
       },
       "gaps": [
         {
-          "type": "rule",
-          "key": "RollTwice",
-          "raw": {
-            "keep": "higher",
-            "key": "RollTwice",
-            "selector": ["attack-roll", "skill-check"]
-          }
-        },
-        {
           "type": "field",
           "reason": "unmapped-value",
           "field": "duration",
@@ -6156,30 +5811,6 @@
             "selector": "saving-throw",
             "type": "status",
             "value": 2
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:effect-raise-symbol",
-      "foundry": "Compendium.pf2e.feat-effects.Item.A6i55HQ59lzsHXVQ",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "success": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": [
-              {
-                "or": ["vitality", "void"]
-              }
-            ],
-            "selector": "saving-throw"
           }
         }
       ]
@@ -9146,24 +8777,6 @@
                 "gte": ["{item|level}", "self:level"]
               }
             ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-bit-of-luck",
-      "foundry": "Compendium.pf2e.spell-effects.Item.C9IBDViaUxVq0Jzn",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "RollTwice",
-          "raw": {
-            "keep": "higher",
-            "key": "RollTwice",
-            "predicate": ["bit-of-luck"],
-            "selector": "saving-throw"
           }
         }
       ]
@@ -12725,53 +12338,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:spell-effect-ill-omen",
-      "foundry": "Compendium.pf2e.spell-effects.Item.AmsVO5Q6078mEvNt",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "RollTwice",
-          "raw": {
-            "keep": "lower",
-            "key": "RollTwice",
-            "predicate": ["ill-omen:failure"],
-            "selector": ["attack-roll", "skill-check"]
-          }
-        },
-        {
-          "type": "rule",
-          "key": "RollTwice",
-          "raw": {
-            "keep": "lower",
-            "key": "RollTwice",
-            "predicate": ["ill-omen:critical-failure"],
-            "removeAfterRoll": false,
-            "selector": ["attack-roll", "skill-check"]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-know-the-enemy",
-      "foundry": "Compendium.pf2e.spell-effects.Item.ZmoLNdkOWwZgSrti",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "RollTwice",
-          "raw": {
-            "keep": "higher",
-            "key": "RollTwice",
-            "predicate": ["action:recall-knowledge"],
-            "selector": "skill-check"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:spell-effect-loremasters-etude",
       "foundry": "Compendium.pf2e.spell-effects.Item.0TB7pLXBiVPMB08U",
       "gaps": [
@@ -13509,42 +13075,6 @@
             "radius": 60,
             "slug": "green-caress",
             "traits": ["primal"]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-outcasts-curse-failure",
-      "foundry": "Compendium.pf2e.spell-effects.Item.QccOlLHtnVEmD67m",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "RollTwice",
-          "raw": {
-            "keep": "lower",
-            "key": "RollTwice",
-            "removeAfterRoll": false,
-            "selector": ["deception", "diplomacy", "intimidation", "performance"]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-outcasts-curse-success",
-      "foundry": "Compendium.pf2e.spell-effects.Item.hlgCesYXXHG8r9X4",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "RollTwice",
-          "raw": {
-            "keep": "lower",
-            "key": "RollTwice",
-            "removeAfterRoll": false,
-            "selector": ["deception", "diplomacy", "intimidation", "performance"]
           }
         }
       ]
@@ -14506,15 +14036,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "RollTwice",
-          "raw": {
-            "keep": "higher",
-            "key": "RollTwice",
-            "selector": "attack-roll"
-          }
-        },
-        {
-          "type": "rule",
           "key": "AdjustModifier",
           "raw": {
             "key": "AdjustModifier",
@@ -14600,18 +14121,6 @@
             "type": "status",
             "value": "ternary(gte(@item.level,8),2,1)"
           }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "failure": "one-degree-worse",
-              "success": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "selector": "saving-throw"
-          }
         }
       ]
     },
@@ -14671,24 +14180,6 @@
           "raw": {
             "key": "RollOption",
             "option": "triple-time:origin:signature:{item|origin.signature}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-true-target",
-      "foundry": "Compendium.pf2e.spell-effects.Item.HuvucQ5nfpuVWNrw",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "RollTwice",
-          "raw": {
-            "keep": "higher",
-            "key": "RollTwice",
-            "predicate": ["target:mark:true-target"],
-            "selector": "attack-roll"
           }
         }
       ]
@@ -15072,38 +14563,6 @@
           "raw": {
             "key": "RollOption",
             "option": "uplifting-overture:origin:signature:{item|origin.signature}"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "success": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": [
-              {
-                "lte": ["skill:performance:rank", 3]
-              }
-            ],
-            "selector": "performance"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "all": "to-critical-success"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": [
-              {
-                "gte": ["skill:performance:rank", 4]
-              }
-            ],
-            "selector": "performance"
           }
         }
       ]
@@ -15769,50 +15228,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:ageless-patience",
-      "foundry": "Compendium.pf2e.feats-srd.Item.k8nWKHLYvAKMuwLd",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "all": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": [
-              "ageless-patience",
-              "check:total:natural:1",
-              {
-                "gte": ["check:total:delta", -9]
-              }
-            ],
-            "selector": "skill-check"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "all": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": [
-              "ageless-patience",
-              "check:total:natural:1",
-              {
-                "gte": ["check:total:delta", -9]
-              }
-            ],
-            "selector": "perception"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:agile-grace",
       "foundry": "Compendium.pf2e.feats-srd.Item.BJKTUGplI9nwhJxg",
       "gaps": [
@@ -16076,50 +15491,6 @@
             ],
             "selector": "{item|flags.system.rulesSelections.assurance}",
             "suppress": true
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:assured-knowledge",
-      "foundry": "Compendium.pf2e.feats-srd.Item.c6CS97Zs0DPmInaI",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "SubstituteRoll",
-          "raw": {
-            "key": "SubstituteRoll",
-            "predicate": ["action:recall-knowledge"],
-            "selector": "skill-check",
-            "slug": "assured-knowledge",
-            "value": 10
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:athletic-might",
-      "foundry": "Compendium.pf2e.feats-srd.Item.Wwr8VilSybQgVtin",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "success": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": [
-              {
-                "or": ["action:climb", "action:swim"]
-              }
-            ],
-            "selector": "athletics",
-            "type": "skill"
           }
         }
       ]
@@ -16725,45 +16096,12 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "success": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": ["item:trait:inhaled"],
-            "selector": "saving-throw"
-          }
-        },
-        {
-          "type": "rule",
           "key": "ActiveEffectLike",
           "raw": {
             "key": "ActiveEffectLike",
             "mode": "upgrade",
             "path": "flags.system.remainingAir.rounds",
             "value": "25 * (5 + @actor.abilities.con.mod)"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:brine-may",
-      "foundry": "Compendium.pf2e.feats-srd.Item.jEJ6AWCctirMT7p0",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "success": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": ["action:swim"],
-            "selector": "athletics",
-            "type": "save"
           }
         }
       ]
@@ -16903,27 +16241,6 @@
             "predicate": ["item:slug:plant-form", "spellcasting:innate"],
             "property": "other-tags",
             "value": "ancestral-spell:leshy"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:called",
-      "foundry": "Compendium.pf2e.feats-srd.Item.2vlQ09QIBli5u9Gz",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "success": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": ["mental", "inflicts:controlled"],
-            "selector": "saving-throw",
-            "type": "save"
           }
         }
       ]
@@ -17317,32 +16634,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[against]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:cooperative-soul",
-      "foundry": "Compendium.pf2e.feats-srd.Item.Z2EiYMtGoNnwW6Tk",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "criticalFailure": "to-success",
-              "failure": "to-success"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": [
-              "action:aid",
-              {
-                "or": ["proficiency:expert", "proficiency:master", "proficiency:legendary"]
-              }
-            ],
-            "selector": "skill-check"
-          }
         }
       ]
     },
@@ -18287,27 +17578,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:earned-glory",
-      "foundry": "Compendium.pf2e.feats-srd.Item.nfERPRCITBp970HO",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "criticalFailure": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": ["action:make-an-impression", "target:trait:elf"],
-            "selector": "performance",
-            "type": "skill"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:ebb-and-flow",
       "foundry": "Compendium.pf2e.feats-srd.Item.xSJaOcdhqDF1CBs3",
       "gaps": [
@@ -18605,27 +17875,6 @@
             "key": "BaseSpeed",
             "selector": "fly",
             "value": "@actor.system.movement.speeds.land.value"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:experienced-professional",
-      "foundry": "Compendium.pf2e.feats-srd.Item.sMm0UfYxEPpq2Yzd",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "criticalFailure": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": ["action:earn-income"],
-            "selector": "lore-skill-check",
-            "type": "skill"
           }
         }
       ]
@@ -19216,27 +18465,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:forager",
-      "foundry": "Compendium.pf2e.feats-srd.Item.8qebBeOJsyRIchcu",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "criticalFailure": "to-success",
-              "failure": "to-success"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": ["action:subsist"],
-            "selector": "survival"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:forcible-energy",
       "foundry": "Compendium.pf2e.feats-srd.Item.UJafwv306v75Syy7",
       "gaps": [
@@ -19284,27 +18512,6 @@
             ],
             "toggleable": true,
             "value": true
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:forlorn",
-      "foundry": "Compendium.pf2e.feats-srd.Item.AogIo1gHLdz7DyHx",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "success": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": ["emotion"],
-            "selector": "saving-throw",
-            "type": "save"
           }
         }
       ]
@@ -19858,27 +19065,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:haughty-obstinacy",
-      "foundry": "Compendium.pf2e.feats-srd.Item.RmiMUZlae6yGUyXY",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "success": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": ["mental", "inflicts:controlled"],
-            "selector": "will",
-            "type": "save"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:healing-hands",
       "foundry": "Compendium.pf2e.feats-srd.Item.zYhcEX4JnrZ08HfV",
       "gaps": [
@@ -20018,31 +19204,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[feat-effects]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:hobnobber",
-      "foundry": "Compendium.pf2e.feats-srd.Item.4RjDxgvNXNl5GG9d",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "criticalFailure": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": [
-              {
-                "gte": ["skill:diplomacy:rank", 3]
-              },
-              "action:gather-information"
-            ],
-            "selector": "diplomacy"
-          }
         }
       ]
     },
@@ -20316,59 +19477,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:irrepressible-halfling",
-      "foundry": "Compendium.pf2e.feats-srd.Item.cRMUYCnkkE9lSEhh",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "success": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": ["item:trait:emotion"],
-            "selector": "saving-throw"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "criticalFailure": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": ["item:trait:emotion", "self:heritage:gutsy-halfling"],
-            "selector": "saving-throw"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:lawbringer",
-      "foundry": "Compendium.pf2e.feats-srd.Item.g3oJlWGHc74qX2z5",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "success": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": ["emotion"],
-            "selector": "saving-throw",
-            "type": "save"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:legendary-monster-hunter",
       "foundry": "Compendium.pf2e.feats-srd.Item.Veyt4x2Kb5YcPGTv",
       "gaps": [
@@ -20569,26 +19677,6 @@
             "phase": "afterDerived",
             "predicate": ["lunge"],
             "value": 5
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:magical-shorthand",
-      "foundry": "Compendium.pf2e.feats-srd.Item.v7Bt6hjmzYnLFLeG",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "success": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": ["action:learn-a-spell"],
-            "selector": "skill-check"
           }
         }
       ]
@@ -21106,53 +20194,6 @@
             "mode": "add",
             "path": "flags.system.multilingualTaken",
             "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:musetouched",
-      "foundry": "Compendium.pf2e.feats-srd.Item.eSP2938INGUG9b3w",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "criticalFailure": "one-degree-better",
-              "success": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": ["action:escape"],
-            "selector": "attack-roll"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "criticalFailure": "one-degree-better",
-              "success": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": ["action:escape"],
-            "selector": "athletics"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "criticalFailure": "one-degree-better",
-              "success": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": ["action:escape"],
-            "selector": "acrobatics"
           }
         }
       ]
@@ -22202,32 +21243,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:rock-runner",
-      "foundry": "Compendium.pf2e.feats-srd.Item.NIUSBGMmdqhkYtmo",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "success": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": [
-              "action:balance",
-              {
-                "or": ["terrain:stone", "terrain:earth"]
-              }
-            ],
-            "selector": "acrobatics",
-            "type": "save"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:rogue-dedication",
       "foundry": "Compendium.pf2e.feats-srd.Item.bCWieNDC1CD35tin",
       "gaps": [
@@ -22336,26 +21351,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[against]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:savage-critical",
-      "foundry": "Compendium.pf2e.feats-srd.Item.v88bFLoJEF3YfJKb",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "success": "to-critical-success"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": ["check:roll:total:natural:19", "item:proficiency:rank:4"],
-            "selector": "strike-attack-roll"
-          }
         }
       ]
     },
@@ -22962,26 +21957,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:sneak-adept",
-      "foundry": "Compendium.pf2e.feats-srd.Item.2Nu4ZdKQM8hx8x5D",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "failure": "to-success"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": ["action:sneak"],
-            "selector": "stealth"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:sneak-attacker",
       "foundry": "Compendium.pf2e.feats-srd.Item.bCAvo59b5RyW12iI",
       "gaps": [
@@ -23186,26 +22161,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:spellbook-prodigy",
-      "foundry": "Compendium.pf2e.feats-srd.Item.FCzfh8QHMo7QJpAM",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "criticalFailure": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": ["action:learn-a-spell"],
-            "selector": "skill-check"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:split-hex",
       "foundry": "Compendium.pf2e.feats-srd.Item.KpF7RenGBXIMMGPX",
       "gaps": [
@@ -23254,27 +22209,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[against]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:steady-balance",
-      "foundry": "Compendium.pf2e.feats-srd.Item.CnqMJR8e9jqJR7MM",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "success": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": ["action:balance"],
-            "selector": "acrobatics",
-            "type": "skill"
-          }
         }
       ]
     },
@@ -23381,38 +22315,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:student-of-the-canon",
-      "foundry": "Compendium.pf2e.feats-srd.Item.x7EMZNMavris2aHY",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "failure": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": ["action:decipher-writing", "student-of-the-canon"],
-            "selector": "religion"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "all": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": ["action:recall-knowledge", "student-of-the-canon"],
-            "selector": "religion"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:summon-nephilim-kin",
       "foundry": "Compendium.pf2e.feats-srd.Item.L231BR4815B6hwKT",
       "gaps": [
@@ -23480,38 +22382,6 @@
             "predicate": ["item:slug:charm", "spellcasting:innate"],
             "property": "other-tags",
             "value": "ancestral-spell:aiuvarin"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:sure-feet",
-      "foundry": "Compendium.pf2e.feats-srd.Item.ehvHedIwPcxq9cRt",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "success": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": ["action:balance"],
-            "selector": "acrobatics"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "success": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": ["action:climb"],
-            "selector": "athletics"
           }
         }
       ]
@@ -23868,27 +22738,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:undaunted",
-      "foundry": "Compendium.pf2e.feats-srd.Item.1RygexXEjCKuR3Ps",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "success": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": ["emotion"],
-            "selector": "saving-throw",
-            "type": "save"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:underhanded-assault",
       "foundry": "Compendium.pf2e.feats-srd.Item.eoDDjIGAA67Z7rQt",
       "gaps": [
@@ -23913,54 +22762,6 @@
             "selector": "melee-attack-roll",
             "slug": "aquatic-combat",
             "suppress": true
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:unfettered-halfling",
-      "foundry": "Compendium.pf2e.feats-srd.Item.uuD8Z9jUG61GmenX",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "success": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": [
-              {
-                "or": ["inflicts:grabbed", "inflicts:immobilized", "inflicts:restrained"]
-              }
-            ],
-            "selector": "saving-throw"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "success": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": ["action:escape"],
-            "selector": "skill-check"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "success": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": ["action:escape"],
-            "selector": "attack-roll"
           }
         }
       ]
@@ -23993,27 +22794,6 @@
             "predicate": ["item:slug:unfettered-movement", "spellcasting:innate"],
             "property": "other-tags",
             "value": "ancestral-spell:halfling"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:unmistakable-lore",
-      "foundry": "Compendium.pf2e.feats-srd.Item.XvX1EyxWbbBF32NV",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "criticalFailure": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": ["action:recall-knowledge"],
-            "selector": "lore-skill-check",
-            "type": "skill"
           }
         }
       ]
@@ -24156,27 +22936,6 @@
               }
             ],
             "toggleable": true
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:unwavering-mien",
-      "foundry": "Compendium.pf2e.feats-srd.Item.uW0VSyy75YrsvtWz",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "all": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": ["sleep"],
-            "selector": "saving-throw",
-            "type": "save"
           }
         }
       ]
@@ -24832,31 +23591,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "heritage:death-warden-dwarf",
-      "foundry": "Compendium.pf2e.heritages.Item.VTtXwBxrfRUXSL38",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "success": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": [
-              {
-                "or": ["origin:trait:undead", "void"]
-              }
-            ],
-            "selector": "saving-throw",
-            "type": "save"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "heritage:deep-orc",
       "foundry": "Compendium.pf2e.heritages.Item.wn4EbYk1QN3tyFhh",
       "gaps": [
@@ -24914,27 +23648,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "heritage:gutsy-halfling",
-      "foundry": "Compendium.pf2e.heritages.Item.Eq42wZ5OTweJLnLU",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "success": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": ["emotion"],
-            "selector": "saving-throw",
-            "type": "save"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "heritage:hillock-halfling",
       "foundry": "Compendium.pf2e.heritages.Item.Mj7uHxxVkRUlOFwJ",
       "gaps": [
@@ -24974,23 +23687,6 @@
       "slug": "heritage:irongut-goblin",
       "foundry": "Compendium.pf2e.heritages.Item.gyoN45SVfRZwHMkk",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "success": "to-critical-success"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": [
-              "item:trait:ingested",
-              {
-                "or": ["inflicts:sickened", "item:type:affliction"]
-              }
-            ],
-            "selector": "saving-throw"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -25156,26 +23852,6 @@
             "mode": "override",
             "path": "system.attributes.ancestryhp",
             "value": 10
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "heritage:vine-leshy",
-      "foundry": "Compendium.pf2e.heritages.Item.evXJISqyhl3fHE9u",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustDegreeOfSuccess",
-          "raw": {
-            "adjustment": {
-              "success": "one-degree-better"
-            },
-            "key": "AdjustDegreeOfSuccess",
-            "predicate": ["action:climb"],
-            "selector": "athletics"
           }
         }
       ]

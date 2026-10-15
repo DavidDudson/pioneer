@@ -21,6 +21,7 @@ import {
   MultipleAttackPenaltyElement,
 } from './rule-element-numbers';
 import { MartialProficiencyElement, ProficiencyBonusElement, ProficiencyElement } from './rule-element-proficiency';
+import { AdjustDegreeOfSuccessElement, RollTwiceElement, SubstituteRollElement } from './rule-element-rolls';
 import { SenseElement } from './rule-element-sense';
 import {
   DeitySpellsElement,
@@ -69,6 +70,9 @@ const Element = z.discriminatedUnion('key', [
   FastHealingElement,
   TempHPElement,
   CreatureSizeElement,
+  AdjustDegreeOfSuccessElement,
+  RollTwiceElement,
+  SubstituteRollElement,
 ]);
 
 /** Names the `key` when the value is an object whose `key` is a string Pioneer does not know. */

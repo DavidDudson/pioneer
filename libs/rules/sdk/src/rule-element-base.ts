@@ -42,6 +42,9 @@ export const RuleElementKey = {
   FastHealing: 'FastHealing',
   TempHP: 'TempHP',
   CreatureSize: 'CreatureSize',
+  AdjustDegreeOfSuccess: 'AdjustDegreeOfSuccess',
+  RollTwice: 'RollTwice',
+  SubstituteRoll: 'SubstituteRoll',
 } as const;
 export type RuleElementKey = ValueOf<typeof RuleElementKey>;
 
