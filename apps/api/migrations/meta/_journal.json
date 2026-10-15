@@ -162,6 +162,13 @@
       "when": 1792069981636,
       "tag": "0022_content_entry_texts",
       "breakpoints": true
+    },
+    {
+      "idx": 23,
+      "version": "7",
+      "when": 1792073211974,
+      "tag": "0023_archive_guard",
+      "breakpoints": true
     }
   ]
 }

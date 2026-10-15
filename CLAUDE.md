@@ -58,6 +58,8 @@ relax a rule without a reason recorded beside it. Rules that trip agents most:
 - Text is a message key in the `en` bundle (`src/i18n/en.json`), spelled out in full: never build a key at
   runtime (`'character.attribute.' + id`); map to full keys in a const object instead. Templates may not hold
   literal copy (`pioneer/no-literal-text`), and `bun run check:messages` fails on missing or unused keys.
+- User content (characters, campaigns, homebrew packs) is archived, never deleted: `archived_at`, `archive`/`restore`, no
+  `.delete()` on its tables (`pioneer/no-archivable-delete`; ADR-0062). Say "archived", not "deleted".
 - Project rules oxlint lacks go in `tools/oxlint/pioneer-plugin.ts` (TypeScript) or `tools/eslint/` (templates).
 
 ## Checks

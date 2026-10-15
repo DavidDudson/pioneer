@@ -149,6 +149,8 @@
     "pioneer/class-tokens": "error",
     // `const fileExists = await file.exists(); if (!fileExists)`, never `if (!(await file.exists()))`.
     "pioneer/no-await-in-condition": "error",
+    // User content is archived, never deleted (ADR-0062); the database refuses it too.
+    "pioneer/no-archivable-delete": "error",
     // Every function, arrow consts included, declares its return type (restriction
     // category enables both; pinned). Callbacks typed by their call site are exempt.
     "typescript/explicit-function-return-type": "error",

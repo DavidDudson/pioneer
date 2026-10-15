@@ -6,29 +6,13 @@ import type { Rule } from 'eslint';
 
 import { CLASS_TOKEN_MESSAGES, classTokenProblem } from '../class-tokens.ts';
 import { LAYOUT_PRIMITIVE, LAYOUT_VARIANT_MESSAGES, layoutVariantProblem } from '../layout-variants.ts';
+import { noArchivableDelete } from './archive-rules.ts';
 import { noMagicNumbers, noPrimitiveDomainTypes } from './brand-rules.ts';
 import { noAwaitInCondition, noDerivedTypes, noInlineReturnTypes } from './code-rules.ts';
+import { componentKeys } from './component-keys.ts';
 
 const FRONTIER = /(?:^|\/)libs\/frontier\//u;
 const STYLE_KEYS = new Set(['styles', 'styleUrl', 'styleUrls']);
-
-interface DecoratorShape {
-  readonly expression?: {
-    readonly callee?: { readonly name?: unknown };
-    readonly arguments?: readonly { readonly properties?: readonly { readonly key?: { readonly name?: unknown } }[] }[];
-  };
-}
-
-/** Property names of the object literal passed to `@Component({...})`, if this is one. */
-function componentKeys(node: unknown): readonly string[] {
-  const { expression } = node as DecoratorShape;
-  if (expression?.callee?.name !== 'Component') {
-    return [];
-  }
-  return (expression.arguments?.[0]?.properties ?? []).flatMap((property) =>
-    typeof property.key?.name === 'string' ? [property.key.name] : [],
-  );
-}
 
 /** Only frontier may style. Everyone else composes frontier components. */
 const noStylesOutsideFrontier: Rule.RuleModule = {
@@ -289,6 +273,7 @@ const plugin = {
     'layout-variants': layoutVariants,
     'class-tokens': classTokens,
     'no-await-in-condition': noAwaitInCondition,
+    'no-archivable-delete': noArchivableDelete,
     'no-inline-return-types': noInlineReturnTypes,
     'no-derived-types': noDerivedTypes,
     'no-magic-numbers': noMagicNumbers,
