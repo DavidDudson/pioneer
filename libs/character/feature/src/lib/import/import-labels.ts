@@ -19,7 +19,6 @@ export const KIND_KEYS: Readonly<Record<ImportKind, string>> = {
 /** Label key per field the character can't hold yet: the kinds' labels, plus lores. */
 export const UNCARRIED_KEYS: Readonly<Record<UncarriedField, string>> = {
   [UncarriedField.Deity]: KIND_KEYS[ImportKind.Deity],
-  [UncarriedField.Feat]: KIND_KEYS[ImportKind.Feat],
   [UncarriedField.ClassFeature]: KIND_KEYS[ImportKind.ClassFeature],
   [UncarriedField.Spell]: KIND_KEYS[ImportKind.Spell],
   [UncarriedField.Ritual]: KIND_KEYS[ImportKind.Ritual],

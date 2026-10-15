@@ -5,7 +5,7 @@ import { Attribute, Proficiency } from '@pioneer/rules/sdk';
 
 import briarRose from './fixtures/briar-rose.json';
 import mordredFixture from './fixtures/mordred.json';
-import { ImportKind } from './import-kind';
+import { ImportKind, PathbuilderName } from './import-kind';
 import type { ImportKind as ImportKindType } from './import-kind';
 import { PathbuilderProblem, readPathbuilderExport } from './read-pathbuilder-export';
 import type { PathbuilderImport } from './read-pathbuilder-export';
@@ -215,5 +215,27 @@ describe('readPathbuilderExport', () => {
 
   test('points issues at the field that failed', () => {
     expect(issuePaths({ ...minimal, build: { ...minimal.build, name: 'x'.repeat(81) } })).toEqual([['build', 'name']]);
+  });
+});
+
+describe('readPathbuilderExport feats', () => {
+  test('reads every feat row with its type, level and slot label', () => {
+    const { feats } = read(mordredFixture);
+    expect(feats).toHaveLength(mordredFixture.build.feats.length);
+    expect(feats.find((feat) => feat.name === 'Weight of Guilt')).toMatchObject({
+      type: 'Class Feat',
+      level: 1,
+      slot: 'Champion Feat 1',
+      slotted: true,
+    });
+  });
+
+  test('a heritage and an awarded feat fill no slot, and a feat keeps its own choice', () => {
+    const { feats } = read(briarRose);
+    expect(feats.filter((feat) => !feat.slotted).map((feat) => feat.type)).toContain(
+      PathbuilderName.parse('Awarded Feat'),
+    );
+    expect(feats.find((feat) => feat.name === 'Vigilant Goloma')?.slotted).toBe(false);
+    expect(feats.find((feat) => feat.name === 'Skill Training')?.choice).toBe(PathbuilderName.parse('Intimidation'));
   });
 });

@@ -18,6 +18,7 @@ export {
 } from './import-report';
 export { PathbuilderBuild, PathbuilderExport } from './pathbuilder-export';
 export type { ImportedBoosts } from './read-boosts';
+export type { ImportedFeat } from './read-feats';
 export type { ImportedCoins, ImportedItem, ImportedRunes } from './read-items';
 export {
   type ImportedLore,
@@ -49,3 +50,4 @@ export {
   placeFlaws,
   UnplacedBoost,
 } from './boost-placement';
+export { type FeatPicks, type FeatPlacement, type FeatPlacementContent, placeFeats } from './feat-placement';

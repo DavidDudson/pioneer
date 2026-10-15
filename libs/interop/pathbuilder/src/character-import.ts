@@ -26,7 +26,6 @@ export type UnmatchedReason = ValueOf<typeof UnmatchedReason>;
  */
 export const UncarriedField = {
   Deity: ImportKind.Deity,
-  Feat: ImportKind.Feat,
   ClassFeature: ImportKind.ClassFeature,
   Spell: ImportKind.Spell,
   Ritual: ImportKind.Ritual,

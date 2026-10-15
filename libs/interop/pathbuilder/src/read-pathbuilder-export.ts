@@ -9,6 +9,8 @@ import type { ImportedName } from './import-kind';
 import { PathbuilderBuild, PathbuilderExport } from './pathbuilder-export';
 import { readBoosts, readFlaws } from './read-boosts';
 import type { ImportedBoosts } from './read-boosts';
+import { importedFeats } from './read-feats';
+import type { ImportedFeat } from './read-feats';
 import { importedCoins, importedItems } from './read-items';
 import type { ImportedCoins, ImportedItem } from './read-items';
 
@@ -56,6 +58,8 @@ export interface PathbuilderImport {
   readonly lores: readonly ImportedLore[];
   /** Equipment, then weapons, then armour, in export order. */
   readonly items: readonly ImportedItem[];
+  /** Every feat row in export order, awarded and heritage feats too. */
+  readonly feats: readonly ImportedFeat[];
   readonly coins: ImportedCoins;
   readonly reported: PathbuilderReported;
 }
@@ -195,6 +199,7 @@ function toImport(build: PathbuilderBuild): PathbuilderReadResult {
     names: contentNames(build),
     lores: lores(build),
     items: importedItems(build),
+    feats: importedFeats(build),
     coins: importedCoins(build),
     reported: {
       acTotal: build.acTotal,

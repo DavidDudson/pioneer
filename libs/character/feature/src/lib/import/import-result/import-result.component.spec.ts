@@ -46,12 +46,12 @@ describe(ImportResult, () => {
           ],
         },
       ],
-      notCarried: [UncarriedField.Feat, UncarriedField.Lore],
+      notCarried: [UncarriedField.ClassFeature, UncarriedField.Lore],
       unplacedBoosts: [],
       modifierDifferences: [],
     });
 
-    expect(text(fixture)).toContain("weren't kept: Feats and Lores");
+    expect(text(fixture)).toContain("weren't kept: Class features and Lores");
     expect(text(fixture)).toContain('Feats · 1 not carried over');
     expect(text(fixture)).toContain('Shield Block');
     expect(text(fixture)).toContain('×3');
