@@ -53,6 +53,14 @@ export const appRoutes: Routes = [
     },
   },
   {
+    // The content browser is public, like Legal: content needs no account (ADR-0007).
+    path: 'content',
+    loadChildren: async () => {
+      const { contentRoutes } = await import('@pioneer/content/feature');
+      return contentRoutes;
+    },
+  },
+  {
     path: 'legal',
     loadChildren: async () => {
       const { legalRoutes } = await import('@pioneer/legal/feature');

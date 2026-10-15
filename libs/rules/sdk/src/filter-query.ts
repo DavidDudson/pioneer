@@ -29,7 +29,8 @@ const RANGE_SEPARATOR = '..';
 
 const FLAG_VALUES: ReadonlySet<FacetValue> = new Set([FacetValue.parse(FlagValue.Yes), FacetValue.parse(FlagValue.No)]);
 
-const paramName = (id: FacetId): FilterParam => FilterParam.parse(`${PARAM_PREFIX}${id}`);
+/** The query param that carries facet `id`'s selection. */
+export const filterParamName = (id: FacetId): FilterParam => FilterParam.parse(`${PARAM_PREFIX}${id}`);
 
 function valuesText({ include, exclude }: ValuesSelection): FilterParamText {
   const tokens = [...include.toSorted(), ...exclude.toSorted().map((value) => `${EXCLUDE_MARK}${value}`)];
@@ -57,7 +58,7 @@ export function filterToQuery(state: FilterState, facets: readonly FacetDefiniti
       return [];
     }
     const text = selection.kind === SelectionKind.Range ? rangeText(selection) : valuesText(selection);
-    return [[paramName(facet.id), text]];
+    return [[filterParamName(facet.id), text]];
   });
   return Object.fromEntries(params);
 }
@@ -128,7 +129,7 @@ function selectionOf(facet: FacetDefinition, text: FilterParamText): FacetSelect
 export function filterFromQuery(params: QueryParams, facets: readonly FacetDefinition[]): FilterState {
   const state = new Map<FacetId, FacetSelection>();
   for (const facet of facets) {
-    const text = paramText(params, paramName(facet.id));
+    const text = paramText(params, filterParamName(facet.id));
     const selection = text === undefined ? undefined : selectionOf(facet, text);
     if (selection !== undefined) {
       state.set(facet.id, selection);

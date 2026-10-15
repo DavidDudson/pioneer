@@ -86,6 +86,8 @@ libs/
     ui/             Angular rendering of rules data: rich text, source line (frontier components only;
                     presentational, own Storybook, ADR-0028)
   content/          (TS packs retired; replaced by content/ JSON data, see content-model.md)
+    feature/        public content browser: kind chips, facet filter panel, URL state (scope:browser; rules/*
+                    and shared only)
   character/        domain, application, infrastructure, feature (exists)
   play/
     ui/             Angular rendering of rolls: the roll card, attempts, degree and damage (frontier components

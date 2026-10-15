@@ -1,0 +1,35 @@
+{
+  "page": {
+    "title": "Content",
+    "description": "Browse the rules content Pioneer holds. Filters are kept in the link, so a filtered list can be shared."
+  },
+  "kind": {
+    "label": "Kinds",
+    "action": "Actions",
+    "armor": "Armor",
+    "consumable": "Consumables",
+    "equipment": "Equipment",
+    "feat": "Feats",
+    "kit": "Kits",
+    "rune": "Runes",
+    "shield": "Shields",
+    "spell": "Spells",
+    "treasure": "Treasure",
+    "weapon": "Weapons"
+  },
+  "list": {
+    "caption": "Entries",
+    "loadError": "The content could not be loaded.",
+    "count": "{count, plural, one {# entry} other {# entries}}",
+    "more": "Show more",
+    "emptyTitle": "Nothing matches",
+    "emptyDescription": "No entry has all of the filters picked. Clear one to widen the list."
+  },
+  "column": {
+    "name": "Name",
+    "kind": "Kind",
+    "level": "Level",
+    "traits": "Traits",
+    "source": "Source"
+  }
+}
