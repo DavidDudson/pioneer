@@ -1,5 +1,5 @@
 import type { SlotPool, SpellcastingInPlay, SpellSlots } from '@pioneer/rules/engine';
-import type { GrantResolution } from '@pioneer/rules/grants';
+import type { ContentLookup, GrantResolution } from '@pioneer/rules/grants';
 import { SlotKey, SlotRank, SPELL_RANK_MAX, SpellPreparation, SpellRank } from '@pioneer/rules/sdk';
 import type {
   ChoiceValue,
@@ -11,15 +11,14 @@ import type {
   SlotCount,
   Slug,
 } from '@pioneer/rules/sdk';
-import type { ValueOf } from '@pioneer/shared/kernel';
 
 import type { CharacterDocument } from './character-document';
 import type { CharacterLevel } from './character-fields';
 import { deityRanks, NO_DEITY_SPELLS } from './deity-ranks';
 import type { DeityRanks } from './deity-ranks';
+import { deityRepertoirePlaces } from './deity-repertoire-places';
 import { PreparedPickProblem } from './prepared-pick-problem';
 import { repertoireSlots } from './repertoire-slots';
-import type { SlotPick } from './slot-offer';
 import { needsAccess } from './spell-content';
 import type { SpellContent, SpellOption } from './spell-content';
 import { characterSpellcasting } from './spellcasting-build';
@@ -86,12 +85,16 @@ export interface PreparedSlot {
   readonly problem: PreparedPickProblem | undefined;
   /** Whether a `RepertoireSpells` element fills the slot: it offers and holds that spell alone, whatever is stored (ADR-0062). */
   readonly granted: boolean;
+  /** Whether a `RepertoireDeitySpells` element gave the slot: it offers only the spells of one deity (ADR-0063). */
+  readonly deitySpell: boolean;
 }
 
-/** What prepared slots read: the spells, and the character's grants at its level. */
+/** What prepared slots read: the spells, the character's grants at its level and the content they name. */
 export interface PreparedReads {
   readonly spells: SpellContent;
   readonly resolution: GrantResolution;
+  /** The installed content, for the deity a choice picked. */
+  readonly lookup: ContentLookup;
 }
 
 /** The rank a cantrip heightens to: half the character's level, rounded up (Player Core). */
@@ -106,7 +109,7 @@ interface RankCount {
 }
 
 /** Where a slot is: its entry, tradition and pool, and the spells a pool's slot takes. */
-interface SlotHome {
+export interface SlotHome {
   readonly entry: Slug;
   readonly preparation: PickedPreparation;
   readonly tradition: MagicTradition;
@@ -120,10 +123,12 @@ interface SlotHome {
   readonly deity: DeityRanks;
   /** The spells a spontaneous entry must know, `RepertoireSpells` gives, in order; empty for any other. */
   readonly gifts: readonly GrantedSpell[];
+  /** Whether a `RepertoireDeitySpells` element gave the slot: it takes a deity's spell of any rank it can, read at that rank (ADR-0063). */
+  readonly floating: boolean;
 }
 
 /** A slot before it is read: where it is, its key and its rank. */
-interface SlotPlace extends SlotHome {
+export interface SlotPlace extends SlotHome {
   readonly key: SlotKey;
   readonly rank: PreparedRank;
   /** The spell an element fills this slot with: the entry's first gift of its rank, then the next for the next slot. */
@@ -184,22 +189,39 @@ function placesOf(slots: SpellSlots, home: SlotHome): SlotPlace[] {
 /** The slots of one of an entry's pools, each taking the pool's spells. */
 function poolPlaces(own: SlotHome, slotPool: SlotPool): SlotPlace[] {
   const pool = { slug: slotPool.pool, origin: slotPool.origin, spells: slotPool.spells };
-  return placesOf(slotPool, { ...own, pool, takes: new Set(slotPool.spells), deity: NO_DEITY_SPELLS, gifts: [] });
+  return placesOf(slotPool, {
+    ...own,
+    pool,
+    takes: new Set(slotPool.spells),
+    deity: NO_DEITY_SPELLS,
+    gifts: [],
+    floating: false,
+  });
 }
 
 /**
  * The slots of one prepared or spontaneous entry: its own, cantrips first, then each rank lowest first; then each of
  * its pools' (#581) in pool order, the same way.
  */
-function entryPlaces(
-  { slug, tradition, slots, pools, deitySpells, grantedSpells: gifts, repertoireCounts }: SpellcastingInPlay,
-  preparation: PickedPreparation,
-  deity: DeityRanks,
-): SlotPlace[] {
-  const own = deitySpells ? deity : NO_DEITY_SPELLS;
-  const home = { entry: slug, preparation, tradition, pool: undefined, takes: undefined, deity: own, gifts };
+function entryPlaces(entry: SpellcastingInPlay, preparation: PickedPreparation, reads: PreparedReads): SlotPlace[] {
+  const { slug, tradition, slots, pools, deitySpells, grantedSpells: gifts, repertoireCounts } = entry;
+  const own = deitySpells ? deityRanks(reads.resolution) : NO_DEITY_SPELLS;
+  const home = {
+    entry: slug,
+    preparation,
+    tradition,
+    pool: undefined,
+    takes: undefined,
+    deity: own,
+    gifts,
+    floating: false,
+  };
   const sized = preparation === SpellPreparation.Spontaneous ? repertoireSlots(slots, repertoireCounts) : slots;
-  return [...placesOf(sized, home), ...pools.flatMap((pool) => poolPlaces(home, pool))];
+  return [
+    ...placesOf(sized, home),
+    ...pools.flatMap((pool) => poolPlaces(home, pool)),
+    ...(preparation === SpellPreparation.Spontaneous ? deityRepertoirePlaces(entry, home, reads) : []),
+  ];
 }
 
 /**
@@ -215,15 +237,15 @@ function entryPlaces(
  * in its own slots of the rank the deity grants each at or higher, whatever their tradition or rarity (ADR-0048). Focus
  * spells never go in a slot.
  */
-export function preparedSlots(document: CharacterDocument, { spells, resolution }: PreparedReads): PreparedSlot[] {
+export function preparedSlots(document: CharacterDocument, reads: PreparedReads): PreparedSlot[] {
+  const { spells, resolution } = reads;
   const access = new Set<ContentId>(document.build.spellAccess);
   const accessible = (spell: SpellOption, place: SlotPlace): boolean =>
-    place.pool !== undefined || fitsAsDeitySpell(spell, place) || !needsAccess(spell.rarity) || access.has(spell.id);
-  const deity = deityRanks(resolution);
+    place.takes !== undefined || fitsAsDeitySpell(spell, place) || !needsAccess(spell.rarity) || access.has(spell.id);
   return characterSpellcasting(resolution)
-    .flatMap((entry) => (isPicked(entry.preparation) ? entryPlaces(entry, entry.preparation, deity) : []))
+    .flatMap((entry) => (isPicked(entry.preparation) ? entryPlaces(entry, entry.preparation, reads) : []))
     .map((place): PreparedSlot => {
-      const { key, entry, preparation, tradition, pool, rank } = place;
+      const { key, entry, preparation, tradition, pool } = place;
       const gift = place.gift === undefined ? undefined : spells.spell(place.gift);
       const options =
         gift === undefined ? spells.spells.filter((spell) => fits(spell, place) && accessible(spell, place)) : [gift];
@@ -231,8 +253,10 @@ export function preparedSlots(document: CharacterDocument, { spells, resolution 
       const named = stored === undefined ? undefined : spells.spell(stored);
       const pick = options.find((spell) => spell.id === named?.id);
       const problem = named === undefined || pick !== undefined ? undefined : problemOf(named, place);
+      const rank = place.floating && pick !== undefined ? pick.rank : place.rank;
       const castRank = rank === SlotRank.Cantrip ? cantripRank(document.level) : rank;
       const granted = gift !== undefined;
+      const deitySpell = place.floating;
       return {
         key,
         entry,
@@ -246,47 +270,17 @@ export function preparedSlots(document: CharacterDocument, { spells, resolution 
         pick,
         problem,
         granted,
+        deitySpell,
       };
     });
 }
 
 /** Why a loaded spell isn't on offer in `place`: the pool doesn't take it, it needs access, or it doesn't fit. */
-function problemOf(spell: SpellOption, place: SlotPlace): PreparedPickProblem {
+export function problemOf(spell: SpellOption, place: SlotPlace): PreparedPickProblem {
   if (place.takes !== undefined && !place.takes.has(spell.id)) {
     return PreparedPickProblem.NotInPool;
   }
   return fits(spell, place) ? PreparedPickProblem.NoAccess : PreparedPickProblem.Unfit;
-}
-
-/**
- * Why a prepared slot refuses a spell: the character hasn't the slot at its level, or it doesn't offer the spell, an
- * uncommon or rare one that fits but has no access saying so. A pool's slot needs no access, so it only ever doesn't
- * offer one.
- */
-export const PreparedRefusal = { NotOpen: 'notOpen', NotOffered: 'notOffered', NoAccess: 'noAccess' } as const;
-export type PreparedRefusal = ValueOf<typeof PreparedRefusal>;
-
-/** Why a pick's spell can't go in its prepared slot, or undefined when it can. */
-export function preparedRefusal(
-  document: CharacterDocument,
-  reads: PreparedReads,
-  { slot: key, selection }: SlotPick,
-): PreparedRefusal | undefined {
-  const slot = preparedSlots(document, reads).find((each) => each.key === key);
-  if (slot === undefined) {
-    return PreparedRefusal.NotOpen;
-  }
-  if (slot.options.some((spell) => spell.id === selection)) {
-    return undefined;
-  }
-  const named = reads.spells.spell(selection);
-  if (named === undefined || slot.pool !== undefined || slot.granted) {
-    return PreparedRefusal.NotOffered;
-  }
-  const noAccess =
-    problemOf(named, { ...slot, takes: undefined, deity: NO_DEITY_SPELLS, gift: undefined, gifts: [] }) ===
-    PreparedPickProblem.NoAccess;
-  return noAccess ? PreparedRefusal.NoAccess : PreparedRefusal.NotOffered;
 }
 
 /** Whether `slot` is a prepared or repertoire slot's key, whether or not the character has it. */

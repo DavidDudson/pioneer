@@ -34,6 +34,7 @@ export const RuleElementKey = {
   FocusSpells: 'FocusSpells',
   RepertoireSpells: 'RepertoireSpells',
   RepertoireCount: 'RepertoireCount',
+  RepertoireDeitySpells: 'RepertoireDeitySpells',
   Language: 'Language',
   ActorTraits: 'ActorTraits',
   Strike: 'Strike',

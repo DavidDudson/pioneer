@@ -19,6 +19,10 @@ const FIELD = 'spellcasting';
 const CHA = 'cha';
 const PRIMAL = 'primal';
 
+/** The name the deity Divine Access picks is stored under, which the oracle's mysteries ask and the feature reads. */
+export const DIVINE_ACCESS_DEITY = 'divine-access-deity';
+const DIVINE_ACCESS_LEVEL = 11;
+
 /** A rank (a cantrip, or 1 to 9) and the spell by slug. */
 const Gift = z.tuple([z.union([z.literal('cantrip'), z.number()]), z.string()]);
 type Gift = z.infer<typeof Gift>;
@@ -44,6 +48,8 @@ const Source = z.object({
   tradition: z.string().optional(),
   gifts: z.array(Gift),
   pick: Pick.optional(),
+  /** The domains a mystery relates to, which Divine Access offers the deities of; an oracle's mystery only. */
+  domains: z.array(z.string()).optional(),
 });
 type Source = z.infer<typeof Source>;
 
@@ -94,8 +100,24 @@ function repertoire(entry: string, spells: readonly Named[], predicate?: readonl
     : [{ key: RuleElementKey.RepertoireSpells, entry, spells, ...(predicate === undefined ? {} : { predicate }) }];
 }
 
+/**
+ * The deity Divine Access picks (ADR-0063): a `ChoiceSet` offering the deities that grant one of the mystery's domains,
+ * primary or alternate, from the level the feature arrives at.
+ */
+function divineAccessDeity(domains: readonly string[]): object {
+  return {
+    key: RuleElementKey.ChoiceSet,
+    flag: DIVINE_ACCESS_DEITY,
+    choices: {
+      kind: 'deity',
+      filter: [{ or: domains.flatMap((domain) => [`item:domain:${domain}`, `item:alternate-domain:${domain}`]) }],
+    },
+    predicate: [{ gte: ['self:level', DIVINE_ACCESS_LEVEL] }],
+  };
+}
+
 /** The rule elements one bloodline or mystery gains, its gifts named by id. */
-function elements({ entry, tradition, gifts, pick }: Source, resolve: Resolve): readonly object[] {
+function elements({ entry, tradition, gifts, pick, domains }: Source, resolve: Resolve): readonly object[] {
   const fixed = entry === SORCERER && tradition !== undefined ? [sorcererEntry(tradition)] : [];
   const picked = entry === SORCERER && tradition === undefined && pick !== undefined ? pickedEntries(pick) : [];
   const more = (pick?.options ?? []).flatMap((option) =>
@@ -107,6 +129,7 @@ function elements({ entry, tradition, gifts, pick }: Source, resolve: Resolve): 
     ...picked,
     ...repertoire(entry, resolve(gifts)),
     ...more,
+    ...(domains === undefined ? [] : [divineAccessDeity(domains)]),
   ];
 }
 

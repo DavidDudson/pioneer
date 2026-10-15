@@ -1,5 +1,7 @@
 import { RuleElementKey } from '@pioneer/rules/sdk';
 
+import { DIVINE_ACCESS_DEITY } from './translate-repertoire-spells';
+
 /**
  * The spell slots of Player Core's casters, as `SpellSlots` elements by the entry slug they go on (ADR-0041). Foundry
  * keeps no slot tables: a spellcasting entry's slots are numbers the player sets by hand. These are the book's
@@ -61,6 +63,7 @@ function classTable(entry: string, opening = NEW_RANK_SLOTS): readonly object[] 
 }
 
 const TENTH_RANK_PICKS = 2;
+const DIVINE_ACCESS_SPELLS = 3;
 
 /**
  * A 10th-rank feature's two repertoire spells (ADR-0063): Magnum Opus, Bloodline Paragon and Oracular Clarity. The class
@@ -155,6 +158,17 @@ export const SPELL_SLOTS: ReadonlyMap<string, readonly object[]> = new Map([
   // A sorcerer and an oracle cast from a repertoire with a slot more of each rank than a bard (Player Core 2).
   ['class-feature:sorcerer-spellcasting', classTable('sorcerer', SORCERER_NEW_RANK_SLOTS)],
   ['class-feature:oracle-spellcasting', classTable('oracle', SORCERER_NEW_RANK_SLOTS)],
+  [
+    'class-feature:divine-access',
+    [
+      {
+        key: RuleElementKey.RepertoireDeitySpells,
+        entry: 'oracle',
+        choice: DIVINE_ACCESS_DEITY,
+        value: DIVINE_ACCESS_SPELLS,
+      },
+    ],
+  ],
   ['class-feature:magnum-opus', tenthRankPicks('bard')],
   ['class-feature:bloodline-paragon', tenthRankPicks('sorcerer')],
   ['class-feature:oracular-clarity', tenthRankPicks('oracle')],

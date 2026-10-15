@@ -79,6 +79,7 @@ describe('grantLookup', () => {
       'deity:primary:domain:healing',
       'deity:primary:alternate-domain:sun',
     ]);
+    expect(sarenrae?.rollOptions.map(String)).toEqual(['domain:fire', 'domain:healing', 'alternate-domain:sun']);
     expect(irori?.characterOptions?.map(String)).toEqual([
       'deity:primary:sanctification:none',
       'deity:primary:favored-weapon:fist',

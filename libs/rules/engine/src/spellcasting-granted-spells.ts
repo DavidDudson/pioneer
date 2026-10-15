@@ -1,5 +1,12 @@
 import { SLOT_COUNT_MAX, SlotCount } from '@pioneer/rules/sdk';
-import type { GrantedSpell, RepertoireCountElement, RepertoireSpellsElement, Slug } from '@pioneer/rules/sdk';
+import type {
+  GrantedSpell,
+  RepertoireCountElement,
+  RepertoireDeitySpellsElement,
+  RepertoireSpellsElement,
+  RuleSlug,
+  Slug,
+} from '@pioneer/rules/sdk';
 
 import type { RankSlots } from './spellcasting-in-play';
 
@@ -16,6 +23,20 @@ export function addGrantedSpells(
 }
 
 /** Adds the count of a `RepertoireCount` element to those gathered for its entry, added up per rank, lowest first. */
+/** The deity spells a `RepertoireDeitySpells` element lets an entry add: how many, from the deity a choice stored. */
+export interface DeityRepertoire {
+  readonly choice: RuleSlug;
+  readonly value: SlotCount;
+}
+
+/** Adds a `RepertoireDeitySpells` element to those gathered for its entry. */
+export function addDeityRepertoire(
+  gathered: Map<Slug, DeityRepertoire[]>,
+  { entry, choice, value }: RepertoireDeitySpellsElement,
+): void {
+  gathered.set(entry, [...(gathered.get(entry) ?? []), { choice, value }]);
+}
+
 export function addRepertoireCount(
   gathered: Map<Slug, RankSlots[]>,
   { entry, rank, value }: RepertoireCountElement,

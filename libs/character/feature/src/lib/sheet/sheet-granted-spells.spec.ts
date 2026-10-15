@@ -26,6 +26,8 @@ interface Build {
   readonly feature: string;
   readonly pick: string;
   readonly level: number;
+  /** Further picks, slot key to value. */
+  readonly extra?: Readonly<Record<string, string>>;
 }
 
 let content: SlotContent | undefined = undefined;
@@ -37,13 +39,16 @@ function contentOf(): SlotContent {
   return content;
 }
 
-function character({ className, feature, pick, level }: Build): CharacterDocument {
-  return new CharacterBuilder()
+function character({ className, feature, pick, level, extra = {} }: Build): CharacterDocument {
+  let builder = new CharacterBuilder()
     .atLevel(level)
     .picking('class', idOf(`class:${className}`))
     .picking('boost:1:class:0', 'cha')
-    .picking(`${idOf(`class-feature:${feature}`)}:0`, idOf(`class-feature:${pick}`))
-    .build().document;
+    .picking(`${idOf(`class-feature:${feature}`)}:0`, idOf(`class-feature:${pick}`));
+  for (const [key, value] of Object.entries(extra)) {
+    builder = builder.picking(key, value);
+  }
+  return builder.build().document;
 }
 
 /** The spell each repertoire slot an element fills holds, by its key. */
@@ -60,7 +65,7 @@ describe('granted repertoire spells in Player Core 2', () => {
   beforeAll(async () => {
     const registry = new ContentRegistry();
     const packs = await Promise.all(
-      cutTo([...CHARACTER_CONTENT_KINDS, ContentKind.Spell]).map(async (loader) => loader.load()),
+      cutTo([...CHARACTER_CONTENT_KINDS, ContentKind.Spell, ContentKind.Deity]).map(async (loader) => loader.load()),
     );
     for (const pack of packs) {
       registry.register(contentPackFromContents(pack));
@@ -102,5 +107,21 @@ describe('granted repertoire spells in Player Core 2', () => {
       'repertoire:oracle:1:0': 'Breathe Fire',
       'repertoire:oracle:2:0': 'Blazing Bolt',
     });
+  });
+
+  it('lets an oracle add up to three spells of a deity that grants a domain of its mystery', () => {
+    const sarenrae = contentId(PackId.parse('divine-mysteries'), EntrySlug.parse('deity:sarenrae'));
+    const flames: Build = {
+      className: 'oracle',
+      feature: 'mystery',
+      pick: 'flames',
+      level: 11,
+      extra: { [`${idOf('class-feature:flames')}:4`]: sarenrae },
+    };
+    const document = character(flames);
+    const slots = preparedSlots(document, preparedReads(document, contentOf())).filter((slot) => slot.deitySpell);
+
+    expect(slots).toHaveLength(3);
+    expect(slots.every((slot) => slot.options.length > 0)).toBe(true);
   });
 });
