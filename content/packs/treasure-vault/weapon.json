@@ -1636,7 +1636,42 @@
       "usage": {
         "type": "held",
         "hands": "one"
-      }
+      },
+      "staff": [
+        {
+          "rank": "cantrip",
+          "spells": ["5ad9a64e-8b2e-5db4-8526-bc713e07778c"]
+        },
+        {
+          "rank": 1,
+          "spells": ["0326fd8f-6c36-5184-940b-a36b47e8c4a8", "1e70918d-066f-5a32-938b-48362d1d669e"]
+        },
+        {
+          "rank": 2,
+          "spells": [
+            "72db3961-ed8d-5546-8104-1f7aad2fb3e9",
+            "d649aded-ca36-5663-ba2c-edc97e35bd6c",
+            "57003239-0bcf-5e13-9b4f-8dfd8e31ba40",
+            "facfbe1d-4b9d-5f57-bd33-bd5413a58316"
+          ]
+        },
+        {
+          "rank": 3,
+          "spells": [
+            "9dfded9c-826b-57e9-989b-6b4ea568d4b8",
+            "29397615-a073-572b-a506-4a6b88f6529d",
+            "3cddd734-8a89-5de8-9c13-65748a0c7c32"
+          ]
+        },
+        {
+          "rank": 4,
+          "spells": ["d649aded-ca36-5663-ba2c-edc97e35bd6c", "29397615-a073-572b-a506-4a6b88f6529d"]
+        },
+        {
+          "rank": 5,
+          "spells": ["813db347-48b2-5dec-bbda-70e18cbe1719", "9dfded9c-826b-57e9-989b-6b4ea568d4b8"]
+        }
+      ]
     }
   },
   {
@@ -2110,7 +2145,21 @@
         "potency": 1,
         "striking": 1,
         "property": []
-      }
+      },
+      "staff": [
+        {
+          "rank": "cantrip",
+          "spells": ["411dc034-1932-5468-960c-2c3f40ec20ec"]
+        },
+        {
+          "rank": 1,
+          "spells": ["2e1a723b-ad9f-53b0-bee3-21b8401988f0", "0326fd8f-6c36-5184-940b-a36b47e8c4a8"]
+        },
+        {
+          "rank": 2,
+          "spells": ["cd4bcdfa-81d7-5e23-a964-0230a0f6cc94", "b76d119e-0d8d-52ad-8cca-1a224c3077ae"]
+        }
+      ]
     }
   },
   {
@@ -9971,7 +10020,21 @@
       "usage": {
         "type": "held",
         "hands": "one"
-      }
+      },
+      "staff": [
+        {
+          "rank": "cantrip",
+          "spells": ["87cbc7c8-756e-521d-baaf-9c09d1ddfb3c"]
+        },
+        {
+          "rank": 1,
+          "spells": ["599db52f-69e4-5aa2-9cb6-f3c8a5339144", "0169fd36-2fab-563c-b9d2-59d5a5fc0d2f"]
+        },
+        {
+          "rank": 2,
+          "spells": ["aa5b234d-3e28-5766-9bc0-bcf048cc797d", "0169fd36-2fab-563c-b9d2-59d5a5fc0d2f"]
+        }
+      ]
     }
   },
   {
@@ -23321,7 +23384,45 @@
       "usage": {
         "type": "held",
         "hands": "one"
-      }
+      },
+      "staff": [
+        {
+          "rank": "cantrip",
+          "spells": ["c91ac947-a9ec-5f07-b5f9-a054617eb571"]
+        },
+        {
+          "rank": 1,
+          "spells": ["566a10d1-097c-5ee1-b473-4e0ab1475228"]
+        },
+        {
+          "rank": 2,
+          "spells": [
+            "6bcf1643-218b-5e08-9fa5-62ff7c800b72",
+            "52cd674f-3e49-5527-b0c9-8a4137bc9c08",
+            "80285128-e7a0-55e7-a386-1f845f6d09aa"
+          ]
+        },
+        {
+          "rank": 3,
+          "spells": ["6bcf1643-218b-5e08-9fa5-62ff7c800b72", "9aed7b61-843a-5ec7-b205-94e5369630f3"]
+        },
+        {
+          "rank": 4,
+          "spells": [
+            "9d2d34b7-d94e-51d0-b169-e6cb9f4f0b2a",
+            "08432692-cd15-5da6-a49b-6f27a80307b3",
+            "b9c6ff5d-7757-5750-8536-1486fd82c8a7"
+          ]
+        },
+        {
+          "rank": 5,
+          "spells": ["8f96da2d-86f2-5d01-880b-1a2466bb279a", "2897020f-b34e-5315-9369-d501cd903968"]
+        },
+        {
+          "rank": 6,
+          "spells": ["b9c6ff5d-7757-5750-8536-1486fd82c8a7", "ec6df711-1ab8-5f9d-8e01-6827c947eeff"]
+        }
+      ]
     }
   },
   {
