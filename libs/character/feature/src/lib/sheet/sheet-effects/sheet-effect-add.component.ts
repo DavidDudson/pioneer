@@ -1,14 +1,14 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input, signal } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import {
+  EffectAllyName,
   EffectBadgeValue,
   EffectCommandField,
   EffectInstanceId,
   EffectSourceKind,
   SELF,
 } from '@pioneer/character/domain';
-import type { EffectSource } from '@pioneer/character/domain';
-import type { PlayCommand } from '@pioneer/character/domain';
+import type { EffectSource, PlayCommand } from '@pioneer/character/domain';
 import { AsyncButton, Select, Stack, TextInput } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
 import { RANDOM_SOURCE } from '@pioneer/play/ui';
@@ -89,7 +89,7 @@ export class SheetEffectAdd {
   #source(): EffectSource {
     const kind = this.sourceKind();
     if (kind === EffectSourceKind.Ally) {
-      return { kind, name: this.allyName().trim() };
+      return { kind, name: EffectAllyName.parse(this.allyName()) };
     }
     return kind === EffectSourceKind.Gm ? { kind } : SELF;
   }

@@ -1,8 +1,8 @@
 import { applyConditionCommand, isConditionCommand } from './conditions';
 import type { ConditionCommand } from './conditions';
-import { applyEffectCommand, isEffectCommand } from './effects';
-import type { EffectCommand, EffectContent } from './effects';
-import type { ActiveEffect } from './effects';
+import { applyEffectCommand, isEffectCommand } from './effect-commands';
+import type { EffectCommand } from './effect-commands';
+import type { ActiveEffect, EffectContent } from './effects';
 import { applyResourceCommand, ResourceCommandField } from './resource-commands';
 import type { ResourceCommand } from './resource-commands';
 import { applyRestCommand } from './rest-actions';

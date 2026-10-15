@@ -21,7 +21,8 @@ import {
   Wounded,
 } from './death-track';
 import type { DeathTrack } from './death-track';
-import { ActiveEffectsSchema, EffectCommandField, EffectCommandSchema } from './effects';
+import { EffectCommandField, EffectCommandSchema } from './effect-commands';
+import { ActiveEffectsSchema } from './effects';
 import type { EffectContent } from './effects';
 import { ResourceCommandField, ResourceCommandSchema } from './resource-commands';
 import { ResourcesSpentSchema } from './resources';

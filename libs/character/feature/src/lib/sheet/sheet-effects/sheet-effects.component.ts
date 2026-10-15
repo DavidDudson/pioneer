@@ -67,12 +67,6 @@ export class SheetEffects {
     async (): Promise<void> =>
       this.#send({ field: EffectCommandField.RemoveEffect, id: view.id });
 
-  /** Whether the badge of `view` can step `up` or down: a counter holds at its bounds unless it loops. */
-  protected readonly canStep = (view: EffectView, up: boolean): boolean => {
-    const next = steppedView(view, up);
-    return next !== undefined && next !== view.badge;
-  };
-
   /** The server's reason (a conflict or a refusal), else the sheet's own wording. */
   protected readonly describeError = (error: unknown): string => {
     const { key, params } = describeSaveError(error);

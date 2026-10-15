@@ -12,15 +12,14 @@ import {
   OriginHopKind,
 } from '@pioneer/rules/sdk';
 
+import { applyEffectCommand, EffectCommandField, EffectProblem, effectProblem } from './effect-commands';
+import type { EffectCommand } from './effect-commands';
 import {
   ActiveEffectSchema,
-  applyEffectCommand,
   durationRounds,
+  EffectAllyName,
   EffectBadgeValue,
-  EffectCommandField,
   EffectInstanceId,
-  EffectProblem,
-  effectProblem,
   EffectRounds,
   effectRoots,
   EffectSourceKind,
@@ -29,7 +28,7 @@ import {
   SELF,
   steppedBadge,
 } from './effects';
-import type { ActiveEffect, EffectBadgeTerms, EffectCommand, EffectContent, EffectTerms } from './effects';
+import type { ActiveEffect, EffectBadgeTerms, EffectContent, EffectTerms } from './effects';
 import { applyPlayCommand, FRESH_PLAY } from './play-state';
 import { within } from './testing';
 
@@ -123,9 +122,12 @@ describe('effect commands', () => {
       field: EffectCommandField.ApplyEffect,
       id: FIRST,
       effect: BLESSING,
-      source: { kind: EffectSourceKind.Ally, name: 'Seoni' },
+      source: { kind: EffectSourceKind.Ally, name: EffectAllyName.parse('Seoni') },
     };
-    expect(applyPlayCommand(FRESH_PLAY, command, LIMITS).effects[0]?.source).toEqual({ kind: 'ally', name: 'Seoni' });
+    expect(applyPlayCommand(FRESH_PLAY, command, LIMITS).effects[0]?.source).toEqual({
+      kind: 'ally',
+      name: EffectAllyName.parse('Seoni'),
+    });
   });
 
   test('a counter badge starts at the content value and a formula badge at what was rolled', () => {
@@ -166,6 +168,16 @@ describe('effect commands', () => {
   });
 });
 
+/** The edit that sets the badge of the effect with id `FIRST` to `value`. */
+function setBadge(value: number): EffectCommand {
+  return { field: EffectCommandField.SetEffectBadge, id: FIRST, value: badge(value) };
+}
+
+/** The badge terms of an unlimited effect with `counter` as its badge. */
+function counterOf(counter: object): EffectBadgeTerms | undefined {
+  return effectTerms(EffectData.parse({ category: 'spell', duration: { type: 'unlimited' }, badge: counter })).badge;
+}
+
 describe('effect problems', () => {
   const held: readonly ActiveEffect[] = [ActiveEffectSchema.parse({ id: FIRST, effect: STANCE, badge: 1 })];
 
@@ -186,18 +198,13 @@ describe('effect problems', () => {
   });
 
   test('a counter stays within its bounds', () => {
-    const set = (value: number): EffectCommand => ({
-      field: EffectCommandField.SetEffectBadge,
-      id: FIRST,
-      value: badge(value),
-    });
-    expect(effectProblem(held, set(3), CONTENT)).toBeUndefined();
-    expect(effectProblem(held, set(4), CONTENT)).toBe(EffectProblem.Badge);
-    expect(effectProblem(held, set(0), CONTENT)).toBe(EffectProblem.Badge);
+    expect(effectProblem(held, setBadge(3), CONTENT)).toBeUndefined();
+    expect(effectProblem(held, setBadge(4), CONTENT)).toBe(EffectProblem.Badge);
+    expect(effectProblem(held, setBadge(0), CONTENT)).toBe(EffectProblem.Badge);
   });
 
   test('a character holds only so many effects', () => {
-    const full = Array.from({ length: EFFECTS_MAX }, (_, index) => ({
+    const full = [...Array.from({ length: EFFECTS_MAX }).keys()].map((index) => ({
       id: EffectInstanceId.parse(`00000000-0000-4000-8000-${String(index + 100).padStart(12, '0')}`),
       effect: BLESSING,
       source: SELF,
@@ -223,7 +230,7 @@ describe('counter badges', () => {
   });
 });
 
-describe(effectRoots, () => {
+describe('effectRoots', () => {
   test('each effect is a root behind an effect hop', () => {
     expect(effectRoots([ActiveEffectSchema.parse({ id: FIRST, effect: HEROISM })])).toEqual([
       { entry: HEROISM, hop: { kind: OriginHopKind.Effect, effect: HEROISM } },
@@ -232,9 +239,6 @@ describe(effectRoots, () => {
 });
 
 describe('counter terms from content', () => {
-  const counterOf = (badge: object): EffectBadgeTerms | undefined =>
-    effectTerms(EffectData.parse({ category: 'spell', duration: { type: 'unlimited' }, badge })).badge;
-
   test('a counter counts from 1 and has no end unless the content gives one', () => {
     expect(counterOf({ type: 'counter', value: 1 })).toMatchObject({ min: 1, max: undefined, loop: false });
   });

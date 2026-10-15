@@ -43,6 +43,9 @@ export interface EffectView {
   readonly badge: EffectBadgeValue | undefined;
   /** The counter a badge steps through, for an effect whose badge is one. */
   readonly counter: CounterTerms | undefined;
+  /** Whether the counter has a step up and a step down left: it holds at its bounds unless it loops. */
+  readonly canRaise: boolean;
+  readonly canLower: boolean;
 }
 
 type EffectEntry = Extract<ContentEntry, { readonly kind: typeof ContentKind.Effect }>;
@@ -73,6 +76,11 @@ function counterOf(terms: EffectTerms | undefined): CounterTerms | undefined {
   return terms?.badge?.type === EffectBadgeType.Counter ? terms.badge : undefined;
 }
 
+/** Whether a counter at `badge` has a step up or down left: it holds at its bounds unless it loops. */
+function canStep(counter: CounterTerms | undefined, badge: EffectBadgeValue | undefined, up: boolean): boolean {
+  return counter !== undefined && badge !== undefined && steppedBadge(counter, badge, up) !== badge;
+}
+
 /** Each effect active on the character with its source, rounds left and badge. An effect the content lacks is left out. */
 export function effectViews(registry: ContentRegistry, active: readonly ActiveEffect[]): readonly EffectView[] {
   const entries = effectEntries(registry);
@@ -82,6 +90,7 @@ export function effectViews(registry: ContentRegistry, active: readonly ActiveEf
     if (entry === undefined) {
       return [];
     }
+    const counter = counterOf(terms.get(each.effect));
     return [
       {
         id: each.id,
@@ -93,7 +102,9 @@ export function effectViews(registry: ContentRegistry, active: readonly ActiveEf
         },
         remaining: each.remaining,
         badge: each.badge,
-        counter: counterOf(terms.get(each.effect)),
+        counter,
+        canRaise: canStep(counter, each.badge, true),
+        canLower: canStep(counter, each.badge, false),
       },
     ];
   });

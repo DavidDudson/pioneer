@@ -38,13 +38,16 @@ const builder = new ContentPackBuilder()
     kind: StatisticKind.Value,
   })
   .withProficiencyBonus(PLAYER_CORE_PROFICIENCY_BONUS)
-  .withEffect(FORTITUDE, { category: 'spell', duration: { type: 'time', count: 1, unit: 'minute' } }, [
-    { key: 'FlatModifier', selectors: ['hp'], type: 'status', slug: FORTITUDE, value: 4 },
-  ])
-  .withEffect(INSPIRE, {
-    category: 'spell',
-    duration: { type: 'turn', expiry: 'turn-end' },
-    badge: { type: 'formula', formula: '1d4' },
+  .withMagicItem(ContentKind.Effect, FORTITUDE, {
+    data: { category: 'spell', duration: { type: 'time', count: 1, unit: 'minute' } },
+    rules: [{ key: 'FlatModifier', selectors: ['hp'], type: 'status', slug: FORTITUDE, value: 4 }],
+  })
+  .withMagicItem(ContentKind.Effect, INSPIRE, {
+    data: {
+      category: 'spell',
+      duration: { type: 'turn', expiry: 'turn-end' },
+      badge: { type: 'formula', formula: '1d4' },
+    },
   });
 const content = fixedContent(builder.build());
 

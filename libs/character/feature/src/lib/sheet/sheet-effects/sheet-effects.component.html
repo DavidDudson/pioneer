@@ -28,7 +28,7 @@
                 <fr-async-button
                   size="sm"
                   [action]="raise(view)"
-                  [disabled]="busy() || !canStep(view, true)"
+                  [disabled]="busy() || !view.canRaise"
                   [describeError]="describeError"
                 >
                   {{ 'character.sheet.effects.raise' | transloco }}
@@ -36,7 +36,7 @@
                 <fr-async-button
                   size="sm"
                   [action]="lower(view)"
-                  [disabled]="busy() || !canStep(view, false)"
+                  [disabled]="busy() || !view.canLower"
                   [describeError]="describeError"
                 >
                   {{ 'character.sheet.effects.lower' | transloco }}

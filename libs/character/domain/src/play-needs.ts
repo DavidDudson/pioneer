@@ -1,4 +1,4 @@
-import { isEffectCommand } from './effects';
+import { isEffectCommand } from './effect-commands';
 import { PlayCommandField } from './play-state';
 import type { PlayCommand } from './play-state';
 import { isRestCommand } from './rest-types';

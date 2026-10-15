@@ -22,7 +22,6 @@ import { CHARACTER_CONTENT_PROVIDERS } from '../../data/source-packs';
 import { SheetConditions } from '../sheet-conditions/sheet-conditions.component';
 import { SheetCounted } from '../sheet-counted/sheet-counted.component';
 import { SheetDeathTrack } from '../sheet-death-track/sheet-death-track.component';
-import { SheetEffects } from '../sheet-effects/sheet-effects.component';
 import { SheetExport } from '../sheet-export/sheet-export.component';
 import { SheetHitPoints } from '../sheet-hit-points/sheet-hit-points.component';
 import { SheetLastRoll } from '../sheet-last-roll/sheet-last-roll.component';
@@ -49,7 +48,6 @@ import { SheetState } from '../sheet-state';
     RouterOutlet,
     SheetDeathTrack,
     SheetConditions,
-    SheetEffects,
     SheetExport,
     SheetCounted,
     SheetResources,

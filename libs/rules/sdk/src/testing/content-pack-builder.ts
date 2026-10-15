@@ -244,12 +244,6 @@ export class ContentPackBuilder {
     return this;
   }
 
-  /** An effect slugged `effect:<name>`, with its `data` (`{ category, duration, badge? }`) and `rules` as JSON. */
-  public withEffect(name: string, data: object, rules: readonly object[] = []): this {
-    this.#entries.push({ kind: ContentKind.Effect, name, data, rules });
-    return this;
-  }
-
   /** A spell slugged `spell:<name>`, cast with two actions, its level its rank. */
   public withSpell(name: string, { rank, traditions, traits = [], rarity }: SpellFields): this {
     const data = { rank, traditions, time: { type: 'actions', cost: 'two' }, damage: [] };

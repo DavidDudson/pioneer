@@ -16,8 +16,12 @@ import * as z from 'zod';
 /** The most effects a character has active at once, however many sources they come from. */
 export const EFFECTS_MAX = 64;
 
-/** The longest an ally's or a GM's name runs on an effect's source. */
-const SOURCE_NAME_MAX = 80;
+/** The longest an ally's name runs on an effect's source. */
+const ALLY_NAME_MAX = 80;
+
+/** The name of the ally an effect came from. */
+export const EffectAllyName = z.string().trim().min(1).max(ALLY_NAME_MAX).brand<'EffectAllyName'>();
+export type EffectAllyName = z.infer<typeof EffectAllyName>;
 
 /** Rounds in each unit of time: a round is 6 seconds, so a minute is 10 rounds. */
 const ROUNDS_PER_UNIT = {
@@ -45,7 +49,7 @@ export type EffectSourceKind = ValueOf<typeof EffectSourceKind>;
 
 export const EffectSourceSchema = z.discriminatedUnion('kind', [
   z.strictObject({ kind: z.literal(EffectSourceKind.Self) }),
-  z.strictObject({ kind: z.literal(EffectSourceKind.Ally), name: z.string().trim().min(1).max(SOURCE_NAME_MAX) }),
+  z.strictObject({ kind: z.literal(EffectSourceKind.Ally), name: EffectAllyName }),
   z.strictObject({ kind: z.literal(EffectSourceKind.Gm) }),
 ]);
 export type EffectSource = z.infer<typeof EffectSourceSchema>;
@@ -168,153 +172,12 @@ export function effectContent(registry: ContentRegistry): EffectContent {
   );
 }
 
-/** The play edits that apply, change and remove effects. */
-export const EffectCommandField = {
-  /** Puts an effect on the character, with its clock and badge as the content gives them. */
-  ApplyEffect: 'applyEffect',
-  RemoveEffect: 'removeEffect',
-  /** The rounds an effect has left set outright, as when correcting a count or an effect from another creature. */
-  SetEffectRemaining: 'setEffectRemaining',
-  SetEffectBadge: 'setEffectBadge',
-} as const;
-export type EffectCommandField = ValueOf<typeof EffectCommandField>;
-
-export const EffectCommandSchema = z.discriminatedUnion('field', [
-  z.object({
-    field: z.literal(EffectCommandField.ApplyEffect),
-    id: EffectInstanceId,
-    effect: ContentId,
-    source: EffectSourceSchema.default(SELF),
-    /** What a formula badge rolled when the effect was applied; the sheet rolls it, as it rolls every die. */
-    rolled: EffectBadgeValue.optional(),
-  }),
-  z.object({ field: z.literal(EffectCommandField.RemoveEffect), id: EffectInstanceId }),
-  z.object({ field: z.literal(EffectCommandField.SetEffectRemaining), id: EffectInstanceId, remaining: EffectRounds }),
-  z.object({ field: z.literal(EffectCommandField.SetEffectBadge), id: EffectInstanceId, value: EffectBadgeValue }),
-]);
-export type EffectCommand = z.infer<typeof EffectCommandSchema>;
-
-/** Why an effect edit is refused. */
-export const EffectProblem = {
-  /** The content has no such effect. */
-  Unknown: 'unknown',
-  /** The instance is not on the character. */
-  Missing: 'missing',
-  /** The character has as many effects as it can hold. */
-  Full: 'full',
-  /** A formula badge needs its rolled value, and an effect with a counter or no badge takes none; a counter stays within its bounds. */
-  Badge: 'badge',
-} as const;
-export type EffectProblem = ValueOf<typeof EffectProblem>;
-
-function withinBounds(terms: CounterTerms, value: EffectBadgeValue): boolean {
-  return (terms.min === undefined || value >= terms.min) && (terms.max === undefined || value <= terms.max);
-}
-
-/** Whether `value` is a badge the effect's terms allow it to show. */
-function badgeFits(terms: EffectBadgeTerms | undefined, value: EffectBadgeValue): boolean {
-  if (terms === undefined) {
-    return false;
-  }
-  return terms.type === EffectBadgeType.Formula || withinBounds(terms, value);
-}
-
-function problemOfApply(
-  effects: readonly ActiveEffect[],
-  command: Extract<EffectCommand, { field: typeof EffectCommandField.ApplyEffect }>,
-  content: EffectContent,
-): EffectProblem | undefined {
-  const terms = content.get(command.effect);
-  if (terms === undefined) {
-    return EffectProblem.Unknown;
-  }
-  const rolls = terms.badge?.type === EffectBadgeType.Formula;
-  if (rolls !== (command.rolled !== undefined)) {
-    return EffectProblem.Badge;
-  }
-  return effects.length >= EFFECTS_MAX ? EffectProblem.Full : undefined;
-}
-
-/** Why `command` cannot be applied to `effects`, if it cannot. Applying a refused command changes nothing. */
-export function effectProblem(
-  effects: readonly ActiveEffect[],
-  command: EffectCommand,
-  content: EffectContent,
-): EffectProblem | undefined {
-  if (command.field === EffectCommandField.ApplyEffect) {
-    return problemOfApply(effects, command, content);
-  }
-  const target = effects.find(({ id }) => id === command.id);
-  if (target === undefined) {
-    return EffectProblem.Missing;
-  }
-  if (command.field !== EffectCommandField.SetEffectBadge) {
-    return undefined;
-  }
-  return badgeFits(content.get(target.effect)?.badge, command.value) ? undefined : EffectProblem.Badge;
-}
-
-/** The instance `command` applies, started from the terms the content gives. */
-function applied(
-  command: Extract<EffectCommand, { field: typeof EffectCommandField.ApplyEffect }>,
-  terms: EffectTerms,
-): ActiveEffect {
-  const badge = terms.badge?.type === EffectBadgeType.Counter ? terms.badge.value : command.rolled;
-  return {
-    id: command.id,
-    effect: command.effect,
-    source: command.source,
-    ...(terms.remaining === undefined ? {} : { remaining: terms.remaining }),
-    ...(terms.expiry === undefined ? {} : { expiry: terms.expiry }),
-    ...(terms.sustained ? { sustained: true } : {}),
-    ...(badge === undefined ? {} : { badge }),
-  };
-}
-
-/**
- * `effects` after `command`. One instance per id, so applying an id that is already there changes nothing; an
- * instance the command names but the character lacks, or an effect the content lacks, is left alone.
- */
-export function applyEffectCommand(
-  effects: readonly ActiveEffect[],
-  command: EffectCommand,
-  content: EffectContent,
-): readonly ActiveEffect[] {
-  switch (command.field) {
-    case EffectCommandField.ApplyEffect: {
-      const terms = content.get(command.effect);
-      return terms === undefined || effects.some(({ id }) => id === command.id)
-        ? effects
-        : [...effects, applied(command, terms)];
-    }
-    case EffectCommandField.RemoveEffect: {
-      return effects.filter(({ id }) => id !== command.id);
-    }
-    case EffectCommandField.SetEffectRemaining: {
-      return effects.map((each) => (each.id === command.id ? { ...each, remaining: command.remaining } : each));
-    }
-    case EffectCommandField.SetEffectBadge: {
-      return effects.map((each) => (each.id === command.id ? { ...each, badge: command.value } : each));
-    }
-    default: {
-      return command satisfies never;
-    }
-  }
-}
-
 /**
  * The effects as roots of the effective set, each behind an effect hop, so their modifiers show in breakdowns until
  * they end. An instance's rule elements read its badge as `item.badge.value`.
  */
 export function effectRoots(effects: readonly ActiveEffect[]): readonly GrantRoot[] {
   return effects.map(({ effect }) => ({ entry: effect, hop: { kind: OriginHopKind.Effect, effect } }));
-}
-
-/** Whether `command` is one of the effect edits. */
-export function isEffectCommand<Command extends { readonly field: unknown }>(
-  command: Command,
-): command is Extract<Command, EffectCommand> {
-  return Object.values<unknown>(EffectCommandField).includes(command.field);
 }
 
 /**
