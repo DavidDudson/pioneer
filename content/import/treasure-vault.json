@@ -5921,17 +5921,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "add",
-            "path": "system.attributes.reach.base",
-            "phase": "afterDerived",
-            "value": 10
-          }
-        },
-        {
-          "type": "rule",
           "key": "FlatModifier",
           "raw": {
             "key": "FlatModifier",
@@ -5947,17 +5936,6 @@
       "slug": "effect:effect-bendy-arm-mutagen-lesser",
       "foundry": "Compendium.pf2e.equipment-effects.Item.FDSl6DFblUjITOgP",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "add",
-            "path": "system.attributes.reach.base",
-            "phase": "afterDerived",
-            "value": 5
-          }
-        },
         {
           "type": "rule",
           "key": "FlatModifier",
@@ -5977,17 +5955,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "add",
-            "path": "system.attributes.reach.base",
-            "phase": "afterDerived",
-            "value": 15
-          }
-        },
-        {
-          "type": "rule",
           "key": "FlatModifier",
           "raw": {
             "key": "FlatModifier",
@@ -6003,17 +5970,6 @@
       "slug": "effect:effect-bendy-arm-mutagen-moderate",
       "foundry": "Compendium.pf2e.equipment-effects.Item.IBu1RWKW5JX70nse",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "add",
-            "path": "system.attributes.reach.base",
-            "phase": "afterDerived",
-            "value": 5
-          }
-        },
         {
           "type": "rule",
           "key": "FlatModifier",
@@ -8135,24 +8091,6 @@
             "mode": "add",
             "property": "traits",
             "value": "nonlethal"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "effect:effect-mortalis-coin",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.ocjUbOrpnJeGb3iP",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.attributes.dying.max",
-            "value": 5
           }
         }
       ]

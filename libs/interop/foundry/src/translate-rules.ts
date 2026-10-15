@@ -8,6 +8,7 @@ import { fromFoundryFormula } from './foundry-formula';
 import { isLangKey, isUnresolved, localize } from './foundry-lang';
 import type { LangValues, UnresolvedKey, UnresolvedText } from './foundry-lang';
 import type { FoundryLang } from './foundry-release';
+import { withActiveEffect } from './translate-active-effects';
 import { isUnread, withChoiceSet, withTagQuery } from './translate-choice-sets';
 import { withDefenceTypes } from './translate-defences';
 import { withFavoredWeaponRank } from './translate-favored-weapon';
@@ -26,7 +27,6 @@ import { withNoteText } from './translate-notes';
 import { withRollOption } from './translate-roll-options';
 import { withSense } from './translate-senses';
 import type { FoundrySenses } from './translate-senses';
-import { withSkillRaise } from './translate-skill-raises';
 import { withoutStrikeExtras, withStrikeDamage, withStrikeScope } from './translate-strike';
 import { withoutDropped } from './translate-token-rules';
 import type { DroppedRule } from './translate-token-rules';
@@ -149,7 +149,7 @@ function shapeRule(raw: unknown, context: RuleContext, unresolved: UnresolvedKey
   const struck = withStrikeScope(withStrikeDamage(withoutStrikeExtras(granted)));
   const modifier = withBaseSpeed(withModifierSelectors(withCreatureSize(struck)));
   const queried = withLanguageSlots(withTagQuery(withGrantValue(modifier)));
-  const font = withSkillRaise(withFavoredWeaponRank(withFontChoice(queried)));
+  const font = withActiveEffect(withFavoredWeaponRank(withFontChoice(queried)));
   const senses = { references, senses: context.senses };
   return { raw, plain: withSense(font, senses), chosen: withSense(withChoiceSet(font, context.values.item), senses) };
 }

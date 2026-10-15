@@ -58,6 +58,8 @@ these statistics in code rather than as items. So far it holds:
 | Hit Points   | `hp:max`                                                 | `value` | `@ancestry.hp + (@class.hp + @attr.con) * @level` | `hp`                                                         |
 | Speed        | `speed:land`                                             | `value` | `@ancestry.speed`                                 | `speed`, `all-speeds`, `land-speed`                          |
 | Other Speeds | `speed:fly`, `speed:swim`, `speed:climb`, `speed:burrow` | `value` | `0`                                               | `speed`, `all-speeds`, `<type>-speed`                        |
+| Reach        | `reach`                                                  | `value` | `5`                                               | `reach`                                                      |
+| Dying limit  | `dying-max`                                              | `value` | `4`                                               | `dying`                                                      |
 | Class DC     | `class-dc`                                               | `dc`    | `10 + @attr.key + @prof.class-dc`                 | `class`                                                      |
 | Strike       | `strike:<weapon>`                                        | `check` | `@weapon.attr + @weapon.prof`                     | `check`, `attack-roll`, `strike-attack-roll`, `<attr>-based` |
 | Spell attack | `spell-attack:<entry>`                                   | `check` | `@spellcasting.attr + @spellcasting.prof`         | `check`, `attack-roll`, `spell-attack-roll`, `<attr>-based`  |

@@ -21114,6 +21114,20 @@
             ]
           }
         ]
+      },
+      {
+        "key": "Change",
+        "selector": "reach",
+        "mode": "upgrade",
+        "value": 10,
+        "predicate": ["untamed-shift:long-vines"]
+      },
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": 30,
+        "predicate": ["untamed-shift:wings"]
       }
     ],
     "externalIds": {

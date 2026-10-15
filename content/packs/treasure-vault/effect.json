@@ -771,6 +771,12 @@
         "selectors": ["skill:athletics", "attack-roll", "skill:stealth", "skill:thievery"],
         "type": "untyped",
         "value": -1
+      },
+      {
+        "key": "Change",
+        "selector": "reach",
+        "mode": "add",
+        "value": 10
       }
     ],
     "externalIds": {
@@ -861,6 +867,12 @@
         "selectors": ["skill:athletics", "attack-roll", "skill:stealth", "skill:thievery"],
         "type": "untyped",
         "value": -1
+      },
+      {
+        "key": "Change",
+        "selector": "reach",
+        "mode": "add",
+        "value": 5
       }
     ],
     "externalIds": {
@@ -951,6 +963,12 @@
         "selectors": ["skill:athletics", "attack-roll", "skill:stealth", "skill:thievery"],
         "type": "untyped",
         "value": -1
+      },
+      {
+        "key": "Change",
+        "selector": "reach",
+        "mode": "add",
+        "value": 15
       }
     ],
     "externalIds": {
@@ -1041,6 +1059,12 @@
         "selectors": ["skill:athletics", "attack-roll", "skill:stealth", "skill:thievery"],
         "type": "untyped",
         "value": -1
+      },
+      {
+        "key": "Change",
+        "selector": "reach",
+        "mode": "add",
+        "value": 5
       }
     ],
     "externalIds": {
@@ -7458,7 +7482,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "dying-max",
+        "mode": "upgrade",
+        "value": 5
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.ocjUbOrpnJeGb3iP"
     },

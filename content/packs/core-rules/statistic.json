@@ -823,5 +823,51 @@
       "kind": "check",
       "keyAttribute": "dex"
     }
+  },
+  {
+    "id": "26cfd199-0464-5832-9a1e-ed1a795f8da1",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:reach",
+    "name": "Reach",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "reach",
+      "domains": ["reach"],
+      "base": "5",
+      "kind": "value"
+    }
+  },
+  {
+    "id": "29d3f45e-d34e-5f11-9fc1-d7cf0b383dee",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:max-dying",
+    "name": "Dying Limit",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "dying-max",
+      "domains": ["dying"],
+      "base": "4",
+      "kind": "value"
+    }
   }
 ]
