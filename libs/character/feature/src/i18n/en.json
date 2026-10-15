@@ -379,7 +379,10 @@
     "conditionUnknown": "That condition isn't in the loaded content. Choose another.",
     "conditionValue": "A condition with a value needs one, and a condition without a value takes none.",
     "conditionMissing": "That condition is no longer on the character. Reload the sheet and try again.",
-    "conditionFull": "This character has as many conditions as it can hold. Remove one first."
+    "conditionFull": "This character has as many conditions as it can hold. Remove one first.",
+    "staffNotHeld": "That staff is not in the character's inventory. Choose another.",
+    "staffSlotWithoutStaff": "A slot can only be expended to add charges to a staff. Choose a staff first.",
+    "staffSlotNotExpendable": "Only a spell slot of a prepared spellcasting entry can be expended for charges. Choose another."
   },
   "import": {
     "title": "Import from Pathbuilder",

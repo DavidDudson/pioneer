@@ -6,6 +6,7 @@ import type { PlayLimits } from '../play-state';
 import { NO_RESOURCES } from '../resources';
 import type { ResourceMaxima } from '../resources';
 import type { RecoveryConditions } from '../rest-types';
+import { NO_STAFF } from '../staff-limits';
 
 const NO_RECOVERY: RecoveryConditions = {
   fatigued: undefined,
@@ -24,6 +25,7 @@ export function within(
     recovery: NO_RECOVERY,
     resources,
     counted,
+    staff: NO_STAFF,
     valued: new Map(),
   };
 }

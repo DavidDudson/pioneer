@@ -7,6 +7,7 @@ import {
   Doomed,
   Dying,
   FRESH_PLAY,
+  InventoryItemId,
   PlayCommandField,
   Resource,
   ResourceCount,
@@ -16,7 +17,7 @@ import {
 } from '@pioneer/character/domain';
 import type { Character, PlayCommand } from '@pioneer/character/domain';
 import { HUMAN_HIT_POINTS, hitPointsContent, humanAncestryId } from '@pioneer/character/domain/testing';
-import { DegreeOfSuccess, HitPoints } from '@pioneer/rules/sdk';
+import { DegreeOfSuccess, HitPoints, Slug, SpellRank } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
 import {
   fixedClock,
@@ -197,5 +198,24 @@ describe('PlayService', () => {
     expect(await rejection(play.get(ezren, kyra.id))).toBeInstanceOf(NotFoundError);
     const edit = play.patch(ezren, kyra.id, { expectedRevision: FIRST_VERSION, command: damage(1) });
     expect(await rejection(edit)).toBeInstanceOf(NotFoundError);
+  });
+
+  test('daily preparations refuse a staff the character does not have, and a slot with no staff', async () => {
+    const absent = newId();
+    const staff: PlayCommand = { field: PlayCommandField.DailyPreparations, staff: InventoryItemId.parse(absent) };
+    const slot: PlayCommand = {
+      field: PlayCommandField.DailyPreparations,
+      slot: { entry: Slug.parse('wizard'), rank: SpellRank.parse(1) },
+    };
+    for (const command of [staff, slot]) {
+      const refused = rejection(play.patch(amiri, kyra.id, { expectedRevision: FIRST_VERSION, command }));
+      expect(await refused).toBeInstanceOf(ValidationError);
+    }
+  });
+
+  test('daily preparations with no staff clear the staff charges', async () => {
+    const command: PlayCommand = { field: PlayCommandField.DailyPreparations };
+    const saved = await play.patch(amiri, kyra.id, { expectedRevision: FIRST_VERSION, command });
+    expect(saved.play.resources.staff).toStrictEqual({});
   });
 });

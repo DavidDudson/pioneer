@@ -1,13 +1,15 @@
 import { ConditionValue, HitPoints } from '@pioneer/rules/sdk';
 
 import type { ActiveCondition } from './conditions';
-import { Boundary } from './counted-resources';
+import { Boundary, CountDelta, heldCount, spentAfter } from './counted-resources';
 import type { CountedMaximum, SlotCountKey, UseCountKey } from './counted-resources';
 import { Doomed, recovered, withDoomed } from './death-track';
 import type { DeathTrack } from './death-track';
 import { heldIn, Resource, ResourceCount, setPoints } from './resources';
 import type { Pools } from './resources';
 import { RestChangeKind, RestCommandField } from './rest-types';
+import type { StaffChoice, StaffSlot } from './staff-charges';
+import { staffSlotKey } from './staff-limits';
 import type { RecoveryConditions, RestChange, RestCommand, RestLimits, RestOutcome, RestPlay } from './rest-types';
 
 const NONE = ResourceCount.parse(0);
@@ -223,13 +225,60 @@ function withPointsSet<Play extends RestPlay>(
   return now === from ? outcome : after(outcome, { ...play, resources: spent }, change);
 }
 
-/** Daily preparations: focus points full, and the slots and uses that reset each day back. */
-export function preparedDaily<Play extends RestPlay>(play: Play, limits: RestLimits): RestOutcome<Play> {
+const SPENT_ONE = CountDelta.parse(1);
+
+/** Whether `slot` is one a prepared caster may expend and still holds, once the day's slots are back. */
+function expendable(play: RestPlay, limits: RestLimits, slot: StaffSlot): boolean {
+  const key = staffSlotKey(slot);
+  const held = heldCount({ spent: play.resources.slots, maxima: limits.counted.slots, key });
+  return limits.staff.expendable.has(key) && held > NONE;
+}
+
+/**
+ * The staff prepared for the day: the character's highest spell rank in charges, plus the rank of the slot expended,
+ * which counts as used. The charges of any staff prepared before are lost, and a staff the character does not have, or
+ * a character without spellcasting, leaves none prepared.
+ */
+function withStaffPrepared<Play extends RestPlay>(
+  outcome: RestOutcome<Play>,
+  limits: RestLimits,
+  { staff, slot }: StaffChoice,
+): RestOutcome<Play> {
+  const { play } = outcome;
+  const { highestRank, staves } = limits.staff;
+  const cleared: Play = { ...play, resources: { ...play.resources, staff: {} } };
+  if (staff === undefined || highestRank === undefined || !staves.has(staff)) {
+    return Object.keys(play.resources.staff).length === 0 ? outcome : { play: cleared, changes: outcome.changes };
+  }
+  const expended = slot !== undefined && expendable(play, limits, slot) ? slot : undefined;
+  const charges = ResourceCount.parse(highestRank + (expended?.rank ?? 0));
+  const slots = expended === undefined
+    ? play.resources.slots
+    : spentAfter({ spent: play.resources.slots, maxima: limits.counted.slots, key: staffSlotKey(expended) }, SPENT_ONE);
+  const next: Play = {
+    ...play,
+    resources: { ...play.resources, slots, staff: { [staff]: { max: charges, spent: NONE } } },
+  };
+  const prepared = after(outcome, next, { kind: RestChangeKind.StaffCharges, item: staff, charges });
+  return expended === undefined
+    ? prepared
+    : { ...prepared, changes: [...prepared.changes, { kind: RestChangeKind.SlotExpended, key: staffSlotKey(expended) }] };
+}
+
+/**
+ * Daily preparations: focus points full, the slots and uses that reset each day back, and the staff chosen prepared
+ * with its charges.
+ */
+export function preparedDaily<Play extends RestPlay>(
+  play: Play,
+  limits: RestLimits,
+  choice: StaffChoice = {},
+): RestOutcome<Play> {
   const focused = withPointsSet(unchanged(play), limits, {
     resource: Resource.FocusPoints,
     to: limits.resources[Resource.FocusPoints],
   });
-  return withCountsRestored(focused, limits, Boundary.Day);
+  return withStaffPrepared(withCountsRestored(focused, limits, Boundary.Day), limits, choice);
 }
 
 /** Refocus: one focus point back, if any is spent. */
@@ -262,7 +311,7 @@ export function applyRestCommand<Play extends RestPlay>(
       return rested(play, limits);
     }
     case RestCommandField.DailyPreparations: {
-      return preparedDaily(play, limits);
+      return preparedDaily(play, limits, command);
     }
     case RestCommandField.Refocus: {
       return refocused(play, limits);
