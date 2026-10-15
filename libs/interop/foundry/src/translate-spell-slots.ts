@@ -33,6 +33,7 @@ const CANTRIP = 'cantrip';
 const HIGHEST = 'highest';
 const CLASS_CANTRIPS = 5;
 const NEW_RANK_SLOTS = 2;
+const SORCERER_NEW_RANK_SLOTS = 3;
 const NINTH = 9;
 const TENTH = 10;
 const TENTH_RANK_LEVEL = 19;
@@ -48,11 +49,11 @@ const RANKS = Array.from({ length: NINTH }, (_unused, index) => index + 1);
  * A Player Core class caster's spells per day, which every caster in the book shares: five cantrips; two slots of each
  * new rank from the level it opens at, three from the next level; one 10th-rank slot from 19th level.
  */
-function classTable(entry: string): readonly object[] {
+function classTable(entry: string, opening = NEW_RANK_SLOTS): readonly object[] {
   return [
     slots({ entry, rank: CANTRIP, value: CLASS_CANTRIPS }, 1),
     ...RANKS.flatMap((rank) => [
-      slots({ entry, rank, value: NEW_RANK_SLOTS }, rankOpens(rank)),
+      slots({ entry, rank, value: opening }, rankOpens(rank)),
       slots({ entry, rank, value: 1 }, rankOpens(rank) + 1),
     ]),
     slots({ entry, rank: TENTH, value: 1 }, TENTH_RANK_LEVEL),
@@ -136,6 +137,9 @@ export const SPELL_SLOTS: ReadonlyMap<string, readonly object[]> = new Map([
   ['class-feature:druid-spellcasting', classTable('druid')],
   ['class-feature:witch-spellcasting', classTable('witch')],
   ['class-feature:wizard-spellcasting', classTable('wizard')],
+  // A sorcerer and an oracle cast from a repertoire with a slot more of each rank than a bard (Player Core 2).
+  ['class-feature:sorcerer-spellcasting', classTable('sorcerer', SORCERER_NEW_RANK_SLOTS)],
+  ['class-feature:oracle-spellcasting', classTable('oracle', SORCERER_NEW_RANK_SLOTS)],
   ['class-feature:divine-font', DIVINE_FONT_SLOTS],
   ...CURRICULUM_SCHOOLS.map((school): [string, readonly object[]] => [`class-feature:${school}`, CURRICULUM_SLOTS]),
   ...['bard', 'cleric', 'druid', 'wizard'].flatMap((entry) => archetype(entry)),

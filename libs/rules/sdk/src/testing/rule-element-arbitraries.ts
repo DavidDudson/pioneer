@@ -209,6 +209,14 @@ const focusSpells = element('FocusSpells', {
   entry: slugText,
   spells: uniqueArray(uuid(), { minLength: 1, maxLength: LIST_MAX }),
 });
+const grantedSpell = record({
+  rank: oneof(constant(SlotRank.Cantrip), integer({ min: 1, max: SPELL_RANK_MAX })),
+  spell: uuid(),
+});
+const repertoireSpells = element('RepertoireSpells', {
+  entry: slugText,
+  spells: uniqueArray(grantedSpell, { minLength: 1, maxLength: LIST_MAX }),
+});
 
 const languageAccess = constantFrom('common', 'uncommon', 'rare');
 const grantedLanguages = uniqueArray(uuid(), { minLength: 1, maxLength: LIST_MAX });
@@ -249,6 +257,7 @@ export const ruleElementJson: Arbitrary<object> = oneof(
   poolSpells,
   deitySpells,
   signatureSpells,
+  repertoireSpells,
   focusSpells,
   language,
   actorTraits,

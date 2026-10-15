@@ -1001,6 +1001,28 @@
       {
         "key": "GrantItem",
         "item": "cba4ed0e-054b-5903-9df9-f74f58593ff5"
+      },
+      {
+        "key": "RepertoireSpells",
+        "entry": "oracle",
+        "spells": [
+          {
+            "rank": "cantrip",
+            "spell": "71a6396c-7cc2-5918-a06b-bf3cf1b533f6"
+          },
+          {
+            "rank": 1,
+            "spell": "4f616729-3f27-5aee-a02e-426f121c6fa3"
+          },
+          {
+            "rank": 2,
+            "spell": "8e71d902-1acc-566b-a53d-ce97cdbf3b85"
+          },
+          {
+            "rank": 5,
+            "spell": "d75cb7fc-4eee-5db4-aa60-c68fdd54d855"
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -3139,6 +3161,28 @@
       {
         "key": "GrantItem",
         "item": "5dbd114a-edee-585f-84de-210465f9656e"
+      },
+      {
+        "key": "RepertoireSpells",
+        "entry": "oracle",
+        "spells": [
+          {
+            "rank": "cantrip",
+            "spell": "6dee4f5d-f584-5402-af2a-d3738ec685b3"
+          },
+          {
+            "rank": 1,
+            "spell": "566a10d1-097c-5ee1-b473-4e0ab1475228"
+          },
+          {
+            "rank": 2,
+            "spell": "35f9dc96-eeca-54f3-b920-7ae0733594a8"
+          },
+          {
+            "rank": 4,
+            "spell": "b0ec9594-b2b6-5d97-99b8-41cc7ffab5d0"
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -4114,6 +4158,59 @@
             "not": "parent:granter:slug:crossblooded-evolution"
           }
         ]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "sorcerer",
+        "tradition": "occult",
+        "attribute": "cha",
+        "preparation": "spontaneous"
+      },
+      {
+        "key": "RepertoireSpells",
+        "entry": "sorcerer",
+        "spells": [
+          {
+            "rank": "cantrip",
+            "spell": "0964edfe-0384-5444-908b-fe24653c28f5"
+          },
+          {
+            "rank": 1,
+            "spell": "9d047a36-41e0-52cd-b23c-ef49e7d4ebf6"
+          },
+          {
+            "rank": 2,
+            "spell": "8a83becc-07c0-52c9-92ce-77546175cc07"
+          },
+          {
+            "rank": 3,
+            "spell": "2a6f1cc9-99b9-5354-a4d0-56e69c15ff17"
+          },
+          {
+            "rank": 4,
+            "spell": "f16d1dce-4fec-5ce3-982c-beead5f20615"
+          },
+          {
+            "rank": 5,
+            "spell": "f97e48c5-f8dc-5888-83c8-67ed63b03f23"
+          },
+          {
+            "rank": 6,
+            "spell": "1ca1f242-df46-5466-a3e1-3ae1e1069c1f"
+          },
+          {
+            "rank": 7,
+            "spell": "1748638c-efed-5899-a084-68570d86b128"
+          },
+          {
+            "rank": 8,
+            "spell": "2044ae9b-f82e-5da7-9208-fef06297ca5a"
+          },
+          {
+            "rank": 9,
+            "spell": "3997d8f7-14a9-5f54-869a-920fa859cd44"
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -4351,6 +4448,59 @@
         "predicate": [
           {
             "not": "parent:granter:slug:crossblooded-evolution"
+          }
+        ]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "sorcerer",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "spontaneous"
+      },
+      {
+        "key": "RepertoireSpells",
+        "entry": "sorcerer",
+        "spells": [
+          {
+            "rank": "cantrip",
+            "spell": "b0b84836-b7a0-59ca-9379-6efdfb022f9e"
+          },
+          {
+            "rank": 1,
+            "spell": "949e0a89-f44b-598d-8adb-3d9d31db900e"
+          },
+          {
+            "rank": 2,
+            "spell": "e0681ca0-8a1d-5d21-a033-813e782d04b5"
+          },
+          {
+            "rank": 3,
+            "spell": "67633206-076f-520c-b8a2-8d30d756fa26"
+          },
+          {
+            "rank": 4,
+            "spell": "c9f296d5-7325-5ec8-be5d-eb9502269e2f"
+          },
+          {
+            "rank": 5,
+            "spell": "5aa6f2d5-606d-50da-adb2-11a885db20df"
+          },
+          {
+            "rank": 6,
+            "spell": "e1adf090-6b79-5508-9966-2315f6726f77"
+          },
+          {
+            "rank": 7,
+            "spell": "148379ea-e80f-56a6-b8cd-6032862ad2c1"
+          },
+          {
+            "rank": 8,
+            "spell": "dc60bdf3-ddf1-5c4a-8919-7ef3688f5f7a"
+          },
+          {
+            "rank": 9,
+            "spell": "fb2cc36e-8e1c-5149-a202-43938814f46a"
           }
         ]
       }
@@ -4592,6 +4742,59 @@
             "not": "parent:granter:slug:crossblooded-evolution"
           }
         ]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "sorcerer",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "spontaneous"
+      },
+      {
+        "key": "RepertoireSpells",
+        "entry": "sorcerer",
+        "spells": [
+          {
+            "rank": "cantrip",
+            "spell": "5448a3aa-c872-5662-9382-c4039b0b21d5"
+          },
+          {
+            "rank": 1,
+            "spell": "a8b9cc60-f471-559b-a07c-6ad022c23b56"
+          },
+          {
+            "rank": 2,
+            "spell": "b76d119e-0d8d-52ad-8cca-1a224c3077ae"
+          },
+          {
+            "rank": 3,
+            "spell": "cfa1a3f3-2450-52eb-95d6-875232fd5219"
+          },
+          {
+            "rank": 4,
+            "spell": "c9f296d5-7325-5ec8-be5d-eb9502269e2f"
+          },
+          {
+            "rank": 5,
+            "spell": "6c08179a-2cc4-5c70-92dd-72f03c6e625a"
+          },
+          {
+            "rank": 6,
+            "spell": "e4628be0-93e0-58ba-adb1-d9e656f43da5"
+          },
+          {
+            "rank": 7,
+            "spell": "148379ea-e80f-56a6-b8cd-6032862ad2c1"
+          },
+          {
+            "rank": 8,
+            "spell": "95b7c63e-4dd9-55c2-a4fb-eb4c681949d4"
+          },
+          {
+            "rank": 9,
+            "spell": "c59f4c18-32ac-5cd1-b3d2-7215c3e00868"
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -4829,6 +5032,59 @@
         "predicate": [
           {
             "not": "parent:granter:slug:crossblooded-evolution"
+          }
+        ]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "sorcerer",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "spontaneous"
+      },
+      {
+        "key": "RepertoireSpells",
+        "entry": "sorcerer",
+        "spells": [
+          {
+            "rank": "cantrip",
+            "spell": "5f652603-de54-511c-aead-1966a7166ca8"
+          },
+          {
+            "rank": 1,
+            "spell": "a3738cb8-aa5d-5084-b250-86fe19b7498d"
+          },
+          {
+            "rank": 2,
+            "spell": "18659a99-19d9-5b85-b03e-fe697787662e"
+          },
+          {
+            "rank": 3,
+            "spell": "ed8ad89d-b5e6-5f93-9e80-1368a1e0b8dc"
+          },
+          {
+            "rank": 4,
+            "spell": "06dcb2ac-6b0e-512e-bcc4-7dd4abe5d503"
+          },
+          {
+            "rank": 5,
+            "spell": "be299a7f-cbd1-5497-a88b-1a90cc2cdcfc"
+          },
+          {
+            "rank": 6,
+            "spell": "ec6df711-1ab8-5f9d-8e01-6827c947eeff"
+          },
+          {
+            "rank": 7,
+            "spell": "148379ea-e80f-56a6-b8cd-6032862ad2c1"
+          },
+          {
+            "rank": 8,
+            "spell": "35abf662-f81d-5277-8d0b-c80d65dc8538"
+          },
+          {
+            "rank": 9,
+            "spell": "6096b768-43d9-56ca-a7f1-8317781601df"
           }
         ]
       }
@@ -5268,6 +5524,172 @@
             "not": "parent:granter:slug:crossblooded-evolution"
           }
         ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "draconic-exemplar",
+        "choices": [
+          {
+            "value": "arcane",
+            "label": "Arcane"
+          },
+          {
+            "value": "divine",
+            "label": "Divine"
+          },
+          {
+            "value": "occult",
+            "label": "Occult"
+          },
+          {
+            "value": "primal",
+            "label": "Primal"
+          }
+        ],
+        "prompt": "Select a draconic exemplar.",
+        "rollOption": "draconic-exemplar"
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "sorcerer",
+        "tradition": "arcane",
+        "attribute": "cha",
+        "preparation": "spontaneous",
+        "predicate": ["draconic-exemplar:arcane"]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "sorcerer",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "spontaneous",
+        "predicate": ["draconic-exemplar:divine"]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "sorcerer",
+        "tradition": "occult",
+        "attribute": "cha",
+        "preparation": "spontaneous",
+        "predicate": ["draconic-exemplar:occult"]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "sorcerer",
+        "tradition": "primal",
+        "attribute": "cha",
+        "preparation": "spontaneous",
+        "predicate": ["draconic-exemplar:primal"]
+      },
+      {
+        "key": "RepertoireSpells",
+        "entry": "sorcerer",
+        "spells": [
+          {
+            "rank": "cantrip",
+            "spell": "6dee4f5d-f584-5402-af2a-d3738ec685b3"
+          },
+          {
+            "rank": 1,
+            "spell": "a8b9cc60-f471-559b-a07c-6ad022c23b56"
+          },
+          {
+            "rank": 3,
+            "spell": "2b79f5bd-e9d5-59cd-81f8-b1362ed0b59a"
+          },
+          {
+            "rank": 4,
+            "spell": "5ff17619-93b1-5680-ad41-5f66ad9a8c0b"
+          },
+          {
+            "rank": 6,
+            "spell": "ba683a40-46d3-584b-b74a-ddc1370a9916"
+          },
+          {
+            "rank": 7,
+            "spell": "c4f7f267-8526-5dd9-9ff8-2ef5d29ac387"
+          },
+          {
+            "rank": 9,
+            "spell": "b6dff26a-ff68-54a5-bdeb-8ac98bea8879"
+          }
+        ]
+      },
+      {
+        "key": "RepertoireSpells",
+        "entry": "sorcerer",
+        "spells": [
+          {
+            "rank": 2,
+            "spell": "2243e5b0-a99c-5b26-81b2-026db385848c"
+          },
+          {
+            "rank": 5,
+            "spell": "72597ff4-3a09-5802-9fd2-d42b78034487"
+          },
+          {
+            "rank": 8,
+            "spell": "9cbca3a7-5a5f-55f3-b53c-29e1dabc9ac2"
+          }
+        ],
+        "predicate": ["draconic-exemplar:arcane"]
+      },
+      {
+        "key": "RepertoireSpells",
+        "entry": "sorcerer",
+        "spells": [
+          {
+            "rank": 2,
+            "spell": "dfab75a2-997b-5597-b7d7-3b9ad9e935dc"
+          },
+          {
+            "rank": 5,
+            "spell": "5aa6f2d5-606d-50da-adb2-11a885db20df"
+          },
+          {
+            "rank": 8,
+            "spell": "35abf662-f81d-5277-8d0b-c80d65dc8538"
+          }
+        ],
+        "predicate": ["draconic-exemplar:divine"]
+      },
+      {
+        "key": "RepertoireSpells",
+        "entry": "sorcerer",
+        "spells": [
+          {
+            "rank": 2,
+            "spell": "1ce2f883-74e2-5f2d-99fa-78356f6720d6"
+          },
+          {
+            "rank": 5,
+            "spell": "f97e48c5-f8dc-5888-83c8-67ed63b03f23"
+          },
+          {
+            "rank": 8,
+            "spell": "5cd8e86f-9a06-59b4-a2fd-7a1cc14b4c3e"
+          }
+        ],
+        "predicate": ["draconic-exemplar:occult"]
+      },
+      {
+        "key": "RepertoireSpells",
+        "entry": "sorcerer",
+        "spells": [
+          {
+            "rank": 2,
+            "spell": "18e20667-b58b-5649-af67-bf8d166c96db"
+          },
+          {
+            "rank": 5,
+            "spell": "03bdda38-13a1-546c-a4e9-871558602823"
+          },
+          {
+            "rank": 8,
+            "spell": "1001faa9-fabc-5445-b281-5716b5ccab6d"
+          }
+        ],
+        "predicate": ["draconic-exemplar:primal"]
       }
     ],
     "externalIds": {
@@ -5833,6 +6255,213 @@
             "not": "parent:granter:slug:crossblooded-evolution"
           }
         ]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "sorcerer",
+        "tradition": "primal",
+        "attribute": "cha",
+        "preparation": "spontaneous"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "elemental-influence",
+        "choices": [
+          {
+            "value": "air",
+            "label": "Air"
+          },
+          {
+            "value": "earth",
+            "label": "Earth"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "metal",
+            "label": "Metal"
+          },
+          {
+            "value": "water",
+            "label": "Water"
+          },
+          {
+            "value": "wood",
+            "label": "Wood"
+          }
+        ],
+        "prompt": "Select an elemental influence.",
+        "rollOption": "elemental-influence"
+      },
+      {
+        "key": "RepertoireSpells",
+        "entry": "sorcerer",
+        "spells": [
+          {
+            "rank": 2,
+            "spell": "d54ee3a3-6742-53c8-9070-17edcb0cae19"
+          },
+          {
+            "rank": 4,
+            "spell": "3f76db0d-3598-5ec4-bdd4-9f568f4f8973"
+          },
+          {
+            "rank": 5,
+            "spell": "877e8c19-8f14-5568-8d0b-4b9c520e07ea"
+          },
+          {
+            "rank": 7,
+            "spell": "7c9cae9d-6b33-5c97-91e7-787d78e8ec45"
+          },
+          {
+            "rank": 8,
+            "spell": "1001faa9-fabc-5445-b281-5716b5ccab6d"
+          },
+          {
+            "rank": 9,
+            "spell": "05d5f598-dca0-5144-b846-56f387c85245"
+          }
+        ]
+      },
+      {
+        "key": "RepertoireSpells",
+        "entry": "sorcerer",
+        "spells": [
+          {
+            "rank": "cantrip",
+            "spell": "dba15ee9-5cd9-52d6-99e7-3ae396c94a33"
+          },
+          {
+            "rank": 1,
+            "spell": "b7d21825-2e85-5035-8646-0fdbc7c00e05"
+          },
+          {
+            "rank": 3,
+            "spell": "ad0650c3-31d5-51c2-8226-045ac8442ae8"
+          },
+          {
+            "rank": 6,
+            "spell": "088c1f48-de0f-5b8a-83b3-24ce61a928bc"
+          }
+        ],
+        "predicate": ["elemental-influence:air"]
+      },
+      {
+        "key": "RepertoireSpells",
+        "entry": "sorcerer",
+        "spells": [
+          {
+            "rank": "cantrip",
+            "spell": "b92c1136-d6c3-5b8d-bf30-0752b7da1f01"
+          },
+          {
+            "rank": 1,
+            "spell": "52287400-110e-575d-8cd6-4b91f499cd69"
+          },
+          {
+            "rank": 3,
+            "spell": "3cddd734-8a89-5de8-9c13-65748a0c7c32"
+          },
+          {
+            "rank": 6,
+            "spell": "86c529b1-5a2f-5bac-9c74-674544b5bd32"
+          }
+        ],
+        "predicate": ["elemental-influence:earth"]
+      },
+      {
+        "key": "RepertoireSpells",
+        "entry": "sorcerer",
+        "spells": [
+          {
+            "rank": "cantrip",
+            "spell": "5f652603-de54-511c-aead-1966a7166ca8"
+          },
+          {
+            "rank": 1,
+            "spell": "14e2abdf-052f-5a62-a6a0-8b4191474b38"
+          },
+          {
+            "rank": 3,
+            "spell": "989ec875-261d-5d4f-a181-fedf889f9d4b"
+          },
+          {
+            "rank": 6,
+            "spell": "ef82adde-90cc-5a59-9424-8690ccf303e7"
+          }
+        ],
+        "predicate": ["elemental-influence:fire"]
+      },
+      {
+        "key": "RepertoireSpells",
+        "entry": "sorcerer",
+        "spells": [
+          {
+            "rank": "cantrip",
+            "spell": "af70a0e9-8098-5ea9-9c72-12ee05e62eb1"
+          },
+          {
+            "rank": 1,
+            "spell": "16c68123-97c7-5b43-9789-d4983552b8d3"
+          },
+          {
+            "rank": 3,
+            "spell": "e9fa0be4-1b62-555b-91de-ba34c484adac"
+          },
+          {
+            "rank": 6,
+            "spell": "088c1f48-de0f-5b8a-83b3-24ce61a928bc"
+          }
+        ],
+        "predicate": ["elemental-influence:metal"]
+      },
+      {
+        "key": "RepertoireSpells",
+        "entry": "sorcerer",
+        "spells": [
+          {
+            "rank": "cantrip",
+            "spell": "4564025d-51b0-541a-a554-662ea3883cda"
+          },
+          {
+            "rank": 1,
+            "spell": "34da213b-dfe6-5e19-b7f5-bfc627cadded"
+          },
+          {
+            "rank": 3,
+            "spell": "9f40500a-0431-52d2-8285-8923aacd4069"
+          },
+          {
+            "rank": 6,
+            "spell": "abeac3de-816d-5bf4-b439-cdf69d369efd"
+          }
+        ],
+        "predicate": ["elemental-influence:water"]
+      },
+      {
+        "key": "RepertoireSpells",
+        "entry": "sorcerer",
+        "spells": [
+          {
+            "rank": "cantrip",
+            "spell": "5ad9a64e-8b2e-5db4-8526-bc713e07778c"
+          },
+          {
+            "rank": 1,
+            "spell": "8f343f43-da8b-5852-9d80-67ebfbdd679a"
+          },
+          {
+            "rank": 3,
+            "spell": "9dfded9c-826b-57e9-989b-6b4ea568d4b8"
+          },
+          {
+            "rank": 6,
+            "spell": "3dcf91db-01f1-596c-96b5-d635c0248044"
+          }
+        ],
+        "predicate": ["elemental-influence:wood"]
       }
     ],
     "externalIds": {
@@ -6084,6 +6713,59 @@
             "not": "parent:granter:slug:crossblooded-evolution"
           }
         ]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "sorcerer",
+        "tradition": "primal",
+        "attribute": "cha",
+        "preparation": "spontaneous"
+      },
+      {
+        "key": "RepertoireSpells",
+        "entry": "sorcerer",
+        "spells": [
+          {
+            "rank": "cantrip",
+            "spell": "d32836d8-9eeb-52c0-a7f8-6e0bc64ed7c7"
+          },
+          {
+            "rank": 1,
+            "spell": "a3738cb8-aa5d-5084-b250-86fe19b7498d"
+          },
+          {
+            "rank": 2,
+            "spell": "14ef4b6a-5640-523d-ae50-9e3f4fbf860b"
+          },
+          {
+            "rank": 3,
+            "spell": "ed8ad89d-b5e6-5f93-9e80-1368a1e0b8dc"
+          },
+          {
+            "rank": 4,
+            "spell": "06dcb2ac-6b0e-512e-bcc4-7dd4abe5d503"
+          },
+          {
+            "rank": 5,
+            "spell": "888ee328-702c-5823-8023-5f7b1c6f813c"
+          },
+          {
+            "rank": 6,
+            "spell": "64000c62-eeaa-5b2e-a340-0a6842e50a1e"
+          },
+          {
+            "rank": 7,
+            "spell": "791ae195-cc24-55de-88fe-457a59dc1abd"
+          },
+          {
+            "rank": 8,
+            "spell": "2044ae9b-f82e-5da7-9208-fef06297ca5a"
+          },
+          {
+            "rank": 9,
+            "spell": "a38c5303-30ba-573f-ba85-624c5dc04dc1"
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -6312,6 +6994,59 @@
         "predicate": [
           {
             "not": "parent:granter:slug:crossblooded-evolution"
+          }
+        ]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "sorcerer",
+        "tradition": "occult",
+        "attribute": "cha",
+        "preparation": "spontaneous"
+      },
+      {
+        "key": "RepertoireSpells",
+        "entry": "sorcerer",
+        "spells": [
+          {
+            "rank": "cantrip",
+            "spell": "0964edfe-0384-5444-908b-fe24653c28f5"
+          },
+          {
+            "rank": 1,
+            "spell": "adcc4c8f-05ae-5440-83d0-9e88ad22209b"
+          },
+          {
+            "rank": 2,
+            "spell": "8a83becc-07c0-52c9-92ce-77546175cc07"
+          },
+          {
+            "rank": 3,
+            "spell": "4dd829e2-04f0-5cff-ab8f-bb762c3586cf"
+          },
+          {
+            "rank": 4,
+            "spell": "0dfae2cc-8da3-54ef-87be-016eadc92505"
+          },
+          {
+            "rank": 5,
+            "spell": "ccc96547-bee7-50d8-8de8-ce0748ee961d"
+          },
+          {
+            "rank": 6,
+            "spell": "9a703ca8-ffd2-5cfd-82c2-b323c835ac03"
+          },
+          {
+            "rank": 7,
+            "spell": "1748638c-efed-5899-a084-68570d86b128"
+          },
+          {
+            "rank": 8,
+            "spell": "9cbca3a7-5a5f-55f3-b53c-29e1dabc9ac2"
+          },
+          {
+            "rank": 9,
+            "spell": "e551a4eb-8b73-5a89-979e-a15f470a28ce"
           }
         ]
       }
@@ -6551,6 +7286,59 @@
         "predicate": [
           {
             "not": "parent:granter:slug:crossblooded-evolution"
+          }
+        ]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "sorcerer",
+        "tradition": "arcane",
+        "attribute": "cha",
+        "preparation": "spontaneous"
+      },
+      {
+        "key": "RepertoireSpells",
+        "entry": "sorcerer",
+        "spells": [
+          {
+            "rank": "cantrip",
+            "spell": "c91ac947-a9ec-5f07-b5f9-a054617eb571"
+          },
+          {
+            "rank": 1,
+            "spell": "1c97409b-bd67-5df2-a7d3-a49aff4d3896"
+          },
+          {
+            "rank": 2,
+            "spell": "b434b2d9-47e5-519e-a542-6dae12c51157"
+          },
+          {
+            "rank": 3,
+            "spell": "2b79f5bd-e9d5-59cd-81f8-b1362ed0b59a"
+          },
+          {
+            "rank": 4,
+            "spell": "e25a3eab-3b7d-56fd-90e2-98d892fdc8fd"
+          },
+          {
+            "rank": 5,
+            "spell": "2897020f-b34e-5315-9369-d501cd903968"
+          },
+          {
+            "rank": 6,
+            "spell": "e4628be0-93e0-58ba-adb1-d9e656f43da5"
+          },
+          {
+            "rank": 7,
+            "spell": "99651215-11b0-5244-8514-74c05a562385"
+          },
+          {
+            "rank": 8,
+            "spell": "9cbca3a7-5a5f-55f3-b53c-29e1dabc9ac2"
+          },
+          {
+            "rank": 9,
+            "spell": "c59f4c18-32ac-5cd1-b3d2-7215c3e00868"
           }
         ]
       }
@@ -6960,6 +7748,59 @@
         "predicate": [
           {
             "not": "parent:granter:slug:crossblooded-evolution"
+          }
+        ]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "sorcerer",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "spontaneous"
+      },
+      {
+        "key": "RepertoireSpells",
+        "entry": "sorcerer",
+        "spells": [
+          {
+            "rank": "cantrip",
+            "spell": "bb65f478-400b-518d-a697-75f634f6dbc1"
+          },
+          {
+            "rank": 1,
+            "spell": "1330902b-a95f-54ea-9a07-3764617bd887"
+          },
+          {
+            "rank": 2,
+            "spell": "52cd674f-3e49-5527-b0c9-8a4137bc9c08"
+          },
+          {
+            "rank": 3,
+            "spell": "e1c0e972-837b-5c7f-99cc-2e70ee68c645"
+          },
+          {
+            "rank": 4,
+            "spell": "b74b8226-f3e5-51b2-85dd-83ed11cd93c3"
+          },
+          {
+            "rank": 5,
+            "spell": "5acfec50-394e-5699-9d71-1b03aa194da5"
+          },
+          {
+            "rank": 6,
+            "spell": "b346ac8d-e3aa-5131-af4a-9cbae1f72ff8"
+          },
+          {
+            "rank": 7,
+            "spell": "25928db7-ce6e-5e39-b41e-c5227a958fc7"
+          },
+          {
+            "rank": 8,
+            "spell": "95b7c63e-4dd9-55c2-a4fb-eb4c681949d4"
+          },
+          {
+            "rank": 9,
+            "spell": "c23eeb10-88b1-58d0-9b0e-326d9538d589"
           }
         ]
       }
@@ -7427,6 +8268,28 @@
       {
         "key": "GrantItem",
         "item": "f2561e46-20d1-55ef-aa22-012ef49b0ca8"
+      },
+      {
+        "key": "RepertoireSpells",
+        "entry": "oracle",
+        "spells": [
+          {
+            "rank": "cantrip",
+            "spell": "bb65f478-400b-518d-a697-75f634f6dbc1"
+          },
+          {
+            "rank": 1,
+            "spell": "c9d16d82-fcfd-5431-9d05-06caca157602"
+          },
+          {
+            "rank": 2,
+            "spell": "18377ab1-5227-575a-9895-fa1920850f0d"
+          },
+          {
+            "rank": 3,
+            "spell": "0474b135-7232-52c1-beff-221dccc82e78"
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -8475,6 +9338,28 @@
       {
         "key": "GrantItem",
         "item": "232063d2-a0ab-588a-8dd5-aa90edad1f75"
+      },
+      {
+        "key": "RepertoireSpells",
+        "entry": "oracle",
+        "spells": [
+          {
+            "rank": "cantrip",
+            "spell": "b0b84836-b7a0-59ca-9379-6efdfb022f9e"
+          },
+          {
+            "rank": 1,
+            "spell": "ce5ba457-89bd-5a85-8d45-2faa300f9d49"
+          },
+          {
+            "rank": 2,
+            "spell": "d7720a54-bc70-5d59-bdb1-d50d8eb0dac9"
+          },
+          {
+            "rank": 5,
+            "spell": "c6cea9c6-25dd-5c7c-8056-4c7bac1dceba"
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -11972,6 +12857,28 @@
       {
         "key": "GrantItem",
         "item": "20fd42c2-903d-5a05-936b-85ebf57f4714"
+      },
+      {
+        "key": "RepertoireSpells",
+        "entry": "oracle",
+        "spells": [
+          {
+            "rank": "cantrip",
+            "spell": "5f652603-de54-511c-aead-1966a7166ca8"
+          },
+          {
+            "rank": 1,
+            "spell": "14e2abdf-052f-5a62-a6a0-8b4191474b38"
+          },
+          {
+            "rank": 2,
+            "spell": "2243e5b0-a99c-5b26-81b2-026db385848c"
+          },
+          {
+            "rank": 3,
+            "spell": "989ec875-261d-5d4f-a181-fedf889f9d4b"
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -14491,6 +15398,28 @@
       {
         "key": "GrantItem",
         "item": "afe1fd2b-9f6e-5c54-8677-b3c176cf4dc4"
+      },
+      {
+        "key": "RepertoireSpells",
+        "entry": "oracle",
+        "spells": [
+          {
+            "rank": "cantrip",
+            "spell": "ad3bed02-6064-56d1-949c-7f5b8355cee7"
+          },
+          {
+            "rank": 1,
+            "spell": "272d555d-f777-5439-b02b-cc5325c0a648"
+          },
+          {
+            "rank": 2,
+            "spell": "18377ab1-5227-575a-9895-fa1920850f0d"
+          },
+          {
+            "rank": 5,
+            "spell": "6680332a-1cdd-5960-bf8d-fa9bac34fc35"
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -14767,6 +15696,28 @@
       {
         "key": "GrantItem",
         "item": "7b46ae75-e3e9-5f7b-9c55-6e385b0c28c5"
+      },
+      {
+        "key": "RepertoireSpells",
+        "entry": "oracle",
+        "spells": [
+          {
+            "rank": "cantrip",
+            "spell": "02c769dd-dba8-5437-8189-28b9800afaac"
+          },
+          {
+            "rank": 1,
+            "spell": "80b48120-353b-5f69-b1bb-3e35afc9066a"
+          },
+          {
+            "rank": 3,
+            "spell": "22b62dab-5ef5-5d09-8c09-2f7bcfc88be1"
+          },
+          {
+            "rank": 6,
+            "spell": "1ca1f242-df46-5466-a3e1-3ae1e1069c1f"
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -16107,7 +17058,243 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellcastingEntry",
+        "slug": "oracle",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "spontaneous"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "expert",
+        "predicate": ["feature:expert-spellcaster"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "master",
+        "predicate": ["feature:master-spellcaster"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "legendary",
+        "predicate": ["feature:legendary-spellcaster"]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "oracle",
+        "rank": "cantrip",
+        "value": 5
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "oracle",
+        "rank": 1,
+        "value": 3
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "oracle",
+        "rank": 1,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 2]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "oracle",
+        "rank": 2,
+        "value": 3,
+        "predicate": [
+          {
+            "gte": ["self:level", 3]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "oracle",
+        "rank": 2,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 4]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "oracle",
+        "rank": 3,
+        "value": 3,
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "oracle",
+        "rank": 3,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 6]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "oracle",
+        "rank": 4,
+        "value": 3,
+        "predicate": [
+          {
+            "gte": ["self:level", 7]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "oracle",
+        "rank": 4,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 8]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "oracle",
+        "rank": 5,
+        "value": 3,
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "oracle",
+        "rank": 5,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 10]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "oracle",
+        "rank": 6,
+        "value": 3,
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "oracle",
+        "rank": 6,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 12]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "oracle",
+        "rank": 7,
+        "value": 3,
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "oracle",
+        "rank": 7,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 14]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "oracle",
+        "rank": 8,
+        "value": 3,
+        "predicate": [
+          {
+            "gte": ["self:level", 15]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "oracle",
+        "rank": 8,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 16]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "oracle",
+        "rank": 9,
+        "value": 3,
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "oracle",
+        "rank": 9,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 18]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "oracle",
+        "rank": 10,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 19]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.7AVspOB6ITNzGFZi"
     },
@@ -17605,7 +18792,218 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "SpellSlots",
+        "entry": "sorcerer",
+        "rank": "cantrip",
+        "value": 5
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "sorcerer",
+        "rank": 1,
+        "value": 3
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "sorcerer",
+        "rank": 1,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 2]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "sorcerer",
+        "rank": 2,
+        "value": 3,
+        "predicate": [
+          {
+            "gte": ["self:level", 3]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "sorcerer",
+        "rank": 2,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 4]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "sorcerer",
+        "rank": 3,
+        "value": 3,
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "sorcerer",
+        "rank": 3,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 6]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "sorcerer",
+        "rank": 4,
+        "value": 3,
+        "predicate": [
+          {
+            "gte": ["self:level", 7]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "sorcerer",
+        "rank": 4,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 8]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "sorcerer",
+        "rank": 5,
+        "value": 3,
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "sorcerer",
+        "rank": 5,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 10]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "sorcerer",
+        "rank": 6,
+        "value": 3,
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "sorcerer",
+        "rank": 6,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 12]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "sorcerer",
+        "rank": 7,
+        "value": 3,
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "sorcerer",
+        "rank": 7,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 14]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "sorcerer",
+        "rank": 8,
+        "value": 3,
+        "predicate": [
+          {
+            "gte": ["self:level", 15]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "sorcerer",
+        "rank": 8,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 16]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "sorcerer",
+        "rank": 9,
+        "value": 3,
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "sorcerer",
+        "rank": 9,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 18]
+          }
+        ]
+      },
+      {
+        "key": "SpellSlots",
+        "entry": "sorcerer",
+        "rank": 10,
+        "value": 1,
+        "predicate": [
+          {
+            "gte": ["self:level", 19]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.gmnx7e1g08bppbqt"
     },
@@ -18500,6 +19898,28 @@
       {
         "key": "GrantItem",
         "item": "1bb97dac-c5b1-59d6-b7ad-47faa61e6015"
+      },
+      {
+        "key": "RepertoireSpells",
+        "entry": "oracle",
+        "spells": [
+          {
+            "rank": "cantrip",
+            "spell": "af70a0e9-8098-5ea9-9c72-12ee05e62eb1"
+          },
+          {
+            "rank": 1,
+            "spell": "16c68123-97c7-5b43-9789-d4983552b8d3"
+          },
+          {
+            "rank": 4,
+            "spell": "f0b4d595-f619-5a11-973d-a30a7c9523ad"
+          },
+          {
+            "rank": 6,
+            "spell": "088c1f48-de0f-5b8a-83b3-24ce61a928bc"
+          }
+        ]
       }
     ],
     "externalIds": {

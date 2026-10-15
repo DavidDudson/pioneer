@@ -36,8 +36,8 @@ Alternatives:
 
 ## Consequences
 
-- Later books' spontaneous classes add their entry to Signature Spells with their import (#593), and homebrew adds the
-  element wherever its feature grants signature spells.
+- Later books' spontaneous classes add their entry to Signature Spells with their import, as Player Core 2's oracle and
+  sorcerer did (ADR-0062), and homebrew adds the element wherever its feature grants signature spells.
 - A bard dedication's entry has a repertoire but no signature spells until an archetype element says otherwise (#595).
 - A repertoire is as big as the entry's slots at every rank, so Magnum Opus's two 10th-rank spells for one slot need
   a repertoire count apart from slots (#599).

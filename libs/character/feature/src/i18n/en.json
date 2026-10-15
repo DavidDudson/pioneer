@@ -204,6 +204,7 @@
       "heading": "Spell repertoire: {tradition}",
       "rankSpell": "{rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank spell {number}",
       "signature": "{rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank signature spell",
+      "granted": "{spell}, always known",
       "signatureEmpty": "Choose this rank's repertoire spells first, then one of them as its signature spell.",
       "signatureCastAt": "{spell}, the signature spell, is cast at {rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank.",
       "signatureCastFrom": "{spell}, the signature spell, is cast at any rank from {low, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} to {high, selectordinal, one {#st} two {#nd} few {#rd} other {#th}}."

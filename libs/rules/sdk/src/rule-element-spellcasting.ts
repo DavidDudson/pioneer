@@ -123,6 +123,31 @@ export const SignatureSpellsElement = z.strictObject({
 });
 export type SignatureSpellsElement = z.infer<typeof SignatureSpellsElement>;
 
+/** The most spells a `RepertoireSpells` element names: a bloodline grants one per rank, cantrips to 9th. */
+const REPERTOIRE_SPELLS_MAX = 10;
+
+/** A spell a feature puts in a repertoire, and the rank it is known at: a cantrip, or 1 to 10. */
+export const GrantedSpell = z.strictObject({
+  rank: z.union([z.literal(SlotRank.Cantrip), SpellRank]),
+  spell: ContentId,
+});
+export type GrantedSpell = z.infer<typeof GrantedSpell>;
+
+/**
+ * Gives a spontaneous entry's repertoire spells it must know (ADR-0062): a sorcerer's bloodline gifts, an oracle's
+ * granted spells. Each fills the first free repertoire slot of its rank, once the entry has slots of that rank, so the
+ * repertoire is no bigger than its slots; a rank that names several fills its first slots in turn. Those of every
+ * element in play for an entry add up. One for an entry not in play, or a prepared, innate or focus one, gives none. A
+ * Pioneer element with no Foundry counterpart: Foundry's repertoire is spells the player adds by hand.
+ */
+export const RepertoireSpellsElement = z.strictObject({
+  key: z.literal(RuleElementKey.RepertoireSpells),
+  entry: EntrySourceSlug,
+  spells: z.array(GrantedSpell).min(1).max(REPERTOIRE_SPELLS_MAX).readonly(),
+  ...ruleElementBase,
+});
+export type RepertoireSpellsElement = z.infer<typeof RepertoireSpellsElement>;
+
 /** The most spells a `FocusSpells` element names: a feature grants one or two. */
 const FOCUS_SPELLS_MAX = 8;
 

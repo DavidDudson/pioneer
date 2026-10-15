@@ -139,9 +139,8 @@ export {
   type PreparedSlot,
   PreparedPickProblem,
   preparedSlots,
-  SpellAccessProblem,
-  spellAccessProblem,
 } from './prepared-spells';
+export { SpellAccessProblem, spellAccessProblem } from './spell-access';
 export {
   castRanks,
   isSignatureKey,

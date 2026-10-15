@@ -66,6 +66,7 @@ Accepted. To change a decision, add a new ADR that supersedes the old one; do no
 | [0059](0059-pioneer-files-embed-the-homebrew-they-use.md)               | A Pioneer file embeds the homebrew it uses and never overwrites on import                     |
 | [0060](0060-a-character-uses-its-own-packs-until-a-campaign-decides.md) | A character uses its own packs until a campaign decides                                       |
 | [0061](0061-variant-rules-are-enabled-per-campaign-and-character.md)    | Variant rules are enabled per campaign and per character, and read against the packs in force |
+| [0062](0062-repertoire-spells-are-a-rule-element.md)                    | Repertoire spells are a rule element: a bloodline or mystery fills the first slot of a rank   |
 
 Template:
 

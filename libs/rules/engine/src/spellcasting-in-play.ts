@@ -13,6 +13,7 @@ import type {
   ContentId,
   Origin,
   FocusSpellsElement,
+  GrantedSpell,
   PoolSpellsElement,
   RuleElement,
   RuleSlug,
@@ -23,6 +24,7 @@ import type {
 import type { ModifierInputs, RuleInPlay } from './rule-in-play';
 import { truthOf } from './rule-value';
 import type { SpellcastingInputs } from './source-inputs';
+import { addGrantedSpells } from './spellcasting-granted-spells';
 
 /** How many slots an entry or pool has of one rank. */
 export interface RankSlots {
@@ -64,6 +66,11 @@ interface EntryFocusSpells {
   readonly focusSpells: readonly ContentId[];
 }
 
+/** The spells the `RepertoireSpells` elements in play give a spontaneous entry, each once; none for another (ADR-0062). */
+interface EntryGrantedSpells {
+  readonly grantedSpells: readonly GrantedSpell[];
+}
+
 /** An entry as its `SpellcastingEntry` element gives it, before its slots are counted. */
 interface EntryInPlay extends SpellcastingInputs {
   readonly preparation: SpellPreparation;
@@ -75,7 +82,8 @@ interface EntryInPlay extends SpellcastingInputs {
  * A spellcasting entry on the character: what its spell attack and DC read, how it casts, why it is there, and its
  * slots.
  */
-export interface SpellcastingInPlay extends EntryInPlay, EntrySlots, EntrySignatures, EntryFocusSpells {
+export interface SpellcastingInPlay
+  extends EntryInPlay, EntrySlots, EntrySignatures, EntryFocusSpells, EntryGrantedSpells {
   /** Whether a `DeitySpells` element in play adds the character's deity's spells to its list (ADR-0048). */
   readonly deitySpells: boolean;
 }
@@ -192,6 +200,8 @@ interface Gathered {
   readonly signatures: Set<Slug>;
   /** The spells the `FocusSpells` elements give, by the entry they name. */
   readonly focusSpells: Map<Slug, ContentId[]>;
+  /** The spells the `RepertoireSpells` elements give, by the entry they name. */
+  readonly grantedSpells: Map<Slug, GrantedSpell[]>;
 }
 
 /** Adds `spells` to what `pool` of `entry` takes, each spell once. */
@@ -222,6 +232,9 @@ function gatherSpells(gathered: Gathered, element: RuleElement): void {
   if (element.key === RuleElementKey.FocusSpells) {
     addFocusSpells(gathered, element);
   }
+  if (element.key === RuleElementKey.RepertoireSpells) {
+    addGrantedSpells(gathered.grantedSpells, element);
+  }
 }
 
 /**
@@ -250,7 +263,7 @@ function gather(gathered: Gathered, rule: RuleInPlay, facts: PredicateFacts): vo
  * `SpellSlots` elements in play give it (ADR-0041) and the spells the `PoolSpells` elements in play give its pools
  * (ADR-0045), and whether a `DeitySpells` element in play adds the deity's spells to its list (ADR-0048). A spontaneous
  * entry a `SignatureSpells` element in play names has signature spells (ADR-0047); a prepared or innate one never does.
- * A focus entry has the spells the `FocusSpells` elements in play name it (ADR-0050); any other entry has none.
+ * A focus entry has the spells the `FocusSpells` elements in play name it (ADR-0050); any other entry has none. A spontaneous entry's repertoire spells are those of its `RepertoireSpells` elements (ADR-0062).
  */
 export function spellcastingInPlay({ rules, facts }: ModifierInputs): readonly SpellcastingInPlay[] {
   const gathered: Gathered = {
@@ -260,11 +273,12 @@ export function spellcastingInPlay({ rules, facts }: ModifierInputs): readonly S
     deitySpells: new Set(),
     signatures: new Set(),
     focusSpells: new Map(),
+    grantedSpells: new Map(),
   };
   for (const rule of rules) {
     gather(gathered, rule, facts);
   }
-  const { entries, slots, poolSpells, deitySpells, signatures, focusSpells } = gathered;
+  const { entries, slots, poolSpells, deitySpells, signatures, focusSpells, grantedSpells } = gathered;
   return bySlug(
     [...entries.values()].map((entry): SpellcastingInPlay => {
       const spontaneous = entry.preparation === SpellPreparation.Spontaneous;
@@ -274,6 +288,7 @@ export function spellcastingInPlay({ rules, facts }: ModifierInputs): readonly S
         deitySpells: deitySpells.has(entry.slug),
         signatures: spontaneous && signatures.has(entry.slug),
         focusSpells: focus,
+        grantedSpells: spontaneous ? (grantedSpells.get(entry.slug) ?? []) : [],
       });
     }),
     ({ slug }) => slug,

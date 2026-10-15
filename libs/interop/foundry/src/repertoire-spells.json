@@ -1,0 +1,338 @@
+{
+  "class-feature:bloodline-aberrant": {
+    "entry": "sorcerer",
+    "tradition": "occult",
+    "gifts": [
+      ["cantrip", "daze"],
+      [1, "phantom-pain"],
+      [2, "stupefy"],
+      [3, "vampiric-feast"],
+      [4, "confusion"],
+      [5, "slither"],
+      [6, "never-mind"],
+      [7, "warp-mind"],
+      [8, "uncontrollable-dance"],
+      [9, "unfathomable-song"]
+    ]
+  },
+  "class-feature:bloodline-angelic": {
+    "entry": "sorcerer",
+    "tradition": "divine",
+    "gifts": [
+      ["cantrip", "light"],
+      [1, "heal"],
+      [2, "spiritual-armament"],
+      [3, "holy-light"],
+      [4, "divine-wrath"],
+      [5, "divine-immolation"],
+      [6, "blessed-boundary"],
+      [7, "divine-decree"],
+      [8, "moment-of-renewal"],
+      [9, "foresight"]
+    ]
+  },
+  "class-feature:bloodline-demonic": {
+    "entry": "sorcerer",
+    "tradition": "divine",
+    "gifts": [
+      ["cantrip", "caustic-blast"],
+      [1, "fear"],
+      [2, "enlarge"],
+      [3, "slow"],
+      [4, "divine-wrath"],
+      [5, "blister"],
+      [6, "disintegrate"],
+      [7, "divine-decree"],
+      [8, "canticle-of-everlasting-grief"],
+      [9, "implosion"]
+    ]
+  },
+  "class-feature:bloodline-diabolic": {
+    "entry": "sorcerer",
+    "tradition": "divine",
+    "gifts": [
+      ["cantrip", "ignition"],
+      [1, "charm"],
+      [2, "floating-flame"],
+      [3, "enthrall"],
+      [4, "suggestion"],
+      [5, "wave-of-despair"],
+      [6, "truesight"],
+      [7, "divine-decree"],
+      [8, "divine-inspiration"],
+      [9, "falling-stars"]
+    ]
+  },
+  "class-feature:bloodline-draconic": {
+    "entry": "sorcerer",
+    "gifts": [
+      ["cantrip", "shield"],
+      [1, "fear"],
+      [3, "haste"],
+      [4, "fly"],
+      [6, "dragon-form"],
+      [7, "mask-of-terror"],
+      [9, "overwhelming-presence"]
+    ],
+    "pick": {
+      "flag": "draconic-exemplar",
+      "prompt": "Select a draconic exemplar.",
+      "options": [
+        {
+          "value": "arcane",
+          "label": "Arcane",
+          "tradition": "arcane",
+          "gifts": [
+            [2, "blazing-bolt"],
+            [5, "subconscious-suggestion"],
+            [8, "quandary"]
+          ]
+        },
+        {
+          "value": "divine",
+          "label": "Divine",
+          "tradition": "divine",
+          "gifts": [
+            [2, "augury"],
+            [5, "divine-immolation"],
+            [8, "divine-inspiration"]
+          ]
+        },
+        {
+          "value": "occult",
+          "label": "Occult",
+          "tradition": "occult",
+          "gifts": [
+            [2, "blood-vendetta"],
+            [5, "slither"],
+            [8, "unrelenting-observation"]
+          ]
+        },
+        {
+          "value": "primal",
+          "label": "Primal",
+          "tradition": "primal",
+          "gifts": [
+            [2, "shatter"],
+            [5, "howling-blizzard"],
+            [8, "earthquake"]
+          ]
+        }
+      ]
+    }
+  },
+  "class-feature:bloodline-elemental": {
+    "entry": "sorcerer",
+    "tradition": "primal",
+    "gifts": [
+      [2, "resist-energy"],
+      [4, "unfettered-movement"],
+      [5, "elemental-form"],
+      [7, "energy-aegis"],
+      [8, "earthquake"],
+      [9, "wrathful-storm"]
+    ],
+    "pick": {
+      "flag": "elemental-influence",
+      "prompt": "Select an elemental influence.",
+      "options": [
+        {
+          "value": "air",
+          "label": "Air",
+          "gifts": [
+            ["cantrip", "gale-blast"],
+            [1, "tailwind"],
+            [3, "wall-of-wind"],
+            [6, "chain-lightning"]
+          ]
+        },
+        {
+          "value": "earth",
+          "label": "Earth",
+          "gifts": [
+            ["cantrip", "scatter-scree"],
+            [1, "pummeling-rubble"],
+            [3, "earthbind"],
+            [6, "petrify"]
+          ]
+        },
+        {
+          "value": "fire",
+          "label": "Fire",
+          "gifts": [
+            ["cantrip", "ignition"],
+            [1, "breathe-fire"],
+            [3, "fireball"],
+            [6, "tree-of-seasons"]
+          ]
+        },
+        {
+          "value": "metal",
+          "label": "Metal",
+          "gifts": [
+            ["cantrip", "electric-arc"],
+            [1, "thunderstrike"],
+            [3, "lightning-bolt"],
+            [6, "chain-lightning"]
+          ]
+        },
+        {
+          "value": "water",
+          "label": "Water",
+          "gifts": [
+            ["cantrip", "frostbite"],
+            [1, "hydraulic-push"],
+            [3, "aqueous-orb"],
+            [6, "scintillating-safeguard"]
+          ]
+        },
+        {
+          "value": "wood",
+          "label": "Wood",
+          "gifts": [
+            ["cantrip", "tangle-vine"],
+            [1, "cleanse-cuisine"],
+            [3, "wall-of-thorns"],
+            [6, "tangling-creepers"]
+          ]
+        }
+      ]
+    }
+  },
+  "class-feature:bloodline-fey": {
+    "entry": "sorcerer",
+    "tradition": "primal",
+    "gifts": [
+      ["cantrip", "figment"],
+      [1, "charm"],
+      [2, "laughing-fit"],
+      [3, "enthrall"],
+      [4, "suggestion"],
+      [5, "hallucination"],
+      [6, "mislead"],
+      [7, "visions-of-danger"],
+      [8, "uncontrollable-dance"],
+      [9, "metamorphosis"]
+    ]
+  },
+  "class-feature:bloodline-hag": {
+    "entry": "sorcerer",
+    "tradition": "occult",
+    "gifts": [
+      ["cantrip", "daze"],
+      [1, "illusory-disguise"],
+      [2, "stupefy"],
+      [3, "blindness"],
+      [4, "outcasts-curse"],
+      [5, "mariners-curse"],
+      [6, "cursed-metamorphosis"],
+      [7, "warp-mind"],
+      [8, "quandary"],
+      [9, "phantasmagoria"]
+    ]
+  },
+  "class-feature:bloodline-imperial": {
+    "entry": "sorcerer",
+    "tradition": "arcane",
+    "gifts": [
+      ["cantrip", "detect-magic"],
+      [1, "force-barrage"],
+      [2, "dispel-magic"],
+      [3, "haste"],
+      [4, "translocate"],
+      [5, "scouting-eye"],
+      [6, "disintegrate"],
+      [7, "retrocognition"],
+      [8, "quandary"],
+      [9, "implosion"]
+    ]
+  },
+  "class-feature:bloodline-undead": {
+    "entry": "sorcerer",
+    "tradition": "divine",
+    "gifts": [
+      ["cantrip", "void-warp"],
+      [1, "harm"],
+      [2, "see-the-unseen"],
+      [3, "bind-undead"],
+      [4, "talking-corpse"],
+      [5, "invoke-spirits"],
+      [6, "vampiric-exsanguination"],
+      [7, "execute"],
+      [8, "canticle-of-everlasting-grief"],
+      [9, "wails-of-the-damned"]
+    ]
+  },
+  "class-feature:ancestors": {
+    "entry": "oracle",
+    "gifts": [
+      ["cantrip", "guidance"],
+      [1, "ill-omen"],
+      [2, "ghostly-carrier"],
+      [5, "dreaming-potential"]
+    ]
+  },
+  "class-feature:battle": {
+    "entry": "oracle",
+    "gifts": [
+      ["cantrip", "shield"],
+      [1, "sure-strike"],
+      [2, "telekinetic-maneuver"],
+      [4, "weapon-storm"]
+    ]
+  },
+  "class-feature:bones": {
+    "entry": "oracle",
+    "gifts": [
+      ["cantrip", "void-warp"],
+      [1, "grim-tendrils"],
+      [2, "false-vitality"],
+      [3, "ghostly-weapon"]
+    ]
+  },
+  "class-feature:cosmos": {
+    "entry": "oracle",
+    "gifts": [
+      ["cantrip", "light"],
+      [1, "dizzying-colors"],
+      [2, "darkness"],
+      [5, "moon-frenzy"]
+    ]
+  },
+  "class-feature:flames": {
+    "entry": "oracle",
+    "gifts": [
+      ["cantrip", "ignition"],
+      [1, "breathe-fire"],
+      [2, "blazing-bolt"],
+      [3, "fireball"]
+    ]
+  },
+  "class-feature:life": {
+    "entry": "oracle",
+    "gifts": [
+      ["cantrip", "vitality-lash"],
+      [1, "soothe"],
+      [2, "false-vitality"],
+      [5, "grisly-growths"]
+    ]
+  },
+  "class-feature:lore": {
+    "entry": "oracle",
+    "gifts": [
+      ["cantrip", "read-aura"],
+      [1, "mindlink"],
+      [3, "hypercognition"],
+      [6, "never-mind"]
+    ]
+  },
+  "class-feature:tempest": {
+    "entry": "oracle",
+    "gifts": [
+      ["cantrip", "electric-arc"],
+      [1, "thunderstrike"],
+      [4, "hydraulic-torrent"],
+      [6, "chain-lightning"]
+    ]
+  }
+}

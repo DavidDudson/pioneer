@@ -1,11 +1,12 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import type { PickedPreparation } from '@pioneer/character/domain';
-import { Heading, InlineField, List, ListItem, Stack, Text } from '@pioneer/frontier';
+import { Heading, List, ListItem, Stack, Text } from '@pioneer/frontier';
 import { SpellPreparation } from '@pioneer/rules/sdk';
-import { SpellDetails, SpellPicker, TRADITION_MESSAGES } from '@pioneer/rules/ui';
+import { TRADITION_MESSAGES } from '@pioneer/rules/ui';
 
 import type { PreparedEntryFields } from '../sheet-spell-picks';
+import { SheetPreparedSlot } from './sheet-prepared-slot.component';
 
 /** Each kind of entry's heading: its prepared spells, or its spell repertoire. */
 const HEADINGS: Readonly<Record<PickedPreparation, string>> = {
@@ -23,7 +24,7 @@ const HEADINGS: Readonly<Record<PickedPreparation, string>> = {
  */
 @Component({
   selector: 'pio-sheet-prepared-spells',
-  imports: [Heading, InlineField, List, ListItem, SpellDetails, SpellPicker, Stack, Text, TranslocoPipe],
+  imports: [Heading, List, ListItem, SheetPreparedSlot, Stack, Text, TranslocoPipe],
   templateUrl: './sheet-prepared-spells.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

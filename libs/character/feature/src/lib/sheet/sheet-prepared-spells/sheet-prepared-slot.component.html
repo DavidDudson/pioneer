@@ -1,0 +1,29 @@
+<fr-stack gap="2xs">
+  @let reason = slot().reason();
+  @if (slot().grantedSpell(); as gift) {
+    <fr-text element="p" variant="caption" tone="subtle">{{
+      slot().label.key | transloco: slot().label.params
+    }}</fr-text>
+    <fr-text element="p">{{ 'character.sheet.repertoire.granted' | transloco: { spell: gift } }}</fr-text>
+  } @else {
+    <fr-inline-field
+      [label]="slot().label.key | transloco: slot().label.params"
+      [edit]="slot().field"
+      [notice]="reason === undefined ? undefined : (reason.key | transloco: reason.params)"
+    >
+      <pio-spell-picker
+        frInlineEditor
+        [ariaLabel]="slot().label.key | transloco: slot().label.params"
+        [placeholder]="'character.sheet.prepared.placeholder' | transloco"
+        [rows]="slot().rows()"
+        [value]="slot().field.draft()"
+        (valueChange)="slot().field.change($event)"
+        (committed)="slot().field.flushSoon()"
+        (cancelled)="slot().field.cancel()"
+      />
+    </fr-inline-field>
+  }
+  @if (slot().detail(); as detail) {
+    <pio-spell-details [spell]="detail" />
+  }
+</fr-stack>

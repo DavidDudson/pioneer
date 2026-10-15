@@ -1,5 +1,6 @@
 import { SheetMode } from '@pioneer/character/domain';
 import { playerCoreClassId } from '@pioneer/character/domain/testing';
+import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
@@ -14,6 +15,11 @@ const SPELL_PACKS = cutTo(SPELL_CONTENT_KINDS);
 
 /** Player Core's Soothe, a 1st-rank occult spell. */
 const SOOTHE = '272d555d-f777-5439-b02b-cc5325c0a648';
+
+/** Player Core 2's id for the entry with `slug`. */
+function playerCore2(slug: string): string {
+  return contentId(PackId.parse('player-core-2'), EntrySlug.parse(slug));
+}
 
 /** Merisiel as a bard of `level`, with `choices` picked besides. */
 function bard(level: number, choices: Readonly<Record<string, string>> = {}): object {
@@ -115,5 +121,33 @@ describe('CharacterSheetPage spell details', () => {
         [...soothe.slice(0, 2), 'Effect: 2d10+8 healing', soothe[2]],
       ]);
     });
+  });
+});
+
+/** Merisiel as a demonic sorcerer of `level`. */
+function demonicSorcerer(level: number): object {
+  const choices = {
+    ...MERISIEL.build.choices,
+    class: playerCore2('class:sorcerer'),
+    [`${playerCore2('class-feature:bloodline')}:0`]: playerCore2('class-feature:bloodline-demonic'),
+  };
+  return { ...MERISIEL, level, build: { choices, spellAccess: [] } };
+}
+
+describe('CharacterSheetPage granted repertoire spells', () => {
+  beforeAll(async () => {
+    await prebuildServerStateTesting();
+  }, PREBUILD_TIMEOUT);
+
+  it("lists a bloodline's gift as read-only text in place of the first picker of its rank", async () => {
+    const { root } = await openSheet(demonicSorcerer(1), { packs: SPELL_PACKS });
+    const pickers = await pickersOf(root);
+
+    await vi.waitFor(() => {
+      expect(textOf(pickers)).toContain('Fear, always known');
+    });
+    expect(textOf(pickers)).toContain('Caustic Blast, always known');
+    expect(pickerLabels(pickers)).not.toContain('1st rank spell 1');
+    expect(pickerLabels(pickers)).toContain('1st rank spell 2');
   });
 });

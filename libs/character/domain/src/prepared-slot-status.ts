@@ -48,6 +48,7 @@ export function preparedStatuses(
         entry: slot.entry,
         ...(slot.pool === undefined ? {} : { pool: slot.pool.slug }),
         rank: slot.rank,
+        ...(slot.granted ? { granted: true } : {}),
       },
       stored: slot.stored,
       planned,

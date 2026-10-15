@@ -32,6 +32,7 @@ export const RuleElementKey = {
   DeitySpells: 'DeitySpells',
   SignatureSpells: 'SignatureSpells',
   FocusSpells: 'FocusSpells',
+  RepertoireSpells: 'RepertoireSpells',
   Language: 'Language',
   ActorTraits: 'ActorTraits',
   Strike: 'Strike',

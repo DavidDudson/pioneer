@@ -80,12 +80,15 @@ export const SlotSubject = z.discriminatedUnion('kind', [
   /**
    * A prepared slot of `rank` on the spellcasting entry `entry`: cantrips, or 1 to 10 (#478); with `pool`, one of the
    * entry's pool of that slug (#581).
+   * A repertoire slot an element fills is `granted`.
    */
   z.strictObject({
     kind: z.literal(SlotSubjectKind.Spell),
     entry: Slug,
     pool: RuleSlug.optional(),
     rank: PreparedRankSchema,
+    /** Filled by a `RepertoireSpells` element (ADR-0062): a bloodline's gift, which the character can't change. */
+    granted: z.literal(true).optional(),
   }),
   /** The signature spell of `rank` on the spontaneous entry `entry` (#479). */
   z.strictObject({ kind: z.literal(SlotSubjectKind.Signature), entry: Slug, rank: SpellRank }),

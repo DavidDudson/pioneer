@@ -6,9 +6,10 @@ import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 import type { CharacterDocument } from './character-document';
 import { SlotInvalidMessage, SlotStatus } from './character-slot';
 import { characterSlots } from './character-slot-status';
-import { PreparedPickProblem, preparedSlots, SpellAccessProblem, spellAccessProblem } from './prepared-spells';
+import { PreparedPickProblem, preparedSlots } from './prepared-spells';
 import type { PreparedSlot } from './prepared-spells';
 import { preparedReads, slotContent, slotRefusal } from './slot-offer';
+import { SpellAccessProblem, spellAccessProblem } from './spell-access';
 import { CharacterBuilder, playerCoreClasses, playerCoreClassId, spellFixtureId, spellFixtures } from './testing';
 import type { PlayerCoreClass, SpellFixture } from './testing';
 
