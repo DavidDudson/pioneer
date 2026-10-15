@@ -17,7 +17,7 @@ import { runeContent } from '../item-runes';
 import type { RuneContent } from '../item-runes';
 import { CLUMSY, ENCUMBERED, ITEM_PACK } from './condition-fixture-ids';
 import { BULWARK_CHARM, EMBER_BLADE, TROLL_CHARM } from './effect-items';
-import { FIRE_STAFF } from './fire-staff';
+import { FIRE_STAFF, FIRE_STAFF_SPELLS } from './fire-staff';
 import { HUNTERS_BLADE } from './hunters-blade';
 import { HUNTERS_CLOAK } from './hunters-cloak';
 import { MOVEMENT_CHARM } from './movement-charm';
@@ -233,6 +233,9 @@ function itemPack(): ContentPack {
   }
   for (const [name, fields] of Object.entries(RUNES)) {
     builder.withMagicItem(ContentKind.Rune, name, fields);
+  }
+  for (const [name, spell] of Object.entries(FIRE_STAFF_SPELLS)) {
+    builder.withSpell(name, spell);
   }
   builder.withCondition(
     CLUMSY,
