@@ -151,3 +151,29 @@ describe('CharacterSheetPage granted repertoire spells', () => {
     expect(pickerLabels(pickers)).toContain('1st rank spell 2');
   });
 });
+
+describe('CharacterSheetPage repertoire swaps', () => {
+  beforeAll(async () => {
+    await prebuildServerStateTesting();
+  }, PREBUILD_TIMEOUT);
+
+  // The spell table can't be driven in this harness (#734), so this checks only that the sheet reads a swap record.
+  // A refused swap's reason shows as every server refusal does (character-sheet-page.component.spec.ts).
+  it("reads a character that has swapped a repertoire spell this level, keeping the swapped spell's picker", async () => {
+    const choices = { 'repertoire:bard:1:0': SOOTHE };
+    const swapped = {
+      ...bard(5, choices),
+      build: {
+        choices: { ...MERISIEL.build.choices, class: playerCoreClassId('bard'), ...choices },
+        spellAccess: [],
+        repertoireSwaps: [{ level: 5, slot: 'repertoire:bard:1:0' }],
+      },
+    };
+    const { root } = await openSheet(swapped, { packs: SPELL_PACKS });
+    const pickers = await pickersOf(root);
+
+    await vi.waitFor(() => {
+      expect(pickerLabels(pickers)).toContain('1st rank spell 1');
+    });
+  });
+});

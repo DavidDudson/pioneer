@@ -60,9 +60,9 @@ import type { Clock, UserId } from '@pioneer/shared/kernel';
 
 import { contentOfCharacter, variantRulesOfCharacter } from './character-content';
 import type { CharacterContentSource } from './character-content';
-import { checkCondition, checkEffect, checkStaff, isDailyPreparations } from './play-checks';
 import { mayAccessCharacter } from './character-policy';
 import type { CharacterRepository, PlayWrite } from './character-repository';
+import { checkCondition, checkEffect, checkStaff, isDailyPreparations } from './play-checks';
 
 /** The maximum handed to edits that don't read it, so none has to be derived for them. */
 const NO_MAX_HIT_POINTS = HitPoints.parse(0);
@@ -281,4 +281,3 @@ export class PlayService {
     return character;
   }
 }
-

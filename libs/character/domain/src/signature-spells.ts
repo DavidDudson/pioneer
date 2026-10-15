@@ -134,3 +134,10 @@ export function signatureRefusal(
 export function isSignatureKey(slot: SlotKey): boolean {
   return slot.startsWith(SIGNATURE_PREFIX);
 }
+
+/** The signature slot of the rank a repertoire slot holds a spell of, or undefined for a cantrip or another slot. */
+export function signatureKeyOf(repertoireSlot: SlotKey): SlotKey | undefined {
+  const [prefix, entry, rank] = repertoireSlot.split(':');
+  const ranked = prefix === 'repertoire' && entry !== undefined && rank !== undefined && rank !== 'cantrip';
+  return ranked ? SlotKey.parse(`${SIGNATURE_PREFIX}${entry}:${rank}`) : undefined;
+}

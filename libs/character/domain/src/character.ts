@@ -5,7 +5,7 @@ import type { Temporal, UserId } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { CharacterDocumentSchema } from './character-document';
-import type { CharacterDocument } from './character-document';
+import type { Build, CharacterDocument } from './character-document';
 import { CURRENT_SCHEMA_VERSION } from './character-document-upgrades';
 import { CHARACTER_LEVEL_MIN, CharacterLevel } from './character-fields';
 import type { CharacterId, CharacterName } from './character-fields';
@@ -18,6 +18,7 @@ import { inventoryRefusal, moveItem, removeItem, renameItem, setItemQuantity } f
 import type { Inventory, InventoryEdit } from './inventory';
 import { withAddedItem, withAddedKit } from './item-purchase';
 import type { EditInputs } from './item-purchase';
+import { signatureKeyOf } from './signature-spells';
 
 /**
  * JSON shape of a character on the wire: its document at the current schema version, plus the row's version and
@@ -149,10 +150,10 @@ export class Character {
         return { document: { ...this.document, level: patch.value } };
       }
       case CharacterPatchField.SelectSlot: {
-        return { document: this.#choose(patch.slot, patch.selection) };
+        return { document: this.#choose(patch.slot, patch.selection, inputs) };
       }
       case CharacterPatchField.ClearSlot: {
-        return { document: this.#clear(patch.slot) };
+        return { document: this.#clear(patch.slot, inputs) };
       }
       case CharacterPatchField.CarryItem:
       case CharacterPatchField.InvestItem:
@@ -241,19 +242,32 @@ export class Character {
     return { document: { ...this.document, build: { ...build, spellAccess } } };
   }
 
-  #choose(slot: SlotKey, value: ChoiceValue): CharacterDocument {
+  #choose(slot: SlotKey, value: ChoiceValue, inputs: EditInputs): CharacterDocument {
     const { build } = this.document;
-    return {
-      ...this.document,
-      build: { ...build, choices: { ...build.choices, [slot]: value } },
-    };
+    const choices: Record<SlotKey, ChoiceValue> = { ...build.choices, [slot]: value };
+    const old = build.choices[slot];
+    if (inputs.countsAsSwap !== true || old === undefined) {
+      return { ...this.document, build: { ...build, choices } };
+    }
+    const signature = signatureKeyOf(slot);
+    if (signature !== undefined && choices[signature] === old) {
+      choices[signature] = value;
+    }
+    return { ...this.document, build: { ...build, choices, repertoireSwaps: this.#swapped(slot) } };
+  }
+
+  /** The swaps with `slot` recorded at the character's level. */
+  #swapped(slot: SlotKey): Build['repertoireSwaps'] {
+    const { level, build } = this.document;
+    return [...build.repertoireSwaps.filter((each) => each.level !== level), { level, slot }];
   }
 
   /** The document without a selection for `slot`; every other pick, shown or hidden, stays. */
-  #clear(slot: SlotKey): CharacterDocument {
+  #clear(slot: SlotKey, inputs: EditInputs = {}): CharacterDocument {
     const { build } = this.document;
     const { [slot]: _cleared, ...choices } = build.choices;
-    return { ...this.document, build: { ...build, choices } };
+    const repertoireSwaps = inputs.countsAsSwap === true ? this.#swapped(slot) : build.repertoireSwaps;
+    return { ...this.document, build: { ...build, choices, repertoireSwaps } };
   }
 
   public withVersion(version: Version): Character {

@@ -30,6 +30,8 @@ const UPGRADES: readonly UpgradeStep[] = [
   (document) => document,
   /** 6 → 7: a second class beside the first (#705). A version 6 build has no `second-class` pick, which reads as none. */
   (document) => document,
+  /** 7 → 8: the repertoire slot swapped at each level (#594). A version 7 build has swapped none. */
+  (document) => document,
 ];
 
 /** The version a chain of steps upgrades to: one past the last step. */
