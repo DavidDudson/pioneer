@@ -1,8 +1,18 @@
 import { describe, expect, test } from 'bun:test';
 
-import { Attribute, AttributeModifier, AttributeModifiers, HitPoints, Level } from '@pioneer/rules/sdk';
+import {
+  Attribute,
+  AttributeModifier,
+  AttributeModifiers,
+  ConditionEffect,
+  ContentKind,
+  ContentRegistry,
+  HitPoints,
+  Level,
+} from '@pioneer/rules/sdk';
+import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 
-import { restHealing } from './rest-limits';
+import { restHealing, restRecovery } from './rest-limits';
 
 function healing(constitution: number, level: number): HitPoints {
   return restHealing({
@@ -18,5 +28,27 @@ describe('restHealing', () => {
 
   test.each([0, -1])('heals at least 1 per level at a Constitution modifier of %d', (constitution) => {
     expect(healing(constitution, 4)).toBe(HitPoints.parse(4));
+  });
+});
+
+describe('restRecovery', () => {
+  const pack = new ContentPackBuilder()
+    .withCondition('fatigued', [], { recovery: { rest: ConditionEffect.Remove } })
+    .withCondition('drained', [], { valued: true, recovery: { rest: ConditionEffect.Lower } })
+    .withCondition('blinded');
+  const registry = new ContentRegistry();
+  registry.register(pack.build());
+
+  test('maps each condition the content eases on Rest to what Rest does to it', () => {
+    expect(restRecovery(registry)).toEqual(
+      new Map([
+        [pack.idOf(ContentKind.Condition, 'fatigued'), ConditionEffect.Remove],
+        [pack.idOf(ContentKind.Condition, 'drained'), ConditionEffect.Lower],
+      ]),
+    );
+  });
+
+  test('is empty while the content eases nothing', () => {
+    expect(restRecovery(new ContentRegistry()).size).toBe(0);
   });
 });

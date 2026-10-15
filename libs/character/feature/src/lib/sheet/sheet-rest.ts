@@ -1,10 +1,4 @@
-import {
-  applyRestCommand,
-  RECOVERY_CONDITIONS,
-  Resource,
-  RestChangeKind,
-  restHealing,
-} from '@pioneer/character/domain';
+import { applyRestCommand, Resource, RestChangeKind, restHealing, restRecovery } from '@pioneer/character/domain';
 import type {
   Character,
   PlayState,
@@ -16,6 +10,7 @@ import type {
 } from '@pioneer/character/domain';
 import type { ContentRegistry, HitPoints } from '@pioneer/rules/sdk';
 
+import { conditionName } from './sheet-conditions';
 import { countedViews, sheetCounted } from './sheet-counted';
 import type { CountedViews } from './sheet-counted';
 import { statisticInputsOf } from './sheet-inputs';
@@ -63,21 +58,30 @@ function staffLine(
   return { key: 'character.sheet.rest.slotExpended', params: { source: view?.source, rank: view?.rank } };
 }
 
-/** The words of one change; slots and uses are named as the sheet names them. */
-function lineOf(change: RestChange, views: CountedViews, staves: readonly StaffOption[]): RestLine {
+/** What names the things a change mentions. */
+interface RestNames {
+  readonly views: CountedViews;
+  readonly staves: readonly StaffOption[];
+  readonly registry: ContentRegistry;
+}
+
+/** The words of one change; slots, uses and conditions are named as the sheet names them. */
+function lineOf(change: RestChange, { views, staves, registry }: RestNames): RestLine {
   switch (change.kind) {
     case RestChangeKind.HitPoints: {
       return { key: 'character.sheet.rest.hitPoints', params: { gained: change.gained } };
     }
     case RestChangeKind.ConditionRemoved: {
-      const fatigued = change.condition === RECOVERY_CONDITIONS.fatigued;
       return {
-        key: fatigued ? 'character.sheet.rest.fatiguedRemoved' : 'character.sheet.rest.drainedRemoved',
-        params: {},
+        key: 'character.sheet.rest.conditionRemoved',
+        params: { name: conditionName(registry, change.condition) },
       };
     }
     case RestChangeKind.ConditionLowered: {
-      return { key: 'character.sheet.rest.drainedLowered', params: { value: change.value } };
+      return {
+        key: 'character.sheet.rest.conditionLowered',
+        params: { name: conditionName(registry, change.condition), value: change.value },
+      };
     }
     case RestChangeKind.Doomed: {
       return { key: 'character.sheet.rest.doomedLowered', params: { doomed: change.doomed } };
@@ -119,9 +123,9 @@ export function restLines(
   const healing = restHealing(statisticInputsOf(registry, character));
   const counted = sheetCounted(registry, character);
   const staff = sheetStaffLimits(registry, character);
-  const limits = { hitPoints, healing, recovery: RECOVERY_CONDITIONS, resources, counted, staff };
+  const limits = { hitPoints, healing, recovery: restRecovery(registry), resources, counted, staff };
   const { changes } = applyRestCommand(play, command, limits);
   const views = countedViews(registry, character, play.resources);
   const staves = staffOptions(registry, character, staff);
-  return changes.map((change) => lineOf(change, views, staves));
+  return changes.map((change) => lineOf(change, { views, staves, registry }));
 }

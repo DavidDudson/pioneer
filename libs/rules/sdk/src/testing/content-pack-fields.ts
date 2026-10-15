@@ -1,3 +1,5 @@
+import type { ConditionRecovery } from '../condition';
+
 /** A deity's `data` as tests give it: any field left out is empty, and the category is `deity`. */
 export type DeityFields = Partial<
   Record<'domains' | 'font' | 'attributes' | 'skills' | 'weapons' | 'spells', unknown>
@@ -20,6 +22,8 @@ export interface MagicItemFields {
 export interface ConditionFields {
   /** Whether it carries a value (Clumsy 1). */
   readonly valued?: boolean;
+  /** How it recovers, by trigger (Fatigued is removed by Rest). */
+  readonly recovery?: ConditionRecovery;
 }
 
 /** What a test spell has: its rank and traditions, and its traits (`cantrip`, `focus`) and rarity. */

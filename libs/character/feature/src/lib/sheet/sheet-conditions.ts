@@ -54,6 +54,11 @@ function isCondition(entry: ContentEntry): entry is ConditionEntry {
   return entry.kind === ContentKind.Condition;
 }
 
+/** The name of condition `id`, else the id itself while the content lacks it. */
+export function conditionName(registry: ContentRegistry, id: ContentId): string {
+  return conditionEntries(registry).get(id)?.name ?? id;
+}
+
 /** Every condition the content has, by name, for the add picker. */
 export function conditionOptions(registry: ContentRegistry): readonly ConditionOption[] {
   return [...conditionEntries(registry).values()]

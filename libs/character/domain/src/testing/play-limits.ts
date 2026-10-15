@@ -8,10 +8,7 @@ import type { ResourceMaxima } from '../resources';
 import type { RecoveryConditions } from '../rest-types';
 import { NO_STAFF } from '../staff-limits';
 
-const NO_RECOVERY: RecoveryConditions = {
-  fatigued: undefined,
-  drained: undefined,
-};
+const NO_RECOVERY: RecoveryConditions = new Map();
 
 /** Limits with `hitPoints` as the maximum and `resources` as the pools' maxima: none, when not given. */
 export function within(

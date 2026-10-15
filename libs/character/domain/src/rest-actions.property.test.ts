@@ -30,7 +30,7 @@ const COUNTED: CountedMaxima = {
 const LIMITS: RestLimits = {
   hitPoints: HitPoints.parse(HIT_POINTS_MAX),
   healing: HitPoints.parse(MAX),
-  recovery: { fatigued: undefined, drained: undefined },
+  recovery: new Map(),
   resources: resourceMaxima(FocusPoints.parse(2)),
   counted: COUNTED,
   staff: NO_STAFF,

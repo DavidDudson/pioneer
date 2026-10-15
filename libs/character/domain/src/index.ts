@@ -432,7 +432,7 @@ export {
 } from './play-needs';
 export { applyRestCommand, preparedDaily, refocused, rested, sessionStarted } from './rest-actions';
 
-export { RECOVERY_CONDITIONS, restHealing } from './rest-limits';
+export { restHealing, restRecovery } from './rest-limits';
 export {
   isRestCommand,
   type RecoveryConditions,

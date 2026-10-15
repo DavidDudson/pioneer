@@ -19,6 +19,24 @@ const ConditionGroupSchema = z.enum(ConditionGroup);
 
 const CONDITION_REFS_MAX = 8;
 
+/** What ends or eases a condition for the character without anyone editing it. */
+export const ConditionTrigger = {
+  /** The Rest action (Player Core, Resting). */
+  Rest: 'rest',
+} as const;
+export type ConditionTrigger = ValueOf<typeof ConditionTrigger>;
+
+/** What a trigger does to the condition: end it, or lower its value by 1 (it ends at 0). */
+export const ConditionEffect = {
+  Remove: 'remove',
+  Lower: 'lower',
+} as const;
+export type ConditionEffect = ValueOf<typeof ConditionEffect>;
+
+/** How a condition recovers, by trigger: Fatigued is removed by Rest, Drained is lowered by it. */
+export const ConditionRecovery = z.partialRecord(z.enum(ConditionTrigger), z.enum(ConditionEffect)).readonly();
+export type ConditionRecovery = z.infer<typeof ConditionRecovery>;
+
 /**
  * A condition's `data` on the `ContentEntry` envelope. What it does to statistics is in `rules`; this is what the
  * app needs to apply and stack it.
@@ -34,5 +52,7 @@ export const ConditionData = z.strictObject({
    * `rules`, which is what applies it; this list is what the sheet shows.
    */
   implies: z.array(ContentId).max(CONDITION_REFS_MAX).readonly(),
+  /** How it recovers, by trigger; empty for a condition only an edit or its own duration ends. */
+  recovery: ConditionRecovery.default({}),
 });
 export type ConditionData = z.infer<typeof ConditionData>;
