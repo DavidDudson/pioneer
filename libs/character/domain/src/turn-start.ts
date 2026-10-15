@@ -47,11 +47,15 @@ function healing(outcome: TurnOutcome, { recovery, limits }: TurnInputs): TurnOu
   return current;
 }
 
-/** `effect` one round on. It ends when its rounds run out and it ends at a turn start, which is how a timed effect ends unless its content says otherwise. */
+/**
+ * `effect` one round on, or nothing when it ends here. A timed effect ends when its rounds run out at a turn start,
+ * which is how it ends unless its content says otherwise; one with no clock ends at a turn start only if its expiry
+ * says so (a turn effect), and an encounter or unlimited effect never does.
+ */
 function countedDown(effect: ActiveEffect): ActiveEffect | undefined {
-  const { remaining } = effect;
+  const { remaining, expiry } = effect;
   if (remaining === undefined) {
-    return effect;
+    return expiry === EffectExpiry.TurnStart ? undefined : effect;
   }
   if (remaining > ONE_ROUND) {
     return { ...effect, remaining: EffectRounds.parse(remaining - ONE_ROUND) };

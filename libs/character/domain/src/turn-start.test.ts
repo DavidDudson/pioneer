@@ -140,6 +140,14 @@ describe('startTurn', () => {
     expect(start({ ...FRESH_PLAY, effects: [timed] }).play.effects).toEqual([]);
   });
 
+  test('an effect with no clock that ends at a turn start is removed; one with no expiry stays', () => {
+    const turn = effect(1, { expiry: EffectExpiry.TurnStart });
+    const encounter = effect(2);
+    const { play, events } = start({ ...FRESH_PLAY, effects: [turn, encounter] });
+    expect(play.effects).toEqual([encounter]);
+    expect(events[1]).toMatchObject({ kind: TurnEventKind.EffectExpired, instance: effectId(1) });
+  });
+
   test('an effect that ends at a turn end stays on its last round for the end of turn', () => {
     const last = effect(1, { remaining: rounds(1), expiry: EffectExpiry.TurnEnd });
     const { play, events } = start({ ...FRESH_PLAY, effects: [last] });

@@ -40,8 +40,11 @@ const effects: Arbitrary<readonly ActiveEffect[]> = shapes.map((each) =>
   })),
 );
 
-/** Whether the effect's last round ends at a turn start, so the start of the turn removes it. */
+/** Whether the effect ends at this turn start: its last round ends at a turn start, or it has no clock and ends at one. */
 function ranOut({ remaining, expiry }: ActiveEffect): boolean {
+  if (remaining === undefined) {
+    return expiry === EffectExpiry.TurnStart;
+  }
   return remaining === 1 && (expiry ?? EffectExpiry.TurnStart) === EffectExpiry.TurnStart;
 }
 
