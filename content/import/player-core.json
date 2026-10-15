@@ -13954,17 +13954,6 @@
         },
         {
           "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.attributes.reach.base",
-            "predicate": ["untamed-shift:long-vines"],
-            "value": 10
-          }
-        },
-        {
-          "type": "rule",
           "key": "DamageDice",
           "raw": {
             "damageType": "bleed",
@@ -16478,24 +16467,6 @@
                 "text": "@UUID[Compendium.pf2e.feat-effects.Item.Effect: Deity's Protection]"
               }
             ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:diehard",
-      "foundry": "Compendium.pf2e.feats-srd.Item.I0BhPWqYf1bbzEYg",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.attributes.dying.max",
-            "value": 5
           }
         }
       ]
@@ -19035,26 +19006,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[equipment-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:lunge",
-      "foundry": "Compendium.pf2e.feats-srd.Item.rTkr1EqpAN6YtnAh",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "add",
-            "path": "system.attributes.reach.base",
-            "phase": "afterDerived",
-            "predicate": ["lunge"],
-            "value": 5
-          }
         }
       ]
     },

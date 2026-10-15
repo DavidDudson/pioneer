@@ -13268,7 +13268,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "dying-max",
+        "mode": "upgrade",
+        "value": 5
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.I0BhPWqYf1bbzEYg"
     },
@@ -31127,6 +31134,13 @@
         "key": "RollOption",
         "option": "option:lunge",
         "toggleable": true
+      },
+      {
+        "key": "Change",
+        "selector": "reach",
+        "mode": "add",
+        "value": 5,
+        "predicate": ["option:lunge"]
       }
     ],
     "externalIds": {

@@ -20,6 +20,7 @@ import { assert, property } from 'fast-check';
 import {
   AC_BASE,
   anyInputs,
+  COUNTS,
   contentOf,
   core,
   coreRules,
@@ -66,10 +67,10 @@ const societyLore = ContentPack.define({
   ],
 });
 
-/** A `Change` that upgrades `selector` to `value`, as a rule on a test entry. */
-function upgradeTo(selector: string, value: number): RuleInPlay {
+/** A `Change` of `selector` by `mode` and `value`, as a rule on a test entry. */
+function changeOf(selector: string, mode: string, value: number): RuleInPlay {
   return RuleInPlay.parse({
-    element: { key: 'Change', selector, mode: 'upgrade', value },
+    element: { key: 'Change', selector, mode, value },
     origin: {
       hops: [],
       entry: contentId(coreRules.id, EntrySlug.parse('statistic:test-bonus')),
@@ -77,6 +78,11 @@ function upgradeTo(selector: string, value: number): RuleInPlay {
     },
     rule: 0,
   });
+}
+
+/** A `Change` that upgrades `selector` to `value`. */
+function upgradeTo(selector: string, value: number): RuleInPlay {
+  return changeOf(selector, 'upgrade', value);
 }
 
 /** A +1 status bonus to everything in `target`, as a rule on a test entry. */
@@ -182,6 +188,12 @@ describe('core rules pack', () => {
     });
   });
 
+  test('a Change moves reach and the dying limit', () => {
+    const rules = [changeOf('reach', 'add', 10), upgradeTo('dying-max', 5), upgradeTo('reach', 5)];
+    const derived = deriveStatistics(core, fighter, { rules, facts: noFacts() });
+    expect(totals(derived)).toMatchObject({ reach: 15, 'dying-max': 5 });
+  });
+
   test('derives one Strike per weapon', () => {
     // Longsword: Strength 4 plus expert 7, and its +1 potency line. Dagger: finesse, but Strength 4 beats Dexterity 2.
     expect(totals(deriveStatistics(core, fighter))).toMatchObject({ 'strike:longsword': 12, 'strike:dagger': 11 });
@@ -221,7 +233,7 @@ describe('core rules pack', () => {
   test('domains route modifiers to the right statistics', () => {
     expect(reachedBy('saving-throw')).toStrictEqual(sorted(['save:fortitude', 'save:reflex', 'save:will']));
     expect(reachedBy('skill-check')).toStrictEqual(sorted([...SKILL_SELECTORS, ...LORE_SELECTORS]));
-    const notRolled = new Set(['ac', 'class-dc', 'hp:max', ...SPEEDS]);
+    const notRolled = new Set(['ac', 'class-dc', 'hp:max', ...SPEEDS, ...COUNTS]);
     const checks = SELECTORS.filter((selector) => !notRolled.has(selector));
     expect(reachedBy('check')).toStrictEqual(sorted([...checks, ...LORE_SELECTORS, ...STRIKES]));
     expect(reachedBy('attack-roll')).toStrictEqual(sorted(STRIKES));

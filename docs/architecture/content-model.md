@@ -770,7 +770,14 @@ FlatModifier` appends the import's rules of the keys named to the committed entr
     `system.proficiencies.defenses.<category>.rank` (`unarmored`, `light`, `medium`, `heavy`) and
     `system.proficiencies.spellcasting.rank` is a `Proficiency` on `attack:<category>`, `defense:<category>` or
     `spellcasting`; a base weapon (`weapon-base-club`), a pick, a formula rank and a `self:level` predicate stay in
-    the backlog. Its other `subfeatures`
+    the backlog. An `ActiveEffectLike` adding to or upgrading a number Pioneer derives is a `Change` on that statistic, predicate
+    kept and Foundry's `phase` dropped: `system.attributes.reach.base` is `reach` (Bendy Arm Mutagen) and
+    `system.attributes.dying.max` is `dying-max` (Mortalis Coin). A boolean (`system.attributes.flanking.flankable`)
+    or a formula value stays in the backlog, as does a path with no statistic yet (`system.attributes.hp.recoveryAddend`,
+    `system.attributes.shield.*`, `inventory.bulk.*`). A path under `flags.system.` only feeds another rule element's
+    Foundry-side formula or predicate (`rageTempHP`, `cloisterRobeResistance`, `ancestralGeometry`,
+    `spellheart.tomeOfRestorativeCleansing`), which Pioneer writes as a typed element instead, so these are dropped by
+    design once that element exists and stay in the backlog until then. Its other `subfeatures`
     (`suppressedFeatures`, and key attribute options on any but a class feature) are reported by name
     (`subfeatures.suppressedFeatures`).
   - Player Core's casters get their spellcasting entries and rank raises by entry slug, since Foundry records neither
