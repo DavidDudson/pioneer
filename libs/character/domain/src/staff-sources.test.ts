@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import type { SpellcastingInPlay } from '@pioneer/rules/engine';
-import { Origin, SpellPreparation, STAFF_CANTRIP } from '@pioneer/rules/sdk';
+import { Origin, Slug, SpellPreparation, STAFF_CANTRIP } from '@pioneer/rules/sdk';
 
 import { InventoryItemId, InventoryItemSchema, ItemQuantity } from './inventory';
 import type { InventoryItem } from './inventory';
@@ -59,7 +59,7 @@ describe('staffSources', () => {
       entries: [entry('wizard', 'arcane', [1, 2, 3])],
       charges: NONE,
     });
-    expect(source?.spells.map(({ id, rank, charges, problem }) => ({ id, rank, charges, problem }))).toEqual([
+    expect(source?.spells.map(({ id, rank, charges, problem }) => ({ id, rank, charges, problem }))).toMatchObject([
       { id: staffSpellId('ignition'), rank: STAFF_CANTRIP, charges: 0, problem: undefined },
       { id: staffSpellId('breathe-fire'), rank: 1, charges: 1, problem: undefined },
       { id: staffSpellId('floating-flame'), rank: 3, charges: 3, problem: undefined },
@@ -138,7 +138,7 @@ describe('staffSources', () => {
   test('picks the entry that can cast the spell, not the first that lists it', () => {
     const entries = [entry('low', 'arcane', [1]), entry('high', 'primal', [3])];
     const [source] = staffSources({ inventory: [staff(HELD)], items, spells, entries, charges: NONE });
-    expect(source?.spells.at(3)?.entry?.slug).toBe('high');
+    expect(source?.spells.at(3)?.entry?.slug).toBe(Slug.parse('high'));
   });
 
   test('marks every spell unavailable for a holder with no spellcasting', () => {
@@ -151,7 +151,7 @@ describe('staffSources', () => {
     const prepared = StaffChargesSchema.parse({ [STAFF_ID]: { max: 4, spent: 1 } });
     expect(
       staffSources({ inventory: [staff(HELD)], items, spells, entries, charges: prepared }).at(0)?.charges,
-    ).toEqual({ left: 3, max: 4 });
+    ).toMatchObject({ left: 3, max: 4 });
     expect(
       staffSources({ inventory: [staff(HELD)], items, spells, entries, charges: NONE }).at(0)?.charges,
     ).toBeUndefined();

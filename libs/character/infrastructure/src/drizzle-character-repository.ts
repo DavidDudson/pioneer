@@ -222,4 +222,32 @@ export class DrizzleCharacterRepository extends CharacterRepository {
     }
     return toPlay(row);
   }
+
+  public override async updatePlayAndCharacter(
+    { id, play, expectedRevision, audit, now }: PlayWrite,
+    character: Character,
+    expectedVersion: Version,
+  ): Promise<CharacterPlay> {
+    const next = toRow(character.withVersion(nextVersion(expectedVersion)));
+    return this.#db.transaction(async (tx) => {
+      await stampAudit(tx, audit);
+      const [built] = await tx
+        .update(characters)
+        .set(next)
+        .where(and(eq(characters.id, id), eq(characters.version, expectedVersion)))
+        .returning({ id: characters.id });
+      if (built === undefined) {
+        throw new VersionConflictError('Character', id);
+      }
+      const [row] = await tx
+        .update(characterPlay)
+        .set({ state: play, playRevision: nextVersion(expectedRevision), updatedAt: now.toString() })
+        .where(and(eq(characterPlay.characterId, id), eq(characterPlay.playRevision, expectedRevision)))
+        .returning({ playRevision: characterPlay.playRevision, state: characterPlay.state });
+      if (row === undefined) {
+        throw new VersionConflictError('CharacterPlay', id);
+      }
+      return toPlay(row);
+    });
+  }
 }

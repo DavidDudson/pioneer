@@ -10,18 +10,12 @@ import {
   itemContent,
   NO_STAFF,
   staffLimits,
-  StaffProblem,
-  staffProblem,
-  conditionProblem,
   effectContent,
-  EffectProblem,
-  effectProblem,
-  isEffectCommand,
   needsEffectContent,
   NO_EFFECTS,
-  isConditionCommand,
   conditionValued,
   itemActivations,
+  itemWands,
   maxHitPoints,
   needsConditionContent,
   needsMaxHitPoints,
@@ -30,12 +24,17 @@ import {
   NO_COUNTED,
   NO_RESOURCES,
   PLAY_COMMANDS,
-  PlayCommandField,
-  ConditionProblem,
   resourceMaxima,
   restHealing,
   restRecovery,
   slotContent,
+  isWandCommand,
+  wandInventoryAfter,
+  wandOutcome,
+  WandOutcome,
+  WandProblem,
+  wandProblem,
+  wandSources,
 } from '@pioneer/character/domain';
 import type {
   Character,
@@ -52,6 +51,7 @@ import type {
   ResourceMaxima,
   CountedMaxima,
   StaffLimits,
+  WandCommand,
 } from '@pioneer/character/domain';
 import { HitPoints } from '@pioneer/rules/sdk';
 import type { ContentRegistry, ContentSource } from '@pioneer/rules/sdk';
@@ -60,8 +60,9 @@ import type { Clock, UserId } from '@pioneer/shared/kernel';
 
 import { contentOfCharacter, variantRulesOfCharacter } from './character-content';
 import type { CharacterContentSource } from './character-content';
+import { checkCondition, checkEffect, checkStaff, isDailyPreparations } from './play-checks';
 import { mayAccessCharacter } from './character-policy';
-import type { CharacterRepository } from './character-repository';
+import type { CharacterRepository, PlayWrite } from './character-repository';
 
 /** The maximum handed to edits that don't read it, so none has to be derived for them. */
 const NO_MAX_HIT_POINTS = HitPoints.parse(0);
@@ -78,21 +79,14 @@ interface RestContent {
 /** The Rest content handed to edits that don't read it. */
 const NO_REST: RestContent = { healing: NO_MAX_HIT_POINTS, recovery: new Map() };
 
-/** The message each refused effect edit answers with. */
-const EFFECT_MESSAGES = {
-  [EffectProblem.Unknown]: 'character.validation.effectUnknown',
-  [EffectProblem.Missing]: 'character.validation.effectMissing',
-  [EffectProblem.Full]: 'character.validation.effectFull',
-  [EffectProblem.Badge]: 'character.validation.effectBadge',
-} as const satisfies Record<EffectProblem, string>;
-
-/** The message each refused condition edit answers with. */
-const CONDITION_MESSAGES = {
-  [ConditionProblem.Unknown]: 'character.validation.conditionUnknown',
-  [ConditionProblem.Value]: 'character.validation.conditionValue',
-  [ConditionProblem.Missing]: 'character.validation.conditionMissing',
-  [ConditionProblem.Full]: 'character.validation.conditionFull',
-} as const satisfies Record<ConditionProblem, string>;
+const WAND_MESSAGES = {
+  [WandProblem.NotHeld]: 'character.validation.wandNotHeld',
+  [WandProblem.Broken]: 'character.validation.wandBroken',
+  [WandProblem.NotCastable]: 'character.validation.wandNotCastable',
+  [WandProblem.UseSpent]: 'character.validation.wandUseSpent',
+  [WandProblem.UseLeft]: 'character.validation.wandUseLeft',
+  [WandProblem.RollMissing]: 'character.validation.wandRollMissing',
+} as const satisfies Record<WandProblem, string>;
 
 /**
  * A character's play state (#343): read and edited apart from its build, with its own revision, so a play edit never
@@ -133,14 +127,47 @@ export class PlayService {
     if (current.revision !== expectedRevision) {
       throw new VersionConflictError('CharacterPlay', id);
     }
+    const wanded = isWandCommand(command) ? await this.#wanded(character, current.play, command) : undefined;
     const play = await this.#applied(character, current.play, command);
-    return this.#characters.updatePlay({
+    const write: PlayWrite = {
       id,
       play,
       expectedRevision,
       audit: { actor, command: PLAY_COMMANDS[command.field] },
       now: this.#clock.now(),
+    };
+    return wanded === undefined
+      ? this.#characters.updatePlay(write)
+      : this.#characters.updatePlayAndCharacter(write, wanded, character.version);
+  }
+
+  /**
+   * A wand cast or overcharge, checked against the wands the character holds. The character with the wand marked broken
+   * or removed when the cast breaks or destroys it, or undefined when the inventory stays as it is.
+   */
+  async #wanded(character: Character, play: PlayState, command: WandCommand): Promise<Character | undefined> {
+    const registry = await this.#contentOf(character).registry();
+    const slots = await this.#slotContent(character, registry);
+    const { inventory } = character.document;
+    const sources = wandSources({
+      inventory: inventory.items,
+      items: itemContent(registry),
+      spells: slots.spells,
+      entries: characterSpellcasting(characterGrants(character.document, slots)),
+      uses: play.resources.uses,
+      counted: await this.#counted(character),
     });
+    const source = sources.find(({ item }) => item.id === command.item);
+    const problem = wandProblem(command, source);
+    if (problem !== undefined || source === undefined) {
+      throw new ValidationError([
+        { path: ['command'], message: message(WAND_MESSAGES[problem ?? WandProblem.NotHeld]) },
+      ]);
+    }
+    const outcome = wandOutcome(command, source);
+    return outcome === WandOutcome.Cast
+      ? undefined
+      : character.withInventory(wandInventoryAfter(inventory, command.item, outcome), this.#clock.now());
   }
 
   /**
@@ -191,6 +218,7 @@ export class PlayService {
     return characterCounted(grants, abilityFrequencies(registry), {
       items: character.document.inventory.items,
       activations: itemActivations(registry),
+      wands: itemWands(registry),
     });
   }
 
@@ -254,41 +282,3 @@ export class PlayService {
   }
 }
 
-/** Refuses a condition edit the content or the character's conditions rule out. */
-function checkCondition(play: PlayState, command: PlayCommand, valued: ConditionValued): void {
-  const problem = isConditionCommand(command) ? conditionProblem(play.conditions, command, valued) : undefined;
-  if (problem !== undefined) {
-    throw new ValidationError([{ path: ['command'], message: message(CONDITION_MESSAGES[problem]) }]);
-  }
-}
-
-/** The message each refused staff choice answers with. */
-const STAFF_MESSAGES = {
-  [StaffProblem.NotAStaff]: 'character.validation.staffNotHeld',
-  [StaffProblem.SlotWithoutStaff]: 'character.validation.staffSlotWithoutStaff',
-  [StaffProblem.SlotNotExpendable]: 'character.validation.staffSlotNotExpendable',
-} as const satisfies Record<StaffProblem, string>;
-
-/** Daily preparations, the only edit that prepares a staff. */
-type DailyPreparations = Extract<PlayCommand, { readonly field: typeof PlayCommandField.DailyPreparations }>;
-
-/** Whether `command` is daily preparations, the only edit that prepares a staff. */
-function isDailyPreparations(command: PlayCommand): command is DailyPreparations {
-  return command.field === PlayCommandField.DailyPreparations;
-}
-
-/** Refuses a daily preparations that names a staff the character doesn't have, or a slot it can't expend. */
-function checkStaff(command: PlayCommand, staff: StaffLimits): void {
-  const problem = isDailyPreparations(command) ? staffProblem(command, staff) : undefined;
-  if (problem !== undefined) {
-    throw new ValidationError([{ path: ['command'], message: message(STAFF_MESSAGES[problem]) }]);
-  }
-}
-
-/** Refuses an effect edit the content or the character's effects rule out. */
-function checkEffect(play: PlayState, command: PlayCommand, content: EffectContent): void {
-  const problem = isEffectCommand(command) ? effectProblem(play.effects, command, content) : undefined;
-  if (problem !== undefined) {
-    throw new ValidationError([{ path: ['command'], message: message(EFFECT_MESSAGES[problem]) }]);
-  }
-}

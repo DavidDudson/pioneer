@@ -1,0 +1,27 @@
+@let wand = line();
+@if (wand.check; as check) {
+  <fr-stack gap="xs">
+    @if (check.roll !== undefined) {
+      <fr-text>{{ Message.Rolled | transloco: { roll: check.roll, dc: check.dc } }}</fr-text>
+    }
+    <fr-text>{{ checks[check.outcome] | transloco }}</fr-text>
+    <fr-stack direction="horizontal" gap="xs" wrap>
+      <fr-button [variant]="danger" [disabled]="busy()" (pressed)="confirm.emit(wand.key)">
+        {{ Message.Confirm | transloco }}
+      </fr-button>
+      <fr-button [disabled]="busy()" (pressed)="decline.emit(wand.key)">{{ Message.Cancel | transloco }}</fr-button>
+    </fr-stack>
+  </fr-stack>
+} @else {
+  <fr-stack direction="horizontal" gap="xs" wrap>
+    <fr-button [variant]="primary" [disabled]="busy() || !wand.castable" (pressed)="cast.emit(wand.key)">
+      {{ Message.Cast | transloco }}
+    </fr-button>
+    <fr-button [disabled]="busy() || !wand.overchargeable" (pressed)="overcharge.emit(wand.key)">
+      {{ Message.Overcharge | transloco }}
+    </fr-button>
+    @if (wand.broken) {
+      <fr-button [disabled]="busy()" (pressed)="repair.emit(wand.key)">{{ Message.Repair | transloco }}</fr-button>
+    }
+  </fr-stack>
+}

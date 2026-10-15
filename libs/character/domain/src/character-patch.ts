@@ -6,9 +6,6 @@ import * as z from 'zod';
 import { CharacterLevel, CharacterName } from './character-fields';
 import { CoinsSchema, InventoryItemId, InventoryItemName, ItemQuantity } from './inventory';
 import { CarrySchema } from './item-carry';
-import type { Carry } from './item-carry';
-import { RuneAction } from './rune-edits';
-import type { RuneEdit } from './rune-edits';
 import { RuneEtchingSchema, RuneRefSchema } from './rune-etching';
 
 /** Every edit the sheet makes: a field, a choice slot or the inventory. One PATCH per edit. */
@@ -46,6 +43,8 @@ export const CharacterPatchField = {
   CarryItem: 'carryItem',
   /** An item is invested, or no longer is. */
   InvestItem: 'investItem',
+  /** An item is marked broken, or repaired; a broken wand can't be cast. */
+  SetItemBroken: 'setItemBroken',
   /** A rune etched onto a weapon, armour or a shield: a fundamental one at a grade, or a property one. */
   EtchRune: 'etchRune',
   /** An etched rune erased from an item. */
@@ -97,6 +96,7 @@ export const CharacterPatchSchema = z.discriminatedUnion('field', [
   }),
   z.object({ field: z.literal(CharacterPatchField.CarryItem), id: InventoryItemId, carry: CarrySchema }),
   z.object({ field: z.literal(CharacterPatchField.InvestItem), id: InventoryItemId, invested: z.boolean() }),
+  z.object({ field: z.literal(CharacterPatchField.SetItemBroken), id: InventoryItemId, broken: z.boolean() }),
   z.object({ field: z.literal(CharacterPatchField.EtchRune), id: InventoryItemId, rune: RuneEtchingSchema }),
   z.object({ field: z.literal(CharacterPatchField.EraseRune), id: InventoryItemId, rune: RuneRefSchema }),
   z.object({
@@ -133,7 +133,7 @@ export type ProsePatch = Extract<
 >;
 
 /** The edits that touch no inventory item, kit, container or rune: a field, a slot, spell access or prose. */
-type UntargetedPatch = Extract<
+export type UntargetedPatch = Extract<
   CharacterPatch,
   {
     readonly field:
@@ -158,7 +158,7 @@ const UNTARGETED_FIELDS: ReadonlySet<CharacterPatchField> = new Set<UntargetedPa
   CharacterPatchField.SetPersonality,
 ]);
 
-function isUntargetedPatch(patch: CharacterPatch): patch is UntargetedPatch {
+export function isUntargetedPatch(patch: CharacterPatch): patch is UntargetedPatch {
   return UNTARGETED_FIELDS.has(patch.field);
 }
 
@@ -170,6 +170,7 @@ export type InventoryPatch = Exclude<
       readonly field:
         | typeof CharacterPatchField.CarryItem
         | typeof CharacterPatchField.InvestItem
+        | typeof CharacterPatchField.SetItemBroken
         | typeof CharacterPatchField.EtchRune
         | typeof CharacterPatchField.EraseRune
         | typeof CharacterPatchField.TransferRune;
@@ -207,92 +208,4 @@ const INVENTORY_FIELDS: ReadonlySet<CharacterPatchField> = new Set<InventoryPatc
 /** Whether `patch` changes what the inventory holds (`InventoryPatch`). */
 export function isInventoryPatch(patch: CharacterPatch): patch is InventoryPatch {
   return INVENTORY_FIELDS.has(patch.field);
-}
-
-/**
- * What an inventory edit touches, for the refusals: the item it changes, the content or kit it adds, where it stows
- * it, how it carries it, whether it invests it, and the rune it etches, erases or moves (and where to).
- */
-export interface InventoryTarget {
-  readonly id?: InventoryItemId | undefined;
-  readonly item?: ContentId | undefined;
-  readonly kit?: ContentId | undefined;
-  readonly container?: InventoryItemId | undefined;
-  readonly carry?: Carry | undefined;
-  readonly invested?: boolean | undefined;
-  readonly to?: InventoryItemId | undefined;
-  readonly rune?: RuneEdit | undefined;
-}
-
-/** The rune edits. */
-type RunePatch = Extract<
-  CharacterPatch,
-  {
-    readonly field:
-      | typeof CharacterPatchField.EtchRune
-      | typeof CharacterPatchField.EraseRune
-      | typeof CharacterPatchField.TransferRune;
-  }
->;
-
-/** What a rune edit touches: the item, the rune edit as `runeRefusal` reads it, and the item a rune moves onto. */
-function runeTarget(patch: RunePatch): InventoryTarget {
-  switch (patch.field) {
-    case CharacterPatchField.EtchRune: {
-      return { id: patch.id, rune: { action: RuneAction.Etch, id: patch.id, rune: patch.rune } };
-    }
-    case CharacterPatchField.EraseRune: {
-      return { id: patch.id, rune: { action: RuneAction.Erase, id: patch.id, rune: patch.rune } };
-    }
-    case CharacterPatchField.TransferRune: {
-      const { id, to, rune } = patch;
-      return { id, to, rune: { action: RuneAction.Transfer, id, to, rune } };
-    }
-    default: {
-      return patch satisfies never;
-    }
-  }
-}
-
-/** What an edit that is neither a kit nor untargeted touches in the inventory. */
-function itemTarget(patch: Exclude<CharacterPatch, KitPatch | UntargetedPatch>): InventoryTarget {
-  switch (patch.field) {
-    case CharacterPatchField.GiftItem:
-    case CharacterPatchField.BuyItem: {
-      return { item: patch.item, container: patch.container };
-    }
-    case CharacterPatchField.MoveItem: {
-      return { id: patch.id, container: patch.container };
-    }
-    case CharacterPatchField.CarryItem: {
-      return { id: patch.id, carry: patch.carry };
-    }
-    case CharacterPatchField.InvestItem: {
-      return { id: patch.id, invested: patch.invested };
-    }
-    case CharacterPatchField.EtchRune:
-    case CharacterPatchField.EraseRune:
-    case CharacterPatchField.TransferRune: {
-      return runeTarget(patch);
-    }
-    case CharacterPatchField.RemoveItem:
-    case CharacterPatchField.SetItemQuantity:
-    case CharacterPatchField.RenameItem: {
-      return { id: patch.id };
-    }
-    case CharacterPatchField.SetCoins: {
-      return {};
-    }
-    default: {
-      return patch satisfies never;
-    }
-  }
-}
-
-/** What `patch` touches in the inventory; undefined for an edit outside it. Coins touch no item. */
-export function inventoryTarget(patch: CharacterPatch): InventoryTarget | undefined {
-  if (isKitPatch(patch)) {
-    return { kit: patch.kit, container: patch.container };
-  }
-  return isUntargetedPatch(patch) ? undefined : itemTarget(patch);
 }

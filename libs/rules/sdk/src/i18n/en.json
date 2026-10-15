@@ -1003,6 +1003,22 @@
       "notOnList": "Not on any of your spell lists",
       "rankTooHigh": "You cast no spell of {rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank yet"
     },
+    "wandSpells": {
+      "casts": "{left} of {max, plural, one {# cast} other {# casts}} today",
+      "broken": "Broken",
+      "rank": "{rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank",
+      "cast": "Cast",
+      "overcharge": "Overcharge",
+      "repair": "Mark repaired",
+      "rolled": "Flat check: rolled {roll} against DC {dc}.",
+      "checkBroken": "Success: the spell is cast and the wand breaks.",
+      "checkFailed": "Failure: the wand is destroyed and the spell is not cast.",
+      "checkRepeated": "Already overcharged today: the wand is destroyed and the spell is not cast.",
+      "confirm": "Overcharge",
+      "cancel": "Cancel",
+      "notOnList": "Not on any of your spell lists",
+      "rankTooHigh": "You cast no spell of {rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank yet"
+    },
     "focusSpells": {
       "heading": "Focus spells",
       "pool": "Focus pool: {points, plural, one {# Focus Point} other {# Focus Points}}",

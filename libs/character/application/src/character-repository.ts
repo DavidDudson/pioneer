@@ -64,4 +64,15 @@ export abstract class CharacterRepository {
    * Never touches the character's `version`. Throws `VersionConflictError` otherwise.
    */
   public abstract updatePlay(write: PlayWrite): Promise<CharacterPlay>;
+
+  /**
+   * `updatePlay` and `update` as one write, for a play edit that also changes the build (a wand broken or destroyed by
+   * an overcharge): both revisions are checked and both rows are written, or neither is, under one audit stamp.
+   * Returns the play state at its next revision; throws `VersionConflictError` if either revision moved.
+   */
+  public abstract updatePlayAndCharacter(
+    write: PlayWrite,
+    character: Character,
+    expectedVersion: Version,
+  ): Promise<CharacterPlay>;
 }

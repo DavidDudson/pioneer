@@ -2,10 +2,11 @@ import type { GrantResolution } from '@pioneer/rules/grants';
 import { ContentKind } from '@pioneer/rules/sdk';
 import type { Activation, ContentEntry, ContentId, ContentRegistry, Frequency } from '@pioneer/rules/sdk';
 
-import { activationMaxima, slotMaxima, useMaxima } from './counted-resources';
+import { activationMaxima, slotMaxima, useMaxima, wandMaxima } from './counted-resources';
 import type { CountedMaxima } from './counted-resources';
 import type { InventoryItem } from './inventory';
 import { characterSpellcasting } from './spellcasting-build';
+import type { WandSpell } from './wand-items';
 
 /** Frequencies already read, by registry: a registry's packs never change once loaded. */
 const READ = new WeakMap<ContentRegistry, ReadonlyMap<ContentId, Frequency>>();
@@ -72,10 +73,11 @@ export function itemActivations(registry: ContentRegistry): ReadonlyMap<ContentI
   return read;
 }
 
-/** The character's items and the activations with a frequency each kind of item has. */
+/** The character's items, the activations with a frequency each kind of item has, and the wands among them. */
 export interface CarriedActivations {
   readonly items: readonly InventoryItem[];
   readonly activations: ReadonlyMap<ContentId, readonly Activation[]>;
+  readonly wands: ReadonlyMap<ContentId, WandSpell>;
 }
 
 /**
@@ -96,6 +98,7 @@ export function characterCounted(
         (id) => frequencies.get(id),
       ),
       ...activationMaxima(carried.items, (id) => carried.activations.get(id) ?? []),
+      ...wandMaxima(carried.items, (id) => carried.wands.get(id)),
     ]),
   };
 }

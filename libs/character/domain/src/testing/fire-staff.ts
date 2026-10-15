@@ -36,3 +36,20 @@ export const FIRE_STAFF: MagicItemFields & { readonly kind: ContentKind } = {
   },
   traits: ['magical', 'staff'],
 };
+
+const FIREBALL_WAND_LEVEL = 5;
+const FIREBALL_RANK = 3;
+
+/** A wand of Fireball (3rd rank): cast once a day, and kept when spent. */
+export const FIREBALL_WAND: MagicItemFields & { readonly kind: ContentKind } = {
+  kind: ContentKind.Consumable,
+  level: FIREBALL_WAND_LEVEL,
+  data: {
+    bulk: 'light',
+    category: 'wand',
+    kept: true,
+    spell: { spell: staffSpellId('fireball'), rank: FIREBALL_RANK },
+    usage: { type: 'held', hands: 'one' },
+  },
+  traits: ['magical', 'wand'],
+};

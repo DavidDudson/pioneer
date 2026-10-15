@@ -5,11 +5,14 @@ import {
   characterSpellcasting,
   heldCount,
   itemActivations,
+  itemWands,
   itemContent,
   slotCountKey,
   activationUseKey,
   overchargeUseKey,
   abilityUseKey,
+  wandOverchargeKey,
+  wandUseKey,
 } from '@pioneer/character/domain';
 import type {
   Boundary,
@@ -105,11 +108,31 @@ function activationViews(registry: ContentRegistry, character: Character, used: 
   );
 }
 
+/** The casts of each wand the character has and its overcharged cast, named by the wand. */
+function wandViews(registry: ContentRegistry, character: Character, used: UseSource): UseView[] {
+  const itemEntries = itemContent(registry);
+  const wands = itemWands(registry);
+  return character.document.inventory.items.flatMap((item) => {
+    if (!wands.has(item.item)) {
+      return [];
+    }
+    const name = item.name ?? itemEntries.get(item.item)?.name ?? item.item;
+    return [
+      ...useView(used, { key: wandUseKey(item.id), name, overcharge: false }),
+      ...useView(used, { key: wandOverchargeKey(item.id), name, overcharge: true }),
+    ];
+  });
+}
+
 /** The most each slot and use of the character holds, as the build and the content give them. */
 export function sheetCounted(registry: ContentRegistry, character: Character): CountedMaxima {
   const grants = characterGrants(character.document, sheetSlotContent(registry));
   const { items } = character.document.inventory;
-  return characterCounted(grants, abilityFrequencies(registry), { items, activations: itemActivations(registry) });
+  return characterCounted(grants, abilityFrequencies(registry), {
+    items,
+    activations: itemActivations(registry),
+    wands: itemWands(registry),
+  });
 }
 
 /** The slots by entry, pool and rank and the uses by ability, each with what is held after `spent`. */
@@ -141,6 +164,6 @@ export function countedViews(registry: ContentRegistry, character: Character, sp
   const abilityUses = grants.items.flatMap(({ entry }) =>
     useView(source, { key: abilityUseKey(entry.id), name: entry.name, overcharge: false }),
   );
-  const itemUses = activationViews(registry, character, source);
+  const itemUses = [...activationViews(registry, character, source), ...wandViews(registry, character, source)];
   return { slots, uses: [...abilityUses, ...itemUses] };
 }

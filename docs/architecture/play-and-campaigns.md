@@ -341,12 +341,19 @@ of that entry's slots of the spell's rank or higher. The cast previews what it s
 for is refused, and undoing it refunds the charges and the slot.
 
 A wand casts its spell once a day at the wand's rank, if the spell is on one of the holder's spell lists, with that
-entry's spell attack and DC. Once the day's cast is spent, the holder can overcharge it with a DC 10 flat check: on
-a success the spell is cast and the wand is broken; on a failure the wand is destroyed and nothing is cast.
-Overcharging a wand already overcharged that day destroys it without a roll, even if it was repaired. The use and
-the overcharge reset at daily preparations. Broken is inventory state, so it outlasts preparations until the wand
-is marked repaired, and a broken wand can't be cast. A destroyed wand leaves the inventory through an inventory
-command.
+entry's spell attack and DC. Only a held wand is a spell source. Once the day's cast is spent, the holder can overcharge
+it with a DC 10 flat check: on a success the spell is cast and the wand is broken; on a failure the wand is destroyed
+and nothing is cast. Overcharging a wand already overcharged that day destroys it without a roll, even if it was
+repaired. The use and the overcharge reset at daily preparations, and the preview lists each one that comes back.
+Broken is inventory state (`setItemBroken`), so it outlasts preparations until the wand is marked repaired, and a broken
+wand can't be cast or overcharged.
+
+The sheet rolls the flat check through the dice library and shows the d20, the DC and what the overcharge would come
+to before anything applies; confirming sends `overchargeWand` with the d20 (`roll`). The server derives the outcome
+from the roll, so a client can't claim a different one, and it keeps the wand's fate with the cast: a broken or destroyed
+wand is written with the play state in one transaction under one audit entry (`overchargeWand`), so a failure can't
+leave a spent overcharge beside a wand that still exists. That write bumps the character's version as well as the play
+revision, unlike other play edits. `castWand` spends the day's cast and changes nothing else.
 
 An item activation with a `frequency` has `max` uses per period, kept as a play state resource. Turn and round uses
 come back at Start turn. The first use in a minute, ten minutes or hour starts a countdown of 10, 100 or 600 rounds

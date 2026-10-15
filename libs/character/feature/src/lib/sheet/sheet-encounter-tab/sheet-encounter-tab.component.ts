@@ -12,6 +12,7 @@ import { SheetSpells } from '../sheet-spells/sheet-spells.component';
 import { SheetState } from '../sheet-state';
 import { SheetStaves } from '../sheet-staves/sheet-staves.component';
 import { rememberTab } from '../sheet-tab';
+import { SheetWands } from '../sheet-wands/sheet-wands.component';
 
 /**
  * The Encounter tab: what the character does in a fight. Its defences, every skill and Lore with its total and the
@@ -32,6 +33,7 @@ import { rememberTab } from '../sheet-tab';
     SheetPickFields,
     SheetSpells,
     SheetStaves,
+    SheetWands,
     SpellcastingView,
     Stack,
     StatisticsView,

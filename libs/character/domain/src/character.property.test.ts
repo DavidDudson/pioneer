@@ -8,10 +8,11 @@ import { assert, nat, option, pre, property, record, uuid } from 'fast-check';
 import * as z from 'zod';
 
 import { Character } from './character';
-import { CharacterPatchField, CharacterPatchSchema, inventoryTarget } from './character-patch';
+import { CharacterPatchField, CharacterPatchSchema } from './character-patch';
 import type { CharacterPatch } from './character-patch';
 import { InventoryItemId, inventoryRefusal, ItemQuantity } from './inventory';
 import type { InventoryEdit, InventoryItem, NewItem } from './inventory';
+import { inventoryTarget } from './inventory-target';
 import { CharacterBuilder, inventory } from './testing';
 
 installRulesFakes();
@@ -130,7 +131,8 @@ function aimed(patch: CharacterPatch, items: readonly InventoryItem[], { index, 
     case CharacterPatchField.SetItemQuantity:
     case CharacterPatchField.RenameItem:
     case CharacterPatchField.CarryItem:
-    case CharacterPatchField.InvestItem: {
+    case CharacterPatchField.InvestItem:
+    case CharacterPatchField.SetItemBroken: {
       return id === undefined ? patch : { ...patch, id };
     }
     case CharacterPatchField.EtchRune:

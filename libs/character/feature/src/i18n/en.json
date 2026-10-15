@@ -336,6 +336,7 @@
       "slots": "{amount, plural, one {# {source} rank {rank} slot} other {# {source} rank {rank} slots}}",
       "poolSlots": "{amount, plural, one {# {source} {pool} rank {rank} slot} other {# {source} {pool} rank {rank} slots}}",
       "uses": "{amount, plural, one {# use of {name}} other {# uses of {name}}}",
+      "overchargedUses": "{amount, plural, one {# overcharged use of {name}} other {# overcharged uses of {name}}}",
       "staffCharges": "{name} gets {charges, plural, one {# charge} other {# charges}}",
       "slotExpended": "One {source} rank {rank} slot is expended",
       "staffPick": "Staff to prepare",
@@ -412,7 +413,13 @@
     "effectUnknown": "That effect is not in the content this character uses.",
     "effectMissing": "That effect is no longer on the character. Reload the sheet and try again.",
     "effectFull": "This character has as many effects as it can hold. Remove one first.",
-    "effectBadge": "The badge does not fit that effect: a rolled effect needs its roll, and a counter stays within its range."
+    "effectBadge": "The badge does not fit that effect: a rolled effect needs its roll, and a counter stays within its range.",
+    "wandNotHeld": "That wand is not held. Hold it first.",
+    "wandBroken": "A broken wand can't be cast. Mark it repaired first.",
+    "wandNotCastable": "None of this character's spell lists has that spell at the wand's rank.",
+    "wandUseSpent": "The wand's cast for today is spent. Overcharge it, or wait for daily preparations.",
+    "wandUseLeft": "The wand can be overcharged only after its cast for today is spent.",
+    "wandRollMissing": "Overcharging a wand needs the DC 10 flat check rolled first."
   },
   "import": {
     "title": "Import from Pathbuilder",
