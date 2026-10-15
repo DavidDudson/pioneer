@@ -310,36 +310,6 @@
     }
   },
   {
-    "id": "7c8a29ca-76d6-57a6-874f-0f416a7605ed",
-    "pack": "core-rules",
-    "kind": "trait",
-    "slug": "trait:rage",
-    "name": "Rage",
-    "rarity": "common",
-    "traits": [],
-    "sources": [
-      {
-        "kind": "book",
-        "book": "player-core-2"
-      }
-    ],
-    "description": [],
-    "rules": [],
-    "data": {
-      "appliesTo": [
-        "action",
-        "ancestry-feature",
-        "class-feature",
-        "condition",
-        "consumable",
-        "effect",
-        "feat",
-        "ritual",
-        "spell"
-      ]
-    }
-  },
-  {
     "id": "477da1bb-e68a-57b0-93c9-5f8db8d02613",
     "pack": "core-rules",
     "kind": "trait",
@@ -437,26 +407,6 @@
         "heritage",
         "weapon"
       ]
-    }
-  },
-  {
-    "id": "54b45460-f6a6-5eb7-bf07-aa7d326a537b",
-    "pack": "core-rules",
-    "kind": "trait",
-    "slug": "trait:thrown-30",
-    "name": "Thrown 30 ft.",
-    "rarity": "common",
-    "traits": [],
-    "sources": [
-      {
-        "kind": "book",
-        "book": "player-core-2"
-      }
-    ],
-    "description": [],
-    "rules": [],
-    "data": {
-      "appliesTo": ["weapon"]
     }
   },
   {

@@ -1,23 +1,5 @@
 [
   {
-    "id": "7cd4c9cb-53a2-5f62-8cf3-d904bce62260",
-    "pack": "core-rules",
-    "kind": "language",
-    "slug": "language:aklo",
-    "name": "Aklo",
-    "rarity": "uncommon",
-    "traits": [],
-    "sources": [
-      {
-        "kind": "book",
-        "book": "player-core-2"
-      }
-    ],
-    "description": [],
-    "rules": [],
-    "data": {}
-  },
-  {
     "id": "f9a100aa-5ebc-5394-9f54-fd97a217a7e8",
     "pack": "core-rules",
     "kind": "language",
@@ -131,24 +113,6 @@
     "kind": "language",
     "slug": "language:tengu",
     "name": "Tengu",
-    "rarity": "uncommon",
-    "traits": [],
-    "sources": [
-      {
-        "kind": "book",
-        "book": "player-core-2"
-      }
-    ],
-    "description": [],
-    "rules": [],
-    "data": {}
-  },
-  {
-    "id": "abb69e36-b49e-54e5-8cba-a6bb63c45c8d",
-    "pack": "core-rules",
-    "kind": "language",
-    "slug": "language:thalassic",
-    "name": "Thalassic",
     "rarity": "uncommon",
     "traits": [],
     "sources": [
