@@ -1009,7 +1009,8 @@
     "data": {
       "valued": true,
       "overrides": [],
-      "implies": []
+      "implies": [],
+      "recovery": { "turn-end": "lower" }
     }
   },
   {

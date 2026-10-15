@@ -23,6 +23,8 @@ const CONDITION_REFS_MAX = 8;
 export const ConditionTrigger = {
   /** The Rest action (Player Core, Resting). */
   Rest: 'rest',
+  /** The end of the character's turn. */
+  TurnEnd: 'turn-end',
 } as const;
 export type ConditionTrigger = ValueOf<typeof ConditionTrigger>;
 
@@ -33,7 +35,7 @@ export const ConditionEffect = {
 } as const;
 export type ConditionEffect = ValueOf<typeof ConditionEffect>;
 
-/** How a condition recovers, by trigger: Fatigued is removed by Rest, Drained is lowered by it. */
+/** How a condition recovers, by trigger: Fatigued is removed by Rest, Drained is lowered by it, Frightened is lowered at the end of the turn. */
 export const ConditionRecovery = z.partialRecord(z.enum(ConditionTrigger), z.enum(ConditionEffect)).readonly();
 export type ConditionRecovery = z.infer<typeof ConditionRecovery>;
 

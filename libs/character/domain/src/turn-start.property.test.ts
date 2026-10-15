@@ -54,7 +54,7 @@ describe('startTurn properties', () => {
       property(effects, integer({ min: 0, max: SEED_MAX }), (before, seed) => {
         const random = seededRandom(RandomSeed.parse(seed));
         const { play, events } = startTurn(
-          { ...FRESH_PLAY, effects: before },
+          { ...FRESH_PLAY, effects: [...before] },
           { limits: LIMITS, recovery: [] },
           random,
         );
