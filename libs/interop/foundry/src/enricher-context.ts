@@ -11,6 +11,8 @@ export interface FoundryLinks {
   readonly entries: ReadonlyMap<string, ContentId>;
   /** Foundry's name for every item document in the release, by the same UUIDs. */
   readonly names: ReadonlyMap<string, string>;
+  /** The book (Foundry's `publication.title`) of every item document in the release, by the same UUIDs. */
+  readonly books: ReadonlyMap<string, string>;
   /** Imported actions by Foundry slug (`trip`), for `[[/act trip]]`. */
   readonly actions: ReadonlyMap<string, ContentId>;
   /** Every action's Foundry name by its slug, for an action outside the import. */
@@ -21,6 +23,7 @@ export interface FoundryLinks {
 export const NO_LINKS: FoundryLinks = {
   entries: new Map(),
   names: new Map(),
+  books: new Map(),
   actions: new Map(),
   actionNames: new Map(),
 };

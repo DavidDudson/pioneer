@@ -345,7 +345,15 @@
         "content": [
           {
             "type": "text",
-            "text": "Getting the higher bonus for this shield requires using the Take Cover action while the shield is raised."
+            "text": "Getting the higher bonus for this shield requires using the "
+          },
+          {
+            "type": "ref",
+            "id": "ef51d835-6ab6-513d-b582-80753efde13b"
+          },
+          {
+            "type": "text",
+            "text": " action while the shield is raised."
           }
         ]
       }
@@ -733,7 +741,15 @@
           },
           {
             "type": "text",
-            "text": " For 10 minutes, you don't sink if you haven't succeeded at a Swim action on a turn, and if you're submerged, you automatically ascend 10 feet at the end of your turn. When you Activate the shield, it casts Water Walk on you."
+            "text": " For 10 minutes, you don't sink if you haven't succeeded at a Swim action on a turn, and if you're submerged, you automatically ascend 10 feet at the end of your turn. When you Activate the shield, it casts "
+          },
+          {
+            "type": "ref",
+            "id": "62b9b05e-2f86-5c8b-bc12-2500cd4d9959"
+          },
+          {
+            "type": "text",
+            "text": " on you."
           }
         ]
       }
@@ -880,7 +896,15 @@
           },
           {
             "type": "text",
-            "text": " For 10 minutes, you don't sink if you haven't succeeded at a Swim action on a turn, and if you're submerged, you automatically ascend 10 feet at the end of your turn. When you Activate the shield, it casts Water Walk on you. and you can breathe underwater for 10 minutes."
+            "text": " For 10 minutes, you don't sink if you haven't succeeded at a Swim action on a turn, and if you're submerged, you automatically ascend 10 feet at the end of your turn. When you Activate the shield, it casts "
+          },
+          {
+            "type": "ref",
+            "id": "62b9b05e-2f86-5c8b-bc12-2500cd4d9959"
+          },
+          {
+            "type": "text",
+            "text": " on you. and you can breathe underwater for 10 minutes."
           }
         ]
       }
@@ -1037,7 +1061,15 @@
         "content": [
           {
             "type": "text",
-            "text": "Copper rings spiral around this Steel Shield. Twin electrical probes near the grip can socket into a jar of moderate (or higher leveled) Bottled Lightning, which takes 3 Interact actions to install."
+            "text": "Copper rings spiral around this "
+          },
+          {
+            "type": "ref",
+            "id": "9c6b3db9-466d-5f41-94de-a389dd76350f"
+          },
+          {
+            "type": "text",
+            "text": ". Twin electrical probes near the grip can socket into a jar of moderate (or higher leveled) Bottled Lightning, which takes 3 Interact actions to install."
           }
         ]
       },
@@ -1099,7 +1131,23 @@
           },
           {
             "type": "text",
-            "text": " The shield becomes an electromagnet for 3 rounds. When an activated magnetic shield is raised, the circumstance bonus increases by 1 against attacks made with weapons primarily made of metal. If you use a Shield Block against a creature attacking you with such a weapon, you also gain a +1 item bonus to Disarm attempts against that weapon until the end of your next turn. The activation uses up the "
+            "text": " The shield becomes an electromagnet for 3 rounds. When an activated magnetic shield is raised, the circumstance bonus increases by 1 against attacks made with weapons primarily made of metal. If you use a "
+          },
+          {
+            "type": "ref",
+            "id": "4333cbb5-7f4c-5c8e-bbad-afa6b6f2043b"
+          },
+          {
+            "type": "text",
+            "text": " against a creature attacking you with such a weapon, you also gain a +1 item bonus to "
+          },
+          {
+            "type": "ref",
+            "id": "ef57a555-f9e9-53cc-b09b-b7432156cbf1"
+          },
+          {
+            "type": "text",
+            "text": " attempts against that weapon until the end of your next turn. The activation uses up the "
           },
           {
             "type": "text",
@@ -1577,7 +1625,15 @@
           },
           {
             "type": "text",
-            "text": " The buckler expands, with the sapling image growing into a mighty oak tree. The buckler becomes a tower shield, gaining the corresponding AC bonus, Speed penalty, and ability to Take Cover. It keeps the same Hit Points and Broken Threshold, but its Hardness and Bulk increase by 2 in this form. The shield remains in this form until you Activate it again to revert it to a buckler."
+            "text": " The buckler expands, with the sapling image growing into a mighty oak tree. The buckler becomes a tower shield, gaining the corresponding AC bonus, Speed penalty, and ability to "
+          },
+          {
+            "type": "ref",
+            "id": "ef51d835-6ab6-513d-b582-80753efde13b"
+          },
+          {
+            "type": "text",
+            "text": ". It keeps the same Hit Points and Broken Threshold, but its Hardness and Bulk increase by 2 in this form. The shield remains in this form until you Activate it again to revert it to a buckler."
           }
         ]
       }
@@ -1672,7 +1728,15 @@
           },
           {
             "type": "text",
-            "text": " The buckler expands, with the sapling image growing into a mighty oak tree. The buckler becomes a tower shield, gaining the corresponding AC bonus, Speed penalty, and ability to Take Cover. It keeps the same Hit Points and Broken Threshold, but its Hardness and Bulk increase by 2 in this form. The shield remains in this form until you Activate it again to revert it to a buckler."
+            "text": " The buckler expands, with the sapling image growing into a mighty oak tree. The buckler becomes a tower shield, gaining the corresponding AC bonus, Speed penalty, and ability to "
+          },
+          {
+            "type": "ref",
+            "id": "ef51d835-6ab6-513d-b582-80753efde13b"
+          },
+          {
+            "type": "text",
+            "text": ". It keeps the same Hit Points and Broken Threshold, but its Hardness and Bulk increase by 2 in this form. The shield remains in this form until you Activate it again to revert it to a buckler."
           }
         ]
       }
@@ -1767,7 +1831,15 @@
           },
           {
             "type": "text",
-            "text": " The buckler expands, with the sapling image growing into a mighty oak tree. The buckler becomes a tower shield, gaining the corresponding AC bonus, Speed penalty, and ability to Take Cover. It keeps the same Hit Points and Broken Threshold, but its Hardness and Bulk increase by 2 in this form. The shield remains in this form until you Activate it again to revert it to a buckler."
+            "text": " The buckler expands, with the sapling image growing into a mighty oak tree. The buckler becomes a tower shield, gaining the corresponding AC bonus, Speed penalty, and ability to "
+          },
+          {
+            "type": "ref",
+            "id": "ef51d835-6ab6-513d-b582-80753efde13b"
+          },
+          {
+            "type": "text",
+            "text": ". It keeps the same Hit Points and Broken Threshold, but its Hardness and Bulk increase by 2 in this form. The shield remains in this form until you Activate it again to revert it to a buckler."
           }
         ]
       }
@@ -1862,7 +1934,15 @@
           },
           {
             "type": "text",
-            "text": " The buckler expands, with the sapling image growing into a mighty oak tree. The buckler becomes a tower shield, gaining the corresponding AC bonus, Speed penalty, and ability to Take Cover. It keeps the same Hit Points and Broken Threshold, but its Hardness and Bulk increase by 2 in this form. The shield remains in this form until you Activate it again to revert it to a buckler."
+            "text": " The buckler expands, with the sapling image growing into a mighty oak tree. The buckler becomes a tower shield, gaining the corresponding AC bonus, Speed penalty, and ability to "
+          },
+          {
+            "type": "ref",
+            "id": "ef51d835-6ab6-513d-b582-80753efde13b"
+          },
+          {
+            "type": "text",
+            "text": ". It keeps the same Hit Points and Broken Threshold, but its Hardness and Bulk increase by 2 in this form. The shield remains in this form until you Activate it again to revert it to a buckler."
           }
         ]
       }
@@ -1957,7 +2037,15 @@
           },
           {
             "type": "text",
-            "text": " The buckler expands, with the sapling image growing into a mighty oak tree. The buckler becomes a tower shield, gaining the corresponding AC bonus, Speed penalty, and ability to Take Cover. It keeps the same Hit Points and Broken Threshold, but its Hardness and Bulk increase by 2 in this form. The shield remains in this form until you Activate it again to revert it to a buckler."
+            "text": " The buckler expands, with the sapling image growing into a mighty oak tree. The buckler becomes a tower shield, gaining the corresponding AC bonus, Speed penalty, and ability to "
+          },
+          {
+            "type": "ref",
+            "id": "ef51d835-6ab6-513d-b582-80753efde13b"
+          },
+          {
+            "type": "text",
+            "text": ". It keeps the same Hit Points and Broken Threshold, but its Hardness and Bulk increase by 2 in this form. The shield remains in this form until you Activate it again to revert it to a buckler."
           }
         ]
       }
@@ -2052,7 +2140,15 @@
           },
           {
             "type": "text",
-            "text": " The buckler expands, with the sapling image growing into a mighty oak tree. The buckler becomes a tower shield, gaining the corresponding AC bonus, Speed penalty, and ability to Take Cover. It keeps the same Hit Points and Broken Threshold, but its Hardness and Bulk increase by 2 in this form. The shield remains in this form until you Activate it again to revert it to a buckler."
+            "text": " The buckler expands, with the sapling image growing into a mighty oak tree. The buckler becomes a tower shield, gaining the corresponding AC bonus, Speed penalty, and ability to "
+          },
+          {
+            "type": "ref",
+            "id": "ef51d835-6ab6-513d-b582-80753efde13b"
+          },
+          {
+            "type": "text",
+            "text": ". It keeps the same Hit Points and Broken Threshold, but its Hardness and Bulk increase by 2 in this form. The shield remains in this form until you Activate it again to revert it to a buckler."
           }
         ]
       }
@@ -2108,7 +2204,15 @@
         "content": [
           {
             "type": "text",
-            "text": "Carved from a scale of the kaiju Igroon, this jagged shield refracts light around it in a shimmering haze. A scale of Igroon (Hardness 20, HP 160, BT 80) recovers 4 Hit Points at the start of its wielder's turn. When you Raise a Shield, you can use the Shield Block reaction with the "
+            "text": "Carved from a scale of the kaiju Igroon, this jagged shield refracts light around it in a shimmering haze. A scale of Igroon (Hardness 20, HP 160, BT 80) recovers 4 Hit Points at the start of its wielder's turn. When you "
+          },
+          {
+            "type": "ref",
+            "id": "5c3e30ec-2520-5b84-b2bf-c03dd6b8d65a"
+          },
+          {
+            "type": "text",
+            "text": ", you can use the Shield Block reaction with the "
           },
           {
             "type": "text",
@@ -2170,7 +2274,23 @@
           },
           {
             "type": "text",
-            "text": " You angle the shield to refract light. Until the start of your next turn, you gain a +4 item bonus to Stealth checks to Hide and Sneak and can do so while observed. This bonus ends if you Activate another ability or use the Shield Block reaction."
+            "text": " You angle the shield to refract light. Until the start of your next turn, you gain a +4 item bonus to Stealth checks to "
+          },
+          {
+            "type": "ref",
+            "id": "5a86b7d0-fc0e-52a6-9b0d-fb58ed15233d"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "7e4e48de-b626-5513-9518-73261c58b5f4"
+          },
+          {
+            "type": "text",
+            "text": " and can do so while observed. This bonus ends if you Activate another ability or use the Shield Block reaction."
           }
         ]
       },
@@ -2260,7 +2380,15 @@
           },
           {
             "type": "text",
-            "text": " The target is Blinded until its next turn begins."
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": " until its next turn begins."
           }
         ]
       },
@@ -2327,7 +2455,15 @@
           },
           {
             "type": "text",
-            "text": " You use Shield Block and prevent yourself from taking energy damage from a line, ray, or a direct attack, including a Force Barrage spell"
+            "text": " You use Shield Block and prevent yourself from taking energy damage from a line, ray, or a direct attack, including a "
+          },
+          {
+            "type": "ref",
+            "id": "1c97409b-bd67-5df2-a7d3-a49aff4d3896"
+          },
+          {
+            "type": "text",
+            "text": " spell"
           }
         ]
       },
@@ -2868,7 +3004,15 @@
           },
           {
             "type": "text",
-            "text": " The shield floats lazily in the air as bricks quickly fly from it to form a squat stone tower around it. You cast Cozy Cabin, with the shield becoming the door."
+            "text": " The shield floats lazily in the air as bricks quickly fly from it to form a squat stone tower around it. You cast "
+          },
+          {
+            "type": "ref",
+            "id": "6c93157e-4fb6-5e3e-aef5-23f59651c049"
+          },
+          {
+            "type": "text",
+            "text": ", with the shield becoming the door."
           }
         ]
       }

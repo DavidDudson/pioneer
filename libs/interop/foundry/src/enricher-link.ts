@@ -8,7 +8,8 @@ import type { RunNode } from './rich-text-run';
 /**
  * Links to other documents: `@UUID[Compendium.pf2e.<pack>.Item.<id or name>]{label}` and the action macro
  * `[[/act <slug> ...]]{label}`. A target the import has an entry for becomes a `Ref`; any other keeps its label, or
- * Foundry's name for it, as text and is reported by pack (`@UUID[spell-effects]`).
+ * Foundry's name for it, as text and is reported by pack and the book it is printed in, which says which import it
+ * waits for (`@UUID[spells-srd] Pathfinder Rage of Elements`).
  */
 
 const UUID = '@UUID';
@@ -47,13 +48,14 @@ function nameInUuid(uuid: string): string | undefined {
 
 export function uuidRun(params: string, label: string | undefined, context: EnricherContext): RunNode[] {
   const uuid = params.trim();
-  const { entries, names } = context.links;
+  const { entries, names, books } = context.links;
   const id = entries.get(uuid);
   const name = names.get(uuid) ?? nameInUuid(uuid);
   if (id !== undefined) {
     return refRun({ id, name }, label, context);
   }
-  context.report(`${UUID}[${uuid.split(SEPARATOR)[PACK_PART] ?? uuid}]`);
+  const book = books.get(uuid);
+  context.report(`${UUID}[${uuid.split(SEPARATOR)[PACK_PART] ?? uuid}]${book === undefined ? '' : ` ${book}`}`);
   return textRun(label ?? name, context);
 }
 

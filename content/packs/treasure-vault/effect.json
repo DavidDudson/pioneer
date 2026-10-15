@@ -570,7 +570,15 @@
         "content": [
           {
             "type": "text",
-            "text": "You gain an item bonus to Athletics checks to Trip."
+            "text": "You gain an item bonus to Athletics checks to "
+          },
+          {
+            "type": "ref",
+            "id": "6257c7f0-f483-53d3-a791-d73a616cbce4"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       }
@@ -756,6 +764,12 @@
     ],
     "rules": [
       {
+        "key": "Change",
+        "selector": "reach",
+        "mode": "add",
+        "value": 10
+      },
+      {
         "key": "FlatModifier",
         "selectors": ["skill:acrobatics"],
         "type": "item",
@@ -771,12 +785,6 @@
         "selectors": ["skill:athletics", "attack-roll", "skill:stealth", "skill:thievery"],
         "type": "untyped",
         "value": -1
-      },
-      {
-        "key": "Change",
-        "selector": "reach",
-        "mode": "add",
-        "value": 10
       }
     ],
     "externalIds": {
@@ -852,6 +860,12 @@
     ],
     "rules": [
       {
+        "key": "Change",
+        "selector": "reach",
+        "mode": "add",
+        "value": 5
+      },
+      {
         "key": "FlatModifier",
         "selectors": ["skill:acrobatics"],
         "type": "item",
@@ -867,12 +881,6 @@
         "selectors": ["skill:athletics", "attack-roll", "skill:stealth", "skill:thievery"],
         "type": "untyped",
         "value": -1
-      },
-      {
-        "key": "Change",
-        "selector": "reach",
-        "mode": "add",
-        "value": 5
       }
     ],
     "externalIds": {
@@ -948,6 +956,12 @@
     ],
     "rules": [
       {
+        "key": "Change",
+        "selector": "reach",
+        "mode": "add",
+        "value": 15
+      },
+      {
         "key": "FlatModifier",
         "selectors": ["skill:acrobatics"],
         "type": "item",
@@ -963,12 +977,6 @@
         "selectors": ["skill:athletics", "attack-roll", "skill:stealth", "skill:thievery"],
         "type": "untyped",
         "value": -1
-      },
-      {
-        "key": "Change",
-        "selector": "reach",
-        "mode": "add",
-        "value": 15
       }
     ],
     "externalIds": {
@@ -1044,6 +1052,12 @@
     ],
     "rules": [
       {
+        "key": "Change",
+        "selector": "reach",
+        "mode": "add",
+        "value": 5
+      },
+      {
         "key": "FlatModifier",
         "selectors": ["skill:acrobatics"],
         "type": "item",
@@ -1059,12 +1073,6 @@
         "selectors": ["skill:athletics", "attack-roll", "skill:stealth", "skill:thievery"],
         "type": "untyped",
         "value": -1
-      },
-      {
-        "key": "Change",
-        "selector": "reach",
-        "mode": "add",
-        "value": 5
       }
     ],
     "externalIds": {
@@ -2461,7 +2469,31 @@
           },
           {
             "type": "text",
-            "text": " You gain a +3 item bonus to Athletics checks to Shove and Trip, to your Fortitude and Reflex DCs against attempts to Shove or Trip you, and to saving throws against effects that attempt to force you to move or knock you Prone. You can attempt to Shove or Trip creatures up to two sizes larger than you."
+            "text": " You gain a +3 item bonus to Athletics checks to "
+          },
+          {
+            "type": "ref",
+            "id": "082b982f-3ed4-5d9c-9722-9ab10198523a"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "6257c7f0-f483-53d3-a791-d73a616cbce4"
+          },
+          {
+            "type": "text",
+            "text": ", to your Fortitude and Reflex DCs against attempts to Shove or Trip you, and to saving throws against effects that attempt to force you to move or knock you "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": ". You can attempt to Shove or Trip creatures up to two sizes larger than you."
           }
         ]
       },
@@ -2475,7 +2507,15 @@
           },
           {
             "type": "text",
-            "text": " You gain the Encumbered condition and can't remove it while under the effects of the mutagen."
+            "text": " You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "c7876f7b-3d87-55d8-af48-a396b2676415"
+          },
+          {
+            "type": "text",
+            "text": " condition and can't remove it while under the effects of the mutagen."
           }
         ]
       }
@@ -2560,7 +2600,31 @@
           },
           {
             "type": "text",
-            "text": " You gain a +1 item bonus to Athletics checks to Shove and Trip, to your Fortitude and Reflex DCs against attempts to Shove or Trip you, and to saving throws against effects that attempt to force you to move or knock you Prone."
+            "text": " You gain a +1 item bonus to Athletics checks to "
+          },
+          {
+            "type": "ref",
+            "id": "082b982f-3ed4-5d9c-9722-9ab10198523a"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "6257c7f0-f483-53d3-a791-d73a616cbce4"
+          },
+          {
+            "type": "text",
+            "text": ", to your Fortitude and Reflex DCs against attempts to Shove or Trip you, and to saving throws against effects that attempt to force you to move or knock you "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       },
@@ -2574,7 +2638,15 @@
           },
           {
             "type": "text",
-            "text": " You gain the Encumbered condition and can't remove it while under the effects of the mutagen."
+            "text": " You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "c7876f7b-3d87-55d8-af48-a396b2676415"
+          },
+          {
+            "type": "text",
+            "text": " condition and can't remove it while under the effects of the mutagen."
           }
         ]
       }
@@ -2659,7 +2731,31 @@
           },
           {
             "type": "text",
-            "text": " You gain a +4 item bonus to Athletics checks to Shove and Trip, to your Fortitude and Reflex DCs against attempts to Shove or Trip you, and to saving throws against effects that attempt to force you to move or knock you Prone. You can attempt to Shove or Trip creatures up to three sizes larger than you."
+            "text": " You gain a +4 item bonus to Athletics checks to "
+          },
+          {
+            "type": "ref",
+            "id": "082b982f-3ed4-5d9c-9722-9ab10198523a"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "6257c7f0-f483-53d3-a791-d73a616cbce4"
+          },
+          {
+            "type": "text",
+            "text": ", to your Fortitude and Reflex DCs against attempts to Shove or Trip you, and to saving throws against effects that attempt to force you to move or knock you "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": ". You can attempt to Shove or Trip creatures up to three sizes larger than you."
           }
         ]
       },
@@ -2673,7 +2769,15 @@
           },
           {
             "type": "text",
-            "text": " You gain the Encumbered condition and can't remove it while under the effects of the mutagen."
+            "text": " You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "c7876f7b-3d87-55d8-af48-a396b2676415"
+          },
+          {
+            "type": "text",
+            "text": " condition and can't remove it while under the effects of the mutagen."
           }
         ]
       }
@@ -2758,7 +2862,31 @@
           },
           {
             "type": "text",
-            "text": " You gain a +2 item bonus to Athletics checks to Shove and Trip, to your Fortitude and Reflex DCs against attempts to Shove or Trip you, and to saving throws against effects that attempt to force you to move or knock you Prone."
+            "text": " You gain a +2 item bonus to Athletics checks to "
+          },
+          {
+            "type": "ref",
+            "id": "082b982f-3ed4-5d9c-9722-9ab10198523a"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "6257c7f0-f483-53d3-a791-d73a616cbce4"
+          },
+          {
+            "type": "text",
+            "text": ", to your Fortitude and Reflex DCs against attempts to Shove or Trip you, and to saving throws against effects that attempt to force you to move or knock you "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       },
@@ -2772,7 +2900,15 @@
           },
           {
             "type": "text",
-            "text": " You gain the Encumbered condition and can't remove it while under the effects of the mutagen."
+            "text": " You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "c7876f7b-3d87-55d8-af48-a396b2676415"
+          },
+          {
+            "type": "text",
+            "text": " condition and can't remove it while under the effects of the mutagen."
           }
         ]
       }
@@ -2852,7 +2988,23 @@
         "content": [
           {
             "type": "text",
-            "text": "You gain a burrow Speed of 15 feet and a +2 item bonus to Athletics checks to High Jump or Long Jump."
+            "text": "You gain a burrow Speed of 15 feet and a +2 item bonus to Athletics checks to "
+          },
+          {
+            "type": "ref",
+            "id": "9b3d9121-5da3-57fe-a5d0-e0ff20210c41"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "a76317a3-de3d-58c2-8b3e-5a73b09657be"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       }
@@ -9397,7 +9549,15 @@
         "content": [
           {
             "type": "text",
-            "text": "The area of Dizzying Colors increases to a 20-foot cone."
+            "text": "The area of "
+          },
+          {
+            "type": "ref",
+            "id": "ce5ba457-89bd-5a85-8d45-2faa300f9d49"
+          },
+          {
+            "type": "text",
+            "text": " increases to a 20-foot cone."
           }
         ]
       }
@@ -10503,7 +10663,15 @@
           },
           {
             "type": "text",
-            "text": " You take a –1 penalty to Perception checks and Will saves. After any round where you don't spend at least 1 action to Interact with an object, Perform, Step, or Stride, you're Off-Guard until the start of your next turn."
+            "text": " You take a –1 penalty to Perception checks and Will saves. After any round where you don't spend at least 1 action to Interact with an object, Perform, Step, or Stride, you're "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " until the start of your next turn."
           }
         ]
       }
@@ -10601,7 +10769,15 @@
           },
           {
             "type": "text",
-            "text": " You take a –1 penalty to Perception checks and Will saves. After any round where you don't spend at least 1 action to Interact with an object, Perform, Step, or Stride, you're Off-Guard until the start of your next turn."
+            "text": " You take a –1 penalty to Perception checks and Will saves. After any round where you don't spend at least 1 action to Interact with an object, Perform, Step, or Stride, you're "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " until the start of your next turn."
           }
         ]
       }
@@ -10699,7 +10875,15 @@
           },
           {
             "type": "text",
-            "text": " You take a –1 penalty to Perception checks and Will saves. After any round where you don't spend at least 1 action to Interact with an object, Perform, Step, or Stride, you're Off-Guard until the start of your next turn."
+            "text": " You take a –1 penalty to Perception checks and Will saves. After any round where you don't spend at least 1 action to Interact with an object, Perform, Step, or Stride, you're "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " until the start of your next turn."
           }
         ]
       }
@@ -10797,7 +10981,15 @@
           },
           {
             "type": "text",
-            "text": " You take a –1 penalty to Perception checks and Will saves. After any round where you don't spend at least 1 action to Interact with an object, Perform, Step, or Stride, you're Off-Guard until the start of your next turn."
+            "text": " You take a –1 penalty to Perception checks and Will saves. After any round where you don't spend at least 1 action to Interact with an object, Perform, Step, or Stride, you're "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " until the start of your next turn."
           }
         ]
       }

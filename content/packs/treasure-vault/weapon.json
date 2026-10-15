@@ -88,7 +88,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Daze"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "0964edfe-0384-5444-908b-fe24653c28f5"
                 }
               ]
             }
@@ -104,7 +108,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Bane, Ill Omen"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "42ecad5f-026b-577a-9b47-b97ae76568c9"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "4f616729-3f27-5aee-a02e-426f121c6fa3"
                 }
               ]
             }
@@ -120,7 +136,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Blood Vendetta, Warrior's Regret"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "1ce2f883-74e2-5f2d-99fa-78356f6720d6"
+                },
+                {
+                  "type": "text",
+                  "text": ", Warrior's Regret"
                 }
               ]
             }
@@ -259,7 +283,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Daze"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "0964edfe-0384-5444-908b-fe24653c28f5"
                 }
               ]
             }
@@ -275,7 +303,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Bane, Ill Omen"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "42ecad5f-026b-577a-9b47-b97ae76568c9"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "4f616729-3f27-5aee-a02e-426f121c6fa3"
                 }
               ]
             }
@@ -291,7 +331,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Blood Vendetta, Warrior's Regret"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "1ce2f883-74e2-5f2d-99fa-78356f6720d6"
+                },
+                {
+                  "type": "text",
+                  "text": ", Warrior's Regret"
                 }
               ]
             }
@@ -307,7 +355,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Claim Curse, Cup of Dust"
+                  "text": " Claim Curse, "
+                },
+                {
+                  "type": "ref",
+                  "id": "506f8f57-bc70-59de-a8da-09a8925034d9"
                 }
               ]
             }
@@ -323,7 +375,23 @@
                 },
                 {
                   "type": "text",
-                  "text": " Cleanse Affliction, Outcast's Curse, Warrior's Regret"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "9495e90b-a69c-5eaf-a472-b6b536856f28"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "0dfae2cc-8da3-54ef-87be-016eadc92505"
+                },
+                {
+                  "type": "text",
+                  "text": ", Warrior's Regret"
                 }
               ]
             }
@@ -462,7 +530,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Daze"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "0964edfe-0384-5444-908b-fe24653c28f5"
                 }
               ]
             }
@@ -478,7 +550,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Bane, Ill Omen"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "42ecad5f-026b-577a-9b47-b97ae76568c9"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "4f616729-3f27-5aee-a02e-426f121c6fa3"
                 }
               ]
             }
@@ -494,7 +578,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Blood Vendetta, Warrior's Regret"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "1ce2f883-74e2-5f2d-99fa-78356f6720d6"
+                },
+                {
+                  "type": "text",
+                  "text": ", Warrior's Regret"
                 }
               ]
             }
@@ -510,7 +602,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Claim Curse, Cup of Dust"
+                  "text": " Claim Curse, "
+                },
+                {
+                  "type": "ref",
+                  "id": "506f8f57-bc70-59de-a8da-09a8925034d9"
                 }
               ]
             }
@@ -526,7 +622,23 @@
                 },
                 {
                   "type": "text",
-                  "text": " Cleanse Affliction, Outcast's Curse, Warrior's Regret"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "9495e90b-a69c-5eaf-a472-b6b536856f28"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "0dfae2cc-8da3-54ef-87be-016eadc92505"
+                },
+                {
+                  "type": "text",
+                  "text": ", Warrior's Regret"
                 }
               ]
             }
@@ -542,7 +654,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Inevitable Disaster, Mariner's Curse"
+                  "text": " Inevitable Disaster, "
+                },
+                {
+                  "type": "ref",
+                  "id": "ccc96547-bee7-50d8-8de8-ce0748ee961d"
                 }
               ]
             }
@@ -558,7 +674,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Blinding Fury, Cleanse Affliction, Never Mind"
+                  "text": " Blinding Fury, "
+                },
+                {
+                  "type": "ref",
+                  "id": "9495e90b-a69c-5eaf-a472-b6b536856f28"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "1ca1f242-df46-5466-a3e1-3ae1e1069c1f"
                 }
               ]
             }
@@ -739,7 +867,23 @@
           },
           {
             "type": "text",
-            "text": " Your last action was a successful Strike, Grapple, or Trip with the "
+            "text": " Your last action was a successful Strike, "
+          },
+          {
+            "type": "ref",
+            "id": "380d34f1-f6f6-5820-b9dd-c01ee4e19fd5"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "6257c7f0-f483-53d3-a791-d73a616cbce4"
+          },
+          {
+            "type": "text",
+            "text": " with the "
           },
           {
             "type": "text",
@@ -798,7 +942,15 @@
           },
           {
             "type": "text",
-            "text": " The target is Dazzled until the end of your next turn."
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " until the end of your next turn."
           }
         ]
       },
@@ -812,7 +964,16 @@
           },
           {
             "type": "text",
-            "text": " The target is dazzled until the end of your next turn and Stunned 1."
+            "text": " The target is dazzled until the end of your next turn and "
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+            "label": "Stunned 1"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       },
@@ -826,7 +987,16 @@
           },
           {
             "type": "text",
-            "text": " The target is dazzled until the end of your next turn and Stunned 2."
+            "text": " The target is dazzled until the end of your next turn and "
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+            "label": "Stunned 2"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       },
@@ -1154,7 +1324,16 @@
         "content": [
           {
             "type": "text",
-            "text": "Rather than passing on when they feel their death approaching, a rare few elderly arboreals undergo a ritual of preservation. This rite fuses the arboreal's consciousness into a branch, allowing their spirit to live on within the object. The branch functions as a greater verdant staff, though the arboreal spirit allows only partners willing to safeguard nature to use the staff's spells. An arboreal who decides to become an "
+            "text": "Rather than passing on when they feel their death approaching, a rare few elderly arboreals undergo a ritual of preservation. This rite fuses the arboreal's consciousness into a branch, allowing their spirit to live on within the object. The branch functions as a "
+          },
+          {
+            "type": "ref",
+            "id": "e7720c84-b486-5cd8-bb93-b45c61e3cbcf",
+            "label": "greater verdant staff"
+          },
+          {
+            "type": "text",
+            "text": ", though the arboreal spirit allows only partners willing to safeguard nature to use the staff's spells. An arboreal who decides to become an "
           },
           {
             "type": "text",
@@ -1249,7 +1428,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Tangle Vine"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "5ad9a64e-8b2e-5db4-8526-bc713e07778c"
                 }
               ]
             }
@@ -1265,7 +1448,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Runic Body, Runic Weapon"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "0326fd8f-6c36-5184-940b-a36b47e8c4a8"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "1e70918d-066f-5a32-938b-48362d1d669e"
                 }
               ]
             }
@@ -1281,7 +1476,35 @@
                 },
                 {
                   "type": "text",
-                  "text": " Entangling Flora, Oaken Resilience, One with Plants, Shape Wood"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "72db3961-ed8d-5546-8104-1f7aad2fb3e9"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "d649aded-ca36-5663-ba2c-edc97e35bd6c"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "57003239-0bcf-5e13-9b4f-8dfd8e31ba40"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "facfbe1d-4b9d-5f57-bd33-bd5413a58316"
                 }
               ]
             }
@@ -1297,7 +1520,27 @@
                 },
                 {
                   "type": "text",
-                  "text": " Wall of Thorns, Speak with Plants, Earthbind"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "9dfded9c-826b-57e9-989b-6b4ea568d4b8"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "29397615-a073-572b-a506-4a6b88f6529d"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "3cddd734-8a89-5de8-9c13-65748a0c7c32"
                 }
               ]
             }
@@ -1313,7 +1556,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Oaken Resilience, Speak with Plants"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "d649aded-ca36-5663-ba2c-edc97e35bd6c"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "29397615-a073-572b-a506-4a6b88f6529d"
                 }
               ]
             }
@@ -1329,7 +1584,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Plant Form, Wall of Thorns"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "813db347-48b2-5dec-bbda-70e18cbe1719"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "9dfded9c-826b-57e9-989b-6b4ea568d4b8"
                 }
               ]
             }
@@ -1665,7 +1932,23 @@
           },
           {
             "type": "text",
-            "text": ". While wielding the staff while you have it prepared, you're affected by Speak with Animals. If you have Animal Empathy, you gain a +1 circumstance bonus on checks using it."
+            "text": ". While wielding the staff while you have it prepared, you're affected by "
+          },
+          {
+            "type": "ref",
+            "id": "8d18d9de-97ab-5626-af6e-b9c22eafc998"
+          },
+          {
+            "type": "text",
+            "text": ". If you have "
+          },
+          {
+            "type": "ref",
+            "id": "e6799b06-142e-5f77-8d25-4f7c94a3fad6"
+          },
+          {
+            "type": "text",
+            "text": ", you gain a +1 circumstance bonus on checks using it."
           }
         ]
       },
@@ -1715,7 +1998,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Gouging Claw"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "411dc034-1932-5468-960c-2c3f40ec20ec"
                 }
               ]
             }
@@ -1731,7 +2018,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Pest Form, Runic Body"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "2e1a723b-ad9f-53b0-bee3-21b8401988f0"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "0326fd8f-6c36-5184-940b-a36b47e8c4a8"
                 }
               ]
             }
@@ -1747,7 +2046,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Animal Form, Enlarge"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "cd4bcdfa-81d7-5e23-a964-0230a0f6cc94"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "b76d119e-0d8d-52ad-8cca-1a224c3077ae"
                 }
               ]
             }
@@ -1841,7 +2152,23 @@
           },
           {
             "type": "text",
-            "text": ". While wielding the staff while you have it prepared, you're affected by Speak with Animals. If you have Animal Empathy, you gain a +2 circumstance bonus on checks using it."
+            "text": ". While wielding the staff while you have it prepared, you're affected by "
+          },
+          {
+            "type": "ref",
+            "id": "8d18d9de-97ab-5626-af6e-b9c22eafc998"
+          },
+          {
+            "type": "text",
+            "text": ". If you have "
+          },
+          {
+            "type": "ref",
+            "id": "e6799b06-142e-5f77-8d25-4f7c94a3fad6"
+          },
+          {
+            "type": "text",
+            "text": ", you gain a +2 circumstance bonus on checks using it."
           }
         ]
       },
@@ -1891,7 +2218,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Gouging Claw"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "411dc034-1932-5468-960c-2c3f40ec20ec"
                 }
               ]
             }
@@ -1907,7 +2238,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Runic Body, Pest Form"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "0326fd8f-6c36-5184-940b-a36b47e8c4a8"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "2e1a723b-ad9f-53b0-bee3-21b8401988f0"
                 }
               ]
             }
@@ -1923,7 +2266,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Animal Form, Enlarge"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "cd4bcdfa-81d7-5e23-a964-0230a0f6cc94"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "b76d119e-0d8d-52ad-8cca-1a224c3077ae"
                 }
               ]
             }
@@ -1939,7 +2294,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Animal Form, Insect Form"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "cd4bcdfa-81d7-5e23-a964-0230a0f6cc94"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "1ecf6743-b3a6-5a1f-beb9-192eaa89ce02"
                 }
               ]
             }
@@ -1955,7 +2322,27 @@
                 },
                 {
                   "type": "text",
-                  "text": " Animal Form, Bestial Curse, Insect Form, Pest Form"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "cd4bcdfa-81d7-5e23-a964-0230a0f6cc94"
+                },
+                {
+                  "type": "text",
+                  "text": ", Bestial Curse, "
+                },
+                {
+                  "type": "ref",
+                  "id": "1ecf6743-b3a6-5a1f-beb9-192eaa89ce02"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "2e1a723b-ad9f-53b0-bee3-21b8401988f0"
                 }
               ]
             }
@@ -2049,7 +2436,23 @@
           },
           {
             "type": "text",
-            "text": ". While wielding the staff while you have it prepared, you're affected by Speak with Animals. If you have Animal Empathy, you gain a +2 circumstance bonus on checks using it."
+            "text": ". While wielding the staff while you have it prepared, you're affected by "
+          },
+          {
+            "type": "ref",
+            "id": "8d18d9de-97ab-5626-af6e-b9c22eafc998"
+          },
+          {
+            "type": "text",
+            "text": ". If you have "
+          },
+          {
+            "type": "ref",
+            "id": "e6799b06-142e-5f77-8d25-4f7c94a3fad6"
+          },
+          {
+            "type": "text",
+            "text": ", you gain a +2 circumstance bonus on checks using it."
           }
         ]
       },
@@ -2099,7 +2502,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Gouging Claw"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "411dc034-1932-5468-960c-2c3f40ec20ec"
                 }
               ]
             }
@@ -2115,7 +2522,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Runic Body, Pest Form"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "0326fd8f-6c36-5184-940b-a36b47e8c4a8"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "2e1a723b-ad9f-53b0-bee3-21b8401988f0"
                 }
               ]
             }
@@ -2131,7 +2550,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Animal Form, Enlarge"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "cd4bcdfa-81d7-5e23-a964-0230a0f6cc94"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "b76d119e-0d8d-52ad-8cca-1a224c3077ae"
                 }
               ]
             }
@@ -2147,7 +2578,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Animal Form, Insect Form"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "cd4bcdfa-81d7-5e23-a964-0230a0f6cc94"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "1ecf6743-b3a6-5a1f-beb9-192eaa89ce02"
                 }
               ]
             }
@@ -2163,7 +2606,27 @@
                 },
                 {
                   "type": "text",
-                  "text": " Animal Form, Bestial Curse, Insect Form, Pest Form"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "cd4bcdfa-81d7-5e23-a964-0230a0f6cc94"
+                },
+                {
+                  "type": "text",
+                  "text": ", Bestial Curse, "
+                },
+                {
+                  "type": "ref",
+                  "id": "1ecf6743-b3a6-5a1f-beb9-192eaa89ce02"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "2e1a723b-ad9f-53b0-bee3-21b8401988f0"
                 }
               ]
             }
@@ -2179,7 +2642,27 @@
                 },
                 {
                   "type": "text",
-                  "text": " Animal Form, Insect Form, Moon Frenzy"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "cd4bcdfa-81d7-5e23-a964-0230a0f6cc94"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "1ecf6743-b3a6-5a1f-beb9-192eaa89ce02"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "c6cea9c6-25dd-5c7c-8056-4c7bac1dceba"
                 }
               ]
             }
@@ -2195,7 +2678,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Cursed Metamorphosis, Moon Frenzy"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "9a703ca8-ffd2-5cfd-82c2-b323c835ac03"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "c6cea9c6-25dd-5c7c-8056-4c7bac1dceba"
                 }
               ]
             }
@@ -2460,7 +2955,16 @@
           },
           {
             "type": "text",
-            "text": ". If you are unholy, you are Enfeebled 2 while carrying or wielding this weapon."
+            "text": ". If you are unholy, you are "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 2"
+          },
+          {
+            "type": "text",
+            "text": " while carrying or wielding this weapon."
           }
         ]
       },
@@ -2622,7 +3126,15 @@
           },
           {
             "type": "text",
-            "text": " You cast Calm at the same rank as your champion focus spells. It must target the creature you hit, and the creature takes a status penalty on its save against the spell equal to the blessed reformer's number of weapon damage dice."
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "1e8fd2ab-ffb3-5b91-af85-43e5911b8652"
+          },
+          {
+            "type": "text",
+            "text": " at the same rank as your champion focus spells. It must target the creature you hit, and the creature takes a status penalty on its save against the spell equal to the blessed reformer's number of weapon damage dice."
           }
         ]
       },
@@ -2784,7 +3296,16 @@
           },
           {
             "type": "text",
-            "text": " Drained 1 (1 day)"
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 1"
+          },
+          {
+            "type": "text",
+            "text": " (1 day)"
           }
         ]
       },
@@ -2798,7 +3319,16 @@
           },
           {
             "type": "text",
-            "text": " drained 1 and Sickened 1 (1 day)"
+            "text": " drained 1 and "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": " (1 day)"
           }
         ]
       },
@@ -2812,7 +3342,25 @@
           },
           {
             "type": "text",
-            "text": " Drained 2 and Sickened 2 (1 week)"
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 2"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": " (1 week)"
           }
         ]
       },
@@ -2826,7 +3374,25 @@
           },
           {
             "type": "text",
-            "text": " Drained 3 and Sickened 3 (1 month)"
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 3"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 3"
+          },
+          {
+            "type": "text",
+            "text": " (1 month)"
           }
         ]
       },
@@ -2973,7 +3539,16 @@
           },
           {
             "type": "text",
-            "text": " Drained 1 (1 day)"
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 1"
+          },
+          {
+            "type": "text",
+            "text": " (1 day)"
           }
         ]
       },
@@ -2987,7 +3562,16 @@
           },
           {
             "type": "text",
-            "text": " drained 1 and Sickened 1 (1 day)"
+            "text": " drained 1 and "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": " (1 day)"
           }
         ]
       },
@@ -3001,7 +3585,25 @@
           },
           {
             "type": "text",
-            "text": " Drained 2 and Sickened 2 (1 week)"
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 2"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": " (1 week)"
           }
         ]
       },
@@ -3015,7 +3617,25 @@
           },
           {
             "type": "text",
-            "text": " Drained 3 and Sickened 3 (1 month)"
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 3"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 3"
+          },
+          {
+            "type": "text",
+            "text": " (1 month)"
           }
         ]
       },
@@ -3268,7 +3888,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Frostbite"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "4564025d-51b0-541a-a554-662ea3883cda"
                 }
               ]
             }
@@ -3284,7 +3908,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Chilling Spray, Gust of Wind"
+                  "text": " Chilling Spray, "
+                },
+                {
+                  "type": "ref",
+                  "id": "e48e01db-df29-5558-b6a3-a78233bae1d1"
                 }
               ]
             }
@@ -3547,7 +4175,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Chilling Spray, Gust of Wind"
+                  "text": " Chilling Spray, "
+                },
+                {
+                  "type": "ref",
+                  "id": "e48e01db-df29-5558-b6a3-a78233bae1d1"
                 }
               ]
             }
@@ -3611,7 +4243,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Howling Blizzard, Mantle of the Frozen Heart"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "03bdda38-13a1-546c-a4e9-871558602823"
+                },
+                {
+                  "type": "text",
+                  "text": ", Mantle of the Frozen Heart"
                 }
               ]
             }
@@ -3839,7 +4479,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Chilling Spray, Gust of Wind"
+                  "text": " Chilling Spray, "
+                },
+                {
+                  "type": "ref",
+                  "id": "e48e01db-df29-5558-b6a3-a78233bae1d1"
                 }
               ]
             }
@@ -3903,7 +4547,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Howling Blizzard, Mantle of the Frozen Heart"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "03bdda38-13a1-546c-a4e9-871558602823"
+                },
+                {
+                  "type": "text",
+                  "text": ", Mantle of the Frozen Heart"
                 }
               ]
             }
@@ -3919,7 +4571,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Howling Blizzard"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "03bdda38-13a1-546c-a4e9-871558602823"
                 }
               ]
             }
@@ -3935,7 +4591,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Frigid Flurry, Howling Blizzard"
+                  "text": " Frigid Flurry, "
+                },
+                {
+                  "type": "ref",
+                  "id": "03bdda38-13a1-546c-a4e9-871558602823"
                 }
               ]
             }
@@ -4055,7 +4715,15 @@
           },
           {
             "type": "text",
-            "text": " with hardened foam, which creates a boulder as hard as wood (Hardness 5, HP 20) that pushes the primary target of Medium size or smaller occupying that space 5 feet away from you. On a critical hit, the target also falls Prone. The splash zone fills with rubble, creating difficult terrain. The \"boulder\" the bomb creates fails all saving throws and loses 1 Hardness per round, disintegrating into fine powder when the boulder's Hardness is reduced to 0. At that time, the difficult terrain the bomb created also disappears."
+            "text": " with hardened foam, which creates a boulder as hard as wood (Hardness 5, HP 20) that pushes the primary target of Medium size or smaller occupying that space 5 feet away from you. On a critical hit, the target also falls "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": ". The splash zone fills with rubble, creating difficult terrain. The \"boulder\" the bomb creates fails all saving throws and loses 1 Hardness per round, disintegrating into fine powder when the boulder's Hardness is reduced to 0. At that time, the difficult terrain the bomb created also disappears."
           }
         ]
       }
@@ -4143,7 +4811,15 @@
           },
           {
             "type": "text",
-            "text": " with hardened foam, which creates a boulder as hard as stone (Hardness 10, HP 40) that pushes the primary target of Large size or smaller occupying that space 5 feet away from you. On a critical hit, the target also falls Prone. The splash zone fills with rubble, creating difficult terrain. The \"boulder\" the bomb creates fails all saving throws and loses 1 Hardness per round, disintegrating into fine powder when the boulder's Hardness is reduced to 0. At that time, the difficult terrain the bomb created also disappears."
+            "text": " with hardened foam, which creates a boulder as hard as stone (Hardness 10, HP 40) that pushes the primary target of Large size or smaller occupying that space 5 feet away from you. On a critical hit, the target also falls "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": ". The splash zone fills with rubble, creating difficult terrain. The \"boulder\" the bomb creates fails all saving throws and loses 1 Hardness per round, disintegrating into fine powder when the boulder's Hardness is reduced to 0. At that time, the difficult terrain the bomb created also disappears."
           }
         ]
       }
@@ -4313,7 +4989,25 @@
           },
           {
             "type": "text",
-            "text": " when wielded as a weapon. Imbued with Cayden Cailean's courage, you are immune to fear effects. Any liquid poured into the tankard transforms into a strong, alcoholic ambrosia that remains contained safely within until you drink it. Drinking the ambrosia Activates the tankard, with one of the following effects. If you aren't the one blessed to borrow the tankard, you are Drained 4 and Enfeebled 4 while holding it, and its magic doesn't function for you."
+            "text": " when wielded as a weapon. Imbued with Cayden Cailean's courage, you are immune to fear effects. Any liquid poured into the tankard transforms into a strong, alcoholic ambrosia that remains contained safely within until you drink it. Drinking the ambrosia Activates the tankard, with one of the following effects. If you aren't the one blessed to borrow the tankard, you are "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 4"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 4"
+          },
+          {
+            "type": "text",
+            "text": " while holding it, and its magic doesn't function for you."
           }
         ]
       },
@@ -4419,7 +5113,47 @@
           },
           {
             "type": "text",
-            "text": " You drink from the tankard, ending the controlled, Grabbed, Immobilized, Paralyzed, Restrained, and slowed conditions on yourself and creatures of your choice within 120 feet of you, as well as anything giving such targets a circumstance penalty to Speed. Any effect causing these conditions ends, and if the source of the effect is an item, that item can't produce the effect for 1 week, provided it is of a level lower than the tankard's. If a target needs to Escape an effect imposing any of these conditions, it automatically does so on its next attempt. You can Activate this ability even if one of the listed conditions would normally prevent you from doing so (such as paralyzed)."
+            "text": " You drink from the tankard, ending the controlled, "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "7802f1d9-5ced-5b9b-8a08-98ec0adb9947"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071"
+          },
+          {
+            "type": "text",
+            "text": ", and slowed conditions on yourself and creatures of your choice within 120 feet of you, as well as anything giving such targets a circumstance penalty to Speed. Any effect causing these conditions ends, and if the source of the effect is an item, that item can't produce the effect for 1 week, provided it is of a level lower than the tankard's. If a target needs to "
+          },
+          {
+            "type": "ref",
+            "id": "2ae74030-e87a-55ee-955c-fb9870392d44"
+          },
+          {
+            "type": "text",
+            "text": " an effect imposing any of these conditions, it automatically does so on its next attempt. You can Activate this ability even if one of the listed conditions would normally prevent you from doing so (such as paralyzed)."
           }
         ]
       },
@@ -4577,7 +5311,16 @@
           },
           {
             "type": "text",
-            "text": ", you gain a +1 circumstance bonus to saving throws against effects that have the unholy trait and effects created by unholy creatures. When you prepare this staff, if you're unholy, you become Drained 1 until your next daily preparations."
+            "text": ", you gain a +1 circumstance bonus to saving throws against effects that have the unholy trait and effects created by unholy creatures. When you prepare this staff, if you're unholy, you become "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 1"
+          },
+          {
+            "type": "text",
+            "text": " until your next daily preparations."
           }
         ]
       },
@@ -4627,7 +5370,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Divine Lance"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "a593a292-4fca-5280-9857-56a2178b1618"
                 }
               ]
             }
@@ -4643,7 +5390,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Bless, Protection"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "bd1e2643-132f-5c7c-8b60-b97e26a01266"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "24b5f720-8567-5cc4-8158-2f175d6dc42b"
                 }
               ]
             }
@@ -4659,7 +5418,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Everlight, Inner Radiance Torrent"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "f7e84331-b195-5f53-9e66-26d7a31225a7"
+                },
+                {
+                  "type": "text",
+                  "text": ", Inner Radiance Torrent"
                 }
               ]
             }
@@ -4675,7 +5442,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Anointed Ground, Protection"
+                  "text": " Anointed Ground, "
+                },
+                {
+                  "type": "ref",
+                  "id": "24b5f720-8567-5cc4-8158-2f175d6dc42b"
                 }
               ]
             }
@@ -4707,7 +5478,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Spiritual Guardian, Summon Celestial"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "2b8c44ad-bc75-5547-91d6-75b0f174e910"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "5fa9980f-96b8-5ba5-853f-2d7a7d3339cb"
                 }
               ]
             }
@@ -4723,7 +5506,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Holy Cascade, Summon Celestial"
+                  "text": " Holy Cascade, "
+                },
+                {
+                  "type": "ref",
+                  "id": "5fa9980f-96b8-5ba5-853f-2d7a7d3339cb"
                 }
               ]
             }
@@ -4739,7 +5526,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Frigid Flurry, Howling Blizzard"
+                  "text": " Frigid Flurry, "
+                },
+                {
+                  "type": "ref",
+                  "id": "03bdda38-13a1-546c-a4e9-871558602823"
                 }
               ]
             }
@@ -5046,7 +5837,23 @@
                 },
                 {
                   "type": "text",
-                  "text": " Day's Weight, Haste, Slow, Time Jump"
+                  "text": " Day's Weight, "
+                },
+                {
+                  "type": "ref",
+                  "id": "2b79f5bd-e9d5-59cd-81f8-b1362ed0b59a"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "cfa1a3f3-2450-52eb-95d6-875232fd5219"
+                },
+                {
+                  "type": "text",
+                  "text": ", Time Jump"
                 }
               ]
             }
@@ -5286,7 +6093,15 @@
           },
           {
             "type": "text",
-            "text": " You switch the Coldstar Pistols from one form to the other. Attempt a Deception check to Feint with a +4 circumstance bonus."
+            "text": " You switch the Coldstar Pistols from one form to the other. Attempt a Deception check to "
+          },
+          {
+            "type": "ref",
+            "id": "8b950c56-7b5d-5063-9439-adb52a323cd9"
+          },
+          {
+            "type": "text",
+            "text": " with a +4 circumstance bonus."
           }
         ]
       },
@@ -5536,7 +6351,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Haunting Hymn, Summon Instrument"
+                  "text": " Haunting Hymn, "
+                },
+                {
+                  "type": "ref",
+                  "id": "51e8ae51-66a8-530c-8c80-1332c8626cec"
                 }
               ]
             }
@@ -5699,7 +6518,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Haunting Hymn, Summon Instrument"
+                  "text": " Haunting Hymn, "
+                },
+                {
+                  "type": "ref",
+                  "id": "51e8ae51-66a8-530c-8c80-1332c8626cec"
                 }
               ]
             }
@@ -5747,7 +6570,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Concordant Choir, Enthrall, Roaring Applause"
+                  "text": " Concordant Choir, "
+                },
+                {
+                  "type": "ref",
+                  "id": "ed8ad89d-b5e6-5f93-9e80-1368a1e0b8dc"
+                },
+                {
+                  "type": "text",
+                  "text": ", Roaring Applause"
                 }
               ]
             }
@@ -5894,7 +6725,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Haunting Hymn, Summon Instrument"
+                  "text": " Haunting Hymn, "
+                },
+                {
+                  "type": "ref",
+                  "id": "51e8ae51-66a8-530c-8c80-1332c8626cec"
                 }
               ]
             }
@@ -5942,7 +6777,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Concordant Choir, Enthrall, Roaring Applause"
+                  "text": " Concordant Choir, "
+                },
+                {
+                  "type": "ref",
+                  "id": "ed8ad89d-b5e6-5f93-9e80-1368a1e0b8dc"
+                },
+                {
+                  "type": "text",
+                  "text": ", Roaring Applause"
                 }
               ]
             }
@@ -5974,7 +6817,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Concordant Choir, Truespeech"
+                  "text": " Concordant Choir, "
+                },
+                {
+                  "type": "ref",
+                  "id": "055bd3d8-a0b8-539f-84f8-4baab9936d67"
                 }
               ]
             }
@@ -6353,7 +7200,15 @@
           },
           {
             "type": "text",
-            "text": " Off-Guard (1 round)"
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " (1 round)"
           }
         ]
       },
@@ -6367,7 +7222,16 @@
           },
           {
             "type": "text",
-            "text": " off-guard and Clumsy 1 (1 round)"
+            "text": " off-guard and "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": " (1 round)"
           }
         ]
       },
@@ -6381,7 +7245,24 @@
           },
           {
             "type": "text",
-            "text": " Confused, off-guard, and Clumsy 2 (1 round)"
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "6f53a234-670f-5b02-a986-7cce57585fc8"
+          },
+          {
+            "type": "text",
+            "text": ", off-guard, and "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 2"
+          },
+          {
+            "type": "text",
+            "text": " (1 round)"
           }
         ]
       },
@@ -6470,7 +7351,23 @@
         "content": [
           {
             "type": "text",
-            "text": "These silken handwraps feature intricate embroidery of a serpentine red dragon adorned with golden thread. The handwraps function as +3 major striking greater flaming handwraps of mighty blows. You also gain a +4 item bonus to Athletics checks made to Grapple or Shove. When you invest the handwraps, you either increase your Strength modifier by 1 or increase it to +4, whichever would give you a higher value."
+            "text": "These silken handwraps feature intricate embroidery of a serpentine red dragon adorned with golden thread. The handwraps function as +3 major striking greater flaming handwraps of mighty blows. You also gain a +4 item bonus to Athletics checks made to "
+          },
+          {
+            "type": "ref",
+            "id": "380d34f1-f6f6-5820-b9dd-c01ee4e19fd5"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "082b982f-3ed4-5d9c-9722-9ab10198523a"
+          },
+          {
+            "type": "text",
+            "text": ". When you invest the handwraps, you either increase your Strength modifier by 1 or increase it to +4, whichever would give you a higher value."
           }
         ]
       },
@@ -6526,7 +7423,15 @@
           },
           {
             "type": "text",
-            "text": " You slap the bottom of your palms with hands splayed outward, casting a 7th-rank Breathe Fire spell ("
+            "text": " You slap the bottom of your palms with hands splayed outward, casting a 7th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "14e2abdf-052f-5a62-a6a0-8b4191474b38"
+          },
+          {
+            "type": "text",
+            "text": " spell ("
           },
           {
             "type": "check",
@@ -6607,7 +7512,15 @@
           },
           {
             "type": "text",
-            "text": " You gain a +2 status bonus to your Athletics DC against any checks made to Escape your grapple until the end of your next turn."
+            "text": " You gain a +2 status bonus to your Athletics DC against any checks made to "
+          },
+          {
+            "type": "ref",
+            "id": "2ae74030-e87a-55ee-955c-fb9870392d44"
+          },
+          {
+            "type": "text",
+            "text": " your grapple until the end of your next turn."
           }
         ]
       }
@@ -6684,7 +7597,15 @@
         "content": [
           {
             "type": "text",
-            "text": "A multi-hued array of scales covers a dragonprism staff, forming a gradient of color, and a dragon's claw holds a gem upon the staff's head. Dragons give allies these staves as a mark of esteem. While wielding a dragonprism staff you seem fiercer, gaining a +1 circumstance bonus to Intimidation checks to Demoralize."
+            "text": "A multi-hued array of scales covers a dragonprism staff, forming a gradient of color, and a dragon's claw holds a gem upon the staff's head. Dragons give allies these staves as a mark of esteem. While wielding a dragonprism staff you seem fiercer, gaining a +1 circumstance bonus to Intimidation checks to "
+          },
+          {
+            "type": "ref",
+            "id": "2a3671d0-7d0b-53db-8648-861d457f0175"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       },
@@ -6734,7 +7655,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Gouging Claw, Puff of Poison"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "411dc034-1932-5468-960c-2c3f40ec20ec"
+                },
+                {
+                  "type": "text",
+                  "text": ", Puff of Poison"
                 }
               ]
             }
@@ -6750,7 +7679,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Breathe Fire, Fear"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "14e2abdf-052f-5a62-a6a0-8b4191474b38"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "a8b9cc60-f471-559b-a07c-6ad022c23b56"
                 }
               ]
             }
@@ -6766,7 +7707,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Acid Grip, Resist Energy"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "bacc25dc-fc88-5b92-9a69-14c56e2e8c04"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "d54ee3a3-6742-53c8-9070-17edcb0cae19"
                 }
               ]
             }
@@ -6782,7 +7735,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Fear, Lightning Bolt"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "a8b9cc60-f471-559b-a07c-6ad022c23b56"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "e9fa0be4-1b62-555b-91de-ba34c484adac"
                 }
               ]
             }
@@ -6798,7 +7763,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Fly, Reflective Scales"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "5ff17619-93b1-5680-ad41-5f66ad9a8c0b"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "e3806b57-09e6-5cdc-962f-f30e20f43104"
                 }
               ]
             }
@@ -6814,7 +7791,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Howling Blizzard, Summon Dragon"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "03bdda38-13a1-546c-a4e9-871558602823"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "7c14054e-1a70-5b65-acda-2a1661596af7"
                 }
               ]
             }
@@ -6830,7 +7819,27 @@
                 },
                 {
                   "type": "text",
-                  "text": " Dragon Form, Reflective Scales, Summon Dragon"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "ba683a40-46d3-584b-b74a-ddc1370a9916"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "e3806b57-09e6-5cdc-962f-f30e20f43104"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "7c14054e-1a70-5b65-acda-2a1661596af7"
                 }
               ]
             }
@@ -6909,7 +7918,15 @@
         "content": [
           {
             "type": "text",
-            "text": "A multi-hued array of scales covers a dragonprism staff, forming a gradient of color, and a dragon's claw holds a gem upon the staff's head. Dragons give allies these staves as a mark of esteem. While wielding a dragonprism staff you seem fiercer, gaining a +1 circumstance bonus to Intimidation checks to Demoralize."
+            "text": "A multi-hued array of scales covers a dragonprism staff, forming a gradient of color, and a dragon's claw holds a gem upon the staff's head. Dragons give allies these staves as a mark of esteem. While wielding a dragonprism staff you seem fiercer, gaining a +1 circumstance bonus to Intimidation checks to "
+          },
+          {
+            "type": "ref",
+            "id": "2a3671d0-7d0b-53db-8648-861d457f0175"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       },
@@ -6959,7 +7976,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Gouging Claw, Puff of Poison"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "411dc034-1932-5468-960c-2c3f40ec20ec"
+                },
+                {
+                  "type": "text",
+                  "text": ", Puff of Poison"
                 }
               ]
             }
@@ -6975,7 +8000,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Breathe Fire, Fear"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "14e2abdf-052f-5a62-a6a0-8b4191474b38"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "a8b9cc60-f471-559b-a07c-6ad022c23b56"
                 }
               ]
             }
@@ -6991,7 +8028,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Acid Grip, Resist Energy"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "bacc25dc-fc88-5b92-9a69-14c56e2e8c04"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "d54ee3a3-6742-53c8-9070-17edcb0cae19"
                 }
               ]
             }
@@ -7007,7 +8056,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Fear, Lightning Bolt"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "a8b9cc60-f471-559b-a07c-6ad022c23b56"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "e9fa0be4-1b62-555b-91de-ba34c484adac"
                 }
               ]
             }
@@ -7023,7 +8084,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Fly, Reflective Scales"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "5ff17619-93b1-5680-ad41-5f66ad9a8c0b"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "e3806b57-09e6-5cdc-962f-f30e20f43104"
                 }
               ]
             }
@@ -7039,7 +8112,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Howling Blizzard, Summon Dragon"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "03bdda38-13a1-546c-a4e9-871558602823"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "7c14054e-1a70-5b65-acda-2a1661596af7"
                 }
               ]
             }
@@ -7055,7 +8140,27 @@
                 },
                 {
                   "type": "text",
-                  "text": " Dragon Form, Reflective Scales, Summon Dragon"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "ba683a40-46d3-584b-b74a-ddc1370a9916"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "e3806b57-09e6-5cdc-962f-f30e20f43104"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "7c14054e-1a70-5b65-acda-2a1661596af7"
                 }
               ]
             }
@@ -7071,7 +8176,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Dragon Form"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "ba683a40-46d3-584b-b74a-ddc1370a9916"
                 }
               ]
             }
@@ -7087,7 +8196,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Dragon Form, Summon Dragon"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "ba683a40-46d3-584b-b74a-ddc1370a9916"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "7c14054e-1a70-5b65-acda-2a1661596af7"
                 }
               ]
             }
@@ -7103,7 +8224,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Incarnate Draconic Legion, Summon Dragon"
+                  "text": " Incarnate Draconic Legion, "
+                },
+                {
+                  "type": "ref",
+                  "id": "7c14054e-1a70-5b65-acda-2a1661596af7"
                 }
               ]
             }
@@ -7771,7 +8896,15 @@
         "content": [
           {
             "type": "text",
-            "text": "The cast-iron frying pan is an essential tool for adventuring halflings, gold panners, and remote tavern owners. Characters with the Halfling Weapon Familiarity ancestry feat are trained in the frying pan."
+            "text": "The cast-iron frying pan is an essential tool for adventuring halflings, gold panners, and remote tavern owners. Characters with the "
+          },
+          {
+            "type": "ref",
+            "id": "4b01bf73-988a-5433-b4b3-eb7c8d9e69cf"
+          },
+          {
+            "type": "text",
+            "text": " ancestry feat are trained in the frying pan."
           }
         ]
       }
@@ -7849,7 +8982,15 @@
           },
           {
             "type": "text",
-            "text": " grants you a +2 circumstance bonus to checks to Earn Income from gambling (typically using Games Lore). To get this benefit, the staff must be on your person during all the downtime you spend gambling."
+            "text": " grants you a +2 circumstance bonus to checks to "
+          },
+          {
+            "type": "ref",
+            "id": "b03a543f-4d12-5c6b-a4f9-6afe141aa651"
+          },
+          {
+            "type": "text",
+            "text": " from gambling (typically using Games Lore). To get this benefit, the staff must be on your person during all the downtime you spend gambling."
           }
         ]
       },
@@ -7963,7 +9104,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Read Omens, Winning Streak"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "43c59605-b0f6-5d58-afc0-27485aeb4204"
+                },
+                {
+                  "type": "text",
+                  "text": ", Winning Streak"
                 }
               ]
             }
@@ -8383,7 +9532,25 @@
           },
           {
             "type": "text",
-            "text": " save or become Sickened 1 (plus Slowed 1 as long as it's sickened on a critical failure). A creature that succeeds at its save is temporarily immune to all stench auras for 1 minute."
+            "text": " save or become "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": " (plus "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " as long as it's sickened on a critical failure). A creature that succeeds at its save is temporarily immune to all stench auras for 1 minute."
           }
         ]
       },
@@ -8495,7 +9662,15 @@
           },
           {
             "type": "text",
-            "text": "'s damage dice. If you critically hit such a target, the creature is Off-Guard until the start of your next turn."
+            "text": "'s damage dice. If you critically hit such a target, the creature is "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " until the start of your next turn."
           }
         ]
       },
@@ -8689,7 +9864,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Forbidding Ward"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "87cbc7c8-756e-521d-baaf-9c09d1ddfb3c"
                 }
               ]
             }
@@ -8705,7 +9884,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Sanctuary, Spirit Link"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "599db52f-69e4-5aa2-9cb6-f3c8a5339144"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "0169fd36-2fab-563c-b9d2-59d5a5fc0d2f"
                 }
               ]
             }
@@ -8721,7 +9912,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Share Life, Spirit Link"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "aa5b234d-3e28-5766-9bc0-bcf048cc797d"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "0169fd36-2fab-563c-b9d2-59d5a5fc0d2f"
                 }
               ]
             }
@@ -8899,7 +10102,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Forbidding Ward"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "87cbc7c8-756e-521d-baaf-9c09d1ddfb3c"
                 }
               ]
             }
@@ -8915,7 +10122,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Sanctuary, Spirit Link"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "599db52f-69e4-5aa2-9cb6-f3c8a5339144"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "0169fd36-2fab-563c-b9d2-59d5a5fc0d2f"
                 }
               ]
             }
@@ -8931,7 +10150,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Share Life, Spirit Link"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "aa5b234d-3e28-5766-9bc0-bcf048cc797d"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "0169fd36-2fab-563c-b9d2-59d5a5fc0d2f"
                 }
               ]
             }
@@ -8947,7 +10178,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Life Connection, Spirit Link"
+                  "text": " Life Connection, "
+                },
+                {
+                  "type": "ref",
+                  "id": "0169fd36-2fab-563c-b9d2-59d5a5fc0d2f"
                 }
               ]
             }
@@ -8963,7 +10198,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Spirit Link, Unfettered Movement"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "0169fd36-2fab-563c-b9d2-59d5a5fc0d2f"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "3f76db0d-3598-5ec4-bdd4-9f568f4f8973"
                 }
               ]
             }
@@ -9141,7 +10388,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Forbidding Ward"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "87cbc7c8-756e-521d-baaf-9c09d1ddfb3c"
                 }
               ]
             }
@@ -9157,7 +10408,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Sanctuary, Spirit Link"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "599db52f-69e4-5aa2-9cb6-f3c8a5339144"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "0169fd36-2fab-563c-b9d2-59d5a5fc0d2f"
                 }
               ]
             }
@@ -9173,7 +10436,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Share Life, Spirit Link"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "aa5b234d-3e28-5766-9bc0-bcf048cc797d"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "0169fd36-2fab-563c-b9d2-59d5a5fc0d2f"
                 }
               ]
             }
@@ -9189,7 +10464,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Life Connection, Spirit Link"
+                  "text": " Life Connection, "
+                },
+                {
+                  "type": "ref",
+                  "id": "0169fd36-2fab-563c-b9d2-59d5a5fc0d2f"
                 }
               ]
             }
@@ -9205,7 +10484,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Spirit Link, Unfettered Movement"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "0169fd36-2fab-563c-b9d2-59d5a5fc0d2f"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "3f76db0d-3598-5ec4-bdd4-9f568f4f8973"
                 }
               ]
             }
@@ -9221,7 +10512,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Blessing of Defiance, Death Ward, Spirit Link"
+                  "text": " Blessing of Defiance, Death Ward, "
+                },
+                {
+                  "type": "ref",
+                  "id": "0169fd36-2fab-563c-b9d2-59d5a5fc0d2f"
                 }
               ]
             }
@@ -9237,7 +10532,27 @@
                 },
                 {
                   "type": "text",
-                  "text": " Repulsion, Scintillating Safeguard, Spirit Link, Unfettered Movement"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "fcd3c0c1-a3b8-5747-bbad-0ca5e7f7c495"
+                },
+                {
+                  "type": "text",
+                  "text": ", Scintillating Safeguard, "
+                },
+                {
+                  "type": "ref",
+                  "id": "0169fd36-2fab-563c-b9d2-59d5a5fc0d2f"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "3f76db0d-3598-5ec4-bdd4-9f568f4f8973"
                 }
               ]
             }
@@ -9378,7 +10693,16 @@
           },
           {
             "type": "text",
-            "text": ". When you prepare this staff, if you're holy, you become Drained 1 until your next daily preparations."
+            "text": ". When you prepare this staff, if you're holy, you become "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 1"
+          },
+          {
+            "type": "text",
+            "text": " until your next daily preparations."
           }
         ]
       },
@@ -9455,7 +10779,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Divine Lance"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "a593a292-4fca-5280-9857-56a2178b1618"
                 }
               ]
             }
@@ -9471,7 +10799,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Protection, Summon Lesser Servitor"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "24b5f720-8567-5cc4-8158-2f175d6dc42b"
+                },
+                {
+                  "type": "text",
+                  "text": ", Summon Lesser Servitor"
                 }
               ]
             }
@@ -9487,7 +10823,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Darkvision, Summon Lesser Servitor"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "6bcf1643-218b-5e08-9fa5-62ff7c800b72"
+                },
+                {
+                  "type": "text",
+                  "text": ", Summon Lesser Servitor"
                 }
               ]
             }
@@ -9503,7 +10847,23 @@
                 },
                 {
                   "type": "text",
-                  "text": " Chilling Darkness, Darkvision, Summon Lesser Servitor"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "19aa4b7a-5dff-51d4-ad37-c412aab2548e"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "6bcf1643-218b-5e08-9fa5-62ff7c800b72"
+                },
+                {
+                  "type": "text",
+                  "text": ", Summon Lesser Servitor"
                 }
               ]
             }
@@ -9519,7 +10879,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Divine Wrath, Summon Lesser Servitor"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "c9f296d5-7325-5ec8-be5d-eb9502269e2f"
+                },
+                {
+                  "type": "text",
+                  "text": ", Summon Lesser Servitor"
                 }
               ]
             }
@@ -9535,7 +10903,27 @@
                 },
                 {
                   "type": "text",
-                  "text": " Darkvision, Divine Immolation, Summon Fiend"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "6bcf1643-218b-5e08-9fa5-62ff7c800b72"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "5aa6f2d5-606d-50da-adb2-11a885db20df"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "d599a398-831f-5769-989c-37f737e7fbd5"
                 }
               ]
             }
@@ -9551,7 +10939,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Devil Form, Summon Fiend"
+                  "text": " Devil Form, "
+                },
+                {
+                  "type": "ref",
+                  "id": "d599a398-831f-5769-989c-37f737e7fbd5"
                 }
               ]
             }
@@ -9567,7 +10959,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Divine Decree, Summon Fiend"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "148379ea-e80f-56a6-b8cd-6032862ad2c1"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "d599a398-831f-5769-989c-37f737e7fbd5"
                 }
               ]
             }
@@ -9990,7 +11394,15 @@
           },
           {
             "type": "text",
-            "text": " is moving independently, you can Sustain the activation to have it make a Strike against a creature. It makes a ranged Strike using your attack modifier while wielding it or a +31 bonus, whichever is higher. This attack increases your multiple attack penalty as normal, and the gun uses your multiple attack penalty when determining its attack bonus. Since the star gun is constantly moving and attempting to line up the appropriate shot, creatures it targets are Off-Guard to the gun's attacks."
+            "text": " is moving independently, you can Sustain the activation to have it make a Strike against a creature. It makes a ranged Strike using your attack modifier while wielding it or a +31 bonus, whichever is higher. This attack increases your multiple attack penalty as normal, and the gun uses your multiple attack penalty when determining its attack bonus. Since the star gun is constantly moving and attempting to line up the appropriate shot, creatures it targets are "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " to the gun's attacks."
           }
         ]
       },
@@ -10423,7 +11835,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Approximate, Read Aura"
+                  "text": " Approximate, "
+                },
+                {
+                  "type": "ref",
+                  "id": "02c769dd-dba8-5437-8189-28b9800afaac"
                 }
               ]
             }
@@ -10439,7 +11855,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Pocket Library, Quick Sort, Share Lore"
+                  "text": " Pocket Library, Quick Sort, "
+                },
+                {
+                  "type": "ref",
+                  "id": "b629c2bc-449a-5a58-aa95-992e36fc8aa9"
                 }
               ]
             }
@@ -10455,7 +11875,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Timely Tutor, Translate"
+                  "text": " Timely Tutor, "
+                },
+                {
+                  "type": "ref",
+                  "id": "80285128-e7a0-55e7-a386-1f845f6d09aa"
                 }
               ]
             }
@@ -10630,7 +12054,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Approximate, Read Aura"
+                  "text": " Approximate, "
+                },
+                {
+                  "type": "ref",
+                  "id": "02c769dd-dba8-5437-8189-28b9800afaac"
                 }
               ]
             }
@@ -10646,7 +12074,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Pocket Library, Quick Sort, Share Lore"
+                  "text": " Pocket Library, Quick Sort, "
+                },
+                {
+                  "type": "ref",
+                  "id": "b629c2bc-449a-5a58-aa95-992e36fc8aa9"
                 }
               ]
             }
@@ -10662,7 +12094,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Timely Tutor, Translate"
+                  "text": " Timely Tutor, "
+                },
+                {
+                  "type": "ref",
+                  "id": "80285128-e7a0-55e7-a386-1f845f6d09aa"
                 }
               ]
             }
@@ -10678,7 +12114,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Pocket Library, Quick Sort, Share Lore, Translate"
+                  "text": " Pocket Library, Quick Sort, "
+                },
+                {
+                  "type": "ref",
+                  "id": "b629c2bc-449a-5a58-aa95-992e36fc8aa9"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "80285128-e7a0-55e7-a386-1f845f6d09aa"
                 }
               ]
             }
@@ -10694,7 +12142,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Translate"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "80285128-e7a0-55e7-a386-1f845f6d09aa"
                 }
               ]
             }
@@ -10710,7 +12162,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Quick Sort, Share Lore"
+                  "text": " Quick Sort, "
+                },
+                {
+                  "type": "ref",
+                  "id": "b629c2bc-449a-5a58-aa95-992e36fc8aa9"
                 }
               ]
             }
@@ -10820,7 +12276,25 @@
           },
           {
             "type": "text",
-            "text": " and is Clumsy 1 and Enfeebled 1 while taking the persistent damage. The persistent damage can last up to 1 minute."
+            "text": " and is "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 1"
+          },
+          {
+            "type": "text",
+            "text": " while taking the persistent damage. The persistent damage can last up to 1 minute."
           }
         ]
       }
@@ -10913,7 +12387,25 @@
           },
           {
             "type": "text",
-            "text": " and is Clumsy 1 and Enfeebled 1 while taking the persistent damage. The persistent damage can last up to 1 minute."
+            "text": " and is "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 1"
+          },
+          {
+            "type": "text",
+            "text": " while taking the persistent damage. The persistent damage can last up to 1 minute."
           }
         ]
       }
@@ -11080,7 +12572,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Guidance, Summon Instrument"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "71a6396c-7cc2-5918-a06b-bf3cf1b533f6"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "51e8ae51-66a8-530c-8c80-1332c8626cec"
                 }
               ]
             }
@@ -11112,7 +12616,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Guiding Star, Sure Footing"
+                  "text": " Guiding Star, "
+                },
+                {
+                  "type": "ref",
+                  "id": "a8c49cfe-ddcf-5319-9db1-3140799f7182"
                 }
               ]
             }
@@ -11253,7 +12761,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Guidance, Summon Instrument"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "71a6396c-7cc2-5918-a06b-bf3cf1b533f6"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "51e8ae51-66a8-530c-8c80-1332c8626cec"
                 }
               ]
             }
@@ -11285,7 +12805,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Guiding Star, Sure Footing"
+                  "text": " Guiding Star, "
+                },
+                {
+                  "type": "ref",
+                  "id": "a8c49cfe-ddcf-5319-9db1-3140799f7182"
                 }
               ]
             }
@@ -11301,7 +12825,23 @@
                 },
                 {
                   "type": "text",
-                  "text": " Dream Message, Safe Passage, Wanderer's Guide"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "d6b0d1ae-f695-5de3-a7ba-b3eef2060313"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "30234e3f-a8be-5813-adf9-a56c58ee261c"
+                },
+                {
+                  "type": "text",
+                  "text": ", Wanderer's Guide"
                 }
               ]
             }
@@ -11317,7 +12857,27 @@
                 },
                 {
                   "type": "text",
-                  "text": " Concordant Choir, Dream Message, Sure Footing, Unfettered Movement"
+                  "text": " Concordant Choir, "
+                },
+                {
+                  "type": "ref",
+                  "id": "d6b0d1ae-f695-5de3-a7ba-b3eef2060313"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "a8c49cfe-ddcf-5319-9db1-3140799f7182"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "3f76db0d-3598-5ec4-bdd4-9f568f4f8973"
                 }
               ]
             }
@@ -11458,7 +13018,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Guidance, Summon Instrument"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "71a6396c-7cc2-5918-a06b-bf3cf1b533f6"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "51e8ae51-66a8-530c-8c80-1332c8626cec"
                 }
               ]
             }
@@ -11490,7 +13062,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Guiding Star, Sure Footing"
+                  "text": " Guiding Star, "
+                },
+                {
+                  "type": "ref",
+                  "id": "a8c49cfe-ddcf-5319-9db1-3140799f7182"
                 }
               ]
             }
@@ -11506,7 +13082,23 @@
                 },
                 {
                   "type": "text",
-                  "text": " Dream Message, Safe Passage, Wanderer's Guide"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "d6b0d1ae-f695-5de3-a7ba-b3eef2060313"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "30234e3f-a8be-5813-adf9-a56c58ee261c"
+                },
+                {
+                  "type": "text",
+                  "text": ", Wanderer's Guide"
                 }
               ]
             }
@@ -11522,7 +13114,27 @@
                 },
                 {
                   "type": "text",
-                  "text": " Concordant Choir, Dream Message, Unfettered Movement, Sure Footing"
+                  "text": " Concordant Choir, "
+                },
+                {
+                  "type": "ref",
+                  "id": "d6b0d1ae-f695-5de3-a7ba-b3eef2060313"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "3f76db0d-3598-5ec4-bdd4-9f568f4f8973"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "a8c49cfe-ddcf-5319-9db1-3140799f7182"
                 }
               ]
             }
@@ -11538,7 +13150,23 @@
                 },
                 {
                   "type": "text",
-                  "text": " Safe Passage, Summon Celestial (azatas only)"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "30234e3f-a8be-5813-adf9-a56c58ee261c"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "5fa9980f-96b8-5ba5-853f-2d7a7d3339cb"
+                },
+                {
+                  "type": "text",
+                  "text": " (azatas only)"
                 }
               ]
             }
@@ -11554,7 +13182,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Concordant Choir, Zealous Conviction"
+                  "text": " Concordant Choir, "
+                },
+                {
+                  "type": "ref",
+                  "id": "ad4c22df-73d8-547e-be5f-8676b389053e"
                 }
               ]
             }
@@ -11570,7 +13202,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Cosmic Form, Sure Footing"
+                  "text": " Cosmic Form, "
+                },
+                {
+                  "type": "ref",
+                  "id": "a8c49cfe-ddcf-5319-9db1-3140799f7182"
                 }
               ]
             }
@@ -11816,7 +13452,16 @@
           },
           {
             "type": "text",
-            "text": " is used by caravan guards to nonlethally—though powerfully—deter large game and bandits. When fired, the spark gun deals mental damage and adds the nonlethal trait to the attack. Each mindlance also includes a reinforced stock that benefits from any fundamental runes on the firearm. When you critically succeed at an attack roll with a mindlance, the target becomes Frightened 2 unless it succeeds at a "
+            "text": " is used by caravan guards to nonlethally—though powerfully—deter large game and bandits. When fired, the spark gun deals mental damage and adds the nonlethal trait to the attack. Each mindlance also includes a reinforced stock that benefits from any fundamental runes on the firearm. When you critically succeed at an attack roll with a mindlance, the target becomes "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": " unless it succeeds at a "
           },
           {
             "type": "check",
@@ -12115,7 +13760,15 @@
           },
           {
             "type": "text",
-            "text": " staff. While wielding the staff, you gain a +2 circumstance bonus to Intimidation checks to Coerce."
+            "text": " staff. While wielding the staff, you gain a +2 circumstance bonus to Intimidation checks to "
+          },
+          {
+            "type": "ref",
+            "id": "ed0f3425-17f0-51f3-bb5d-1ca7475499a5"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       },
@@ -12165,7 +13818,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Gale Blast, Know the Way"
+                  "text": " Gale Blast, "
+                },
+                {
+                  "type": "ref",
+                  "id": "2837d0b2-7110-5a34-9ce2-be5c9f49cb8e"
                 }
               ]
             }
@@ -12197,7 +13854,27 @@
                 },
                 {
                   "type": "text",
-                  "text": " Mist, Water Breathing, Water Walk"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "1871511d-f694-5e6b-b49d-1e7388909900"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "42fa4e93-acfd-52ff-a186-cef177164f63"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "62b9b05e-2f86-5c8b-bc12-2500cd4d9959"
                 }
               ]
             }
@@ -12213,7 +13890,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Mind of Menace, Water Breathing"
+                  "text": " Mind of Menace, "
+                },
+                {
+                  "type": "ref",
+                  "id": "42fa4e93-acfd-52ff-a186-cef177164f63"
                 }
               ]
             }
@@ -12229,7 +13910,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Coral Eruption, Water Breathing, Water Walk"
+                  "text": " Coral Eruption, "
+                },
+                {
+                  "type": "ref",
+                  "id": "42fa4e93-acfd-52ff-a186-cef177164f63"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "62b9b05e-2f86-5c8b-bc12-2500cd4d9959"
                 }
               ]
             }
@@ -12245,7 +13938,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Flowing Strike, Mariner's Curse"
+                  "text": " Flowing Strike, "
+                },
+                {
+                  "type": "ref",
+                  "id": "ccc96547-bee7-50d8-8de8-ce0748ee961d"
                 }
               ]
             }
@@ -12668,7 +14365,15 @@
         "content": [
           {
             "type": "text",
-            "text": "The polytool is a small metal rod with a number of simple tools folded inside. The user can extend a long ceramic blade, as well as an awl, chisel, file, flint and steel, hook, inkpen, magnifying glass, pliers, scissors, and a small saw. The flint and steel can be used up to 10 times before needing to be replaced. Though inspired by advanced Numerian technology, the polytool is a simple enough feat of metalworking that any blacksmith could produce it—perfect for the goddess Casandalee to spread innovation farther than actual Numerian tech could reach."
+            "text": "The polytool is a small metal rod with a number of simple tools folded inside. The user can extend a long ceramic blade, as well as an awl, chisel, file, flint and steel, hook, inkpen, magnifying glass, pliers, scissors, and a small saw. The flint and steel can be used up to 10 times before needing to be replaced. Though inspired by advanced Numerian technology, the polytool is a simple enough feat of metalworking that any blacksmith could produce it—perfect for the goddess "
+          },
+          {
+            "type": "ref",
+            "id": "2ac36443-da29-5dfd-afff-ad0c10d8b7a6"
+          },
+          {
+            "type": "text",
+            "text": " to spread innovation farther than actual Numerian tech could reach."
           }
         ]
       }
@@ -12731,27 +14436,24 @@
             "text": " grows thick and pitted as the moon waxes, and it thins to a sharp sliver as the moon wanes. Moonlight also causes a second rune on the blade to change shape with the moon's phases: during the new and crescent moon, the weapon has the "
           },
           {
-            "type": "text",
-            "text": "Ghost Touch",
-            "marks": ["emphasis"]
+            "type": "ref",
+            "id": "3e294082-c3ff-58be-ab80-1608b9c6229a"
           },
           {
             "type": "text",
             "text": " rune; during the quarter moon, the "
           },
           {
-            "type": "text",
-            "text": "Fearsome",
-            "marks": ["emphasis"]
+            "type": "ref",
+            "id": "d86545b9-266e-54d0-9347-f4b9fb077448"
           },
           {
             "type": "text",
             "text": " rune; and during the gibbous and full moon, the "
           },
           {
-            "type": "text",
-            "text": "Wounding",
-            "marks": ["emphasis"]
+            "type": "ref",
+            "id": "2ed55af4-0d60-53f9-ad8e-ce9db657b9c0"
           },
           {
             "type": "text",
@@ -13296,7 +14998,15 @@
           },
           {
             "type": "text",
-            "text": " Your last action was a successful Strike with this weapon, or you have a creature Grabbed with this weapon"
+            "text": " Your last action was a successful Strike with this weapon, or you have a creature "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+          },
+          {
+            "type": "text",
+            "text": " with this weapon"
           }
         ]
       },
@@ -13313,7 +15023,15 @@
           },
           {
             "type": "text",
-            "text": " The target is grabbed until the end of your next turn. A grabbed creature can use the Escape action to get out of the Grab, and the Grab ends for a grabbed creature if you move away from it. This functions as the Grab creature ability."
+            "text": " The target is grabbed until the end of your next turn. A grabbed creature can use the "
+          },
+          {
+            "type": "ref",
+            "id": "2ae74030-e87a-55ee-955c-fb9870392d44"
+          },
+          {
+            "type": "text",
+            "text": " action to get out of the Grab, and the Grab ends for a grabbed creature if you move away from it. This functions as the Grab creature ability."
           }
         ]
       },
@@ -13605,7 +15323,15 @@
           },
           {
             "type": "text",
-            "text": " save or be Deafened until the end of their next turn."
+            "text": " save or be "
+          },
+          {
+            "type": "ref",
+            "id": "4271da2e-7225-5aa7-9807-c499d8af6a5a"
+          },
+          {
+            "type": "text",
+            "text": " until the end of their next turn."
           }
         ]
       }
@@ -13693,7 +15419,15 @@
           },
           {
             "type": "text",
-            "text": " save or be Deafened until the end of their next turn."
+            "text": " save or be "
+          },
+          {
+            "type": "ref",
+            "id": "4271da2e-7225-5aa7-9807-c499d8af6a5a"
+          },
+          {
+            "type": "text",
+            "text": " until the end of their next turn."
           }
         ]
       }
@@ -13868,7 +15602,16 @@
           },
           {
             "type": "text",
-            "text": " The target is Sickened 1."
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       },
@@ -13882,7 +15625,16 @@
           },
           {
             "type": "text",
-            "text": " The target is sickened 1 and Slowed 1 while sickened."
+            "text": " The target is sickened 1 and "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " while sickened."
           }
         ]
       },
@@ -13896,7 +15648,24 @@
           },
           {
             "type": "text",
-            "text": " The target is Blinded for 1 round, Sickened 2, and slowed 1 while sickened."
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round, "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": ", and slowed 1 while sickened."
           }
         ]
       },
@@ -13905,7 +15674,15 @@
         "content": [
           {
             "type": "text",
-            "text": "Creatures sickened by the bomb emit an odor that lasts 10 minutes after the sickened condition ends (or 1 hour if they were also blinded). The odor can be removed or neutralized by using prestidigitation or similar magic or by spending 10 minutes scrubbing with ample soap and water. While the odor lasts, creatures within 30 feet can smell the target, enabling even those with a weak sense of smell to detect its presence, and all creatures gain a +1 item bonus to Track the affected creature for as long as it has the odor. A creature that has imprecise or precise scent doubles the range at which it can detect the target using this scent."
+            "text": "Creatures sickened by the bomb emit an odor that lasts 10 minutes after the sickened condition ends (or 1 hour if they were also blinded). The odor can be removed or neutralized by using prestidigitation or similar magic or by spending 10 minutes scrubbing with ample soap and water. While the odor lasts, creatures within 30 feet can smell the target, enabling even those with a weak sense of smell to detect its presence, and all creatures gain a +1 item bonus to "
+          },
+          {
+            "type": "ref",
+            "id": "b81cfd58-ce40-526a-b3da-f3c218b5c566"
+          },
+          {
+            "type": "text",
+            "text": " the affected creature for as long as it has the odor. A creature that has imprecise or precise scent doubles the range at which it can detect the target using this scent."
           }
         ]
       }
@@ -14024,7 +15801,16 @@
           },
           {
             "type": "text",
-            "text": " The target is Sickened 1."
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       },
@@ -14038,7 +15824,16 @@
           },
           {
             "type": "text",
-            "text": " The target is sickened 1 and Slowed 1 while sickened."
+            "text": " The target is sickened 1 and "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " while sickened."
           }
         ]
       },
@@ -14052,7 +15847,24 @@
           },
           {
             "type": "text",
-            "text": " The target is Blinded for 1 round, Sickened 2, and slowed 1 while sickened."
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round, "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": ", and slowed 1 while sickened."
           }
         ]
       },
@@ -14061,7 +15873,15 @@
         "content": [
           {
             "type": "text",
-            "text": "Creatures sickened by the bomb emit an odor that lasts 10 minutes after the sickened condition ends (or 1 hour if they were also blinded). The odor can be removed or neutralized by using prestidigitation or similar magic or by spending 10 minutes scrubbing with ample soap and water. While the odor lasts, creatures within 30 feet can smell the target, enabling even those with a weak sense of smell to detect its presence, and all creatures gain a +1 item bonus to Track the affected creature for as long as it has the odor. A creature that has imprecise or precise scent doubles the range at which it can detect the target using this scent."
+            "text": "Creatures sickened by the bomb emit an odor that lasts 10 minutes after the sickened condition ends (or 1 hour if they were also blinded). The odor can be removed or neutralized by using prestidigitation or similar magic or by spending 10 minutes scrubbing with ample soap and water. While the odor lasts, creatures within 30 feet can smell the target, enabling even those with a weak sense of smell to detect its presence, and all creatures gain a +1 item bonus to "
+          },
+          {
+            "type": "ref",
+            "id": "b81cfd58-ce40-526a-b3da-f3c218b5c566"
+          },
+          {
+            "type": "text",
+            "text": " the affected creature for as long as it has the odor. A creature that has imprecise or precise scent doubles the range at which it can detect the target using this scent."
           }
         ]
       }
@@ -14179,7 +15999,16 @@
           },
           {
             "type": "text",
-            "text": " The target is Sickened 1."
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       },
@@ -14193,7 +16022,16 @@
           },
           {
             "type": "text",
-            "text": " The target is sickened 1 and Slowed 1 while sickened."
+            "text": " The target is sickened 1 and "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " while sickened."
           }
         ]
       },
@@ -14207,7 +16045,24 @@
           },
           {
             "type": "text",
-            "text": " The target is Blinded for 1 round, Sickened 2, and slowed 1 while sickened."
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round, "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": ", and slowed 1 while sickened."
           }
         ]
       },
@@ -14216,7 +16071,15 @@
         "content": [
           {
             "type": "text",
-            "text": "Creatures sickened by the bomb emit an odor that lasts 10 minutes after the sickened condition ends (or 1 hour if they were also blinded). The odor can be removed or neutralized by using prestidigitation or similar magic or by spending 10 minutes scrubbing with ample soap and water. While the odor lasts, creatures within 30 feet can smell the target, enabling even those with a weak sense of smell to detect its presence, and all creatures gain a +1 item bonus to Track the affected creature for as long as it has the odor. A creature that has imprecise or precise scent doubles the range at which it can detect the target using this scent."
+            "text": "Creatures sickened by the bomb emit an odor that lasts 10 minutes after the sickened condition ends (or 1 hour if they were also blinded). The odor can be removed or neutralized by using prestidigitation or similar magic or by spending 10 minutes scrubbing with ample soap and water. While the odor lasts, creatures within 30 feet can smell the target, enabling even those with a weak sense of smell to detect its presence, and all creatures gain a +1 item bonus to "
+          },
+          {
+            "type": "ref",
+            "id": "b81cfd58-ce40-526a-b3da-f3c218b5c566"
+          },
+          {
+            "type": "text",
+            "text": " the affected creature for as long as it has the odor. A creature that has imprecise or precise scent doubles the range at which it can detect the target using this scent."
           }
         ]
       }
@@ -14335,7 +16198,16 @@
           },
           {
             "type": "text",
-            "text": " The target is Sickened 1."
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       },
@@ -14349,7 +16221,16 @@
           },
           {
             "type": "text",
-            "text": " The target is sickened 1 and Slowed 1 while sickened."
+            "text": " The target is sickened 1 and "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " while sickened."
           }
         ]
       },
@@ -14363,7 +16244,24 @@
           },
           {
             "type": "text",
-            "text": " The target is Blinded for 1 round, Sickened 2, and slowed 1 while sickened."
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round, "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": ", and slowed 1 while sickened."
           }
         ]
       },
@@ -14372,7 +16270,15 @@
         "content": [
           {
             "type": "text",
-            "text": "Creatures sickened by the bomb emit an odor that lasts 10 minutes after the sickened condition ends (or 1 hour if they were also blinded). The odor can be removed or neutralized by using prestidigitation or similar magic or by spending 10 minutes scrubbing with ample soap and water. While the odor lasts, creatures within 30 feet can smell the target, enabling even those with a weak sense of smell to detect its presence, and all creatures gain a +1 item bonus to Track the affected creature for as long as it has the odor. A creature that has imprecise or precise scent doubles the range at which it can detect the target using this scent."
+            "text": "Creatures sickened by the bomb emit an odor that lasts 10 minutes after the sickened condition ends (or 1 hour if they were also blinded). The odor can be removed or neutralized by using prestidigitation or similar magic or by spending 10 minutes scrubbing with ample soap and water. While the odor lasts, creatures within 30 feet can smell the target, enabling even those with a weak sense of smell to detect its presence, and all creatures gain a +1 item bonus to "
+          },
+          {
+            "type": "ref",
+            "id": "b81cfd58-ce40-526a-b3da-f3c218b5c566"
+          },
+          {
+            "type": "text",
+            "text": " the affected creature for as long as it has the odor. A creature that has imprecise or precise scent doubles the range at which it can detect the target using this scent."
           }
         ]
       }
@@ -14435,7 +16341,15 @@
           },
           {
             "type": "text",
-            "text": " is designed as an ornate cane, its metal body glimmering with jewels and gold inlays. A sculpture carved from obsidian tops the head of the staff, its design depending on its wielder's taste. Common choices include birds, flowers, or family crests. While wielding a socialite staff, you gain a +2 circumstance bonus to Make an Impression on members of high society."
+            "text": " is designed as an ornate cane, its metal body glimmering with jewels and gold inlays. A sculpture carved from obsidian tops the head of the staff, its design depending on its wielder's taste. Common choices include birds, flowers, or family crests. While wielding a socialite staff, you gain a +2 circumstance bonus to "
+          },
+          {
+            "type": "ref",
+            "id": "722e5346-27c0-5157-b5a9-e6018df94150"
+          },
+          {
+            "type": "text",
+            "text": " on members of high society."
           }
         ]
       },
@@ -14504,7 +16418,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Charm, Restyle"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "a3738cb8-aa5d-5084-b250-86fe19b7498d"
+                },
+                {
+                  "type": "text",
+                  "text": ", Restyle"
                 }
               ]
             }
@@ -14552,7 +16474,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Befitting Attire, Suggestion"
+                  "text": " Befitting Attire, "
+                },
+                {
+                  "type": "ref",
+                  "id": "06dcb2ac-6b0e-512e-bcc4-7dd4abe5d503"
                 }
               ]
             }
@@ -14568,7 +16494,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Befitting Attire, Charm, Glimmer of Charm, Suggestion"
+                  "text": " Befitting Attire, "
+                },
+                {
+                  "type": "ref",
+                  "id": "a3738cb8-aa5d-5084-b250-86fe19b7498d"
+                },
+                {
+                  "type": "text",
+                  "text": ", Glimmer of Charm, "
+                },
+                {
+                  "type": "ref",
+                  "id": "06dcb2ac-6b0e-512e-bcc4-7dd4abe5d503"
                 }
               ]
             }
@@ -14887,18 +16825,16 @@
             "text": " The spark dancer casts either "
           },
           {
-            "type": "text",
-            "text": "Fireball",
-            "marks": ["emphasis"]
+            "type": "ref",
+            "id": "989ec875-261d-5d4f-a181-fedf889f9d4b"
           },
           {
             "type": "text",
             "text": " or "
           },
           {
-            "type": "text",
-            "text": "Lightning Bolt",
-            "marks": ["emphasis"]
+            "type": "ref",
+            "id": "e9fa0be4-1b62-555b-91de-ba34c484adac"
           },
           {
             "type": "text",
@@ -15172,7 +17108,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Ignition"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "5f652603-de54-511c-aead-1966a7166ca8"
                 }
               ]
             }
@@ -15188,7 +17128,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Echoing Weapon, Sure Strike"
+                  "text": " Echoing Weapon, "
+                },
+                {
+                  "type": "ref",
+                  "id": "566a10d1-097c-5ee1-b473-4e0ab1475228"
                 }
               ]
             }
@@ -15204,7 +17148,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Acid Grip, Telekinetic Maneuver"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "bacc25dc-fc88-5b92-9a69-14c56e2e8c04"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "35f9dc96-eeca-54f3-b920-7ae0733594a8"
                 }
               ]
             }
@@ -15461,7 +17417,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Ignition"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "5f652603-de54-511c-aead-1966a7166ca8"
                 }
               ]
             }
@@ -15477,7 +17437,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Echoing Weapon, Sure Strike"
+                  "text": " Echoing Weapon, "
+                },
+                {
+                  "type": "ref",
+                  "id": "566a10d1-097c-5ee1-b473-4e0ab1475228"
                 }
               ]
             }
@@ -15493,7 +17457,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Acid Grip, Telekinetic Maneuver"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "bacc25dc-fc88-5b92-9a69-14c56e2e8c04"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "35f9dc96-eeca-54f3-b920-7ae0733594a8"
                 }
               ]
             }
@@ -15509,7 +17485,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Echoing Weapon, Haste"
+                  "text": " Echoing Weapon, "
+                },
+                {
+                  "type": "ref",
+                  "id": "2b79f5bd-e9d5-59cd-81f8-b1362ed0b59a"
                 }
               ]
             }
@@ -15525,7 +17505,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Acid Grip, Weapon Storm"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "bacc25dc-fc88-5b92-9a69-14c56e2e8c04"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "b0ec9594-b2b6-5d97-99b8-41cc7ffab5d0"
                 }
               ]
             }
@@ -15782,7 +17774,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Ignition"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "5f652603-de54-511c-aead-1966a7166ca8"
                 }
               ]
             }
@@ -15798,7 +17794,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Echoing Weapon, Sure Strike"
+                  "text": " Echoing Weapon, "
+                },
+                {
+                  "type": "ref",
+                  "id": "566a10d1-097c-5ee1-b473-4e0ab1475228"
                 }
               ]
             }
@@ -15814,7 +17814,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Acid Grip, Telekinetic Maneuver"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "bacc25dc-fc88-5b92-9a69-14c56e2e8c04"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "35f9dc96-eeca-54f3-b920-7ae0733594a8"
                 }
               ]
             }
@@ -15830,7 +17842,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Echoing Weapon, Haste"
+                  "text": " Echoing Weapon, "
+                },
+                {
+                  "type": "ref",
+                  "id": "2b79f5bd-e9d5-59cd-81f8-b1362ed0b59a"
                 }
               ]
             }
@@ -15846,7 +17862,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Acid Grip, Weapon Storm"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "bacc25dc-fc88-5b92-9a69-14c56e2e8c04"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "b0ec9594-b2b6-5d97-99b8-41cc7ffab5d0"
                 }
               ]
             }
@@ -15862,7 +17890,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Blink Charge, Echoing Weapon, Vampiric Feast"
+                  "text": " Blink Charge, Echoing Weapon, "
+                },
+                {
+                  "type": "ref",
+                  "id": "2a6f1cc9-99b9-5354-a4d0-56e69c15ff17"
                 }
               ]
             }
@@ -15878,7 +17910,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Acid Grip, Weapon Storm"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "bacc25dc-fc88-5b92-9a69-14c56e2e8c04"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "b0ec9594-b2b6-5d97-99b8-41cc7ffab5d0"
                 }
               ]
             }
@@ -15894,7 +17938,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Blink Charge, True Target"
+                  "text": " Blink Charge, "
+                },
+                {
+                  "type": "ref",
+                  "id": "ad19fa16-a5bd-513e-9a73-32f05671fb03"
                 }
               ]
             }
@@ -16093,7 +18141,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Message"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "c319a7b8-ee8e-5f50-97c7-16151916ad80"
                 }
               ]
             }
@@ -16109,7 +18161,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Illusory Disguise, Invisible Item, Message Rune"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "adcc4c8f-05ae-5440-83d0-9e88ad22209b"
+                },
+                {
+                  "type": "text",
+                  "text": ", Invisible Item, "
+                },
+                {
+                  "type": "ref",
+                  "id": "00e0e118-4aed-5cd2-a95c-f92b16910d26"
                 }
               ]
             }
@@ -16125,7 +18189,27 @@
                 },
                 {
                   "type": "text",
-                  "text": " Disguise Magic, Humanoid Form, Illusory Disguise"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "3d63b411-a7ae-5d54-bcc3-b6426386412e"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "6a92fc43-23d9-559f-a7fd-f25a6735ef9a"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "adcc4c8f-05ae-5440-83d0-9e88ad22209b"
                 }
               ]
             }
@@ -16309,7 +18393,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Message"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "c319a7b8-ee8e-5f50-97c7-16151916ad80"
                 }
               ]
             }
@@ -16325,7 +18413,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Illusory Disguise, Invisible Item, Message Rune"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "adcc4c8f-05ae-5440-83d0-9e88ad22209b"
+                },
+                {
+                  "type": "text",
+                  "text": ", Invisible Item, "
+                },
+                {
+                  "type": "ref",
+                  "id": "00e0e118-4aed-5cd2-a95c-f92b16910d26"
                 }
               ]
             }
@@ -16341,7 +18441,27 @@
                 },
                 {
                   "type": "text",
-                  "text": " Disguise Magic, Humanoid Form, Illusory Disguise"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "3d63b411-a7ae-5d54-bcc3-b6426386412e"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "6a92fc43-23d9-559f-a7fd-f25a6735ef9a"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "adcc4c8f-05ae-5440-83d0-9e88ad22209b"
                 }
               ]
             }
@@ -16357,7 +18477,27 @@
                 },
                 {
                   "type": "text",
-                  "text": " Clairaudience, Illusory Disguise, Veil of Privacy"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "137e9f3a-3af5-5004-9a32-dba8fdaff034"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "adcc4c8f-05ae-5440-83d0-9e88ad22209b"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "3c7ef298-5d47-58c4-a650-2bec5d4bda5d"
                 }
               ]
             }
@@ -16373,7 +18513,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Clairvoyance, Peaceful Bubble"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "9d2d34b7-d94e-51d0-b169-e6cb9f4f0b2a"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "e377968a-b6db-5100-a6fe-373caa017ce3"
                 }
               ]
             }
@@ -16548,7 +18700,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Message"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "c319a7b8-ee8e-5f50-97c7-16151916ad80"
                 }
               ]
             }
@@ -16564,7 +18720,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Illusory Disguise, Invisible Item, Message Rune"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "adcc4c8f-05ae-5440-83d0-9e88ad22209b"
+                },
+                {
+                  "type": "text",
+                  "text": ", Invisible Item, "
+                },
+                {
+                  "type": "ref",
+                  "id": "00e0e118-4aed-5cd2-a95c-f92b16910d26"
                 }
               ]
             }
@@ -16580,7 +18748,27 @@
                 },
                 {
                   "type": "text",
-                  "text": " Disguise Magic, Humanoid Form, Illusory Disguise"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "3d63b411-a7ae-5d54-bcc3-b6426386412e"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "6a92fc43-23d9-559f-a7fd-f25a6735ef9a"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "adcc4c8f-05ae-5440-83d0-9e88ad22209b"
                 }
               ]
             }
@@ -16596,7 +18784,27 @@
                 },
                 {
                   "type": "text",
-                  "text": " Clairaudience, Illusory Disguise, Veil of Privacy"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "137e9f3a-3af5-5004-9a32-dba8fdaff034"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "adcc4c8f-05ae-5440-83d0-9e88ad22209b"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "3c7ef298-5d47-58c4-a650-2bec5d4bda5d"
                 }
               ]
             }
@@ -16612,7 +18820,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Clairvoyance, Peaceful Bubble"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "9d2d34b7-d94e-51d0-b169-e6cb9f4f0b2a"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "e377968a-b6db-5100-a6fe-373caa017ce3"
                 }
               ]
             }
@@ -16628,7 +18848,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Mind Probe, Scouting Eye"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "8f96da2d-86f2-5d01-880b-1a2466bb279a"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "2897020f-b34e-5315-9369-d501cd903968"
                 }
               ]
             }
@@ -16644,7 +18876,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Mislead, Scrying"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "64000c62-eeaa-5b2e-a340-0a6842e50a1e"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "d86cf275-4547-59c7-87b4-41d84f69e524"
                 }
               ]
             }
@@ -16802,7 +19046,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Air Bubble, Gust of Wind"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "331c6b08-d0c7-5f40-a23e-692a10a5e4c9"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "e48e01db-df29-5558-b6a3-a78233bae1d1"
                 }
               ]
             }
@@ -16960,7 +19216,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Air Bubble, Gust of Wind"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "331c6b08-d0c7-5f40-a23e-692a10a5e4c9"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "e48e01db-df29-5558-b6a3-a78233bae1d1"
                 }
               ]
             }
@@ -16976,7 +19244,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Ash Cloud, Mist"
+                  "text": " Ash Cloud, "
+                },
+                {
+                  "type": "ref",
+                  "id": "1871511d-f694-5e6b-b49d-1e7388909900"
                 }
               ]
             }
@@ -16992,7 +19264,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Blazing Dive, Lightning Bolt, Wall of Wind"
+                  "text": " Blazing Dive, "
+                },
+                {
+                  "type": "ref",
+                  "id": "e9fa0be4-1b62-555b-91de-ba34c484adac"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "ad0650c3-31d5-51c2-8226-045ac8442ae8"
                 }
               ]
             }
@@ -17150,7 +19434,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Air Bubble, Gust of Wind"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "331c6b08-d0c7-5f40-a23e-692a10a5e4c9"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "e48e01db-df29-5558-b6a3-a78233bae1d1"
                 }
               ]
             }
@@ -17166,7 +19462,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Ash Cloud, Mist"
+                  "text": " Ash Cloud, "
+                },
+                {
+                  "type": "ref",
+                  "id": "1871511d-f694-5e6b-b49d-1e7388909900"
                 }
               ]
             }
@@ -17182,7 +19482,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Blazing Dive, Lightning Bolt, Wall of Wind"
+                  "text": " Blazing Dive, "
+                },
+                {
+                  "type": "ref",
+                  "id": "e9fa0be4-1b62-555b-91de-ba34c484adac"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "ad0650c3-31d5-51c2-8226-045ac8442ae8"
                 }
               ]
             }
@@ -17198,7 +19510,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Ash Cloud, Fly"
+                  "text": " Ash Cloud, "
+                },
+                {
+                  "type": "ref",
+                  "id": "5ff17619-93b1-5680-ad41-5f66ad9a8c0b"
                 }
               ]
             }
@@ -17303,7 +19619,23 @@
           },
           {
             "type": "text",
-            "text": ", you gain a +1 circumstance bonus to your Fortitude saves and DC against effects that Shove you or knock you Prone."
+            "text": ", you gain a +1 circumstance bonus to your Fortitude saves and DC against effects that "
+          },
+          {
+            "type": "ref",
+            "id": "082b982f-3ed4-5d9c-9722-9ab10198523a"
+          },
+          {
+            "type": "text",
+            "text": " you or knock you "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       },
@@ -17372,7 +19704,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Pummeling Rubble"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "52287400-110e-575d-8cd6-4b91f499cd69"
                 }
               ]
             }
@@ -17469,7 +19805,23 @@
           },
           {
             "type": "text",
-            "text": ", you gain a +1 circumstance bonus to your Fortitude saves and DC against effects that Shove you or knock you Prone."
+            "text": ", you gain a +1 circumstance bonus to your Fortitude saves and DC against effects that "
+          },
+          {
+            "type": "ref",
+            "id": "082b982f-3ed4-5d9c-9722-9ab10198523a"
+          },
+          {
+            "type": "text",
+            "text": " you or knock you "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       },
@@ -17538,7 +19890,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Pummeling Rubble"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "52287400-110e-575d-8cd6-4b91f499cd69"
                 }
               ]
             }
@@ -17554,7 +19910,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Expeditious Excavation, Pummeling Rubble"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "2ea051bd-7a20-5bb8-9c0f-043c3ea07053"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "52287400-110e-575d-8cd6-4b91f499cd69"
                 }
               ]
             }
@@ -17570,7 +19938,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Earthbind, Shifting Sand"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "3cddd734-8a89-5de8-9c13-65748a0c7c32"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "36b6dc6a-d5fe-5954-943b-ab08ec73eab6"
                 }
               ]
             }
@@ -17667,7 +20047,23 @@
           },
           {
             "type": "text",
-            "text": ", you gain a +1 circumstance bonus to your Fortitude saves and DC against effects that Shove you or knock you Prone."
+            "text": ", you gain a +1 circumstance bonus to your Fortitude saves and DC against effects that "
+          },
+          {
+            "type": "ref",
+            "id": "082b982f-3ed4-5d9c-9722-9ab10198523a"
+          },
+          {
+            "type": "text",
+            "text": " you or knock you "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       },
@@ -17736,7 +20132,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Pummeling Rubble"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "52287400-110e-575d-8cd6-4b91f499cd69"
                 }
               ]
             }
@@ -17752,7 +20152,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Expeditious Excavation, Pummeling Rubble"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "2ea051bd-7a20-5bb8-9c0f-043c3ea07053"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "52287400-110e-575d-8cd6-4b91f499cd69"
                 }
               ]
             }
@@ -17768,7 +20180,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Earthbind, Shifting Sand"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "3cddd734-8a89-5de8-9c13-65748a0c7c32"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "36b6dc6a-d5fe-5954-943b-ab08ec73eab6"
                 }
               ]
             }
@@ -17784,7 +20208,27 @@
                 },
                 {
                   "type": "text",
-                  "text": " Expeditious Excavation, Mountain Resilience, Shape Stone"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "2ea051bd-7a20-5bb8-9c0f-043c3ea07053"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "2e797ff1-fcb3-5e23-af04-bc8fc9271425"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "2f24aa2e-a10d-5cf8-ae46-3f7e52a4fe6d"
                 }
               ]
             }
@@ -17800,7 +20244,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Blazing Fissure, Wall of Stone"
+                  "text": " Blazing Fissure, "
+                },
+                {
+                  "type": "ref",
+                  "id": "1516123c-bc37-5053-be15-24201abb1d02"
                 }
               ]
             }
@@ -17966,7 +20414,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Create Water, Hydraulic Push"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "6b5f6ce5-ac5a-52f3-ba0a-ca65c2e0d167"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "34da213b-dfe6-5e19-b7f5-bfc627cadded"
                 }
               ]
             }
@@ -18130,7 +20590,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Create Water, Hydraulic Push"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "6b5f6ce5-ac5a-52f3-ba0a-ca65c2e0d167"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "34da213b-dfe6-5e19-b7f5-bfc627cadded"
                 }
               ]
             }
@@ -18146,7 +20618,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Mist, Water Walk"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "1871511d-f694-5e6b-b49d-1e7388909900"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "62b9b05e-2f86-5c8b-bc12-2500cd4d9959"
                 }
               ]
             }
@@ -18162,7 +20646,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Aqueous Orb, Wall of Water"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "9f40500a-0431-52d2-8285-8923aacd4069"
+                },
+                {
+                  "type": "text",
+                  "text": ", Wall of Water"
                 }
               ]
             }
@@ -18326,7 +20818,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Create Water, Hydraulic Push"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "6b5f6ce5-ac5a-52f3-ba0a-ca65c2e0d167"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "34da213b-dfe6-5e19-b7f5-bfc627cadded"
                 }
               ]
             }
@@ -18342,7 +20846,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Mist, Water Walk"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "1871511d-f694-5e6b-b49d-1e7388909900"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "62b9b05e-2f86-5c8b-bc12-2500cd4d9959"
                 }
               ]
             }
@@ -18358,7 +20874,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Aqueous Orb, Wall of Water"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "9f40500a-0431-52d2-8285-8923aacd4069"
+                },
+                {
+                  "type": "text",
+                  "text": ", Wall of Water"
                 }
               ]
             }
@@ -18374,7 +20898,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Crashing Wave, Hydraulic Torrent"
+                  "text": " Crashing Wave, "
+                },
+                {
+                  "type": "ref",
+                  "id": "f0b4d595-f619-5a11-973d-a30a7c9523ad"
                 }
               ]
             }
@@ -18390,7 +20918,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Control Water, Geyser"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "07ae3cd7-dcbd-519c-a9f0-6c9c385a5139"
+                },
+                {
+                  "type": "text",
+                  "text": ", Geyser"
                 }
               ]
             }
@@ -18485,7 +21021,16 @@
           },
           {
             "type": "text",
-            "text": " pulses with hypnotic starlight, Dazzling the struck creature for 1 round. A "
+            "text": " pulses with hypnotic starlight, "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302",
+            "label": "Dazzling"
+          },
+          {
+            "type": "text",
+            "text": " the struck creature for 1 round. A "
           },
           {
             "type": "text",
@@ -18607,7 +21152,15 @@
         "content": [
           {
             "type": "text",
-            "text": "Four curved blades attached to a sturdy handlebar give the wielder of this close-combat weapon the illusion of having claws that extend from their fist. Adherents of Bastet favor the tekko-kagi for catching their foes off guard."
+            "text": "Four curved blades attached to a sturdy handlebar give the wielder of this close-combat weapon the illusion of having claws that extend from their fist. Adherents of "
+          },
+          {
+            "type": "ref",
+            "id": "134d68d5-da62-58b4-af9f-d8c11bea2af9"
+          },
+          {
+            "type": "text",
+            "text": " favor the tekko-kagi for catching their foes off guard."
           }
         ]
       }
@@ -18667,7 +21220,15 @@
           },
           {
             "type": "text",
-            "text": ", the spark gun's magical core is visible amid several reflectors. All damage dealt by a thundercrasher is sonic damage. On a critical hit, the target must succeed at a Fortitude save against your class DC or be Deafened for 1 minute."
+            "text": ", the spark gun's magical core is visible amid several reflectors. All damage dealt by a thundercrasher is sonic damage. On a critical hit, the target must succeed at a Fortitude save against your class DC or be "
+          },
+          {
+            "type": "ref",
+            "id": "4271da2e-7225-5aa7-9807-c499d8af6a5a"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute."
           }
         ]
       },
@@ -19406,7 +21967,23 @@
         "content": [
           {
             "type": "text",
-            "text": "Crafted from flawless jade, the guard of this rapier takes the form of a twisting serpent with the blade thrusting from its open mouth. This rapier functions as a +3 greater striking quickstrike rapier. While wielding the rapier, your movement doesn't trigger reactions when you Stride, Balance, or Tumble Through. When you invest the rapier, you either increase your Dexterity modifier by 1 or increase it to +4, whichever would give you a higher value."
+            "text": "Crafted from flawless jade, the guard of this rapier takes the form of a twisting serpent with the blade thrusting from its open mouth. This rapier functions as a +3 greater striking quickstrike rapier. While wielding the rapier, your movement doesn't trigger reactions when you Stride, "
+          },
+          {
+            "type": "ref",
+            "id": "6fb6b45a-8b16-55e4-ba53-e23a62359b56"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "11d6f0fd-b182-5043-8a26-973179a93617"
+          },
+          {
+            "type": "text",
+            "text": ". When you invest the rapier, you either increase your Dexterity modifier by 1 or increase it to +4, whichever would give you a higher value."
           }
         ]
       },
@@ -19585,7 +22162,15 @@
           },
           {
             "type": "text",
-            "text": " You twirl your rapier in a serpentine pattern, causing your form to become a blur of motion. You're Concealed for 1 minute or until you take a hostile action. While you're concealed, you also gain a +2 circumstance bonus to Reflex saving throws."
+            "text": " You twirl your rapier in a serpentine pattern, causing your form to become a blur of motion. You're "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute or until you take a hostile action. While you're concealed, you also gain a +2 circumstance bonus to Reflex saving throws."
           }
         ]
       },
@@ -19808,7 +22393,16 @@
           },
           {
             "type": "text",
-            "text": " The glaive siphons the creature's essence, rendering it Drained 1. If the creature dies from the Strike or while drained in this way, the creature's soul is bound in the glaive."
+            "text": " The glaive siphons the creature's essence, rendering it "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 1"
+          },
+          {
+            "type": "text",
+            "text": ". If the creature dies from the Strike or while drained in this way, the creature's soul is bound in the glaive."
           }
         ]
       },
@@ -19822,7 +22416,16 @@
           },
           {
             "type": "text",
-            "text": " As success, but the creature is Drained 2."
+            "text": " As success, but the creature is "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 2"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       },
@@ -19836,7 +22439,16 @@
           },
           {
             "type": "text",
-            "text": " As success, but the creature is Drained 4."
+            "text": " As success, but the creature is "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 4"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       },
@@ -19946,7 +22558,35 @@
           },
           {
             "type": "text",
-            "text": " You attempt an Occultism check to Decipher Writing, Identify Magic, Learn a Spell, or Recall Knowledge"
+            "text": " You attempt an Occultism check to "
+          },
+          {
+            "type": "ref",
+            "id": "c0dfa393-d8fb-5aca-9e4e-71cedf7ff14b"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "f7dde84e-f48a-5bd2-8a3b-54c8757a4e87"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "9122d740-ef57-5922-bc21-92179b61d03a"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
           }
         ]
       },
@@ -20013,7 +22653,15 @@
           },
           {
             "type": "text",
-            "text": " Attempt an Occultism check as if you cast the Collective Memories ritual about a subject. If you roll a success or critical success, you can repeat what the "
+            "text": " Attempt an Occultism check as if you cast the "
+          },
+          {
+            "type": "ref",
+            "id": "39a76fbf-320c-5beb-9457-d1766960ab18"
+          },
+          {
+            "type": "text",
+            "text": " ritual about a subject. If you roll a success or critical success, you can repeat what the "
           },
           {
             "type": "text",
@@ -20059,7 +22707,16 @@
           },
           {
             "type": "text",
-            "text": " As success, but you are Stupefied 2 for 1 week."
+            "text": " As success, but you are "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 2"
+          },
+          {
+            "type": "text",
+            "text": " for 1 week."
           }
         ]
       },
@@ -20167,7 +22824,16 @@
         "content": [
           {
             "type": "text",
-            "text": "This gnarled wooden staff is carved with humanoid faces in various emotional states. When the staff is activated, the faces begin to whisper a variety of languages in sibilant tones, creating what seems to be nonsense to all but the staff's wielder or those they choose to affect. The staff functions as a Major Staff of the Unblinking Eye. While using the staff, you gain a +3 item bonus to Decipher Writing, Identify Magic, and Recall Knowledge checks, regardless of the skill. When you invest the staff, you either increase your Intelligence modifier by 1 or increase it to +4, whichever would give you a higher value. You must select the skills and languages the first time you invest the item, and whenever you invest the same whispering staff, you get the same skills and languages you chose the first time."
+            "text": "This gnarled wooden staff is carved with humanoid faces in various emotional states. When the staff is activated, the faces begin to whisper a variety of languages in sibilant tones, creating what seems to be nonsense to all but the staff's wielder or those they choose to affect. The staff functions as a "
+          },
+          {
+            "type": "ref",
+            "id": "dd865a91-59ec-5b74-92f3-9d9660872e17",
+            "label": "Major Staff of the Unblinking Eye"
+          },
+          {
+            "type": "text",
+            "text": ". While using the staff, you gain a +3 item bonus to Decipher Writing, Identify Magic, and Recall Knowledge checks, regardless of the skill. When you invest the staff, you either increase your Intelligence modifier by 1 or increase it to +4, whichever would give you a higher value. You must select the skills and languages the first time you invest the item, and whenever you invest the same whispering staff, you get the same skills and languages you chose the first time."
           }
         ]
       },
@@ -20220,7 +22886,15 @@
           },
           {
             "type": "text",
-            "text": " Through the staff's strange whispering, you gain a glimpse into the mind and desires of one creature you can see within 30 feet. Until the end of your next turn, that creature is Off-Guard to you and takes a –2 circumstance penalty to saving throws against your spells."
+            "text": " Through the staff's strange whispering, you gain a glimpse into the mind and desires of one creature you can see within 30 feet. Until the end of your next turn, that creature is "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " to you and takes a –2 circumstance penalty to saving throws against your spells."
           }
         ]
       },
@@ -20415,7 +23089,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Detect Magic"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "c91ac947-a9ec-5f07-b5f9-a054617eb571"
                 }
               ]
             }
@@ -20431,7 +23109,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Sure Strike"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "566a10d1-097c-5ee1-b473-4e0ab1475228"
                 }
               ]
             }
@@ -20447,7 +23129,27 @@
                 },
                 {
                   "type": "text",
-                  "text": " Darkvision, See the Unseen, Translate"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "6bcf1643-218b-5e08-9fa5-62ff7c800b72"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "52cd674f-3e49-5527-b0c9-8a4137bc9c08"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "80285128-e7a0-55e7-a386-1f845f6d09aa"
                 }
               ]
             }
@@ -20463,7 +23165,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Darkvision, Mind Reading"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "6bcf1643-218b-5e08-9fa5-62ff7c800b72"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "9aed7b61-843a-5ec7-b205-94e5369630f3"
                 }
               ]
             }
@@ -20479,7 +23193,27 @@
                 },
                 {
                   "type": "text",
-                  "text": " Clairvoyance, Detect Scrying, Telepathy"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "9d2d34b7-d94e-51d0-b169-e6cb9f4f0b2a"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "08432692-cd15-5da6-a49b-6f27a80307b3"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "b9c6ff5d-7757-5750-8536-1486fd82c8a7"
                 }
               ]
             }
@@ -20495,7 +23229,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Mind Probe, Scouting Eye"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "8f96da2d-86f2-5d01-880b-1a2466bb279a"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "2897020f-b34e-5315-9369-d501cd903968"
                 }
               ]
             }
@@ -20511,7 +23257,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Telepathy, Truesight"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "b9c6ff5d-7757-5750-8536-1486fd82c8a7"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "ec6df711-1ab8-5f9d-8e01-6827c947eeff"
                 }
               ]
             }
@@ -20649,7 +23407,15 @@
           },
           {
             "type": "text",
-            "text": " The cord of the bola snakes out as you throw it, allowing the weapon to wrap around a group of enemies. You use the bolas to attempt a ranged Trip against all creatures in a "
+            "text": " The cord of the bola snakes out as you throw it, allowing the weapon to wrap around a group of enemies. You use the bolas to attempt a ranged "
+          },
+          {
+            "type": "ref",
+            "id": "6257c7f0-f483-53d3-a791-d73a616cbce4"
+          },
+          {
+            "type": "text",
+            "text": " against all creatures in a "
           },
           {
             "type": "template",
@@ -20800,7 +23566,16 @@
           },
           {
             "type": "text",
-            "text": ". The staff represents vehement support of the deity to whom the staff is dedicated, punishing defiance. When you prepare this staff, if you don't worship its deity, you become Drained 1 until your next daily preparations."
+            "text": ". The staff represents vehement support of the deity to whom the staff is dedicated, punishing defiance. When you prepare this staff, if you don't worship its deity, you become "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 1"
+          },
+          {
+            "type": "text",
+            "text": " until your next daily preparations."
           }
         ]
       },
@@ -20947,7 +23722,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Divine Lance"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "a593a292-4fca-5280-9857-56a2178b1618"
                 }
               ]
             }
@@ -20963,7 +23742,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Bane"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "42ecad5f-026b-577a-9b47-b97ae76568c9"
                 }
               ]
             }
@@ -20979,7 +23762,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Augury"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "dfab75a2-997b-5597-b7d7-3b9ad9e935dc"
                 }
               ]
             }
@@ -21011,7 +23798,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Divine Wrath"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "c9f296d5-7325-5ec8-be5d-eb9502269e2f"
                 }
               ]
             }
@@ -21027,7 +23818,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Crisis of Faith, Divine Wrath"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "52e6a91e-087f-5216-962c-d8cde645e96c"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "c9f296d5-7325-5ec8-be5d-eb9502269e2f"
                 }
               ]
             }
@@ -21043,7 +23846,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Spiritual Armament, Zealous Conviction"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "e0681ca0-8a1d-5d21-a033-813e782d04b5"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "ad4c22df-73d8-547e-be5f-8676b389053e"
                 }
               ]
             }
@@ -21059,7 +23874,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Crisis of Faith, Divine Decree"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "52e6a91e-087f-5216-962c-d8cde645e96c"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "148379ea-e80f-56a6-b8cd-6032862ad2c1"
                 }
               ]
             }
@@ -21247,7 +24074,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Necromancer's Generosity, Summon Undead"
+                  "text": " Necromancer's Generosity, "
+                },
+                {
+                  "type": "ref",
+                  "id": "d67d6680-3ff4-55d5-87da-65012569387d"
                 }
               ]
             }
@@ -21263,7 +24094,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Final Sacrifice, Summon Undead"
+                  "text": " Final Sacrifice, "
+                },
+                {
+                  "type": "ref",
+                  "id": "d67d6680-3ff4-55d5-87da-65012569387d"
                 }
               ]
             }
@@ -21436,7 +24271,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Necromancer's Generosity, Summon Undead"
+                  "text": " Necromancer's Generosity, "
+                },
+                {
+                  "type": "ref",
+                  "id": "d67d6680-3ff4-55d5-87da-65012569387d"
                 }
               ]
             }
@@ -21452,7 +24291,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Final Sacrifice, Summon Undead"
+                  "text": " Final Sacrifice, "
+                },
+                {
+                  "type": "ref",
+                  "id": "d67d6680-3ff4-55d5-87da-65012569387d"
                 }
               ]
             }
@@ -21468,7 +24311,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Bind Undead, Necromancer's Generosity, Summon Undead"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "e1c0e972-837b-5c7f-99cc-2e70ee68c645"
+                },
+                {
+                  "type": "text",
+                  "text": ", Necromancer's Generosity, "
+                },
+                {
+                  "type": "ref",
+                  "id": "d67d6680-3ff4-55d5-87da-65012569387d"
                 }
               ]
             }
@@ -21484,7 +24339,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Final Sacrifice, Summon Undead, Talking Corpse"
+                  "text": " Final Sacrifice, "
+                },
+                {
+                  "type": "ref",
+                  "id": "d67d6680-3ff4-55d5-87da-65012569387d"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "b74b8226-f3e5-51b2-85dd-83ed11cd93c3"
                 }
               ]
             }
@@ -21657,7 +24524,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Necromancer's Generosity, Summon Undead"
+                  "text": " Necromancer's Generosity, "
+                },
+                {
+                  "type": "ref",
+                  "id": "d67d6680-3ff4-55d5-87da-65012569387d"
                 }
               ]
             }
@@ -21673,7 +24544,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Final Sacrifice, Summon Undead"
+                  "text": " Final Sacrifice, "
+                },
+                {
+                  "type": "ref",
+                  "id": "d67d6680-3ff4-55d5-87da-65012569387d"
                 }
               ]
             }
@@ -21689,7 +24564,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Bind Undead, Necromancer's Generosity, Summon Undead"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "e1c0e972-837b-5c7f-99cc-2e70ee68c645"
+                },
+                {
+                  "type": "text",
+                  "text": ", Necromancer's Generosity, "
+                },
+                {
+                  "type": "ref",
+                  "id": "d67d6680-3ff4-55d5-87da-65012569387d"
                 }
               ]
             }
@@ -21705,7 +24592,19 @@
                 },
                 {
                   "type": "text",
-                  "text": " Final Sacrifice, Summon Undead, Talking Corpse"
+                  "text": " Final Sacrifice, "
+                },
+                {
+                  "type": "ref",
+                  "id": "d67d6680-3ff4-55d5-87da-65012569387d"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "b74b8226-f3e5-51b2-85dd-83ed11cd93c3"
                 }
               ]
             }
@@ -21721,7 +24620,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Necromancer's Generosity, Summon Undead"
+                  "text": " Necromancer's Generosity, "
+                },
+                {
+                  "type": "ref",
+                  "id": "d67d6680-3ff4-55d5-87da-65012569387d"
                 }
               ]
             }
@@ -21737,7 +24640,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Final Sacrifice, Necrotize, Summon Undead"
+                  "text": " Final Sacrifice, Necrotize, "
+                },
+                {
+                  "type": "ref",
+                  "id": "d67d6680-3ff4-55d5-87da-65012569387d"
                 }
               ]
             }

@@ -58,21 +58,31 @@ function bySlug<Value>(keyed: readonly Keyed<Value>[]): ReadonlyMap<string, Valu
 }
 
 /**
- * Links over a release's item documents (`documents`, for names of targets outside the import) and the entries the
- * import makes (`entries`).
+ * Links over a release's item documents (`documents`, for names of targets outside the import), the entries the
+ * import makes (`entries`) and the entries of the other official packs by the UUIDs of the documents they were
+ * imported from (`known`). An entry of this import wins a UUID both name.
  */
-export function foundryLinks(documents: readonly PackDocument[], entries: readonly LinkedEntry[]): FoundryLinks {
+export function foundryLinks(
+  documents: readonly PackDocument[],
+  entries: readonly LinkedEntry[],
+  known: ReadonlyMap<string, ContentId> = new Map(),
+): FoundryLinks {
   const names = documents.map((document) => ({
     document,
     value: document.document.name,
   }));
+  const books = documents.flatMap((document) => {
+    const title = document.document.system.publication?.title;
+    return title === undefined ? [] : [{ document, value: title }];
+  });
   const ids = entries.map(({ source, id }) => ({
     document: source,
     value: id,
   }));
   return {
-    entries: byUuid(ids),
+    entries: new Map([...known, ...byUuid(ids)]),
     names: byUuid(names),
+    books: byUuid(books),
     actions: bySlug(ids),
     actionNames: bySlug(names),
   };
