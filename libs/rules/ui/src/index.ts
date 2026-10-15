@@ -55,9 +55,12 @@ export { TRADITION_MESSAGES } from './lib/spellcasting/spellcasting-messages';
 export { type FocusEntryLine, type FocusLine, type FocusSpellLine } from './lib/focus-spells/focus-spells-line';
 export { FocusSpellsView } from './lib/focus-spells/focus-spells.component';
 export {
+  type StaffCastOptionLine,
+  type StaffCastRequest,
   type StaffChargesLine,
   type StaffLine,
   type StaffSpellLine,
+  type StaffUndoLine,
   StaffSpellBlock,
 } from './lib/staff-spells/staff-spells-line';
 export { StaffSpellsView } from './lib/staff-spells/staff-spells.component';

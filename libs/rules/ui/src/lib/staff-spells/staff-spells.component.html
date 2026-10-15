@@ -1,3 +1,6 @@
+@if (error(); as failure) {
+  <fr-text element="p" variant="caption" tone="danger">{{ failure }}</fr-text>
+}
 @for (staff of staves(); track staff.key) {
   <fr-stack gap="sm">
     <fr-stack direction="horizontal" gap="xs" align="center" wrap>
@@ -7,29 +10,20 @@
       } @else {
         <fr-badge>{{ Message.NotPrepared | transloco }}</fr-badge>
       }
+      @if (staff.undo; as taken) {
+        <fr-button [disabled]="busy()" (pressed)="undo.emit(staff.key)">
+          {{ Message.Undo | transloco: { spell: taken.spell } }}
+        </fr-button>
+      }
     </fr-stack>
     <fr-list gap="2xs">
       @for (spell of staff.spells; track spell.key) {
         <fr-list-item>
-          <fr-stack gap="3xs">
-            <fr-stack direction="horizontal" gap="xs" align="center" wrap>
-              <pio-entry-hover [entry]="spell.id">
-                <fr-text tabindex="0" [tone]="spell.blocked ? 'subtle' : 'default'">{{ spell.name }}</fr-text>
-              </pio-entry-hover>
-              <fr-badge>
-                @if (spell.rank === cantrip) {
-                  {{ Message.Cantrip | transloco }}
-                } @else {
-                  {{ Message.Cost | transloco: { charges: spell.charges } }}
-                }
-              </fr-badge>
-            </fr-stack>
-            @if (spell.blocked; as blocked) {
-              <fr-text variant="caption" tone="subtle">
-                {{ blocks[blocked] | transloco: { rank: spell.rank } }}
-              </fr-text>
-            }
-          </fr-stack>
+          <pio-staff-spell-row
+            [spell]="spell"
+            [busy]="busy()"
+            (cast)="cast.emit({ staff: staff.key, spell: spell.key, slot: $event })"
+          />
         </fr-list-item>
       }
     </fr-list>

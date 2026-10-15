@@ -505,6 +505,20 @@ export {
   wandProblem,
   wandUsesAfter,
 } from './wand-commands';
+export {
+  isStaffCommand,
+  StaffCastProblem,
+  staffCastCost,
+  staffCastOptions,
+  staffCantripRank,
+  staffCastProblem,
+  type StaffCommand,
+  StaffCommandField,
+  StaffCommandSchema,
+  type StaffSlots,
+  type StaffSpend,
+  staffResourcesAfter,
+} from './staff-commands';
 export { type WandCount, type WandSource, type WandSourceInputs, wandSources } from './wand-sources';
 export { NO_STAFF, StaffProblem, type StaffLimits, staffLimits, staffProblem, staffSlotKey } from './staff-limits';
 export {

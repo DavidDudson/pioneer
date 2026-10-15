@@ -1,0 +1,16 @@
+@let line = spell();
+@if (line.options.length > 0) {
+  <fr-stack direction="horizontal" gap="xs" wrap>
+    @for (option of line.options; track option.slot ?? '') {
+      <fr-button [variant]="primary" [disabled]="busy()" (pressed)="cast.emit(option.slot)">
+        @if (line.heightenedTo; as heightened) {
+          {{ Message.CastCantrip | transloco: { rank: heightened } }}
+        } @else if (option.slotRank; as slotRank) {
+          {{ Message.CastSlot | transloco: { charges: option.charges, rank: slotRank } }}
+        } @else {
+          {{ Message.CastCharges | transloco: { charges: option.charges } }}
+        }
+      </fr-button>
+    }
+  </fr-stack>
+}

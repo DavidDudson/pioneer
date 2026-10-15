@@ -340,6 +340,16 @@ costs none and is heightened like the holder's other cantrips. A spontaneous cas
 of that entry's slots of the spell's rank or higher. The cast previews what it spends, a cast the staff can't pay
 for is refused, and undoing it refunds the charges and the slot.
 
+The sheet lists each way to pay as its own Cast button labelled with what it spends ("Cast, 3 charges", "Cast, 1
+charge and a 3rd-rank slot", "Cast, heightened to 3rd rank, no charges"), so the cost shows before anything applies.
+The options come from `staffCastOptions`, which runs the same checks as the server. `castStaff` names the staff item,
+the spell and, to pay with a slot, the slot key; the server finds the cost from the staff's content, so a client can't
+name a cheaper one. A slot is accepted only from a spontaneous entry that lists the spell, at the spell's rank or
+higher, and a cantrip takes none. The cast changes only the play state: the staff's spent charges and the slot's spent
+count, in one write under one audit entry. A refused cast writes nothing. `uncastStaff` takes the same payload and
+refunds exactly what the cast spent; it is refused when that is not spent. Until the spend log lands, the
+sheet offers one undo, for the last cast it made.
+
 A wand casts its spell once a day at the wand's rank, if the spell is on one of the holder's spell lists, with that
 entry's spell attack and DC. Only a held wand is a spell source. Once the day's cast is spent, the holder can overcharge
 it with a DC 10 flat check: on a success the spell is cast and the wand is broken; on a failure the wand is destroyed

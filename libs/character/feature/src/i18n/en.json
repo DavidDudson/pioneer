@@ -420,7 +420,16 @@
     "wandNotCastable": "None of this character's spell lists has that spell at the wand's rank.",
     "wandUseSpent": "The wand's cast for today is spent. Overcharge it, or wait for daily preparations.",
     "wandUseLeft": "The wand can be overcharged only after its cast for today is spent.",
-    "wandRollMissing": "Overcharging a wand needs the DC 10 flat check rolled first."
+    "wandRollMissing": "Overcharging a wand needs the DC 10 flat check rolled first.",
+    "staffCastNotHeld": "That staff is not held or worn. Hold or wear it first.",
+    "staffCastNotOnStaff": "That staff does not hold that spell.",
+    "staffCastNotOnList": "None of this character's spell lists has that spell.",
+    "staffCastRankTooHigh": "This character casts no spell of that rank.",
+    "staffCastNotPrepared": "That is not the staff prepared for today, so it has no charges.",
+    "staffCastTooFewCharges": "The staff has too few charges for that cast.",
+    "staffCastSlotNotAllowed": "Only a spontaneous caster can pay with a slot, and only one of the spell's rank or higher.",
+    "staffCastNoSlotLeft": "No slot of that rank is left to pay with.",
+    "staffCastNothingToRefund": "That cast has already been taken back."
   },
   "turn": {
     "started": "Your turn begins.",

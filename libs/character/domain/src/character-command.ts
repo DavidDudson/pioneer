@@ -36,6 +36,8 @@ export const CharacterCommand = {
   /** Play state (#343, #344, #345): written to `character_play`, never to the build. */
   CastWand: 'castWand',
   OverchargeWand: 'overchargeWand',
+  CastStaff: 'castStaff',
+  UncastStaff: 'uncastStaff',
   Damage: 'damage',
   Heal: 'heal',
   SetHp: 'setHp',
@@ -114,6 +116,8 @@ export const PLAY_COMMANDS = {
   [PlayCommandField.RefundUse]: CharacterCommand.RefundUse,
   [PlayCommandField.CastWand]: CharacterCommand.CastWand,
   [PlayCommandField.OverchargeWand]: CharacterCommand.OverchargeWand,
+  [PlayCommandField.CastStaff]: CharacterCommand.CastStaff,
+  [PlayCommandField.UncastStaff]: CharacterCommand.UncastStaff,
   [PlayCommandField.AddCondition]: CharacterCommand.AddCondition,
   [PlayCommandField.SetConditionValue]: CharacterCommand.SetConditionValue,
   [PlayCommandField.RemoveCondition]: CharacterCommand.RemoveCondition,
