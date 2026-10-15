@@ -175,6 +175,30 @@
       "upTo": "A variable cost starts at one, two or three actions and runs to more, at most six.",
       "minimumProficiency": "A minimum proficiency needs skills to test it against."
     },
+    "actions": {
+      "viewLabel": "Actions view",
+      "nowView": "Now",
+      "allView": "All",
+      "emptyNow": "Nothing to do right now.",
+      "emptyAll": "No action matches the filters.",
+      "filters": "Filters",
+      "filterMode": "Mode",
+      "filterCost": "Cost",
+      "filterTrait": "Trait",
+      "filterSource": "Source",
+      "grantedBy": "Granted by {name}",
+      "passive": "No cost",
+      "source": {
+        "basic": "Basic action",
+        "skill": "Skill action",
+        "granted": "Granted"
+      },
+      "status": {
+        "available": "Available",
+        "conditional": "Conditional",
+        "unavailable": "Unavailable"
+      }
+    },
     "condition": {
       "impliesWithoutGrant": "Grant this condition with a GrantItem rule too; listing it in implies does not apply it."
     },

@@ -35,6 +35,10 @@
     </fr-async-region>
   </fr-section>
 
+  <fr-section [anchor]="sections.actions.anchor" [heading]="sections.actions.headingKey | transloco">
+    <pio-sheet-actions [mode]="Mode" />
+  </fr-section>
+
   <fr-section [anchor]="sections.spellcasting.anchor" [heading]="sections.spellcasting.headingKey | transloco">
     <fr-async-region>
       <ng-template frAsyncPending><pio-spellcasting [entries]="undefined" /></ng-template>

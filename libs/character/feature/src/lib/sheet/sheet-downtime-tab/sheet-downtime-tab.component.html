@@ -9,6 +9,10 @@
     <pio-sheet-rest />
   </fr-section>
 
+  <fr-section [anchor]="sections.actions.anchor" [heading]="sections.actions.headingKey | transloco">
+    <pio-sheet-actions [mode]="Mode" />
+  </fr-section>
+
   <fr-section [anchor]="sections.downtime.anchor" [heading]="sections.downtime.headingKey | transloco">
     <pio-shop />
   </fr-section>

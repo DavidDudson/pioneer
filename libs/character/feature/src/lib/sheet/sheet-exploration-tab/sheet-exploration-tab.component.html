@@ -9,6 +9,10 @@
     <pio-sheet-roleplay-section />
   </fr-section>
 
+  <fr-section [anchor]="sections.actions.anchor" [heading]="sections.actions.headingKey | transloco">
+    <pio-sheet-actions [mode]="Mode" />
+  </fr-section>
+
   <fr-section [anchor]="sections.deity.anchor" [heading]="sections.deity.headingKey | transloco">
     <fr-async-region>
       <ng-template frAsyncPending><pio-deity loading /></ng-template>

@@ -1,0 +1,15 @@
+@if (rows(); as shown) {
+  <fr-list gap="2xs">
+    @for (row of shown; track row.line.id) {
+      <fr-list-item><pio-action-row [action]="row" [showStatus]="showStatus()" /></fr-list-item>
+    } @empty {
+      <fr-empty-state [title]="empty()" />
+    }
+  </fr-list>
+} @else {
+  <fr-list gap="3xs">
+    @for (row of loadingRows; track row) {
+      <fr-list-item><fr-skeleton width="md" /></fr-list-item>
+    }
+  </fr-list>
+}
