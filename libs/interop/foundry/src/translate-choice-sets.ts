@@ -45,10 +45,20 @@ function asText(value: unknown): unknown {
 const ITEM_LEVEL = '{item|level}';
 const ITEM_LEVEL_OPTION = 'item:level';
 
-/** A predicate with each read of the item's level as Pioneer spells it; anything else is as it was. */
+/**
+ * Foundry's read of the level of what granted the item holding the `ChoiceSet`: a class feature's granter is the class,
+ * whose level is the character's, which Pioneer reads as `self:level`.
+ */
+const GRANTER_LEVEL = 'parent:granter:level';
+const GRANTER_LEVEL_OPTION = 'self:level';
+
+/** A predicate with each read of the item's level, or of its granter's, as Pioneer spells it; anything else is as it was. */
 function withItemLevel(node: unknown): unknown {
   if (node === ITEM_LEVEL) {
     return ITEM_LEVEL_OPTION;
+  }
+  if (node === GRANTER_LEVEL) {
+    return GRANTER_LEVEL_OPTION;
   }
   if (Array.isArray(node)) {
     return node.map((each: unknown) => withItemLevel(each));
@@ -96,7 +106,7 @@ function queryOf(choices: object): unknown {
   if (kind === undefined) {
     return choices;
   }
-  const filter = choices.filter.map((statement: unknown) => namespacedStatement(statement));
+  const filter = choices.filter.map((statement: unknown) => withItemLevel(namespacedStatement(statement)));
   return { kind, filter };
 }
 

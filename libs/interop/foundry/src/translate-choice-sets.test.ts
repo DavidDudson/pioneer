@@ -141,6 +141,21 @@ describe('ChoiceSet from Foundry', () => {
     });
   });
 
+  test("a query's read of its granter's level is a read of the character's level", () => {
+    const { rules, untranslated } = translated({
+      choices: { filter: [{ lte: ['item:level', 'parent:granter:level'] }, 'item:trait:impulse'], itemType: 'feat' },
+      flag: 'impulseOne',
+      rollOption: 'impulse-one',
+      key: RuleElementKey.ChoiceSet,
+    });
+
+    expect(untranslated).toEqual([]);
+    expect((rules[0] as { choices: unknown }).choices).toEqual({
+      kind: ContentKind.Feat,
+      filter: [{ lte: ['item:level', 'self:level'] }, 'item:trait:impulse'],
+    });
+  });
+
   test('the skills config offers each skill', () => {
     const { rules, untranslated } = translated({
       choices: { config: 'skills' },
