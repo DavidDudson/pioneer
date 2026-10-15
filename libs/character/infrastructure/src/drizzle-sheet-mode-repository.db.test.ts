@@ -9,7 +9,7 @@ import { createTestDatabase, QueryRecorder, testDatabaseUrl, unindexedQueries } 
 import type { TestDatabase } from '@pioneer/shared/server/testing';
 import { eq, sql } from 'drizzle-orm';
 
-import { characterSheetModes, characters } from './character.table';
+import { characterSheetModes } from './character.table';
 import { DrizzleCharacterRepository } from './drizzle-character-repository';
 import { DrizzleSheetModeRepository } from './drizzle-sheet-mode-repository';
 
@@ -92,7 +92,7 @@ describe.skipIf(adminUrl === undefined)('DrizzleSheetModeRepository (postgres)',
     expect(await rejection(modes.save(nobody, SheetMode.Plan, NOW))).toBeInstanceOf(Error);
   });
 
-  test("deleting the character deletes every user's tab on it; deleting a user deletes theirs", async () => {
+  test('a character cannot be deleted, so its tabs stay; deleting a user deletes theirs', async () => {
     const amiri = await newUser();
     const ezren = await newUser();
     const kyra = await newCharacter(amiri);
@@ -100,12 +100,13 @@ describe.skipIf(adminUrl === undefined)('DrizzleSheetModeRepository (postgres)',
     await modes.save({ userId: amiri, characterId: kyra }, SheetMode.Encounter, NOW);
     await modes.save({ userId: ezren, characterId: kyra }, SheetMode.Encounter, NOW);
     await modes.save({ userId: ezren, characterId: seelah }, SheetMode.Encounter, NOW);
-    await database.db.delete(characters).where(eq(characters.id, kyra));
+    const refused = await rejection(database.db.execute(sql`delete from characters where id = ${kyra}`));
+    expect(refused).toBeInstanceOf(Error);
     const onKyra = await database.db
       .select()
       .from(characterSheetModes)
       .where(eq(characterSheetModes.characterId, kyra));
-    expect(onKyra).toStrictEqual([]);
+    expect(onKyra).toHaveLength(2);
 
     await database.db.execute(sql`delete from users where id = ${ezren}`);
     expect(await modes.findFor({ userId: ezren, characterId: seelah })).toBeUndefined();

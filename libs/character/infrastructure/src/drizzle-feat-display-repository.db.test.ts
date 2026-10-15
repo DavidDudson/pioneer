@@ -9,7 +9,7 @@ import { createTestDatabase, QueryRecorder, testDatabaseUrl, unindexedQueries } 
 import type { TestDatabase } from '@pioneer/shared/server/testing';
 import { eq, sql } from 'drizzle-orm';
 
-import { characterFeatDisplays, characters } from './character.table';
+import { characterFeatDisplays } from './character.table';
 import { DrizzleCharacterRepository } from './drizzle-character-repository';
 import { DrizzleFeatDisplayRepository } from './drizzle-feat-display-repository';
 
@@ -95,7 +95,7 @@ describe.skipIf(adminUrl === undefined)('DrizzleFeatDisplayRepository (postgres)
     expect(await rejection(display.save(nobody, SHOW, NOW))).toBeInstanceOf(Error);
   });
 
-  test("deleting the character deletes every user's filter on it; deleting a user deletes theirs", async () => {
+  test('a character cannot be deleted, so its filters stay; deleting a user deletes theirs', async () => {
     const amiri = await newUser();
     const ezren = await newUser();
     const kyra = await newCharacter(amiri);
@@ -103,12 +103,13 @@ describe.skipIf(adminUrl === undefined)('DrizzleFeatDisplayRepository (postgres)
     await display.save({ userId: amiri, characterId: kyra }, SHOW, NOW);
     await display.save({ userId: ezren, characterId: kyra }, SHOW, NOW);
     await display.save({ userId: ezren, characterId: seelah }, SHOW, NOW);
-    await database.db.delete(characters).where(eq(characters.id, kyra));
+    const refused = await rejection(database.db.execute(sql`delete from characters where id = ${kyra}`));
+    expect(refused).toBeInstanceOf(Error);
     const onKyra = await database.db
       .select()
       .from(characterFeatDisplays)
       .where(eq(characterFeatDisplays.characterId, kyra));
-    expect(onKyra).toStrictEqual([]);
+    expect(onKyra).toHaveLength(2);
 
     await database.db.execute(sql`delete from users where id = ${ezren}`);
     expect(await display.findShown({ userId: ezren, characterId: seelah })).toStrictEqual([]);

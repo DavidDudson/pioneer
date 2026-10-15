@@ -1,7 +1,7 @@
 import { CharacterSort, withPlay } from '@pioneer/character/domain';
 import type { Character, CharacterId, CharacterListQuery, CharacterPlay } from '@pioneer/character/domain';
 import { FIRST_VERSION, nextVersion, SortDirection, VersionConflictError } from '@pioneer/shared/kernel';
-import type { UserId, Version } from '@pioneer/shared/kernel';
+import type { Temporal, UserId, Version } from '@pioneer/shared/kernel';
 
 import { CharacterRepository } from './character-repository';
 import type { CharacterAudit, PlayWrite } from './character-repository';
@@ -11,6 +11,7 @@ export class InMemoryCharacterRepository extends CharacterRepository {
   readonly #rows = new Map<CharacterId, Character>();
   readonly #plays = new Map<CharacterId, CharacterPlay>();
   readonly #audits: CharacterAudit[] = [];
+  readonly #archived = new Set<CharacterId>();
 
   /** Every write's audit context, oldest first, for tests to assert which command ran. */
   public get audits(): readonly CharacterAudit[] {
@@ -18,18 +19,44 @@ export class InMemoryCharacterRepository extends CharacterRepository {
   }
 
   public override async listForOwner(ownerId: UserId, query: CharacterListQuery): Promise<readonly Character[]> {
+    return this.#listFor(ownerId, query, false);
+  }
+
+  public override async listArchivedForOwner(
+    ownerId: UserId,
+    query: CharacterListQuery,
+  ): Promise<readonly Character[]> {
+    return this.#listFor(ownerId, query, true);
+  }
+
+  #listFor(ownerId: UserId, query: CharacterListQuery, archived: boolean): readonly Character[] {
     const sign = query.direction === SortDirection.Asc ? 1 : -1;
     const key = (character: Character): string =>
       query.sort === CharacterSort.Name ? character.name : character.createdAt.toString();
     return [...this.#rows.values()]
-      .filter((character) => character.ownerId === ownerId)
+      .filter((character) => character.ownerId === ownerId && this.#archived.has(character.id) === archived)
       .toSorted((left, right) => sign * (key(left).localeCompare(key(right)) || left.id.localeCompare(right.id)))
       .map((character) => this.#withPlay(character));
   }
 
   public override async findById(id: CharacterId): Promise<Character | undefined> {
     const character = this.#rows.get(id);
-    return character === undefined ? undefined : this.#withPlay(character);
+    return character === undefined || this.#archived.has(id) ? undefined : this.#withPlay(character);
+  }
+
+  public override async findArchivedById(id: CharacterId): Promise<Character | undefined> {
+    const character = this.#rows.get(id);
+    return character === undefined || !this.#archived.has(id) ? undefined : this.#withPlay(character);
+  }
+
+  public override async archive(id: CharacterId, _now: Temporal.Instant, audit: CharacterAudit): Promise<void> {
+    this.#archived.add(id);
+    this.#audits.push(audit);
+  }
+
+  public override async restore(id: CharacterId, audit: CharacterAudit): Promise<void> {
+    this.#archived.delete(id);
+    this.#audits.push(audit);
   }
 
   public override async insert(character: Character, audit: CharacterAudit): Promise<Character> {

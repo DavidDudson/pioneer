@@ -27,13 +27,25 @@ export interface PlayWrite {
  */
 export abstract class CharacterRepository {
   /**
-   * One owner's characters, sorted by an enumerated, indexed option; `id` breaks ties so pages
+   * One owner's live characters, sorted by an enumerated, indexed option; `id` breaks ties so pages
    * are stable.
    */
   public abstract listForOwner(ownerId: UserId, query: CharacterListQuery): Promise<readonly Character[]>;
 
-  /** Any owner's; the service applies the access policy. */
+  /** One owner's archived characters (ADR-0062), in the same orders as `listForOwner`. */
+  public abstract listArchivedForOwner(ownerId: UserId, query: CharacterListQuery): Promise<readonly Character[]>;
+
+  /** Any owner's live character; an archived one reads as missing. The service applies the access policy. */
   public abstract findById(id: CharacterId): Promise<Character | undefined>;
+
+  /** Any owner's archived character; a live one reads as missing here. */
+  public abstract findArchivedById(id: CharacterId): Promise<Character | undefined>;
+
+  /** Marks a live character archived at `now`, leaving its version and everything it holds alone. A no-op if it already is. */
+  public abstract archive(id: CharacterId, now: Temporal.Instant, audit: CharacterAudit): Promise<void>;
+
+  /** Clears the archived mark. A no-op if the character is live. */
+  public abstract restore(id: CharacterId, audit: CharacterAudit): Promise<void>;
 
   /** Insert a new character at version 1, with its play state fresh at revision 1. */
   public abstract insert(character: Character, audit: CharacterAudit): Promise<Character>;

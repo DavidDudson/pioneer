@@ -85,6 +85,7 @@
     "loadError": "Could not load the party.",
     "empty": "No characters in the party yet.",
     "byline": "Level {level}, played by {owner}",
+    "archivedName": "Archived character",
     "detach": "Detach",
     "detaching": "Detaching",
     "detached": "Detached",

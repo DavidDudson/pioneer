@@ -44,7 +44,14 @@ const kyra = { characterId: '2a1f0c2e-8d4a-4e7b-9c3f-1a2b3c4d5e62', name: 'Kyra'
 
 /** `character` in the party, played by Ezren. */
 function inParty(character: typeof valeros, detachable: boolean): object {
-  return { ...character, ownerId: playerId, ownerName: 'Ezren', attachedAt: '2026-10-12T10:00:00.000Z', detachable };
+  return {
+    ...character,
+    ownerId: playerId,
+    ownerName: 'Ezren',
+    attachedAt: '2026-10-12T10:00:00.000Z',
+    detachable,
+    archived: false,
+  };
 }
 
 interface PartyJson {
@@ -113,6 +120,16 @@ describe('CampaignPartyPanel', () => {
     expect(root.textContent).toContain('Level 3, played by Ezren');
     expect(root.textContent).toContain('Level 2, played by Seelah');
     expect(buttons(root, 'Detach')).toHaveLength(1);
+  });
+
+  it('shows an archived character as a placeholder, without its name', async () => {
+    const harness = await open({
+      characters: [{ ...inParty(valeros, true), archived: true }],
+      attachable: [],
+    });
+    const root = present(harness.routeNativeElement);
+    expect(root.textContent).toContain('Archived character');
+    expect(root.textContent).not.toContain('Valeros');
   });
 
   it('says when the party is empty', async () => {

@@ -7,6 +7,8 @@ export interface CharacterSummary {
   readonly ownerId: UserId;
   readonly name: PartyCharacterName;
   readonly level: PartyCharacterLevel;
+  /** Archived by its owner (ADR-0062): still attached, not offered for attaching. */
+  readonly archived: boolean;
 }
 
 /**
@@ -14,9 +16,9 @@ export interface CharacterSummary {
  * characters, so the adapter lives in the composition root; `InMemoryCharacterDirectory` is for tests.
  */
 export abstract class CharacterDirectory {
-  /** The user's characters, by name; id breaks ties. */
+  /** The user's live characters, by name; id breaks ties. An archived one is not offered. */
   public abstract ownedBy(userId: UserId): Promise<readonly CharacterSummary[]>;
 
-  /** Each character that exists, whoever owns it; unknown ids are left out. */
+  /** Each character that exists, whoever owns it, archived ones flagged; unknown ids are left out. */
   public abstract byIds(ids: readonly CharacterId[]): Promise<ReadonlyMap<CharacterId, CharacterSummary>>;
 }

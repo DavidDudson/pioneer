@@ -175,11 +175,13 @@ describe.skipIf(adminUrl === undefined)('character play state (postgres)', () =>
     expect(kept?.play).toStrictEqual(WOUNDED);
   });
 
-  test('deleting the character deletes its play row', async () => {
+  test('a character cannot be deleted, so its play row stays', async () => {
     const amiri = await newUser();
     const kyra = await newCharacter(amiri);
-    await database.db.delete(characters).where(eq(characters.id, kyra.id));
-    expect(await repository.findPlay(kyra.id)).toBeUndefined();
+    const refused = await rejection(database.db.execute(sql`delete from characters where id = ${kyra.id}`));
+    expect(refused).toBeInstanceOf(Error);
+    const kept = await repository.findPlay(kyra.id);
+    expect(kept).toBeDefined();
   });
 
   test('every query the repository issued is served by an index', async () => {

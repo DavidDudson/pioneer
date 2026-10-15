@@ -10,6 +10,7 @@ interface CharacterFixture {
   readonly ownerId: UserId;
   readonly name: string;
   readonly level?: number;
+  readonly archived?: boolean;
 }
 
 /** Directory adapter for tests: characters given up front. */
@@ -17,20 +18,21 @@ export class InMemoryCharacterDirectory extends CharacterDirectory {
   readonly #characters = new Map<CharacterId, CharacterSummary>();
 
   /** Adds a character, at level 1 unless given. */
-  public character({ id, ownerId, name, level = 1 }: CharacterFixture): this {
+  public character({ id, ownerId, name, level = 1, archived = false }: CharacterFixture): this {
     const characterId = CharacterId.parse(id);
     this.#characters.set(characterId, {
       id: characterId,
       ownerId,
       name: PartyCharacterName.parse(name),
       level: PartyCharacterLevel.parse(level),
+      archived,
     });
     return this;
   }
 
   public override async ownedBy(userId: UserId): Promise<readonly CharacterSummary[]> {
     return [...this.#characters.values()]
-      .filter((character) => character.ownerId === userId)
+      .filter((character) => character.ownerId === userId && !character.archived)
       .toSorted((left, right) => left.name.localeCompare(right.name) || left.id.localeCompare(right.id));
   }
 

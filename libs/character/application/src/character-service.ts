@@ -102,6 +102,43 @@ export class CharacterService {
     };
   }
 
+  /** The actor's archived characters (ADR-0062); nobody else's are listed. */
+  public async listArchived(actor: UserId, query: CharacterListQuery): Promise<readonly Character[]> {
+    return this.#repository.listArchivedForOwner(actor, query);
+  }
+
+  /**
+   * Archives one of the actor's characters (ADR-0062): it reads as missing everywhere but the archived list until
+   * restored. Archiving an archived one is harmless. Someone else's, or a missing one, is a 404.
+   */
+  public async archive(actor: UserId, id: CharacterId): Promise<Character> {
+    const live = await this.#repository.findById(id);
+    if (live !== undefined && mayAccessCharacter(actor, live)) {
+      await this.#repository.archive(id, this.#clock.now(), { actor, command: CharacterCommand.ArchiveCharacter });
+      return live;
+    }
+    return this.#archivedOf(actor, id);
+  }
+
+  /** Brings one of the actor's archived characters back as it was. Restoring a live one is harmless. */
+  public async restore(actor: UserId, id: CharacterId): Promise<Character> {
+    const archived = await this.#repository.findArchivedById(id);
+    if (archived !== undefined && mayAccessCharacter(actor, archived)) {
+      await this.#repository.restore(id, { actor, command: CharacterCommand.RestoreCharacter });
+      return archived;
+    }
+    return this.get(actor, id);
+  }
+
+  /** The actor's archived character, or a 404. */
+  async #archivedOf(actor: UserId, id: CharacterId): Promise<Character> {
+    const archived = await this.#repository.findArchivedById(id);
+    if (archived === undefined || !mayAccessCharacter(actor, archived)) {
+      throw new NotFoundError('Character', id);
+    }
+    return archived;
+  }
+
   /** A new character, owned by the actor. */
   public async create(actor: UserId, input: CreateCharacterBody): Promise<Character> {
     await this.#assertAncestryExists(input.ancestry);

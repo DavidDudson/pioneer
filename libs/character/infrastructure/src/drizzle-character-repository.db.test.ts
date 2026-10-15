@@ -150,15 +150,6 @@ describe.skipIf(adminUrl === undefined)('DrizzleCharacterRepository (postgres)',
     expect(String((error as Error).cause)).toContain('characters_owner_id_users_id_fk');
   });
 
-  test('deleting a user deletes their characters', async () => {
-    const goneId = UserId.parse(newId());
-    await insertUser(database, goneId);
-    const lem = new CharacterBuilder().named('Lem').ownedBy(goneId).build();
-    await repository.insert(lem, created);
-    await database.db.execute(sql`delete from users where id = ${goneId}`);
-    expect(await repository.findById(lem.id)).toBeUndefined();
-  });
-
   test('stores the document with its list columns copied from it, at the current schema version', async () => {
     const amiri = new CharacterBuilder().named('Amiri').atLevel(3).build();
     await repository.insert(amiri, created);

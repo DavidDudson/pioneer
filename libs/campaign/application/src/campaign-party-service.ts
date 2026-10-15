@@ -98,12 +98,17 @@ export class CampaignPartyService {
     return this.#partyOf(actor, campaign);
   }
 
-  /** A new attachment of the actor's character to the campaign. Someone else's, or a missing one: 404. */
+  /** A new attachment of the actor's character to the campaign. Someone else's, an archived one, or a missing one: 404. */
   async #attachment(actor: UserId, campaign: Campaign, characterId: CharacterId): Promise<CampaignCharacter> {
     const characters = await this.#characters.byIds([characterId]);
     const character = characters.get(characterId);
     const member = campaign.members.find((candidate) => candidate.userId === actor);
-    if (character === undefined || member === undefined || !mayAttachCharacter(actor, campaign, character.ownerId)) {
+    if (
+      character === undefined ||
+      character.archived ||
+      member === undefined ||
+      !mayAttachCharacter(actor, campaign, character.ownerId)
+    ) {
       throw new NotFoundError('Character', characterId);
     }
     return {
@@ -149,6 +154,7 @@ export class CampaignPartyService {
           ownerName,
           attachedAt: attachment.attachedAt,
           detachable: mayDetachCharacter(actor, campaign, owner.userId),
+          archived: character.archived,
         },
       ];
     });

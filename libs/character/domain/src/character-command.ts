@@ -6,6 +6,8 @@ import { PlayCommandField } from './play-state';
 /** Every command that writes a character, as named in `audit.log.command`. */
 export const CharacterCommand = {
   CreateCharacter: 'createCharacter',
+  ArchiveCharacter: 'archiveCharacter',
+  RestoreCharacter: 'restoreCharacter',
   RenameCharacter: 'renameCharacter',
   SetLevel: 'setLevel',
   SelectSlot: 'selectSlot',
