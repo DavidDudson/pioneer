@@ -23,7 +23,6 @@ export const UNCARRIED_KEYS: Readonly<Record<UncarriedField, string>> = {
   [UncarriedField.ClassFeature]: KIND_KEYS[ImportKind.ClassFeature],
   [UncarriedField.Spell]: KIND_KEYS[ImportKind.Spell],
   [UncarriedField.Ritual]: KIND_KEYS[ImportKind.Ritual],
-  [UncarriedField.Item]: KIND_KEYS[ImportKind.Item],
   [UncarriedField.Language]: KIND_KEYS[ImportKind.Language],
   [UncarriedField.Lore]: 'character.import.kind.lore',
 };

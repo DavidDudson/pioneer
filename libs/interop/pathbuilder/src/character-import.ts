@@ -21,7 +21,7 @@ export const UnmatchedReason = {
 export type UnmatchedReason = ValueOf<typeof UnmatchedReason>;
 
 /**
- * Parts of an export the character model can't hold yet: every import kind but the ancestry, heritage, background and
+ * Parts of an export the character model can't hold yet: every import kind but the ancestry, heritage, background, item and
  * class, plus lores. They light up as the builder stories (#308-#311) give the character somewhere to keep them.
  */
 export const UncarriedField = {
@@ -30,7 +30,6 @@ export const UncarriedField = {
   ClassFeature: ImportKind.ClassFeature,
   Spell: ImportKind.Spell,
   Ritual: ImportKind.Ritual,
-  Item: ImportKind.Item,
   Language: ImportKind.Language,
   Lore: 'lore',
 } as const;

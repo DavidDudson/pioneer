@@ -143,10 +143,9 @@ export class Character {
     readonly ownerId: UserId;
     readonly name: CharacterName;
     readonly ancestry: AncestryId;
-    /** Level 1 unless given, as when importing a built character. */
     readonly level?: CharacterLevel;
-    /** Picks beside the ancestry, as when an import fills the background, class and boost slots. */
     readonly choices?: Readonly<Record<SlotKey, ChoiceValue>>;
+    readonly inventory?: Inventory;
     readonly now: Temporal.Instant;
   }): Character {
     return new Character({
@@ -157,6 +156,7 @@ export class Character {
         name: input.name,
         level: input.level ?? CharacterLevel.parse(CHARACTER_LEVEL_MIN),
         build: { choices: { ...input.choices, [ANCESTRY_SLOT]: ChoiceValue.parse(input.ancestry) } },
+        inventory: input.inventory,
       }),
       version: FIRST_VERSION,
       createdAt: input.now,

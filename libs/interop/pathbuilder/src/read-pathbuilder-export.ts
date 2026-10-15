@@ -9,6 +9,8 @@ import type { ImportedName } from './import-kind';
 import { PathbuilderBuild, PathbuilderExport } from './pathbuilder-export';
 import { readBoosts, readFlaws } from './read-boosts';
 import type { ImportedBoosts } from './read-boosts';
+import { importedCoins, importedItems } from './read-items';
+import type { ImportedCoins, ImportedItem } from './read-items';
 
 /** Why an export could not be read. The UI maps each to a message key. */
 export const PathbuilderProblem = {
@@ -52,6 +54,9 @@ export interface PathbuilderImport {
   /** Every reference to a content entry, in export order, repeats kept. */
   readonly names: readonly ImportedName[];
   readonly lores: readonly ImportedLore[];
+  /** Equipment, then weapons, then armour, in export order. */
+  readonly items: readonly ImportedItem[];
+  readonly coins: ImportedCoins;
   readonly reported: PathbuilderReported;
 }
 
@@ -70,8 +75,6 @@ export type PathbuilderReadResult = PathbuilderRead | PathbuilderReadFailure;
 
 /** Pathbuilder's placeholders for "nothing chosen". */
 const UNSET_NAMES: ReadonlySet<string> = new Set(['', 'Not set', 'None']);
-/** Pathbuilder's armour row for "no base armour"; its runes are worn on clothing, not an armour entry. */
-const UNARMORED = 'Unarmored';
 
 const SCORE_BASE = 10;
 const SCORE_STEP = 2;
@@ -124,14 +127,6 @@ function spellNames(build: PathbuilderBuild): (string | undefined)[] {
   return [...casters, ...focus.flatMap((entry) => entry.focusCantrips), ...focus.flatMap((entry) => entry.focusSpells)];
 }
 
-function itemNames(build: PathbuilderBuild): string[] {
-  return [
-    ...build.equipment.map(([name]) => name),
-    ...build.weapons.map((weapon) => weapon.name),
-    ...build.armor.filter((armor) => armor.name !== UNARMORED).map((armor) => armor.name),
-  ];
-}
-
 function contentNames(build: PathbuilderBuild): ImportedName[] {
   return [
     ...named(ImportKind.Ancestry, [build.ancestry]),
@@ -146,7 +141,10 @@ function contentNames(build: PathbuilderBuild): ImportedName[] {
     ...named(ImportKind.ClassFeature, build.specials),
     ...named(ImportKind.Spell, spellNames(build)),
     ...named(ImportKind.Ritual, build.rituals),
-    ...named(ImportKind.Item, itemNames(build)),
+    ...named(
+      ImportKind.Item,
+      importedItems(build).map((item) => item.name),
+    ),
     ...named(ImportKind.Language, build.languages),
   ];
 }
@@ -196,6 +194,8 @@ function toImport(build: PathbuilderBuild): PathbuilderReadResult {
     identity: classes,
     names: contentNames(build),
     lores: lores(build),
+    items: importedItems(build),
+    coins: importedCoins(build),
     reported: {
       acTotal: build.acTotal,
       attributes: build.attributes,
