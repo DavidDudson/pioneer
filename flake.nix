@@ -11,6 +11,34 @@
         nixpkgs.lib.genAttrs [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" ] (
           system: f nixpkgs.legacyPackages.${system}
         );
+      # nixpkgs lags Bun releases; drop this once it ships >= 1.4.3 (`bun check`; invoked as `bun --check` because the root `check` script wins).
+      bunVersion = "1.4.3";
+      bunSources = {
+        aarch64-darwin = {
+          file = "bun-darwin-aarch64";
+          hash = "sha256-gK/UwGm0am+o8+xSC+vHUKeEPkqNW5WD0prUNsAKNAM=";
+        };
+        aarch64-linux = {
+          file = "bun-linux-aarch64";
+          hash = "sha256-76mBPaXtckI7+Ef5FujSxHwNd2rdlyNUAmp14Q2pqiE=";
+        };
+        x86_64-linux = {
+          file = "bun-linux-x64-baseline";
+          hash = "sha256-H8LtrIQxApCeOhvh2NmALMYHHPB05n6IIx9P/g+LOXs=";
+        };
+      };
+      bunFor =
+        pkgs:
+        let
+          source = bunSources.${pkgs.stdenv.hostPlatform.system};
+        in
+        pkgs.bun.overrideAttrs (_: {
+          version = bunVersion;
+          src = pkgs.fetchurl {
+            url = "https://github.com/oven-sh/bun/releases/download/bun-v${bunVersion}/${source.file}.zip";
+            inherit (source) hash;
+          };
+        });
     in
     {
       devShells = forAllSystems (pkgs: {
@@ -18,7 +46,7 @@
           packages = with pkgs; [
             # Runtime + package manager. Node is only here because Nx and the
             # Angular CLI are officially Node-only; app code runs on Bun.
-            bun
+            (bunFor pkgs)
             nodejs_24
             just
             postgresql_18
