@@ -114,6 +114,18 @@ describe('translateKindData: repertoire spells', () => {
     expect(ofDivine?.['spells']).toEqual([{ rank: 2, spell: spell('augury') }]);
   });
 
+  test('a draconic exemplar trains its skill unless Crossblooded Evolution borrows the bloodline', () => {
+    const skills = keyed(RuleElementKey.Proficiency, DRACONIC);
+    const not = { not: 'parent:granter:slug:crossblooded-evolution' };
+
+    expect(skills.map(({ selector, rank, predicate }) => [selector, rank, predicate])).toEqual([
+      ['skill:arcana', 'trained', ['draconic-exemplar:arcane', not]],
+      ['skill:religion', 'trained', ['draconic-exemplar:divine', not]],
+      ['skill:occultism', 'trained', ['draconic-exemplar:occult', not]],
+      ['skill:nature', 'trained', ['draconic-exemplar:primal', not]],
+    ]);
+  });
+
   test("an elemental bloodline's influence picks its cantrip, 1st, 3rd and 6th gifts, in the primal tradition", () => {
     const [entry] = keyed(SpellcastingEntry, ELEMENTAL);
     const [choice] = keyed(ChoiceSet, ELEMENTAL);

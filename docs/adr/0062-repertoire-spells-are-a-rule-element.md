@@ -48,8 +48,8 @@ Alternatives:
   any feature that grants repertoire spells. A feat that adds a spell without using a slot (Divine Access adds up to
   three cleric spells to an oracle's repertoire) needs a repertoire count apart from slots (#599), not this element.
 - A draconic exemplar offers the four traditions' dragons Player Core 2 prints; the exemplars later books add join the
-  `ChoiceSet`. The draconic bloodline's skill follows the exemplar, which Foundry keeps in the same actor flag, and
-  isn't imported yet.
+  `ChoiceSet`. The draconic bloodline's skill follows the exemplar, which Foundry keeps in the same actor flag; the
+  importer adds it as a `Proficiency` per exemplar, held back when Crossblooded Evolution borrows the bloodline.
 - The sorcerer's Bloodline Paragon and the oracle's Oracular Clarity give a 10th-rank slot that works differently,
   as Magnum Opus does for the bard (#599).
 - The Foundry export (roadmap) writes no granted spell; Foundry players add the gifts by hand.

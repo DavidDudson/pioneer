@@ -82,6 +82,7 @@
           "value": "arcane",
           "label": "Arcane",
           "tradition": "arcane",
+          "skill": "arcana",
           "gifts": [
             [2, "blazing-bolt"],
             [5, "subconscious-suggestion"],
@@ -92,6 +93,7 @@
           "value": "divine",
           "label": "Divine",
           "tradition": "divine",
+          "skill": "religion",
           "gifts": [
             [2, "augury"],
             [5, "divine-immolation"],
@@ -102,6 +104,7 @@
           "value": "occult",
           "label": "Occult",
           "tradition": "occult",
+          "skill": "occultism",
           "gifts": [
             [2, "blood-vendetta"],
             [5, "slither"],
@@ -112,6 +115,7 @@
           "value": "primal",
           "label": "Primal",
           "tradition": "primal",
+          "skill": "nature",
           "gifts": [
             [2, "shatter"],
             [5, "howling-blizzard"],
