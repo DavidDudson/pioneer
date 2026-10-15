@@ -32,6 +32,8 @@ export interface ChoiceSlot {
   readonly origin: Origin;
   readonly rule: RuleIndex;
   readonly prompt: ContentText | undefined;
+  /** Whether the player may leave it unanswered. */
+  readonly optional: boolean;
   readonly options: readonly OfferedOption[];
 }
 
@@ -183,7 +185,14 @@ class ChoiceReader {
   #place({ element, rule }: IndexedChoice): SlotPlace {
     const { entry, hops } = this.#at;
     const origin: Origin = { hops: [...hops], entry: entry.id, sources: [...entry.sources] };
-    return { key: slotKeyOf(entry.id, rule), flag: element.flag, origin, rule, prompt: element.prompt };
+    return {
+      key: slotKeyOf(entry.id, rule),
+      flag: element.flag,
+      origin,
+      rule,
+      prompt: element.prompt,
+      optional: element.optional === true,
+    };
   }
 
   #answer(slot: AnsweredSlot): void {

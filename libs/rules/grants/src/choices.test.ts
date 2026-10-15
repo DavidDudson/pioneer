@@ -246,3 +246,13 @@ describe('resolveGrants choices gated on the level of their entry', () => {
     expect(refused.errors).toHaveLength(1);
   });
 });
+
+const shift = (optional: boolean): GrantEntry =>
+  entry('shift', [{ key: 'ChoiceSet', flag: 'shift', optional, choices: [option('claws')] }]);
+
+describe('resolveGrants optional choices', () => {
+  test('a slot says whether the player may leave it unanswered', () => {
+    expect(resolve([shift(true)], [picked('shift')]).open.map((slot) => slot.optional)).toEqual([true]);
+    expect(resolve([shift(false)], [picked('shift')]).open.map((slot) => slot.optional)).toEqual([false]);
+  });
+});

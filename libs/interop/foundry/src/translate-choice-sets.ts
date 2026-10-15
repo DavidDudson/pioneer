@@ -14,6 +14,9 @@ import { namespacedStatement, withNamespacedOptions } from './translate-modifier
  * namespace of its own) is left as it is, so the element fails and is kept for the backlog.
  */
 
+/** Foundry's `allowNoSelection` (the pick may be left empty), which Pioneer spells `optional`. */
+const NO_SELECTION_FIELD = 'allowNoSelection';
+
 /** Fields that only steer Foundry's display. */
 const DISPLAY_ONLY_FIELDS: ReadonlySet<string> = new Set(['adjustName']);
 
@@ -118,7 +121,12 @@ export function withChoiceSet(raw: unknown, item: string): unknown {
   }
   const kept = Object.entries(raw).filter(([field]) => !DISPLAY_ONLY_FIELDS.has(field));
   const shaped = Object.fromEntries(
-    kept.map(([field, value]) => [field, field === 'choices' ? choicesOf(value) : value]),
+    kept.flatMap(([field, value]) => {
+      if (field === NO_SELECTION_FIELD) {
+        return value === true ? [['optional', true]] : [];
+      }
+      return [[field, field === 'choices' ? choicesOf(value) : value]];
+    }),
   );
   const flag = 'flag' in raw && typeof raw.flag === 'string' ? kebab(raw.flag) : slugOf(item);
   return { ...shaped, flag };

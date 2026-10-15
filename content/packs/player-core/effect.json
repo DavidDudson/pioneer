@@ -20898,6 +20898,222 @@
         "display": {
           "label": "Jaws"
         }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "spell-effect-untamed-shift-two",
+        "choices": [
+          {
+            "value": "untamed-claws",
+            "label": "Untamed Claws",
+            "predicate": [
+              "feat:untamed-form",
+              {
+                "not": "untamed-shift:untamed-claws"
+              }
+            ]
+          },
+          {
+            "value": "untamed-jaws",
+            "label": "Untamed Jaws",
+            "predicate": [
+              "feat:insect-shape",
+              {
+                "not": "untamed-shift:untamed-jaws"
+              }
+            ]
+          },
+          {
+            "value": "elemental-matter",
+            "label": "Elemental Matter",
+            "predicate": [
+              "feat:elemental-shape",
+              {
+                "not": "untamed-shift:elemental-matter"
+              }
+            ]
+          },
+          {
+            "value": "long-vines",
+            "label": "Long Vines",
+            "predicate": [
+              "feat:plant-shape",
+              {
+                "not": "untamed-shift:long-vines"
+              }
+            ]
+          },
+          {
+            "value": "wings",
+            "label": "Wings",
+            "predicate": [
+              "feat:soaring-shape",
+              {
+                "not": "untamed-shift:wings"
+              }
+            ]
+          }
+        ],
+        "prompt": "Select a 2nd shift.",
+        "rollOption": "untamed-shift",
+        "optional": true,
+        "predicate": [
+          {
+            "gte": ["parent:level", 6]
+          },
+          {
+            "or": [
+              {
+                "and": [
+                  "feat:untamed-form",
+                  {
+                    "not": "untamed-shift:untamed-claws"
+                  }
+                ]
+              },
+              {
+                "and": [
+                  "feat:insect-shape",
+                  {
+                    "not": "untamed-shift:untamed-jaws"
+                  }
+                ]
+              },
+              {
+                "and": [
+                  "feat:elemental-shape",
+                  {
+                    "not": "untamed-shift:elemental-matter"
+                  }
+                ]
+              },
+              {
+                "and": [
+                  "feat:plant-shape",
+                  {
+                    "not": "untamed-shift:long-vines"
+                  }
+                ]
+              },
+              {
+                "and": [
+                  "feat:soaring-shape",
+                  {
+                    "not": "untamed-shift:wings"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "spell-effect-untamed-shift-three",
+        "choices": [
+          {
+            "value": "untamed-claws",
+            "label": "Untamed Claws",
+            "predicate": [
+              "feat:untamed-form",
+              {
+                "not": "untamed-shift:untamed-claws"
+              }
+            ]
+          },
+          {
+            "value": "untamed-jaws",
+            "label": "Untamed Jaws",
+            "predicate": [
+              "feat:insect-shape",
+              {
+                "not": "untamed-shift:untamed-jaws"
+              }
+            ]
+          },
+          {
+            "value": "elemental-matter",
+            "label": "Elemental Matter",
+            "predicate": [
+              "feat:elemental-shape",
+              {
+                "not": "untamed-shift:elemental-matter"
+              }
+            ]
+          },
+          {
+            "value": "long-vines",
+            "label": "Long Vines",
+            "predicate": [
+              "feat:plant-shape",
+              {
+                "not": "untamed-shift:long-vines"
+              }
+            ]
+          },
+          {
+            "value": "wings",
+            "label": "Wings",
+            "predicate": [
+              "feat:soaring-shape",
+              {
+                "not": "untamed-shift:wings"
+              }
+            ]
+          }
+        ],
+        "prompt": "Select a 3rd shift.",
+        "rollOption": "untamed-shift",
+        "optional": true,
+        "predicate": [
+          {
+            "gte": ["parent:level", 10]
+          },
+          {
+            "or": [
+              {
+                "and": [
+                  "feat:untamed-form",
+                  {
+                    "not": "untamed-shift:untamed-claws"
+                  }
+                ]
+              },
+              {
+                "and": [
+                  "feat:insect-shape",
+                  {
+                    "not": "untamed-shift:untamed-jaws"
+                  }
+                ]
+              },
+              {
+                "and": [
+                  "feat:elemental-shape",
+                  {
+                    "not": "untamed-shift:elemental-matter"
+                  }
+                ]
+              },
+              {
+                "and": [
+                  "feat:plant-shape",
+                  {
+                    "not": "untamed-shift:long-vines"
+                  }
+                ]
+              },
+              {
+                "and": [
+                  "feat:soaring-shape",
+                  {
+                    "not": "untamed-shift:wings"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
       }
     ],
     "externalIds": {

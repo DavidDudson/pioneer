@@ -87,6 +87,33 @@ describe('ChoiceSet from Foundry', () => {
     ]);
   });
 
+  test('allowNoSelection is optional, and a predicate on the parent level carries over', () => {
+    const { rules, untranslated } = translated({
+      allowNoSelection: true,
+      choices: YES_NO,
+      flag: 'spellEffectUntamedShiftTwo',
+      key: RuleElementKey.ChoiceSet,
+      predicate: [{ gte: ['parent:level', 6] }],
+      rollOption: 'untamed-shift',
+    });
+
+    expect(untranslated).toEqual([]);
+    expect(rules[0]).toMatchObject({ optional: true, predicate: [{ gte: ['parent:level', 6] }] });
+    expect(rules[0]).not.toHaveProperty('allowNoSelection');
+  });
+
+  test('allowNoSelection false is the default and is dropped', () => {
+    const { rules } = translated({
+      allowNoSelection: false,
+      choices: YES_NO,
+      flag: 'rank',
+      key: RuleElementKey.ChoiceSet,
+      rollOption: 'rank',
+    });
+
+    expect(rules[0]).not.toHaveProperty('optional');
+  });
+
   test('a roll option may be a namespace of its own', () => {
     const { rules, untranslated } = translated({
       choices: YES_NO,
