@@ -279,6 +279,23 @@
       "implied": "Also: {name}",
       "overridden": "Replaced by {name}"
     },
+    "effects": {
+      "label": "Effects",
+      "none": "No effects",
+      "pick": "Add an effect",
+      "source": "Who it comes from",
+      "sourceSelf": "Yourself",
+      "sourceAlly": "An ally",
+      "sourceGm": "The GM",
+      "allyName": "Ally's name",
+      "add": "Apply",
+      "raise": "Raise",
+      "lower": "Lower",
+      "remove": "Remove",
+      "fromAlly": "From {name}",
+      "fromGm": "From the GM",
+      "remaining": "{count, plural, one {# round left} other {# rounds left}}"
+    },
     "counted": {
       "slot": "{source} rank {rank} slots",
       "poolSlot": "{source} {pool} rank {rank} slots",

@@ -2,6 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import {
   ContentId,
+  DamageFormula,
   DurationCount,
   DurationUnit,
   EffectBadgeType,
@@ -28,7 +29,7 @@ import {
   SELF,
   steppedBadge,
 } from './effects';
-import type { ActiveEffect, EffectCommand, EffectContent, EffectTerms } from './effects';
+import type { ActiveEffect, EffectBadgeTerms, EffectCommand, EffectContent, EffectTerms } from './effects';
 import { applyPlayCommand, FRESH_PLAY } from './play-state';
 import { within } from './testing';
 
@@ -63,7 +64,7 @@ const CONTENT: EffectContent = new Map<ContentId, EffectTerms>([
       remaining: EffectRounds.parse(10),
       expiry: EffectExpiry.TurnEnd,
       sustained: true,
-      badge: { type: EffectBadgeType.Formula },
+      badge: { type: EffectBadgeType.Formula, formula: DamageFormula.parse('1d4') },
     },
   ],
   [BLESSING, { remaining: undefined, expiry: undefined, sustained: false, badge: undefined }],
@@ -227,5 +228,29 @@ describe(effectRoots, () => {
     expect(effectRoots([ActiveEffectSchema.parse({ id: FIRST, effect: HEROISM })])).toEqual([
       { entry: HEROISM, hop: { kind: OriginHopKind.Effect, effect: HEROISM } },
     ]);
+  });
+});
+
+describe('counter terms from content', () => {
+  const counterOf = (badge: object): EffectBadgeTerms | undefined =>
+    effectTerms(EffectData.parse({ category: 'spell', duration: { type: 'unlimited' }, badge })).badge;
+
+  test('a counter counts from 1 and has no end unless the content gives one', () => {
+    expect(counterOf({ type: 'counter', value: 1 })).toMatchObject({ min: 1, max: undefined, loop: false });
+  });
+
+  test('labels set the last step, counting from the floor', () => {
+    expect(counterOf({ type: 'counter', value: 1, labels: ['5 ft.', '10 ft.', '15 ft.'] })).toMatchObject({
+      min: 1,
+      max: 3,
+    });
+  });
+
+  test('a stated bound wins', () => {
+    expect(counterOf({ type: 'counter', value: 2, min: 0, max: 5, loop: true })).toMatchObject({
+      min: 0,
+      max: 5,
+      loop: true,
+    });
   });
 });

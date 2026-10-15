@@ -1,0 +1,25 @@
+<fr-stack direction="horizontal" align="center" gap="sm" wrap>
+  <fr-select
+    [ariaLabel]="'character.sheet.effects.pick' | transloco"
+    [placeholder]="'character.sheet.effects.pick' | transloco"
+    [options]="choices()"
+    [value]="picked()"
+    (valueChange)="picked.set($event)"
+  />
+  <fr-select
+    [ariaLabel]="'character.sheet.effects.source' | transloco"
+    [options]="sources()"
+    [value]="sourceKind()"
+    (valueChange)="setSource($event)"
+  />
+  @if (isAlly()) {
+    <fr-text-input
+      [placeholder]="'character.sheet.effects.allyName' | transloco"
+      [value]="allyName()"
+      (valueChange)="allyName.set($event)"
+    />
+  }
+  <fr-async-button size="sm" [action]="add" [disabled]="busy() || !canAdd()" [describeError]="describeError()">
+    {{ 'character.sheet.effects.add' | transloco }}
+  </fr-async-button>
+</fr-stack>

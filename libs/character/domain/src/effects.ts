@@ -8,7 +8,7 @@ import {
   EffectExpiry,
   OriginHopKind,
 } from '@pioneer/rules/sdk';
-import type { ContentRegistry, DurationCount, EffectData } from '@pioneer/rules/sdk';
+import type { ContentRegistry, DamageFormula, DurationCount, EffectData } from '@pioneer/rules/sdk';
 import { Pg, Uuid } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
@@ -86,7 +86,7 @@ export type EffectBadgeTerms =
       readonly max: EffectBadgeValue | undefined;
       readonly loop: boolean;
     }
-  | { readonly type: typeof EffectBadgeType.Formula };
+  | { readonly type: typeof EffectBadgeType.Formula; readonly formula: DamageFormula };
 
 /** A counter badge's terms. */
 export type CounterTerms = Extract<EffectBadgeTerms, { type: typeof EffectBadgeType.Counter }>;
@@ -105,19 +105,27 @@ export type EffectContent = ReadonlyMap<ContentId, EffectTerms>;
 /** No effect content, for edits that don't read it. */
 export const NO_EFFECTS: EffectContent = new Map();
 
+/** A counter counts from 1 unless the content says otherwise, as Foundry's badges do. */
+const COUNTER_FLOOR = 1;
+
+/** The counter terms of `badge`: it starts at its value, counts up from its floor and ends at its last label when it has labels. */
+function counterTerms(
+  badge: Extract<NonNullable<EffectData['badge']>, { type: typeof EffectBadgeType.Counter }>,
+): CounterTerms {
+  const value = EffectBadgeValue.parse(badge.value);
+  const min = EffectBadgeValue.parse(badge.min ?? Math.min(badge.value, COUNTER_FLOOR));
+  const labelled = badge.labels === undefined ? undefined : EffectBadgeValue.parse(min + badge.labels.length - 1);
+  const max = badge.max === undefined ? labelled : EffectBadgeValue.parse(badge.max);
+  return { type: EffectBadgeType.Counter, value, min, max, loop: badge.loop === true };
+}
+
 function badgeTerms(badge: EffectData['badge']): EffectBadgeTerms | undefined {
   if (badge === undefined) {
     return undefined;
   }
   return badge.type === EffectBadgeType.Counter
-    ? {
-        type: EffectBadgeType.Counter,
-        value: EffectBadgeValue.parse(badge.value),
-        min: badge.min === undefined ? undefined : EffectBadgeValue.parse(badge.min),
-        max: badge.max === undefined ? undefined : EffectBadgeValue.parse(badge.max),
-        loop: badge.loop === true,
-      }
-    : { type: EffectBadgeType.Formula };
+    ? counterTerms(badge)
+    : { type: EffectBadgeType.Formula, formula: badge.formula };
 }
 
 /**

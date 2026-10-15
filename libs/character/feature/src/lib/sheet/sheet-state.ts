@@ -55,6 +55,7 @@ export class SheetState {
       : withPlay(selected, {
           ...selected.document.play,
           conditions: [...played.conditions],
+          effects: [...played.effects],
           toggles: played.toggles,
         });
   });
