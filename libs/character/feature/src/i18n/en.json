@@ -588,6 +588,7 @@
         "attackMartial": "Martial weapons",
         "attackAdvanced": "Advanced weapons",
         "spellcasting": "Spellcasting",
+        "focusPoints": "Focus Points",
         "spellDc": "Spell DC ({entry})",
         "spellSlots": "Spell slots ({entry}, {rank, select, cantrip {cantrips} other {rank {rank}}})"
       },

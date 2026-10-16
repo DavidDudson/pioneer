@@ -15,7 +15,7 @@ import { fixedClock, newId, UserId } from '@pioneer/shared/kernel';
 const LOAD_TIMEOUT_MS = 60_000;
 
 /** Every total and rank the engine derives for either character: AC, Hit Points, Speed, the ranks (saves, skills, armor, weapons, casting), DCs and the spell slots of the caster it pairs with. */
-const COMPARED = 40;
+const COMPARED = 41;
 
 const registry = new ContentRegistry();
 await Promise.all(contentCatalog.map(async (loader) => registry.load(loader)));
@@ -53,10 +53,10 @@ describe('Pathbuilder exports over the official packs', () => {
       expect(summary(report.discrepancies.differences)).toStrictEqual([
         'ac: Pathbuilder 30, Pioneer 28',
         'hp:max: Pathbuilder 151, Pioneer 140',
+        'focus-points: Pathbuilder 3, Pioneer 1',
         'skill:acrobatics: Pathbuilder trained, Pioneer untrained',
         'skill:arcana: Pathbuilder expert, Pioneer trained',
         'skill:crafting: Pathbuilder trained, Pioneer untrained',
-        'skill:diplomacy: Pathbuilder expert, Pioneer trained',
         'skill:intimidation: Pathbuilder trained, Pioneer untrained',
         'skill:medicine: Pathbuilder trained, Pioneer untrained',
         'skill:nature: Pathbuilder master, Pioneer expert',
@@ -107,7 +107,7 @@ const spellPickCount = (choices: Readonly<Record<string, unknown>>): number =>
 /**
  * Pathbuilder's spells over the official packs (#311): the casters the character has an entry for fill its slots,
  * and what no slot took is a gap. A caster the build lacks (an archetype, a class not carried over) leaves its spells
- * as gaps; an innate caster's feat grants its spells, so only a feat the import does not place leaves them as gaps. Focus spells and `perDay` are not placed.
+ * as gaps; an innate caster's feat grants its spells, so only a feat the import does not place leaves them as gaps. Focus spells are compared, not placed.
  */
 describe('Pathbuilder spells over the official packs', () => {
   test(
@@ -120,6 +120,8 @@ describe('Pathbuilder spells over the official packs', () => {
         'Animist Apparition no-entry: 21',
         'Vigilant Goloma no-entry: 1',
         'Dream Magic no-entry: 1',
+        'divine wis focus no-entry: 3',
+        'occult wis focus no-entry: 3',
       ]);
     },
     LOAD_TIMEOUT_MS,
@@ -129,14 +131,15 @@ describe('Pathbuilder spells over the official packs', () => {
     "Mordred's Oracle fills its repertoire; the archetype and innate casters have no entry",
     async () => {
       const { character, report } = await service.importPathbuilder(actor, mordredExport);
-      expect(spellPickCount(character.document.build.choices)).toBe(19);
+      expect(spellPickCount(character.document.build.choices)).toBe(18);
       expect(gapSummary(report.spellGaps)).toStrictEqual([
-        'Oracle no-slot: 1',
-        'Oracle not-offered: 8',
+        'Oracle no-slot: 4',
+        'Oracle not-offered: 6',
         'Archetype Sorcerer no-entry: 4',
         'Fey Influence no-entry: 1',
         'Fey Ascension no-entry: 1',
         'Mortal Herald no-entry: 1',
+        'divine cha focus not-granted: 2',
       ]);
     },
     LOAD_TIMEOUT_MS,

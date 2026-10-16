@@ -1,6 +1,6 @@
 import type { Selector } from '@pioneer/rules/sdk';
 
-/** Label key per ranked statistic no statistic definition names: armor and weapon categories, and casting. */
+/** Label key per statistic no statistic definition names: armor and weapon categories, casting and the focus pool. */
 const RANK_KEYS: Readonly<Record<string, string>> = {
   'defense:unarmored': 'character.import.result.statistic.defenseUnarmored',
   'defense:light': 'character.import.result.statistic.defenseLight',
@@ -11,6 +11,7 @@ const RANK_KEYS: Readonly<Record<string, string>> = {
   'attack:martial': 'character.import.result.statistic.attackMartial',
   'attack:advanced': 'character.import.result.statistic.attackAdvanced',
   spellcasting: 'character.import.result.statistic.spellcasting',
+  'focus-points': 'character.import.result.statistic.focusPoints',
 };
 
 const SPELL_DC_PREFIX = 'spell-dc:';

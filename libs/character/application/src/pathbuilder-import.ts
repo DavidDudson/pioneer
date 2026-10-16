@@ -13,6 +13,7 @@ import {
   placeBoosts,
   placeFeats,
   placeFlaws,
+  placeFocus,
   placeLanguages,
   placeSkills,
   placeSpells,
@@ -146,11 +147,13 @@ function slotFills(value: PathbuilderImport, content: ImportContent, { create, c
   const withSkills = { ...withFeats, ...skills.choices };
   const languages = placeLanguages(create(withSkills).document, content, value.names);
   const withLanguages = { ...withSkills, ...languages.choices };
-  const spells = placeSpells(create(withLanguages).document, content, value.casters);
+  const focus = placeFocus(create(withLanguages).document, content, value);
+  const withFocus = { ...withLanguages, ...focus.choices };
+  const spells = placeSpells(create(withFocus).document, content, value.casters);
   return {
-    choices: { ...withLanguages, ...spells.choices },
+    choices: { ...withFocus, ...spells.choices },
     skillGaps: skills.gaps,
-    spellGaps: spells.gaps,
+    spellGaps: [...spells.gaps, ...focus.gaps],
     notOffered: [
       ...feats.unplaced.map(({ name }): ImportedName => ({ kind: ImportKind.Feat, name })),
       ...languages.unplaced.map((name): ImportedName => ({ kind: ImportKind.Language, name })),

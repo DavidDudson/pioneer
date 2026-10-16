@@ -6,6 +6,7 @@ import {
   ARMOR_CLASS,
   DiscrepancyKind,
   discrepancyReport,
+  FOCUS_POINTS,
   LAND_SPEED,
   MAX_HIT_POINTS,
   RANKED_STATISTICS,
@@ -28,7 +29,7 @@ const STEP = 2;
 const CLASS_HP = 10;
 const HP_PER_LEVEL = 1;
 const CON_MODIFIER = 2;
-const TOTALS_COMPARED = 4;
+const TOTALS_COMPARED = 5;
 const MORDRED_AC = 34;
 /** 10 + Charisma 6 + expert 4 + level 12, from Mordred's divine focus. */
 const MORDRED_SPELL_DC = 32;
@@ -37,9 +38,12 @@ const ORACLE_DC = Selector.parse('spell-dc:oracle');
 const ORACLE_ENTRY = { slug: 'oracle', preparation: SpellPreparation.Spontaneous, tradition: 'divine' } as const;
 const ORACLE_PER_DAY = [5, 4, 4, 4, 4, 4, 4];
 const ORACLE_THIRD_RANK = 3;
+/** Mordred's five focus spells fill the pool to its most. */
+const MORDRED_FOCUS_POINTS = 3;
 
 /** The values Pioneer derives, as maps the tests can change. */
 interface Values {
+  focusPoints: number | undefined;
   readonly totals: Map<Selector, number>;
   readonly ranks: Map<Selector, Proficiency>;
   spellSlots: PioneerSpellSlots[];
@@ -62,6 +66,7 @@ function agreeing(): Values {
       [LAND_SPEED, attributes?.speed ?? 0],
     ]),
     spellSlots: [{ ...ORACLE_ENTRY, counts: ORACLE_PER_DAY }],
+    focusPoints: MORDRED_FOCUS_POINTS,
     spellDcs: [
       {
         selector: Selector.parse('spell-dc:mortal-herald'),
@@ -106,6 +111,25 @@ describe('discrepancyReport', () => {
         difference: -2,
       },
     ]);
+  });
+
+  test('names a focus pool that differs, and compares none for a character without a focus entry', () => {
+    const values = agreeing();
+    values.focusPoints = 1;
+    const { differences } = discrepancyReport(mordred, values);
+    expect(differences).toStrictEqual([
+      {
+        kind: DiscrepancyKind.Total,
+        selector: FOCUS_POINTS,
+        pathbuilder: MORDRED_FOCUS_POINTS,
+        pioneer: 1,
+        difference: 1 - MORDRED_FOCUS_POINTS,
+      },
+    ]);
+    values.focusPoints = undefined;
+    expect(discrepancyReport(mordred, values).compared).toBe(
+      TOTALS_COMPARED - 1 + ORACLE_PER_DAY.length + Object.keys(RANKED_STATISTICS).length,
+    );
   });
 
   test('names a spell DC that differs, for the engine entry with the focus tradition and attribute', () => {

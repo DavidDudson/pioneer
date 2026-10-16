@@ -43,7 +43,10 @@ export interface PathbuilderIdentity {
  * Values Pathbuilder computed. Kept apart and never imported (ADR-0004): the discrepancy report (#312) compares
  * them with the engine's.
  */
-export type PathbuilderReported = Pick<PathbuilderBuild, 'acTotal' | 'attributes' | 'focus' | 'mods' | 'proficiencies'>;
+export type PathbuilderReported = Pick<
+  PathbuilderBuild,
+  'acTotal' | 'attributes' | 'focus' | 'focusPoints' | 'mods' | 'proficiencies'
+>;
 
 /** A Pathbuilder export read into Pioneer's terms, before any content is matched. */
 export interface PathbuilderImport {
@@ -222,6 +225,7 @@ function toImport(build: PathbuilderBuild): PathbuilderReadResult {
       acTotal: build.acTotal,
       attributes: build.attributes,
       focus: build.focus,
+      focusPoints: build.focusPoints,
       mods: build.mods,
       proficiencies: build.proficiencies,
     },

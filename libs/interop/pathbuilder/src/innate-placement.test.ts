@@ -3,13 +3,15 @@ import { describe, expect, test } from 'bun:test';
 import { slotContent } from '@pioneer/character/domain';
 import type { CharacterDocument } from '@pioneer/character/domain';
 import { CharacterBuilder } from '@pioneer/character/domain/testing';
-import { ContentKind, ContentRegistry, ContentText } from '@pioneer/rules/sdk';
+import { ContentId, ContentKind, ContentRegistry, ContentText } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 
 import { entryLookup } from './content-lookup';
 import { ImportKind, PathbuilderName } from './import-kind';
 import { placeInnate } from './innate-placement';
 import type { ImportedCaster, ImportedSpellRank } from './read-spells';
+import { SpellGapReason } from './spell-listing';
+import type { SpellGap } from './spell-listing';
 
 const pack = new ContentPackBuilder().withId('innate-import');
 pack
@@ -74,7 +76,10 @@ const NAMES: readonly (readonly [string, string])[] = [
   ['oaken-resilience', 'Oaken Resilience'],
 ];
 const lookup = entryLookup({
-  [ImportKind.Spell]: NAMES.map(([slug, name]) => ({ id: spellId(slug), name: ContentText.parse(name) })),
+  [ImportKind.Spell]: NAMES.map(([slug, name]) => ({
+    id: ContentId.parse(spellId(slug)),
+    name: ContentText.parse(name),
+  })),
 });
 const content = { slots, lookup };
 
@@ -97,11 +102,15 @@ function ranked(at: ImportedSpellRank['rank'], ...spells: readonly string[]): Im
   return { rank: at, spells: spells.map((spell) => PathbuilderName.parse(spell)) };
 }
 
+function gap([caster, rank, name]: readonly [string, number, string], reason: SpellGapReason): SpellGap {
+  return { caster: PathbuilderName.parse(caster), rank, name: PathbuilderName.parse(name), reason };
+}
+
 describe('placeInnate', () => {
   test('picks the feature choice whose option grants the spell the export lists', () => {
     const { choices, gaps } = placeInnate(wizard(), content, [innate('Fey Gift', ranked(1, 'Bane'))]);
 
-    expect(Object.values(choices)).toStrictEqual(['gremlin']);
+    expect(Object.values(choices).map(String)).toStrictEqual(['gremlin']);
     expect(gaps).toStrictEqual([]);
   });
 
@@ -122,13 +131,13 @@ describe('placeInnate', () => {
     const { choices, gaps } = placeInnate(wizard(), content, [innate('Fey Gift', ranked(3, 'Slow'))]);
 
     expect(choices).toStrictEqual({});
-    expect(gaps).toStrictEqual([{ caster: 'Fey Gift', rank: 3, name: 'Slow', reason: 'not-granted' }]);
+    expect(gaps).toStrictEqual([gap(['Fey Gift', 3, 'Slow'], SpellGapReason.NotGranted)]);
   });
 
   test('a caster whose feat the character lacks has no entry', () => {
     const { gaps } = placeInnate(wizard(), content, [innate('Dream Magic', ranked(4, 'Slow'))]);
 
-    expect(gaps).toStrictEqual([{ caster: 'Dream Magic', rank: 4, name: 'Slow', reason: 'no-entry' }]);
+    expect(gaps).toStrictEqual([gap(['Dream Magic', 4, 'Slow'], SpellGapReason.NoEntry)]);
   });
 
   test('leaves the prepared and spontaneous casters to the slots', () => {
