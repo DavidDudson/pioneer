@@ -70,6 +70,9 @@ Alternatives:
   advanced and greater ones with Advanced and Greater Revelation. Oracle Dedication picks a mystery
   (`feat:oracle-dedication:<mystery>`) and First Revelation gives its initial spell. Player Core 2's mysteries are
   covered; a later book's follow with its import.
+- Beastmaster's Trance gives the focus spell Beastmaster Trance in the primal charisma entry `beastmaster-focus`, and
+  the spell a Focus Point. Foundry prints the spell only as its pre-remaster Advanced Player's Guide entry, which
+  selection skips, so the spell was imported from that entry as Player Core 2's and added to the committed pack by hand.
 - An order's focus entry and order spell hold unless the order was joined through Order Explorer
   (`not feat:order-explorer:<order>`), which grants none of its other benefits, as Foundry guards an order's own.
 - Order Explorer offers the druidic orders the druid has not (an order it joined through the feat stays offered, so its

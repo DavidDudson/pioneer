@@ -21926,6 +21926,20 @@
     {
       "type": "entry",
       "pack": "player-core-2",
+      "slug": "spell:beastmaster-trance",
+      "foundry": "Compendium.pf2e.spells-srd.Item.5WM3WjshXgrkVCg6",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "target.value",
+          "raw": "one of your animal companions you can perceive"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "player-core-2",
       "slug": "spell:celestial-brand",
       "foundry": "Compendium.pf2e.spells-srd.Item.9WlTR9JlEcjRmGiD",
       "gaps": [
