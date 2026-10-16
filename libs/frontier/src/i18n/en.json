@@ -16,6 +16,9 @@
       "saved": "Saved",
       "revert": "Revert"
     },
+    "breadcrumbs": {
+      "label": "Breadcrumb"
+    },
     "combobox": {
       "noMatches": "No matches"
     },

@@ -1,0 +1,22 @@
+<nav [attr.aria-label]="label() ?? ('frontier.breadcrumbs.label' | transloco)">
+  <!-- eslint-disable-next-line pioneer/no-native-elements -- a single nowrap row: fr-list is a column and its items cannot shrink per position. -->
+  <ol [class]="listClasses">
+    @for (item of items(); track $index) {
+      <!-- eslint-disable-next-line pioneer/no-native-elements -- the item of the ordered list above; fr-list-item is display: list-item. -->
+      <li [class]="itemClasses($first, $last)">
+        @if (!$first) {
+          <fr-icon tone="muted" [icon]="separator" />
+        }
+        @if ($last) {
+          <span aria-current="page" [class]="currentClasses">{{ item.label }}</span>
+        } @else if (item.to !== undefined) {
+          <fr-link [to]="item.to"
+            ><span [class]="truncateClasses">{{ item.label }}</span></fr-link
+          >
+        } @else {
+          <span [class]="textClasses">{{ item.label }}</span>
+        }
+      </li>
+    }
+  </ol>
+</nav>
