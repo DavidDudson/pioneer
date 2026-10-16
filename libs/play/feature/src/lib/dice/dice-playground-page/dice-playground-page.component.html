@@ -1,65 +1,68 @@
-<fr-page [title]="'play.dice.title' | transloco" [description]="'play.dice.description' | transloco">
-  <fr-stack gap="xl">
-    <fr-surface>
-      <fr-stack gap="md">
-        <fr-field [invalid]="error() !== undefined">
-          <fr-label>{{ 'play.dice.expressionLabel' | transloco }}</fr-label>
-          <fr-text-input [(value)]="text" (committed)="roll()" />
-          @if (error(); as error) {
-            <fr-field-error>{{ error.key | transloco: error.params }}</fr-field-error>
-          } @else {
-            <fr-field-hint>{{ 'play.dice.expressionHint' | transloco }}</fr-field-hint>
-          }
-        </fr-field>
-        @if (againstDc()) {
-          <fr-field [invalid]="dcInvalid()">
-            <fr-label>{{ 'play.dice.dcLabel' | transloco }}</fr-label>
-            <fr-number-input
-              [min]="dcMin"
-              [max]="dcMax"
-              [(value)]="dcValue"
-              [(complete)]="dcComplete"
-              (committed)="roll()"
-            />
-            @if (dcInvalid()) {
-              <fr-field-error>{{ 'play.dice.dcInvalid' | transloco: dcRange() }}</fr-field-error>
+<fr-page>
+  <fr-page-header [title]="'play.dice.title' | transloco" [description]="'play.dice.description' | transloco" />
+  <fr-page-body>
+    <fr-stack gap="xl">
+      <fr-surface>
+        <fr-stack gap="md">
+          <fr-field [invalid]="error() !== undefined">
+            <fr-label>{{ 'play.dice.expressionLabel' | transloco }}</fr-label>
+            <fr-text-input [(value)]="text" (committed)="roll()" />
+            @if (error(); as error) {
+              <fr-field-error>{{ error.key | transloco: error.params }}</fr-field-error>
             } @else {
-              <fr-field-hint>{{ 'play.dice.dcHint' | transloco }}</fr-field-hint>
+              <fr-field-hint>{{ 'play.dice.expressionHint' | transloco }}</fr-field-hint>
             }
           </fr-field>
-        }
-        <fr-stack direction="horizontal" justify="between" align="center" gap="sm" wrap>
-          <fr-stack direction="horizontal" gap="sm" wrap>
-            <fr-toggle-button [(value)]="fortune">{{ 'play.dice.fortune' | transloco }}</fr-toggle-button>
-            <fr-toggle-button [(value)]="misfortune">{{ 'play.dice.misfortune' | transloco }}</fr-toggle-button>
-            <fr-toggle-button [(value)]="againstDc">{{ 'play.dice.againstDc' | transloco }}</fr-toggle-button>
-            <fr-toggle-button [(value)]="againstTarget">{{ 'play.dice.againstTarget' | transloco }}</fr-toggle-button>
-            <fr-toggle-button [disabled]="!againstTarget()" [(value)]="critical">{{
-              'play.dice.critical' | transloco
-            }}</fr-toggle-button>
+          @if (againstDc()) {
+            <fr-field [invalid]="dcInvalid()">
+              <fr-label>{{ 'play.dice.dcLabel' | transloco }}</fr-label>
+              <fr-number-input
+                [min]="dcMin"
+                [max]="dcMax"
+                [(value)]="dcValue"
+                [(complete)]="dcComplete"
+                (committed)="roll()"
+              />
+              @if (dcInvalid()) {
+                <fr-field-error>{{ 'play.dice.dcInvalid' | transloco: dcRange() }}</fr-field-error>
+              } @else {
+                <fr-field-hint>{{ 'play.dice.dcHint' | transloco }}</fr-field-hint>
+              }
+            </fr-field>
+          }
+          <fr-stack direction="horizontal" justify="between" align="center" gap="sm" wrap>
+            <fr-stack direction="horizontal" gap="sm" wrap>
+              <fr-toggle-button [(value)]="fortune">{{ 'play.dice.fortune' | transloco }}</fr-toggle-button>
+              <fr-toggle-button [(value)]="misfortune">{{ 'play.dice.misfortune' | transloco }}</fr-toggle-button>
+              <fr-toggle-button [(value)]="againstDc">{{ 'play.dice.againstDc' | transloco }}</fr-toggle-button>
+              <fr-toggle-button [(value)]="againstTarget">{{ 'play.dice.againstTarget' | transloco }}</fr-toggle-button>
+              <fr-toggle-button [disabled]="!againstTarget()" [(value)]="critical">{{
+                'play.dice.critical' | transloco
+              }}</fr-toggle-button>
+            </fr-stack>
+            <fr-button variant="primary" [disabled]="!canRoll()" (pressed)="roll()">{{
+              'play.dice.roll' | transloco
+            }}</fr-button>
           </fr-stack>
-          <fr-button variant="primary" [disabled]="!canRoll()" (pressed)="roll()">{{
-            'play.dice.roll' | transloco
-          }}</fr-button>
         </fr-stack>
-      </fr-stack>
-    </fr-surface>
+      </fr-surface>
 
-    @if (againstTarget()) {
-      <pio-damage-target-editor [(target)]="target" />
-    }
-
-    <fr-stack gap="md">
-      <fr-heading variant="subheading" [level]="2">{{ 'play.dice.historyHeading' | transloco }}</fr-heading>
-      @for (entry of rolls(); track entry.id) {
-        <pio-roll-card [roll]="entry" />
-      } @empty {
-        <fr-empty-state
-          [icon]="emptyIcon"
-          [title]="'play.dice.empty' | transloco"
-          [description]="'play.dice.emptyHint' | transloco"
-        />
+      @if (againstTarget()) {
+        <pio-damage-target-editor [(target)]="target" />
       }
+
+      <fr-stack gap="md">
+        <fr-heading variant="subheading" [level]="2">{{ 'play.dice.historyHeading' | transloco }}</fr-heading>
+        @for (entry of rolls(); track entry.id) {
+          <pio-roll-card [roll]="entry" />
+        } @empty {
+          <fr-empty-state
+            [icon]="emptyIcon"
+            [title]="'play.dice.empty' | transloco"
+            [description]="'play.dice.emptyHint' | transloco"
+          />
+        }
+      </fr-stack>
     </fr-stack>
-  </fr-stack>
+  </fr-page-body>
 </fr-page>

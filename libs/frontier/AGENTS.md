@@ -122,8 +122,8 @@ Pioneer never interrupts the user. Lint enforces each rule
    - No route resolvers: the page renders immediately and each region fetches
      its own data.
    - Every region that waits on data shows `fr-skeleton` shaped like the
-     content it replaces, not a spinner and not a blank page. `fr-page` shows
-     a title skeleton while `title` is `undefined`.
+     content it replaces, not a spinner and not a blank page. `fr-page-header`
+     shows a title skeleton while `title` is `undefined`.
    - After a change, refresh only the region that changed; never reload the
      page or the whole list to show one updated value.
    - `fr-spinner` is for in-place action progress only (a button's `loading`,
@@ -176,7 +176,9 @@ more room, never a separate design.
 - **Only layout primitives are responsive.** `fr-box`, `fr-grid` and
   `fr-stack` are the only components that may use container variants. Every
   other component, frontier's own included (`fr-page`, `fr-shell`, …),
-  composes them and has no responsive CSS. Need new responsive behaviour? Add
+  composes them and has no responsive CSS, with one exception: `fr-page-aside`
+  sets its own width from the `lg` size of the `fr-stack` that `fr-page` lays
+  it out in. Need new responsive behaviour? Add
   an input to a primitive. Lint (`pioneer/layout-variants`) bans viewport
   variants (`sm:`, `max-*:`, …), container variants outside the primitives,
   and container sizes other than `@sm|@md|@lg` (`@max-*`, `@[…]`). The
@@ -315,7 +317,7 @@ story the same way.
 
 | Area           | Components                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Layout         | Primitives `fr-box`, `fr-grid`, `fr-stack`; composed `fr-shell` (owns the skip link and the only `<main>`), `fr-page`, `fr-surface`, `fr-section` (`anchor`, `heading`: a `<section>` region on a surface, labelled by its level 2 heading, which skip links focus); `fr-divider` (`orientation`, `tone` subtle/default/strong; vertical is decorative)                                                                                                                                                                                                                                                                                   |
+| Layout         | Primitives `fr-box`, `fr-grid`, `fr-stack`; composed `fr-shell` (owns the skip link and the only `<main>`), `fr-page` composed of `fr-page-header` (`title`, `description`; slots `frPageBreadcrumbs`, `frPageActions`, `frPageTabs`), `fr-page-body` and `fr-page-aside` (`label`: a complementary landmark beside the body from the `lg` size), `fr-surface`, `fr-section` (`anchor`, `heading`: a `<section>` region on a surface, labelled by its level 2 heading, which skip links focus); `fr-divider` (`orientation`, `tone` subtle/default/strong; vertical is decorative)                                                        |
 | Disclosure     | `fr-disclosure` (expand in place; `frDisclosureSummary` takes phrasing content only, nothing interactive)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | Lists          | `fr-list` (`ordered` for `<ol>`, `markers` for bullets or numbers, `gap`) with `fr-list-item`; `fr-description-list` (`gap`, `columnsFrom`) with `fr-description-item [term]`                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | Text           | `fr-text` (`element="span\|p\|pre\|code\|kbd\|abbr\|q\|em\|strong"`, `expansion` for `abbr`), `fr-line-break` (a break that is content), `fr-glyph` (a rules symbol read out as its `label`), `fr-quote` (block quote, `attribution`), `fr-heading` (`[level]` 1-4 for the outline, `variant` for the look, `anchor` for an id that labels a region and takes focus from a skip link; see [Heading depth](#heading-depth)), `fr-badge` (`tone` neutral/accent/status, `variant` subtle/solid, `[icon]`)                                                                                                                                   |

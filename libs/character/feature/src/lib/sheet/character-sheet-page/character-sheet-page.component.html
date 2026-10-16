@@ -1,50 +1,53 @@
-<fr-page [title]="title()">
-  <fr-stack gap="lg">
-    <fr-stack gap="sm">
-      <fr-stack direction="horizontal" justify="between" align="center" gap="sm" wrap>
+<fr-page>
+  <fr-page-header [title]="title()" />
+  <fr-page-body>
+    <fr-stack gap="lg">
+      <fr-stack gap="sm">
+        <fr-stack direction="horizontal" justify="between" align="center" gap="sm" wrap>
+          <fr-async-region>
+            <ng-template frAsyncPending><fr-skeleton width="md" /></ng-template>
+            <ng-template [frAsyncData]="sheet.registry">
+              @if (sheet.identity(); as identity) {
+                <fr-text tone="muted">{{ 'character.sheet.header.identity' | transloco: identity }}</fr-text>
+              } @else {
+                <fr-skeleton width="md" />
+              }
+            </ng-template>
+          </fr-async-region>
+          <pio-sheet-header-actions />
+        </fr-stack>
+        <pio-sheet-hit-points />
+        <pio-sheet-death-track />
+        <pio-sheet-resources />
+        <pio-sheet-counted />
+        <pio-sheet-conditions />
+        <pio-sheet-last-roll />
         <fr-async-region>
-          <ng-template frAsyncPending><fr-skeleton width="md" /></ng-template>
-          <ng-template [frAsyncData]="sheet.registry">
-            @if (sheet.identity(); as identity) {
-              <fr-text tone="muted">{{ 'character.sheet.header.identity' | transloco: identity }}</fr-text>
-            } @else {
-              <fr-skeleton width="md" />
-            }
+          <ng-template frAsyncPending><pio-vitals [vitals]="undefined" /></ng-template>
+          <ng-template [frAsyncData]="sheet.engineQuery()">
+            <pio-vitals [vitals]="sheet.vitals()" [entryNames]="sheet.picks.entryNames()" />
           </ng-template>
         </fr-async-region>
-        <pio-sheet-header-actions />
       </fr-stack>
-      <pio-sheet-hit-points />
-      <pio-sheet-death-track />
-      <pio-sheet-resources />
-      <pio-sheet-counted />
-      <pio-sheet-conditions />
-      <pio-sheet-last-roll />
-      <fr-async-region>
-        <ng-template frAsyncPending><pio-vitals [vitals]="undefined" /></ng-template>
-        <ng-template [frAsyncData]="sheet.engineQuery()">
-          <pio-vitals [vitals]="sheet.vitals()" [entryNames]="sheet.picks.entryNames()" />
-        </ng-template>
-      </fr-async-region>
-    </fr-stack>
 
-    <fr-tabs [label]="'character.sheet.tabs.label' | transloco">
-      @for (tab of tabs; track tab.mode) {
-        <fr-tab [to]="tab.mode">{{ tab.labelKey | transloco }}</fr-tab>
+      <fr-tabs [label]="'character.sheet.tabs.label' | transloco">
+        @for (tab of tabs; track tab.mode) {
+          <fr-tab [to]="tab.mode">{{ tab.labelKey | transloco }}</fr-tab>
+        }
+      </fr-tabs>
+      <router-outlet />
+
+      @if (character(); as character) {
+        <fr-text element="p" variant="caption" tone="subtle">
+          {{ 'character.sheet.created' | transloco }}
+          <fr-date format="datetime" [value]="character.createdAt" />
+          {{ 'character.sheet.updated' | transloco }}
+          <fr-date format="relative" [value]="character.updatedAt" />
+          {{ 'character.sheet.version' | transloco: { version: character.version } }}
+        </fr-text>
+      } @else {
+        <fr-skeleton width="lg" />
       }
-    </fr-tabs>
-    <router-outlet />
-
-    @if (character(); as character) {
-      <fr-text element="p" variant="caption" tone="subtle">
-        {{ 'character.sheet.created' | transloco }}
-        <fr-date format="datetime" [value]="character.createdAt" />
-        {{ 'character.sheet.updated' | transloco }}
-        <fr-date format="relative" [value]="character.updatedAt" />
-        {{ 'character.sheet.version' | transloco: { version: character.version } }}
-      </fr-text>
-    } @else {
-      <fr-skeleton width="lg" />
-    }
-  </fr-stack>
+    </fr-stack>
+  </fr-page-body>
 </fr-page>
