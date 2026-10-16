@@ -120,7 +120,7 @@ describe('a character with Sorcerer Dedication', () => {
 
     expect(focusOf(character('dedicated')).entries).toEqual([]);
     expect(spellsOf(character('basic-bloodline-spell'))).toEqual([spellId(INITIAL)]);
-    expect(basic.pool).toBe(1);
+    expect(Number(basic.pool)).toBe(1);
   });
 
   test.each([
@@ -130,6 +130,6 @@ describe('a character with Sorcerer Dedication', () => {
   ])("a %s bloodline's focus entry is %s", (bloodline, tradition) => {
     const { entries } = focusOf(character('basic-bloodline-spell', bloodline));
 
-    expect(entries.map((each) => each.entry.tradition)).toEqual([tradition]);
+    expect(entries.map((each) => String(each.entry.tradition))).toEqual([tradition]);
   });
 });

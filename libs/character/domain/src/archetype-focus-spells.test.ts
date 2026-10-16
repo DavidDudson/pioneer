@@ -169,6 +169,6 @@ describe('a character with archetype focus spells', () => {
     });
 
     expect(spellsOf(all)).toHaveLength(3);
-    expect(focusOf(all).pool).toBe(3);
+    expect(Number(focusOf(all).pool)).toBe(3);
   });
 });

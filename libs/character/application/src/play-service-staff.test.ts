@@ -19,7 +19,7 @@ import {
   playerCoreClassId,
   staffSpellId,
 } from '@pioneer/character/domain/testing';
-import { Slug } from '@pioneer/rules/sdk';
+import { Slug, SpellRank } from '@pioneer/rules/sdk';
 import { fixedContent } from '@pioneer/rules/sdk/testing';
 import { fixedClock, FIRST_VERSION, newId, ValidationError } from '@pioneer/shared/kernel';
 import type { Version } from '@pioneer/shared/kernel';
@@ -104,8 +104,14 @@ describe('PlayService staves', () => {
 
   test('a prepared caster cannot pay with a slot', async () => {
     await prepared();
-    const slot = slotCountKey(Slug.parse('wizard'), undefined, 3);
-    expect(await refused({ ...cast('fireball'), slot })).toBeInstanceOf(ValidationError);
+    const slot = slotCountKey(Slug.parse('wizard'), undefined, SpellRank.parse(3));
+    const command: PlayCommand = {
+      field: PlayCommandField.CastStaff,
+      item: STAFF,
+      spell: staffSpellId('fireball'),
+      slot,
+    };
+    expect(await refused(command)).toBeInstanceOf(ValidationError);
   });
 
   test('taking a cast back refunds its charges, and is audited', async () => {
