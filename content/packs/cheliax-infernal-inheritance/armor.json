@@ -1,0 +1,250 @@
+[
+  {
+    "id": "8757176a-4055-521b-a1d6-87ece4b38214",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "armor",
+    "slug": "armor:gleaming-cuirass",
+    "name": "Gleaming Cuirass",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["bulwark", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Forged with a rare silver alloy, this "
+          },
+          {
+            "type": "text",
+            "text": "+2 resilient standard-grade silver ",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "ref",
+            "id": "25f6cde4-3c35-515a-b41b-0a634380ca7f"
+          },
+          {
+            "type": "text",
+            "text": " bears protective inscriptions that strengthen the wearer's resolve and draw the attention of enemies. While wearing the armor, you gain a +1 circumstance bonus to saving throws against emotion or possession effects."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Face Me",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (emotion, mental)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You challenge an enemy, attracting its wrath. Choose an enemy within 30 feet that can see you; it must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 31
+          },
+          {
+            "type": "text",
+            "text": " saving throw."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d8",
+                "damageType": "mental"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and takes a –1 status penalty to attack rolls against creatures other than you until the end of its next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but the target takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d8",
+                "damageType": "mental"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, and the penalty lasts for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but the target takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "12d8",
+                "damageType": "mental"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, and the penalty lasts for 1 minute. In addition, the target is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 1"
+          },
+          {
+            "type": "text",
+            "text": " and can't reduce its frightened value below 1 for the duration of the penalty."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.VDweB8L2a95zif5Q"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2500
+        }
+      },
+      "bulk": 4,
+      "material": {
+        "type": "silver",
+        "grade": "standard"
+      },
+      "activations": [
+        {
+          "slug": "face-me",
+          "name": "Face Me",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "heavy",
+      "group": "plate",
+      "baseItem": "full-plate",
+      "acBonus": 6,
+      "dexCap": 0,
+      "checkPenalty": 3,
+      "speedPenalty": 10,
+      "strength": 4,
+      "runes": {
+        "potency": 2,
+        "resilient": 1,
+        "property": []
+      }
+    }
+  }
+]

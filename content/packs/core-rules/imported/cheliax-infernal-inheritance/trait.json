@@ -1,0 +1,92 @@
+[
+  {
+    "id": "43f71a6b-7e96-5c7b-804b-0ec3fd51f136",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:bugbear",
+    "name": "Bugbear",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "befd3278-372b-5897-990f-8f1aa0b95f85",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:fetchling",
+    "name": "Fetchling",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "f4768006-dc33-5f10-9749-26d77fa76df9",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:strix",
+    "name": "Strix",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  }
+]

@@ -1,0 +1,170 @@
+[
+  {
+    "id": "4fe39045-1a4d-5126-8c40-e26ba5665c87",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:chitterwood-lore",
+    "name": "Chitterwood Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:chitterwood",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.chitterwood",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "bf26aee7-9f02-5875-8657-4760653c29e7",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:devil-lore",
+    "name": "Devil Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:devil",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.devil",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "7bfd2159-675b-58bc-9083-6b10fd0ea5a2",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:fishing-lore",
+    "name": "Fishing Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:fishing",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.fishing",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "a9de4163-0e96-5d22-85d9-577a95aa85d9",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:forest-lore",
+    "name": "Forest Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:forest",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.forest",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "3aeff396-489f-5235-9e56-bb5458a2e58f",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:hellknight-lore",
+    "name": "Hellknight Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:hellknight",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.hellknight",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "1cdef3e4-e0d6-5bb5-909e-103f2268e6bf",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:mountain-lore",
+    "name": "Mountain Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:mountain",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.mountain",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "89c373a5-8f12-5376-a87d-9ac3daa31647",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:ravounel-lore",
+    "name": "Ravounel Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:ravounel",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.ravounel",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  }
+]

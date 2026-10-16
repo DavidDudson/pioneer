@@ -142,5 +142,13 @@
     "remaster": true,
     "released": "2025-07-31",
     "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=268"
+  },
+  {
+    "id": "cheliax-infernal-inheritance",
+    "publisher": "paizo",
+    "license": "ORC",
+    "remaster": true,
+    "released": "2026-10-07",
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=372"
   }
 ]

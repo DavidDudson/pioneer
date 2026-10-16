@@ -1,0 +1,20 @@
+[
+  {
+    "id": "6bb8f791-c447-5fdd-bae6-46d3d5302057",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:strix",
+    "name": "Strix",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  }
+]

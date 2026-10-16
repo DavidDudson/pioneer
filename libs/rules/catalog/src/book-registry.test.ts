@@ -39,6 +39,7 @@ describe('book registry', () => {
       [
         'battlecry',
         'character-guide',
+        'cheliax-infernal-inheritance',
         'dark-archive-remastered',
         'divine-mysteries',
         'gm-core',

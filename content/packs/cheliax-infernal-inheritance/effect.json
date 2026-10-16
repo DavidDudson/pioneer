@@ -1,0 +1,1100 @@
+[
+  {
+    "id": "746478d0-a19c-5bea-bb8e-c037e156611b",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "effect",
+    "slug": "effect:aura-turnip-lantern",
+    "name": "Aura: Turnip Lantern",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The turnip is held in one hand and sheds bright light for 20 feet and dim light for 20 feet beyond that. Creatures within the bright light have a +1 status bonus to their AC, saving throws, and Perception checks against unholy creatures."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Aura",
+        "radius": 20,
+        "traits": ["light"],
+        "effects": [
+          {
+            "effect": "0e610f7e-8978-5275-abd6-2a0ab80a133c"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.WG0nF2Mzcd2B50Oo"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "8aa3fe54-2cfc-5ff8-aa6d-233196703abb",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "effect",
+    "slug": "effect:effect-aura-forte",
+    "name": "Effect: Aura Forte",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to saving throws against emotion effects and to attack rolls and weapon damage rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "slug": "aura-forte-saving-throw-bonus",
+        "predicate": ["item:trait:emotion"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["weapon-damage", "attack-roll"],
+        "type": "untyped",
+        "value": 1,
+        "slug": "aura-forte-attack-damage-bonus"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.Hn0krKSiQoFms4J0"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "6394edb2-2554-5875-9555-084cf3ada920",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "effect",
+    "slug": "effect:effect-become-as-shadow",
+    "name": "Effect: Become as Shadow",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f137f65b-9a1c-5fd1-8a81-7f4b56e92aca"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the incorporeal trait and resistance 10 to all damage except force, spirit, and damage from Strikes with weapons with the ghost touch property; double this resistance against non-magical damage. However, whenever you are in an area of bright light, you are Enfeebled 3 and Off-Guard"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "lighting:bright",
+        "toggleable": true
+      },
+      {
+        "key": "ActorTraits",
+        "add": ["incorporeal"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+        "value": 3,
+        "predicate": ["lighting:bright-light"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "071324e5-bb4c-5ed2-9e2f-28185b65ded7",
+        "predicate": ["lighting:bright-light"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.PU94onON94Vt59fX"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "a7554ed2-dfdf-5481-baeb-8efc3e74ebef",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "effect",
+    "slug": "effect:effect-con-fuoco",
+    "name": "Effect: Con Fuoco",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sound fist strikes deal an additional 1d10 fire damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["sound-fist-damage"],
+        "diceNumber": 1,
+        "dieSize": "d10",
+        "damageType": "fire"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.M119AQPrwmhhtRVH"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "1bb043fb-a081-50ff-9210-ec1e814e5130",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "effect",
+    "slug": "effect:effect-decreed-strikes",
+    "name": "Effect: Decreed Strikes",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The signifer's Strikes deal an additional 1d6 spirit damage and gain the divine trait."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["composite-longbow-damage", "fist-damage", "morningstar-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "spirit"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.I8NaJxRqRlv8Yw0Y"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "e226a227-e2a6-576a-9efd-ddf2665f1b84",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "effect",
+    "slug": "effect:effect-flight-commander-of-dis",
+    "name": "Effect: Flight Commander of Dis",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +20-foot status bonus to your fly Speeds."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["fly-speed"],
+        "type": "status",
+        "value": 20,
+        "predicate": ["self:trait:unholy"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.GEsoUTaZGcM0tCiZ"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "0c1cb937-cb18-5e13-9de1-f65b4e856e86",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "effect",
+    "slug": "effect:effect-savor-the-hunt",
+    "name": "Effect: Savor the Hunt",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "721d5fc6-a58a-56c1-a805-892d37ee2d16"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points equal to half your level rounded up."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "ceil(@level / 2)"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.inrityCqxPpcUU5H"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "dc31bfdc-6bea-54ef-b8b6-cc71c8d8e1d6",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "effect",
+    "slug": "effect:effect-shadow-sight",
+    "name": "Effect: Shadow Sight",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "47104e81-4b05-59b6-ba2c-0dd7d96742e9"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain Greater Darkvision."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "d9c41f9d-318a-5062-b129-db87b8f08f5e"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.3GPh6O3PJxORytAC"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "328c4901-832a-5930-a94c-bbdddccadfd0",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "effect",
+    "slug": "effect:effect-stalk-prey",
+    "name": "Effect: Stalk Prey",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The hunter gains a +2 circumstance bonus to Perception checks to Seek the prey and to Survival checks to Track the prey. The first time the hunter hits their prey in a round, they deal an additional 1d8 precision damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["action:seek", "target:mark:stalk-prey"],
+        "display": {
+          "label": "To Seek Hunted Prey"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:survival"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["action:track", "target:mark:stalk-prey"],
+        "display": {
+          "label": "To Track Hunted Prey"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.JYvPbu3G6OQHAKOq"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "debffd55-f540-5418-9c94-eacb596752b9",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "effect",
+    "slug": "effect:effect-steadfast-formation",
+    "name": "Effect: Steadfast Formation",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.B7H6bXCLtCsMcM7w"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "c1d01fb3-9df6-5f89-8e73-daef7f80993a",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "effect",
+    "slug": "effect:effect-strix-vengeance",
+    "name": "Effect: Strix Vengeance",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "02d18e9e-6911-5fff-b84a-18817e896e66"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You deal an additional 1d6 precision damage on Strikes against the marked creature. The bonus increases to 2d6 if you use a "
+          },
+          {
+            "type": "text",
+            "text": "striking",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " weapon or unarmed attack and 3d6 if you use a "
+          },
+          {
+            "type": "text",
+            "text": "major striking",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " weapon or unarmed attack."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.Kcmpt2nqrUKiCQte"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "ca9c33e8-9572-5ece-a987-f222085875cb",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "effect",
+    "slug": "effect:effect-swift-sower",
+    "name": "Effect: Swift Sower",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "da82232d-6990-5366-8c20-24ecb3239a2e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Members of your crop receive a +5-foot circumstance bonus to Speed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "circumstance",
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.4alr9e8w9H0RCLwI"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "bfed5868-c81b-5662-9bd2-f52360f8abc7",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "effect",
+    "slug": "effect:effect-tar-vomit-speed-penalty",
+    "name": "Effect: Tar Vomit (Speed Penalty)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a status penalty to your Speeds."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.Fx0USni3B4sfv00x"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "f571630c-86b7-50a6-b78c-958126d4dae2",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "effect",
+    "slug": "effect:effect-unfaltering-ranks",
+    "name": "Effect: Unfaltering Ranks",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "28863a42-5a7b-54e9-a9fc-62250bd888fb"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary hit points and a circumstance bonus to your speeds."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.jZ6ebQGBhr7RvP7k"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "5ccdd978-03b8-5beb-ba78-947a68a8108e",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "effect",
+    "slug": "effect:effect-unfaltering-ranks-fear",
+    "name": "Effect: Unfaltering Ranks (Fear)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "28863a42-5a7b-54e9-a9fc-62250bd888fb"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to your next saving throw against fear."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.hptRLqHeyjeSC8K5"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "b02ac580-2f75-544a-9c18-bfa8e86c46b0",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "effect",
+    "slug": "effect:spell-effect-diabolical-mantle",
+    "name": "Spell Effect: Diabolical Mantle",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain greater darkvision, immunity to fire, resistance 5 to physical damage (except silver) and poison damage, and weakness 5 to holy. Damage you deal has the unholy trait. Once during the duration, you can cast 4th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "e25a3eab-3b7d-56fd-90e2-98d892fdc8fd"
+          },
+          {
+            "type": "text",
+            "text": " as a divine innate spell."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+      },
+      {
+        "key": "Immunity",
+        "type": ["fire"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["physical"],
+        "value": 5,
+        "exceptions": ["silver"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["poison"],
+        "value": 5
+      },
+      {
+        "key": "AdjustStrike",
+        "property": "traits",
+        "mode": "add",
+        "value": "unholy"
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell"],
+        "property": "traits",
+        "mode": "add",
+        "value": "unholy"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.9f5lG32k5RKHtImU"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "5303a968-a000-585a-b7d1-5af551d37066",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "effect",
+    "slug": "effect:spell-effect-infernal-supervision",
+    "name": "Spell Effect: Infernal Supervision",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have the Additional Lore feat for Legal Lore and gain a +1 status bonus to Deception and Intimidation checks, which increases to +2 against holy creatures."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception", "skill:intimidation"],
+        "type": "status",
+        "value": 1,
+        "slug": "infernal-supervision-bonus"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception", "skill:intimidation"],
+        "type": "status",
+        "value": 2,
+        "slug": "infernal-supervision-holy-bonus",
+        "predicate": ["target:holy"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.KBKUsdW1uKmI6hDi"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "5e78650a-47f5-5fd3-98c0-69999afd0b40",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "effect",
+    "slug": "effect:spell-effect-roar-of-freedom",
+    "name": "Spell Effect: Roar of Freedom",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Allied creatures within the emanation gain temporary Hit Points that last for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "max((@item.level - 5) * 5, 15)"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.h8x25hF4dlibDIef"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "46e6e087-0b74-5856-a050-6506aae96948",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "effect",
+    "slug": "effect:spell-effect-shadow-form",
+    "name": "Spell Effect: Shadow Form",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain immunity to precision damage, resistance to void and to non-magical physical damage, and weakness to any damage with the light trait. You can Squeeze at full speed through any space with at least one dimension a foot wide. Your shadow spells deal additional damage equal to the spell's rank (of the same damage type as the spell)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Immunity",
+        "type": ["precision"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["void"],
+        "value": "ternary(gte(@item.level, 9), 15, 10)"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["spell-damage"],
+        "type": "untyped",
+        "value": "@item.level",
+        "predicate": ["item:trait:shadow"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.n5U2OoIzV7Gxdm3K"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "0e610f7e-8978-5275-abd6-2a0ab80a133c",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "effect",
+    "slug": "effect:spell-effect-turnip-lantern",
+    "name": "Spell Effect: Turnip Lantern",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have a +1 status bonus to your AC, saving throws, and Perception checks against unholy creatures"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "saving-throw", "perception"],
+        "type": "untyped",
+        "value": 1,
+        "slug": "turnip-lantern",
+        "predicate": ["origin:trait:unholy"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.sOfwDFEn1YrHYrza"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  }
+]

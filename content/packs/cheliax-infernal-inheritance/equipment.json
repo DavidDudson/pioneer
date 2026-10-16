@@ -1,0 +1,1769 @@
+[
+  {
+    "id": "bf8ddeba-a3df-51b6-84bb-ad353f7ea246",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "equipment",
+    "slug": "equipment:accursed-fame",
+    "name": "Accursed Fame",
+    "level": 16,
+    "rarity": "rare",
+    "traits": ["contract", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Infernal tongues spread word of your great deeds. Creatures that would have an initial attitude toward you other than hostile have their attitude improved by one step. Once per day, from any distance, the devil who holds your bargained contract can cite a defamation clause, rendering you unable to speak for 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Entreat Crowd",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, emotion, magical, manipulate, mental, subtle)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You invoke a due diligence stipulation in your contract. Attempt a Diplomacy check to make a Request of the creature with the highest Will DC within 100 feet who isn't your ally; the GM might have you make a Request of the most influential creature instead. The result applies to all creatures within 100 feet that can understand you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.K56D9h1Wrm6Ej2bY"
+    },
+    "data": {
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "entreat-crowd",
+          "name": "Entreat Crowd",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "c6577c65-08eb-590f-bb1c-d0eba905ff0b",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "equipment",
+    "slug": "equipment:bracelet-of-buoyancy",
+    "name": "Bracelet of Buoyancy",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This bracelet resembles a string of pearls filled with swirling air, making you more buoyant. While wearing the bracelet, you gain a +1 item bonus to Athletics checks to Swim."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Float",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're submerged in water or another liquid"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You rapidly surface, rising 60 feet at the end of each of your turns. Once you reach the liquid's surface, you can't dive or sink for the next 10 minutes, and a creature that attempts to pull you beneath the surface must first succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:athletics",
+            "dc": 17
+          },
+          {
+            "type": "text",
+            "text": " check."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["action:swim"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.R1NuaPMcEP4rHBhU"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "float",
+          "name": "Float",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "a501f122-66e2-5605-870c-6baf17d8ddce",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "equipment",
+    "slug": "equipment:censer-implement",
+    "name": "Censer Implement",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:implement-held"
+      },
+      {
+        "key": "RollOption",
+        "option": "implement:regalia:equipped"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.iVBCLXJt3bxf2ERM"
+    },
+    "data": {
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "7a54c787-7b4e-5508-a5ad-21f98f71cfed",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "equipment",
+    "slug": "equipment:embedded-eye",
+    "name": "Embedded Eye",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This small metal ring, originally a construct's eye, has been repurposed to interface with living beings."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Automaton's Sight",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You hold the embedded eye against the skin of your forehead or elsewhere on your face and it embeds itself in place, linking telepathically with your mind. For the next hour, you gain a +1 status bonus to saving throws against visual effects and to checks you make to disbelieve illusions. At the end of the duration, the eye is no longer embedded in your skin."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.CkKplUCM4oraOLRJ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "automatons-sight",
+          "name": "Automaton's Sight",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "0ec72d85-974e-5ce9-a008-a412c658aa7d",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "equipment",
+    "slug": "equipment:exploitative-wealth",
+    "name": "Exploitative Wealth",
+    "level": 5,
+    "rarity": "rare",
+    "traits": ["contract", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Hard work can earn some money, but truly grandiose wealth is built on the backs of others. Devils convince others to work for you, extracting value from them. You can "
+          },
+          {
+            "type": "ref",
+            "id": "b03a543f-4d12-5c6b-a4f9-6afe141aa651"
+          },
+          {
+            "type": "text",
+            "text": " at the same time as you perform another downtime activity. Once per week, from any distance, the devil who holds your bargained contract can invoke a non-compete clause, imposing a –4 circumstance penalty to your checks to Earn Income for 1 week."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Enforce Competition",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You call upon an antitrust provision in your contract. The contract casts paranoia (DC 19), and if the target has more allies within the spell's range than you, they take a –2 circumstance penalty to their Will save."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.QZENjzvPNlwHwEUv"
+    },
+    "data": {
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "enforce-competition",
+          "name": "Enforce Competition",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "4ca2c8d0-9ac3-5ec4-b1fb-89a5ee942a27",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "equipment",
+    "slug": "equipment:illicit-knowledge",
+    "name": "Illicit Knowledge",
+    "level": 7,
+    "rarity": "rare",
+    "traits": ["contract", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Devils have learned much in their eternal lives, and you have access to some of their secrets. You gain the Additional Lore feat for Devil Lore, and during your daily preparations, you become trained in two Lore skills of your choice. Since these effects are temporary, you can't use them as prerequisites. Once per day, from any distance, the devil who holds your bargained contract can invoke an evidence concealment clause as a single action with the concentrate trait, leaving you "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 2"
+          },
+          {
+            "type": "text",
+            "text": " for 1 hour; you can't reduce the value of this condition by any means."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Delve Infernal Records",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cite your contract's discovery of evidence clause. The contract casts "
+          },
+          {
+            "type": "ref",
+            "id": "22b62dab-5ef5-5d09-8c09-2f7bcfc88be1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.3KFUMiKKTuTtzpG8"
+    },
+    "data": {
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "delve-infernal-records",
+          "name": "Delve Infernal Records",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "2b7c6ed5-b530-5d57-aafa-2fcc80568ede",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "equipment",
+    "slug": "equipment:lily-pad-platform",
+    "name": "Lily Pad Platform",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["magical", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Popular among smugglers and other sailors of ill repute, this unassuming palm-sized wooden lily pad or lotus leaf expands on command, forming a floating platform."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Expand",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You place the lily pad platform on the surface of a body of water at least 60 feet deep. It instantly unfolds into a flat platform that fills a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 20
+          },
+          {
+            "type": "text",
+            "text": " or the entire body of water, whichever is smaller. Any creatures or items in the area are lifted on top of it, and it's anchored in place, unmoved by the current. You can use a single action with the auditory trait to instantly return the lily pad platform to its original size, dropping any items or creatures on it into the water. This happens automatically if the total Bulk of items and creatures on the lily pad platform exceeds 100 Bulk."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Plunge",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, auditory)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The lily pad platform is expanded"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The lily pad platform wraps around everything on top of it and plunges 60 feet beneath the surface for 1 hour, after which it returns to the surface. While submerged, items take no damage from the water, and creatures can breathe normally but are engulfed (Escape)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.L29VpwwfdMdpHVYP"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 215
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "expand",
+          "name": "Expand",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "cd49aabe-857c-5a45-aee5-10a54b021712",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "equipment",
+    "slug": "equipment:limitless-power",
+    "name": "Limitless Power",
+    "level": 24,
+    "rarity": "rare",
+    "traits": ["artifact", "contract", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each of these "
+          },
+          {
+            "type": "text",
+            "text": "bargained contracts",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is unique, matching the contracted's idea of unlimited power. When you gain this contract, select one weapon in your possession, a common divine cantrip, and one common divine spell of each spell rank except 10th. The weapon becomes a +4 greater striking weapon. Once per day, from any distance, when you Activate this contract or Strike with the selected weapon, the devil who holds your bargained contract can call upon their divine right as a free action to have the spell or Strike target you or have its area centered on you instead of its intended targets."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Unholy Demand",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per week"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You call upon a right of self-determination article in your contract. The contract casts manifestation (spell attack modifier +30, DC 40). Your contractor is immediately made aware of which spell you are duplicating."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Unleash Power",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " to "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The contract casts one of the selected spells (spell attack modifier +30, DC 40). The contract can cast each non-cantrip spell only once per day. You use the same number of actions for this activation as the selected spell normally takes."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destruction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The contract bursts into flame if the devil who signed it is slain and a celestial of equal or higher level declares it void."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.yDhHyuSrKudYuVNk"
+    },
+    "data": {
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "unholy-demand",
+          "name": "Unholy Demand",
+          "frequency": {
+            "max": 1,
+            "per": "week"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "773fd9de-c22c-541d-91f1-3f58117c2ab3",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "equipment",
+    "slug": "equipment:mark-of-the-torrent",
+    "name": "Mark of the Torrent",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're a member of the Order of the Torrent."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The Order of the Torrent works to rescue kidnapped people, and their cobalt blue badge can often open doors that would otherwise be closed. When wearing this badge, you gain a +1 item bonus to Survival and Diplomacy checks to Track or Gather Information about a missing person."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Modus Operandi",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A kidnapping occurred within 15 feet of your location, or you have some information about the target or perpetrators of a kidnapping"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": " about those who perpetrated the kidnapping, the information supernaturally surfacing in your mind. The GM determines what skill and DC to use for this check based on the level and nature of the perpetrators (usually a Society check at a standard DC for the perpetrator's level). In addition, if you fail to Recall Knowledge about the kidnapper (but don't critically fail), you eliminate one false lead about the kidnapper or how they abducted the target. For instance, you might determine that an incorporeal undead wasn't involved, though you gain no other information about what happened. The mark can't provide specific identifying information about the perpetrators, like their name or location."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.EZTY8ZC7pT5xJgxO"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 135
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "modus-operandi",
+          "name": "Modus Operandi",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "e1c20c8a-2e6c-5596-b252-f7a74b6178d2",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "equipment",
+    "slug": "equipment:pits-protection",
+    "name": "Pit's Protection",
+    "level": 15,
+    "rarity": "rare",
+    "traits": ["contract", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are protected from physical harm. You gain resistance 5 to non-magical physical damage (except silver). Once per day, at any distance, the devil who holds this bargained contract can invoke a punitive damages clause as a single action with the concentrate trait to deal fire damage to you equal to twice your level, ignoring resistances, and gain half that many Hit Points."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Reasonable Force",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cite a right of self-defense article in your contract. The contract casts "
+          },
+          {
+            "type": "ref",
+            "id": "e076f164-c21d-51dd-a29d-d21888bb7d71"
+          },
+          {
+            "type": "text",
+            "text": ", and you can then Shove or Demoralize an adjacent creature."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.KtiaWESCPVwzazby"
+    },
+    "data": {
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "reasonable-force",
+          "name": "Reasonable Force",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "6317820a-62d0-556b-ad7d-3a24f58fbe9a",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "equipment",
+    "slug": "equipment:sea-retrieval-line",
+    "name": "Sea Retrieval Line",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This braided sea kelp rope writhes slowly when submerged in water."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is in water"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The sea retrieval line uncoils and stretches through the water toward a target of your choice—an unattended, stationary object or willing creature of 10 Bulk or less. The end of the rope moves 20 feet when you Activate it and at the start of each of your turns, to a maximum length of 120 feet, until it reaches the target or runs out of length. Once it reaches the target, the vine pulls the unattended object or willing creature toward you, or pulls you toward the stationary object, at the same rate."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.cWY8zwWrPzHCZREq"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "f1c002e0-1aa9-5b7b-90d7-da7dda6343f8",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "equipment",
+    "slug": "equipment:unholy-skill",
+    "name": "Unholy Skill",
+    "level": 5,
+    "rarity": "rare",
+    "traits": ["contract", "invested", "magical", "teleportation"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whether because of a lack of talent or a desire for fame, you've bargained for infernal aid. When you gain this contract, choose a skill. You gain a +2 item bonus to checks with that skill. Once per week, at any distance, the devil who holds your bargained contract can cite a royalties clause, taking from you the amount of currency you'd gain from Earning Income on an expert-rank task of your level. The currency teleports directly from your possessions to the devil's vaults. If you're unable to pay, the devil instead takes the item with a value higher than, but closest to, the amount you owe from your possessions as collateral, returning it when you pay the required amount."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Devil's Work",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, magical, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You call upon your contract's apprenticeship clause. You gain a +1 circumstance bonus to your next skill action, and it gains the unholy trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.BHS27XtpW9icogkz"
+    },
+    "data": {
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "devils-work",
+          "name": "Devil's Work",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "1b4cbf4d-69ae-5ce7-933b-9b516469baba",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "equipment",
+    "slug": "equipment:wind-up-widget-hand-powered-digger",
+    "name": "Wind-Up Widget (Hand-Powered Digger)",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These simple constructs are often created for children or as proof of concept for larger tools. Despite their resemblance to clockworks, wind-up widgets are animated by magic rather than complex internal mechanisms. They lack power sources, however, and must still be wound up before use."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The "
+          },
+          {
+            "type": "text",
+            "text": "hand-powered digger",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " resembles a small handheld drill. Once activated and placed against a surface, at the start of each of your turns, it digs 15 feet in a straight line through dirt, sand, or another loose material (as a burrow Speed) or deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to any harder or denser material, ignoring that material's Hardness if it's 4 or less. The digger leaves a tunnel 1 foot in diameter behind it."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You turn the widget's crank for 1 minute, and it comes to life. The widget operates autonomously—as described in its entry—for 10 minutes, then curls into a small metal ball until your next daily preparations."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.bAafH4oR9Lsp7qjk"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 140
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "wind-up-widget-hand-powered-digger",
+          "name": "Wind-Up Widget (Hand-Powered Digger)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "49393beb-547f-51db-8e78-77c0996aa8c9",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "equipment",
+    "slug": "equipment:wind-up-widget-thieves-friend",
+    "name": "Wind-Up Widget (Thieves' Friend)",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These simple constructs are often created for children or as proof of concept for larger tools. Despite their resemblance to clockworks, wind-up widgets are animated by magic rather than complex internal mechanisms. They lack power sources, however, and must still be wound up before use."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The "
+          },
+          {
+            "type": "text",
+            "text": "thieves' friend",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " resembles a small thieves' toolkit with clockwork legs. Once activated, at the start of each of your turns, it moves up to 30 feet in a straight line toward the nearest locked object within 120 feet of it, then attempts to Pick a Lock with a +10 Thievery modifier. The thieves' friend can detect locked objects hidden in mundane ways but not those "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " by magic."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You turn the widget's crank for 1 minute, and it comes to life. The widget operates autonomously—as described in its entry—for 10 minutes, then curls into a small metal ball until your next daily preparations."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ShFwtGOtmEvyXwlZ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 80
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "wind-up-widget-thieves-friend",
+          "name": "Wind-Up Widget (Thieves' Friend)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "84560659-0a43-5e2c-aac9-b187d8711d31",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "equipment",
+    "slug": "equipment:wind-up-widget-wind-up-spy",
+    "name": "Wind-Up Widget (Wind-Up Spy)",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These simple constructs are often created for children or as proof of concept for larger tools. Despite their resemblance to clockworks, wind-up widgets are animated by magic rather than complex internal mechanisms. They lack power sources, however, and must still be wound up before use."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The "
+          },
+          {
+            "type": "text",
+            "text": "wind-up spy",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " resembles a small toy soldier in uniform. When activated, you choose a distance up to 80 feet, and the spy moves that far in a straight line. At the start of each of your turns, it records the next 6 seconds of sounds from within 25 feet, overwriting the previous 6 seconds. You can use a single action with the auditory trait to have it save the current recording and walk the same distance backward, ending the activation early. You can Interact with the spy to play back its current recording."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You turn the widget's crank for 1 minute, and it comes to life. The widget operates autonomously—as described in its entry—for 10 minutes, then curls into a small metal ball until your next daily preparations."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.c7egD3WaqYG6OGN5"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "wind-up-widget-wind-up-spy",
+          "name": "Wind-Up Widget (Wind-Up Spy)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  }
+]

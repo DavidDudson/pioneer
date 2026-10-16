@@ -19,7 +19,7 @@ import {
   warOfImmortalsPack,
 } from './json-packs';
 import { characterGuidePack, impossibleLandsPack } from './ogl-packs';
-import { battlecryPack, gunsAndGearsPack, impossibleMagicPack } from './orc-packs';
+import { battlecryPack, chelaxInfernalInheritancePack, gunsAndGearsPack, impossibleMagicPack } from './orc-packs';
 import { checkPackSources } from './source-check';
 
 export { BookRegistry, bookRegistry } from './book-registry';
@@ -85,6 +85,7 @@ export const officialPacks: readonly PackContentsLoader[] = [
   checkedLoader('impossible-magic', impossibleMagicPack),
   checkedLoader('guns-and-gears', gunsAndGearsPack),
   checkedLoader('battlecry', battlecryPack),
+  checkedLoader('cheliax-infernal-inheritance', chelaxInfernalInheritancePack),
   checkedLoader('gm-core', gmCorePack),
 ];
 

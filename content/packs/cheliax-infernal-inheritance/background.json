@@ -1,0 +1,1324 @@
+[
+  {
+    "id": "3637125b-f43c-53a5-ac6e-6b0975d07871",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "background",
+    "slug": "background:asmodean-apostate",
+    "name": "Asmodean Apostate",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cheliax is your home, but Asmodeus is not your god. Though other faiths are tolerated by House Thrune, they're not exactly encouraged—so you, and those like you, are well practiced in keeping your true beliefs as secret as possible."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Occultism skill and the Lore skill associated with the deity or other belief system you follow. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "4516c9da-3155-5ae4-9a11-3b7b8d927234"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:occultism",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "4516c9da-3155-5ae4-9a11-3b7b8d927234"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.nmzCXzbN2nCUr5oO"
+    },
+    "data": {
+      "boosts": [
+        ["int", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "dd62e56f-ab52-51b5-a2f9-5e12189b9c44",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "background",
+    "slug": "background:brastlewark-student",
+    "name": "Brastlewark Student",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are or were a student of Brastlewark's Academe Alcheme, Sorcere Laude, or Tinkerer Tech academies. Whether you excelled, barely scraped by, or failed to live up to your potential during your time at the academy, your experiences there shaped your approach to the world."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in your choice of the Arcana or Crafting skill and in the Academia Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "a4f72e5d-c45b-582a-9c9f-e2fa8af6c80a"
+          },
+          {
+            "type": "text",
+            "text": " skill feat if you chose Arcana or the "
+          },
+          {
+            "type": "ref",
+            "id": "14dfa44b-741c-58ed-8b61-651062a946ff"
+          },
+          {
+            "type": "text",
+            "text": " skill feat if you chose Crafting."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "skill",
+        "choices": [
+          {
+            "value": "arcana",
+            "label": "Arcana"
+          },
+          {
+            "value": "crafting",
+            "label": "Crafting"
+          }
+        ],
+        "prompt": "Select a skill.",
+        "rollOption": "brastlewark-student-skill"
+      },
+      {
+        "key": "Proficiency",
+        "selector": {
+          "choice": "skill",
+          "prefix": "skill"
+        },
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "a4f72e5d-c45b-582a-9c9f-e2fa8af6c80a",
+        "predicate": ["brastlewark-student-skill:arcana"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "14dfa44b-741c-58ed-8b61-651062a946ff",
+        "predicate": ["brastlewark-student-skill:crafting"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:academia",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.RBLjBZ37G34wgxRh"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "int"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "f7aa98b9-5839-5a54-a957-21b7372b3f64",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "background",
+    "slug": "background:chelaxian-trouper",
+    "name": "Chelaxian Trouper",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are a renowned actor, dancer, opera singer, or other type of creative artist. As a result, you have frequently shared your talents with the Chelaxian elite and have won your fair share of admirers."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Performance skill and the Theater Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "73f460e2-feec-5d78-983c-ecf0c7a4b1e8"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:performance",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:theater",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "73f460e2-feec-5d78-983c-ecf0c7a4b1e8"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.ldQs2OjLoi3IyqAD"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "dex"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "f8892e68-e3bb-57b9-8613-73b43f7e93d7",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "background",
+    "slug": "background:chitterwood-refugee",
+    "name": "Chitterwood Refugee",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As the Goblinblood Wars raged through Isger, you were a resident of the Chitterwood region who stubbornly refused to relocate throughout the conflict and instead tried to defend your home. When the victorious armies—and vengeful Isgeri survivors—set the entire region aflame, you and the others who stayed had no choice but to finally flee. You found fire everywhere you turned, and you adapted, using the flames as a crucible in which you forged yourself anew."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Constitution",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Chitterwood Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "ce9dc630-a033-5910-9e32-3f78eca9bcc5"
+          },
+          {
+            "type": "text",
+            "text": " reaction."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "ce9dc630-a033-5910-9e32-3f78eca9bcc5"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:chitterwood",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.FoJFWJKZIKPeQ6ma"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "442a2adf-1836-5454-b2bc-9822821ddad3",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "background",
+    "slug": "background:council-of-thieves-agent",
+    "name": "Council of Thieves Agent",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The Council of Thieves is not what it once was, but it still controls much of Westcrown's criminal underground. You might be a happy and loyal member in good standing, an agitator pushing for a change in direction or leadership, or even a former member who's on the outs (or maybe out for revenge)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Thievery skill and the Underworld Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "8532899f-23d2-5fab-8d18-4902347b0ba2"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:thievery",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:underworld",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "8532899f-23d2-5fab-8d18-4902347b0ba2"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.Rcg4UorRkZi6zDfb"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "dex"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "972b6a3d-318c-57ee-899a-9f712e6cad01",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "background",
+    "slug": "background:hellknight-deserter",
+    "name": "Hellknight Deserter",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You became a squire to a Hellknight at a young age. As you matured and your opinions developed, you came to find their ethos unacceptable, and went from bearing shields for the Hellknights to bearing weapons against them."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Strength",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Constitution",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Intimidation skill and the Hellknight Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "83871ce2-c4f9-5a77-af0a-7d7f0708b5f0"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:intimidation",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:hellknight",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "83871ce2-c4f9-5a77-af0a-7d7f0708b5f0"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.l41OpiwLzPYdzYfP"
+    },
+    "data": {
+      "boosts": [
+        ["con", "str"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "ca19ebc1-7541-5181-8e85-19db4ac7ae26",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "background",
+    "slug": "background:hinji-beachcomber",
+    "name": "Hinji Beachcomber",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You resided in Hinji for a time, though you found yourself without a home due to a dependence on the drug called ice tears or other unfortunate circumstance. You spent much of your life on the docks and learned how to scrounge to survive."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Constitution",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Survival skill and the Fishing Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "5e597080-193c-5a28-a1ed-901ee2ebba74"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:survival",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:fishing",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "5e597080-193c-5a28-a1ed-901ee2ebba74"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.0sd6sFVw4pcYXXTc"
+    },
+    "data": {
+      "boosts": [
+        ["con", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "fb59c04e-ac78-5ba9-87d8-0f405167a7c9",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "background",
+    "slug": "background:lived-through-hell",
+    "name": "Lived Through Hell",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You saw countless people die in the brutal war that preceded Queen Abrogail becoming an archdevil as she completed the ritual that transformed Cheliax into the 10th layer of Hell. Whether you allied with devils, fought against them, or hid from the war entirely, you went through Hell and lived to tell the tale, and you've kept some of the secret knowledge that allowed you to survive."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Constitution",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Occultism skill and the Devil Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "98c6c6f0-eb00-555f-ba34-7be617f28591"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:occultism",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:devil",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "98c6c6f0-eb00-555f-ba34-7be617f28591"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.oOdccGudZUqZZKpy"
+    },
+    "data": {
+      "boosts": [
+        ["con", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "3a45da3a-0ddb-5152-bb58-43a9395e0a78",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "background",
+    "slug": "background:mount-spire-guide",
+    "name": "Mount Spire Guide",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've served for many years as a guide who leads expeditions up Mount Spire. As a result, you are inured to high altitudes and know the mountain like the back of your hand."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Strength",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Constitution",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Survival skill and the Mountain Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "57542da4-3edc-5464-9143-2236defe9f0e"
+          },
+          {
+            "type": "text",
+            "text": " skill feat with mountain terrain."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:survival",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:mountain",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "57542da4-3edc-5464-9143-2236defe9f0e"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.DAhbmudFZAlSQmCY"
+    },
+    "data": {
+      "boosts": [
+        ["con", "str"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "46c7ee8c-a788-545e-82cc-60088da9f882",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "background",
+    "slug": "background:ravounelian-civil-servant",
+    "name": "Ravounelian Civil Servant",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As postwar Ravounel grows, you help to determine its future through government work. You understand how to talk to the nation's citizenry and, more importantly, how to listen to their needs at a time when the world seems so uncertain."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Diplomacy skill and the Ravounel Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "8e689441-f2b0-591d-93f7-18070fbb7d67"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:diplomacy",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:ravounel",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "8e689441-f2b0-591d-93f7-18070fbb7d67"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.i7q4Bjn2Eg7q0ssc"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "f70ce59c-f9ec-5bba-8d1b-4ce9f80a7ca8",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "background",
+    "slug": "background:secret-scion",
+    "name": "Secret Scion",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whether you know it or not, you are a child of Asmodeus. Your nature might be hinted at by strange and disturbing dreams, devilish features, or talents that some would say are unnatural. But like every child, there comes a time in your life when you must decide if you will follow in your father's footsteps or walk the other way—to embrace oppression and tyranny, or join the fight against them. It would be perfectly natural for you to embrace your nature and glorify the edicts of the Church of Asmodeus, but will your heritage define you, or will you define yourself?"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Constitution",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Devil Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "9d07cbf8-95d1-5bad-9bc6-5f1b73aaacde"
+          },
+          {
+            "type": "text",
+            "text": " reaction."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "9d07cbf8-95d1-5bad-9bc6-5f1b73aaacde"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:devil",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.WPJnSd210WmtwH2f"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "con"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "6e200db0-7072-5ab7-ac4e-89c0fabd5598",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "background",
+    "slug": "background:shadowcaller-outcast",
+    "name": "Shadowcaller Outcast",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Once a shadowcaller of Nidal's Dusk Hall, you either lost faith in the Umbral Court or they in you, and you became an outcast. Turning away from the power of shadow magic was a long and difficult road, but having finally freed yourself from its influence, you now have a keen insight into how best to fight against it."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Arcana skill and the Netherworld Lore or Nidal Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "2e7a3f2a-4cb5-59ab-a713-07b8f1076bae"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:arcana",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "2e7a3f2a-4cb5-59ab-a713-07b8f1076bae"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.M5p3uWa8ie37ldZ3"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "int"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "2612f86b-e5bd-5f8b-b865-ebba7c4759ce",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "background",
+    "slug": "background:sisterhood-orphan",
+    "name": "Sisterhood Orphan",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You were taken in as an orphan by the Sisterhood of the Golden Erinyes monastic order. You were taught the cruel fighting style practiced by the Sisterhood, the doctrine of the Church of Asmodeus, and the ethos that inflicting agony upon your enemies is not a transgression but an art form."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Constitution",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Devil Lore skill. You gain the Inflict Punishment reaction."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "1a9aab68-83c9-5e34-b78c-1eb6056c72c8"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:devil",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.cgtz9HOuikwxSWaK"
+    },
+    "data": {
+      "boosts": [
+        ["con", "dex"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "f32c7469-8267-5ad0-a6ea-511002d1c4f7",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "background",
+    "slug": "background:whisperwood-warden",
+    "name": "Whisperwood Warden",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Few forests are as foreboding and perilous as the Whisperwood. Devils dwell within, and, at its center, it's said that there's a gate to Hell itself. You've spent much of your life learning to navigate the woods' dangers and how to both protect travelers from the forest and the forest from travelers."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Stealth skill and the Forest Lore skill. You gain the Terrain Stalker skill feat for underbrush."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:stealth",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:forest",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "64a7812f-3d66-543f-92ba-09b830326f80"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.qLaARC1GUnE6JY5A"
+    },
+    "data": {
+      "boosts": [
+        ["dex", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  }
+]

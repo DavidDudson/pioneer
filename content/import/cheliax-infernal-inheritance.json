@@ -1,0 +1,1869 @@
+{
+  "pin": {
+    "tag": "pf2e-8.6.0",
+    "sha256": "d9c4c1f6bbf9bd907ec0acbaea9b8d4e8b0d049758a8616829f07c1b4ee81342"
+  },
+  "backlog": [
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "action:hellish-impression",
+      "foundry": "Compendium.pf2e.actionspf2e.Item.zRyF20WuVthAUvoC",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "action:shadowbound-shadow-form",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.AcLI8InNjZrgj0Ii",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "doubleVs": ["non-magical"],
+            "exceptions": ["force", "ghost-touch", "spirit", "vitality"],
+            "key": "Resistance",
+            "predicate": ["shadow-form"],
+            "type": "all-damage",
+            "value": 10
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "ancestry:fetchling",
+      "foundry": "Compendium.pf2e.ancestries.Item.hIA3qiUsxvLZXrFP",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "flags.system.colorDarkvision",
+            "value": true
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "ancestry:strix",
+      "foundry": "Compendium.pf2e.ancestries.Item.GXcC6oVa5quzgNHD",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Compendium.pf2e.ancestryfeatures.Item.Wings"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "class-feature:adept-benefit-censer",
+      "foundry": "Compendium.pf2e.classfeatures.Item.ZOlDwzTQ9PDJsJSR",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.thaumaturge.paragonChoices",
+            "priority": 20,
+            "value": {
+              "label": "PF2E.SpecificRule.Thaumaturge.Implement.Censer.Label",
+              "value": "Compendium.pf2e.classfeatures.Item.Paragon Benefit (Censer)"
+            }
+          }
+        },
+        {
+          "type": "text",
+          "reason": "missing-key",
+          "key": "PF2E.SpecificRule.Thaumaturge.Implement.Censer.Label"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "class-feature:censer",
+      "foundry": "Compendium.pf2e.classfeatures.Item.X1xuYSTJ7ojsoLxY",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "allowDuplicate": false,
+            "key": "GrantItem",
+            "uuid": "Compendium.pf2e.classfeatures.Item.Censer Implement"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "flags.system.thaumaturge.initiateBenefit",
+            "predicate": ["feat:thaumaturge-dedication"],
+            "value": "Compendium.pf2e.classfeatures.Item.Initiate Benefit (Censer)"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.thaumaturge.adeptChoices",
+            "predicate": ["class:thaumaturge"],
+            "priority": 20,
+            "value": {
+              "label": "{item|name}",
+              "predicate": [
+                {
+                  "not": "feature:adept-benefit-censer"
+                }
+              ],
+              "value": "Compendium.pf2e.classfeatures.Item.Adept Benefit (Censer)"
+            }
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Embed"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "class-feature:initiate-benefit-censer",
+      "foundry": "Compendium.pf2e.classfeatures.Item.5cpC7dZjEDuSAZef",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "key": "GrantItem",
+            "uuid": "Compendium.pf2e.actionspf2e.Item.Swing the Censer"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[actionspf2e] Pathfinder Lost Omens Cheliax, Infernal Inheritance"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "class-feature:paragon-benefit-censer",
+      "foundry": "Compendium.pf2e.classfeatures.Item.TR5AzAIDbTxbHrO9",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[actionspf2e] Pathfinder Lost Omens Cheliax, Infernal Inheritance"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "class-feature:school-of-shadow-veils",
+      "foundry": "Compendium.pf2e.classfeatures.Item.0QAFC61tpP63GUQa",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[feats-srd] Pathfinder Lost Omens Ancestry Guide"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "consumable:flask-of-elemental-water",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.gjFAN4RQEZjFCw6t",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[hazards]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "consumable:martial-mayhem-mutagen-greater",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.4JPLGSOoAJi0g5Qp",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "consumable:martial-mayhem-mutagen-lesser",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.2EzE8fdNzD4Cp2ST",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "consumable:martial-mayhem-mutagen-major",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.AXlHVbcQINWgbHNa",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "consumable:martial-mayhem-mutagen-moderate",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.9Wt5Jokp8IHAQZHy",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "effect:effect-become-as-shadow",
+      "foundry": "Compendium.pf2e.feat-effects.Item.PU94onON94Vt59fX",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "doubleVs": [
+              {
+                "not": "item:magical"
+              }
+            ],
+            "exceptions": [
+              {
+                "or": ["force", "spirit", "ghost-touch"]
+              }
+            ],
+            "key": "Resistance",
+            "type": "all-damage",
+            "value": 10
+          }
+        },
+        {
+          "type": "text",
+          "reason": "missing-key",
+          "key": "PF2E.SpecificRule.WeaverOfWebs.InBrightLight"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "effect:effect-decreed-strikes",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.I8NaJxRqRlv8Yw0Y",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "AdjustStrike",
+          "raw": {
+            "definition": [
+              {
+                "or": ["item:slug:composite-longbow", "item:slug:fist", "item:slug:morningstar"]
+              }
+            ],
+            "key": "AdjustStrike",
+            "mode": "add",
+            "property": "weapon-traits",
+            "value": "divine"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "effect:effect-stalk-prey",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.JYvPbu3G6OQHAKOq",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "effect:effect-strix-vengeance",
+      "foundry": "Compendium.pf2e.feat-effects.Item.Kcmpt2nqrUKiCQte",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "DamageDice",
+          "raw": {
+            "category": "precision",
+            "diceNumber": "ternary(gte(@weapon.system.damage.dice,4),3,ternary(gte(@weapon.systyem.damage.dice, 2),2,1))",
+            "dieSize": "d6",
+            "key": "DamageDice",
+            "predicate": ["target:mark:strix-vengeance"],
+            "selector": "strike-damage"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "effect:effect-tar-vomit-speed-penalty",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.Fx0USni3B4sfv00x",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": [
+              {
+                "label": "PF2E.Check.Result.Degree.Check.success",
+                "value": -5
+              },
+              {
+                "label": "PF2E.Check.Result.Degree.Check.criticalSuccess",
+                "value": -10
+              }
+            ],
+            "flag": "tarVomit",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.DegreeOfSuccess"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "selector": ["all-speeds"],
+            "type": "status",
+            "value": "@item.flags.system.rulesSelections.tarVomit"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "effect:effect-unfaltering-ranks",
+      "foundry": "Compendium.pf2e.feat-effects.Item.jZ6ebQGBhr7RvP7k",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "label": "PF2E.Check.Result.Degree.Check.criticalSuccess",
+                "value": 2
+              },
+              {
+                "label": "PF2E.Check.Result.Degree.Check.success",
+                "value": 1
+              }
+            ],
+            "flag": "degreeOfSuccess",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.DegreeOfSuccess"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "selector": ["all-speeds"],
+            "type": "circumstance",
+            "value": "5*@item.flags.system.rulesSelections.degreeOfSuccess"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "TempHP",
+          "raw": {
+            "key": "TempHP",
+            "value": "@item.flags.system.rulesSelections.degreeOfSuccess*@item.origin.level"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "effect:effect-unfaltering-ranks-fear",
+      "foundry": "Compendium.pf2e.feat-effects.Item.hptRLqHeyjeSC8K5",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["item:trait:fear"],
+            "removeAfterRoll": "if-enabled",
+            "selector": ["saving-throw"],
+            "type": "circumstance",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "effect:spell-effect-diabolical-mantle",
+      "foundry": "Compendium.pf2e.spell-effects.Item.9f5lG32k5RKHtImU",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Weakness",
+          "raw": {
+            "key": "Weakness",
+            "type": "holy",
+            "value": 5
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "effect:spell-effect-shadow-form",
+      "foundry": "Compendium.pf2e.spell-effects.Item.n5U2OoIzV7Gxdm3K",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Weakness",
+          "raw": {
+            "key": "Weakness",
+            "type": "light",
+            "value": "ternary(gte(@item.level,9),10,5)"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "equipment:censer-implement",
+      "foundry": "Compendium.pf2e.classfeatures.Item.iVBCLXJt3bxf2ERM",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Embed"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "equipment:lily-pad-platform",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.L29VpwwfdMdpHVYP",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][dc]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "equipment:mark-of-the-torrent",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.EZTY8ZC7pT5xJgxO",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "equipment:pits-protection",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.KtiaWESCPVwzazby",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:abrasive-drag",
+      "foundry": "Compendium.pf2e.feats-srd.Item.jm4phmw7NbnX4PXk",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:ancestors-transformation",
+      "foundry": "Compendium.pf2e.feats-srd.Item.3X8BkDZEDWp90U4u",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:aerial-form", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:aerial-form", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:strix"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:and-yet-it-still-hurts",
+      "foundry": "Compendium.pf2e.feats-srd.Item.Ud1OVw0NcqvA0Jy4",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:annul-compulsion",
+      "foundry": "Compendium.pf2e.feats-srd.Item.uihMSLvIe7jdyrz4",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:archdiabolic-usurpation",
+      "foundry": "Compendium.pf2e.feats-srd.Item.g2Mp4lupU01pyt9h",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:basic-pactbreaker-spellcasting",
+      "foundry": "Compendium.pf2e.feats-srd.Item.aUQg6y0Q1sbpreoZ",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:bellflower-tiller-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.dwL0Y0P2x4pn2cft",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:bestiary-secrets",
+      "foundry": "Compendium.pf2e.feats-srd.Item.54yrFg10r680EVvJ",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:born-in-the-saddle",
+      "foundry": "Compendium.pf2e.feats-srd.Item.3aUlLF4V2KW7Hga5",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:bugbear-weapon-familiarity",
+      "foundry": "Compendium.pf2e.feats-srd.Item.8LfVSVfvaFPAAzyy",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "CriticalSpecialization",
+          "raw": {
+            "key": "CriticalSpecialization",
+            "predicate": [
+              {
+                "gte": ["self:level", 5]
+              },
+              {
+                "or": [
+                  "item:base:bastard-sword",
+                  "item:base:capturing-spetum",
+                  "item:base:falchion",
+                  "item:base:scourge",
+                  "item:base:scythe",
+                  "item:base:whip"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "reason": "missing-key",
+          "key": "PF2E.SpecificRule.MartialProficiency.MartialBugbearWeapons"
+        },
+        {
+          "type": "text",
+          "reason": "missing-key",
+          "key": "PF2E.SpecificRule.MartialProficiency.AdvancedBugbearWeapons"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:bushwhack",
+      "foundry": "Compendium.pf2e.feats-srd.Item.3qBGxQSIC9ccJnKy",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:call-hellfire",
+      "foundry": "Compendium.pf2e.feats-srd.Item.3JzIfiiFmxeFsdPB",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:clarify-hellfire",
+      "foundry": "Compendium.pf2e.feats-srd.Item.WuNGNNe9bGTn6jgH",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:commandeer-hellmouth",
+      "foundry": "Compendium.pf2e.feats-srd.Item.NKCeu18Y8VoZyfsX",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:condemn-soul",
+      "foundry": "Compendium.pf2e.feats-srd.Item.UVfNMSVC2ZKTDlgf",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:contract-blade",
+      "foundry": "Compendium.pf2e.feats-srd.Item.7hIAI7oObcWvg0hf",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:crush-their-spirits",
+      "foundry": "Compendium.pf2e.feats-srd.Item.mCW0SmOYCKq42C3i",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:devil-in-disguise",
+      "foundry": "Compendium.pf2e.feats-srd.Item.oWABw81zqCAu5aDu",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:devils-wings",
+      "foundry": "Compendium.pf2e.feats-srd.Item.4CF5zlYC7WHX8mwG",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "BaseSpeed",
+          "raw": {
+            "key": "BaseSpeed",
+            "selector": "fly",
+            "value": "@actor.system.movement.speeds.land.value0"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:diabolic-usurpation",
+      "foundry": "Compendium.pf2e.feats-srd.Item.Q64lP7DFoiM4dAqo",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:dispute-terms",
+      "foundry": "Compendium.pf2e.feats-srd.Item.vgtU5Man6Ipb2V0w",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:expert-pactbreaker-spellcasting",
+      "foundry": "Compendium.pf2e.feats-srd.Item.eshvpnN9gTXXqwRd",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:eyes-of-night-midnight-illusionist",
+      "foundry": "Compendium.pf2e.feats-srd.Item.0FhAVgP4Z44BM6c5",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:ferocious-gust",
+      "foundry": "Compendium.pf2e.feats-srd.Item.Sav50NxWdLnbaDWQ",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[traits]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:fiendish-arms",
+      "foundry": "Compendium.pf2e.feats-srd.Item.7W5VJV9n6um3lBwu",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:fine-print",
+      "foundry": "Compendium.pf2e.feats-srd.Item.FFn6obt0uPkGsLvA",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:frightful-figment",
+      "foundry": "Compendium.pf2e.feats-srd.Item.atuNGSfRofnqVZGy",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:fully-flighted",
+      "foundry": "Compendium.pf2e.feats-srd.Item.J2CPfHKPvu6RGfY6",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "RollOption",
+          "raw": {
+            "count": true,
+            "key": "RollOption",
+            "option": "fully-flighted"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:glimpse-the-netherworld",
+      "foundry": "Compendium.pf2e.feats-srd.Item.G9p58lYW9vlaBpY2",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:hellbound-aspirant-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.DBWQQ5L6B8golwEZ",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:impose-order-infernal-pactbreaker",
+      "foundry": "Compendium.pf2e.feats-srd.Item.DavIoulC8GmZ1SNR",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:infernal-anguish",
+      "foundry": "Compendium.pf2e.feats-srd.Item.nqhqZErE8diYFabI",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:infernal-magic",
+      "foundry": "Compendium.pf2e.feats-srd.Item.NzxKWwem1M4RmO7W",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:infernal-pactbreaker-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.GChkYVGsDVimNB40",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:juvenile-flight",
+      "foundry": "Compendium.pf2e.feats-srd.Item.pe6cHJzzMm5Tr25G",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "feat",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:fledgling-flight"],
+            "property": "description",
+            "value": [
+              {
+                "text": "{item|description}"
+              }
+            ]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "selfEffect",
+          "raw": "Compendium.pf2e.feat-effects.Item.Effect: Juvenile Flight"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:master-pactbreaker-spellcasting",
+      "foundry": "Compendium.pf2e.feats-srd.Item.QxsVOQ9lD2hMaVFu",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:midnight-illusionist-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.aObP7lhSmskzLhr6",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:mocking-invisibility",
+      "foundry": "Compendium.pf2e.feats-srd.Item.8NUxUMgPVLlTRgRE",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[feat-effects] "
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:painful-spell",
+      "foundry": "Compendium.pf2e.feats-srd.Item.HY00EuyGBBbUb7ZT",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:pierce-the-light",
+      "foundry": "Compendium.pf2e.feats-srd.Item.ABx8keV4c43gEmeN",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:interplanar-teleport", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:interplanar-teleport", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:fetchling"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:pin-the-spears-in-the-lamb",
+      "foundry": "Compendium.pf2e.feats-srd.Item.63HiyXoIndq7yYmV",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:proscribe-devilry",
+      "foundry": "Compendium.pf2e.feats-srd.Item.lfw7OFBNN7joVftG",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:reckless-riding-lunge",
+      "foundry": "Compendium.pf2e.feats-srd.Item.ks47UekSCM8gek6M",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:ride-by-recovery",
+      "foundry": "Compendium.pf2e.feats-srd.Item.oUCQymKo4eWxgteP",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:rokoan-arts",
+      "foundry": "Compendium.pf2e.feats-srd.Item.Xwk41o4fERfM07NR",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:status", "item:slug:speak-with-animals"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:status", "item:slug:speak-with-animals"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell:strix"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:scarecrow",
+      "foundry": "Compendium.pf2e.feats-srd.Item.RivbJYEBUyfLwPh7",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["bellflower-scarecrow"],
+            "selector": "weapon-damage",
+            "type": "circumstance",
+            "value": "@weapon.system.damage.dice"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:shadows-assault",
+      "foundry": "Compendium.pf2e.feats-srd.Item.8Qn80RunXaChOM5p",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:shadow-blast", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:shadow-blast", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:fetchling"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:shadowy-disguise",
+      "foundry": "Compendium.pf2e.feats-srd.Item.oSA1Ii6gTRGobeSO",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:illusory-disguise", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:illusory-disguise", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:fetchling"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:silo-crop",
+      "foundry": "Compendium.pf2e.feats-srd.Item.BoDfpvHIRHXheOyM",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:skirt-the-light",
+      "foundry": "Compendium.pf2e.feats-srd.Item.dor2F3g8gL2KVwX6",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:umbral-journey", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:umbral-journey", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:fetchling"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:slink",
+      "foundry": "Compendium.pf2e.feats-srd.Item.LbyNDCxFEkjp0iG7",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:submit-to-shadow",
+      "foundry": "Compendium.pf2e.feats-srd.Item.QAkxGCvXJTw41XMj",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:sunless-slide",
+      "foundry": "Compendium.pf2e.feats-srd.Item.KlfXgSaTCdnUeW8C",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:swamp-gas-form",
+      "foundry": "Compendium.pf2e.feats-srd.Item.rjPSDCxSbWuQ6LaR",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Weakness",
+          "raw": {
+            "key": "Weakness",
+            "predicate": ["self:effect:vapor-form"],
+            "type": "type",
+            "value": "@actor.level"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:symphony-of-agony",
+      "foundry": "Compendium.pf2e.feats-srd.Item.pfJXDXtkCTtLT6CL",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:the-devil-inside",
+      "foundry": "Compendium.pf2e.feats-srd.Item.Eo8YhsaxIA2KxxW2",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:thrown-voice",
+      "foundry": "Compendium.pf2e.feats-srd.Item.oEvcWFvBnsZ03OGW",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:ventriloquism", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:ventriloquism", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:strix"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:unfaltering-ranks",
+      "foundry": "Compendium.pf2e.feats-srd.Item.UseAF1tBCb9O2eO7",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[against]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:unholy-pact",
+      "foundry": "Compendium.pf2e.feats-srd.Item.qpdhn8p77bzqw7YU",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "feat:unrelenting-terror",
+      "foundry": "Compendium.pf2e.feats-srd.Item.sErxep5wDeMZt2xS",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "heritage:bright-fetchling",
+      "foundry": "Compendium.pf2e.heritages.Item.wHO5luJMODbDLXNi",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:light", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:light", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:fetchling"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "heritage:deep-fetchling",
+      "foundry": "Compendium.pf2e.heritages.Item.k4AU5tjtngDOIqrB",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": [
+              {
+                "label": "PF2E.TraitCold",
+                "value": "cold"
+              },
+              {
+                "label": "PF2E.TraitVoid",
+                "value": "void"
+              }
+            ],
+            "flag": "heritageDeepFetchling",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Fetchling.DeepFetchling.Prompt"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "key": "Resistance",
+            "type": "{item|flags.system.rulesSelections.heritageDeepFetchling}",
+            "value": "max(1,floor(@actor.level/2))"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "heritage:kardan-bugbear",
+      "foundry": "Compendium.pf2e.heritages.Item.F0CqYaBipvUUy4DR",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "heritage:murd-bugbear",
+      "foundry": "Compendium.pf2e.heritages.Item.b3dubt1Hx0ak6GPZ",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "heritage:slate-stalker-bugbear",
+      "foundry": "Compendium.pf2e.heritages.Item.rhBw1AlQXCxMow2V",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "heritage:wikkawak-bugbear",
+      "foundry": "Compendium.pf2e.heritages.Item.dIou0yyQtW95xWzP",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "heritage:wisp-fetchling",
+      "foundry": "Compendium.pf2e.heritages.Item.kHHcvJBJNiPJTuna",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "spell:choking-fog",
+      "foundry": "Compendium.pf2e.spells-srd.Item.mJO9YLAjXB3B2UNo",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "range.value",
+          "raw": "60"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "spell:curse-of-slippery-steps",
+      "foundry": "Compendium.pf2e.spells-srd.Item.us0dg6vBTEwUBBEX",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "spell:devils-horseshoe",
+      "foundry": "Compendium.pf2e.spells-srd.Item.DYonRU6d8uzQ2SWP",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "target.value",
+          "raw": "one door or similar opening"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "spell:gift-of-dusk",
+      "foundry": "Compendium.pf2e.spells-srd.Item.E9BlwQavx05qwSpi",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "target.value",
+          "raw": "1 creature that has a shadow"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[pathfinder-monster-core]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "spell:glimpse-the-netherworld",
+      "foundry": "Compendium.pf2e.spells-srd.Item.jW2q0dDanQsN3Zin",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "spell:gloom-mantle",
+      "foundry": "Compendium.pf2e.spells-srd.Item.MiDbBU5uupWqjYzm",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "spell:pin-the-spears-in-the-lamb",
+      "foundry": "Compendium.pf2e.spells-srd.Item.Hc8XSYc8vIKaGfhq",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "target.value",
+          "raw": "1 or more creatures that have shadows"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "spell:rude-awakening",
+      "foundry": "Compendium.pf2e.spells-srd.Item.vUEkyqkjDwBDLMZZ",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "target.value",
+          "raw": "1 allied creature"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[spell-effects] "
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "spell:tenebrous-freedom",
+      "foundry": "Compendium.pf2e.spells-srd.Item.alzFVef99eoNmDVP",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "target.value",
+          "raw": "1 creature that has a shadow"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][dc]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "spell:turnip-lantern",
+      "foundry": "Compendium.pf2e.spells-srd.Item.lhdEqAqnOJvrmZ89",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "target.value",
+          "raw": "1 minute"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "weapon:pike-of-the-monster-slayer",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.9a7WqELEyOYloaJu",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        }
+      ]
+    },
+    {
+      "type": "vocabulary",
+      "kind": "damage-type",
+      "slug": "untyped",
+      "reason": "unmapped-value",
+      "detail": "untyped"
+    }
+  ]
+}

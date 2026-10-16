@@ -193,6 +193,37 @@ const CURRICULA: ReadonlyMap<string, readonly (readonly string[])[]> = new Map([
       ['player-core:implosion'],
     ],
   ],
+  // The tables also name Aquatic Arsenal (3rd) and Slither (5th) in plain text, which no entry carries.
+  [
+    'school-of-corentyn-armada',
+    [
+      ['player-core:message', 'player-core-2:spout'],
+      ['player-core:gust-of-wind', 'player-core:hydraulic-push', 'rude-awakening'],
+      ['player-core:water-breathing', 'player-core:water-walk'],
+      ['player-core-2:crashing-wave'],
+      ['player-core-2:ice-storm', 'player-core:telepathy'],
+      ['player-core:control-water', 'searing-rain'],
+      ['player-core:chain-lightning', 'player-core:truesight'],
+      ['player-core:energy-aegis', 'player-core:project-image'],
+      ['player-core:arctic-rift', 'player-core:desiccate'],
+      ['player-core:wrathful-storm'],
+    ],
+  ],
+  [
+    'school-of-shadow-veils',
+    [
+      ['player-core:figment', 'player-core:frostbite'],
+      ['player-core:disguise-magic', 'gloom-mantle', 'player-core:illusory-object'],
+      ['player-core:darkness', 'player-core:illusory-creature'],
+      ['impossible-magic:shadow-projectile', 'player-core-2:shared-invisibility'],
+      ['player-core:liminal-doorway', 'player-core:mirage'],
+      ['player-core:shadow-blast'],
+      ['player-core:mislead', 'player-core:phantasmal-calamity'],
+      ['player-core:mask-of-terror', 'shadow-form'],
+      ['player-core:disappearance'],
+      ['player-core:phantasmagoria'],
+    ],
+  ],
 ]);
 
 /** The `PoolSpells` elements the entry with `slug` gains in `pack`, if any. */
