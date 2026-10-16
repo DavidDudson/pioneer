@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
-import { TranslocoPipe } from '@jsverse/transloco';
+import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { Disclosure, List, ListItem, LocaleFormat, Stack, Text } from '@pioneer/frontier';
 import { DiscrepancyKind } from '@pioneer/interop/pathbuilder';
 import type { Discrepancy, DiscrepancyReport } from '@pioneer/interop/pathbuilder';
@@ -9,6 +9,7 @@ import { BreakdownView, PROFICIENCY_NAMES } from '@pioneer/rules/ui';
 import type { NamedStatistic } from '@pioneer/rules/ui';
 
 import { SIGNED } from '../import-labels';
+import { statisticLabel } from '../import-statistic-labels';
 
 interface Totals {
   readonly pathbuilder: string;
@@ -52,6 +53,7 @@ export class ImportDiscrepancyReport {
   public readonly entryNames = input<ReadonlyMap<ContentId, string>>(new Map());
 
   readonly #format = inject(LocaleFormat);
+  readonly #i18n = inject(TranslocoService);
 
   protected readonly nothingCompared = computed(() => this.report().compared === 0);
   protected readonly allMatch = computed(() => !this.nothingCompared() && this.report().differences.length === 0);
@@ -62,9 +64,10 @@ export class ImportDiscrepancyReport {
 
   #view(difference: Discrepancy): DiscrepancyView {
     const named = this.statistics().get(difference.selector);
+    const label = named === undefined ? statisticLabel(difference.selector) : undefined;
     const base = {
       selector: difference.selector,
-      name: named?.name ?? difference.selector,
+      name: label === undefined ? (named?.name ?? difference.selector) : this.#i18n.translate(label.key, label.params),
       difference: this.#format.number(difference.difference, SIGNED),
       kind: named?.kind,
       statistic: named?.result.ok === true ? named.result : undefined,

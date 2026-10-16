@@ -49,6 +49,7 @@ describe('Pathbuilder exports over the official packs', () => {
     async () => {
       const { report } = await service.importPathbuilder(actor, briarRoseExport);
       expect(report.discrepancies.compared).toBe(COMPARED);
+      /** AC: Pathbuilder counts the +2 of armor runes on clothing it exports as not worn (acItemBonus 2); Pioneer wears only what the export marks worn, so it has no item bonus. */
       expect(summary(report.discrepancies.differences)).toStrictEqual([
         'ac: Pathbuilder 30, Pioneer 28',
         'hp:max: Pathbuilder 151, Pioneer 140',
@@ -74,6 +75,7 @@ describe('Pathbuilder exports over the official packs', () => {
     async () => {
       const { report } = await service.importPathbuilder(actor, mordredExport);
       expect(report.discrepancies.compared).toBe(COMPARED);
+      /** AC: Pioneer's engine is 34 before Encumbered's Clumsy 1 (-1 on Dex-based AC). He carries 16 Bulk against a limit of 9 (5 + Str 4), which Pathbuilder does not track. */
       expect(summary(report.discrepancies.differences)).toStrictEqual([
         'ac: Pathbuilder 34, Pioneer 33',
         'spell-dc:oracle: Pathbuilder 32, Pioneer 31',
