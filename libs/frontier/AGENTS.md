@@ -112,10 +112,13 @@ Pioneer never interrupts the user. Lint enforces each rule
    error under the field, a save's tick beside the value (`InlineEdit<T>`), a
    region's load failure in place of that region. No snackbars, no toast
    libraries, no `role="status"` popups floating over the page.
-2. **No modals.** No `<dialog>`, `popover`, `role="dialog|alertdialog"`, CDK or
+2. **No modals.** No `<dialog>`, `role="dialog|alertdialog"`, CDK or
    Material dialogs, bottom sheets, or `alert`/`confirm`/`prompt`. Show the
-   content inline (expand in place with `fr-disclosure`, inline edit) or give it its own route.
-   See rule 4 for when a confirmation is allowed at all.
+   content inline (expand in place with `fr-disclosure`, inline edit), in the docked `fr-drawer`, or give it
+   its own route. Secondary content prefers the drawer: it sits beside the page and pushes the content
+   aside, never over it, and it does not trap focus (ADR-0065). A `popover`, tooltip or hover card is allowed
+   for a transient, non-blocking description only: nothing in it is acted on. See rule 4 for when a
+   confirmation is allowed at all.
 3. **No full page loads. Always partial load + skeleton.**
    - Navigate with `routerLink` / `Router`. No internal `href`, no
      `location.reload|assign|replace`, no assigning `location`.

@@ -5,7 +5,7 @@ import { Stack } from '../stack/stack.component';
 
 /**
  * A routed page, composed from parts: an `fr-page-header`, then an `fr-page-body` with an optional `fr-page-aside`
- * beside it. The page renders at once; regions load their own data behind skeletons.
+ * beside it and an optional `fr-drawer` docked after both. The page renders at once; regions load their own data behind skeletons.
  * It sits in `fr-shell`'s `<main>`, so it renders no landmark of its own.
  * Built only from layout primitives; it has no responsive CSS of its own.
  *

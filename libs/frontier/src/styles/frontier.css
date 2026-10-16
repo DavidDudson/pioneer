@@ -52,6 +52,10 @@
   --container-page: 72rem;
   /* Width of an `fr-page-aside` beside the page body (`w-aside`), not a query size. */
   --container-aside: 20rem;
+  /* Widths of a docked `fr-drawer` (`w-drawer-*`), not query sizes. */
+  --container-drawer-narrow: 20rem;
+  --container-drawer-default: 28rem;
+  --container-drawer-wide: 40rem;
 
   --color-surface-canvas: var(--fr-surface-canvas);
   --color-surface-base: var(--fr-surface-base);
