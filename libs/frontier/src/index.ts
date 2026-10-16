@@ -84,6 +84,9 @@ export { Divider, DividerOrientation, DividerTone } from './lib/layout/divider/d
 export { Clamp, ClampLines } from './lib/layout/clamp/clamp.component';
 export { Grid, GridAlign, GridColumns, GridMinItem, GridQuery } from './lib/layout/grid/grid.component';
 export { Page } from './lib/layout/page/page.component';
+export { PageAside } from './lib/layout/page-aside/page-aside.component';
+export { PageBody } from './lib/layout/page-body/page-body.component';
+export { PageHeader } from './lib/layout/page-header/page-header.component';
 export { Section } from './lib/layout/section/section.component';
 export { Shell } from './lib/layout/shell/shell.component';
 export { Stack, StackAlign, StackDirection, StackJustify } from './lib/layout/stack/stack.component';

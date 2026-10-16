@@ -5,12 +5,14 @@
  *
  * Frontier has no viewport breakpoints. Layout responds to the space it is
  * given, through container queries, and only the layout primitives (fr-box,
- * fr-grid, fr-stack) may use them; every other component composes those.
+ * fr-grid, fr-stack) may use them; every other component composes those. The one
+ * exception is fr-page-aside, whose width beside the page body is its whole job.
  * Container variants are `@sm:` / `@md:` / `@lg:` only: unprefixed is the
  * narrow (phone) layout and variants only expand it, so `@max-*`, arbitrary
  * `@[…]` sizes and viewport variants (`sm:`, `max-*:`, …) are all banned.
  */
-export const LAYOUT_PRIMITIVE = /(?:^|\/)libs\/frontier\/src\/lib\/layout\/(?:box|grid|stack)\//u;
+export const LAYOUT_PRIMITIVE =
+  /(?:^|\/)libs\/frontier\/src\/lib\/layout\/(?:(?:box|grid|stack)\/|page-aside\/page-aside\.component\.ts$)/u;
 
 const VIEWPORT_VARIANT = /(?:^|[\s:])(?<variant>(?:sm|md|lg|xl|2xl|tablet|desktop|max-[\w[\]().-]+|min-\[[^\]]*\]):)/u;
 const CONTAINER_VARIANT = /(?:^|[\s:])(?<variant>@[^\s:]+:)/gu;
