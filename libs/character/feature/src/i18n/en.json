@@ -544,6 +544,19 @@
       "discrepanciesSummary": "{count, plural, one {# statistic differs} other {# statistics differ}} from Pathbuilder, of {compared, number} compared",
       "discrepanciesMatch": "All {count, number} statistics Pathbuilder computed match Pioneer's.",
       "discrepancyWhy": "Why Pioneer's value is what it is",
+      "statistic": {
+        "named": "{name}",
+        "defenseUnarmored": "Unarmored defense",
+        "defenseLight": "Light armor",
+        "defenseMedium": "Medium armor",
+        "defenseHeavy": "Heavy armor",
+        "attackUnarmed": "Unarmed attacks",
+        "attackSimple": "Simple weapons",
+        "attackMartial": "Martial weapons",
+        "attackAdvanced": "Advanced weapons",
+        "spellcasting": "Spellcasting",
+        "spellDc": "Spell DC ({entry})"
+      },
       "notCarried": "Characters can't hold these yet, so they weren't kept: {fields}.",
       "groupSummary": "{kind} · {count, number} not carried over",
       "allMatched": "Every name matched content you have loaded."

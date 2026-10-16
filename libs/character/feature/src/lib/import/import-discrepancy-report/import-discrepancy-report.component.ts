@@ -9,6 +9,8 @@ import { BreakdownView, PROFICIENCY_NAMES } from '@pioneer/rules/ui';
 import type { NamedStatistic } from '@pioneer/rules/ui';
 
 import { SIGNED } from '../import-labels';
+import { statisticLabel } from '../import-statistic-labels';
+import type { StatisticLabel } from '../import-statistic-labels';
 
 interface Totals {
   readonly pathbuilder: string;
@@ -23,7 +25,8 @@ interface Ranks {
 /** A statistic that differs, as the list shows it: both values and the difference worded, and its breakdown. */
 interface DiscrepancyView {
   readonly selector: Selector;
-  readonly name: string;
+  /** The message that names the statistic, in the viewer's language. */
+  readonly label: StatisticLabel;
   /** A total Pathbuilder computed and Pioneer's, in the viewer's locale; absent for a rank. */
   readonly totals: Totals | undefined;
   /** The message keys naming the two ranks; absent for a total. */
@@ -64,7 +67,7 @@ export class ImportDiscrepancyReport {
     const named = this.statistics().get(difference.selector);
     const base = {
       selector: difference.selector,
-      name: named?.name ?? difference.selector,
+      label: statisticLabel(difference.selector, named?.name),
       difference: this.#format.number(difference.difference, SIGNED),
       kind: named?.kind,
       statistic: named?.result.ok === true ? named.result : undefined,

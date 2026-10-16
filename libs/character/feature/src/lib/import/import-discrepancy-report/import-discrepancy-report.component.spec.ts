@@ -66,4 +66,49 @@ describe(ImportDiscrepancyReport, () => {
 
     expect(text).toContain('Pathbuilder Master, Pioneer Trained');
   });
+
+  it.each([
+    ['defense:heavy', 'Heavy armor'],
+    ['defense:unarmored', 'Unarmored defense'],
+    ['defense:light', 'Light armor'],
+    ['defense:medium', 'Medium armor'],
+    ['attack:simple', 'Simple weapons'],
+    ['attack:advanced', 'Advanced weapons'],
+    ['attack:martial', 'Martial weapons'],
+    ['attack:unarmed', 'Unarmed attacks'],
+    ['spellcasting', 'Spellcasting'],
+  ])('names the ranked statistic %s in words', async (selector, label) => {
+    const text = await render({
+      compared: 21,
+      differences: [
+        {
+          kind: DiscrepancyKind.Rank,
+          selector: Selector.parse(selector),
+          pathbuilder: Proficiency.Expert,
+          pioneer: Proficiency.Trained,
+          difference: -1,
+        },
+      ],
+    });
+
+    expect(text).toContain(label);
+    expect(text).not.toContain(selector);
+  });
+
+  it('names a spell DC by its entry', async () => {
+    const text = await render({
+      compared: 21,
+      differences: [
+        {
+          kind: DiscrepancyKind.Total,
+          selector: Selector.parse('spell-dc:oracle'),
+          pathbuilder: 32,
+          pioneer: 31,
+          difference: -1,
+        },
+      ],
+    });
+
+    expect(text).toContain('Spell DC (oracle)');
+  });
 });
