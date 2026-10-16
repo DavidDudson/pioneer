@@ -1,0 +1,6490 @@
+[
+  {
+    "id": "69ac4adb-05c1-5143-bc87-5ccede4e6d4a",
+    "pack": "battlecry",
+    "kind": "spell",
+    "slug": "spell:barbed-spear",
+    "name": "Barbed Spear",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["attack", "concentrate", "focus", "manipulate", "sorcerer"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You conjure a vicious barbed spear and hurl it at a foe. Make a ranged spell attack roll, dealing 1d8 piercing damage on a success and double damage on a critical success. The spear remains lodged within a creature it hits, making the target "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": " (or increasing its clumsy condition by 1 if it is already clumsy) for 1 minute or until the spear is removed with a successful Athletics check against your spell DC as an Interact action, whichever comes first."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial damage increases by 1d8."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.dQ7LrD2HxJoCzi2M"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "duration": {
+        "type": "varies"
+      },
+      "traditions": [],
+      "damage": [
+        {
+          "key": "iyksiggrnndrtlnp",
+          "formula": "1d8",
+          "damageType": "piercing",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "iyksiggrnndrtlnp",
+            "formula": "1d8"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4a97b8bf-f82a-5ad4-b187-ca50ea193ff7",
+    "pack": "battlecry",
+    "kind": "spell",
+    "slug": "spell:blinding-bottle",
+    "name": "Blinding Bottle",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate", "poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You conjure an exploding glass container filled with a sight-stealing poison and hurl it across enemy lines. Upon impact, the bottle bursts and exposes all creatures in the area to the toxin within. Each creature in the area must attempt a Fortitude save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes 3d6 poison damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is afflicted with blinding poison at stage 1."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is afflicted with blinding poison at stage 2."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Blinding Poison",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (incapacitation, poison) Level 9"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Maximum Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 4 rounds"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and blinded for 1 round (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "5d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " poison damage and blinded for 1 round (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 4",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " poison damage and blinded for 1 minute (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "PFS Note:",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " The poison inflicted by this spell has the incapacitation trait, but the spell itself does not. This means that a creature which fails the save against the spell begins at stage 1 for the poison."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.3ygqSJYWZM1UV76Z"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 100
+      },
+      "area": {
+        "shape": "burst",
+        "size": 30
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:fortitude",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": [
+        {
+          "key": "mgqattljalw0hqom",
+          "formula": "3d6",
+          "damageType": "poison",
+          "kinds": ["damage"]
+        }
+      ]
+    }
+  },
+  {
+    "id": "4b69ad94-9114-5079-99d0-5561dbaf9030",
+    "pack": "battlecry",
+    "kind": "spell",
+    "slug": "spell:blister-bomb",
+    "name": "Blister Bomb",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["concentrate", "disease", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You launch a small bomb enchanted with a fast-acting skin disease at your foes, causing their skin to break out in horrible bleeding sores. All creatures in the area of the burst must attempt a Fortitude save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected and is immune to blister pox for 1 week."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is afflicted with blister pox at stage 1."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is afflicted with blister pox at stage 2."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Blister Pox",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (disease) Level 5; A creature can't reduce its sickened value below 1 while it's taking persistent bleed damage from blister pox"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " sickened 2 (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " sickened 2 and 1d6 persistent bleed damage (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " sickened 2 and 2d6 persistent bleed damage (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 4",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 3"
+          },
+          {
+            "type": "text",
+            "text": " and 2d6 persistent bleed damage (1 day)"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.3qx1axryNbl97ker"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 100
+      },
+      "area": {
+        "shape": "burst",
+        "size": 5
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:fortitude",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "564c2544-7854-5053-8e30-b638bd0069fd",
+    "pack": "battlecry",
+    "kind": "spell",
+    "slug": "spell:boots-on-the-ground",
+    "name": "Boots on the Ground",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["auditory", "concentrate", "illusion", "manipulate", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You craft the illusion of your army being much bigger than it actually is, hoping to overwhelm the opposing forces and shatter their hopes. Your illusion can create up to three illusory Gargantuan duplicates of troops within range. You can give the illusion a basic task to perform, such as standing in formation, marching, mimicking guard movements, or unloading illusory boxes; however, the illusion can't perform any actual tasks and can't create intelligible sounds, such as music or clear speech. If you and any of the illusory troops are ever farther than 500 feet apart, the spell ends."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An illusory troop's AC is equal to your spell DC. Its saving throws modifiers are equal to your spell DC – 10. If an illusory troop is hit by an attack or fails a save, you must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 11
+          },
+          {
+            "type": "text",
+            "text": ". On success, the illusion of that troop is destroyed. On failure, the entire illusion shatters, and all illusory troops are destroyed."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (8th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The DC of the is lowered to 8 ("
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 8
+          },
+          {
+            "type": "text",
+            "text": "), and you can create up to five illusory troops."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.IN46qySRdMdpcd0y"
+    },
+    "data": {
+      "rank": 6,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 100
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "5d6bea01-d28c-5300-9d61-effce9e7541d",
+    "pack": "battlecry",
+    "kind": "spell",
+    "slug": "spell:clockwork-devotion",
+    "name": "Clockwork Devotion",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "incarnate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You toss a handful of magical cogs before you, summoning a battalion of clockwork soldiers to fight your enemies. The clockwork soldiers occupy the space of a Huge creature and have a Speed of 60 feet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Arrive",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Clockwork Assault",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " Clockwork soldiers slash at your enemies with their halberds, dealing 4d10 slashing damage (basic Reflex save) to all enemy creatures in its location or within 15 feet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Depart",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (fire) "
+          },
+          {
+            "type": "text",
+            "text": "Ticking Bomb",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " The clockwork soldiers freeze abruptly before exploding into a mass of flying cogs and metal shrapnel, dealing 4d8 slashing damage and 4d8 fire damage in a 30-foot emanation (basic Reflex save). On a critical failure, a creature takes an additional "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d8",
+                "damageType": "fire",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.zEAblSSbfu1246JL"
+    },
+    "data": {
+      "rank": 8,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 100
+      },
+      "duration": {
+        "type": "until",
+        "until": "next-turn-end"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:reflex",
+          "basic": true
+        }
+      },
+      "traditions": ["arcane"],
+      "damage": [],
+      "variants": [
+        {
+          "name": "Clockwork Devotion (Arrive)",
+          "damage": [
+            {
+              "key": "hs9qvc7b3isams3q",
+              "formula": "4d10",
+              "damageType": "slashing",
+              "kinds": ["damage"]
+            }
+          ]
+        },
+        {
+          "name": "Clockwork Devotion (Depart)",
+          "area": {
+            "shape": "emanation",
+            "size": 30
+          },
+          "damage": [
+            {
+              "key": "fnmgdghkfbokygf2",
+              "formula": "4d8",
+              "damageType": "fire",
+              "kinds": ["damage"]
+            },
+            {
+              "key": "l4pdg7skrewpx4qi",
+              "formula": "4d8",
+              "damageType": "slashing",
+              "kinds": ["damage"]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "b5f365f0-8c21-5e07-a636-85891e1071fa",
+    "pack": "battlecry",
+    "kind": "spell",
+    "slug": "spell:conquering-soldiers",
+    "name": "Conquering Soldiers",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "incarnate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You tap into the glories of the armies of old, bringing forth their might to your battlefield and making their strength and power your own. This army manifests as glimmering forms of a conquering military of old, replete with banners and colors of their nation. The army occupies the space of a Gargantuan creature and has a Speed of 80 feet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Arrive",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (auditory, emotion, fear, mental) "
+          },
+          {
+            "type": "text",
+            "text": "Banner's Call",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " The conquering army manifests before you and your allies, letting out a battle cry of victory and devotion. Each enemy within an 80-foot emanation must attempt a Will save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes 6d12 mental damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 3"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "12d12",
+                "damageType": "mental"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 4"
+          },
+          {
+            "type": "text",
+            "text": ", and is "
+          },
+          {
+            "type": "ref",
+            "id": "f7fea8f9-c457-5b9f-9283-f567fa557184"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Depart",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (emotion, healing, mental) "
+          },
+          {
+            "type": "text",
+            "text": "Trumpets of War",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " As the conquering soldiers begin to fade, their military musicians play one more triumphant song in your honor. You and all allies within 100 feet of the soldiers immediately reduce the value of any "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8"
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f"
+          },
+          {
+            "type": "text",
+            "text": " conditions by 2 and gain a +2 status bonus to all attacks, saving throws, skill checks, and DCs for 3 rounds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "ba2d99e1-037a-50a5-bde6-bc1ed1fa9769"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.ion3VOiLan6ga3QC"
+    },
+    "data": {
+      "rank": 10,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 500
+      },
+      "duration": {
+        "type": "until",
+        "until": "next-turn-end"
+      },
+      "traditions": ["arcane", "divine"],
+      "damage": [],
+      "variants": [
+        {
+          "name": "Conquering Soldiers (Arrive)",
+          "area": {
+            "shape": "emanation",
+            "size": 80
+          },
+          "defense": {
+            "save": {
+              "statistic": "save:will",
+              "basic": false
+            }
+          },
+          "damage": [
+            {
+              "key": "karwel7jcdglffqw",
+              "formula": "6d12",
+              "damageType": "mental",
+              "kinds": ["damage"]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "2abc65de-ec15-52c5-a5f7-0d0193a5b0ff",
+    "pack": "battlecry",
+    "kind": "spell",
+    "slug": "spell:curse-of-recoil",
+    "name": "Curse of Recoil",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["concentrate", "curse"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An enemy you can see is about to make a ranged attack."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You curse an enemy to suffer a kickback as they make a ranged attack, potentially causing them to miss. The triggering enemy attempts a Will save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The recoil from their ranged attack causes the target to be "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " until the beginning of their next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The recoil imposes a –1 status penalty to the ranged attack and renders the target off-guard until the beginning of their next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "2ff0db48-7cfe-5dea-8155-beacc86b9460"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The recoil imposes a –2 status penalty to the ranged attack and renders the target off-guard until the beginning of their next turn. Until the start of their next turn, any additional ranged attacks made with the same weapon, spell, or ability take the same penalty."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "097c586f-5577-5b95-9ea3-3f293a108607"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.9uSBfK8EUVBrcNYx"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "reaction"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 120
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["divine", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "8421d616-b6ef-59b3-b47f-4367a1ff242a",
+    "pack": "battlecry",
+    "kind": "spell",
+    "slug": "spell:dancing-shield",
+    "name": "Dancing Shield",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You levitate the touched shield and send it to orbit around a creature. When you Cast the Spell and Sustain it, the shield uses the Raise a Shield action to protect the target creature."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "852a91f0-a086-5f96-b2f6-9333b7d1ab6d"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (4th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If you have the "
+          },
+          {
+            "type": "ref",
+            "id": "4333cbb5-7f4c-5c8e-bbad-afa6b6f2043b"
+          },
+          {
+            "type": "text",
+            "text": " reaction, you can use your reaction to have the target shield use Shield Block when the target creature would take damage from a physical attack, in addition to the usual trigger. In this case, Shield Block protects the target creature, rather than you. Since the shield is using Shield Block and not you, additional effects or abilities that normally apply when you Shield Block don't apply."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.8Hw3P6eurX1MYm7L"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 60
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "traditions": ["arcane", "divine", "occult", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "d7519a08-32c5-56d9-b78c-15153b2d8fbd",
+    "pack": "battlecry",
+    "kind": "spell",
+    "slug": "spell:desperate-repair",
+    "name": "Desperate Repair",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A shield within range would be reduced to 0 Hit Points by a damaging effect"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The triggering shield had more than 1 Hit Point before taking damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You hold a shield together with the power of your magic, forcing wood and steel to fuse back together. The shield remains at 1 Hit Point and isn't destroyed. Its construction is weakened until someone takes the time to repair it, preventing "
+          },
+          {
+            "type": "text",
+            "text": "desperate repair",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " or a similar ability from saving the same shield until your next daily preparations."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.92JNBuY5pfFmywOd"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "actions",
+        "cost": "reaction"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 60
+      },
+      "traditions": ["arcane", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "3006932a-138d-5673-8f15-20d4e291fbaf",
+    "pack": "battlecry",
+    "kind": "spell",
+    "slug": "spell:dividing-trench",
+    "name": "Dividing Trench",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["concentrate", "earth", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You dig an earthen trench across the surrounding terrain, which must be soil, clay, sand, or other soft earth, but not flooring or stone. The trench is 5 feet wide, 5 feet deep, and up to 15 feet long. You can shape the trench's path, but it must be one continuous line. You must conjure the trench in an open space so it doesn't pass through any creatures or objects. Creatures inside the trench have cover from creatures outside the trench, and creatures outside the trench have cover from creatures inside the trench. Small or smaller creatures in the trench might have greater cover against other creatures who aren't close to the trench's edge, and in turn, those creatures might have more cover against small creatures in the trench; the GM determines the amount of additional cover, if any. Entering or leaving the trench requires an additional 5 feet of movement but doesn't require any kind of check and isn't considered difficult terrain. At the end of the spell's duration, the trench disappears, and all creatures in the trench remain in their spaces on solid ground."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+2)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The trench's maximum length increases by 15 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.8OWA91bgm5r6QPaH"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 120
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "traditions": ["arcane", "primal"],
+      "damage": [],
+      "heightening": {
+        "type": "interval",
+        "interval": 2,
+        "damage": []
+      }
+    }
+  },
+  {
+    "id": "2c6de719-080c-5a74-94fb-2aba3a92a59f",
+    "pack": "battlecry",
+    "kind": "spell",
+    "slug": "spell:explosive-barrage",
+    "name": "Explosive Barrage",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["concentrate", "fire", "manipulate", "sonic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Area",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (continued) 20-foot burst plus additional "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 5
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You fire a booming, fiery explosion followed by a salvo of smaller blasts, each cracking the air with the sound of thunder. You create a 20-foot burst and 1d4 additional 5-foot bursts each within the range and within 20 feet of another burst. None of the bursts can intersect. Each creature caught in at least one of these bursts takes 6d8 fire damage and 6d4 sonic damage (basic Fortitude save). On a failed save, a creature is also "
+          },
+          {
+            "type": "ref",
+            "id": "4271da2e-7225-5aa7-9807-c499d8af6a5a"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The fire damage increases by 1d8 and the sonic damage increases by 1d4."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.ZvB9sV7NLdpDeoTw"
+    },
+    "data": {
+      "rank": 6,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 100
+      },
+      "area": {
+        "shape": "burst",
+        "size": 20
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:fortitude",
+          "basic": true
+        }
+      },
+      "traditions": ["arcane", "primal"],
+      "damage": [
+        {
+          "key": "kyiil5npybnv1rmh",
+          "formula": "6d8",
+          "damageType": "fire",
+          "kinds": ["damage"]
+        },
+        {
+          "key": "vm1pfy962ypzup69",
+          "formula": "6d4",
+          "damageType": "sonic",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "kyiil5npybnv1rmh",
+            "formula": "1d8"
+          },
+          {
+            "key": "vm1pfy962ypzup69",
+            "formula": "1d4"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "a2642123-ae66-50d5-a8c2-6feb6edfe2cc",
+    "pack": "battlecry",
+    "kind": "spell",
+    "slug": "spell:fallen-soldiers-lament",
+    "name": "Fallen Soldier's Lament",
+    "level": 4,
+    "rarity": "rare",
+    "traits": ["concentrate", "illusion", "manipulate", "mental", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You raise an illusion in the space of a fallen foe, crafting it to resemble a ghost of your target before parading it across the battlefield. Whenever you Cast this Spell or Sustain this spell, you move the illusion up to 30 feet and cause each enemy in a 30-foot emanation of the spirit to attempt a Will save against your spell DC. Enemies who fail become "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 1"
+          },
+          {
+            "type": "text",
+            "text": " (or "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": " on a critical failure)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (6th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can target a corpse of any size that has died within the past 8 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.LjLSvAqnR03EnITX"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 100
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["divine", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "c3ea8e0e-d96a-5e04-83e6-175cce816e06",
+    "pack": "battlecry",
+    "kind": "spell",
+    "slug": "spell:filter-air",
+    "name": "Filter Air",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["air", "concentrate", "manipulate", "subtle"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're exposed to a poison or disease that has the inhaled trait, and you're aware of the exposure"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You breathe air."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You suck in a rough breath of air, and your body automatically filters out the harmful molecules that would infest your lungs. As you breathe for the duration of the spell, you get the outcome one degree of success higher on your saving throws against inhaled poisons and diseases."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "04fcb6b1-b102-5a05-a62f-61003738e8ee"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.GgrrcKQgJH2Eykq1"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "reaction"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "traditions": ["arcane", "divine", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "f7ad37c9-e89d-53dc-a024-ebb85c1fe2f3",
+    "pack": "battlecry",
+    "kind": "spell",
+    "slug": "spell:forced-mercy",
+    "name": "Forced Mercy",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["concentrate", "emotion", "manipulate", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You soften the target's blows, ensuring they avoid vital areas and cause no lasting harm. All physical damage dealt by the target to living creatures becomes nonlethal and all persistent bleed damage dealt by the target is reduced to 0. This effect doesn't incur the typical –2 circumstance penalty for nonlethal attacks with a lethal weapon or attack. An unwilling target must attempt a Will save. A willing target can choose to critically fail their saving throw."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is affected for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is affected for 1d4 rounds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is affected for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (4th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The range increases to 100 feet, and you can target up to 8 creatures."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.BQMEaeJiEFC1nepg"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "duration": {
+        "type": "varies"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["divine", "occult"],
+      "damage": [],
+      "heightening": {
+        "type": "fixed",
+        "ranks": [
+          {
+            "rank": 4,
+            "range": {
+              "type": "feet",
+              "feet": 100
+            },
+            "targets": {
+              "any": [
+                {
+                  "count": 8,
+                  "of": "creature"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "f6cf5773-52f9-5773-a4a0-e47e03b3d813",
+    "pack": "battlecry",
+    "kind": "spell",
+    "slug": "spell:frozen-fog",
+    "name": "Frozen Fog",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["cold", "concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You conjure a chilling mist that settles into the bones and makes it difficult to move. This has the effects of "
+          },
+          {
+            "type": "ref",
+            "id": "1871511d-f694-5e6b-b49d-1e7388909900"
+          },
+          {
+            "type": "text",
+            "text": ", except that you can Sustain the spell once per round to move the fog up to 10 feet. A creature that starts its turn in the area takes 6d8 cold damage with a basic Fortitude save. A creature that fails its save is also "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute ("
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 2"
+          },
+          {
+            "type": "text",
+            "text": " on a critical failure) and takes a –10-foot status penalty to Speeds for as long as it's clumsy."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "cc91cb27-b369-598f-af26-4bf4100638a7"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+2)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by 3d8."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.nOVSmPZsCm1C1sI3"
+    },
+    "data": {
+      "rank": 6,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 120
+      },
+      "area": {
+        "shape": "burst",
+        "size": 20
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:fortitude",
+          "basic": true
+        }
+      },
+      "traditions": ["arcane", "primal"],
+      "damage": [
+        {
+          "key": "txegnio0i1i73fxa",
+          "formula": "6d8",
+          "damageType": "cold",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 2,
+        "damage": [
+          {
+            "key": "txegnio0i1i73fxa",
+            "formula": "3d8"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "0b09f2ce-548b-5c71-b4f7-3b91c0aa5531",
+    "pack": "battlecry",
+    "kind": "spell",
+    "slug": "spell:helpful-reload",
+    "name": "Helpful Reload",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " One of your allies makes a ranged Strike with a weapon with a reload of 1 or less"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your ally has more ammunition for their ranged weapon available."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "With a quick gesture, you reload your ally's weapon, allowing them to focus on fighting the enemy. You reload their weapon with a piece of mundane ammunition from the triggering creature's inventory."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (4th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You reload your ally's weapon and grant them a +1 status bonus to their next Strike with this weapon."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "e289ce2f-9777-5f97-82bf-7060274a9cf9"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (6th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You reload your ally's weapon with the ammunition of their choice from their inventory. Your ally gains a +1 status bonus to their next Strike with this weapon."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (8th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The spell no longer requires your ally to have appropriate ammunition available. You summon a single piece of common magical ammunition of 10th level or lower to reload your ally's weapon with. Your ally gains a +1 status bonus to their next Strike with this weapon."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.0OFFXFdnMmFVlt8W"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "actions",
+        "cost": "reaction"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature",
+            "triggering": true
+          }
+        ]
+      },
+      "traditions": ["arcane", "divine", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "3ad42b53-7758-5739-9229-3c7d65fa2497",
+    "pack": "battlecry",
+    "kind": "spell",
+    "slug": "spell:holy-host",
+    "name": "Holy Host",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["concentrate", "holy", "incarnate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In stories, armies with just and righteous causes win with little difficulty, conquering unholy legions. However, many holy armies know that an extra hand never hurts in the fight to exterminate cruelty and unholy forces, and they might call upon the assistance of a holy army. The holy army occupies the space of a Huge creature. When you Cast this Spell, choose one of the holy militaries below to summon."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Agathions",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Speed 30 feet"
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Arrive",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " (fire) "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Pranks for All",
+                        "marks": ["emphasis"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " A squadron of procyals arrives, eager to see your enemies learn their lesson in this fight. All enemies in a "
+                      },
+                      {
+                        "type": "template",
+                        "shape": "cone",
+                        "size": 60
+                      },
+                      {
+                        "type": "text",
+                        "text": " take "
+                      },
+                      {
+                        "type": "damage",
+                        "instances": [
+                          {
+                            "formula": "8d6",
+                            "damageType": "fire"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " damage ("
+                      },
+                      {
+                        "type": "check",
+                        "statistic": "save:reflex",
+                        "basic": true
+                      },
+                      {
+                        "type": "text",
+                        "text": " save) as the procyals bombard them with popping firecrackers"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Depart",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Parting Lesson",
+                        "marks": ["emphasis"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " (emotion, mental) The procyals laugh uproariously as they leave, each throwing out a piece of unrelated advice to a nearby enemy. Enemies in a "
+                      },
+                      {
+                        "type": "template",
+                        "shape": "emanation",
+                        "size": 20
+                      },
+                      {
+                        "type": "text",
+                        "text": " take "
+                      },
+                      {
+                        "type": "damage",
+                        "instances": [
+                          {
+                            "formula": "4d6",
+                            "damageType": "mental"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " damage ("
+                      },
+                      {
+                        "type": "check",
+                        "statistic": "save:will",
+                        "basic": true,
+                        "options": ["inflicts:stunned"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " save). On a failure, a creature is also "
+                      },
+                      {
+                        "type": "ref",
+                        "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+                        "label": "Stunned 1"
+                      },
+                      {
+                        "type": "text",
+                        "text": ". On a critical failure, they're "
+                      },
+                      {
+                        "type": "ref",
+                        "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+                        "label": "Stunned 2"
+                      },
+                      {
+                        "type": "text",
+                        "text": "."
+                      }
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Angels",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Speed 30 feet, fly 40 feet"
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Arrive",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " (spirit) "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Flaming Truth",
+                        "marks": ["emphasis"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " A legion of balisses arrive in a burst of holy flame, dealing "
+                      },
+                      {
+                        "type": "damage",
+                        "instances": [
+                          {
+                            "formula": "8d6",
+                            "damageType": "spirit"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " damage to all creatures in a "
+                      },
+                      {
+                        "type": "template",
+                        "shape": "emanation",
+                        "size": 20
+                      },
+                      {
+                        "type": "text",
+                        "text": " with a "
+                      },
+                      {
+                        "type": "check",
+                        "statistic": "save:fortitude",
+                        "basic": true,
+                        "options": ["inflicts:blinded"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " save. On a critical failure, a creature is also "
+                      },
+                      {
+                        "type": "ref",
+                        "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+                      },
+                      {
+                        "type": "text",
+                        "text": " for 1 round"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Depart",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Hidden Departure",
+                        "marks": ["emphasis"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " With a plume of smoke, the balisses vanish, spreading a thick cloud of smoke in a "
+                      },
+                      {
+                        "type": "template",
+                        "shape": "emanation",
+                        "size": 10
+                      },
+                      {
+                        "type": "text",
+                        "text": ". All creatures within the smoke are "
+                      },
+                      {
+                        "type": "ref",
+                        "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+                      },
+                      {
+                        "type": "text",
+                        "text": ". Unholy creatures within the smoke are "
+                      },
+                      {
+                        "type": "ref",
+                        "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+                        "label": "Enfeebled 2"
+                      },
+                      {
+                        "type": "text",
+                        "text": ", and holy creatures within the smoke gain the effects of truesight and ignore the concealment granted by the smoke."
+                      }
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Archons",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Speed 30 feet, fly 60 feet"
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Arrive",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " (spirit) "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Justice Prevails",
+                        "marks": ["emphasis"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " A battalion of aesras, also known as legion archons, swoop in to provide assistance. Enemies within a "
+                      },
+                      {
+                        "type": "template",
+                        "shape": "cone",
+                        "size": 60
+                      },
+                      {
+                        "type": "text",
+                        "text": " take "
+                      },
+                      {
+                        "type": "damage",
+                        "instances": [
+                          {
+                            "formula": "8d6",
+                            "damageType": "spirit"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " damage ("
+                      },
+                      {
+                        "type": "check",
+                        "statistic": "save:reflex",
+                        "basic": true
+                      },
+                      {
+                        "type": "text",
+                        "text": " save)"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Depart",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " (fire) "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Eyes of Judgment",
+                        "marks": ["emphasis"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " With one final examination of the battlefield, the aesras take their leave, but not before bringing down their fiery swords to create a corridor of sacred flame. Enemies in a "
+                      },
+                      {
+                        "type": "template",
+                        "shape": "line",
+                        "size": 60
+                      },
+                      {
+                        "type": "text",
+                        "text": " take "
+                      },
+                      {
+                        "type": "damage",
+                        "instances": [
+                          {
+                            "formula": "4d6",
+                            "damageType": "slashing"
+                          },
+                          {
+                            "formula": "2d6",
+                            "damageType": "fire",
+                            "category": "persistent"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " damage ("
+                      },
+                      {
+                        "type": "check",
+                        "statistic": "save:reflex",
+                        "basic": true
+                      },
+                      {
+                        "type": "text",
+                        "text": " save)."
+                      }
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Azatas",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Speed 30 feet, fly 80 feet"
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Arrive",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " (auditory, sonic) "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Inspiring Song",
+                        "marks": ["emphasis"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " Kanya muses arrive to embolden your allies while pushing back your foes. Enemies in a "
+                      },
+                      {
+                        "type": "template",
+                        "shape": "emanation",
+                        "size": 20
+                      },
+                      {
+                        "type": "text",
+                        "text": " take "
+                      },
+                      {
+                        "type": "damage",
+                        "instances": [
+                          {
+                            "formula": "6d6",
+                            "damageType": "sonic"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " damage ("
+                      },
+                      {
+                        "type": "check",
+                        "statistic": "save:fortitude",
+                        "basic": true
+                      },
+                      {
+                        "type": "text",
+                        "text": " save). A creature that fails the save is also pushed 10 feet away from the kanyas. Allies in the emanation gain a +2 status bonus to attack rolls and saving throws, as well as +4 status bonus to damage rolls for the duration of the spell"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Depart",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " (emotion, fear, mental) "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Booming Finale",
+                        "marks": ["emphasis"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " With a thunderous chord that stirs the hearts of your forces, the kanyas depart. Enemies in a "
+                      },
+                      {
+                        "type": "template",
+                        "shape": "cone",
+                        "size": 60
+                      },
+                      {
+                        "type": "text",
+                        "text": " must attempt a "
+                      },
+                      {
+                        "type": "check",
+                        "statistic": "save:will",
+                        "options": ["inflicts:deafened", "inflicts:frightened"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " save. On a failure, they're "
+                      },
+                      {
+                        "type": "ref",
+                        "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+                        "label": "Frightened 2"
+                      },
+                      {
+                        "type": "text",
+                        "text": ", and on a critical failure, they're "
+                      },
+                      {
+                        "type": "ref",
+                        "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+                        "label": "Frightened 3"
+                      },
+                      {
+                        "type": "text",
+                        "text": " and "
+                      },
+                      {
+                        "type": "ref",
+                        "id": "4271da2e-7225-5aa7-9807-c499d8af6a5a"
+                      },
+                      {
+                        "type": "text",
+                        "text": " for 1 round. Allies in this cone regain "
+                      },
+                      {
+                        "type": "damage",
+                        "instances": [
+                          {
+                            "formula": "4d10+16"
+                          }
+                        ],
+                        "healing": true
+                      },
+                      {
+                        "type": "text",
+                        "text": " Hit Points."
+                      }
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Garudas",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Speed 25 feet, fly 60 feet"
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Arrive",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Swooping Dive",
+                        "marks": ["emphasis"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " A battalion of garudas sweep through enemy lines, dealing "
+                      },
+                      {
+                        "type": "damage",
+                        "instances": [
+                          {
+                            "formula": "6d10",
+                            "damageType": "slashing"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " damage to enemies in a "
+                      },
+                      {
+                        "type": "template",
+                        "shape": "line",
+                        "size": 120
+                      },
+                      {
+                        "type": "text",
+                        "text": " ("
+                      },
+                      {
+                        "type": "check",
+                        "statistic": "save:reflex",
+                        "basic": true
+                      },
+                      {
+                        "type": "text",
+                        "text": " save)"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Depart",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Winds of Freedom",
+                        "marks": ["emphasis"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " The garudas flap their wings in tandem, focusing on a "
+                      },
+                      {
+                        "type": "template",
+                        "shape": "burst",
+                        "size": 20
+                      },
+                      {
+                        "type": "text",
+                        "text": " within 60 feet of them. All allies in that area gain a +1 circumstance bonus to all skill checks and DCs for 1 round, and enemies must succeed a "
+                      },
+                      {
+                        "type": "check",
+                        "statistic": "save:reflex",
+                        "options": ["inflicts:prone"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " save or be knocked "
+                      },
+                      {
+                        "type": "ref",
+                        "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+                      },
+                      {
+                        "type": "text",
+                        "text": "."
+                      }
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "469b7aa6-8158-5488-9d84-bec57839334b"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "b3832469-e30d-5aeb-8f10-eb31e1eb8610"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.BINaRykHRLGn4Qfm"
+    },
+    "data": {
+      "rank": 8,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 100
+      },
+      "duration": {
+        "type": "until",
+        "until": "next-turn-end"
+      },
+      "traditions": ["divine", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "16ec799f-f977-5587-bf42-ea5a501df114",
+    "pack": "battlecry",
+    "kind": "spell",
+    "slug": "spell:instant-minefield",
+    "name": "Instant Minefield",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["fire", "illusion", "manipulate", "subtle"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You create several hidden mines throughout the area that explode when stepped on. Choose up to 6 unoccupied squares within range. A mine appears in each chosen square, visible only to you and your allies. A mine can't be targeted and isn't affected by area effects, but if it hasn't been triggered by the end of the spell's duration, it dissipates harmlessly. A creature that can see "
+          },
+          {
+            "type": "ref",
+            "id": "53cf375b-c3fa-5d92-afde-135a3c001674"
+          },
+          {
+            "type": "text",
+            "text": " creatures and objects can see the mines. A creature can also attempt a Perception check against your spell DC to Seek to find an invisible mine."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A creature who enters a square with an invisible mine triggers it, causing an explosion that deals 3d6 fire damage and 3d6 piercing damage (basic Reflex save) to the creature and every creature in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 5
+          },
+          {
+            "type": "text",
+            "text": " from the mine's square."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The fire damage and piercing damage dealt by a mine each increase by 1d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.vuehhQN8gPSpqcEK"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 100
+      },
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:reflex",
+          "basic": true
+        }
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": [
+        {
+          "key": "4cfdiutp9kefrhas",
+          "formula": "3d6",
+          "damageType": "piercing",
+          "kinds": ["damage"]
+        },
+        {
+          "key": "itwk3wagovx5tm06",
+          "formula": "3d6",
+          "damageType": "fire",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "4cfdiutp9kefrhas",
+            "formula": "1d6"
+          },
+          {
+            "key": "itwk3wagovx5tm06",
+            "formula": "1d6"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "41515d50-3ab8-5355-967b-d5fa05d35664",
+    "pack": "battlecry",
+    "kind": "spell",
+    "slug": "spell:jassims-allegiance",
+    "name": "Jassim's Allegiance",
+    "level": 10,
+    "rarity": "rare",
+    "traits": ["concentrate", "incarnate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You bartered for this spell in some strange market or perhaps gained it while wandering the desert, hopelessly lost and surrounded by nothing but the remnants of time and fallen empires. With a gesture and words of a language not spoken since the fall of the Hanging City of Teskra, you summon Jassim the Wanderer. Jassim, a true Jistkan automaton, occupies the space of a Gargantuan creature and has a Speed of 60 feet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Arrive",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (fire) "
+          },
+          {
+            "type": "text",
+            "text": "Eyes of Fire",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " Jassim emerges from the ground and glares at your enemies, a fearsome look forming on a face of ancient metal and glass. He shoots an energy beam in a 60-foot line, dealing 5d12 fire damage and 5d12 piercing damage (basic Reflex save). Enemies that critically fail are "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Depart",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (metal) "
+          },
+          {
+            "type": "text",
+            "text": "Heart of Rust",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " Jassim takes a metal piece from his chest and holds it out, crushing it in his fist and allowing the powder to spread across a 60-foot emanation. These particles deal 10d6 slashing damage to all creatures and unattended objects within the area (basic Fortitude save). A metal creature that fails its save also takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d8",
+                "damageType": "slashing",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. A non-metal creature that fails this save is also "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.JEMSVySuS4jvTepQ"
+    },
+    "data": {
+      "rank": 10,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 500
+      },
+      "duration": {
+        "type": "until",
+        "until": "next-turn-end"
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": [],
+      "variants": [
+        {
+          "name": "Jassim's Allegiance (Arrive)",
+          "area": {
+            "shape": "line",
+            "size": 60
+          },
+          "defense": {
+            "save": {
+              "statistic": "save:reflex",
+              "basic": true
+            }
+          },
+          "damage": [
+            {
+              "key": "lgkhca0xn55y9fnr",
+              "formula": "5d12",
+              "damageType": "fire",
+              "kinds": ["damage"]
+            },
+            {
+              "key": "rempa0dqirvycsg3",
+              "formula": "5d12",
+              "damageType": "piercing",
+              "kinds": ["damage"]
+            }
+          ]
+        },
+        {
+          "name": "Jassim's Allegiance (Depart)",
+          "area": {
+            "shape": "emanation",
+            "size": 60
+          },
+          "defense": {
+            "save": {
+              "statistic": "save:fortitude",
+              "basic": true
+            }
+          },
+          "damage": [
+            {
+              "key": "gmgjodtdmnxmskql",
+              "formula": "10d6",
+              "damageType": "slashing",
+              "kinds": ["damage"]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "31ffb6b8-f0d5-56e3-bbbf-b657db5d56e7",
+    "pack": "battlecry",
+    "kind": "spell",
+    "slug": "spell:let-not-the-fallen-rest",
+    "name": "Let Not the Fallen Rest",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "healing", "manipulate", "sorcerer"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You exhort your fallen comrades to return to the battle. Each allied creature within the emanation whose "
+          },
+          {
+            "type": "ref",
+            "id": "c0cd649a-7029-5174-a5b4-678f51598dec"
+          },
+          {
+            "type": "text",
+            "text": " value is 2 or less regains 4d10 Hit Points and can Stand as a free action, which doesn't provoke reactions."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The amount of healing increases by 1d10."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "PFS Note:",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " This spell affects unconscious allies with a dying value of 2 or less, in addition conscious allies with the dying 1 or 2 condition. Conscious characters are not considered to have the dying 0 condition and are unaffected."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.USKnG2ZSzVs4xn85"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "area": {
+        "shape": "emanation",
+        "size": 30
+      },
+      "traditions": [],
+      "damage": [
+        {
+          "key": "xherzzpdyjfbnls7",
+          "formula": "4d10",
+          "kinds": ["healing"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "xherzzpdyjfbnls7",
+            "formula": "1d10"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "2f9606a5-905b-5bf1-b9b5-11cc343c79f1",
+    "pack": "battlecry",
+    "kind": "spell",
+    "slug": "spell:lock-item",
+    "name": "Lock Item",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "One object held by a creature becomes fused to that creature's hand and can't be put down. To "
+          },
+          {
+            "type": "ref",
+            "id": "ef57a555-f9e9-53cc-b09b-b7432156cbf1"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "4722e9b3-995d-5553-8034-087950993837"
+          },
+          {
+            "type": "text",
+            "text": " the item, the result of the skill check must exceed the spell's DC or the normal DC, whichever is higher. To voluntarily drop the weapon, the target must spend an Interact action rather than a free action, and then succeed at a Reflex save; the target must also attempt a Reflex save to Interact to put away or swap the object. On a failed save, the action is wasted, but on a success, they drop the item and the spell ends. An unwilling creature must attempt an initial Reflex save against lock item. A willing creature can choose to critically fail the saving throw."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is affected for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is affected for 4 rounds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is affected for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+2)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can target either one additional object held by the same creature or one additional object held by one additional creature."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.qFO9HgplrShoaAPY"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "duration": {
+        "type": "varies"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:reflex",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "primal"],
+      "damage": [],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": []
+      }
+    }
+  },
+  {
+    "id": "a188a29e-37bd-5356-85c0-75db64ceb1ce",
+    "pack": "battlecry",
+    "kind": "spell",
+    "slug": "spell:pest-swarm",
+    "name": "Pest Swarm",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "incarnate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sometimes the most common irritations can band together and become threats to your enemies. You reach out to the pests and nuisances around you, forming a small squadron of them to harass and occupy your opponents. They swarm from the forests, the air, and even the dirt beneath your feet. The pest squadron occupies the space of a Large creature, and like a swarm, they can occupy the same space as other creatures. When you Cast this Spell, choose one of the pest squadrons below to summon."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Cockroaches",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Speed 30 feet, climb 30 feet."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Arrive",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Scurrying Swarm",
+                        "marks": ["emphasis"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " The swarm of cockroaches scuttles toward the enemy, swarming them and climbing up the bodies of any enemy touching the ground. They deal "
+                      },
+                      {
+                        "type": "damage",
+                        "instances": [
+                          {
+                            "formula": "4d6",
+                            "damageType": "piercing"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " damage ("
+                      },
+                      {
+                        "type": "check",
+                        "statistic": "save:reflex",
+                        "basic": true
+                      },
+                      {
+                        "type": "text",
+                        "text": " save) to all enemies within their space and in a "
+                      },
+                      {
+                        "type": "template",
+                        "shape": "emanation",
+                        "size": 5
+                      },
+                      {
+                        "type": "text",
+                        "text": ". On a critical failure, a creature can't use concentrate actions for 1 round as they try and brush away the insects."
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Depart",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Farewell Dirt",
+                        "marks": ["emphasis"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " The cockroaches disperse, climbing down from the creatures and leaving behind their debris and dirt. All enemies in their space must attempt a "
+                      },
+                      {
+                        "type": "check",
+                        "statistic": "save:fortitude",
+                        "options": ["inflicts:sickened"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " save. On a failure, a creature is "
+                      },
+                      {
+                        "type": "ref",
+                        "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+                        "label": "Sickened 2"
+                      },
+                      {
+                        "type": "text",
+                        "text": " ("
+                      },
+                      {
+                        "type": "ref",
+                        "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+                        "label": "Sickened 3"
+                      },
+                      {
+                        "type": "text",
+                        "text": " on a critical failure)."
+                      }
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Mosquitoes",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Speed 30 feet, fly 50 feet."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Arrive",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Biting Flight",
+                        "marks": ["emphasis"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " The mosquitoes arrive in a hazy cloud, landing on the exposed skin of your opponents and dealing "
+                      },
+                      {
+                        "type": "damage",
+                        "instances": [
+                          {
+                            "formula": "4d6",
+                            "damageType": "piercing"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " damage to enemies in their space ("
+                      },
+                      {
+                        "type": "check",
+                        "statistic": "save:reflex",
+                        "basic": true
+                      },
+                      {
+                        "type": "text",
+                        "text": " save)."
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Depart",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Parting Gift",
+                        "marks": ["emphasis"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " The swarm attempts to drain their opponents before flying off. All enemies in their space and in a "
+                      },
+                      {
+                        "type": "template",
+                        "shape": "emanation",
+                        "size": 5
+                      },
+                      {
+                        "type": "text",
+                        "text": " must succeed at a "
+                      },
+                      {
+                        "type": "check",
+                        "statistic": "save:fortitude",
+                        "options": ["inflicts:drained"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " save or become "
+                      },
+                      {
+                        "type": "ref",
+                        "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+                        "label": "Drained 1"
+                      },
+                      {
+                        "type": "text",
+                        "text": " ("
+                      },
+                      {
+                        "type": "ref",
+                        "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+                        "label": "Drained 2"
+                      },
+                      {
+                        "type": "text",
+                        "text": " on a critical failure)."
+                      }
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Pigeons",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Speed 20 feet, fly 40 feet."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Arrive",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Dive Bomb",
+                        "marks": ["emphasis"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " The swarm of pigeons dives into the crowd of enemies and attacks with beaks and talons. Each enemy within their space takes "
+                      },
+                      {
+                        "type": "damage",
+                        "instances": [
+                          {
+                            "formula": "2d8",
+                            "damageType": "piercing"
+                          },
+                          {
+                            "formula": "2d4",
+                            "damageType": "slashing"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " damage ("
+                      },
+                      {
+                        "type": "check",
+                        "statistic": "save:reflex",
+                        "basic": true
+                      },
+                      {
+                        "type": "text",
+                        "text": " save). On a critical failure, a creature is "
+                      },
+                      {
+                        "type": "ref",
+                        "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+                      },
+                      {
+                        "type": "text",
+                        "text": " for 1 round."
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Depart",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " (sonic) "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Wing Snap",
+                        "marks": ["emphasis"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " The pigeon swarm snaps their wingtips together to startle their opponents before leaving. Each enemy within their space takes "
+                      },
+                      {
+                        "type": "damage",
+                        "instances": [
+                          {
+                            "formula": "4d6",
+                            "damageType": "sonic"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " damage ("
+                      },
+                      {
+                        "type": "check",
+                        "statistic": "save:fortitude",
+                        "basic": true
+                      },
+                      {
+                        "type": "text",
+                        "text": " save)."
+                      }
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Rats",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Speed 30 feet, burrow 20 feet."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Arrive",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Chittering Race",
+                        "marks": ["emphasis"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " Rats swarm the legs of your enemies, biting at them and digging their sharp nails into whatever exposed flesh reveals itself. Each enemy in their space takes "
+                      },
+                      {
+                        "type": "damage",
+                        "instances": [
+                          {
+                            "formula": "4d6",
+                            "damageType": "piercing"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " damage ("
+                      },
+                      {
+                        "type": "check",
+                        "statistic": "save:reflex",
+                        "basic": true
+                      },
+                      {
+                        "type": "text",
+                        "text": " save)."
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Depart",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Underfoot",
+                        "marks": ["emphasis"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " The rats scurry underfoot, tripping up enemies and burrowing underground to make a swift getaway. Each enemy in their space must succeed a "
+                      },
+                      {
+                        "type": "check",
+                        "statistic": "save:reflex",
+                        "options": ["inflicts:prone"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " save or be knocked "
+                      },
+                      {
+                        "type": "ref",
+                        "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+                      },
+                      {
+                        "type": "text",
+                        "text": " and take "
+                      },
+                      {
+                        "type": "damage",
+                        "instances": [
+                          {
+                            "formula": "2d6",
+                            "damageType": "bludgeoning"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " damage. The area the rat swarm was in becomes difficult terrain for 1 round."
+                      }
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Skunks",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Speed 30 feet, climb 20 feet;"
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Arrive",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Mustelid Charge",
+                        "marks": ["emphasis"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " Skunks race to the scene, and each enemy within their space and within a "
+                      },
+                      {
+                        "type": "template",
+                        "shape": "emanation",
+                        "size": 5
+                      },
+                      {
+                        "type": "text",
+                        "text": " take "
+                      },
+                      {
+                        "type": "damage",
+                        "instances": [
+                          {
+                            "formula": "4d6",
+                            "damageType": "piercing"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " damage ("
+                      },
+                      {
+                        "type": "check",
+                        "statistic": "save:reflex",
+                        "basic": true
+                      },
+                      {
+                        "type": "text",
+                        "text": " save) as the skunks snarl and bite."
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Depart",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " (acid) "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Stink Bomb",
+                        "marks": ["emphasis"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " Before leaving, the skunks launch a final offensive maneuver and release their stink glands in a "
+                      },
+                      {
+                        "type": "template",
+                        "shape": "cone",
+                        "size": 15
+                      },
+                      {
+                        "type": "text",
+                        "text": ". All creatures in the area take "
+                      },
+                      {
+                        "type": "damage",
+                        "instances": [
+                          {
+                            "formula": "2d6",
+                            "damageType": "acid"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " damage ("
+                      },
+                      {
+                        "type": "check",
+                        "statistic": "save:fortitude",
+                        "basic": true,
+                        "options": ["inflicts:sickened"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " save). On a failure, a creature is also "
+                      },
+                      {
+                        "type": "ref",
+                        "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+                        "label": "Sickened 1"
+                      },
+                      {
+                        "type": "text",
+                        "text": " (sickened 2 on a critical failure)."
+                      }
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Spiders",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Speed 30 feet, climb 30 feet."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Arrive",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " (poison) "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Venomous Swarm",
+                        "marks": ["emphasis"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " A horde of violin spiders crawls up from the ground, climbing onto enemies within their space and in a "
+                      },
+                      {
+                        "type": "template",
+                        "shape": "emanation",
+                        "size": 5
+                      },
+                      {
+                        "type": "text",
+                        "text": " and biting them. Each enemy takes "
+                      },
+                      {
+                        "type": "damage",
+                        "instances": [
+                          {
+                            "formula": "3d6",
+                            "damageType": "piercing"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " damage ("
+                      },
+                      {
+                        "type": "check",
+                        "statistic": "save:fortitude",
+                        "basic": true
+                      },
+                      {
+                        "type": "text",
+                        "text": " save). Enemies who fail are exposed to violin spider venom."
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Depart",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Spinning Webs",
+                        "marks": ["emphasis"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " As the violin spiders depart, they spray sticky webs at their enemies in a "
+                      },
+                      {
+                        "type": "template",
+                        "shape": "cone",
+                        "size": 30
+                      },
+                      {
+                        "type": "text",
+                        "text": ". All creatures in this cone must attempt a "
+                      },
+                      {
+                        "type": "check",
+                        "statistic": "save:reflex"
+                      },
+                      {
+                        "type": "text",
+                        "text": " save. On a failure, a creature takes a –10-foot circumstance penalty to their Speeds (–20-foot circumstance penalty on a critical failure) for 1 minute; a creature can remove this penalty with a successful "
+                      },
+                      {
+                        "type": "ref",
+                        "id": "2ae74030-e87a-55ee-955c-fb9870392d44"
+                      },
+                      {
+                        "type": "text",
+                        "text": " against your spell DC. The area of the cone is also difficult terrain for 1 round."
+                      }
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Violin Spider Venom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (poison)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Saving Throw",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 24
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Maximum Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 6 rounds"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": " (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 2d6 poison, "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "bleed",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and clumsy 1 (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 4",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 2d6 poison, "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "bleed",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and clumsy 1 (1 round)"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.fRqHDOWmgcUTeT03"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "duration": {
+        "type": "until",
+        "until": "next-turn-end"
+      },
+      "traditions": ["arcane", "occult", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "1187b718-d161-52ec-99ba-cf1eefd120e3",
+    "pack": "battlecry",
+    "kind": "spell",
+    "slug": "spell:shielding-formation",
+    "name": "Shielding Formation",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "force", "manipulate", "wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You conjure magical shields of force to protect your allies around you. You and each ally who ends their turn within the emanation gain a +1 circumstance bonus to AC until they leave the emanation or the spell ends, whichever comes first. If an ally takes physical damage or damage from a spell or magical effect while being granted this bonus, they can choose to end the bonus for themselves as a free action to gain resistance 10 to all damage against the triggering damage. If they do, they become temporarily immune to the effects of "
+          },
+          {
+            "type": "text",
+            "text": "shielding formation",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " for 10 minutes. You can do the same by spending your reaction; if you do, you can't cast "
+          },
+          {
+            "type": "text",
+            "text": "shielding formation",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " again for 10 minutes, though you can continue Sustaining the benefits for others."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "d5e3692d-20a0-5d63-863a-76f47f8e81db"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.6QEWTuCKRQQTyoeS"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "area": {
+        "shape": "emanation",
+        "size": 30
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
+    "id": "de2b41ec-0cc7-5c71-b7e5-3ba13762c590",
+    "pack": "battlecry",
+    "kind": "spell",
+    "slug": "spell:shock-and-awe",
+    "name": "Shock and Awe",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["auditory", "concentrate", "emotion", "fear", "illusion", "manipulate", "mental", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You create the illusion of cannons exploding, bullets and arrows flying, and magical ballistics firing, as an overwhelming torrent of information, both visual and auditory. Enemies in the area must attempt a Will save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The enemy is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The enemy is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+            "label": "Stunned 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The enemy is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 3"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+            "label": "Stunned 2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.Y3qZrvZrqPuGJ2hk"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 100
+      },
+      "area": {
+        "shape": "burst",
+        "size": 50
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "873b71dd-559b-584b-b12f-f3d6ae58d326",
+    "pack": "battlecry",
+    "kind": "spell",
+    "slug": "spell:siege-weapons-blessing",
+    "name": "Siege Weapon's Blessing",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You trace a magic rune onto the body of a siege weapon, calling upon fate or your faith to guide the attacks your allies make with this machine. For the spell's duration, any skill checks attempted to Load the siege weapon can be rolled twice, taking the better result; these skill checks gain the fortune trait. In addition, any saving throws attempted by creatures caught in the siege weapon's Launch area must be rolled twice, taking the worse result; these saving throws gain the misfortune trait."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (9th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The duration is 8 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.wdb4XIZw1xmki5nr"
+    },
+    "data": {
+      "rank": 6,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "traditions": ["arcane", "divine", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "c039c880-6e80-5949-8161-babd2a52411e",
+    "pack": "battlecry",
+    "kind": "spell",
+    "slug": "spell:skeleton-army",
+    "name": "Skeleton Army",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["concentrate", "incarnate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "With a fistful of compressed bones, you summon a legion of skeletal hulks to fight in your war, refusing to let them rest until they've given up their last inches of usefulness to your cause. The undead army occupies the space of a Huge creature and has a Speed of 40 feet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Arrive",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Bone March",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " The skeletal hulks rise from the dirt, slashing through your enemies and attacking with their dirt-encrusted, bony hands. Enemies within a 20-foot emanation take 4d8 slashing damage (basic Reflex save). On a critical failure, a creature also take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d8",
+                "damageType": "bleed",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Depart",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Tossed Heads",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " Before crumpling into a pile of bones, the skeleton army removes their skulls and throws them at the enemy lines, chattering and howling, dealing 6d6 piercing damage to enemies in a 20-foot burst (basic Reflex save) within 30 feet. On a critical failure, a creature is also "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.y1dcR5unn2UwlUR9"
+    },
+    "data": {
+      "rank": 6,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 100
+      },
+      "duration": {
+        "type": "until",
+        "until": "next-turn-end"
+      },
+      "traditions": ["arcane", "divine", "occult"],
+      "damage": [],
+      "variants": [
+        {
+          "name": "Skeleton Army (Arrive)",
+          "area": {
+            "shape": "emanation",
+            "size": 20
+          },
+          "defense": {
+            "save": {
+              "statistic": "save:reflex",
+              "basic": true
+            }
+          },
+          "damage": [
+            {
+              "key": "byg54nfqwfvejgt7",
+              "formula": "4d8",
+              "damageType": "slashing",
+              "kinds": ["damage"]
+            }
+          ]
+        },
+        {
+          "name": "Skeleton Army (Depart)",
+          "area": {
+            "shape": "burst",
+            "size": 20
+          },
+          "defense": {
+            "save": {
+              "statistic": "save:reflex",
+              "basic": true
+            }
+          },
+          "damage": [
+            {
+              "key": "ervjniaqz4hkag4m",
+              "formula": "6d6",
+              "damageType": "piercing",
+              "kinds": ["damage"]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "9cc1e807-e10b-594d-a01f-f822ac325d1b",
+    "pack": "battlecry",
+    "kind": "spell",
+    "slug": "spell:steel-fortifications",
+    "name": "Steel Fortifications",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate", "metal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You conjure several metal structures that consist of angled beams attached to one another at a central point, which can help block attacks. You creature up to three Large structures within range in unoccupied squares; each fortification is 8 feet long, 8 feet wide, and 8 feet tall. There must be enough room for a fortification in order to conjure it. A single fortification has an AC of 10 and is immune to critical hits and precision damage. It has Hardness 9, 60 Hit Points, and a BT of 30. Once a fortification is broken, it crumbles into sharp metal bits. Any creature adjacent to or sharing a space with a fortification when it is broken must attempt a Reflex save or take 2d6 persistent bleed damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Creatures can pass through the spaces of a fortification, though Medium and larger creatures treat these spaces as difficult terrain. A Small or smaller creature can occupy the same spaces as a fortification; doing so grants them standard cover. Similarly, a "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": " Medium creature can occupy the same spaces as a fortification, gaining standard cover in the process. A Medium or smaller creature can climb a fortification with a successful "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:athletics",
+            "dc": 15
+          },
+          {
+            "type": "text",
+            "text": " check."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.wQDrc0LDWaBA5Xa8"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 120
+      },
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute"
+      },
+      "traditions": ["arcane", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "a8cd1516-215b-540e-9390-17227679219c",
+    "pack": "battlecry",
+    "kind": "spell",
+    "slug": "spell:sticky-fire",
+    "name": "Sticky Fire",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["attack", "concentrate", "fire", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You send a bubble of viscous liquid that sparks into flame. Make a spell attack roll against the target's AC, dealing 1d8 fire damage and 1d8 persistent fire damage on a hit. The target is "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 1"
+          },
+          {
+            "type": "text",
+            "text": " until they recover from their persistent fire damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+2)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial and persistent fire damage increase by 1d8."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.Vseo7VIy8mzINUES"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 60
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "traditions": ["arcane", "primal"],
+      "damage": [
+        {
+          "key": "y4v4jbicltgoazyp",
+          "formula": "1d8",
+          "damageType": "fire",
+          "kinds": ["damage"]
+        },
+        {
+          "key": "icnezetp96bumakq",
+          "formula": "1d8",
+          "damageType": "fire",
+          "category": "persistent",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 2,
+        "damage": [
+          {
+            "key": "y4v4jbicltgoazyp",
+            "formula": "1d8"
+          },
+          {
+            "key": "icnezetp96bumakq",
+            "formula": "1d8"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "ede45515-6a2a-58a2-b301-86a5eb2f84a0",
+    "pack": "battlecry",
+    "kind": "spell",
+    "slug": "spell:unholy-army",
+    "name": "Unholy Army",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["concentrate", "incarnate", "manipulate", "unholy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Reaching out to the legions of the wicked, you call upon them for assistance. They emerge, bubbling up from the ground, and stand to face your enemies, malevolent and ready for bloodshed. The unholy army occupies the space of a Huge creature. When you Cast this Spell, choose one of the unholy squadrons below to summon."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Asuras",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Speed 40 feet"
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Arrive",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Dance of Duality",
+                        "marks": ["emphasis"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " A legion of adhukaits arrive on the field, dancing and scurrying in and among your enemy's front line. All enemies in a "
+                      },
+                      {
+                        "type": "template",
+                        "shape": "emanation",
+                        "size": 10
+                      },
+                      {
+                        "type": "text",
+                        "text": " take "
+                      },
+                      {
+                        "type": "damage",
+                        "instances": [
+                          {
+                            "formula": "10d6",
+                            "damageType": "slashing"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " damage ("
+                      },
+                      {
+                        "type": "check",
+                        "statistic": "save:reflex",
+                        "basic": true
+                      },
+                      {
+                        "type": "text",
+                        "text": " save) as the adhukaits slash at them with their kukris."
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Depart",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Split Remembrance",
+                        "marks": ["emphasis"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " As the adhukaits begin to retreat, they argue about who did the most damage and decide to see which half is stronger. All enemies in a "
+                      },
+                      {
+                        "type": "template",
+                        "shape": "emanation",
+                        "size": 20
+                      },
+                      {
+                        "type": "text",
+                        "text": " take "
+                      },
+                      {
+                        "type": "damage",
+                        "instances": [
+                          {
+                            "formula": "6d6",
+                            "damageType": "bludgeoning"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " damage ("
+                      },
+                      {
+                        "type": "check",
+                        "statistic": "save:fortitude",
+                        "basic": true,
+                        "options": ["inflicts:clumsy"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " save) as they're violently yanked by adhukaits. On a failure, a creature is "
+                      },
+                      {
+                        "type": "ref",
+                        "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+                        "label": "Clumsy 1"
+                      },
+                      {
+                        "type": "text",
+                        "text": " for 1 minute ("
+                      },
+                      {
+                        "type": "ref",
+                        "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+                        "label": "Clumsy 2"
+                      },
+                      {
+                        "type": "text",
+                        "text": " on a critical failure)."
+                      }
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Daemons",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Speed 25 feet, fly 40 feet"
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Arrive",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " (disease) "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Winds of Pestilence",
+                        "marks": ["emphasis"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " Leukodaemons fly into position, their wings beating with the dust of a thousand diseases of a thousand years. Enemies in a "
+                      },
+                      {
+                        "type": "template",
+                        "shape": "cone",
+                        "size": 60
+                      },
+                      {
+                        "type": "text",
+                        "text": " take "
+                      },
+                      {
+                        "type": "damage",
+                        "instances": [
+                          {
+                            "formula": "8d8",
+                            "damageType": "piercing"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " damage ("
+                      },
+                      {
+                        "type": "check",
+                        "statistic": "save:fortitude",
+                        "basic": true,
+                        "options": ["inflicts:sickened"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " save). On a failure, a creature is also "
+                      },
+                      {
+                        "type": "ref",
+                        "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+                        "label": "Sickened 1"
+                      },
+                      {
+                        "type": "text",
+                        "text": " ("
+                      },
+                      {
+                        "type": "ref",
+                        "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+                        "label": "Sickened 2"
+                      },
+                      {
+                        "type": "text",
+                        "text": " on a critical failure)."
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Depart",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " (disease) "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Remember Me",
+                        "marks": ["emphasis"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " The leukodaemons claw at your enemies with their infected nails. All enemies in a "
+                      },
+                      {
+                        "type": "template",
+                        "shape": "emanation",
+                        "size": 10
+                      },
+                      {
+                        "type": "text",
+                        "text": " take "
+                      },
+                      {
+                        "type": "damage",
+                        "instances": [
+                          {
+                            "formula": "6d6",
+                            "damageType": "slashing"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " damage ("
+                      },
+                      {
+                        "type": "check",
+                        "statistic": "save:reflex",
+                        "basic": true,
+                        "options": ["inflicts:drained"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " save). On a failure, a creature is also "
+                      },
+                      {
+                        "type": "ref",
+                        "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+                        "label": "Drained 1"
+                      },
+                      {
+                        "type": "text",
+                        "text": " ("
+                      },
+                      {
+                        "type": "ref",
+                        "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+                        "label": "Drained 2"
+                      },
+                      {
+                        "type": "text",
+                        "text": " on a critical failure)."
+                      }
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Demons",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Speed 25 feet"
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Arrive",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " (fire) "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Fuming Entrance",
+                        "marks": ["emphasis"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " A legion of brimoraks arrive in clouds of thick black smoke. The army's space and every square in a "
+                      },
+                      {
+                        "type": "template",
+                        "shape": "emanation",
+                        "size": 20
+                      },
+                      {
+                        "type": "text",
+                        "text": " is choked with burning ash and smog, making all creatures outside the smoke "
+                      },
+                      {
+                        "type": "ref",
+                        "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+                      },
+                      {
+                        "type": "text",
+                        "text": " to creatures within it and all creatures within the smoke concealed to creatures outside the smoke and other creatures within it. This smoke lasts for 1 minute, and a creature who enters or begins its turn within the smoke must attempt a "
+                      },
+                      {
+                        "type": "check",
+                        "statistic": "save:fortitude",
+                        "options": ["inflicts:sickened"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " save or take "
+                      },
+                      {
+                        "type": "damage",
+                        "instances": [
+                          {
+                            "formula": "2d6",
+                            "damageType": "fire",
+                            "category": "persistent"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " damage and become sickened 1 ("
+                      },
+                      {
+                        "type": "damage",
+                        "instances": [
+                          {
+                            "formula": "3d6",
+                            "damageType": "fire",
+                            "category": "persistent"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " damage and sickened 2 on a critical failure)."
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Depart",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " (fire) "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Swords of Flame",
+                        "marks": ["emphasis"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " The arson demons swing their flaming swords through your enemies' ranks. All enemies in a "
+                      },
+                      {
+                        "type": "template",
+                        "shape": "emanation",
+                        "size": 10
+                      },
+                      {
+                        "type": "text",
+                        "text": " take "
+                      },
+                      {
+                        "type": "damage",
+                        "instances": [
+                          {
+                            "formula": "4d8",
+                            "damageType": "slashing"
+                          },
+                          {
+                            "formula": "3d6",
+                            "damageType": "fire"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " ("
+                      },
+                      {
+                        "type": "check",
+                        "statistic": "save:reflex",
+                        "basic": true
+                      },
+                      {
+                        "type": "text",
+                        "text": " save). On a critical failure, a creature also takes "
+                      },
+                      {
+                        "type": "damage",
+                        "instances": [
+                          {
+                            "formula": "2d8",
+                            "damageType": "fire",
+                            "category": "persistent"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " damage."
+                      }
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Devils",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Speed 25 feet"
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Arrive",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " (spirit) "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Diabolic Infantry",
+                        "marks": ["emphasis"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " A legion of vordines swarm the battlefield. All enemies in a "
+                      },
+                      {
+                        "type": "template",
+                        "shape": "emanation",
+                        "size": 20
+                      },
+                      {
+                        "type": "text",
+                        "text": " take "
+                      },
+                      {
+                        "type": "damage",
+                        "instances": [
+                          {
+                            "formula": "4d10",
+                            "damageType": "piercing"
+                          },
+                          {
+                            "formula": "2d6",
+                            "damageType": "spirit"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " damage ("
+                      },
+                      {
+                        "type": "check",
+                        "statistic": "save:reflex",
+                        "basic": true
+                      },
+                      {
+                        "type": "text",
+                        "text": " save) as the vordines impale them with their tridents."
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Depart",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " (nonlethal) "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Whipped and Tripped",
+                        "marks": ["emphasis"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " The devils' whips lengthen impossibly to flense flesh from soul. Enemies in two non-intersecting 40-foot lines take "
+                      },
+                      {
+                        "type": "damage",
+                        "instances": [
+                          {
+                            "formula": "6d8",
+                            "damageType": "bludgeoning"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " damage ("
+                      },
+                      {
+                        "type": "check",
+                        "statistic": "save:reflex",
+                        "basic": true,
+                        "options": ["inflicts:prone", "inflicts:immobilized"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " save). On a failure, a creature is also knocked "
+                      },
+                      {
+                        "type": "ref",
+                        "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+                      },
+                      {
+                        "type": "text",
+                        "text": ". On a critical failure, it's also knocked prone and "
+                      },
+                      {
+                        "type": "ref",
+                        "id": "64278392-4910-5a32-b819-56f6e54952dd"
+                      },
+                      {
+                        "type": "text",
+                        "text": " for 1 round."
+                      }
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Divs",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Speed 35 feet"
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Arrive",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " (mental) "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Deceptive Delight",
+                        "marks": ["emphasis"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " A battalion of sepids arrives to torment your enemies. Enemies in a "
+                      },
+                      {
+                        "type": "template",
+                        "shape": "cone",
+                        "size": 60
+                      },
+                      {
+                        "type": "text",
+                        "text": " take "
+                      },
+                      {
+                        "type": "damage",
+                        "instances": [
+                          {
+                            "formula": "6d6",
+                            "damageType": "mental"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " damage ("
+                      },
+                      {
+                        "type": "check",
+                        "statistic": "save:will",
+                        "basic": true,
+                        "options": ["inflicts:confused"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " save). On a failure, a creature is "
+                      },
+                      {
+                        "type": "ref",
+                        "id": "6f53a234-670f-5b02-a986-7cce57585fc8"
+                      },
+                      {
+                        "type": "text",
+                        "text": " for 1 round."
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Depart",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " (spirit) "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Battle Debris",
+                        "marks": ["emphasis"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " The sepids slam their falchions into the remnants of the chaos of battle, shattering bones, which explode out in a "
+                      },
+                      {
+                        "type": "template",
+                        "shape": "emanation",
+                        "size": 30
+                      },
+                      {
+                        "type": "text",
+                        "text": ". All non-fiends in the area take "
+                      },
+                      {
+                        "type": "damage",
+                        "instances": [
+                          {
+                            "formula": "8d6",
+                            "damageType": "slashing"
+                          },
+                          {
+                            "formula": "3d6",
+                            "damageType": "spirit"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " damage from debris ("
+                      },
+                      {
+                        "type": "check",
+                        "statistic": "save:reflex",
+                        "basic": true
+                      },
+                      {
+                        "type": "text",
+                        "text": " save)."
+                      }
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Qlippoths",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Speed 40 feet, climb 40 feet, fly 40 feet"
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Arrive",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " (visual) "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Terrifying Scuttle",
+                        "marks": ["emphasis"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " A horde of gongorinans opens their maws to reveal the horror inside. All enemies in a "
+                      },
+                      {
+                        "type": "template",
+                        "shape": "cone",
+                        "size": 60
+                      },
+                      {
+                        "type": "text",
+                        "text": " must succeed at a "
+                      },
+                      {
+                        "type": "check",
+                        "statistic": "save:will",
+                        "options": ["inflicts:sickened", "inflicts:blinded"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " save or be sickened 2 (sickened 2 and "
+                      },
+                      {
+                        "type": "ref",
+                        "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+                      },
+                      {
+                        "type": "text",
+                        "text": " for 1 round on a critical failure)."
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Depart",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Pincer Assault",
+                        "marks": ["emphasis"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " The gongorinans lash out at everyone. All enemies in a "
+                      },
+                      {
+                        "type": "template",
+                        "shape": "emanation",
+                        "size": 20
+                      },
+                      {
+                        "type": "text",
+                        "text": " take "
+                      },
+                      {
+                        "type": "damage",
+                        "instances": [
+                          {
+                            "formula": "6d12",
+                            "damageType": "slashing"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " damage ("
+                      },
+                      {
+                        "type": "check",
+                        "statistic": "save:reflex",
+                        "basic": true
+                      },
+                      {
+                        "type": "text",
+                        "text": " save)."
+                      }
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Velstracs",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Speed 25 feet"
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Arrive",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Chains of Pain",
+                        "marks": ["emphasis"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " A legion of sacristans emerges from the shadows, their barbed chains wrapping around enemy limbs to prevent all escape. Enemies in a "
+                      },
+                      {
+                        "type": "template",
+                        "shape": "emanation",
+                        "size": 20
+                      },
+                      {
+                        "type": "text",
+                        "text": " must attempt a "
+                      },
+                      {
+                        "type": "check",
+                        "statistic": "save:reflex"
+                      },
+                      {
+                        "type": "text",
+                        "text": " save. On a failure, they take a –10-foot circumstance penalty to their Speeds and "
+                      },
+                      {
+                        "type": "damage",
+                        "instances": [
+                          {
+                            "formula": "2d6",
+                            "damageType": "bleed"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " damage. On a critical failure they take a –20-foot circumstance penalty to their Speeds and "
+                      },
+                      {
+                        "type": "damage",
+                        "instances": [
+                          {
+                            "formula": "4d6",
+                            "damageType": "bleed"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " damage. This penalty to Speeds lasts until they recover from their persistent bleed damage"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Depart",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Pleasant Screams",
+                        "marks": ["emphasis"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " The sacristans rip their chains from their victims, screaming in unison with their pain. Any enemies who failed the initial Reflex save during the sacristans' arrival take "
+                      },
+                      {
+                        "type": "damage",
+                        "instances": [
+                          {
+                            "formula": "4d8",
+                            "damageType": "piercing"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " damage ("
+                      },
+                      {
+                        "type": "check",
+                        "statistic": "save:fortitude",
+                        "basic": true
+                      },
+                      {
+                        "type": "text",
+                        "text": "). In addition, everyone in a "
+                      },
+                      {
+                        "type": "template",
+                        "shape": "cone",
+                        "size": 60
+                      },
+                      {
+                        "type": "text",
+                        "text": " must attempt a "
+                      },
+                      {
+                        "type": "check",
+                        "statistic": "save:will",
+                        "options": ["inflicts:frightened", "inflicts:deafened"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " save. On a failure, they're "
+                      },
+                      {
+                        "type": "ref",
+                        "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+                        "label": "Frightened 2"
+                      },
+                      {
+                        "type": "text",
+                        "text": " and "
+                      },
+                      {
+                        "type": "ref",
+                        "id": "4271da2e-7225-5aa7-9807-c499d8af6a5a"
+                      },
+                      {
+                        "type": "text",
+                        "text": " for 1 minute ("
+                      },
+                      {
+                        "type": "ref",
+                        "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+                        "label": "Frightened 3"
+                      },
+                      {
+                        "type": "text",
+                        "text": " and deafened for 1 minute on a critical failure); this effect has the auditory, emotion, fear, and mental traits."
+                      }
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.HEuvZAjD1q0J8Y5i"
+    },
+    "data": {
+      "rank": 8,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 100
+      },
+      "duration": {
+        "type": "until",
+        "until": "next-turn-end"
+      },
+      "traditions": ["divine", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "2e4a0542-9768-5fdc-b2ca-84eb5cb1dc9d",
+    "pack": "battlecry",
+    "kind": "spell",
+    "slug": "spell:wings-of-the-valkyrie",
+    "name": "Wings of the Valkyrie",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "manipulate", "sorcerer"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Powerful feathered wings—usually vibrant white or jet black—emerge from your back, granting you a fly Speed equal to your Speed. You can use these wings to attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "082b982f-3ed4-5d9c-9722-9ab10198523a"
+          },
+          {
+            "type": "text",
+            "text": " a creature; you don't need a free hand to do so, and you can roll using your spell attack modifier instead of your Athletics skill for the check. When this spell's duration ends, if you're still flying, you float to the ground, as "
+          },
+          {
+            "type": "ref",
+            "id": "9d83db58-4a62-5f49-b04a-55d6b4f18e7b"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "8df76b56-95a0-5103-b38c-062a438da218"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (5th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The duration increases to 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "2430ebed-f25a-51db-84a1-f1ce6ee44dfa"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.9ZwpT9RDwCxhYQXd"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "duration": {
+        "type": "time",
+        "count": 3,
+        "unit": "round"
+      },
+      "traditions": [],
+      "damage": []
+    }
+  }
+]

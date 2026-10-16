@@ -1,0 +1,3601 @@
+[
+  {
+    "id": "d5b2f945-37c0-5c50-b098-7ef52752c5be",
+    "pack": "battlecry",
+    "kind": "consumable",
+    "slug": "consumable:analysis-eye",
+    "name": "Analysis Eye",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "whetstone"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This metal disk is engraved with an image of an open eye, which always seems to look directly at the creature viewing it no matter what angle it's seen from. The first time you succeed at a Strike against a given creature with a weapon under the effect of an "
+          },
+          {
+            "type": "text",
+            "text": "analysis eye",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", as a free action, you learn one weakness or resistance of that creature; if the creature has multiple weaknesses or resistances, the GM selects which one you learn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.IEvaUZHbxI4o1B8o"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 20
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "030e5d16-39f4-5671-bca1-2a62581c5be8",
+    "pack": "battlecry",
+    "kind": "consumable",
+    "slug": "consumable:battering-ammunition",
+    "name": "Battering Ammunition",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ammunition",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " any"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Etched with the symbol of a ram's head, activated battering ammunition magically gathers momentum as it flies, imparting this momentum to its target on a successful Strike. It deals bludgeoning damage instead of its normal damage type and pushes the target 5 feet on a successful hit."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.kIz1DYlJdkPc95zb"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15
+        }
+      },
+      "bulk": "light",
+      "category": "ammunition"
+    }
+  },
+  {
+    "id": "3b9b3d41-afd5-543b-ad79-36d760d7635d",
+    "pack": "battlecry",
+    "kind": "consumable",
+    "slug": "consumable:blade-phantoms-guide",
+    "name": "Blade Phantom's Guide",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "whetstone"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A blade phantom's guide is a metal rectangle, often on a chain, etched with an image of a warrior in a fighting stance. When you apply a "
+          },
+          {
+            "type": "text",
+            "text": "blade phantom's guide",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to a weapon, it summons a spiritual fragment of a warrior who was adept with that weapon. For 1 minute, you treat your proficiency with that weapon as equal to your highest weapon proficiency. This effect cannot affect a weapon whose level is higher than the "
+          },
+          {
+            "type": "text",
+            "text": "blade phantom's guide",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " (11th)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.jTWDq3pEZzzRYswm"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 300
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "6722ae5d-feac-5843-8315-f171cb9dd6e4",
+    "pack": "battlecry",
+    "kind": "consumable",
+    "slug": "consumable:burrowing-bolt",
+    "name": "Burrowing Bolt",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ammunition",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " arrow, bolt"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These arrows have tips grooved like a drill bit and angled fletching, causing them to spin quickly about their shaft when fired. When striking a structure or object of Hardness 14 or less within your first range increment, an activated burrowing bolt tunnels into the surface silently and leaves a hole behind it, burrowing through up to 5 feet of material before magically vanishing."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.6zkI2QVa8UxgjpQS"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 55
+        }
+      },
+      "bulk": "light",
+      "category": "ammunition",
+      "ammunition": ["arrows", "bolts"]
+    }
+  },
+  {
+    "id": "85efebb3-9ed5-57f9-91af-78f16db70aa1",
+    "pack": "battlecry",
+    "kind": "consumable",
+    "slug": "consumable:burrowing-bolt-greater",
+    "name": "Burrowing Bolt (Greater)",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ammunition",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " arrow, bolt"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These arrows have tips grooved like a drill bit and angled fletching, causing them to spin quickly about their shaft when fired. When striking a structure or object of Hardness 18 or less within your first range increment, an activated burrowing bolt tunnels into the surface silently and leaves a hole behind it, burrowing through up to 10 feet of material before magically vanishing."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.HAXiBgieevN13XlF"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 650
+        }
+      },
+      "bulk": "light",
+      "category": "ammunition",
+      "ammunition": ["arrows", "bolts"]
+    }
+  },
+  {
+    "id": "f526aebd-2489-59af-a128-568274da93b9",
+    "pack": "battlecry",
+    "kind": "consumable",
+    "slug": "consumable:chivalric-emblem",
+    "name": "Chivalric Emblem",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "whetstone"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Originally created by Taldan cavaliers acting as knights errant, "
+          },
+          {
+            "type": "text",
+            "text": "chivalric emblems",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " have since spread across the Inner Sea region and beyond. A "
+          },
+          {
+            "type": "text",
+            "text": "chivalric emblem",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is crafted in the form of a small iron shield, embossed with heraldic insignia. These whetstones call protective spirits into a weapon; the effects last for 1 hour. While wielding a weapon under the effect of a "
+          },
+          {
+            "type": "text",
+            "text": "chivalric emblem",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", if you witness an ally being reduced to 0 Hit Points or taking damage from a critical Strike, you gain a +1 circumstance bonus to attack rolls and damage with that weapon against the creature that damaged that ally for the remainder of the "
+          },
+          {
+            "type": "text",
+            "text": "chivalric emblem",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "'s duration."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "793aaf5b-d7fe-5ee0-a975-2e390c49b87a"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.V8QY1LaaV8azWg7r"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 30
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "48e75598-2fe5-5a9e-af1e-62cc939e46f8",
+    "pack": "battlecry",
+    "kind": "consumable",
+    "slug": "consumable:chroma-kaleidoscope",
+    "name": "Chroma Kaleidoscope",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "whetstone"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These iron rings filled with kaleidoscopic glass are popular among Shelynites. A "
+          },
+          {
+            "type": "text",
+            "text": "chroma kaleidoscope",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "'s effects last for 1 hour. When you critically Strike a creature with a weapon under the effects of a "
+          },
+          {
+            "type": "text",
+            "text": "chroma kaleidoscope",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", a blast of color from the weapon forces them to attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-or-spell-dc"
+            },
+            "options": ["inflicts:blinded", "inflicts:dazzled", "inflicts:stunned"]
+          },
+          {
+            "type": "text",
+            "text": " saving throw against your class DC or spell DC, whichever is higher, with the following effects."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round and dazzled for 1 round after the blindness ends."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+            "label": "Stunned 1"
+          },
+          {
+            "type": "text",
+            "text": " and blinded for 1 round, and dazzled for 1 round after the blindness ends."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.mqej0vAHvtCDhPAp"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 70
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "4744483a-3ed3-5487-9dd6-a9a96091298a",
+    "pack": "battlecry",
+    "kind": "consumable",
+    "slug": "consumable:dimensional-cleavestone",
+    "name": "Dimensional Cleavestone",
+    "level": 14,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "whetstone"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The edges of this irregular hunk of obsidian seem to shimmer. While wielding a weapon under the effect of a "
+          },
+          {
+            "type": "text",
+            "text": "dimensional cleavestone",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you gain the Tear Rift action for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Tear Rift",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (magical, manipulate, teleportation)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You carve a rent in space in an adjacent square, choosing another square within 30 feet to connect with your rift. A visible slash appears in both locations, displaying the view from the other side."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Until the end of your next turn, these two squares are treated as adjacent to each other; for example, creatures could Stride or be Shoved through the rifts to their other side, and a creature adjacent to one rift can Strike a creature adjacent to the other."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When Tearing a Rift, you can choose to Step through the rift as part of the activity. The rifts don't automatically pull creatures or objects through, as they take up only a small amount of space within the square, and a creature sharing a space with a rift is unaffected except for determining adjacency. You can have only one rift active at a time."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.RxhVolMBRtriFUUO"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 900
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "108d33a5-c321-544c-a28c-6a4c606c90b3",
+    "pack": "battlecry",
+    "kind": "consumable",
+    "slug": "consumable:ethereal-crescent",
+    "name": "Ethereal Crescent",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "whetstone"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This crescent-shaped shard of iridescent metal is strangely translucent, fading to a blurry outline when examined for too long. A weapon under the effects of an "
+          },
+          {
+            "type": "text",
+            "text": "ethereal crescent",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " becomes a "
+          },
+          {
+            "type": "ref",
+            "id": "3e294082-c3ff-58be-ab80-1608b9c6229a"
+          },
+          {
+            "type": "text",
+            "text": " weapon for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "4e39b07f-fa18-5fd7-b9cf-f387ecc283b3"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.wYDTn07x34o2slUD"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 58
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "d9caafd5-0b59-52ee-b0df-9f6e2203ba28",
+    "pack": "battlecry",
+    "kind": "consumable",
+    "slug": "consumable:ethereal-crescent-greater",
+    "name": "Ethereal Crescent (Greater)",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "whetstone"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This crescent-shaped shard of iridescent metal is strangely translucent, fading to a blurry outline when examined for too long. A weapon under the effects of a "
+          },
+          {
+            "type": "text",
+            "text": "greater ethereal crescent",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " gains the effects of an "
+          },
+          {
+            "type": "ref",
+            "id": "b9d62e90-8419-502f-854f-121a45b1d1e0"
+          },
+          {
+            "type": "text",
+            "text": " rune for 1 minute. This does not count against the weapon's normal maximum number of runes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "4e39b07f-fa18-5fd7-b9cf-f387ecc283b3"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.4BoDAxtqWYIgXayF"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 320
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "e1e8e7b0-8c1f-50e0-8d39-66276f325679",
+    "pack": "battlecry",
+    "kind": "consumable",
+    "slug": "consumable:extinguishing-ball",
+    "name": "Extinguishing Ball",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ammunition",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " sling bullet"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This deep-blue glass ball is filled with liquid, and its flight is accompanied by the sound of flowing water. An activated extinguishing ball does no damage. Instead, it bathes the target in a splash of magical water with the following effects, depending on the result of your attack roll."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but the water removes all instances of persistent acid or fire damage affecting the target. In addition, it reduces the DC of any future flat checks to end persistent acid or fire damage to 10 for 1 minute, as a particularly appropriate type of assistance to end persistent damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The water removes one instance of persistent acid or fire damage affecting the target, as if the target had been submerged in water. If the target is taking persistent damage from multiple sources, you select which one is removed. The water aids in ending any remaining sources of persistent acid or fire damage, reducing the DC of the target's next flat check to 10, as a particularly appropriate type of assistance to end persistent damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The extinguishing ball misses the target but impacts nearby, splashing the target with enough water to reduce the DC of their next flat check to end one instance of persistent acid or fire damage to 10, as a particularly appropriate type of assistance to end persistent damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " No effect."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.rt5CcqcOxZDqkYwD"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 75
+        }
+      },
+      "bulk": "light",
+      "category": "ammunition",
+      "ammunition": ["sling-bullets"]
+    }
+  },
+  {
+    "id": "6b6e66e3-6858-5b2b-a193-28600e18bf41",
+    "pack": "battlecry",
+    "kind": "consumable",
+    "slug": "consumable:featherlight-fletching",
+    "name": "Featherlight Fletching",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "whetstone"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Elven archers were the first to create the "
+          },
+          {
+            "type": "text",
+            "text": "featherlight fletching",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", meant for long-range battles, though artisans of many other ancestries have now learned the art of crafting these whetstones. A "
+          },
+          {
+            "type": "text",
+            "text": "featherlight fletching",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a feather-shaped trinket crafted of spun silver filigree and aids projectiles in flying true, even over great distances. A ranged weapon under the effects of a "
+          },
+          {
+            "type": "text",
+            "text": "featherlight fletching",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " doubles its range increment for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "a5a10f1b-c3b1-5c42-b710-f9ae2554d6be"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.FkZxKNSw75YWoA32"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 20
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "2103c1f0-40e8-5789-967a-ec8392da6d84",
+    "pack": "battlecry",
+    "kind": "consumable",
+    "slug": "consumable:foe-sensing-rod",
+    "name": "Foe-Sensing Rod",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "whetstone"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Imbued with a spirit fragment that continually surveys the world around it, this crystalline bar is roughened to form a file at one end. When you apply the "
+          },
+          {
+            "type": "text",
+            "text": "foe-sensing rod",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to a weapon, choose aberration, animal, beast, celestial, construct, dragon, elemental, fey, fiend, giant, monitor, ooze, undead, or both fungus and plant. The spirit fragment is transferred into your weapon for 1 hour, keeping watch for creatures with the chosen trait or traits. The affected weapon vibrates slightly if such a creature is within 60 feet of you, unless the creature is disguised or "
+          },
+          {
+            "type": "ref",
+            "id": "d851e3ca-be0d-55a7-a4d1-d7ed8b7ecafa"
+          },
+          {
+            "type": "text",
+            "text": " and has a Deception or Stealth DC of 26 or higher."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.NHSYMJmi4vjrg1r9"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 200
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "bb1cd6bd-3f73-56f2-bfab-8ad5fcb49ab7",
+    "pack": "battlecry",
+    "kind": "consumable",
+    "slug": "consumable:frenzied-quintessence",
+    "name": "Frenzied Quintessence",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "whetstone"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Contained within this small iron-bound glass sphere is a raging whirlwind of colors, each fighting for prominence. After a successful Strike with a weapon enhanced by "
+          },
+          {
+            "type": "text",
+            "text": "frenzied quintessence",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you are "
+          },
+          {
+            "type": "ref",
+            "id": "6517bbf2-8085-534b-be6a-187d52739fa0"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round. You can use the additional action only to Stride toward a foe or Strike."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.sfx2plFpqrc3nsvH"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 900
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "d0b3ffc6-7767-55b5-b4da-b4e8dfcc8ce0",
+    "pack": "battlecry",
+    "kind": "consumable",
+    "slug": "consumable:hand-of-mercy",
+    "name": "Hand of Mercy",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "whetstone"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Shaped like an open-palmed hand, this small sculpture of smooth sandstone seems to blunt a weapon when applied rather than sharpen it. For 1 minute, a weapon to which a "
+          },
+          {
+            "type": "text",
+            "text": "hand of mercy",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is applied gains the nonlethal trait and can't be used to make lethal attacks. Any persistent damage the weapon would deal is negated."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "92e80e27-278f-54cb-9d9b-4c2a371ee0ec"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ida2fLjVX5gbZHBE"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 7
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "70a6491a-2c45-50f1-9772-14811d5405b1",
+    "pack": "battlecry",
+    "kind": "consumable",
+    "slug": "consumable:key-of-unwinding",
+    "name": "Key of Unwinding",
+    "level": 18,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "whetstone"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "key of unwinding",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a narrow brass clock hand, its pointed end fashioned into the shape of a key. When applied to a weapon, a "
+          },
+          {
+            "type": "text",
+            "text": "key of unwinding",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " forms a direct link to the Dimension of Time, allowing you to draw on a fragment of temporal power. For 1 minute, you gain the Rewrite Time reaction while wielding the attuned weapon."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Rewrite Time",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (magical, occult)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You or an ally within your weapon's reach or range increment would be hit by a Strike or a spell attack roll"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Attempt a Strike with the affected weapon against the triggering enemy. On a success, you deal no damage, but you negate the triggering attack or spell. Actions and spell slots used to attempt this attack are lost, and the triggering creature's multiple attack penalty increases as normal, as the results of the action are siphoned into the Dimension of Time. Any creature attempting to use Rewrite Time more than once per combat becomes "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round after each subsequent use, as their own time begins to leech away."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.fkvKBZGyibWAfZ7b"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5000
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "7b1c2941-2198-544d-8ebc-f25fd72ce6cf",
+    "pack": "battlecry",
+    "kind": "consumable",
+    "slug": "consumable:leeching-fangs",
+    "name": "Leeching Fangs",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["consumable", "healing", "magical", "whetstone"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A set of "
+          },
+          {
+            "type": "text",
+            "text": "leeching fangs",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a metal sculpture in the form of a fanged maw, and when applied to a weapon, it causes the weapon or its ammunition to grow numerous mouths filled with serrated teeth. "
+          },
+          {
+            "type": "text",
+            "text": "Leeching fangs",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " establish a metaphysical link between the life force of the wielder of the weapon it's applied to and those it damages. Whenever you deal Hit Point damage to a living creature with a weapon under the effect of "
+          },
+          {
+            "type": "text",
+            "text": "leeching fangs",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you heal yourself half the amount of Hit Point damage dealt. This cannot heal you above your maximum number of Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.wJZQiPEMzPLQnDYk"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 400
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "5338d044-5448-5dc5-9dda-a23eb87004da",
+    "pack": "battlecry",
+    "kind": "consumable",
+    "slug": "consumable:limning-gem",
+    "name": "Limning Gem",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["consumable", "light", "magical", "whetstone"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This luminescent white gem glows from within, and a weapon it's applied to gains its inner radiance, shedding dim light in a 10-foot radius. Successful Strikes with a weapon affected by a "
+          },
+          {
+            "type": "text",
+            "text": "limning gem",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " outline the target in a bright white light; if the target was "
+          },
+          {
+            "type": "ref",
+            "id": "53cf375b-c3fa-5d92-afde-135a3c001674"
+          },
+          {
+            "type": "text",
+            "text": ", it becomes "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " instead. This light lasts until the end of your next turn or for the remainder of the "
+          },
+          {
+            "type": "text",
+            "text": "limning gem",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "'s duration on a critical hit."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.30DfCYSs3dxb8Sjy"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 20
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "1166fe60-9236-5ded-925c-8ff637044183",
+    "pack": "battlecry",
+    "kind": "consumable",
+    "slug": "consumable:mighty-counterweight",
+    "name": "Mighty Counterweight",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "whetstone"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This thick lead disk is etched with geometric patterns, and a weapon it's applied to grows unusually heavy. When you attack with a weapon under the effects of a "
+          },
+          {
+            "type": "text",
+            "text": "mighty counterweight",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you deal an amount of additional bludgeoning damage equal to the number of weapon damage dice."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "c4f12e04-a4a0-5a2b-9067-1245771dae37"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.j0YMP7LLSzhBDsEB"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 20
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "8e416407-80d6-5787-a5eb-747d14795b9e",
+    "pack": "battlecry",
+    "kind": "consumable",
+    "slug": "consumable:morph-jewel",
+    "name": "Morph Jewel",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "whetstone"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Constructed of an oddly flexible material, this golden jewel holds whatever shape it's twisted into. Choose bludgeoning, piercing, or slashing when you apply a morph jewel to a weapon. The weapon's damage becomes that type for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "4620f0d4-2009-58a9-84df-b5561e104b37"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.58RUkhvWrdgqiC3c"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 12
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "9c94f430-3496-5ab8-a0ed-e0491b69d05c",
+    "pack": "battlecry",
+    "kind": "consumable",
+    "slug": "consumable:penultimate-heartbeat",
+    "name": "Penultimate Heartbeat",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "spirit", "whetstone"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This small hunk of slightly rusted iron gives off a faint reddish glow that occasionally pulses when touched. Tales of "
+          },
+          {
+            "type": "text",
+            "text": "penultimate heartbeats",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " say that the metal attracts a creature's spirit at the moment of death and channels it outward for a grisly display. Once applied to a weapon, a "
+          },
+          {
+            "type": "text",
+            "text": "penultimate heartbeat",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "'s effects last for 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you reduce a living creature to 0 Hit Points with a weapon under the effect of a "
+          },
+          {
+            "type": "text",
+            "text": "penultimate heartbeat",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", it doesn't perish immediately (though is visibly on the brink of death). You can "
+          },
+          {
+            "type": "ref",
+            "id": "2f5bb1a4-2a45-5c29-ad6a-7feba044cfaa"
+          },
+          {
+            "type": "text",
+            "text": " the creature up to 10 feet as a free action, after which it dies in a dramatic fashion appropriate to the injury that killed it. Foes in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " you direct originating from the creature's final position are sprayed with gore, taking "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "9d10",
+                "damageType": "spirit"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage from the release of the creature's soul. An affected target attempts a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-or-spell-dc"
+            },
+            "options": ["inflicts:frightened"]
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC or spell DC, whichever is higher. This effect has the emotion, fear, and mental traits."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes half damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 1"
+          },
+          {
+            "type": "text",
+            "text": " from the shock."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes full damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": ". For the remainder of the "
+          },
+          {
+            "type": "text",
+            "text": "penultimate heartbeat",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "'s duration, the creature can't reduce the value of the frightened condition below 1 if it ends its turn where it can see you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes double damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 3"
+          },
+          {
+            "type": "text",
+            "text": ". For the remainder of the "
+          },
+          {
+            "type": "text",
+            "text": "penultimate heartbeat",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "'s duration, the creature can't reduce the value of the frightened condition below 2 if it ends its turn where it can see you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.kE9wXSAAATbqB5AU"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2000
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "c5d2b725-22fd-5fa4-863e-51736dcbd251",
+    "pack": "battlecry",
+    "kind": "consumable",
+    "slug": "consumable:phasing-trine",
+    "name": "Phasing Trine",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "whetstone"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "phasing trine",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a metallic triangle embedded with a clear crystal designed in the shape of a bow and nocked arrow. Strikes made with a ranged weapon under the effect of a "
+          },
+          {
+            "type": "text",
+            "text": "phasing trine",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " against a target who is observed by or "
+          },
+          {
+            "type": "ref",
+            "id": "d851e3ca-be0d-55a7-a4d1-d7ed8b7ecafa"
+          },
+          {
+            "type": "text",
+            "text": " to you (but not "
+          },
+          {
+            "type": "ref",
+            "id": "61f1fec4-1bb4-585d-9c12-6059d15dd74b"
+          },
+          {
+            "type": "text",
+            "text": ") pass through any non-magical barriers or walls in their way, though magical barriers stop the ammunition. These Strikes ignore all cover and circumstance bonuses to AC from shields."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "b38a9035-5568-5bcc-900b-4814c2d802d2"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The Strike's damage can't be reduced with a "
+          },
+          {
+            "type": "ref",
+            "id": "4333cbb5-7f4c-5c8e-bbad-afa6b6f2043b"
+          },
+          {
+            "type": "text",
+            "text": " reaction using a non-magical shield."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.xBf7GSdt555t7IAm"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1900
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "e65465c9-3c33-5809-9ac3-7522bc8523af",
+    "pack": "battlecry",
+    "kind": "consumable",
+    "slug": "consumable:pinpoint-arrowhead",
+    "name": "Pinpoint Arrowhead",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "whetstone"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This metal arrowhead is sharp at the tip but never draws the blood of its user. When you attempt a ranged Strike with a weapon under the effect of a "
+          },
+          {
+            "type": "text",
+            "text": "pinpoint arrowhead",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you treat any cover the target has as one degree less (for example, treat standard cover as lesser cover, and lesser cover as no cover)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.dpm95A5WroXlGMbG"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 44
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "3651dbf8-c109-53d0-8474-a1037c80881f",
+    "pack": "battlecry",
+    "kind": "consumable",
+    "slug": "consumable:preserving-shot",
+    "name": "Preserving Shot",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ammunition",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " any"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Resembling a large salt crystal, preserving shots are made to allow troops to more easily hunt for food on long marches. When a large or smaller animal is killed by a preserving shot, the meat is magically transformed into jerky, salt pork, or some other preserved form appropriate for the animal, allowing the hunter to quickly butcher it and resume their march without the need to smoke or cure the meat."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ZbI3V7ddjcKz1jch"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": "light",
+      "category": "ammunition"
+    }
+  },
+  {
+    "id": "6d618e04-a63b-5fdd-9ae0-e77852779cc7",
+    "pack": "battlecry",
+    "kind": "consumable",
+    "slug": "consumable:reactive-flash",
+    "name": "Reactive Flash",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "whetstone"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These whetstones are miniature stone replicas of weapons, such as a sword or an axe, though their function is the same regardless of their shape. When you attempt a Strike as a reaction (such as with a "
+          },
+          {
+            "type": "ref",
+            "id": "aecdd3d6-3593-554c-940c-34a4beadea87",
+            "label": "Readied"
+          },
+          {
+            "type": "text",
+            "text": " action or the "
+          },
+          {
+            "type": "ref",
+            "id": "2e75c400-24d4-5ae6-8568-e291a063a13d"
+          },
+          {
+            "type": "text",
+            "text": " reaction) using a weapon under the effect of a "
+          },
+          {
+            "type": "text",
+            "text": "reactive flash",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", the target must first succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 19
+          },
+          {
+            "type": "text",
+            "text": " save or be "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " against the attack."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.owOmSBSeNZ8Lp859"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 27
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "3eb30e54-5175-5a14-9c15-84de958b878c",
+    "pack": "battlecry",
+    "kind": "consumable",
+    "slug": "consumable:repeating-hand-crossbow-magazine",
+    "name": "Repeating Hand Crossbow Magazine",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["consumable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.xk9bw9ccupAIx7xT"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 9
+        }
+      },
+      "bulk": "light",
+      "category": "ammunition",
+      "uses": 5,
+      "ammunition": ["repeating-hand-crossbow-magazine"]
+    }
+  },
+  {
+    "id": "05d912ad-d90f-59a0-9e15-ea735d839483",
+    "pack": "battlecry",
+    "kind": "consumable",
+    "slug": "consumable:scouting-arrow",
+    "name": "Scouting Arrow",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ammunition",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " arrow, bolt"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The tip of this arrow is carved into the shape of a lidless eye. When an activated scouting arrow strikes a surface within the second range increment of the weapon it was fired from, the wielder of that weapon can "
+          },
+          {
+            "type": "ref",
+            "id": "d45207be-e539-50ce-9463-f4edc3671076"
+          },
+          {
+            "type": "text",
+            "text": " as though they were at the point of impact of the arrow using their normal senses. After this glimpse, the ammunition crumbles to ash."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.gogjNYjbw0rKUJ7r"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 85
+        }
+      },
+      "bulk": "light",
+      "category": "ammunition",
+      "ammunition": ["arrows", "bolts"]
+    }
+  },
+  {
+    "id": "aeb20f38-70e2-5ece-9fc9-35d49b8bb1bd",
+    "pack": "battlecry",
+    "kind": "consumable",
+    "slug": "consumable:slayers-stone",
+    "name": "Slayer's Stone",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "whetstone"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This dull red stone is shot through with glittering veins of black and silver. When you apply a "
+          },
+          {
+            "type": "text",
+            "text": "slayer's stone",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to your weapon, choose aberration, animal, beast, celestial, construct, dragon, elemental, fey, fiend, giant, monitor, ooze, or both fungus and plant. A weapon under the effect of a "
+          },
+          {
+            "type": "text",
+            "text": "slayer's stone",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " deals an additional 1d6 precision damage to the creatures with the chosen trait or traits for 1 minute. It's up to the GM's discretion whether this benefit applies against a creature disguised as a creature with the chosen trait or traits."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "aaa48c49-a934-5571-9e67-3745ecca6bb7"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.uBWC2YHCeAz0WejP"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 40
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "7de22c01-d85c-5359-a53b-239fbe98082c",
+    "pack": "battlecry",
+    "kind": "consumable",
+    "slug": "consumable:spellslasher",
+    "name": "Spellslasher",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "whetstone"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "spellslasher",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is made of faceted crystal, its edges sharp and oddly misaligned. When it's applied to a weapon, it attunes the weapon to magical energies, allowing it to slice through spells as though they were physical threads. While your weapon is under the effect of a "
+          },
+          {
+            "type": "text",
+            "text": "spellslasher",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you gain the Spellslash reaction; you can use this reaction only with the affected weapon, and the "
+          },
+          {
+            "type": "text",
+            "text": "spellslasher",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "'s effects end as soon as you use Spellslash."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Spellslash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (magical, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are the only target of a spell"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You swing or shoot your weapon to intercept the magic, attempting to counteract the spell. Your counteract rank is equal to half your level (rounded up), and your counteract check modifier is equal to your attack modifier with the affected weapon."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.4p5yYuHRhr0bcwgE"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1200
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "df24a788-3253-5c03-9656-ac4614303afc",
+    "pack": "battlecry",
+    "kind": "consumable",
+    "slug": "consumable:toothy-knife",
+    "name": "Toothy Knife",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "whetstone"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This jagged bit of metal is pitted and worn but wickedly sharp. The DC of the flat check to end persistent bleed damage dealt by a weapon under the effects of a "
+          },
+          {
+            "type": "text",
+            "text": "toothy knife",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is 17 (or 12 with appropriate assistance). This bleeding still typically ends on its own after 1 minute, as normal."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "36225662-9b8f-59a0-808a-0c950236cfbb"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.axX8gAJvIGWrmHJ0"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "cdc7c4bc-564c-5951-bf4d-d2239b9f8975",
+    "pack": "battlecry",
+    "kind": "consumable",
+    "slug": "consumable:toothy-knife-greater",
+    "name": "Toothy Knife (Greater)",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "whetstone"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This jagged bit of metal is pitted and worn but wickedly sharp. The DC of the flat check to end persistent bleed damage dealt by a weapon under the effects of a "
+          },
+          {
+            "type": "text",
+            "text": "greater toothy knife",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is 19 (or 14 with appropriate assistance). This bleeding still typically ends on its own after 1 minute, as normal."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "36225662-9b8f-59a0-808a-0c950236cfbb"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.A5pqQcVhPVtNc7Ol"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1100
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "f8f3ceae-46a6-5359-9e23-d76f405ec89b",
+    "pack": "battlecry",
+    "kind": "consumable",
+    "slug": "consumable:transmuting-ingot-adamantine",
+    "name": "Transmuting Ingot (Adamantine)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "whetstone"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A miniature ingot of metal hangs upon a leather cord, with deep weapon grooves on its surface. A weapon it's applied to counts as adamantine for physical damage it deals for 1 minute, depending on its type."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "841596e6-76b9-55b1-94aa-972d9effc1f5"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.LLz0OwCi13ZUQwhc"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 154
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "c53deb94-a7d7-5462-9437-f373bcb07418",
+    "pack": "battlecry",
+    "kind": "consumable",
+    "slug": "consumable:transmuting-ingot-cold-iron",
+    "name": "Transmuting Ingot (Cold Iron)",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "whetstone"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A miniature ingot of metal hangs upon a leather cord, with deep weapon grooves on its surface. A weapon it's applied to counts as cold iron for physical damage it deals for 1 minute, depending on its type."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "841596e6-76b9-55b1-94aa-972d9effc1f5"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.nQP4DaV2DihDZRmv"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "87f0caa1-3c9b-53ae-8d23-099571e7b987",
+    "pack": "battlecry",
+    "kind": "consumable",
+    "slug": "consumable:transmuting-ingot-silver",
+    "name": "Transmuting Ingot (Silver)",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "whetstone"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A miniature ingot of metal hangs upon a leather cord, with deep weapon grooves on its surface. A weapon it's applied to counts as silver for physical damage it deals for 1 minute, depending on its type."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "841596e6-76b9-55b1-94aa-972d9effc1f5"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.UpTnJeRbeviJNAFA"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "0c991be3-70b4-5ecc-b1db-180f45c4af5d",
+    "pack": "battlecry",
+    "kind": "consumable",
+    "slug": "consumable:valorous-coin",
+    "name": "Valorous Coin",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "whetstone"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Valorous coins are metal disks emblazoned with two crossed swords, with inscriptions exhorting bravery and optimism. The effects of a valorous coin last for 1 hour. During that time, if you're reduced below a quarter of your Hit Points while wielding the affected weapon, it empowers you with determination and resolve to finish the fight. You gain temporary Hit Points equal to your level that last for 1 minute, and you gain a +1 circumstance bonus to Strikes and damage rolls with the affected weapon for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "31720489-efeb-5eff-a480-4dcc6f79e9ff"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Once this minute ends, so do all effects and the remaining duration of the valorous coin, and you're "
+          },
+          {
+            "type": "ref",
+            "id": "5e3582c3-701c-5169-9c69-4221096722c2"
+          },
+          {
+            "type": "text",
+            "text": " until you're healed to your maximum Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.KIkLIYOKBiwd7mNd"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 90
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "ca5a44b0-c069-54a8-974a-42f4522d7705",
+    "pack": "battlecry",
+    "kind": "consumable",
+    "slug": "consumable:windstep-sheath",
+    "name": "Windstep Sheath",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "whetstone"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Carved of ash wood and decorated with images of clouds and gusting winds, a "
+          },
+          {
+            "type": "text",
+            "text": "windstep sheath",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a small icon shaped like a weapon sheath or quiver. This whetstone is favored by duelists who like to take their foe by surprise. When you use the "
+          },
+          {
+            "type": "ref",
+            "id": "89bf9d93-93b0-5e2d-a6e5-db2627b74b44"
+          },
+          {
+            "type": "text",
+            "text": " feat with a weapon under the effect of a "
+          },
+          {
+            "type": "text",
+            "text": "windstep sheath",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you can also Step as part of that action, either immediately before or after your Strike."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.LWS9CaCwSOpQYdYo"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 101
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

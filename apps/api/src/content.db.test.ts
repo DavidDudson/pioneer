@@ -144,6 +144,7 @@ describe.skipIf(adminUrl === undefined)('content routes (postgres)', () => {
     const responses = await Promise.all(files.map(async (file) => api.handle(get(`/content/bundles/${file}`))));
 
     expect(packs.map((pack) => String(pack.id))).toStrictEqual([
+      'battlecry',
       'character-guide',
       'core-rules',
       'dark-archive-remastered',

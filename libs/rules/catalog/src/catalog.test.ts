@@ -27,6 +27,7 @@ const warOfImmortals = PackId.parse('war-of-immortals');
 const mwangiExpanse = PackId.parse('mwangi-expanse');
 const impossibleMagic = PackId.parse('impossible-magic');
 const gunsAndGears = PackId.parse('guns-and-gears');
+const battlecry = PackId.parse('battlecry');
 const rageOfElements = PackId.parse('rage-of-elements');
 const secretsOfMagic = PackId.parse('secrets-of-magic');
 const tianXiaCharacterGuide = PackId.parse('tian-xia-character-guide');
@@ -42,6 +43,7 @@ describe('content catalog', () => {
     const registry = new ContentRegistry();
     await Promise.all(contentCatalog.map(async (loader) => registry.load(loader)));
     expect(registry.packs.map((pack) => pack.id).toSorted()).toStrictEqual([
+      battlecry,
       characterGuide,
       coreRules,
       darkArchiveRemastered,

@@ -1,0 +1,8075 @@
+[
+  {
+    "id": "9195d43b-998a-537f-99ff-92781ca09949",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-aesir-blood-magic",
+    "name": "Effect: Aesir Blood Magic",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "eaf34342-d81e-56dd-a2de-79fa2fa5bdba"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus to Reflex saving throws."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:reflex"],
+        "type": "status",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.L8m3L4MCGDZJISp0"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "d74c6697-c3eb-5807-9da0-05ed57a8786d",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-aldori-swordlord-temporary-hit-points",
+    "name": "Effect: Aldori Swordlord (Temporary Hit Points)",
+    "level": 20,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c6b9a4d2-a32d-54b9-8959-46f7c0afff7f"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.eJyyBqrXLOE4R9JI"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "0b0641d3-58fb-5553-9a06-5909b244bcb1",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-ankhrav-carapace",
+    "name": "Effect: Ankhrav Carapace",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "ea13be19-c5bb-5f85-ae7e-35b41c384e58"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a burrow Speed equal to half your Speed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:burrow",
+        "mode": "upgrade",
+        "value": "floor(@stat.speed.land / 2)"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.KE4ahbTX3DufZKXP"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "1279ad3d-4d85-5b69-8751-d0e011b5425a",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-arcane-standard",
+    "name": "Effect: Arcane Standard",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "b31054b5-a8b8-595d-8790-8c830784e071"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "231ecf05-0f61-53db-acef-27013a433f0e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain weakness to acid, cold, electricity, fire, or sonic damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "damage",
+        "choices": [
+          {
+            "value": "acid",
+            "label": "Acid"
+          },
+          {
+            "value": "cold",
+            "label": "Cold"
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "sonic",
+            "label": "Sonic"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.bQZLdVsSrDhYkfrO"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "97227b94-def6-50e1-bc46-7bc430a111ef",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-archons-aegis",
+    "name": "Effect: Archon's Aegis",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance 20 to all damage against the triggering damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["all"],
+        "value": 20
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.w74r3xO0rsowT5ra"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "d11e85a7-a9ac-50aa-9b16-11cc396dabe3",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-area-armor",
+    "name": "Effect: Area Armor",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "da0d0089-d777-5e22-8303-bc4048c4daed"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to Reflex saves against area effects. If the origin is a master in their armor, the bonus is +2 instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:reflex"],
+        "type": "circumstance",
+        "value": 1,
+        "slug": "area-armor",
+        "predicate": ["option:area-effect"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["save:reflex"],
+        "slug": "area-armor",
+        "mode": "upgrade",
+        "value": 2,
+        "predicate": ["parent:tag:master-armor"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.98ChTLCwnGo9ksZq"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "b6a1118b-c1a4-5947-b776-614eda711a81",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-armored-courage",
+    "name": "Effect: Armored Courage",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "10075df5-25be-5290-b6d4-a66a63a8813f"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a number of temporary Hit Points equal to your level."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@level"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.Ddp2VNh2ldMhWJGQ"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "ff41a5c8-68ad-5b89-a340-3ed9eceb0a64",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-bad-deal",
+    "name": "Effect: Bad Deal",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You must roll your next attack roll, saving throw, or skill check twice and use the worse result."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.U37oY6akeNfTtgLk"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "96dc19ee-dfc7-5d9b-8d25-7f2207fa0e8b",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-banner-of-the-restful",
+    "name": "Effect: Banner of the Restful",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "e7f56897-bc6e-52ee-a743-8d673f6555b6"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "46dd1e18-ec37-52ae-9d09-ba6ff566205b"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "28ffa5b6-f546-5c78-8d67-6d09a87b354d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain an item bonus to Perception DCs."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception-dc"],
+        "type": "item",
+        "value": 1
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["perception-dc"],
+        "mode": "upgrade",
+        "value": 2,
+        "predicate": ["parent:tag:greater-banner-of-the-restful"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["perception-dc"],
+        "mode": "upgrade",
+        "value": 3,
+        "predicate": ["parent:tag:major-banner-of-the-restful"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.pqXu9dJaIMw3yOdc"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "cb0d3542-c2bb-5b04-bb4d-c4519850fb90",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-be-the-band",
+    "name": "Effect: Be the Band",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "5aedbd99-5eec-5048-b6d4-ecedcf1d89d0"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain 15 temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 15
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.vO8lhZvkN8u5MCqg"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "3fe73893-c584-563a-9b33-266b6a5b1a47",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-be-the-band-sustain",
+    "name": "Effect: Be the Band (Sustain)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "5aedbd99-5eec-5048-b6d4-ecedcf1d89d0"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain 5 temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.2nO2p8n3j5t6MINY"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "64002ac5-5bd0-59f1-bc3a-3b1028b4b8b2",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-bedroll-of-deep-slumber",
+    "name": "Effect: Bedroll of Deep Slumber",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "16052cd9-69c9-5375-b3da-8936c2241e20"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain 5 temporary hit points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.PUCeFY8Ps0CP3w2g"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "48f4f468-56ba-5e7b-acf8-ea12498bd3c3",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-bismuth-armor",
+    "name": "Effect: Bismuth Armor",
+    "level": 13,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "fdd43685-02ab-5f5a-a096-4b04949a09bc"
+          },
+          {
+            "type": "text",
+            "text": " via Ephemeral Effect"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If your attack against the origin misses, you become dazzled for 1 round."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["attack"],
+        "title": "Effect: Bismuth Armor",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "If the attack misses, the spell reflects toward the caster, who becomes Dazzled for 1 round."
+              }
+            ]
+          }
+        ],
+        "outcome": ["criticalFailure", "failure"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.tiJwcsZeWeS3FttZ"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "a5792f83-93fd-5563-b6f5-7ae2e6167bb1",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-blanket-defense",
+    "name": "Effect: Blanket Defense",
+    "level": 14,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "46a4c5d8-7faf-52dd-a424-fe6483008739"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the origin's shield circumstance bonus to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.D32aR6cVq0YyHEP6"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "402c2bf1-cb9e-5325-bdc8-51bbfb788fc5",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-blazing-banner",
+    "name": "Effect: Blazing Banner",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "da3edc9d-fd07-51e4-b18f-f9f7522fe568"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "03d3feda-37a9-5f30-af40-8bff484c13f2"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "f520d21a-d666-5771-a1bb-6c409a598749"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whenever you critically succeeds with a Strike, the Strike deals additional persistent fire damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "slug": "blazing-banner",
+        "diceNumber": 1,
+        "dieSize": "d4",
+        "damageType": "fire",
+        "category": "persistent",
+        "critical": true
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.7FPIQyPcq2R4L1ZQ"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "43afb0be-d573-53bb-9228-6d77c8d81edf",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-blood-soak-redcap-brigade",
+    "name": "Effect: Blood Soak (Redcap Brigade)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The redcap brigade gains a status bonus to damage rolls for 1 minute. The bonus is +2 if they spend one action on Bloody Reaping, +6 if they spend two actions, or +8 if they spend 3 actions. They gain a +4 status bonus to damage rolls with Bowl Over and Stomp."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["inline-damage"],
+        "type": "untyped",
+        "value": 2,
+        "slug": "bloody-reaping-one-action-bonus",
+        "predicate": ["option:bloody-reaping-one"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["inline-damage"],
+        "type": "untyped",
+        "value": 6,
+        "slug": "bloody-reaping-two-action-bonus",
+        "predicate": ["option:bloody-reaping-two"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["inline-damage"],
+        "type": "untyped",
+        "value": 8,
+        "slug": "bloody-reaping-three-action-bonus",
+        "predicate": ["option:bloody-reaping-three"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["inline-damage"],
+        "type": "untyped",
+        "value": 4,
+        "slug": "bowl-ower-and-stomp-bonus",
+        "predicate": ["option:bowl-ower-and-stomp"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.mR8kN3pQ7vW2xBcF"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "e75cf9e5-5755-571a-a845-7ba65d2ae46a",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-bodyguard",
+    "name": "Effect: Bodyguard",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "fa29bf7a-7eb1-57c0-b340-6d1a55f8ac8a"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When the target of the origin's Taunt makes an attack roll against you, or you attempt a saving throw against an action from that target, their circumstance penalty increases to –2."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.6QFg5v5iW4I3rcAm"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "day",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "a9798e68-1570-5ef4-90a5-ed19503b28c2",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-bodyguard-penalty",
+    "name": "Effect: Bodyguard (Penalty)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "fa29bf7a-7eb1-57c0-b340-6d1a55f8ac8a"
+          },
+          {
+            "type": "text",
+            "text": " via Ephemeral Effect"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your attack roll penalty from Taunt against the target increases to –2."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["attack-roll"],
+        "slug": "taunt-attack-roll",
+        "mode": "downgrade",
+        "value": -2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.e1iDfrbJnqp1p4UD"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "b4abcde7-970d-577b-aa88-39d9238baaf2",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-bragging-rights-failure-or-worse",
+    "name": "Effect: Bragging Rights (Failure or Worse)",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "93c0dd7e-afc2-54d0-860e-aa94beb08960"
+          },
+          {
+            "type": "text",
+            "text": " on Failure or Critical Failure"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You and allies take status penalty to attack rolls against the target."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-bragging-rights-failure-or-worse",
+        "choices": [
+          {
+            "value": "failure",
+            "label": "Failure"
+          },
+          {
+            "value": "critical-failure",
+            "label": "Critical Failure"
+          }
+        ],
+        "prompt": "Select the degree of success.",
+        "rollOption": "bragging-rights"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.PJUNqF2k9x8IiZhb"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "8514c5df-37b8-556b-aba8-5e089c67daf9",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-bragging-rights-status-bonus",
+    "name": "Effect: Bragging Rights (Status Bonus)",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "93c0dd7e-afc2-54d0-860e-aa94beb08960"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to attack rolls against the target."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["target:enemy"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.AnpRfQm6dFSa9e8t"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "bd16fc60-6e4f-5707-a369-da1708cfaf8e",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-bragging-rights-status-penalty-critical-failure",
+    "name": "Effect: Bragging Rights (Status Penalty Critical Failure)",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "93c0dd7e-afc2-54d0-860e-aa94beb08960"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a -2 status penalty to attack rolls against the target."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll"],
+        "type": "status",
+        "value": -2,
+        "predicate": ["target:enemy"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.ZnJhU0SIlE3DCxZB"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "9fde4a1a-9a4c-5d14-877d-6f564b6af3f4",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-bragging-rights-status-penalty-failure",
+    "name": "Effect: Bragging Rights (Status Penalty Failure)",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "93c0dd7e-afc2-54d0-860e-aa94beb08960"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a -1 status penalty to attack rolls against the target."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll"],
+        "type": "status",
+        "value": -1,
+        "predicate": ["target:enemy"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.WsFkAE6J704k4Tt3"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "25c200d3-9ddc-5923-82d7-e65612b3719a",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-bragging-rights-success-or-better",
+    "name": "Effect: Bragging Rights (Success or Better)",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "93c0dd7e-afc2-54d0-860e-aa94beb08960"
+          },
+          {
+            "type": "text",
+            "text": " on a Success or a Critical Success"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You and allies gain a +1 status bonus to attack rolls against the target."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.wlxxUXlTB8J8BCzF"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "808c59a2-f623-5b71-86e9-92784d59bd21",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-call-to-arms",
+    "name": "Effect: Call to Arms",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "7811311d-6be6-5dc2-8fcf-fe5f6d00689b"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to saving throws."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.EfjkHfrNUsmCoNl4"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "793aaf5b-d7fe-5ee0-a975-2e390c49b87a",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-chivalric-emblem",
+    "name": "Effect: Chivalric Emblem",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f526aebd-2489-59af-a128-568274da93b9"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to attack rolls and damage with the selected weapon."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll", "damage"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["target:mark:chivalric-emblem"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.iIC9uGfg0rnYSRZ2"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "676201b2-a73b-5cd9-a138-864ac8b379ae",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-command-cuirass",
+    "name": "Effect: Command Cuirass",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "8b7aa0e6-c251-5e5c-8f6c-c9bcbe049809"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to Diplomacy and Intimidation checks."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy", "skill:intimidation"],
+        "type": "status",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.T9dTK6oNzA6utSLj"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "e004a505-8012-514e-99c0-659455661412",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-commandants-scabbard",
+    "name": "Effect: Commandant's Scabbard",
+    "level": 17,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "3088ba4c-19d5-53ab-aaad-42636d12f9de"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +4 status bonus to damage with the selected weapon."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.elbRo41iHweUkXtJ"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "f13d4800-8330-5a9a-b4c7-4c3aa73c18ea",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-commanders-banner",
+    "name": "Effect: Commander's Banner",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "90d281cd-6b90-5ab8-a2cb-0be8739f40fd"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to Will saves and DCs against fear effects. If the origin has the Glorious Banner feat, this bonus increases to +2, and you gain a +1 status bonus to AC, Fortitude saves, and Reflex saves."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "fortitude-dc", "reflex-dc", "save:will"],
+        "type": "status",
+        "value": 1,
+        "slug": "commanders-banner-fear",
+        "predicate": ["item:trait:fear"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:reflex", "save:fortitude", "ac"],
+        "type": "status",
+        "value": 1,
+        "slug": "commanders-banner-glorious-banner",
+        "predicate": ["parent:tag:glorious-banner"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["ac", "fortitude-dc", "reflex-dc", "will"],
+        "slug": "commanders-banner-fear",
+        "mode": "upgrade",
+        "value": 2,
+        "predicate": ["parent:tag:glorious-banner"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.JZWi6512m9RlMrNO"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "42561bf6-3b87-5b45-8167-41cfd646e30a",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-commanding-draw",
+    "name": "Effect: Commanding Draw",
+    "level": 17,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "3088ba4c-19d5-53ab-aaad-42636d12f9de"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You roll twice and take the better result with the selected weapon."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.dpoQrtDsUeEILBJ3"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "047a7d6d-8f64-5fe6-8f12-e29eac6cf387",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-convert-arrows",
+    "name": "Effect: Convert Arrows",
+    "level": 11,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "b9ed425a-6342-541b-aeff-20ef46e8cc34"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "c0197ca3-c465-5f18-84af-10fd9f43f27f"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your Strikes using arrows are considered adamantine, cold iron, dawnsilver, or silver."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.YUj8kxyGTWRbbyBu"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "6221d830-d601-518d-90f8-c7a9db449738",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-cornucopia-of-plenty",
+    "name": "Effect: Cornucopia of Plenty",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "a9d7de32-0592-5162-91f7-a79c868f5433"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain 5 temporary Hit Points"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.c7Bzxc5gxkRfXNme"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "5c134740-57a4-5672-a7a9-47327b009abe",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-dagger-defense",
+    "name": "Effect: Dagger Defense",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The archer regiment gains a +1 circumstance bonus to AC until the beginning of their next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.VJj190x4E8Xayg0O"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "aa5e24f0-a5d2-53d4-b155-772d2e68889e",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-dawnfire-beacon-major",
+    "name": "Effect: Dawnfire Beacon (Major)",
+    "level": 13,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "61264459-a73a-5a10-8431-071114c868ba"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to saving throws against unholy effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["item:trait:unholy"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.1k4tfR8wHeaW6ahR"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "c18022c4-21fe-5f4e-aa49-9f3d5a1c29a6",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-deep-sea-plate",
+    "name": "Effect: Deep Sea Plate",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "58f42d32-e655-5c5c-a8e0-95932a495cf9"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a swim Speed equal to half your Speed while in depths of 500 feet or less."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:deep-sea-plate",
+        "toggleable": true,
+        "value": true
+      },
+      {
+        "key": "Change",
+        "selector": "speed:swim",
+        "mode": "upgrade",
+        "value": "floor(@stat.speed.land / 2)",
+        "predicate": ["option:deep-sea-plate"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.g3jJKZ36kF3YHFtU"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "69f1bece-c03d-558b-80e7-d063a2433909",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-defense-of-liberty",
+    "name": "Effect: Defense of Liberty",
+    "level": 12,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "08728bff-263e-5738-89fa-876a12e9000d"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "b12a9aec-46f9-5a2e-a450-405d29f26d04"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to AC against the triggering attack."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.51PsXKJFe6XQ9WEX"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "62faa145-e362-52df-85d4-2913815c2416",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-defiant-banner",
+    "name": "Effect: Defiant Banner",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "87a8d574-6828-5bc4-9b4d-7f13c013e81f"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance to bludgeoning, piercing, and slashing damage equal to the origin's Intelligence modifier."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.Zy7rrPCgMTeSzKj9"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "4e34c955-d559-5d7a-b61c-823674bac8e0",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-demoralizing-charge",
+    "name": "Effect: Demoralizing Charge",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "a3523801-4045-57b4-b764-fb33e336c716"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a circumstance penalty to your Will save."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.91qBP1n04xsKeXkE"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "2ab6642b-bb48-5924-8e07-8557d939685c",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-dismal-harvest",
+    "name": "Effect: Dismal Harvest",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "6c25831a-bfb7-54a5-9b3e-117ce13018e1"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "10 + ceil((@level - 6) / 2) * 5"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.nb2Qy9XpdH4X3yQl"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "9ad15526-9054-5f75-87a1-dcc6e099619d",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-do-no-harm",
+    "name": "Effect: Do No Harm",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "9617fffc-05af-52a9-9e08-bb43a5266cf4"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "7a250aee-5bcd-590f-88d6-66d6ece21659"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a status penalty to damage rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["damage"],
+        "type": "status",
+        "value": -4,
+        "slug": "medics-armband"
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["damage"],
+        "slug": "medics-armband",
+        "mode": "downgrade",
+        "value": -8,
+        "predicate": ["medics-armband:medics-armband-greater"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.BEou3aEkDXsQaTp3"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "4e39b07f-fa18-5fd7-b9cf-f387ecc283b3",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-ethereal-crescent",
+    "name": "Effect: Ethereal Crescent",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "108d33a5-c321-544c-a28c-6a4c606c90b3"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "d9caafd5-0b59-52ee-b0df-9f6e2203ba28"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your weapon gains the effects of a "
+          },
+          {
+            "type": "text",
+            "text": "ghost touch",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune, or "
+          },
+          {
+            "type": "text",
+            "text": "astral",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune if granted by a "
+          },
+          {
+            "type": "text",
+            "text": "greater ethereal crescent.",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.Vk9Fwo0Xl1EF9fEF"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "eed3c40e-e54a-596e-9149-17adc4989a82",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-extra-warming",
+    "name": "Effect: Extra Warming",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "2328da5c-1f06-5752-b2ad-f0cae10b4af1"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance 3 to cold damage and take a –2 item penalty to Perception checks."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["cold"],
+        "value": 3
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "item",
+        "value": -2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.XlCcp2Jlwteqpm3z"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "a5a10f1b-c3b1-5c42-b710-f9ae2554d6be",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-featherlight-fletching",
+    "name": "Effect: Featherlight Fletching",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "6b6e66e3-6858-5b2b-a193-28600e18bf41"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your selected ranged weapon doubles its range increment."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.WXVOuzbFCs7rGpF9"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "a6b7e6b6-97b9-5798-8a25-f16050becc16",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-fight-on",
+    "name": "Effect: Fight On",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "cc395b5c-1951-5cb2-90b3-7605db4a53e9"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus to saving throws against fear effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["item:trait:fear"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.pXHLq8EZyxGBhHSL"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "d2bb9a6a-97f8-55be-8b62-fda908f50845",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-flutter-net",
+    "name": "Effect: Flutter Net",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "dbac73dd-dbde-5fd9-ad61-4ed75fd4e483"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 item bonus to saving throws against effects originating from swarms."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["origin:trait:swarm"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.R1qtHjX6esNgNash"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "837d1637-4d1b-5bcb-bf5b-56a9f6e1ea2f",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-fortunate-blow",
+    "name": "Effect: Fortunate Blow",
+    "level": 12,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "e8cde36d-b617-5c33-a77d-e9a6e427ea7f"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You roll twice on your next attack roll against the marked target and take the higher result."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollTwice",
+        "selectors": ["attack-roll"],
+        "keep": "higher",
+        "predicate": ["target:mark:fortunate-blow"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.x9xNnTl1sRGCqthu"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "56ba0bd6-f12f-598d-9bbe-232e65fb3116",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-forward-march",
+    "name": "Effect: Forward March!",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "b01585e3-9539-5a4a-ab7e-c0ee4447cdc4"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus to your initiative rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["initiative"],
+        "type": "status",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.rKDTseFqWUuMJX9p"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "ef0ed44b-8472-5137-983c-d332dce23460",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-fueled-by-spite",
+    "name": "Effect: Fueled by Spite",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The battalion gains 6 temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 6
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.yeK8zmBJvam75Fp7"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "5e1c5046-c131-5ca8-9119-8d55932bdab1",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-gasp-for-air",
+    "name": "Effect: Gasp for Air",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "67863dcc-c865-5d2a-859f-f62812a9b662"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a 10-foot swim Speed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:swim",
+        "mode": "upgrade",
+        "value": 10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.rkirKFneWDdCjU7a"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "8616212a-fbad-5712-b498-6e1394440605",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-glorious-banner",
+    "name": "Effect: Glorious Banner",
+    "level": 20,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "05c5fa9f-d843-5c9e-8038-d3e5c6078db9"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –2 status penalty to Will saves as long as you can see the origin's banner."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:glorious-banner",
+        "toggleable": true,
+        "value": true,
+        "display": {
+          "label": "Glorious Banner — Commander's banner in sight"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:will"],
+        "type": "status",
+        "value": -2,
+        "predicate": ["option:glorious-banner"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.8x5T5e5Gzh3NJ86H"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "2b9a63e6-0ca4-540a-9211-e120bc88cb9c",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-guard-charge",
+    "name": "Effect: Guard Charge",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gains a +2 circumstance bonus to you AC, Reflex saves, and saves against fear when you are adjacent to the viking guard."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "save:reflex"],
+        "type": "circumstance",
+        "value": 2,
+        "slug": "guard-charge-defense-bonus"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 2,
+        "slug": "guard-charge-fear-bonus",
+        "predicate": ["item:trait:fear"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.qTbVcHLfFDuyJTTG"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "87933a02-e2cd-511f-8d9f-a18b4d358118",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-guiding-shot",
+    "name": "Effect: Guiding Shot",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "2df8f0ed-b95e-5dcd-a0fa-6882c460a412"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus against the marked target, or a +2 circumstance bonus if the origin's Strike was a critical hit."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.21pCT4n3Aixyvp4h"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "1e319260-49a5-5c66-8bc6-df36abd9b2ba",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-hampering-fusillade",
+    "name": "Effect: Hampering Fusillade",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –10-foot circumstance penalty to your Speed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["speed"],
+        "type": "untyped",
+        "value": -10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.3bAtqn2WPSqxCYPY"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "69fd8f94-33b4-5e56-9d74-1d6b57964146",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-hand-chords",
+    "name": "Effect: Hand Chords",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "dff5f4e7-d5f6-58ee-ac96-3d42ac529a55"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to the next attack roll, Perception check, saving throw, or skill check you attempt."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.UrNdfN1da9V3aFM4"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "92e80e27-278f-54cb-9d9b-4c2a371ee0ec",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-hand-of-mercy",
+    "name": "Effect: Hand of Mercy",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "d0b3ffc6-7767-55b5-b4da-b4e8dfcc8ce0"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your weapon gains the nonlethal trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.hyyVAOi1My9PKKqo"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "deb2055e-f3cc-59f7-8021-e2fc0cb55de2",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-harden-chitin",
+    "name": "Effect: Harden Chitin",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The horde gains resistance 10 to all damage (except mental and spirit)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["all"],
+        "value": 10,
+        "exceptions": ["mental", "spirit"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.kcsn4iCOkl9KaFQx"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "73beb48b-fdf4-587f-a957-eb330a2d2002",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-hasty-traps",
+    "name": "Effect: Hasty Traps",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –5-foot status penalty to your Speeds as long you take persistent bleed damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["speed"],
+        "type": "status",
+        "value": -5,
+        "predicate": ["self:condition:persistent-damage:bleed"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.JUo3BTRaRHkL9ZBC"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "df7f2194-56e9-59fd-bb4a-7dc0a0f6cf7f",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-heads-up",
+    "name": "Effect: Heads Up!",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "7788d91e-24ee-59c6-b75c-d82d9ca1fb0d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to saving throws and AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "saving-throw"],
+        "type": "circumstance",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.yPgxSoEilFI7tTPZ"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "f3723aab-7538-5a5b-8d81-94807e45d50c",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-hexwise-banner",
+    "name": "Effect: Hexwise Banner",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance 5 to damage from spells; for spells that apply multiple instances of damage, such as "
+          },
+          {
+            "type": "ref",
+            "id": "1c97409b-bd67-5df2-a7d3-a49aff4d3896"
+          },
+          {
+            "type": "text",
+            "text": ", this applies only to the first instance of damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.OokULq8Ubpw9PzKr"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "4ea5d8c0-0f18-56c3-af26-d6a5d165a12d",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-hexwise-banner-major",
+    "name": "Effect: Hexwise Banner (Major)",
+    "level": 20,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance 10 to damage from spells; for spells that apply multiple instances of damage, such as "
+          },
+          {
+            "type": "ref",
+            "id": "1c97409b-bd67-5df2-a7d3-a49aff4d3896"
+          },
+          {
+            "type": "text",
+            "text": ", this applies only to the first instance of damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.oqdxD6NhawryOAOr"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "e9db5256-8cd6-5839-ac45-5739da99eda5",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-hobble-pursuit",
+    "name": "Effect: Hobble Pursuit",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a circumstance penalty to your Speeds. On a Failure or Critical Failure, you are Slowed 1"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-hobble-pursuit",
+        "choices": [
+          {
+            "value": "success",
+            "label": "Success"
+          },
+          {
+            "value": "failure",
+            "label": "Failure"
+          },
+          {
+            "value": "critical-failure",
+            "label": "Critical Failure"
+          }
+        ],
+        "prompt": "Select the degree of success.",
+        "rollOption": "hobble-pursuit"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "circumstance",
+        "value": -5,
+        "slug": "hobble-pursuit-penalty"
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["all-speeds"],
+        "slug": "hobble-pursuit-penalty",
+        "mode": "override",
+        "value": -10,
+        "predicate": ["hobble-pursuit:failure"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["all-speeds"],
+        "slug": "hobble-pursuit-penalty",
+        "mode": "override",
+        "value": -15,
+        "predicate": ["hobble-pursuit:critical-failure"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+        "predicate": [
+          {
+            "or": ["hobble-pursuit:critical-failure", "hobble-pursuit:failure"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.lvK0DAuTYOnT6E5f"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "cdaff6dc-30c8-5408-b9ee-e7c292c5ead0",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-hobgoblin-phalanx",
+    "name": "Effect: Hobgoblin Phalanx",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The regiment gains a +2 circumstance bonus to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.5fQ0GU0sVIh1TzRA"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "be131253-7de6-5c99-90e5-8f3417d1dbf2",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-inspirational-salute",
+    "name": "Effect: Inspirational Salute",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "898e6e08-9b43-54da-9a1d-e383edaecd97"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to damage rolls and saves against fear effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["item:type:fear"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.jFCNPTgcIouJ6EsC"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "5f49d18b-1ee3-5f83-9aef-b5810a8038ff",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-invented-vulnerability",
+    "name": "Effect: Invented Vulnerability",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "5d99664d-2c29-5a92-a2c2-a2f11d3e0313"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain weakness to the selected damage type."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.nOYXxWUT9i3z75GI"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "c537cba8-149a-5181-8c26-a7d16e024036",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-invincible-army",
+    "name": "Effect: Invincible Army",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "6cd86cb8-4a36-54e2-9f03-f96fabc1f5af"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance 5 to bludgeoning, piercing, or slashing damage if the check was against the hard DC. if the check is against a very hard DC, then you gain resistance to two damage types, adding acid, fire, cold, electricity, and sonic to the damage types."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-invincible-army",
+        "choices": [
+          {
+            "value": "hard",
+            "label": "hard"
+          },
+          {
+            "value": "very-hard",
+            "label": "very hard"
+          }
+        ],
+        "prompt": "Select an adjustment",
+        "rollOption": "invincible-army"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "invincible-army-damage-first",
+        "choices": [
+          {
+            "value": "acid",
+            "label": "Acid",
+            "predicate": ["invincible-army:very-hard"]
+          },
+          {
+            "value": "bludgeoning",
+            "label": "Bludgeoning"
+          },
+          {
+            "value": "cold",
+            "label": "Cold",
+            "predicate": ["invincible-army:very-hard"]
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity",
+            "predicate": ["invincible-army:very-hard"]
+          },
+          {
+            "value": "piercing",
+            "label": "Piercing"
+          },
+          {
+            "value": "slashing",
+            "label": "Slashing"
+          },
+          {
+            "value": "sonic",
+            "label": "Sonic",
+            "predicate": ["invincible-army:very-hard"]
+          }
+        ],
+        "prompt": "Select a damage type.",
+        "rollOption": "damage-selection"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.uqtXEAWwHhA2xShg"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "3a2cdfca-b97f-5b43-8612-ca7b1d96dc80",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-it-cant-hurt-you",
+    "name": "Effect: It Can't Hurt You",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "7736bafd-25b6-58cc-85fd-2ca67e391f73"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to your saving throw against a fear effect."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.ghQ6Bmlycf9DVSll"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "a3553ecf-691d-5856-b3ff-05a84215e3c5",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-keep-up-the-good-fight",
+    "name": "Effect: Keep Up the Good Fight",
+    "level": 14,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "2145fbea-9858-556a-96ee-78ef2e33f16a"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points equal to your level."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@level"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.AwJBbxeoE0YhmT57"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "a977ae1e-714b-5354-a673-3f2eff805d24",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-knaves-standard",
+    "name": "Effect: Knave's Standard",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "b718d9ea-76c3-5d9a-9b2c-3ef044de0852"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "be5b3502-a8db-5754-96cd-b9114564e393"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "d30d0757-fe72-5dcd-9e14-a6696e98b2cc"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whenever you critically succeed with a Strike against an off-guard target, the Strike deals additional precision damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "slug": "knaves-standard",
+        "diceNumber": 1,
+        "dieSize": "d4",
+        "category": "precision",
+        "critical": true,
+        "predicate": ["target:condition:off-guard"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.mGozE5ZdZlQiIr8y"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "bdd75eb9-eb09-5635-afa7-c12d85139a53",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-lesson-of-the-broken-wing",
+    "name": "Effect: Lesson of the Broken Wing",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c014d027-22fa-5d6c-99e9-df5d0c128050"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you're the origin, you take a –1 penalty to your AC against the marked creature's Strikes. Otherwise, you gain a +1 circumstance bonus to your Strikes against the creature."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.U7gwOeKsIsz2zhDE"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "aa1a00f5-a0d4-547d-82d5-957eb08b6cb7",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-lesson-of-the-splintered-aegis",
+    "name": "Effect: Lesson of the Splintered Aegis",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "10c8e8a9-e971-5720-a082-08620edda16d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can roll your next Strike or spell attack roll against the target twice and take the better result."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollTwice",
+        "selectors": ["attack-roll", "spell-attack-roll"],
+        "keep": "higher"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.QhUiGUBuCV1bSu1q"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "d3654dd7-e84b-5de7-9a54-d54ca86af6fb",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-lifting-leather",
+    "name": "Effect: Lifting Leather",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "fa29634b-a329-5c34-9a6b-ac5c1f09df64"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to Athletics checks to Disarm, Reposition, Shove, and Trip."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "status",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["action:disarm", "action:reposition", "action:shove", "action:trip"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.UQP2A7EMKIKPMQxK"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "7f5bb33e-5978-592c-8350-fa2d084e6235",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-living-shields",
+    "name": "Effect: Living Shields",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.NXnngvaJXHtskVjU"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "c4f12e04-a4a0-5a2b-9067-1245771dae37",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-mighty-counterweight",
+    "name": "Effect: Mighty Counterweight",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1166fe60-9236-5ded-925c-8ff637044183"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your weapon deals an amount of additional bludgeoning damage equal to the number of weapon damage dice."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.P7cVUjF59y0XHmLw"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "3e503573-bb05-513c-88d6-b07ab5d36ef5",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-mirrored-wall",
+    "name": "Effect: Mirrored Wall",
+    "level": 15,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "ada43590-401b-5b7f-85f0-2f7f2f078acc"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a circumstance penalty to your Fortitude save."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.IIjE6NOYpOfRuCBR"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "4620f0d4-2009-58a9-84df-b5561e104b37",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-morph-jewel",
+    "name": "Effect: Morph Jewel",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "8e416407-80d6-5787-a5eb-747d14795b9e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose bludgeoning, piercing, or slashing. Your weapon's damage becomes that type for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.ihZsJpB9v90EFQSG"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "5637d897-3c50-58ec-b50a-753027d8fc17",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-mountaineering-training",
+    "name": "Effect: Mountaineering Training",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "34398c9f-1eff-51c8-9314-b070b8011e5c"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a climb Speed of 20 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:climb",
+        "mode": "upgrade",
+        "value": 20
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.IPznWmsoaoT2zhgU"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "67ec757d-975a-5ea4-9aa8-81d556d577f2",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-naval-training",
+    "name": "Effect: Naval Training",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "2ef8c76d-8634-5075-a8f4-cf26c5afb9a1"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a swim Speed of 20 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:swim",
+        "mode": "upgrade",
+        "value": 20
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.LCU3Lv6ojuTl4DSY"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "d011788d-0ffd-5179-b213-43dab0b2fa48",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-overconfident-facade",
+    "name": "Effect: Overconfident Facade",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "a3828246-cfc7-5f64-9970-6d7d83bf8b8d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "you gain a +1 item bonus to Intimidation checks to Demoralize and Diplomacy checks to Make an Impression, but a –1 item penalty on Acrobatics and Athletics checks"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "item",
+        "value": 1,
+        "slug": "overconfident-facade-bonus",
+        "predicate": [
+          {
+            "or": ["action:demoralize", "action:make-an-impression"]
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics", "skill:acrobatics"],
+        "type": "item",
+        "value": -1,
+        "slug": "overconfident-facade-bonus"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.I0dtunqG9psJpc64"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "90ec5b7f-70dd-5b9c-8091-65de4c799070",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-pennant-of-victory",
+    "name": "Effect: Pennant of Victory",
+    "level": 20,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "d86d1fc4-6259-5bc7-88d4-f9615590422e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +4 status bonus to attack and damage rolls, a +10-foot status bonus to all your Speeds, and 40 temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll", "damage"],
+        "type": "status",
+        "value": 4,
+        "slug": "pennant-of-victory-attack-damage"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "status",
+        "value": 10,
+        "slug": "pennant-of-victory-speeds"
+      },
+      {
+        "key": "TempHP",
+        "value": 40
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.aQkzGG9RCII50a4b"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "a10daa15-e440-5cb5-84ee-adc621adab6e",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-perfect-protection",
+    "name": "Effect: Perfect Protection",
+    "level": 18,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "e68fe896-7455-544f-9771-6ce76bd26299"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you critically hit the origin, they roll a DC 14 flat check. On a success, it becomes a normal hit. If the origin's armor has a fortification rune, they roll only one flat check, but the DC is 12 (or 10 if it's a greater fortification rune)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["strike-attack-roll"],
+        "title": "Perfect Protection",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Each time you're critically hit, attempt a "
+              },
+              {
+                "type": "check",
+                "statistic": "flat",
+                "dc": 14
+              },
+              {
+                "type": "text",
+                "text": ". On a success, it becomes a normal hit."
+              }
+            ]
+          }
+        ],
+        "outcome": ["criticalSuccess"],
+        "predicate": ["parent:tag:dc-14"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["strike-attack-roll"],
+        "title": "Perfect Protection",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Each time you're critically hit, attempt a "
+              },
+              {
+                "type": "check",
+                "statistic": "flat",
+                "dc": 12
+              },
+              {
+                "type": "text",
+                "text": ". On a success, it becomes a normal hit. If your armor has a fortification or greater fortification rune, you roll only one flat check."
+              }
+            ]
+          }
+        ],
+        "outcome": ["criticalSuccess"],
+        "predicate": ["parent:tag:dc-12"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["strike-attack-roll"],
+        "title": "Perfect Protection",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Each time you're critically hit, attempt a "
+              },
+              {
+                "type": "check",
+                "statistic": "flat",
+                "dc": 10
+              },
+              {
+                "type": "text",
+                "text": ". On a success, it becomes a normal hit. If your armor has a fortification or greater fortification rune, you roll only one flat check."
+              }
+            ]
+          }
+        ],
+        "outcome": ["criticalSuccess"],
+        "predicate": ["parent:tag:dc-10"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.fDLJIA6Kl81WA6gy"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "b38a9035-5568-5bcc-900b-4814c2d802d2",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-phasing-trine",
+    "name": "Effect: Phasing Trine",
+    "level": 16,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c5d2b725-22fd-5fa4-863e-51736dcbd251"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your Strikes with the selected weapon ignore all cover and circumstance bonuses to AC from shields."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.R5zy2SnV5GSgKeiL"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "8f7d7e8d-505f-5da3-a1cd-853ae4e000b8",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-phasing-trine-reduce-ac",
+    "name": "Effect: Phasing Trine (Reduce AC)",
+    "level": 16,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c5d2b725-22fd-5fa4-863e-51736dcbd251"
+          },
+          {
+            "type": "text",
+            "text": " via Ephemeral Effect"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The origin's Strikes against you ignore all cover and circumstance bonuses to AC from shields."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["ac"],
+        "suppress": true,
+        "predicate": [
+          {
+            "or": ["bonus:slug:raised-shield", "bonus:slug:cover"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.NETXs01Vn0Q7ZRAs"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "d899ebc0-2007-5b64-9673-ff594e1eee4e",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-plane-stepping-dash",
+    "name": "Effect: Plane-Stepping Dash",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "02e4af50-673e-5514-a366-10c01c3ca691"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +5-foot status bonus to your Speed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "status",
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.3KhE0e2CWU7F27bJ"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "d6ef1dc3-bc7b-5971-82bb-24ddb75c9172",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-plant-banner",
+    "name": "Effect: Plant Banner",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "08206def-6f9b-59e0-a83e-df5cc781209b"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain 4 temporary Hit Points, plus an additional 4 temporary Hit Points if the origin is 4th level and every 4 levels thereafter."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.KsUQjLQO62BY0lk4"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "aadcfdbd-83b0-5259-b5b3-65ed120cc2b9",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-predators-advantage",
+    "name": "Effect: Predator's Advantage",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –2 circumstance penalty to Reflex saves against a deinonychus pack's Jaws and Claws."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:reflex"],
+        "type": "circumstance",
+        "value": -2,
+        "predicate": ["item:slug:jaws-and-claws", "self:condition:persistent-damage:bleed"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.c5zOwEre2Uy9MCFo"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "d5c45711-88a2-526d-9ffa-2238c4ffde25",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-raise-defenses",
+    "name": "Effect: Raise Defenses",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstances bonus to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.szOyQaUgKZ09q4Ux"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "5b3d855c-40a0-5e7d-9770-c9efba217cb6",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-rally-the-troops",
+    "name": "Effect: Rally the Troops",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "669be9ae-6493-5e17-b935-596163b65fcc"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to attack rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll"],
+        "type": "status",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.Lx5EEENaikPf2dBn"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "170c1eab-9620-5dea-91f7-cad0a35a5451",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-reflective-arrows-penalty",
+    "name": "Effect: Reflective Arrows (Penalty)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –1 circumstance penalty to the Reflective Arrows save."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:reflex"],
+        "type": "circumstance",
+        "value": -1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.owOGKBjP7tlyQD5o"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "ad40e84d-f8c5-5623-9073-cd1e3cd3b853",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-ride-them-down",
+    "name": "Effect: Ride Them Down!",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1529553c-ff21-5dd4-8e0f-8a69bb7aa441"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to your next attack roll."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.2zc0u52oNcqziwnV"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "49c0a950-3e83-5a4d-9596-4250e5fd660e",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-sanguine-revitalization",
+    "name": "Effect: Sanguine Revitalization",
+    "level": 19,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "a130e79c-c2b9-5c85-8c71-7c95e5d6f0ee"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a circumstance penalty to your Fortitude save."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.kJndFOHNBH8SR5IM"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "f7b0a8cc-1740-5987-926a-ff965daa2198",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-season-of-grit",
+    "name": "Effect: Season of Grit",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "5e15e90f-24d6-523f-9449-5c7716898d72"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to Fortitude saves and resistance 5 to persistent damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:fortitude"],
+        "type": "status",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.d6VzjIU3ajRX0pyF"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "c404b8ac-b918-519e-829a-32a6166c999b",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-shield-from-arrows",
+    "name": "Effect: Shield from Arrows",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "6a0ee0c2-0d9c-5a3b-bc1d-09a57c4720ef"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +4 circumstance bonus to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 4,
+        "predicate": [
+          "item:ranged",
+          {
+            "or": [
+              "item:damage:category:physical",
+              {
+                "and": ["item:type:spell", "parent:origin:item:tag:shield-from-spells"]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.XFnNmos2R1nOFl9O"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "8c70b928-c60c-5bcd-9555-f80798ec34a2",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-shield-paragon-benefit",
+    "name": "Effect: Shield Paragon Benefit",
+    "level": 17,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "807ef9a8-d3b7-5e56-ab2d-0dce30f4076c"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the origin's shield circumstance bonus to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.NUOfUPboXVEVQNBE"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "4b92d4f4-f131-591c-abb9-3e88ab6346de",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-shield-your-eyes",
+    "name": "Effect: Shield Your Eyes",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "3356eecf-7a81-58c4-a069-1b50d8685111"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you critically succeed against the origin's DC with a light or visual trait, it's a success instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["attack"],
+        "adjustment": {
+          "criticalSuccess": "to-success"
+        },
+        "predicate": [
+          {
+            "or": ["item:trait:visual", "item:trait:light"]
+          }
+        ]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill-check"],
+        "adjustment": {
+          "criticalSuccess": "to-success"
+        },
+        "predicate": [
+          {
+            "or": ["item:trait:visual", "item:trait:light"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.YU6NYuil87dSrRh7"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "2724a565-3d62-576d-b601-ed4d4ab48cd9",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-shielded-recovery",
+    "name": "Effect: Shielded Recovery",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "bf5649f5-a68c-5126-b69c-287dd0a36a85"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to AC and Reflex saves."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "save:reflex"],
+        "type": "circumstance",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.KOVUFiN6nkttuiRb"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "3f6b8fc0-fff1-508c-b056-ce6823386f9b",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-siphoning-grip",
+    "name": "Effect: Siphoning Grip",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary hit points."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.jCwXeDnqBTw9pyhg"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "day",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "aaa48c49-a934-5571-9e67-3745ecca6bb7",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-slayers-stone",
+    "name": "Effect: Slayer's Stone",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "aeb20f38-70e2-5ece-9fc9-35d49b8bb1bd"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose aberration, animal, beast, celestial, construct, dragon, elemental, fey, fiend, giant, monitor, ooze, or both fungus and plant. Your selected weapon deals an additional 1d6 precision damage to creatures with the chosen trait or traits."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-slayer-s-stone",
+        "choices": [
+          {
+            "value": "aberration",
+            "label": "Aberration"
+          },
+          {
+            "value": "animal",
+            "label": "Animal"
+          },
+          {
+            "value": "beast",
+            "label": "Beast"
+          },
+          {
+            "value": "celestial",
+            "label": "Celestial"
+          },
+          {
+            "value": "construct",
+            "label": "Construct"
+          },
+          {
+            "value": "dragon",
+            "label": "Dragon"
+          },
+          {
+            "value": "elemental",
+            "label": "Elemental"
+          },
+          {
+            "value": "fey",
+            "label": "Fey"
+          },
+          {
+            "value": "fiend",
+            "label": "Fiend"
+          },
+          {
+            "value": "giant",
+            "label": "Giant"
+          },
+          {
+            "value": "monitor",
+            "label": "Monitor"
+          },
+          {
+            "value": "ooze",
+            "label": "Ooze"
+          },
+          {
+            "value": "fungus-and-plant",
+            "label": "Fungus and Plant"
+          }
+        ],
+        "rollOption": "slayers-stone"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.xLKLKfm0p8ubp4Fe"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "67859d93-33ef-5b14-864b-91e22576ba44",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-sooth-serpents-speed-penalty",
+    "name": "Effect: Sooth Serpents (Speed Penalty)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c5dc7585-727f-54cc-b797-0ca04c80f1bd"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –5-foot penalty to your Speeds."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "untyped",
+        "value": -5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.dtgI6eol6GWNipmt"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "fa29f7fa-7176-52d1-9bc5-ffa333ffdb7b",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-stalwarts-banner",
+    "name": "Effect: Stalwart's Banner",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "266028c6-7245-5139-a5b6-412e178143dd"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "96bc1c97-0392-5bcf-ac97-12ecdecddcce"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "608f0d01-3ab7-530c-bf41-5637e742b5c2"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points and a status bonus to your Fortitude DC and Reflex DC against any effect that would move you or knock you prone."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 5,
+        "predicate": ["stalwarts-banner:stalwarts-banner"]
+      },
+      {
+        "key": "TempHP",
+        "value": 10,
+        "predicate": ["stalwarts-banner:stalwarts-banner-greater"]
+      },
+      {
+        "key": "TempHP",
+        "value": 15,
+        "predicate": ["stalwarts-banner:stalwarts-banner-major"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["fortitude-dc", "reflex-dc"],
+        "type": "status",
+        "value": 1,
+        "slug": "stalwarts-banner",
+        "predicate": [
+          {
+            "or": ["action:trip", "action:reposition", "action:shove", "inflicts:prone", "option:forced-movement"]
+          }
+        ],
+        "display": {
+          "label": "Effect Would Move or Knock Prone"
+        }
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["fortitude-dc", "reflex-dc"],
+        "slug": "stalwarts-banner",
+        "mode": "upgrade",
+        "value": 2,
+        "predicate": ["stalwarts-banner:stalwarts-banner-greater"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["fortitude-dc", "reflex-dc"],
+        "slug": "stalwarts-banner",
+        "mode": "upgrade",
+        "value": 3,
+        "predicate": ["stalwarts-banner:stalwarts-banner-major"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.f2r7r0t8n7LKuj6C"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "afe7bb56-9c3e-557d-add2-79ca4e9aa13d",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-swagger",
+    "name": "Effect: Swagger",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "3732b842-d26d-5fd0-967e-7cf3984f125f"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to attack rolls, Fortitude saves, and Will saves against mental effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll", "save:fortitude"],
+        "type": "status",
+        "value": 1,
+        "slug": "swagger-attack-fortitude-bonus"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:will"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["item:trait:mental"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.Y1dCVl3Wh4pBetm6"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "7306b470-3071-5031-a357-4cfd0023e485",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-swift-standard",
+    "name": "Effect: Swift Standard",
+    "level": 12,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "bf7ba36d-335d-5e71-a607-f0c6329b30ac"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "07eaae53-12a8-516a-8663-ac998f0bd60b"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "3c582e76-bc47-59f9-87aa-570828d3d9c1"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a status bonus to your Speed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "status",
+        "value": 5,
+        "slug": "swift-standard"
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["land-speed"],
+        "slug": "swift-standard",
+        "mode": "upgrade",
+        "value": 10,
+        "predicate": ["swift-standard:swift-standard-greater"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["land-speed"],
+        "slug": "swift-standard",
+        "mode": "upgrade",
+        "value": 15,
+        "predicate": ["swift-standard:swift-standard-major"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.EgAmT4WENb6UNSdJ"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "894367eb-e11a-5015-aa67-f10aebc3cfb2",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-targeting-strike",
+    "name": "Effect: Targeting Strike",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "99a9d8bf-c821-5195-85c2-2dfc67a21e66"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your attack against the marked target deals an amount of additional precision damage equal to the origin's Intelligence modifier."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.VBsWZHdYymig9WsH"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "2c0e314a-c6a5-53d3-b869-0a1d40f34017",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-taunt",
+    "name": "Effect: Taunt",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1a6922a3-4411-5142-ad0a-ed2979b33122"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –1 circumstance penalty to attack rolls and DCs that don't target the origin. If you take a hostile action that doesn't target the origin, you also become "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " until the start of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:taunt-dc-penalty",
+        "toggleable": true,
+        "display": {
+          "label": "Taunt — Apply penalty to DCs"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["class", "inline-dc", "spell-dc"],
+        "type": "circumstance",
+        "value": -1,
+        "slug": "taunt-dc",
+        "predicate": ["option:taunt-dc-penalty"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["class", "inline-dc", "spell-dc"],
+        "slug": "taunt-dc",
+        "mode": "downgrade",
+        "value": -2,
+        "predicate": ["option:bodyguard-taunt"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.FlyWq9znOHvpISNW"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "63423fdd-01fe-5277-92af-7dd9155790a2",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-the-bigger-they-are-commander",
+    "name": "Effect: The Bigger They Are (Commander)",
+    "level": 15,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "fe0f59b8-ab77-587b-93e4-088cc9418cc7"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a circumstance bonus to your check to Reposition, Shove, or Trip."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.9Kjnwzu3DWs5U7NH"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "8dd49813-567f-5399-912d-2541fdfc673b",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-the-hammer-of-hooves",
+    "name": "Effect: The Hammer of Hooves",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "48f9c253-e4a1-59d7-a336-3b23ae94c98b"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to Nature checks to Command an Animal."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:nature"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["action:command-an-animal"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.y8YmJhZiycxiQfs2"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "cb5b366e-378e-5281-9b12-1cedaeaa674d",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-the-hammer-of-hooves-mount-speed",
+    "name": "Effect: The Hammer of Hooves (Mount Speed)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "48f9c253-e4a1-59d7-a336-3b23ae94c98b"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +10-status bonus to your Speeds."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "status",
+        "value": 10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.dutfhbcXR6Vi8ddV"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "793ae78b-e62b-589a-98f0-44259ec03d37",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-the-truth-as-i-see-it",
+    "name": "Effect: The Truth As I See It",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f9d557a0-37df-5a6c-bcc4-d16f055088c3"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When using Deception to Lie, you can roll twice and take the better result."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.ahBcuJWrRXEGvwxb"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "bdee158c-740f-5c4c-91f0-b85302568f13",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-timepiece-standard",
+    "name": "Effect: Timepiece Standard",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "19bf60ba-6c46-5f3b-a620-36fe1d81aae5"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "c2af2d90-4203-534e-83f6-cd969308970e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 5,
+        "predicate": ["timepiece-standard:timepiece-standard"]
+      },
+      {
+        "key": "TempHP",
+        "value": 10,
+        "predicate": ["timepiece-standard:timepiece-standard-major"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.CV9YMSNtTV9gQJ3g"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "21fb79fb-67e5-5e2b-967f-cff33ea4c5e7",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-timepiece-standard-major",
+    "name": "Effect: Timepiece Standard (Major)",
+    "level": 20,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain 10 temporary Hit Points that last for 1 minute and then become immune to this effect for 10 minutes."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.hWA3l5Rix9irkqCu"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "acd8a51c-a243-5937-804b-32aa1896f9fb",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-titans-standard",
+    "name": "Effect: Titan's Standard",
+    "level": 18,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "a0652d38-039f-5d2e-8f8d-b21865023b23"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You become Large and your equipment grows with you. While Large, you are clumsy 1, and your reach increases by 5 feet (or by 10 feet if you started out Tiny)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-titan-s-standard",
+        "choices": [
+          {
+            "value": "tiny",
+            "label": "Tiny",
+            "predicate": ["self:size:tiny"]
+          },
+          {
+            "value": "medium-or-small",
+            "label": "Small",
+            "predicate": [
+              {
+                "or": ["self:size:medium", "self:size:small"]
+              }
+            ]
+          }
+        ],
+        "rollOption": "titans-standard-initial-size"
+      },
+      {
+        "key": "CreatureSize",
+        "value": "large",
+        "resizeEquipment": true,
+        "reach": {
+          "add": 10
+        },
+        "predicate": ["titans-standard-initial-size:tiny"]
+      },
+      {
+        "key": "CreatureSize",
+        "value": "large",
+        "resizeEquipment": true,
+        "reach": {
+          "add": 5
+        },
+        "predicate": ["titans-standard-initial-size:medium-or-small"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "69f88e3c-d871-5fb9-82c6-120348a7c0e8"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.9VD3ngP8HzbEqm20"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "36225662-9b8f-59a0-808a-0c950236cfbb",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-toothy-knife",
+    "name": "Effect: Toothy Knife",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "df24a788-3253-5c03-9656-ac4614303afc"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "cdc7c4bc-564c-5951-bf4d-d2239b9f8975"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The DC of your flat check to end persistent bleed damage is 17."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:toothy-knife-assisted",
+        "toggleable": true,
+        "display": {
+          "label": "Toothy Knife — Adjust for assisted recovery"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.1AOfjwg2uZQUcgQC"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "f874f060-50c3-5b39-8bca-560b1920cc6b",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-tough-cookie",
+    "name": "Effect: Tough Cookie",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "26e2e271-8c47-5466-b2f6-92752415e5dc"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a number of temporary Hit Points equal to half your maximum Hit Points that last for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.Df9NeqlUatsTVvy9"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "841596e6-76b9-55b1-94aa-972d9effc1f5",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-transmuting-ingot",
+    "name": "Effect: Transmuting Ingot",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c53deb94-a7d7-5462-9437-f373bcb07418"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "87f0caa1-3c9b-53ae-8d23-099571e7b987"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "f8f3ceae-46a6-5359-9e23-d76f405ec89b"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your selected weapon counts as adamantine, cold iron, and silver."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.VECHAM3D71GWHw3A"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "cb8e671d-d1b1-5cbf-a456-bf2970870142",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-troop-harrowing",
+    "name": "Effect: Troop Harrowing",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a status penalty to your saving throw or AC against a spell."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-troop-harrowing",
+        "choices": [
+          {
+            "value": "success",
+            "label": "Success"
+          },
+          {
+            "value": "critical-success",
+            "label": "Critical Success"
+          }
+        ],
+        "prompt": "Select the degree of success.",
+        "rollOption": "troop-harrowing"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "saving-throw"],
+        "type": "status",
+        "value": -1,
+        "slug": "troop-harrowing-penalty"
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["ac", "saving-throw"],
+        "slug": "troop-harrowing-penalty",
+        "mode": "override",
+        "value": -2,
+        "predicate": ["troop-harrowing:critical-success"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.GZAVAOj0s73Swc0e"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "2c184bcf-83b6-5663-b155-d33691bb3d13",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-unsteadying-strike",
+    "name": "Effect: Unsteadying Strike",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "cd558402-e443-542c-a680-4d44339e4303"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –2 circumstance penalty to your Fortitude DC to resist being Grappled, Repositioned, or Shoved and a –2 circumstance penalty to your Reflex DC to resist being Disarmed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["fortitude-dc"],
+        "type": "circumstance",
+        "value": -2,
+        "slug": "unsteadying-strike-fortitude",
+        "predicate": [
+          {
+            "or": ["action:grapple", "action:reposition", "action:shove"]
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["reflex-dc"],
+        "type": "circumstance",
+        "value": -2,
+        "slug": "unsteadying-strike-reflex",
+        "predicate": ["action:disarm"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.uUIpCXtvKvPVNunx"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "31720489-efeb-5eff-a480-4dcc6f79e9ff",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-valorous-coin",
+    "name": "Effect: Valorous Coin",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "0c991be3-70b4-5ecc-b1db-180f45c4af5d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points equal to your level, and you gain a +1 circumstance bonus to Strikes and damage rolls with the selected weapon."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@level"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.8wGzXqCOUvPw8oMy"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "fbfcffc7-5297-5227-941e-99892a44da57",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:effect-vanguards-shield",
+    "name": "Effect: Vanguard's Shield",
+    "level": 13,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "70f25f12-2a58-5e8f-be8c-e8a798806b4e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to the saving throw against the triggering effect."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.PkqVO9070jh8F6sq"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "ba2d99e1-037a-50a5-bde6-bc1ed1fa9769",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:spell-effect-conquering-soldiers-depart",
+    "name": "Spell Effect: Conquering Soldiers (Depart)",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "b5f365f0-8c21-5e07-a636-85891e1071fa"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus to all attacks, saving throws, skill checks, and DCs."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["all"],
+        "type": "status",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.VqcFP9hwyCrnbDZp"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 3,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "097c586f-5577-5b95-9ea3-3f293a108607",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:spell-effect-curse-of-recoil-critical-failure",
+    "name": "Spell Effect: Curse of Recoil (Critical Failure)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "2abc65de-ec15-52c5-a5f7-0d0193a5b0ff"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –2 status penalty to your ranged attacks and you're off-guard."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ranged-attack-roll"],
+        "type": "status",
+        "value": -2
+      },
+      {
+        "key": "GrantItem",
+        "item": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.P4PRme5opSzyPIM2"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "2ff0db48-7cfe-5dea-8155-beacc86b9460",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:spell-effect-curse-of-recoil-failure",
+    "name": "Spell Effect: Curse of Recoil (Failure)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "2abc65de-ec15-52c5-a5f7-0d0193a5b0ff"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –1 status penalty to your ranged attack."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.sxIEPmpuBfqSeck3"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "852a91f0-a086-5f96-b2f6-9333b7d1ab6d",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:spell-effect-dancing-shield",
+    "name": "Spell Effect: Dancing Shield",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "8421d616-b6ef-59b3-b47f-4367a1ff242a"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The touched shield uses the Raise a Shield action to protect the target creature."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.2KQSsrzUqAxSXOdd"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start",
+        "sustained": true
+      }
+    }
+  },
+  {
+    "id": "04fcb6b1-b102-5a05-a62f-61003738e8ee",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:spell-effect-filter-air",
+    "name": "Spell Effect: Filter Air",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c3ea8e0e-d96a-5e04-83e6-175cce816e06"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You get the outcome one degree of success higher on your saving throws against inhaled poisons and diseases."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["saving-throw"],
+        "adjustment": {
+          "all": "one-degree-better"
+        },
+        "predicate": [
+          "item:trait:inhaled",
+          {
+            "or": ["item:trait:disease", "item:trait:poison"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.3Gv18zyrm1BQLPI5"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "cc91cb27-b369-598f-af26-4bf4100638a7",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:spell-effect-frozen-fog",
+    "name": "Spell Effect: Frozen Fog",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f6cf5773-52f9-5773-a4a0-e47e03b3d813"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are clumsy 1 (clumsy 2 on a critical failure) and take a –10-foot status penalty to Speeds."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "status",
+        "value": -10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.EftEpvhOKwDn63eL"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "9433d635-e486-5213-8529-08a9ca39c3fc",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:spell-effect-halt-death",
+    "name": "Spell Effect: Halt Death",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "28b2a25b-776c-56eb-b9f2-b9910b05b747"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are guarded against death, gaining a status bonus to saving throws against death effects. If the result of the ritual was a critical success, when you succeed at a recovery check, you get a critical success instead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.GFR5RwR8qW2jIJKP"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "day",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "e289ce2f-9777-5f97-82bf-7060274a9cf9",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:spell-effect-helpful-reload",
+    "name": "Spell Effect: Helpful Reload",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "0b09f2ce-548b-5c71-b4f7-3b91c0aa5531"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to your next Strike with the chosen weapon."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.yKPb3VrVzBkr34eR"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "469b7aa6-8158-5488-9d84-bec57839334b",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:spell-effect-holy-host-azata",
+    "name": "Spell Effect: Holy Host (Azata)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "3ad42b53-7758-5739-9229-3c7d65fa2497"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus to attack rolls and saving throws, as well as a +4 status bonus to damage rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll", "saving-throw"],
+        "type": "status",
+        "value": 2
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["damage"],
+        "type": "status",
+        "value": 4
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.WiGopdQekyLAa8mj"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "b3832469-e30d-5aeb-8f10-eb31e1eb8610",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:spell-effect-holy-host-garuda",
+    "name": "Spell Effect: Holy Host (Garuda)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "3ad42b53-7758-5739-9229-3c7d65fa2497"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to all skill checks and DCs."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check", "skill-dc"],
+        "type": "circumstance",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.vWEYKF37OexA14Ki"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "d5e3692d-20a0-5d63-863a-76f47f8e81db",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:spell-effect-shielding-formation",
+    "name": "Spell Effect: Shielding Formation",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1187b718-d161-52ec-99ba-cf1eefd120e3"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to AC. You can end this bonus to gain resistance 10 to all damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:shielding-formation-resistance",
+        "toggleable": true,
+        "display": {
+          "label": "Shielding Formation – End AC bonus to gain resistance"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": [
+          {
+            "not": "option:shielding-formation-resistance"
+          }
+        ]
+      },
+      {
+        "key": "Resistance",
+        "type": ["all"],
+        "value": 10,
+        "predicate": ["option:shielding-formation-resistance"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.mVG67GUmiEUApbpX"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start",
+        "sustained": true
+      }
+    }
+  },
+  {
+    "id": "8df76b56-95a0-5103-b38c-062a438da218",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:spell-effect-wings-of-the-valkyrie",
+    "name": "Spell Effect: Wings of the Valkyrie",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "2e4a0542-9768-5fdc-b2ca-84eb5cb1dc9d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a fly Speed equal to your Speed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": "@stat.speed.land"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.5Jc2MvOCgMszPulx"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 3,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "2430ebed-f25a-51db-84a1-f1ce6ee44dfa",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:spell-effect-wings-of-the-valkyrie-heightened",
+    "name": "Spell Effect: Wings of the Valkyrie (Heightened)",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "2e4a0542-9768-5fdc-b2ca-84eb5cb1dc9d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a fly Speed equal to your Speed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": "@stat.speed.land"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.U5opnfw3DB1szFvV"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "ba966407-e8d7-5df3-943b-7b386c6fb0b8",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:stance-duelists-form",
+    "name": "Stance: Duelist's Form",
+    "level": 16,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "41418a6e-e061-5e79-ab00-8c09f943ae9d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are Quickened while in this stance.You can use this extra action only to Step or use a single-action activity gained from the Aldori duelist archetype. If you use your free hand for anything, this stance ends. When this stance ends, you become fatigued until you rest for at least 10 minutes."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "6517bbf2-8085-534b-be6a-187d52739fa0"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.ebqKAQowcYjHyLHe"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  },
+  {
+    "id": "fc86f454-a9eb-577b-ac64-2de74eafa04e",
+    "pack": "battlecry",
+    "kind": "effect",
+    "slug": "effect:stance-jotuns-battle-stance",
+    "name": "Stance: Jotun's Battle Stance",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "7de6c800-4ff0-5ea9-b525-e434082cdbb3"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you wield a melee weapon that requires two hands and doesn't have reach, the weapon gains a reach of 10 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon", "item:equipped", "item:melee", "item:usage:hands:2"],
+        "property": "traits",
+        "mode": "add",
+        "value": "reach",
+        "predicate": [
+          {
+            "not": "feat:jotuns-heart"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.9CJ7kzRLDo5VAC4n"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  }
+]

@@ -1,0 +1,4202 @@
+[
+  {
+    "id": "25baaa31-3ef7-5b62-a176-55e083ef72ba",
+    "pack": "battlecry",
+    "kind": "armor",
+    "slug": "armor:alkenstar-phalanx",
+    "name": "Alkenstar Phalanx",
+    "level": 14,
+    "rarity": "rare",
+    "traits": ["bulwark", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This rugged suit of "
+          },
+          {
+            "type": "text",
+            "text": "+2 resilient fortification full plate",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has a large red gemstone inset into the overlapping plates of the chest piece. While wearing the armor, you might be given the role of protecting the flank of an army in battle, or perhaps standing your ground as the last line of defense in a castle keep."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Phalanx",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate, metal)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You raise walls of rapidly shifting metal plates in two "
+          },
+          {
+            "type": "template",
+            "shape": "line",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": " going in opposite directions. Each wall is 60 feet high and is greater difficult terrain. Whenever a creature enters or starts their turn in the wall's space, they take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d10",
+                "damageType": "slashing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 32,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save). The shifting walls also provide greater cover from any attack originating from the opposite side."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Gu7T3wisuQh7MU0Z"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4500
+        }
+      },
+      "bulk": 4,
+      "activations": [
+        {
+          "slug": "phalanx",
+          "name": "Phalanx",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "heavy",
+      "group": "plate",
+      "baseItem": "full-plate",
+      "acBonus": 6,
+      "dexCap": 0,
+      "checkPenalty": 3,
+      "speedPenalty": 10,
+      "strength": 4,
+      "runes": {
+        "potency": 2,
+        "resilient": 1,
+        "property": ["1100f76c-d253-50b6-82c0-c70593e97e10"]
+      }
+    }
+  },
+  {
+    "id": "ea13be19-c5bb-5f85-ae7e-35b41c384e58",
+    "pack": "battlecry",
+    "kind": "armor",
+    "slug": "armor:ankhrav-carapace",
+    "name": "Ankhrav Carapace",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 leather armor",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has interlocking panels and short bristles along the outer edges of the arms and legs. While wearing this armor, you gain resistance 2 to acid damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Dig",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The bristles along your limbs enable you to tunnel through dirt and sand. For 1 minute, you gain a burrow Speed equal to half your land Speed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "0b0641d3-58fb-5553-9a06-5909b244bcb1"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["acid"],
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.o5R57SGSmoIbQ6wj"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 350
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "dig",
+          "name": "Dig",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "light",
+      "group": "leather",
+      "baseItem": "leather-armor",
+      "acBonus": 1,
+      "dexCap": 4,
+      "checkPenalty": 1,
+      "strength": 0,
+      "runes": {
+        "potency": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "8104b2aa-038f-5b2b-a4c2-29933834234c",
+    "pack": "battlecry",
+    "kind": "armor",
+    "slug": "armor:autoload-leathers",
+    "name": "Autoload Leathers",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 resilient studded leather armor",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has a built in ammunition bandolier that, once set up, can be used to almost instantaneously reload a weapon."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Autoload",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You reload a weapon with reload 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.QxdWm4xkTx9LGs8C"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 700
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "autoload",
+          "name": "Autoload",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "light",
+      "group": "leather",
+      "baseItem": "studded-leather-armor",
+      "acBonus": 2,
+      "dexCap": 3,
+      "checkPenalty": 1,
+      "strength": 1,
+      "runes": {
+        "potency": 1,
+        "resilient": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "9abbce9f-5218-5678-b450-282bb46437d9",
+    "pack": "battlecry",
+    "kind": "armor",
+    "slug": "armor:balloon-padding",
+    "name": "Balloon Padding",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["comfort"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 padded armor",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " enables you to hover above the ground and either drift with the wind or be pulled along by another creature or vehicle."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Inflate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes (air, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A gas-filled balloon pops out of the back of your armor and begins to inflate. It takes 10 minutes for the balloon to fully inflate and lift you and up to 5 additional Bulk 5 feet off the ground. By taking another 10 minutes, this balloon can be deflated and properly stowed in the back of your armor. Once inflated, you can spend an action that has the manipulate and move traits to adjust the height you are hovering up or down by up to 20 feet each time. If the balloon takes damage (AC 10, Hardness 0), it will quickly deflate and cause you to fall to the ground. The balloon magically repairs itself at the start of each day."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.GmcgsiCi4EVFMJWz"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 480
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "inflate",
+          "name": "Inflate",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "light",
+      "group": "cloth",
+      "baseItem": "padded-armor",
+      "acBonus": 1,
+      "dexCap": 3,
+      "strength": 0,
+      "runes": {
+        "potency": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "fdd43685-02ab-5f5a-a096-4b04949a09bc",
+    "pack": "battlecry",
+    "kind": "armor",
+    "slug": "armor:bismuth-armor",
+    "name": "Bismuth Armor",
+    "level": 13,
+    "rarity": "uncommon",
+    "traits": ["bulwark", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This silvery, pink-tinged "
+          },
+          {
+            "type": "text",
+            "text": "+2 resilient full plate",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is polished to the point that its surface is completely reflective. This armor can reflect some of the light generated by magical attacks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Reflect Shine",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (arcane, light, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature targets you with a magical effect that has the attack trait"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain a +2 circumstance bonus to AC against the triggering attack. If the attack misses, the spell reflects toward the caster, who becomes "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:bismuth-armor",
+        "toggleable": true
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["option:bismuth-armor"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TFfqyV6HIFKK8AtI"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2800
+        }
+      },
+      "bulk": 4,
+      "activations": [
+        {
+          "slug": "reflect-shine",
+          "name": "Reflect Shine",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "category": "heavy",
+      "group": "plate",
+      "baseItem": "full-plate",
+      "acBonus": 6,
+      "dexCap": 0,
+      "checkPenalty": 3,
+      "speedPenalty": 10,
+      "strength": 4,
+      "runes": {
+        "potency": 2,
+        "resilient": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "8d0c0412-8506-5b9f-8516-cfe2e53ded1b",
+    "pack": "battlecry",
+    "kind": "armor",
+    "slug": "armor:buoyant-buckle",
+    "name": "Buoyant Buckle",
+    "level": 6,
+    "rarity": "rare",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 leather armor",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has several large pouches along the sides of the torso as well as the front and back sides of the legs. While wearing this armor, you can quickly inflate these large pouches with air, allowing you to float in water."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Flotation",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You inflate large pouches that allow you to float. You gain a swim Speed equal to half your land Speed. You can swim only along the surface of the water while this is active. You can stow the flotation devices as a 1-minute exploration activity. If the pouches take any damage (AC 10, Hardness 0), they quickly deflate, ending the effect."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:buoyant-buckle",
+        "toggleable": true
+      },
+      {
+        "key": "Change",
+        "selector": "speed:swim",
+        "mode": "upgrade",
+        "value": "floor(@stat.speed.land / 2)",
+        "predicate": ["option:buoyant-buckle"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TXN2QFzKLAnjFSLw"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "flotation",
+          "name": "Flotation",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "light",
+      "group": "leather",
+      "baseItem": "leather-armor",
+      "acBonus": 1,
+      "dexCap": 4,
+      "checkPenalty": 1,
+      "strength": 0,
+      "runes": {
+        "potency": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "8b7aa0e6-c251-5e5c-8f6c-c9bcbe049809",
+    "pack": "battlecry",
+    "kind": "armor",
+    "slug": "armor:command-cuirass",
+    "name": "Command Cuirass",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 half plate",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is imbued with a series of runes designed to amplify your voice on the battlefield. You are more readily able to command and motivate the troops, even over the din of battle."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Motivate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " For 1 minute, the volume of your voice is temporarily enhanced, and you gain a +1 status bonus to Diplomacy and Intimidation checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "676201b2-a73b-5cd9-a138-864ac8b379ae"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.6eBv81PifFDgRo3x"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 500
+        }
+      },
+      "bulk": 3,
+      "activations": [
+        {
+          "slug": "motivate",
+          "name": "Motivate",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "category": "heavy",
+      "group": "plate",
+      "baseItem": "half-plate",
+      "acBonus": 5,
+      "dexCap": 1,
+      "checkPenalty": 3,
+      "speedPenalty": 10,
+      "strength": 3,
+      "runes": {
+        "potency": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "bb7324c4-d9df-510e-94ba-49849c32e54e",
+    "pack": "battlecry",
+    "kind": "armor",
+    "slug": "armor:crafting-leathers",
+    "name": "Crafting Leathers",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This simple leather armor is adorned with a series of pockets and pouches, all within easy reach. Designed for a busy crafter, each pocket or pouch contains a specific tool required for specialized crafting."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Find Tool",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You reach into a pouch or pocket and find the specific short or long tool you're looking for. The armor manifests the tool into existence for 1 hour."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.wkQRlMup84B6wYsC"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 150
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "find-tool",
+          "name": "Find Tool",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "category": "light",
+      "group": "leather",
+      "baseItem": "leather-armor",
+      "acBonus": 1,
+      "dexCap": 4,
+      "checkPenalty": 1,
+      "strength": 0
+    }
+  },
+  {
+    "id": "83b30868-9a21-50bc-96ff-c0958064338f",
+    "pack": "battlecry",
+    "kind": "armor",
+    "slug": "armor:deep-pockets",
+    "name": "Deep Pockets",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 leather armor",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has two medium-sized pockets just above the waist where you might normally place your hands if they were cold. Each pocket is covered with a leather flap that surprisingly remains closed even with dynamic movement and heavy winds. Each individual pocket functions as a "
+          },
+          {
+            "type": "ref",
+            "id": "bf40f2e5-f763-50b2-b749-553639592257"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include two "
+          },
+          {
+            "type": "text",
+            "text": "type I spacious pouches",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.0kI2hUftHbBCn74x"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 220
+        }
+      },
+      "bulk": 1,
+      "category": "light",
+      "group": "leather",
+      "baseItem": "leather-armor",
+      "acBonus": 1,
+      "dexCap": 4,
+      "checkPenalty": 1,
+      "strength": 0,
+      "runes": {
+        "potency": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "58f42d32-e655-5c5c-a8e0-95932a495cf9",
+    "pack": "battlecry",
+    "kind": "armor",
+    "slug": "armor:deep-sea-plate",
+    "name": "Deep Sea Plate",
+    "level": 8,
+    "rarity": "rare",
+    "traits": ["bulwark", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The interior of this heavy, brass "
+          },
+          {
+            "type": "text",
+            "text": "+1 full plate",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is lined with waterproof fabric, especially covering the seams between plates. When worn, it provides a sealed environment that protects you from drowning as well as allowing you to move more freely while underwater."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Deep Dive",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The deep sea plate enables you to breathe underwater and gives you a swim Speed equal to half your land Speed while in depths of 500 feet or less for 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "c18022c4-21fe-5f4e-aa49-9f3d5a1c29a6"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.x37tk2H4kVtrnnrA"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 500
+        }
+      },
+      "bulk": 4,
+      "activations": [
+        {
+          "slug": "deep-dive",
+          "name": "Deep Dive",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "heavy",
+      "group": "plate",
+      "baseItem": "full-plate",
+      "acBonus": 6,
+      "dexCap": 0,
+      "checkPenalty": 3,
+      "speedPenalty": 10,
+      "strength": 4,
+      "runes": {
+        "potency": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "e010b2e8-be17-554e-9c1f-3fe0feba7fab",
+    "pack": "battlecry",
+    "kind": "armor",
+    "slug": "armor:eagle-wing",
+    "name": "Eagle Wing",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Long black feathers cover the leather pieces of this "
+          },
+          {
+            "type": "text",
+            "text": "+1 resilient leather armor",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". The armor gives you the ability to glide safely to earth from high above the battlefield. It also grants you a +2 item bonus to Stealth checks you attempt while in the air."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Soar",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You glide slowly toward the ground, 5 feet down and 30 feet forward through the air. Provided you spend at least 1 action gliding on your turn and haven't yet reached the ground, you remain in the air at the end of your turn. Otherwise, you fall."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["eagle-wing:in-the-air"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.lGzS7hBXNrbzSbrj"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 950
+        }
+      },
+      "bulk": 1,
+      "category": "light",
+      "group": "leather",
+      "baseItem": "leather-armor",
+      "acBonus": 1,
+      "dexCap": 4,
+      "checkPenalty": 1,
+      "strength": 0,
+      "runes": {
+        "potency": 1,
+        "resilient": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "00db325a-6531-5947-b1d8-7292030a7bb9",
+    "pack": "battlecry",
+    "kind": "armor",
+    "slug": "armor:frost-furs",
+    "name": "Frost Furs",
+    "level": 14,
+    "rarity": "uncommon",
+    "traits": ["cold", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This fur-lined "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater resilient cold-resistant hide armor",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is favored by warriors in the Crown of the World. In addition to providing excellent protection from extreme elements, the armor also enables you to erect massive walls of ice."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Endure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (concentration, manipulate, primal)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast 5th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "a3ba6f69-8785-5856-b8d7-fe33dff806d6"
+          },
+          {
+            "type": "text",
+            "text": " on yourself."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Freeze Enemy",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (cold, concentration, manipulate, primal)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "bb0c1c4f-f273-5089-90d5-cde27bd1b122"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of "
+          },
+          {
+            "type": "text",
+            "text": "environmental endurance",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " (5th rank) and "
+          },
+          {
+            "type": "text",
+            "text": "wall of ice",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.115xzkNatlElbfVw"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4500
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "endure",
+          "name": "Endure",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        },
+        {
+          "slug": "freeze-enemy",
+          "name": "Freeze Enemy",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "medium",
+      "group": "leather",
+      "baseItem": "hide-armor",
+      "acBonus": 3,
+      "dexCap": 2,
+      "checkPenalty": 2,
+      "speedPenalty": 5,
+      "strength": 2,
+      "runes": {
+        "potency": 2,
+        "resilient": 2,
+        "property": ["bbde19bb-8ae2-57c1-90f8-0606b6550f08"],
+        "propertyEnergy": {
+          "bbde19bb-8ae2-57c1-90f8-0606b6550f08": "cold"
+        }
+      }
+    }
+  },
+  {
+    "id": "db10528d-1af0-5995-8269-02f3592f9011",
+    "pack": "battlecry",
+    "kind": "armor",
+    "slug": "armor:grisly-brigandine",
+    "name": "Grisly Brigandine",
+    "level": 12,
+    "rarity": "rare",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 resilient studded leather armor",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a gruesome amalgamation of skulls and bones from various creatures held in place with straps of leather that resemble sinew. When you wear this armor, you reek of death, and you can display these trappings in such a way that strikes fear in the hearts of your enemies."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Unveil Fear",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, occult)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature moves within 30 feet of you"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "a8b9cc60-f471-559b-a07c-6ad022c23b56"
+          },
+          {
+            "type": "text",
+            "text": " on the target ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 30,
+            "options": ["item:type:spell"]
+          },
+          {
+            "type": "text",
+            "text": " save)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of fear."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.7IXAEgZDlaxwbLoG"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2000
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "unveil-fear",
+          "name": "Unveil Fear",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "category": "light",
+      "group": "leather",
+      "baseItem": "leather-armor",
+      "acBonus": 1,
+      "dexCap": 4,
+      "checkPenalty": 1,
+      "strength": 0,
+      "runes": {
+        "potency": 1,
+        "resilient": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "611f11dd-a7e8-5b83-aba7-763dc71de301",
+    "pack": "battlecry",
+    "kind": "armor",
+    "slug": "armor:incendiary-plate",
+    "name": "Incendiary Plate",
+    "level": 20,
+    "rarity": "common",
+    "traits": ["bulwark", "fire", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This bright-red "
+          },
+          {
+            "type": "text",
+            "text": "+3 greater resilient full plate",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is adorned with eerily beautiful, angry flames that flow and glow with your movement, making it appear as if you are engulfed in a living fire. You gain resistance 10 to fire while wearing this armor."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Living Flame",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (aura, concentrate, fire)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The armor engulfs you in a vortex of living fire in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": " for 10 minutes. Creatures that enter this aura or start their turn within it take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 40,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save). This area is difficult terrain for other creatures."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": 10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.37Qd1hp9EosNTzww"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 70000
+        }
+      },
+      "bulk": 4,
+      "activations": [
+        {
+          "slug": "living-flame",
+          "name": "Living Flame",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "heavy",
+      "group": "plate",
+      "baseItem": "full-plate",
+      "acBonus": 6,
+      "dexCap": 0,
+      "checkPenalty": 3,
+      "speedPenalty": 10,
+      "strength": 4,
+      "runes": {
+        "potency": 3,
+        "resilient": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "5d50dc42-5154-5e5d-aab2-3b97d4ffbd8f",
+    "pack": "battlecry",
+    "kind": "armor",
+    "slug": "armor:juggernaut-plate",
+    "name": "Juggernaut Plate",
+    "level": 19,
+    "rarity": "rare",
+    "traits": ["bulwark", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you are wearing this armor, you're a veritable battering ram. This "
+          },
+          {
+            "type": "text",
+            "text": "+3 greater resilient fortification full plate",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is topped with a reinforced helmet shaped like a ram's head that enables you to smash through doors and gates."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Ram",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Stride up to 60 feet in a straight line. If you end your movement adjacent to an enemy, object, or structure, you can smash it. If you smash an enemy, you deal bludgeoning damage equal to the total distance traveled ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 39,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save). Objects and structures you smash take damage equal to twice the distance traveled."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.yjtOmmTYhlUke0Xo"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 35000
+        }
+      },
+      "bulk": 4,
+      "activations": [
+        {
+          "slug": "ram",
+          "name": "Ram",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "category": "heavy",
+      "group": "plate",
+      "baseItem": "full-plate",
+      "acBonus": 6,
+      "dexCap": 0,
+      "checkPenalty": 3,
+      "speedPenalty": 10,
+      "strength": 4,
+      "runes": {
+        "potency": 3,
+        "resilient": 2,
+        "property": ["1100f76c-d253-50b6-82c0-c70593e97e10"]
+      }
+    }
+  },
+  {
+    "id": "fa29634b-a329-5c34-9a6b-ac5c1f09df64",
+    "pack": "battlecry",
+    "kind": "armor",
+    "slug": "armor:lifting-leather",
+    "name": "Lifting Leather",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 leather armor",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has a metal exoskeleton that runs along your back and limbs and grants you increased strength for lifting and carrying. While wearing this armor, you can carry 2 more Bulk than normal before becoming encumbered and up to a maximum of 4 more Bulk."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Heavy Lift",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " For 10 minutes, your physical strength is temporarily bolstered, granting you a +1 status bonus to Athletics checks to "
+          },
+          {
+            "type": "ref",
+            "id": "ef57a555-f9e9-53cc-b09b-b7432156cbf1"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "2f5bb1a4-2a45-5c29-ad6a-7feba044cfaa"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "082b982f-3ed4-5d9c-9722-9ab10198523a"
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "ref",
+            "id": "6257c7f0-f483-53d3-a791-d73a616cbce4"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "d3654dd7-e84b-5de7-9a54-d54ca86af6fb"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.cKMqVQSU3iGTiiF6"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 450
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "heavy-lift",
+          "name": "Heavy Lift",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "light",
+      "group": "leather",
+      "baseItem": "leather-armor",
+      "acBonus": 1,
+      "dexCap": 4,
+      "checkPenalty": 1,
+      "strength": 0,
+      "runes": {
+        "potency": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "c0eb552f-355d-5b94-b817-395f06e1db2a",
+    "pack": "battlecry",
+    "kind": "armor",
+    "slug": "armor:locust-leather",
+    "name": "Locust Leather",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 studded leather",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " armor was specially designed for removing locusts and similar vermin that had swarmed over portions of the battlefield. It's fully sealed along all of its seams with extra stitching and care, granting a +1 item bonus to Reflex saving throws against Swarming Bites, Swarming Stings, and similar abilities from swarms. In addition, you can create a cloud of smoke that can drive swarms from the area."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Poison Fumes",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You emit a quickly fading toxic cloud around you in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 5
+          },
+          {
+            "type": "text",
+            "text": ". All creatures within the emanation take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "5d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 24,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save). Swarms that fail this save also take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "poison",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:reflex"],
+        "type": "item",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["action:swarming-bites", "action:swarming-stings", "option:locust-leather"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.5sBRskeiJgEBtcJw"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 500
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "poison-fumes",
+          "name": "Poison Fumes",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "light",
+      "group": "leather",
+      "baseItem": "studded-leather-armor",
+      "acBonus": 2,
+      "dexCap": 3,
+      "checkPenalty": 1,
+      "strength": 1,
+      "runes": {
+        "potency": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "b9cdb99f-f44b-5490-ab35-c9630c2f3e17",
+    "pack": "battlecry",
+    "kind": "armor",
+    "slug": "armor:message-mail",
+    "name": "Message Mail",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["flexible", "invested", "magical", "noisy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 chain mail",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is most commonly worn by mid-level leaders in charge of squads or platoons of soldiers and was designed to enable them to relay and receive tactical information from their commanders."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Mail Delivery",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate, occult)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "c319a7b8-ee8e-5f50-97c7-16151916ad80"
+          },
+          {
+            "type": "text",
+            "text": " as a 3rd-rank spell."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of "
+          },
+          {
+            "type": "text",
+            "text": "message",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " (3rd rank)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.DuV6MVFjwbssZ4N1"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 430
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "mail-delivery",
+          "name": "Mail Delivery",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "category": "medium",
+      "group": "chain",
+      "baseItem": "chain-mail",
+      "acBonus": 4,
+      "dexCap": 1,
+      "checkPenalty": 2,
+      "speedPenalty": 5,
+      "strength": 3,
+      "runes": {
+        "potency": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "c33d9454-5f51-5039-a3b1-ca6db179483c",
+    "pack": "battlecry",
+    "kind": "armor",
+    "slug": "armor:mitigation-mail",
+    "name": "Mitigation Mail",
+    "level": 9,
+    "rarity": "uncommon",
+    "traits": ["flexible", "invested", "magical", "noisy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 resilient chain mail",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " helps bind up your wounds when you're injured in battle, enabling you to continue fighting."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Salve",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, healing, manipulate, vitality)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You restore "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "5d10+10",
+                "damageType": "vitality"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.zaqwfgmFMHUIq4lh"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 700
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "salve",
+          "name": "Salve",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "medium",
+      "group": "chain",
+      "baseItem": "chain-mail",
+      "acBonus": 4,
+      "dexCap": 1,
+      "checkPenalty": 2,
+      "speedPenalty": 5,
+      "strength": 3,
+      "runes": {
+        "potency": 1,
+        "resilient": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "479e7693-2ff8-5930-9872-ee86d506505d",
+    "pack": "battlecry",
+    "kind": "armor",
+    "slug": "armor:mitigation-mail-greater",
+    "name": "Mitigation Mail (Greater)",
+    "level": 13,
+    "rarity": "uncommon",
+    "traits": ["flexible", "invested", "magical", "noisy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+2 resilient chain mail",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " helps bind up your wounds when you're injured in battle, enabling you to continue fighting."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Salve",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, healing, manipulate, vitality)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You restore "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "8d10+15",
+                "damageType": "vitality"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.OdF2XdbXJczSn83Q"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "salve",
+          "name": "Salve",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "medium",
+      "group": "chain",
+      "baseItem": "chain-mail",
+      "acBonus": 4,
+      "dexCap": 1,
+      "checkPenalty": 2,
+      "speedPenalty": 5,
+      "strength": 3,
+      "runes": {
+        "potency": 2,
+        "resilient": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "4818ef79-9baa-520e-b40e-7b8063832155",
+    "pack": "battlecry",
+    "kind": "armor",
+    "slug": "armor:mitigation-mail-major",
+    "name": "Mitigation Mail (Major)",
+    "level": 17,
+    "rarity": "uncommon",
+    "traits": ["flexible", "invested", "magical", "noisy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater resilient chain mail",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " helps bind up your wounds when you're injured in battle, enabling you to continue fighting."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Salve",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, healing, manipulate, vitality)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You restore "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "11d10+20",
+                "damageType": "vitality"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.f7ccIV9tllxCxEdg"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 14000
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "salve",
+          "name": "Salve",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "medium",
+      "group": "chain",
+      "baseItem": "chain-mail",
+      "acBonus": 4,
+      "dexCap": 1,
+      "checkPenalty": 2,
+      "speedPenalty": 5,
+      "strength": 3,
+      "runes": {
+        "potency": 2,
+        "resilient": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "b6dfc2eb-d151-5d25-8ad0-db3d73435047",
+    "pack": "battlecry",
+    "kind": "armor",
+    "slug": "armor:parachute-mail",
+    "name": "Parachute Mail",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["flexible", "invested", "magical", "noisy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Favored by soldiers deployed on airships, this chain mail has a built-in parachute connected to the armor itself, with an additional harness to be worn underneath. It takes 10 minutes and a successful "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:crafting",
+            "dc": 15
+          },
+          {
+            "type": "text",
+            "text": " check to successfully repack the parachute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Deploy Parachute",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once until repacked"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are falling"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Once activated, the parachute will fully deploy within 1 round. If it is deployed at a height greater than 100 feet, the parachute will prevent you from receiving falling damage. If deployed at a height of less than 100 feet, it will reduce the damage taken from falling by half."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.QP6giHFBNqFJKSVj"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 150
+        }
+      },
+      "bulk": 2,
+      "category": "medium",
+      "group": "chain",
+      "baseItem": "chain-mail",
+      "acBonus": 4,
+      "dexCap": 1,
+      "checkPenalty": 2,
+      "speedPenalty": 5,
+      "strength": 3
+    }
+  },
+  {
+    "id": "3f3aa403-abf6-5d42-aea7-64aa0bc3d032",
+    "pack": "battlecry",
+    "kind": "armor",
+    "slug": "armor:reactive-mail",
+    "name": "Reactive Mail",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["flexible", "invested", "magical", "noisy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Often heavily battle scared from use, this chain mail is commonly issued to frontline soldiers who are tasked with battling through enemies to reach high-value targets across the battlefield."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate–Quick Spike",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate, metal)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature within 15 feet uses a manipulate action"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An iron spike launches from your armor at the target, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d8",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to the target ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 20,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save). If the target critically fails, the triggering action is disrupted."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ip041iF27ZY52G6s"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 160
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "quick-spike",
+          "name": "Quick Spike",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "category": "medium",
+      "group": "chain",
+      "baseItem": "chain-mail",
+      "acBonus": 4,
+      "dexCap": 1,
+      "checkPenalty": 2,
+      "speedPenalty": 5,
+      "strength": 3
+    }
+  },
+  {
+    "id": "4fd61ea1-17e3-5856-b231-da83081e5ddc",
+    "pack": "battlecry",
+    "kind": "armor",
+    "slug": "armor:reactive-mail-greater",
+    "name": "Reactive Mail (Greater)",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["flexible", "invested", "magical", "noisy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Often heavily battle scared from use, this "
+          },
+          {
+            "type": "text",
+            "text": "+1 resilient chain mail",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is commonly issued to frontline soldiers who are tasked with battling through enemies to reach high-value targets across the battlefield."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate–Quick Spike",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate, metal)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature within 15 feet uses a manipulate action"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An iron spike launches from your armor at the target, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "5d8",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to the target ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 28,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save). If the target critically fails, the triggering action is disrupted."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Y5ru5YAL5LDMscx6"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1400
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "quick-spike",
+          "name": "Quick Spike",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "category": "medium",
+      "group": "chain",
+      "baseItem": "chain-mail",
+      "acBonus": 4,
+      "dexCap": 1,
+      "checkPenalty": 2,
+      "speedPenalty": 5,
+      "strength": 3,
+      "runes": {
+        "potency": 1,
+        "resilient": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "fdfe1817-dc42-5d52-a016-ccb06519cabb",
+    "pack": "battlecry",
+    "kind": "armor",
+    "slug": "armor:reactive-mail-major",
+    "name": "Reactive Mail (Major)",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["flexible", "invested", "magical", "noisy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Often heavily battle scared from use, this "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater resilient chain mail",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is commonly issued to frontline soldiers who are tasked with battling through enemies to reach high-value targets across the battlefield."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate–Quick Spike",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate, metal)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature within 15 feet uses a manipulate action"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An iron spike launches from your armor at the target, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "7d8",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to the target ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 36,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save). If the target critically fails, the triggering action is disrupted."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ZXvCmnud6spsJ2FX"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 14000
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "quick-spike",
+          "name": "Quick Spike",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "category": "medium",
+      "group": "chain",
+      "baseItem": "chain-mail",
+      "acBonus": 4,
+      "dexCap": 1,
+      "checkPenalty": 2,
+      "speedPenalty": 5,
+      "strength": 3,
+      "runes": {
+        "potency": 2,
+        "resilient": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "49530f87-06f1-5a36-adc6-a58f40854ae5",
+    "pack": "battlecry",
+    "kind": "armor",
+    "slug": "armor:shadow-shroud",
+    "name": "Shadow Shroud",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A dark haze seems to envelop you when you wear this dusky "
+          },
+          {
+            "type": "text",
+            "text": "+1 resilient shadow leather armor",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", muffling your steps and concealing your movement. While wearing the armor, you can create even deeper shadows to hide within."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Shroud",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (arcane, concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "d7720a54-bc70-5d59-bdb1-d50d8eb0dac9"
+          },
+          {
+            "type": "text",
+            "text": " as a 4th-rank spell centered on you."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of "
+          },
+          {
+            "type": "text",
+            "text": "darkness",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " (4th rank)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.QVJirPfPdU3S6F7H"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "shroud",
+          "name": "Shroud",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "light",
+      "group": "leather",
+      "baseItem": "leather-armor",
+      "acBonus": 1,
+      "dexCap": 4,
+      "checkPenalty": 1,
+      "strength": 0,
+      "runes": {
+        "potency": 1,
+        "resilient": 1,
+        "property": ["49f1b621-1adb-5a14-9381-f4ca5dd17065"]
+      }
+    }
+  },
+  {
+    "id": "5dff07ad-6d5d-5aa7-b73e-ebf5edc504b3",
+    "pack": "battlecry",
+    "kind": "armor",
+    "slug": "armor:thunder-mail",
+    "name": "Thunder Mail",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["flexible", "invested", "magical", "noisy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater resilient greater electricity-resistant chain mail",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is adorned with two golden thunderbolts, one along each forearm. Even on a seemingly cloudless day, you can raise your arms to the heavens and draw down a bolt of lightning upon yourself, empowering your armor and blasting your enemies."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Call Down Lightning",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, electricity, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You conjure a bolt of electricity down onto yourself, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6",
+                "damageType": "electricity"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to all creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": ". Additionally, for the next minute, whenever a creature touches you or hits you with a melee unarmed attack or a non-reach melee weapon attack, it takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d8",
+                "damageType": "electricity"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.V9sGPys7ewedE6t9"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6500
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "call-down-lightning",
+          "name": "Call Down Lightning",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "medium",
+      "group": "chain",
+      "baseItem": "chain-mail",
+      "acBonus": 4,
+      "dexCap": 1,
+      "checkPenalty": 2,
+      "speedPenalty": 5,
+      "strength": 3,
+      "runes": {
+        "potency": 2,
+        "resilient": 2,
+        "property": ["abd6dd1c-4436-567f-861f-f1ad0decda68"],
+        "propertyEnergy": {
+          "abd6dd1c-4436-567f-861f-f1ad0decda68": "electricity"
+        }
+      }
+    }
+  },
+  {
+    "id": "5a30f263-3ebc-5e5a-a9ff-216743ef0284",
+    "pack": "battlecry",
+    "kind": "armor",
+    "slug": "armor:umbral-armor",
+    "name": "Umbral Armor",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This dark "
+          },
+          {
+            "type": "text",
+            "text": "+1 resilient shadow studded leather armor",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is frequently used to bypass enemy positions or quickly travel around battlefield obstacles as it allows you to partially transit through the Netherworld."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Shroud Stride",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, shadow)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You slip into the Netherworld for a moment, allowing you to Stride twice your speed. This movement doesn't trigger reactions and ignores difficult and hazardous terrain. Shadows lingers on the armor, causing you to become "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round afterward."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.s6E2ZdtEUz3Lxx3B"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "shroud-stride",
+          "name": "Shroud Stride",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "light",
+      "group": "leather",
+      "baseItem": "studded-leather-armor",
+      "acBonus": 2,
+      "dexCap": 3,
+      "checkPenalty": 1,
+      "strength": 1,
+      "runes": {
+        "potency": 1,
+        "resilient": 1,
+        "property": ["49f1b621-1adb-5a14-9381-f4ca5dd17065"]
+      }
+    }
+  },
+  {
+    "id": "46e3f264-405a-52c1-85c8-8b826a9b1179",
+    "pack": "battlecry",
+    "kind": "armor",
+    "slug": "armor:wilderness-weave",
+    "name": "Wilderness Weave",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["comfort", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This padded armor is favored by trackers and foragers who frequent uninhabited forests and brush lands. The armor enables you to communicate with wildlife and other animals."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Commune",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, primal)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "8d18d9de-97ab-5626-af6e-b9c22eafc998"
+          },
+          {
+            "type": "text",
+            "text": " on yourself."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of "
+          },
+          {
+            "type": "text",
+            "text": "speak with animals",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.5dsKAhyjaU6tgaH1"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 160
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "commune",
+          "name": "Commune",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "light",
+      "baseItem": "padded-armor",
+      "acBonus": 1,
+      "dexCap": 3,
+      "strength": 0
+    }
+  }
+]

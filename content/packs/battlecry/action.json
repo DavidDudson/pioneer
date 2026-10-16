@@ -1,0 +1,4329 @@
+[
+  {
+    "id": "f3645a7b-ae0a-5208-bff2-ab08adf8004e",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:alley-oop",
+    "name": "Alley-Oop",
+    "rarity": "common",
+    "traits": ["commander", "tactic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your team excels at sharing resources and delivering them exactly where they need to be. Signal a squadmate within the aura of your banner who is holding or wearing a consumable that can be activated as a single action. That squadmate can toss their consumable to any other squadmate within the aura of your banner as a free action, and the receiving squadmate can catch and activate the consumable as a reaction. If the receiving squadmate chooses not to catch the consumable or if they don't have a free hand to catch it with, it lands on the ground in their space."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If the consumable is a piece of activated ammunition and the receiving squadmate is wielding a compatible weapon that takes 1 or fewer actions to reload, they can load the ammunition into their weapon as part of the reaction used to catch and activate it. The ammunition remains activated until the end of their next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.Z0HyZyvCe3Y1Chaa"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "9a736bb7-28ce-514b-a426-38f83755315b",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:bloody-guillotine",
+    "name": "Bloody Guillotine",
+    "rarity": "common",
+    "traits": ["commander", "tactic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your squad performs a brutal combination attack that levels an enemy and attempts to put them down permanently. Choose and signal up to three squadmates within the aura of your commander's banner. Each squadmate can Stride up to half their Speed directly toward a single enemy you designate as a free action. Any who end their movement adjacent to the designated target can attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "6257c7f0-f483-53d3-a791-d73a616cbce4"
+          },
+          {
+            "type": "text",
+            "text": " or Strike it as a reaction."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The first time a "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": " enemy is successfully dealt damage by a Strike from this tactic, they must immediately attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": {
+              "against": "class-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC or die; this is a death and incapacitation effect. All enemies who witness a creature slain by Bloody Guillotine must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-dc"
+            },
+            "options": ["inflicts:sickened"]
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC or become "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round ("
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round on a critical failure); this is an emotion and mental effect."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.zt5fgBBOQpr84CGE"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "bcac9d0a-af26-5b38-8e8e-0ea784a4ba85",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:buckle-cut-blitz",
+    "name": "Buckle-Cut Blitz",
+    "rarity": "common",
+    "traits": ["brandish", "commander", "tactic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your squad dashes past enemies, slicing their boot laces and breaking their belt buckles. Signal up to two squadmates within the aura of your commander's banner; these squadmates can Stride up to their Speed as a reaction. Each enemy they are adjacent to at any point during this movement must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": {
+              "against": "class-dc"
+            },
+            "options": ["inflicts:clumsy"]
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC or become "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round ("
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 2"
+          },
+          {
+            "type": "text",
+            "text": " on a critical failure)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.3sNSr6NEVkUZ0dIr"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "ad9381ab-0844-56b0-84d8-b03073778611",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:call-follower",
+    "name": "Call Follower",
+    "rarity": "common",
+    "traits": ["exploration"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You spend 1 minute calling for a different follower, switching your active follower for another of your followers."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.qyqlwr1hYf227fxD"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "cbc4fef8-6639-579f-8111-4a916bc25817",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:coordinating-maneuvers",
+    "name": "Coordinating Maneuvers",
+    "rarity": "common",
+    "traits": ["brandish", "commander", "tactic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your team works to slip enemies into a disadvantageous position. Signal one squadmate within the aura of your banner; that squadmate can immediately Step as a free action. If they end this movement next to an opponent, they can attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "2f5bb1a4-2a45-5c29-ad6a-7feba044cfaa"
+          },
+          {
+            "type": "text",
+            "text": " that target as a reaction."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.Kp325Qf0qpF6RCDE"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "94fa07ec-68b9-522a-9bea-b2aa15445aee",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:crescent-spray",
+    "name": "Crescent Spray",
+    "rarity": "common",
+    "traits": ["flourish"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are wielding a crescent cross"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effects",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Strike up to three times with the ranged version of your crescent cross. If it is currently in its melee configuration, you can swap it to its ranged configuration as a free action before attempting these Strikes. You must have a bolt already chambered for each Strike and can Interact to swap to a different capacity chamber as a free action between each Strike. Each attack counts toward your multiple attack penalty, but you do not increase your penalty until you have made all your attacks."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.2XQowhfM4SfAhJaf"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You are wielding a crescent cross"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "ee06fd6f-f05d-5aea-b15c-2b73b23c511a",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:cry-havoc",
+    "name": "Cry Havoc!",
+    "rarity": "common",
+    "traits": ["brandish", "commander", "tactic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your squad rallies with a resounding clangor that drowns out all other sounds of war. Choose an enemy you are observing and signal all squadmates within the aura of your commander's banner. All squadmates can Stride up to twice their Speed directly toward the target as a reaction, yelling and trampling. When any squadmate enters a square adjacent to any enemy, that enemy must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": {
+              "against": "class-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC or take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "bludgeoning"
+              },
+              {
+                "formula": "2d6",
+                "damageType": "sonic"
+              }
+            ],
+            "label": "2d6 bludgeoning damage and 2d6 sonic damage"
+          },
+          {
+            "type": "text",
+            "text": " damage, plus an additional 2d6 bludgeoning and 2d6 sonic damage for every squadmate participating in Cry Havoc! (enemies who critically fail are "
+          },
+          {
+            "type": "ref",
+            "id": "4271da2e-7225-5aa7-9807-c499d8af6a5a"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round). Regardless of the outcome, the enemy is then temporarily immune to any further damage from Cry Havoc! for 24 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Squadmates can use Cry Havoc! while Burrowing, Climbing, Flying, or Swimming instead of Striding if they have the corresponding movement type."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.k50ynPhpPSPZ4Akg"
+    },
+    "data": {
+      "cost": "three",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "d7b1ccdc-5c91-5700-aa1e-986a62bb9ec6",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:defensive-retreat",
+    "name": "Defensive Retreat",
+    "rarity": "common",
+    "traits": ["brandish", "commander", "tactic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You call for a careful retreat. Signal all squadmates within the aura of your banner; each can immediately Step up to three times as a free action. Each Step must take them farther away from at least one hostile creature they are observing and can only take them closer to a hostile creature if doing so is the only way for them to move toward safety (such as if they're surrounded)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.UJi0VYnhVSdnl9II"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "a3523801-4045-57b4-b764-fb33e336c716",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:demoralizing-charge",
+    "name": "Demoralizing Charge",
+    "rarity": "common",
+    "traits": ["brandish", "commander", "tactic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your team's coordinated assault strikes fear into your enemies' hearts. Signal up to two squadmates within the aura of your commander's banner; as a free action, those squadmates can immediately Stride toward an enemy they are observing."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If they end this movement adjacent to an enemy, they can attempt to Strike that enemy as a reaction. For each of these Strikes that are successful, the target enemy must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-dc"
+            },
+            "options": ["inflicts:frightened"]
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC or become "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 1"
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": " on a critical failure); this is an emotion, fear, and mental effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If both Strikes target the same enemy, that enemy attempts the save only once after the final attack and takes a –1 circumstance penalty to their Will save to resist this effect (this penalty increases to –2 if both Strikes are successful or to –3 if both Strikes are successful and either is a critical hit.)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "4e34c955-d559-5d7a-b61c-823674bac8e0"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.q1dvlKJI2Kfegc4Y"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "49105c3e-d680-5a09-aaf5-f985d630287a",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:direct-follower",
+    "name": "Direct Follower",
+    "rarity": "common",
+    "traits": ["concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You issue an order to your follower, granting them 2 actions. This action has the auditory or visual trait depending on the method of communication used, but it must have one or the other. You can Direct your Follower to perform any of the following basic actions: "
+          },
+          {
+            "type": "ref",
+            "id": "fe112db5-30e6-5a96-94a1-2356a4820452"
+          },
+          {
+            "type": "text",
+            "text": ", Drop Prone, "
+          },
+          {
+            "type": "ref",
+            "id": "2ae74030-e87a-55ee-955c-fb9870392d44"
+          },
+          {
+            "type": "text",
+            "text": ", Interact, "
+          },
+          {
+            "type": "ref",
+            "id": "1a0bed3d-5eb7-554f-ad07-4c8630afd0c8"
+          },
+          {
+            "type": "text",
+            "text": ", Release, "
+          },
+          {
+            "type": "ref",
+            "id": "d45207be-e539-50ce-9463-f4edc3671076"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "775b68f2-1542-5f47-bc0d-87d5884d7baa"
+          },
+          {
+            "type": "text",
+            "text": ", Stand, Step, Stride, and Strike. They can only use the Strikes listed in their stat blocks. Followers that gain a burrow Speed or fly Speed can use Burrow or Fly, respectively. You can also direct your follower to use skill actions for which they meet the prerequisites. Finally, you can direct the follower to perform any actions listed in their stat block. Unlike an animal companion's support actions, these special actions don't impose restrictions on the other actions a follower can use on this turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.H72AAzknXiojqXdY"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "30d7758e-499b-5741-8af0-1f97b490599d",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:double-team",
+    "name": "Double Team",
+    "rarity": "common",
+    "traits": ["commander", "tactic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your team works together to set an enemy up for a vicious attack. Signal one squadmate who has an opponent within their reach. That ally can "
+          },
+          {
+            "type": "ref",
+            "id": "082b982f-3ed4-5d9c-9722-9ab10198523a"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "2f5bb1a4-2a45-5c29-ad6a-7feba044cfaa"
+          },
+          {
+            "type": "text",
+            "text": " an opponent as a free action. If their maneuver is successful and the target ends their movement adjacent to a different squadmate, the second squadmate can attempt a melee Strike against that target as a reaction."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.c5jVVnNYlP5HB6Ob"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "431e9364-bf6e-5893-b3b3-7443a5ef1fac",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:end-it",
+    "name": "End It!",
+    "rarity": "common",
+    "traits": ["brandish", "commander", "incapacitation", "tactic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You and your allies currently outnumber enemies on the battlefield, and you or a squadmate have reduced an enemy to 0 Hit Points since the start of your last turn."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At your proclamation that victory is already at hand, your allies march forward with an authoritative stomp, scattering your enemies in terror. Signal all squadmates within the aura of your banner; you and each ally can Step as a free action directly toward a hostile creature. Any hostile creatures within 10 feet of a squadmate after this movement must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-dc"
+            },
+            "options": ["inflicts:fleeing", "inflicts:frightened"]
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC; on a failure they become "
+          },
+          {
+            "type": "ref",
+            "id": "f7fea8f9-c457-5b9f-9283-f567fa557184"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round, and on a critical failure they become fleeing for 1 round and "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": ". This is an emotion, fear, and mental effect."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.lI4JCQcqvrZE2U5n"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You and your allies currently outnumber enemies on the battlefield, and you or a squadmate have reduced an enemy to 0 Hit Points since the start of your last turn."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "fbd724ac-48c9-5eeb-a18e-bfaebe090712",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:engineers-efficiency",
+    "name": "Engineer's Efficiency",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per turn"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are adjacent to your light mortar"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Aim your light mortar and then either Load or Launch it."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.qYdreGwopQ1ODgC6"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You are adjacent to your light mortar"
+            }
+          ]
+        }
+      ],
+      "frequency": {
+        "max": 1,
+        "per": "round"
+      }
+    }
+  },
+  {
+    "id": "f50456fe-c60d-5ed3-8cfb-99acd997bb62",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:executioners-volley",
+    "name": "Executioner's Volley",
+    "rarity": "common",
+    "traits": ["commander", "tactic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You command your squadmates to act as a lethal firing squad. You and each squadmate within the aura of your commander's banner can attempt a ranged Strike as a reaction against a single target you choose; combine the damage from all attacks for the purpose of resistances and weaknesses. If the designated target is a living creature, these attacks gain the death trait. If the designated target dies as a result of this tactic, all other enemies within the affected area of your commander's banner must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-dc"
+            },
+            "options": ["inflicts:frightened"]
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC or be "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": "; this is an emotion, fear, and mental effect."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If one of your squadmates knows or has prepared a cantrip with a range of 30 feet or more that deals damage and requires 2 or fewer actions to cast, they can cast it targeting the designated enemy instead of taking the other actions normally granted by this tactic, gaining all other listed benefits."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.GkcfzMAJVX159ua7"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "fbe7bddf-c2c3-5050-bfc9-5e646ae9b8b3",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:gather-to-me",
+    "name": "Gather to Me!",
+    "rarity": "common",
+    "traits": ["commander", "tactic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You signal your team to move into position together. Signal all squadmates; each can immediately Stride as a reaction, though each must end their movement inside your banner's aura, or as close to your banner's aura as their movement Speed allows."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Squadmates can use Gather to Me! while Burrowing, Climbing, Flying, or Swimming instead of Striding if they have the corresponding movement type."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.URxnrN8ji84AoVup"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "cdf9b785-3fd2-51eb-b38c-f989b941e14b",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:guerrilla-assault",
+    "name": "Guerrilla Assault",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per round"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Interact to reload a sling or blowgun and then Strike. If the Strike is successful and you were undetected or unnoticed by the target when you made the attack, you are now "
+          },
+          {
+            "type": "ref",
+            "id": "d851e3ca-be0d-55a7-a4d1-d7ed8b7ecafa"
+          },
+          {
+            "type": "text",
+            "text": " from the target after the attack, as they cannot tell where the attack came from."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.VE8P7wCsKo5eSwAz"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "round"
+      }
+    }
+  },
+  {
+    "id": "3fe75d4b-d152-5ee0-826c-6291322e4945",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:haunting-visage",
+    "name": "Haunting Visage",
+    "rarity": "common",
+    "traits": ["concentrate", "eidolon", "manipulate", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your eidolon is condensed."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon suddenly shifts itself into a terrifying shape of its choosing, rather than a simple mound, by closely controlling the positioning of its component bodies. The eidolon attempts to Demoralize a creature within 15 feet; this Demoralize attempt loses the auditory trait, gains the visual trait, and the eidolon doesn't take a –4 circumstance penalty to the check if they don't share a language with their target. On a success or critical success, the target is additionally "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.4oHjLO6qMfxIchRB"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your eidolon is condensed."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "cda0387c-82c8-5259-a0fd-edff712c33a8",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:infiltrators-draw",
+    "name": "Infiltrator's Draw",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per round"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Interact to draw a gauntlet bow, hand crossbow, or repeating hand crossbow, then Strike with it. Alternatively, you can Strike with a loaded hand crossbow or repeating hand crossbow you're already holding and then Interact to stow it."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.PACnDVj2YLLSpr8Y"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "round"
+      }
+    }
+  },
+  {
+    "id": "33058de6-0b26-5b9e-824a-8713ffe7870d",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:insta-ballista",
+    "name": "Insta-Ballista",
+    "rarity": "common",
+    "traits": ["brandish", "commander", "tactic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your squad quickly assembles a special impromptu ballista and fires it to lethal effect. Signal all squadmates you previously chose to participate in this tactic (see Special); these squadmates must be within the aura of your commander's banner. They can all Stride as a free action to assemble into a close formation; as long as all the chosen squadmates end their movement no more than 10 feet away from any of the other chosen squadmates. They quickly assemble an impromptu ballista and fire it at an enemy of your choice within 200 feet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This is a ranged Strike using your proficiency bonus with martial weapons and gets an item bonus to the attack roll you make with it equal to the number of assisting squadmates (maximum +4). It deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10d12",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. Once the attack is completed, the pieces of the impromptu ballista fall apart."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You must choose all squadmates who will participate in this tactic at the time you prepare it. Those squadmates must carry the pieces of your impromptu ballista, which can be made out of easily scavenged materials; these pieces are 8 Bulk in total and can be divided in 1 Bulk increments among any number of the chosen squadmates."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.ut0jFv67YpvHBzD9"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "b3c0d946-570f-5b78-bb91-fafd6002d75f",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:intercept-attack",
+    "name": "Intercept Attack",
+    "rarity": "common",
+    "traits": ["guardian"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An ally within 10 feet of you takes physical damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You fling yourself in the way of oncoming harm to protect an ally. You can Step, but you must end your movement adjacent to the triggering ally. You take the damage instead of the triggering ally. Apply your own immunities, weaknesses, and resistances to the damage, not the ally's."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can extend this ability to an ally within 15 feet of you if the damage comes from your taunted enemy. If this ally is farther than you can Step to reach, you can Stride instead of Stepping; you still must end the movement adjacent to your ally."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.vhO1f7oTD2s3Ncg9"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "An ally within 10 feet of you takes physical damage."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "ada43590-401b-5b7f-85f0-2f7f2f078acc",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:mirrored-wall",
+    "name": "Mirrored Wall",
+    "rarity": "common",
+    "traits": ["commander", "tactic", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " At least one of your squadmates is in bright light or has a focused light source available, such as a bull's-eye lantern."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your squadmates have polished their shields to a reflective sheen and now position them to reflect a blinding light into your enemy's eyes. All of your squadmates can Raise a Shield or cast "
+          },
+          {
+            "type": "ref",
+            "id": "6dee4f5d-f584-5402-af2a-d3738ec685b3"
+          },
+          {
+            "type": "text",
+            "text": " as a reaction."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Then, signal a squadmate within the aura of your commander's banner who currently has a shield raised (including spellcasting allies with an active casting of the "
+          },
+          {
+            "type": "text",
+            "text": "shield",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " cantrip), and choose an enemy within 60 feet. The formation bounces light off the raised shield and into the enemy's eyes; the target must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": {
+              "against": "class-dc"
+            },
+            "options": ["inflicts:blinded", "inflicts:dazzled"]
+          },
+          {
+            "type": "text",
+            "text": " saving throw against your class DC or become "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round (on a critical failure, the creature remains "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " for 3 rounds after the blindness ends)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can signal additional allies with raised shields to participate in this tactic; the target takes a circumstance penalty on this save equal to the number of additional participating squadmates (to a maximum –4 circumstance penalty to the target's save)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "3e503573-bb05-513c-88d6-b07ab5d36ef5"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.EKEZGfOBKTNWTFDe"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At least one of your squadmates is in bright light or has a focused light source available, such as a bull's-eye lantern."
+            }
+          ]
+        }
+      ],
+      "frequency": {
+        "max": 1,
+        "per": "ten-minutes"
+      }
+    }
+  },
+  {
+    "id": "bc06bc53-091c-5496-92f8-3fa750a6a410",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:mobbing-assault",
+    "name": "Mobbing Assault",
+    "rarity": "common",
+    "traits": ["concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your horde has been raised"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Each enemy in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 5
+          },
+          {
+            "type": "text",
+            "text": " around your horde takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(ternary(gte(@level,18),8,ternary(gte(@level,14),6,ternary(gte(@level,10),4,2))))d6",
+                "damageType": "bludgeoning"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage (if your horde is zombies) or "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(ternary(gte(@level,18),8,ternary(gte(@level,14),6,ternary(gte(@level,10),4,2))))d6",
+                "damageType": "slashing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage (if your horde is skeletons) with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": {
+              "against": "spell-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save against your spell DC. At 10th level and every 4 levels thereafter, the damage increases by 2d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.yWTdfPklh8jL94GZ"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your horde has been raised"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "34398c9f-1eff-51c8-9314-b070b8011e5c",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:mountaineering-training",
+    "name": "Mountaineering Training",
+    "rarity": "common",
+    "traits": ["commander", "tactic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your instructions make it easier for you and your allies to scale dangerous surfaces. Signal all squadmates; until the end of your next turn, you and each ally gain a climb Speed of 20 feet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "5637d897-3c50-58ec-b50a-753027d8fc17"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If you have this tactic prepared, you can use Warfare Lore in place of Athletics for checks you make to Climb."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.bAXkEXAlnBx78S7t"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "2ef8c76d-8634-5075-a8f4-cf26c5afb9a1",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:naval-training",
+    "name": "Naval Training",
+    "rarity": "common",
+    "traits": ["commander", "tactic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your instructions make it easier for you and your allies to swim through dangerous waters. Signal all squadmates; until the end of your next turn, you and each ally gain a swim Speed of 20 feet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "67ec757d-975a-5ea4-9aa8-81d556d577f2"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If you have this tactic prepared, you can use Warfare Lore in place of Athletics for checks you make to Swim."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.zuTNF3UEr0ZNleqR"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "5b268256-ad1f-568e-a7e8-dafb529e2784",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:passage-of-lines",
+    "name": "Passage of Lines",
+    "rarity": "common",
+    "traits": ["commander", "tactic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You command your allies to regroup, allowing endangered units to fall back while rested units press the advantage. Signal all squadmates within the aura of your commander's banner; each can swap positions with another willing ally adjacent to them. An ally can't swap into a space it can't fit into, and if one of the allies occupies more squares than the other, the smaller ally can move into any part of the larger ally's space as long as the two remain adjacent after the swap."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "PFS Note:",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " This tactic can be used by "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": " PCs, but not PCs who are "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": ", or otherwise unable to move of their own volition."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.BfC5pWAns8PNewW3"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "204deaba-a9cd-53de-9ff2-cf5475d5a996",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:pincer-attack",
+    "name": "Pincer Attack",
+    "rarity": "common",
+    "traits": ["commander", "tactic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You call for an aggressive formation designed for exploiting enemies' vulnerabilities. Signal all squadmates; each can Step as a reaction. If any of your allies ends this movement adjacent to an opponent, that opponent is "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " to melee attacks from you and all other squadmates who responded to Pincer Attack until the start of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.zLFfwNmmPTND6OMO"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "58267d02-76b8-5cfb-984a-b78626af7318",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:piranha-assault",
+    "name": "Piranha Assault",
+    "rarity": "common",
+    "traits": ["commander", "tactic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You know that a thousand small bites can fell a large foe just as surely a single well-placed hit. Designate a creature within the aura of your commander's banner and signal all squadmates; for 1 minute, each time they attack that creature and deal damage to it of a type the creature resists, they ignore an amount of that creature's resistance equal to your level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.NVLqYqkkQaCdnWWk"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "ten-minutes"
+      }
+    }
+  },
+  {
+    "id": "dc3f2c21-c94e-55af-8d3e-05791a306012",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:pop-drop-and-lock",
+    "name": "Pop, Drop, and Lock",
+    "rarity": "common",
+    "traits": ["brandish", "commander", "tactic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You command your squadmates to perform a devastating coordinated takedown. Signal up to three squadmates within the aura of your commander's banner who all have the same enemy within their reach; the squadmates can attempt to Strike, "
+          },
+          {
+            "type": "ref",
+            "id": "6257c7f0-f483-53d3-a791-d73a616cbce4"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "380d34f1-f6f6-5820-b9dd-c01ee4e19fd5"
+          },
+          {
+            "type": "text",
+            "text": " the opponent as a reaction. Each squadmate can only attempt one specific action granted by this tactic, the actions can be attempted in any order and a specific action can only be attempted once as part of this tactic."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.6YIG6eVGTplWubGb"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "ten-minutes"
+      }
+    }
+  },
+  {
+    "id": "26a90083-9c86-56c7-bd19-f71e95518130",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:protective-screen",
+    "name": "Protective Screen",
+    "rarity": "common",
+    "traits": ["brandish", "commander", "tactic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've trained your allies in a technique designed to protect war mages. Signal one squadmate; as a reaction, that squadmate Strides directly toward any other squadmate who is within the aura of your banner. If the first squadmate ends their movement adjacent to another squadmate, the second squadmate does not trigger reactions when casting spells or making ranged attacks until the end of their next turn or until they are no longer adjacent to the first squadmate, whichever comes first. If the first squadmate ends their movement adjacent to more than one other squadmate, the first squadmate must choose which of the adjacent squadmates gains this benefit."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.5yBBgZ7OCWWJsnLo"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "8e5bd4bc-1312-5c5c-813d-2c8dc4d3fbf7",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:raise-the-horde",
+    "name": "Raise the Horde",
+    "rarity": "common",
+    "traits": ["concentrate", "magical", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your undead horde appears in an unoccupied space within 30 feet. Choose whether your horde consists of skeletons or zombies, which affects the type of damage it deals with Mobbing Assault. Your horde remains summoned until the end of your next turn, but you can Sustain the effect for up to 1 minute. The effect also ends if you end your turn more than 120 feet away from the horde. When you first use Raise the Horde and each time you Sustain the effect, you can have the horde Stride."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When Raise the Horde ends, the undead that comprise your horde collapse lifelessly to the ground and quickly rot away. They can no longer be targeted or used for actions."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.ND1G3s4lXNUAXc1q"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "ten-minutes"
+      }
+    }
+  },
+  {
+    "id": "62cbb1a2-b7ce-598d-b783-eef7fa7f4d9d",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:ready-aim-fire",
+    "name": "Ready, Aim, Fire!",
+    "rarity": "common",
+    "traits": ["brandish", "commander", "tactic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You signal a volley of ranged attacks from your allies. Choose an enemy and signal up to three squadmates within the aura of your commander's banner; your squadmates can Interact to reload as a free action and attempt a ranged Strike against the enemy as a reaction"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If one of your squadmates knows or has prepared a cantrip with a range of 30 feet or more that deals damage and requires 2 or fewer actions to cast, they can cast it targeting the enemy instead of taking the other actions normally granted by this tactic."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.iuFPNbfhVXvbCPRO"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "ten-minutes"
+      }
+    }
+  },
+  {
+    "id": "70fbb68e-7e8b-5c40-8ddd-ff1de96fd5dc",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:redistribute",
+    "name": "Redistribute",
+    "rarity": "common",
+    "traits": ["eidolon"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An enemy's Strike against your eidolon is a critical hit."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon rearranges its component bodies in response to a powerful blow, mitigating the worst of the damage they would have taken. The triggering critical hit becomes a hit. Your eidolon immediately switches forms, from condensed to dispersed or from dispersed to condensed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.cd34tQpOVbaGuv5p"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "An enemy's Strike against your eidolon is a critical hit."
+            }
+          ]
+        }
+      ],
+      "frequency": {
+        "max": 1,
+        "per": "ten-minutes"
+      }
+    }
+  },
+  {
+    "id": "289b59ea-76a9-5218-905e-0e665559563f",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:reload",
+    "name": "Reload!",
+    "rarity": "common",
+    "traits": ["commander", "tactic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your drill instruction kicks in, and your allies rapidly reload their weapons to prepare for the next volley. Signal all squadmates; each can immediately Interact to reload as a reaction."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " When leading a siege weapon crew, you can use this tactic to command your squadmates to Load a siege weapon instead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.NjS64g60oV74XZjq"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "697d2792-e950-5d4d-a350-4fea7c32d323",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:roaring-charge",
+    "name": "Roaring Charge",
+    "rarity": "common",
+    "traits": ["commander", "tactic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You and your squad surge forward with a mighty roar. Signal all squadmates within the aura of your commander's banner. As a reaction, these squadmates can Stride up to twice their Speed directly toward any enemy they are observing."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Any creature within 10 feet of a squadmate once all movement from this tactic has been completed must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-dc"
+            },
+            "options": ["inflicts:frightened", "inflicts:fleeing"]
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC with the following results. This is an emotion, fear, incapacitation, and mental effect."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " No effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 3"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "f7fea8f9-c457-5b9f-9283-f567fa557184"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.ILwYke30PIAr2CVX"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "ten-minutes"
+      }
+    }
+  },
+  {
+    "id": "a130e79c-c2b9-5c85-8c71-7c95e5d6f0ee",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:sanguine-revitalization",
+    "name": "Sanguine Revitalization",
+    "rarity": "common",
+    "traits": ["commander", "tactic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your squad is rejuvenated by the arterial spray of your enemies. Choose a creature within the aura of your commander's banner and signal all squadmates within the aura who are wielding a piercing or slashing melee weapon, or who have a piercing or slashing melee unarmed attack. Those allies can Stride up to half their Speed as a free action. If they end this movement within reach of the designated target, they can Strike the target with the required weapon or unarmed attack as a reaction."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Once all Strikes are completed, if the target took damage and is not immune to bleed damage, it must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": {
+              "against": "class-dc"
+            },
+            "options": ["inflicts:bleed"]
+          },
+          {
+            "type": "text",
+            "text": " saving throw against your class DC or take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10",
+                "damageType": "bleed",
+                "category": "persistent"
+              }
+            ],
+            "label": "10 points of persistent bleed"
+          },
+          {
+            "type": "text",
+            "text": " damage. The target takes a circumstance penalty on their save equal to the number of successful Strikes made as part of this tactic (up to a maximum –4 circumstance penalty)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "49c0a950-3e83-5a4d-9596-4250e5fd660e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your squadmates are energized by the display of your enemy's imminent defeat; each squadmate in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 20
+          },
+          {
+            "type": "text",
+            "text": " is healed for "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10d6"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.ZI7TLmmUu7fYLrP0"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "77590a57-e6aa-5823-af16-fa081fa3a8ec",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:shields-up",
+    "name": "Shields Up!",
+    "rarity": "common",
+    "traits": ["commander", "tactic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You signal your allies to ready their defenses. Signal all squadmates within the aura of your commander's banner; each can immediately Raise a Shield as a reaction. Squadmates who are wielding a parry weapon can instead position that weapon defensively as a reaction."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If one of your squadmates knows or has prepared the "
+          },
+          {
+            "type": "ref",
+            "id": "6dee4f5d-f584-5402-af2a-d3738ec685b3"
+          },
+          {
+            "type": "text",
+            "text": " cantrip, they can cast it as a reaction instead of taking the actions normally granted by this tactic."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.LAo3ERyiaHx3E8qg"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "95af1f95-6d49-5dcc-a0c4-906733a9f51f",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:shootists-draw",
+    "name": "Shootist's Draw",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per round"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Interact to draw a "
+          },
+          {
+            "type": "ref",
+            "id": "51394e89-d32f-5157-a8c8-4a26df55ef20"
+          },
+          {
+            "type": "text",
+            "text": " and Strike with it, or you Strike with a loaded hand crossbow you're already holding and then Interact to stow it."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.Bh1Qnh8JP4CMysRK"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "d04963f7-f507-5034-bab4-70c70c33411b",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:sickening-assault",
+    "name": "Sickening Assault",
+    "rarity": "common",
+    "traits": ["concentrate", "eidolon"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per minute"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your eidolon is dispersed."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon focuses on inflicting the most damage possible on its foes. If your eidolon's next action is to use "
+          },
+          {
+            "type": "ref",
+            "id": "1c723498-db7d-56a6-b3b8-d69e0c7ad6ac"
+          },
+          {
+            "type": "text",
+            "text": ", the number of damage dice of the Swarming Assault are doubled. Additionally, creatures that fail their Reflex save against that Swarming Assault are "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 4"
+          },
+          {
+            "type": "text",
+            "text": " on a critical failure)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:sickening-assault",
+        "toggleable": true
+      },
+      {
+        "key": "DamageAlteration",
+        "selectors": ["swarming-assault-inline-damage"],
+        "property": "dice-number",
+        "mode": "multiply",
+        "value": 2,
+        "predicate": ["option:sickening-assault"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.x73LKNcaRwurr0fR"
+    },
+    "data": {
+      "cost": "free",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your eidolon is dispersed."
+            }
+          ]
+        }
+      ],
+      "frequency": {
+        "max": 1,
+        "per": "minute"
+      }
+    }
+  },
+  {
+    "id": "4c4228ee-9436-5095-abf3-38c8aa951c11",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:slip-and-sizzle",
+    "name": "Slip and Sizzle",
+    "rarity": "common",
+    "traits": ["commander", "tactic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your team executes a brutal technique designed to knock down an opponent and blast them with magical devastation. Signal up to two squadmates within the aura of your commander's banner; one of these squadmates must be adjacent to an opponent and the other must be capable of casting a spell that deals damage. The first squadmate can attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "6257c7f0-f483-53d3-a791-d73a616cbce4"
+          },
+          {
+            "type": "text",
+            "text": " the adjacent opponent as a reaction. If this Trip is successful, the second squadmate can cast a ranged spell that deals damage and takes 2 or fewer actions to cast. This spell is cast as a reaction and must either target the tripped opponent or include the tripped opponent in the spell's area."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the second squadmate cast a spell using slots or Focus Points as part of this tactic, they are "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " until the end of their next turn and do not gain a reaction when they regain actions at the start of their next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.OULAoPQYFoiRhjXP"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "57937b4c-94ad-5522-ae22-4d73a82082ea",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:special-forces-bond-ambush-troop",
+    "name": "(Special Forces Bond) Ambush Troop",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Prerequisites",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " expert in Stealth"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've trained your troop in several techniques that allows your group to remain stealthy despite your numbers. Any time you and your troop need to attempt a Stealth check, you roll only once and use the higher Stealth modifer. This benefit applies when you explore with your troop—such as when using the Avoid Notice exploration activity—not only in a skirmish encounter."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In addition, you let your troop take full advantage of creatures that are "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " to them, even though most troops can't coordinate their attacks precisely enough to do so. Creatures that are off-guard to your troop take a –2 circumstance penalty to saving throws and save DCs against your troop's ofensive abilities."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.nupNtarrjMreBskV"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "371e7cfd-edf5-525a-9a6c-7c8e63b102fd",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:special-forces-bond-combo-attack",
+    "name": "(Special Forces Bond) Combo Attack",
+    "rarity": "common",
+    "traits": ["auditory", "concentrate", "skirmish"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Prerequisite",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " expert proficiency with one or more weapons or unarmed attacks"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can attack in tandem with your troop, using your attacks to make openings for your troop to finish the job. When you make a Strike on your turn, any creature you hit takes a –1 status penalty to saving throws against any offensive ability your troop uses this turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.dV3ADsQCOD3t1KKC"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "876c7cef-a39e-5bcd-947f-eb7030f2d81a",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:special-forces-bond-coordinated-casting",
+    "name": "(Special Forces Bond) Coordinated Casting",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Prerequisites",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're a spellcaster, and your troop has spells or an offensive ability with the arcane, divine, magical, occult, or primal trait."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can cast spells in tandem with your troop. When you Cast a Spell on your turn, any creature that you hit with a spell attack for the spell or that fails its save against your spell takes a –1 status penalty to AC, save DCs, and saving throws against any spell your troop Casts this turn or magical ability your troop uses this turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.wluF5o1KUXL1sNgj"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "b457bd06-d4b5-5a9a-a65c-380c6f6c53e9",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:special-forces-bond-desperate-fervor",
+    "name": "(Special Forces Bond) Desperate Fervor",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Prerequisites",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " expert in Diplomacy, Intimidation, or Performance"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When the chips are down, your troop becomes more dangerous. While your troop has 3 or fewer segments, it gains a +1 status bonus to AC, save DCs, and saving throws, and a status bonus to damage rolls equal to half your level. The damage bonus increases to your full level if the troop has only 2 segments."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.gssg0vwp6y8KtRRo"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "0613cda8-d64a-5f09-9571-c07c18919674",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:special-forces-bond-discipline",
+    "name": "(Special Forces Bond) Discipline",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Prerequisites",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " expert in Will saves"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your troop automatically critically succeeds at rout checks. If you're knocked "
+          },
+          {
+            "type": "ref",
+            "id": "e1a78dad-4887-518e-9120-e58b7009ebfd"
+          },
+          {
+            "type": "text",
+            "text": ", your troop still improves its degree of success on rout checks by one step until the end of the encounter, as a troop with a leader does."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.Z7gsL7LAWNsT5DCr"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "6da66d35-b74b-53df-bdc0-e4c1a61b03b4",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:special-forces-bond-inescapable-troop",
+    "name": "(Special Forces Bond) Inescapable Troop",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Prerequisites",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Reactive Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your troop locks down opposing forces, keeping them from repositioning on the battlefield. Your troop gains the "
+          },
+          {
+            "type": "ref",
+            "id": "1fdc81e3-6260-512e-89ec-ee79706edaf1",
+            "label": "Inescapable Onslaught"
+          },
+          {
+            "type": "text",
+            "text": " reaction."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.6DfwHaV060mteRcI"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "9e38d1ab-493f-5694-9154-faad277efe8a",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:special-forces-bond-magical-defenses",
+    "name": "(Special Forces Bond) Magical Defenses",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Prerequisites",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're a spellcaster."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You develop magical wards for your troops. Your troop gains a +1 status bonus to all defenses against magic."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["item:magical"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.yX1QZixOKQQBj4vj"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "43a8d205-ec74-5e6f-a291-341bc493f100",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:special-forces-bond-mobile-troop",
+    "name": "(Special Forces Bond) Mobile Troop",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Prerequisites",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " expert in Acrobatics"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your troop can move across the battlefield nimbly. When you and your troop are moving, the combined unit gains a +5-foot status bonus to all movement Speeds. In addition, if you or your troop uses a special action, spell, or other ability that allows a special type of movement, such as Wall Jump, translocate, or a fly Speed, you can move together even if that normally wouldn't be possible."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.n5ELDJB65hr2vEuZ"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "a212cae2-013b-536c-b97b-3c76e895a8a4",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:special-forces-bond-rage-and-rule",
+    "name": "(Special Forces Bond) Rage and Rule",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Prerequisites",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have the Rage action."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your troop learns the incredible rush of raging in battle. When you Rage, your troop gains half the number of temporary Hit Points you do. These temporary Hit Points last for 1 minute, and the troop can't gain temporary HP from this ability again for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.X8o28NAyKFQl9xxZ"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "f42191d2-60e5-53e7-bf5f-ea11e2592ff4",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:special-forces-bond-shield-wall",
+    "name": "(Special Forces Bond) Shield Wall",
+    "rarity": "common",
+    "traits": ["auditory", "concentrate", "skirmish"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Prerequisites",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Shield Block"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're wielding a shield."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've equipped your troop with shields, and they raise them at your command. You Raise your Shield, and both you and your troop gain a +2 circumstance bonus to AC and Reflex saves until the start of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.MZvxyPxzSUeoC8ec"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You're wielding a shield."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "71c34645-a10d-5885-9aa2-fefc1a14b68b",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:special-forces-bond-troop-mascot",
+    "name": "(Special Forces Bond) Troop Mascot",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Prerequisites",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have a companion (such as an animal companion, eidolon, familiar, or pet)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your troop finds your companion creature charming, and the members of your troop have bonded with your pet. Your companion gains resistance equal to your troop's level to all damage. If you have an eidolon, when an effect damages both of you, this resistance applies after you determine the higher amount of damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you have an animal companion, its Support benefit applies to your troop as well as you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.zqdVoSnrkqc2Bn3m"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "b9b295d5-d6c5-5fc1-870c-6cb8ab5b0b03",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:special-forces-bond-under-command",
+    "name": "(Special Forces Bond) Under Command",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Prerequisites",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have the tactics class feature."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Leading troops is second nature to you, and the lessons of your tactics apply to entire groups of allies. Your troop counts as one of your squadmates and doesn't count against your maximum number of squadmates."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In addition, troops who are your squadmates can use an offensive ability instead of a Strike whenever you use a tactic that would allow them to Strike. If you specifically grant a melee Strike, they have to use an emanation ability; if you specifically grant a ranged Strike, they have to use a burst ability. They must use the 1-action or 2-action version of the offensive ability. These offensive abilities count against the number of Strikes you can grant with your tactic. This works with any troop squadmates, whether you're leading them or an ally is."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.ZVklFD7pdmEaeJDK"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "1fdc81e3-6260-512e-89ec-ee79706edaf1",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:special-forces-inescapable-onslaught",
+    "name": "(Special Forces) Inescapable Onslaught",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature adjacent to the troop uses a move action that would cause it to no longer be adjacent"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The troop uses the 2-action version of one of its offensive abilities that has an emanation, but only the triggering creature is affected. In addition, if the creature critically fails its saving throw, the move action is disrupted. If the offensive ability could be used only once per round, this reaction ignores that limit."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.Fp5JEjsmiMp25Ica"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "offensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A creature adjacent to the troop uses a move action that would cause it to no longer be adjacent"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "0d0a98b2-02cd-5510-a824-b227c3c4b264",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:spread-propaganda",
+    "name": "Spread Propaganda",
+    "rarity": "common",
+    "traits": ["exploration", "secret"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You spread propaganda about a faction (which may include an army, organization, or other particular group of people). This takes as long as it would normally take for you to Gather Information (typically 2 hours). At the end of this time, the GM rolls a secret Deception check to see how effective you were at spreading propaganda."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your propaganda spreads effectively, and for the next month, creatures that succeed on checks to Gather Information learn your propaganda over facts about the subject. It cannot be traced back to you. You also learn information as if you succeeded at a "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": " check about the faction."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As critical success, but the propaganda persists for 1 week and can be traced back to you by a character who critically succeeds at the skill check to Gather Information."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your propaganda fails to take hold."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your propaganda is stunningly ineffective, and you take a –4 circumstance penalty to Deception checks to spread propaganda about the same subject for 1 week. In addition, the subject and its enemies become aware that you attempted to spread propaganda."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.VTm9ourfz7mO5Syx"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "79497500-2ed7-5d54-8cbd-af1a3741605a",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:strike-hard",
+    "name": "Strike Hard!",
+    "rarity": "common",
+    "traits": ["brandish", "commander", "tactic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You command an ally to attack. Signal a squadmate within the aura of your commander's banner. That ally immediately attempts a Strike as a reaction."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.73W3mBLXRPfeVl3G"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "bc1742a4-9374-5eef-86db-fcdbda7aea4d",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:stupefying-raid",
+    "name": "Stupefying Raid",
+    "rarity": "common",
+    "traits": ["commander", "tactic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your team dashes about in a series of maneuvers that leave the enemy befuddled. Signal up to two squadmates within the aura of your commander's banner; these squadmates can Stride up to their Speed as a reaction. Each enemy they are adjacent to at any point during this movement must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-dc"
+            },
+            "options": ["inflicts:stupefied"]
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC or become "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round ("
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 2"
+          },
+          {
+            "type": "text",
+            "text": " on a critical failure); this is a mental effect."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.7HRhXh46dJVb241Y"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "1c723498-db7d-56a6-b3b8-d69e0c7ad6ac",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:swarming-assault",
+    "name": "Swarming Assault",
+    "rarity": "common",
+    "traits": ["eidolon"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your eidolon is dispersed."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon swarms over each creature occupying its space, biting, pecking, clawing, or making similar attacks with its component bodies. It deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(ceil(@level / 2))d6"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to each creature in the area, with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save against your spell DC. You choose each time your eidolon uses Swarming Assault whether it deals piercing or slashing damage. Your eidolon then can't use Swarming Assault again for the next 1d4 rounds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At 3rd level and every 2 levels thereafter, the damage increases by 1d6."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:swarming-assault",
+        "toggleable": true,
+        "suboptions": [
+          {
+            "value": "piercing",
+            "label": "Piercing"
+          },
+          {
+            "value": "slashing",
+            "label": "Slashing"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.Wukpm200zHDuS85V"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your eidolon is dispersed."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "f0258eb2-f65c-5495-a75b-6d502ba3191f",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:tactical-takedown",
+    "name": "Tactical Takedown",
+    "rarity": "common",
+    "traits": ["commander", "tactic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You direct a coordinated maneuver that sends an enemy tumbling down. Signal up to two squadmates within the aura of your commander's banner. Each of those allies can Stride up to half their Speed as a reaction. If they both end this movement adjacent to an enemy, that enemy must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": {
+              "against": "class-dc"
+            },
+            "options": ["inflicts:prone"]
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC or fall "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.KtxzyElOleyy74Lg"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "7503618d-3eb7-591c-ab50-aa0eab052a19",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:take-the-high-ground",
+    "name": "Take the High Ground",
+    "rarity": "common",
+    "traits": ["commander", "tactic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your ally leaps to secure the high ground with a little help from the squad. Signal a squadmate within the aura of your commander's banner; as a free action, that squadmate can Stride directly toward any other squadmate you are both observing. If the first squadmate ends this movement adjacent to another squadmate, the first squadmate can immediately "
+          },
+          {
+            "type": "ref",
+            "id": "1a0bed3d-5eb7-554f-ad07-4c8630afd0c8"
+          },
+          {
+            "type": "text",
+            "text": " up to 25 feet horizontally or 15 feet vertically as a reaction, boosted by the other squadmate. This distance increases to 40 feet horizontally or 25 feet vertically if you have legendary proficiency in Warfare Lore."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.HUJBYqs2vTTBeZgO"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "1a6922a3-4411-5142-ad0a-ed2979b33122",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:taunt",
+    "name": "Taunt",
+    "rarity": "common",
+    "traits": ["concentrate", "guardian"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "With an attention-grabbing gesture, noise, cutting remark, or threatening shout, you attempt to draw an enemy to you instead of your allies. Taunt gains the auditory trait, visual trait, or both, depending on how you draw the target's attention. Even mindless creatures are drawn to your taunts. Choose an enemy within 30 feet to be your taunted enemy. If your taunted enemy takes a hostile action that includes at least one of your allies but doesn't include you, they take a –1 circumstance penalty to their attack rolls and DCs for that action, and they also become "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " until the start of their next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your enemy remains taunted until the start of your next turn, and you can have only one Taunt in effect at a time. Taunting a new enemy ends this effect on any current target."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "2c0e314a-c6a5-53d3-b869-0a1d40f34017"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.4DYFJ4TUsNkgFBDb"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "fe0f59b8-ab77-587b-93e4-088cc9418cc7",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:the-bigger-they-are",
+    "name": "The Bigger They Are",
+    "rarity": "common",
+    "traits": ["brandish", "commander", "tactic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Regardless of your individual strengths, collectively your squad has the power to move mountains and topple giants. Signal a squadmate within the aura of your commander's banner. That squadmate can attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "2f5bb1a4-2a45-5c29-ad6a-7feba044cfaa"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "082b982f-3ed4-5d9c-9722-9ab10198523a"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "6257c7f0-f483-53d3-a791-d73a616cbce4"
+          },
+          {
+            "type": "text",
+            "text": " a target within their reach. Each other squadmate who is adjacent to the original squadmate or the target can attempt to assist with the maneuver as a reaction"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For each squadmate who assists in this way, the original squadmate increases the maximum size of creature they can target (for example, if a total of two squadmates participated in this maneuver, the initial squadmate could target a creature up to two sizes larger than them.) The original squadmate gains a circumstance bonus on their check to Reposition, Shove, or Trip equal to the number of additional squadmates who assisted in the maneuver (maximum +4)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "63423fdd-01fe-5277-92af-7dd9155790a2"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.Czcdh3pPzQ7y1cV7"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "9bd1b5d1-ecf5-5cae-ba8c-290faf91978e",
+    "pack": "battlecry",
+    "kind": "action",
+    "slug": "action:valkyries-charge",
+    "name": "Valkyrie's Charge",
+    "rarity": "common",
+    "traits": ["brandish", "commander", "tactic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You and your allies defy death and defeat to make a glorious final charge. You restore "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "80"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points to each squadmate within the aura of your commander's banner; this effect has the healing trait. If an affected ally was "
+          },
+          {
+            "type": "ref",
+            "id": "e1a78dad-4887-518e-9120-e58b7009ebfd"
+          },
+          {
+            "type": "text",
+            "text": " due to their Hit Points being reduced to 0, they can immediately Stand and pick up any dropped weapons as a free action. Then, each affected squadmate can, as a free action, Stride up to twice their Speed directly toward an enemy they are observing; if they end this movement with an enemy within their reach, they can attempt to Strike that enemy as a reaction."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Squadmates can use Valkyrie's Charge while Burrowing, Climbing, Flying, or Swimming instead of Striding if they have the corresponding movement type."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.DGmzeAr4IfCnKN0R"
+    },
+    "data": {
+      "cost": "three",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  }
+]

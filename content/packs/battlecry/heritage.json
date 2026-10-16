@@ -1,0 +1,250 @@
+[
+  {
+    "id": "8d844b04-2de3-53d0-b5ea-5e291951de2a",
+    "pack": "battlecry",
+    "kind": "heritage",
+    "slug": "heritage:keeper-jotunborn",
+    "name": "Keeper Jotunborn",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your work as an iivlar keeper has granted you a greater understanding of these sacred creatures and the ability to track them, as elusive as they may be. You are trained in Survival, and you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "5280295f-7e02-5eed-93b0-2287b39ba574"
+          },
+          {
+            "type": "text",
+            "text": " skill feat. You gain a +1 circumstance bonus to "
+          },
+          {
+            "type": "ref",
+            "id": "b81cfd58-ce40-526a-b3da-f3c218b5c566"
+          },
+          {
+            "type": "text",
+            "text": " animals."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:survival",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "5280295f-7e02-5eed-93b0-2287b39ba574"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:survival"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["action:track", "target:trait:animal"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.m4kFMTu2sOSWgnAU"
+    },
+    "data": {
+      "ancestry": "b31c2ca8-d7cd-5063-aad5-a2c32f421a48"
+    }
+  },
+  {
+    "id": "03c66d65-438e-5a2d-a97a-d4fadab1afd3",
+    "pack": "battlecry",
+    "kind": "heritage",
+    "slug": "heritage:plane-hopper-jotunborn",
+    "name": "Plane-Hopper Jotunborn",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You were chosen for your smaller size that allows you to move between planar thresholds with ease. You generally serve as a messenger or scout, and planar exposure has granted you a spark of magical power. Instead of Large, your size is Medium. You gain one cantrip from the occult spell list. You can cast this spell as an occult innate spell at will. A cantrip is heightened to a spell rank equal to half your level rounded up."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "CreatureSize",
+        "value": "medium",
+        "resizeEquipment": true
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.KDs97OkCmEYTLUp9"
+    },
+    "data": {
+      "ancestry": "b31c2ca8-d7cd-5063-aad5-a2c32f421a48"
+    }
+  },
+  {
+    "id": "a76532ae-a66b-5a7d-bc0d-9cd3c6a81f11",
+    "pack": "battlecry",
+    "kind": "heritage",
+    "slug": "heritage:sage-jotunborn",
+    "name": "Sage Jotunborn",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You were tasked with keeping oral and stitched histories for your family, your clan, or even an entire settlement. You are trained in Society. You also gain the "
+          },
+          {
+            "type": "ref",
+            "id": "50ac17a9-a644-58e8-8ee0-ce4c6cfbf17b"
+          },
+          {
+            "type": "text",
+            "text": " general feat for a lore skill of your choice."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:society",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "50ac17a9-a644-58e8-8ee0-ce4c6cfbf17b"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.NUUWs7jFwsIPmx3p"
+    },
+    "data": {
+      "ancestry": "b31c2ca8-d7cd-5063-aad5-a2c32f421a48"
+    }
+  },
+  {
+    "id": "f056bd2b-2f12-557e-bba4-491ce148e186",
+    "pack": "battlecry",
+    "kind": "heritage",
+    "slug": "heritage:warrior-jotunborn",
+    "name": "Warrior Jotunborn",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your hardier body made you a perfect recruit for combat. The damage die for your fist increases to 1d6. You don't take a penalty when making a lethal attack with your fist."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "fist": true
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.t9HOJelfwDo3RBii"
+    },
+    "data": {
+      "ancestry": "b31c2ca8-d7cd-5063-aad5-a2c32f421a48"
+    }
+  },
+  {
+    "id": "4d4eea58-ef37-5b64-8f7e-c9d314abbd29",
+    "pack": "battlecry",
+    "kind": "heritage",
+    "slug": "heritage:weaver-jotunborn",
+    "name": "Weaver Jotunborn",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've mastered the art of iivlar silk weaving, a technique that requires a fine attention to detail. You are trained in Crafting. You gain a +1 circumstance bonus to Perception checks to "
+          },
+          {
+            "type": "ref",
+            "id": "d45207be-e539-50ce-9463-f4edc3671076"
+          },
+          {
+            "type": "text",
+            "text": " when searching for hidden details like secret doors or traps."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:crafting",
+        "rank": "trained"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["action:seek", "option:secret-doors-or-traps"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.K0NerdkFnce9KeHw"
+    },
+    "data": {
+      "ancestry": "b31c2ca8-d7cd-5063-aad5-a2c32f421a48"
+    }
+  }
+]

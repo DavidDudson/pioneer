@@ -1,0 +1,1223 @@
+[
+  {
+    "id": "a9d9bff8-0c0d-597d-9804-2cabf20aa458",
+    "pack": "battlecry",
+    "kind": "background",
+    "slug": "background:aeronaut",
+    "name": "Aeronaut",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have mastered the techniques for piloting all manner of airships—balloons, dirigibles, winged vehicles, or something altogether more fantastical. You have developed expertise in using these vehicles for transport, exploration, and battle. You live for the majestic view these vehicles provide high above the fray and can harness the winds that fill the skies."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Strength",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Athletics skill and the Piloting Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "161d1c8a-4304-59c5-bd4b-e0f21e3afa13"
+          },
+          {
+            "type": "text",
+            "text": " skill feat with Piloting Lore."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:athletics",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:piloting",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.PutqlPJTPUBkMmSn"
+    },
+    "data": {
+      "boosts": [
+        ["dex", "str"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "7a3e2985-a883-5b07-bc36-0338ffba128c",
+    "pack": "battlecry",
+    "kind": "background",
+    "slug": "background:arcane-revolutionary",
+    "name": "Arcane Revolutionary",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have fought against oppressive leaders and governments, harnessing ancient magical energies to help liberate your community from much larger, better-resourced armies. Using magical methods to harass and sabotage your oppressors, you've learned to take advantage of their blind spots and use their own resources against them."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Arcana skill and the Lore skill related to the settlement you liberated. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "8f60468d-7f71-56d5-8296-a9b16622e2e3"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:arcana",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "8f60468d-7f71-56d5-8296-a9b16622e2e3"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.3Ax5uJqoRPnBQyQy"
+    },
+    "data": {
+      "boosts": [
+        ["dex", "int"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "c7ba8651-5363-550f-ae43-da5929c69604",
+    "pack": "battlecry",
+    "kind": "background",
+    "slug": "background:battle-mechanic",
+    "name": "Battle Mechanic",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "All vehicles eventually break down, from both wear and tear and through contact with the enemy, and someone needs to fix them. You have experience repairing air, land, and sea vehicles of all types, and you are knowledgeable about how they function and what specialized tools they require."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Crafting skill and the Vehicle Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "794574f1-29c1-5cfd-abdf-413a512ca0e7"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:crafting",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:vehicle",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "794574f1-29c1-5cfd-abdf-413a512ca0e7"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.P77k0P5em9Yvm9bk"
+    },
+    "data": {
+      "boosts": [
+        ["int", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "70887c1c-9f51-504a-8eb1-433ef48bd7ed",
+    "pack": "battlecry",
+    "kind": "background",
+    "slug": "background:battlefield-scrounger",
+    "name": "Battlefield Scrounger",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've spent years rummaging through the corpses of armies and their equipment as soon as battles were won, seeking items from the dead that you can craft into something of value. While you've left that life behind, you've learned about warfare as well as how to create useful items from scavenged goods."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Strength",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Crafting skill and the Warfare Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "cd5e8330-edd0-5d51-9115-44f647d664a4"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:crafting",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:warfare",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "cd5e8330-edd0-5d51-9115-44f647d664a4"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.Szv9uCC6bLf814Uc"
+    },
+    "data": {
+      "boosts": [
+        ["int", "str"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "2eb308a1-de85-5eb7-ba12-862955995d69",
+    "pack": "battlecry",
+    "kind": "background",
+    "slug": "background:combat-carpenter",
+    "name": "Combat Carpenter",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have spent countless hours selecting lumber, drafting designs, and constructing all manner of wooden buildings, shields, weapons, and tools. You can readily identify the weak spots in wooden fortifications and determine the best ways to bolster or attack them."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Crafting skill and the Engineering Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "cf2fb4e9-9adb-5092-9f78-5dd9b3192301"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:crafting",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:engineering",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "cf2fb4e9-9adb-5092-9f78-5dd9b3192301"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.hdvllwAIooBX2Fib"
+    },
+    "data": {
+      "boosts": [
+        ["dex", "int"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "1f5edfee-2266-5768-975b-c1f304ed9fbc",
+    "pack": "battlecry",
+    "kind": "background",
+    "slug": "background:combat-chaplain",
+    "name": "Combat Chaplain",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As a member of the clergy, you have been responsible for tending to the spiritual and moral well-being of soldiers and their families. While you may have been a follower of a specific deity, you acted as an ambassador of the church overall, providing religious support in a religiously pluralistic and diverse setting. You provided counsel and took on the role of critical friend, mediator, and reconciler for those under your charge. You may have been called to lead worship, perform weddings, and conduct funerals in both nearby villages as well as remote locales."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Religion skill and the Lore skill associated with the deity you worship. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "a4f72e5d-c45b-582a-9c9f-e2fa8af6c80a"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:religion",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "a4f72e5d-c45b-582a-9c9f-e2fa8af6c80a"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.SAm5AeDB2AjjMnDK"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "92c1ab5e-6141-576b-935e-abc022734e76",
+    "pack": "battlecry",
+    "kind": "background",
+    "slug": "background:conscript",
+    "name": "Conscript",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Like many others in your settlement, you readily performed your duty and served in the army once you came of age. Much to the chagrin of the grizzled lifers that sought to train it out of you, you managed to retain a modicum of your naivete even as you faced the gruesome horrors of war. You've learned just enough strategy and tactics to make you dangerous."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Strength",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Constitution",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Society skill and the Warfare Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "ea6c8962-0fc5-5db6-8fbd-0ad99296eae2"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:society",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:warfare",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "ea6c8962-0fc5-5db6-8fbd-0ad99296eae2"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.Asg9Edqh95eSZBE9"
+    },
+    "data": {
+      "boosts": [
+        ["con", "str"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "94ec118c-f153-55a5-98b8-b62dba932d1e",
+    "pack": "battlecry",
+    "kind": "background",
+    "slug": "background:martial-musician",
+    "name": "Martial Musician",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Before you were old enough to join the actual fighting forces, you found your way onto the battlefield playing bagpipes, bugles, or drums. With these instruments of war, you helped direct troops in speed and direction, providing a pulsing cadence to push troops forward and keep them motivated."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Performance skill and the Warfare Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "73f460e2-feec-5d78-983c-ecf0c7a4b1e8"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:performance",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:warfare",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "73f460e2-feec-5d78-983c-ecf0c7a4b1e8"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.ZQuUl50C2x6evtGJ"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "dex"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "5c6f9bad-d1a9-5d9a-b9fa-536e1a03e328",
+    "pack": "battlecry",
+    "kind": "background",
+    "slug": "background:plague-doctor",
+    "name": "Plague Doctor",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Plagues often spring from mass deaths and the vermin that multiply after such tragedies. Cities under siege can grow ill without proper nutrition and clean water. Your expertise with medicine allows you to help those afflicted by disease, and your view of the world is likely colored by seeing so much misfortune."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be in "
+          },
+          {
+            "type": "text",
+            "text": "Constitution",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Medicine skill and the Herbalism Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "7bc8baae-ff56-56dd-8537-dc81ab7cc0f1"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:medicine",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:herbalism",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "7bc8baae-ff56-56dd-8537-dc81ab7cc0f1"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.jvegfAMdri6J2VzZ"
+    },
+    "data": {
+      "boosts": [
+        ["con", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "275070d8-b9c1-5fec-980d-577ce79fb95a",
+    "pack": "battlecry",
+    "kind": "background",
+    "slug": "background:quartermaster",
+    "name": "Quartermaster",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An army marches on its stomach, and you have been on the forefront of ensuring your troops were properly fed and supplied. Through your logistical expertise, you understand that it can be vital to keep a tight fist around necessary supplies. And when soldiers ask for items without the proper clearance, you know how to turn them away with a withering look."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Intimidation skill and the Legal Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "83871ce2-c4f9-5a77-af0a-7d7f0708b5f0"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:intimidation",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:legal",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "83871ce2-c4f9-5a77-af0a-7d7f0708b5f0"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.wrNTaSFFTxznOZLF"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "int"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "bd39dc2f-8a0c-5ded-8f8e-5c5c1a550b07",
+    "pack": "battlecry",
+    "kind": "background",
+    "slug": "background:report-runner",
+    "name": "Report Runner",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "During times of war, armies might venture far from the seats of government that send them out or get separated from their commanders by the terrain. Thanks to your riding skill and affinity with the animals that serve as mounts, you were tasked with carrying reports of an ongoing war from one place to another. Speed was of utmost importance, and sometimes you would need to spend days in the saddle."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Strength",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Nature skill and the Stabling Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "4b087276-aa1b-5f87-acc5-b7ce013e12dd"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:nature",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:stabling",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "4b087276-aa1b-5f87-acc5-b7ce013e12dd"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.dQxmaPCHTor36bll"
+    },
+    "data": {
+      "boosts": [
+        ["str", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "7bd86f81-ff77-57f6-8e57-8abaf7ae6f08",
+    "pack": "battlecry",
+    "kind": "background",
+    "slug": "background:veteran",
+    "name": "Veteran",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have seen more battles than you can remember and have managed to make it through them mostly intact. Nothing surprises you anymore, except maybe when things actually go as planned. You are always pleasantly surprised when you manage to survive another day."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Constitution",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Athletics skill and the Warfare Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "e7d969d3-deed-5b62-992b-44469b3b063f"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:athletics",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:warfare",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "e7d969d3-deed-5b62-992b-44469b3b063f"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.uS1T7SpCtT0lZxep"
+    },
+    "data": {
+      "boosts": [
+        ["con", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "0337361c-f285-54e6-b719-c64da5ed6832",
+    "pack": "battlecry",
+    "kind": "background",
+    "slug": "background:war-orphan",
+    "name": "War Orphan",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The horrors of war have left you orphaned and alone, forcing you to fend for yourself until you were taught the ways of the world by a group of similarly affected youths. They were like a new family to you, but you had to live outside the law in order to survive. Those days are behind you now, but there are certain tricks you'll never forget."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Constitution",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Thievery skill and the Underworld Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "88af3edf-2b57-5a2f-9a0d-4e7f540fc2ef"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:thievery",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:underworld",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "88af3edf-2b57-5a2f-9a0d-4e7f540fc2ef"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.QQxXV2zHATLZ07rA"
+    },
+    "data": {
+      "boosts": [
+        ["con", "dex"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  }
+]

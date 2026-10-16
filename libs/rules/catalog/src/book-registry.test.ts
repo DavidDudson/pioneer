@@ -37,6 +37,7 @@ describe('book registry', () => {
   test('books.json validates and has the remaster core books', () => {
     expect(bookRegistry.books.map((book) => book.id).toSorted()).toStrictEqual(
       [
+        'battlecry',
         'character-guide',
         'dark-archive-remastered',
         'divine-mysteries',

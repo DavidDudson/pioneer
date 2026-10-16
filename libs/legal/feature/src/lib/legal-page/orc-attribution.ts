@@ -27,6 +27,7 @@ export const ORC_ATTRIBUTION: readonly AttributionGroup[] = [
       'Pathfinder Guns & Gears Remastered © 2025, Paizo Inc.',
       'Pathfinder Treasure Vault (Remastered) © 2025, Paizo Inc.',
       'Pathfinder Impossible Magic © 2026, Paizo Inc.',
+      'Pathfinder Battlecry! © 2025, Paizo Inc.',
     ],
   },
   {

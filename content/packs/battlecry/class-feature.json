@@ -1,0 +1,3103 @@
+[
+  {
+    "id": "2e8b4ea8-f11b-5225-a087-04365fab32e7",
+    "pack": "battlecry",
+    "kind": "class-feature",
+    "slug": "class-feature:adept-benefit-shield",
+    "name": "Adept Benefit (Shield)",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["thaumaturge"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you have your shield implement raised, you gain a status bonus to your saves against spells and other magic effects equal to your circumstance bonus to AC from your shield. In addition, damage you take as a result of a spell or magical effect while your "
+          },
+          {
+            "type": "ref",
+            "id": "5c3e30ec-2520-5b84-b2bf-c03dd6b8d65a",
+            "label": "Shield is Raised"
+          },
+          {
+            "type": "text",
+            "text": " can trigger your "
+          },
+          {
+            "type": "ref",
+            "id": "4333cbb5-7f4c-5c8e-bbad-afa6b6f2043b"
+          },
+          {
+            "type": "text",
+            "text": " reaction, even if the damage isn't physical."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.mzKV3lHPni85EMFM"
+    },
+    "data": {}
+  },
+  {
+    "id": "f97ed3b6-2b24-59c0-b0f6-2601f469e9e1",
+    "pack": "battlecry",
+    "kind": "class-feature",
+    "slug": "class-feature:battlefield-intuition",
+    "name": "Battlefield Intuition",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["commander"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your experience across a wide array of battlefields gives you a preternatural ability to predict and avoid damaging effects. Your proficiency rank for Reflex saves increases to master. When you roll a success on a Reflex save, you get a critical success instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["save:reflex"],
+        "adjustment": {
+          "success": "to-critical-success"
+        }
+      },
+      {
+        "key": "Proficiency",
+        "selector": "save:reflex",
+        "rank": "master"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.KQ87ZZVAT4q00Dyr"
+    },
+    "data": {}
+  },
+  {
+    "id": "eaf34342-d81e-56dd-a2de-79fa2fa5bdba",
+    "pack": "battlecry",
+    "kind": "class-feature",
+    "slug": "class-feature:bloodline-aesir",
+    "name": "Bloodline: Aesir",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["sorcerer"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "One of your ancestors was touched by an aesir, and now the ringing of steel against steel and the constant call to battle echo through your blood."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Tradition",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " divine"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Bloodline Skills",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Intimidation, Religion"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sorcerous Gifts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " cantrip: "
+          },
+          {
+            "type": "ref",
+            "id": "6dee4f5d-f584-5402-af2a-d3738ec685b3"
+          },
+          {
+            "type": "text",
+            "text": "; 1st: "
+          },
+          {
+            "type": "ref",
+            "id": "7c5ef7d9-d7ac-5654-b88c-5504257ec3f7"
+          },
+          {
+            "type": "text",
+            "text": "; 2nd: "
+          },
+          {
+            "type": "ref",
+            "id": "e0681ca0-8a1d-5d21-a033-813e782d04b5"
+          },
+          {
+            "type": "text",
+            "text": "; 3rd: "
+          },
+          {
+            "type": "ref",
+            "id": "749d15ad-5bf7-53bd-a646-cbbec6452867"
+          },
+          {
+            "type": "text",
+            "text": "; 4th: "
+          },
+          {
+            "type": "ref",
+            "id": "bbe99dfe-9c98-5d6d-b637-abcffa6240e2"
+          },
+          {
+            "type": "text",
+            "text": "; 5th: "
+          },
+          {
+            "type": "ref",
+            "id": "5acfec50-394e-5699-9d71-1b03aa194da5"
+          },
+          {
+            "type": "text",
+            "text": "; 6th: "
+          },
+          {
+            "type": "ref",
+            "id": "2d0817cc-1eea-5868-b4a1-c3f40aeddcf3"
+          },
+          {
+            "type": "text",
+            "text": "; 7th: "
+          },
+          {
+            "type": "ref",
+            "id": "25928db7-ce6e-5e39-b41e-c5227a958fc7"
+          },
+          {
+            "type": "text",
+            "text": "; 8th: "
+          },
+          {
+            "type": "ref",
+            "id": "dd805806-752e-5553-b667-909aa20c7580"
+          },
+          {
+            "type": "text",
+            "text": "; 9th: "
+          },
+          {
+            "type": "ref",
+            "id": "3c286698-36f2-5124-bba1-f2d740ffa9ca"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Bloodline Spells",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " initial: "
+          },
+          {
+            "type": "ref",
+            "id": "69ac4adb-05c1-5143-bc87-5ccede4e6d4a"
+          },
+          {
+            "type": "text",
+            "text": "; advanced: "
+          },
+          {
+            "type": "ref",
+            "id": "2e4a0542-9768-5fdc-b2ca-84eb5cb1dc9d"
+          },
+          {
+            "type": "text",
+            "text": "; greater: "
+          },
+          {
+            "type": "ref",
+            "id": "31ffb6b8-f0d5-56e3-bbbf-b657db5d56e7"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Blood Magic—Call the Storm",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You bring down a bolt of lightning to damage a foe or energize yourself. Either you gain a +2 status bonus to Reflex saving throws for 1 round, or a target takes 1 electricity damage per spell rank (if the spell already deals initial electricity damage, combine this with the spell's initial damage before determining weaknesses and resistances)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:intimidation",
+        "rank": "trained",
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          }
+        ]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:religion",
+        "rank": "trained",
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          }
+        ]
+      },
+      {
+        "key": "RollOption",
+        "option": "feature:bloodline:tradition:divine",
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.TFihgf3jDhmKd0fa"
+    },
+    "data": {
+      "tags": ["sorcerer-bloodline"]
+    }
+  },
+  {
+    "id": "90d281cd-6b90-5ab8-a2cb-0be8739f40fd",
+    "pack": "battlecry",
+    "kind": "class-feature",
+    "slug": "class-feature:commanders-banner",
+    "name": "Commander's Banner",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["commander"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A commander needs a battle standard to help guide their allies on the field. You start play with a custom banner that you can use to signal allies when using tactics (see below) or to deploy specific abilities. Your banner can be affixed to a weapon or shield you are wielding, attached to a simple pole or handle and held in one hand, or worn affixed to a pole alongside your backpack. Your banner might be a literal flag or pennant, a decorated fan, a personalized totem, or some other highly visible and item of negligible or light Bulk. Your banner requires customization and influences your allies' morale, so you can have only one banner at a time designated as your commander's banner; designating a new banner or standard as your commander's banner takes 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As long as your banner is visible and in your possession, it provides an aura that gives you and all allies in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " a +1 status bonus to Will saves and DCs against fear effects. You can pause or resume this effect as part of any action you would typically use to stow or retrieve your banner. If your banner is destroyed or stolen, allies currently benefiting from its bonuses become "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 1"
+          },
+          {
+            "type": "text",
+            "text": ". This effect has the aura, emotion, mental, and visual traits."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Some abilities allow you to place your banner in a specialized manner, such as the Commander's Companion and Plant Banner feats. As long as you have placed your banner in this way, any banner abilities originate from your banner's space instead of your own, and you gain the same basic benefits as when it is in your possession. An unattended banner has the base Hardness and Hit Points of a standard item of its type (usually cloth, thin leather, or thin wood) or the Hardness and Hit Points of the object it is affixed to, whichever is greater."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:commanders-banner",
+        "toggleable": true,
+        "value": true
+      },
+      {
+        "key": "Aura",
+        "slug": "commanders-banner",
+        "radius": 30,
+        "traits": ["emotion", "mental", "visual", "aura"],
+        "effects": [
+          {
+            "effect": "f13d4800-8330-5a9a-b4c7-4c3aa73c18ea",
+            "affects": "allies"
+          }
+        ],
+        "predicate": [
+          "option:commanders-banner",
+          {
+            "not": "feat:glorious-banner"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.8NtRuNYGiU2iTwgL"
+    },
+    "data": {}
+  },
+  {
+    "id": "6b388395-06ca-5a81-b67b-22a29ddd3c37",
+    "pack": "battlecry",
+    "kind": "class-feature",
+    "slug": "class-feature:commanding-will",
+    "name": "Commanding Will",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["commander"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You know that if you break, so too will those who follow you, and so you have cultivated a will that bends to no outside force. Your proficiency rank for Will saves increases to master. When you roll a success on a Will save, you get a critical success instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["save:will"],
+        "adjustment": {
+          "success": "to-critical-success"
+        }
+      },
+      {
+        "key": "Proficiency",
+        "selector": "save:will",
+        "rank": "master"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.fbMy0ltflHJjxFPD"
+    },
+    "data": {}
+  },
+  {
+    "id": "73da3752-3c34-5716-b4b0-4b815aa99a7e",
+    "pack": "battlecry",
+    "kind": "class-feature",
+    "slug": "class-feature:drilled-reactions",
+    "name": "Drilled Reactions",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["commander"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your time spent training your allies allows them to respond quickly and instinctively to your commands. Once per round when you use a tactic, you can grant one ally of your choice benefiting from that tactic an extra reaction. This reaction has to be used for that tactic and is lost if not used."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.A5nOG2HuM8ZhMJ5p"
+    },
+    "data": {}
+  },
+  {
+    "id": "9be2a394-5547-5666-90b7-0d5235efb760",
+    "pack": "battlecry",
+    "kind": "class-feature",
+    "slug": "class-feature:expert-tactician",
+    "name": "Expert Tactician",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["commander"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your time spent leading and training others on battlefield tactics has improved your combat acumen. Your proficiency rank for your commander class DC increases to expert, and you add two new tactics to your folio; these can be any mobility or offensive tactics you don't already know, or you can choose from expert tactics you have access to. The total number of tactics you can have prepared increases to four. In addition, your proficiency rank in Warfare Lore increases to master."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "first-tactic",
+        "choices": {
+          "kind": "action",
+          "filter": [
+            "item:trait:tactic",
+            {
+              "or": [
+                "item:tag:commander-mobility-tactic",
+                "item:tag:commander-offensive-tactic",
+                "item:tag:commander-expert-tactic"
+              ]
+            }
+          ]
+        },
+        "prompt": "Select a tactic.",
+        "priority": 102
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "first-tactic"
+        }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "second-tactic",
+        "choices": {
+          "kind": "action",
+          "filter": [
+            "item:trait:tactic",
+            {
+              "or": [
+                "item:tag:commander-mobility-tactic",
+                "item:tag:commander-offensive-tactic",
+                "item:tag:commander-expert-tactic"
+              ]
+            }
+          ]
+        },
+        "prompt": "Select a tactic."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "second-tactic"
+        }
+      },
+      {
+        "key": "Proficiency",
+        "selector": "class-dc",
+        "rank": "expert"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.ZvsiPWL9mVZk5Tz1"
+    },
+    "data": {}
+  },
+  {
+    "id": "8b9a3f42-4885-56fb-9dd0-193953950939",
+    "pack": "battlecry",
+    "kind": "class-feature",
+    "slug": "class-feature:guardian-expertise",
+    "name": "Guardian Expertise",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["guardian"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your armored form is more imposing. Your proficiency rank for your guardian class DC increases to expert."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "class-dc",
+        "rank": "expert"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.Ak646ZUtxhQdYEi9"
+    },
+    "data": {}
+  },
+  {
+    "id": "6ecd538b-a876-546d-9a69-9cd51ca9c021",
+    "pack": "battlecry",
+    "kind": "class-feature",
+    "slug": "class-feature:guardian-mastery",
+    "name": "Guardian Mastery",
+    "level": 19,
+    "rarity": "common",
+    "traits": ["guardian"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are known for your suit of armor more than the person inside. Your proficiency rank for your guardian class DC increases to master. While wearing armor, when you attempt a Reflex save to avoid a damaging effect, such as a "
+          },
+          {
+            "type": "ref",
+            "id": "989ec875-261d-5d4f-a181-fedf889f9d4b"
+          },
+          {
+            "type": "text",
+            "text": ", you can add your armor's item bonus to AC instead of your Dexterity modifier; if your armor has the bulwark trait, increase this bonus by 1. If you get a success when you do this, you get a critical success instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["save:reflex"],
+        "slug": "dex",
+        "suppress": true,
+        "predicate": ["option:damaging-effect"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["save:reflex"],
+        "slug": "guardian-mastery",
+        "mode": "add",
+        "value": 1,
+        "predicate": ["armor:trait:bulwark"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["save:reflex"],
+        "slug": "bulwark",
+        "suppress": true,
+        "predicate": ["option:damaging-effect"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["save:reflex"],
+        "adjustment": {
+          "success": "to-critical-success"
+        },
+        "predicate": ["option:damaging-effect"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "class-dc",
+        "rank": "master"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.CdDcUXv9J3aEo9HR"
+    },
+    "data": {}
+  },
+  {
+    "id": "1336bd5c-5475-5cb1-bc90-a5aa28c94fe8",
+    "pack": "battlecry",
+    "kind": "class-feature",
+    "slug": "class-feature:guardians-armor",
+    "name": "Guardian's Armor",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["guardian"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Even when you are struck, your armor protects you from some harm. While wearing medium or heavy armor, you gain resistance to physical damage equal to 1 + half your level. In addition, you can rest normally while wearing medium and heavy armor."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["physical"],
+        "value": "1 + floor(@level / 2)",
+        "predicate": [
+          {
+            "or": ["armor:category:heavy", "armor:category:medium"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.qbTwR81TKsv4fOHk"
+    },
+    "data": {}
+  },
+  {
+    "id": "16ce87b8-9688-53f5-85a8-f4ecb4da0f2d",
+    "pack": "battlecry",
+    "kind": "class-feature",
+    "slug": "class-feature:guardians-techniques",
+    "name": "Guardian's Techniques",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["guardian"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As a guardian, you have learned certain techniques to help keep your allies safe."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Ever Ready"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You always gain a reaction whenever you roll initiative for combat, but you can use it only for reactions from guardian feats or class features. The GM might still rule that you can use other reactions before your first turn based on the situation, as normal."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Intercept Attack"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You keep your charges safe from harm, even if it means you get hurt yourself. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "b3c0d946-570f-5b78-bb91-fafd6002d75f"
+          },
+          {
+            "type": "text",
+            "text": " reaction."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "b3c0d946-570f-5b78-bb91-fafd6002d75f"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.uSRq2tneVCknhI0P"
+    },
+    "data": {}
+  },
+  {
+    "id": "60874921-39ad-56bb-a59c-a80ff806770e",
+    "pack": "battlecry",
+    "kind": "class-feature",
+    "slug": "class-feature:initiate-benefit-shield",
+    "name": "Initiate Benefit (Shield)",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["thaumaturge"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "4333cbb5-7f4c-5c8e-bbad-afa6b6f2043b"
+          },
+          {
+            "type": "text",
+            "text": " general feat. If your shield implement would be reduced to 0 Hit Points, it's instead reduced to 1 Hit Point, its circumstance bonus to AC when you Raise a Shield is reduced by 1 (this can't reduce the bonus below 0), and you can't Shield Block with your shield implement until it loses the "
+          },
+          {
+            "type": "ref",
+            "id": "c945a9c5-1053-552c-8cc3-ac4832741d0f"
+          },
+          {
+            "type": "text",
+            "text": " condition. You can still use your shield as an implement when it has the broken condition."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At 5th level, whenever you "
+          },
+          {
+            "type": "ref",
+            "id": "69b2520b-82a3-5ba4-b378-172272dc3b74"
+          },
+          {
+            "type": "text",
+            "text": ", you can also Raise a Shield as a free action."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "4333cbb5-7f4c-5c8e-bbad-afa6b6f2043b"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.6IrdIGinaAutACjn"
+    },
+    "data": {}
+  },
+  {
+    "id": "52695b42-b9b3-513d-b2c4-d7173d293e03",
+    "pack": "battlecry",
+    "kind": "class-feature",
+    "slug": "class-feature:legendary-tactician",
+    "name": "Legendary Tactician",
+    "level": 19,
+    "rarity": "common",
+    "traits": ["commander"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are an unrivaled legend in your use of battlefield tactics. Your proficiency rank for your commander class DC increases to legendary, and you add two new tactics to your folio; these can be any mobility or offensive tactics you don't already have in your folio, or you can choose from expert tactics, master tactics, or legendary tactics you have access to. The total number of tactics you can have prepared increases to six."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "first-tactic",
+        "choices": {
+          "kind": "action",
+          "filter": [
+            "item:trait:tactic",
+            {
+              "or": [
+                "item:tag:commander-mobility-tactic",
+                "item:tag:commander-offensive-tactic",
+                "item:tag:commander-expert-tactic",
+                "item:tag:commander-master-tactic",
+                "item:tag:commander-legendary-tactic"
+              ]
+            }
+          ]
+        },
+        "prompt": "Select a tactic."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "first-tactic"
+        }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "second-tactic",
+        "choices": {
+          "kind": "action",
+          "filter": [
+            "item:trait:tactic",
+            {
+              "or": [
+                "item:tag:commander-mobility-tactic",
+                "item:tag:commander-offensive-tactic",
+                "item:tag:commander-expert-tactic",
+                "item:tag:commander-master-tactic",
+                "item:tag:commander-legendary-tactic"
+              ]
+            }
+          ]
+        },
+        "prompt": "Select a tactic."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "second-tactic"
+        }
+      },
+      {
+        "key": "Proficiency",
+        "selector": "class-dc",
+        "rank": "legendary"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.jMxFu2vsw9ZOw61O"
+    },
+    "data": {}
+  },
+  {
+    "id": "5d6f03bc-d523-5a61-b6bd-0fc7ab278dae",
+    "pack": "battlecry",
+    "kind": "class-feature",
+    "slug": "class-feature:light-mortar-innovation",
+    "name": "Light Mortar Innovation",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Through years of experience and countless hours of experimentation, you've developed a siege weapon compact enough to operate by yourself while still packing a deadly punch."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Prerequisites:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You must be an inventor."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Munitions Master Adjustments:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Instead of choosing an innovation from the options listed in the inventor class, you have the light mortar innovation, as well as the following changes to the class features listed on the following pages. You gain these abilities at the same levels as normal for the class unless otherwise specified. You must select "
+          },
+          {
+            "type": "ref",
+            "id": "b577b449-ab4e-5fe9-af60-8605e1eadd49"
+          },
+          {
+            "type": "text",
+            "text": " as your 2nd-level class feat."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Innovation"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your innovation is a mounted siege weapon called a light mortar that weighs 2 Bulk. Whether it propels its payload via an elaborate mechanism or explosive reagents, it's capable of dealing immense damage. Your light mortar requires an Interact action to deploy it before you can Aim, Load, or Launch it, and it includes its own wheeled platform that it is mounted on as part of the deployment. It can be packed back up for easy transport as a 2-action activity with the manipulate trait and either worn as a backpack or carried in one hand while packed. Because of the light mortar's smaller size, the Move Siege Engine activity takes only 1 action when it is deployed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your light mortar begins as a 1st-level siege weapon with the statistics shown below. It deals an additional die of damage at 5th level and every 4 levels thereafter. When you Launch your light mortar, the Reflex save is equal to your class DC. Its AC is equal to your inventor class DC and it has Hardness 5. It has trained proficiency in Reflex and Fortitude saves, using your Intelligence modifier to calculate these bonuses. It has 10 Hit Points, plus a number of Hit Points equal to 2 plus your Intelligence modifier for each level you have. Its Broken Threshold is equal to half its total Hit Points (rounded down)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At 5th level, your light mortar's Hardness increases to 10. At 10th level it increases to 15 and its proficiency rank in Reflex and Fortitude saves increases to expert. At 15th level, its Hardness increases to 20, and its proficiency rank in Reflex and Fortitude saves increases to master."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your innovation fires small cannonballs called carry shot. A group of 10 carry shot, which weighs 1 Bulk, can be purchased for 5 sp from most shops that sell ammunition."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose one initial light mortar modification to apply to your innovation, either from the following or from other initial light mortar modifications to which you have access. These modifications alter the abilities or form of your light mortar."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Contained Shrapnel",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You alter your light mortar's ammunition to prevent fragments of it from flying outward on impact. Your innovation gains the nonlethal trait. You can choose whether to apply the nonlethal trait on each Launch."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Enhanced Shrapnel",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You alter your light mortar's ammunition to change the way it shatters on impact, spraying nearby creatures with a hail of razor-sharp pieces. Your innovation gains the versatile P and versatile S traits. You can choose whether to apply one of these traits on each Launch with your innovation."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Spring-Loaded",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You've designed your innovation with springs to quickly unfold and extend components, optimizing it for quick deployment. You can deploy your light mortar as a free action."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "ref",
+            "id": "d1548bf1-cb11-59ad-8933-3b4cef4c68a5"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The additional damage you deal from Overdrive applies to Launches made with your light mortar, as if they were Strikes."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "ref",
+            "id": "817fcb2f-525b-5a08-98c5-e518fbc406ff"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you use this ability, the emanation is centered on your innovation, and you can choose to exclude the square you are in from the emanation."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "ref",
+            "id": "5deebac1-ad1c-58c3-8ebe-e682646f7be0"
+          },
+          {
+            "type": "text",
+            "text": " (7th)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When choosing a breakthrough innovation, choose from the following breakthrough light mortar modifications. As usual, you can choose an initial light mortar modification instead if you prefer."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Blanching Chamber",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You embed tiny metal filings into ammunition in the firing chamber of your light mortar. These filings remain embedded in the fragments of the ammunition after it shatters on impact. Your ammunition counts as cold iron and silver."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Earthbreaker",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Each time you Launch, you can choose to alter the ammunition to direct the brunt of the explosion downward, dealing half damage but creating difficult terrain in the blast area."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Narrow Blast",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You alter your ammunition so that the force of the impact is directed in a narrow band. Each time you Launch you can choose to have the explosion form a "
+                },
+                {
+                  "type": "template",
+                  "shape": "cone",
+                  "size": 20
+                },
+                {
+                  "type": "text",
+                  "text": " instead of a "
+                },
+                {
+                  "type": "template",
+                  "shape": "burst",
+                  "size": 10
+                },
+                {
+                  "type": "text",
+                  "text": ". This cone must originate at the point of impact and can be directed either directly away from you or 45 degrees to either side of that."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "ref",
+            "id": "20b0d69d-462f-5e25-a60b-83d1e30fa144"
+          },
+          {
+            "type": "text",
+            "text": " (7th)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain this class feature at 7th level instead of 9th."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "ref",
+            "id": "5b6f603b-6840-565b-8468-dfcb8f41646f"
+          },
+          {
+            "type": "text",
+            "text": " (9th)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The offensive boost you choose applies to Launches made with your light mortar, as if they were Strikes."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "ref",
+            "id": "07937d0a-4a7d-5920-997c-e4b0dd19a8b1"
+          },
+          {
+            "type": "text",
+            "text": " (15th)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain this class feature at 15th level instead of 17th."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "ref",
+            "id": "c281c0d5-31d2-568d-a8f8-46a6983dcffc"
+          },
+          {
+            "type": "text",
+            "text": " (15th)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When choosing a revolutionary innovation, choose from the following revolutionary light mortar modifications. As usual, you can choose an initial or breakthrough light mortar modification instead if you prefer."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Enhanced Damage",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " As the revolutionary weapon modification of the same name."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Impossible Alloy",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " As the revolutionary weapon modification of the same name, except that the alloy is embedded in your ammunition on launch."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Precise Blast",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You have such precise control over your light mortar that you can wrap the blast of impact around your allies without harming them. When you Launch, you can select a number of squares up to your Intelligence modifier to exclude from the blast area."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "b577b449-ab4e-5fe9-af60-8605e1eadd49",
+        "predicate": [
+          {
+            "gte": ["self:level", 2]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.YbYrSnBL5VLGosxO"
+    },
+    "data": {
+      "tags": ["class-archetype", "inventor-innovation"]
+    }
+  },
+  {
+    "id": "4bcadb40-5a66-5c59-bccf-935aec0aaa27",
+    "pack": "battlecry",
+    "kind": "class-feature",
+    "slug": "class-feature:master-tactician",
+    "name": "Master Tactician",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["commander"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are among the greatest tacticians to have ever led forces on the field of battle. Your proficiency rank for commander class DC increases to master, and you add two new tactics to your folio; these can be any mobility or offensive tactics you don't already have in your folio, or you can choose from expert tactics or master tactics you have access to. The total number of tactics you can have prepared increases to five. In addition, you gain legendary proficiency in Warfare Lore."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "first-tactic",
+        "choices": {
+          "kind": "action",
+          "filter": [
+            "item:trait:tactic",
+            {
+              "or": [
+                "item:tag:commander-mobility-tactic",
+                "item:tag:commander-offensive-tactic",
+                "item:tag:commander-expert-tactic",
+                "item:tag:commander-master-tactic"
+              ]
+            }
+          ]
+        },
+        "prompt": "Select a tactic."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "first-tactic"
+        }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "second-tactic",
+        "choices": {
+          "kind": "action",
+          "filter": [
+            "item:trait:tactic",
+            {
+              "or": [
+                "item:tag:commander-mobility-tactic",
+                "item:tag:commander-offensive-tactic",
+                "item:tag:commander-expert-tactic",
+                "item:tag:commander-master-tactic"
+              ]
+            }
+          ]
+        },
+        "prompt": "Select a tactic."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "second-tactic"
+        }
+      },
+      {
+        "key": "Proficiency",
+        "selector": "class-dc",
+        "rank": "master"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.wHVfwjs6LJOgDERO"
+    },
+    "data": {}
+  },
+  {
+    "id": "78445323-2b02-5d3b-a86d-0bff6dc19669",
+    "pack": "battlecry",
+    "kind": "class-feature",
+    "slug": "class-feature:military-expertise",
+    "name": "Military Expertise",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["commander"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've studied in a wide variety of weapons and learned to apply their principles in combat. Your proficiency rank for martial weapons, simple weapons, and unarmed attacks increases to expert. When you critically succeed at an attack roll with a weapon you are at least an expert with, you apply the weapon's critical specialization effect."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "attack:martial",
+        "rank": "expert"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:simple",
+        "rank": "expert"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:unarmed",
+        "rank": "expert"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.VCJVuqByBxnUxQoH"
+    },
+    "data": {}
+  },
+  {
+    "id": "807ef9a8-d3b7-5e56-ab2d-0dce30f4076c",
+    "pack": "battlecry",
+    "kind": "class-feature",
+    "slug": "class-feature:paragon-benefit-shield",
+    "name": "Paragon Benefit (Shield)",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["thaumaturge"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you have your shield implement raised, the circumstance bonuses from your shield (both to AC and to saves against spells and other magic effects) also apply to all your allies within 15 feet. You can use your "
+          },
+          {
+            "type": "ref",
+            "id": "4333cbb5-7f4c-5c8e-bbad-afa6b6f2043b"
+          },
+          {
+            "type": "text",
+            "text": " reaction in defense of yourself or any of your allies within 15 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Aura",
+        "radius": 15,
+        "traits": [],
+        "effects": [
+          {
+            "effect": "8c70b928-c60c-5bcd-9555-f80798ec34a2",
+            "affects": "allies",
+            "includesSelf": false
+          }
+        ],
+        "predicate": ["self:shield:raised", "shield-implement:equipped"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.Swy3rjQsdO0wu2kU"
+    },
+    "data": {}
+  },
+  {
+    "id": "beea4548-a187-5052-87c4-860846863c0d",
+    "pack": "battlecry",
+    "kind": "class-feature",
+    "slug": "class-feature:reaction-time",
+    "name": "Reaction Time",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["guardian"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're always on the lookout for danger and can react to it in an instant. Your proficiency rank for Perception increases to expert. At the start of each of your turns, you gain an additional reaction that you can use only for reactions from guardian feats or class features (including "
+          },
+          {
+            "type": "ref",
+            "id": "4333cbb5-7f4c-5c8e-bbad-afa6b6f2043b"
+          },
+          {
+            "type": "text",
+            "text": "). If you have the Ever Ready class feature, you also gain this additional reaction when you roll initiative for combat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "perception",
+        "rank": "expert"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.qgEIQPhtEV6d1zB2"
+    },
+    "data": {}
+  },
+  {
+    "id": "68daeeb7-849e-58b3-b6ab-988a7d23c747",
+    "pack": "battlecry",
+    "kind": "class-feature",
+    "slug": "class-feature:shield",
+    "name": "Shield",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["thaumaturge"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As a universal symbol of defense, a shield wards against a variety of effects and is associated with guardianship, vigilance, and guidance. You can choose only shields with a Bulk of 1 or less as an implement, which allows you to position your shield while managing your esoterica. Shield implements are associated with the harrow suit of shields and the astrological signs of the lantern bearer, the bridge, and the patriarch."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Initiate Benefit",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "4333cbb5-7f4c-5c8e-bbad-afa6b6f2043b"
+          },
+          {
+            "type": "text",
+            "text": " general feat. If your shield implement would be reduced to 0 Hit Points, it's instead reduced to 1 Hit Point, its circumstance bonus to AC when you Raise a Shield is reduced by 1 (this can't reduce the bonus below 0), and you can't Shield Block with your shield implement until it loses the broken condition. You can still use your shield as an implement when it has the broken condition."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At 5th level, whenever you "
+          },
+          {
+            "type": "ref",
+            "id": "69b2520b-82a3-5ba4-b378-172272dc3b74"
+          },
+          {
+            "type": "text",
+            "text": ", you can also Raise a Shield as a free action."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Adept Benefit",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you have your shield implement raised, you gain a status bonus to your saves against spells and other magic effects equal to your circumstance bonus to AC from your shield. In addition, damage you take as a result of a spell or magical effect while your Shield is Raised can trigger your Shield Block reaction, even if the damage isn't physical."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Intensify Vulnerability",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Every drop of blood you spill bolsters your shield. If you succeed at a Strike against the target of your Exploit Vulnerability, your shield regains a number of Hit Points equal to half your level. If your shield is already at full Hit Points, you instead increase your shield's Hardness by your Charisma modifier until the beginning of your next turn. These effects aren't cumulative if you hit with more than one Strike."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Paragon Benefit",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you have your shield implement raised, the circumstance bonuses from your shield (both to AC and to saves against spells and other magic effects) also apply to all your allies within 15 feet. You can use your Shield Block reaction in defense of yourself or any of your allies within 15 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:implement-held",
+        "predicate": ["shield-implement:equipped"]
+      },
+      {
+        "key": "RollOption",
+        "option": "implement:shield:equipped",
+        "predicate": ["shield-implement:equipped"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "60874921-39ad-56bb-a59c-a80ff806770e",
+        "predicate": ["class:thaumaturge"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.84GDSAXaMKMTg2IT"
+    },
+    "data": {
+      "tags": ["thaumaturge-implement"]
+    }
+  },
+  {
+    "id": "a81f4341-89dd-5b26-97cd-823d71412221",
+    "pack": "battlecry",
+    "kind": "class-feature",
+    "slug": "class-feature:swarm-eidolon",
+    "name": "Swarm Eidolon",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["summoner"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon is a collective of primal energy and nature spirits, gathered into a single fragmentary being. This collection of natural energy has neither form nor identity until bonded with a summoner. You give these spirits purpose, connecting with them and drawing them through to the physical realm. When manifesting, these nature spirits don a simple form, adopting the guise of many Tiny animals. Each of these animals is the same creature and is marked with your summoner's sigil. The act of manifesting in this swarm form temporarily binds the spirits together into one being, making the eidolon a single entity—one mind and personality speaking with a multitude of voices, and a multitude of bodies acting in concert with a singular purpose."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Tradition",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " primal"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Traits",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " animal, eidolon, swarm"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Home Plane",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " the Universe"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Size",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Medium (condensed) and Large (dispersed)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Suggested Attacks",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " beaks (piercing), claws (slashing), jaws (piercing), talons (slashing)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Brazen Swarm",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Str",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " +4, "
+          },
+          {
+            "type": "text",
+            "text": "Dex",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " +2, "
+          },
+          {
+            "type": "text",
+            "text": "Con",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " +3, "
+          },
+          {
+            "type": "text",
+            "text": "Int",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " +0, "
+          },
+          {
+            "type": "text",
+            "text": "Wis",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " +0, "
+          },
+          {
+            "type": "text",
+            "text": "Cha",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " +0; +2 AC (+3 Dex cap)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Slinking Swarm",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Str",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " +2, "
+          },
+          {
+            "type": "text",
+            "text": "Dex",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " +4, "
+          },
+          {
+            "type": "text",
+            "text": "Con",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " +3, "
+          },
+          {
+            "type": "text",
+            "text": "Int",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " +0, "
+          },
+          {
+            "type": "text",
+            "text": "Wis",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " +1, "
+          },
+          {
+            "type": "text",
+            "text": "Cha",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " –1; +1 AC (+4 Dex cap)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Skills",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Nature, Survival"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Senses",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " low-light vision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Languages",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Common"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Speed",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 25 feet"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Eidolon Abilities",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Initial ",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "swarm form"
+          },
+          {
+            "type": "text",
+            "text": "; Symbiosis ",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "sudden shift"
+          },
+          {
+            "type": "text",
+            "text": "; Transcendence ",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "sickening swarm"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Swarm Form"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon is an intelligent swarm composed of hundreds of Tiny creatures, and it's immune to the "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071"
+          },
+          {
+            "type": "text",
+            "text": " conditions. It can fit through tight spaces as though it were a Tiny creature. It has weakness to area damage equal to its level. Your eidolon has two forms: condensed and dispersed. When you Manifest Eidolon, it manifests condensed. It can switch between these two forms as a single action that has the concentrate trait."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Condensed Form:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " When condensed, your eidolon draws all its component bodies into a single, condensed mound that functions as a Medium creature. It has a reach of 5 feet, can make Strikes, and can't occupy the same space as other creatures. While condensed, it can use the "
+          },
+          {
+            "type": "ref",
+            "id": "3fe75d4b-d152-5ee0-826c-6291322e4945"
+          },
+          {
+            "type": "text",
+            "text": " action."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Dispersed Form:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " When dispersed, your eidolon scatters its component bodies across a wider area, increasing its size by one category (to Large for most swarm eidolons). It has a reach of 0 feet, can't make Strikes, and can occupy the same space as other creatures. While dispersed, it can use the "
+          },
+          {
+            "type": "ref",
+            "id": "1c723498-db7d-56a6-b3b8-d69e0c7ad6ac"
+          },
+          {
+            "type": "text",
+            "text": " activity."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Sudden Shift7th"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Once per round, your eidolon can switch forms between condensed and dispersed as a free action, rather than a single action. In addition, your eidolon gains the "
+          },
+          {
+            "type": "ref",
+            "id": "70fbb68e-7e8b-5c40-8ddd-ff1de96fd5dc"
+          },
+          {
+            "type": "text",
+            "text": " reaction."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Sickening Form17th"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon is particularly good at distracting and hindering its foes while dispersed. While dispersed, spaces your eidolon occupies are difficult terrain for other creatures. In addition, your eidolon gains the "
+          },
+          {
+            "type": "ref",
+            "id": "d04963f7-f507-5034-bab4-70c70c33411b"
+          },
+          {
+            "type": "text",
+            "text": " action."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:nature",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:survival",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.RyHp6642poxvehjy"
+    },
+    "data": {
+      "tags": ["summoner-eidolon"]
+    }
+  },
+  {
+    "id": "962eab49-ccc4-5644-ae1f-fa511d54846d",
+    "pack": "battlecry",
+    "kind": "class-feature",
+    "slug": "class-feature:tactics",
+    "name": "Tactics",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["commander"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "By studying and practicing the strategic arts of war, you can guide your allies to victory. You begin play with a folio containing five tactics. These are combat techniques and coordinated maneuvers you can instruct your allies in, enabling them to respond to your signals in combat. As you increase in level, you gain the ability to learn more potent tactics. When you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "9be2a394-5547-5666-90b7-0d5235efb760"
+          },
+          {
+            "type": "text",
+            "text": " class feature, you gain the ability to add expert tactics to your folio; when you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "4bcadb40-5a66-5c59-bccf-935aec0aaa27"
+          },
+          {
+            "type": "text",
+            "text": " class feature, you can add master tactics to your folio; and when you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "52695b42-b9b3-513d-b2c4-d7173d293e03"
+          },
+          {
+            "type": "text",
+            "text": " class feature, you can add legendary tactics to your folio."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Preparing and Changing Tactics"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each day during your daily preparations, you prepare three tactics from your folio and drill in them alongside your allies, enabling you to use these tactics until your next daily preparations. When you drill, you can instruct a total number of allies equal to 2 + your Intelligence modifier, enabling these allies to respond to your tactics in combat. These allies are your squadmates. A squadmate always has the option not to respond to your tactical signal if they do not wish to. You count as one of your squadmates for the purposes of participating in or benefiting from a tactic (though you do not count against your own maximum number of squadmates). The tactics trait is explained in more detail in the key terms sidebar on this page."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can change which tactics you have prepared from those in your folio by spending 10 minutes to drill, replacing all previously prepared tactics and squadmates. This does not prevent your allies from performing their own activities during this time frame. Some tactics have a limited usage, such as the Valkyrie's Charge tactic, which can be used once per day. These tactics can never exceed their indicated use limit even if you replace them with a different tactic and then prepare them again later that same day, but you can replace a tactic whose limited use has been expended with another tactic you know any time you are able to change your prepared tactics."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Gaining New Tactics"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You add additional tactics to your folio and increase the number of tactics you can prepare when you gain the expert tactician, master tactician, and legendary tactician class features. You can also add tactics to your folio with the Tactical Expansion feat, though this does not change the number you can have prepared. Because tactics folios use shorthand and signals unique to each commander, there is typically no benefit to using (or stealing) another commander's folio, though you can train with another commander to retrain one tactic in your folio to another that they know."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "first-tactic",
+        "choices": {
+          "kind": "action",
+          "filter": [
+            "item:trait:tactic",
+            {
+              "or": ["item:tag:commander-mobility-tactic", "item:tag:commander-offensive-tactic"]
+            }
+          ]
+        },
+        "prompt": "Select a tactic."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "first-tactic"
+        }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "second-tactic",
+        "choices": {
+          "kind": "action",
+          "filter": [
+            "item:trait:tactic",
+            {
+              "or": ["item:tag:commander-mobility-tactic", "item:tag:commander-offensive-tactic"]
+            }
+          ]
+        },
+        "prompt": "Select a tactic."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "second-tactic"
+        }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "third-tactic",
+        "choices": {
+          "kind": "action",
+          "filter": [
+            "item:trait:tactic",
+            {
+              "or": ["item:tag:commander-mobility-tactic", "item:tag:commander-offensive-tactic"]
+            }
+          ]
+        },
+        "prompt": "Select a tactic.",
+        "predicate": ["class:commander"]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "third-tactic"
+        },
+        "predicate": ["class:commander"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "fourth-tactic",
+        "choices": {
+          "kind": "action",
+          "filter": [
+            "item:trait:tactic",
+            {
+              "or": ["item:tag:commander-mobility-tactic", "item:tag:commander-offensive-tactic"]
+            }
+          ]
+        },
+        "prompt": "Select a tactic.",
+        "predicate": ["class:commander"]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "fourth-tactic"
+        },
+        "predicate": ["class:commander"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "fifth-tactic",
+        "choices": {
+          "kind": "action",
+          "filter": [
+            "item:trait:tactic",
+            {
+              "or": ["item:tag:commander-mobility-tactic", "item:tag:commander-offensive-tactic"]
+            }
+          ]
+        },
+        "prompt": "Select a tactic.",
+        "predicate": ["class:commander"]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "fifth-tactic"
+        },
+        "predicate": ["class:commander"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.2IysodKQuf62jmd7"
+    },
+    "data": {}
+  },
+  {
+    "id": "ed000b26-afe0-5931-8bfd-21f6f2835f22",
+    "pack": "battlecry",
+    "kind": "class-feature",
+    "slug": "class-feature:taunt",
+    "name": "Taunt",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["guardian"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Often, the best way to protect your allies is to have the enemy want to attack you instead. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "1a6922a3-4411-5142-ad0a-ed2979b33122"
+          },
+          {
+            "type": "text",
+            "text": " action."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "1a6922a3-4411-5142-ad0a-ed2979b33122"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.e6PhXRpuyZkVoCQb"
+    },
+    "data": {}
+  },
+  {
+    "id": "5142703d-9925-5de4-94a7-81fb0482780c",
+    "pack": "battlecry",
+    "kind": "class-feature",
+    "slug": "class-feature:tough-to-kill",
+    "name": "Tough To Kill",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["guardian"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The protectiveness of your armor ensures that even if you fall, you take longer to die. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "730b86b0-c740-5759-ba8b-82ae1fede883"
+          },
+          {
+            "type": "text",
+            "text": " general feat. If you already have the Diehard feat, you can retrain it when you get Tough to Kill. Additionally, the first time each day you'd be reduced to "
+          },
+          {
+            "type": "ref",
+            "id": "c0cd649a-7029-5174-a5b4-678f51598dec"
+          },
+          {
+            "type": "text",
+            "text": " 3 or higher, you stay at dying 2 instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "730b86b0-c740-5759-ba8b-82ae1fede883"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.U9t3cmF4eXFiF7oI"
+    },
+    "data": {}
+  },
+  {
+    "id": "4da1da66-370b-5302-9005-69f47259164b",
+    "pack": "battlecry",
+    "kind": "class-feature",
+    "slug": "class-feature:unbreakable-expertise",
+    "name": "Unbreakable Expertise",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["guardian"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "With training, you understand how to best block hits with your armor. Your proficiency rank with medium armor and heavy armor increases to expert."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "defense:heavy",
+        "rank": "expert"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "defense:medium",
+        "rank": "expert"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.2mVEzA3OtfLMBNRm"
+    },
+    "data": {}
+  },
+  {
+    "id": "0ab6eed1-178e-5f46-8ee4-25af3a62df1f",
+    "pack": "battlecry",
+    "kind": "class-feature",
+    "slug": "class-feature:unbreakable-legend",
+    "name": "Unbreakable Legend",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["guardian"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have become an almost-impenetrable bulwark. Your proficiency ranks for medium and heavy armor increase to legendary. Your proficiency ranks for light armor and unarmored defense increase to master."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "defense:heavy",
+        "rank": "legendary"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "defense:light",
+        "rank": "master"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "defense:medium",
+        "rank": "legendary"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "defense:unarmored",
+        "rank": "master"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.QqgWFjBWbiK2fS1A"
+    },
+    "data": {}
+  },
+  {
+    "id": "10f84a96-02f4-5d28-b16b-3ed5a3e9f157",
+    "pack": "battlecry",
+    "kind": "class-feature",
+    "slug": "class-feature:unbreakable-mastery",
+    "name": "Unbreakable Mastery",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["guardian"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When clad in steel, you fend off most attacks. Your proficiency rank with medium armor and heavy armor increases to master. Your proficiency rank with light armor and unarmored defense increases to expert."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "defense:heavy",
+        "rank": "master"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "defense:light",
+        "rank": "expert"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "defense:medium",
+        "rank": "master"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "defense:unarmored",
+        "rank": "expert"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.tgh1l7cWQtdpkJvC"
+    },
+    "data": {}
+  },
+  {
+    "id": "159149a4-3bbc-5741-a186-bce250758bc2",
+    "pack": "battlecry",
+    "kind": "class-feature",
+    "slug": "class-feature:unyielding-resolve",
+    "name": "Unyielding Resolve",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["guardian"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stalwart as your armor, you refuse to break. Your proficiency ranks for Will saves increases to master. When you roll a success on a Will save, you get a critical success instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["save:will"],
+        "adjustment": {
+          "success": "to-critical-success"
+        }
+      },
+      {
+        "key": "Proficiency",
+        "selector": "save:will",
+        "rank": "master"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.4nFnYNPMXIaI7KiY"
+    },
+    "data": {}
+  },
+  {
+    "id": "e3af2ffd-6c79-5a2c-8502-7f88a30559de",
+    "pack": "battlecry",
+    "kind": "class-feature",
+    "slug": "class-feature:war-magic",
+    "name": "War Magic",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your studies have focused on using magic on the battlefield along with the basics of warfare. With a sturdy breastplate to turn aside errant arrows, you confidently use your spells to turn the tide of battle. If you choose this class archetype, you must select "
+          },
+          {
+            "type": "ref",
+            "id": "8752468f-1f4c-5e6f-929c-ad47b3986d84"
+          },
+          {
+            "type": "text",
+            "text": " as your 2nd-level class feat."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Prerequisites:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You must be a wizard."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "War Mage Adjustments:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You become trained in light and medium armor. At 11th level, you gain expert proficiency with light and medium armor, as well as unarmored defense."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "4333cbb5-7f4c-5c8e-bbad-afa6b6f2043b"
+          },
+          {
+            "type": "text",
+            "text": " general feat at 1st level."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the war magic class feature at 1st level."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You must choose the "
+          },
+          {
+            "type": "ref",
+            "id": "cf527c20-a4c9-5301-96f8-fa4da6be9af7"
+          },
+          {
+            "type": "text",
+            "text": " as your arcane school."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have familiarity with martial weapons, treating them as simple weapons for the purposes of proficiency. You do not gain the "
+          },
+          {
+            "type": "ref",
+            "id": "e5de37fb-a732-58cd-b232-d824f3ce66c4"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "3c53d0f9-e679-5e0f-9cf2-79def4ee97c5"
+          },
+          {
+            "type": "text",
+            "text": " class features."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You do not gain the "
+          },
+          {
+            "type": "ref",
+            "id": "a8282014-e198-5b6c-af1f-3c6a24bd30e9"
+          },
+          {
+            "type": "text",
+            "text": " feature at 13th level."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "War Magic:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As a free action that can be taken once per round at the start of your turn, you can exchange any spell you currently have memorized for "
+          },
+          {
+            "type": "ref",
+            "id": "566a10d1-097c-5ee1-b473-4e0ab1475228"
+          },
+          {
+            "type": "text",
+            "text": ", heightened to the same level as the replaced spell. As normal, you can cast most spells while wielding a weapon in your hands. You can Refocus by studying plans of war, maps of troop movement, and reports from the field for an active conflict in lieu of studying your spellbook."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "4333cbb5-7f4c-5c8e-bbad-afa6b6f2043b"
+      },
+      {
+        "key": "GrantItem",
+        "item": "cf527c20-a4c9-5301-96f8-fa4da6be9af7"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "defense:light",
+        "rank": "expert",
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
+          }
+        ]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "defense:medium",
+        "rank": "expert",
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
+          }
+        ]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "defense:unarmored",
+        "rank": "expert",
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
+          }
+        ]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "defense:light",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "defense:medium",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.vky5bQfK7SG3uOMA"
+    },
+    "data": {}
+  },
+  {
+    "id": "7bcc1010-edb1-59bf-a604-fbe0ffe22c09",
+    "pack": "battlecry",
+    "kind": "class-feature",
+    "slug": "class-feature:warfare-expertise",
+    "name": "Warfare Expertise",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["commander"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your knowledge of war and strategy grows and guides your decisions in battle. You gain expert proficiency in Warfare Lore. You can use Warfare Lore to "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": " about most creatures regardless of type, but typically only to determine whether they can be reasoned with, their most notable offensive abilities, and whether one of their saving throws is particularly weak. In addition, as long as you are observing at least one opponent when initiative is rolled, you can use Warfare Lore for your initiative roll."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.WXATTZWhe3QpyrYR"
+    },
+    "data": {}
+  }
+]
