@@ -50,8 +50,13 @@ Alternatives:
 
 ## Consequences
 
-- Later books, archetypes (#606) and homebrew add focus spells the same way; a feature that adds a Focus Point without
-  a spell (a later book's) would need its own element.
+- Later books and homebrew add focus spells the same way; a feature that adds a Focus Point without a spell (a later
+  book's) would need its own element.
+- Player Core's archetype feats do: Counter Perform teaches Counter Performance, Order Spell the initial order spell of
+  the order Druid Dedication picked (`feat:druid-dedication:<order>`), and Arcane School Spell the initial school spell
+  of the school Wizard Dedication picked (`feat:wizard-dedication:<school>`). Each gives the focus entry of its class's
+  tradition and attribute, and an order joined through Druid Dedication, like one joined through Order Explorer, grants
+  no order spell of its own.
 - An order's focus entry and order spell hold unless the order was joined through Order Explorer
   (`not feat:order-explorer:<order>`), which grants none of its other benefits, as Foundry guards an order's own.
 - Order Explorer offers the druidic orders the druid has not (an order it joined through the feat stays offered, so its

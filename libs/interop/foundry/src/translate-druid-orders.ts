@@ -1,7 +1,7 @@
 import { contentId, EntrySlug, RuleElementKey } from '@pioneer/rules/sdk';
 
 import { DRUID, DRUID_ENTRY, focusChoice } from './focus-plan';
-import type { Planned } from './focus-plan';
+import type { Grant, Planned } from './focus-plan';
 
 /** A druid's order by its feature's slug, its name and its order spell. */
 export const ORDERS: readonly (readonly [string, string, string])[] = [
@@ -12,6 +12,7 @@ export const ORDERS: readonly (readonly [string, string, string])[] = [
 ];
 
 export const ORDER_EXPLORER = 'feat:order-explorer';
+const DRUID_DEDICATION = 'feat:druid-dedication';
 const SELECT_ORDER = 'Select a druidic order.';
 
 /**
@@ -51,11 +52,40 @@ export const ORDER_MAGIC_RULES: Planned = [
 ];
 
 /**
+ * Druid Dedication: the druidic order the archetype joins, which counts for prerequisites and grants no order spell
+ * until Order Spell does. The pick sets `feat:druid-dedication:<order>` and grants the order's feature.
+ */
+export const DRUID_DEDICATION_RULES: Planned = [
+  (pack) => ({
+    key: RuleElementKey.ChoiceSet,
+    flag: 'order',
+    rollOption: DRUID_DEDICATION,
+    prompt: SELECT_ORDER,
+    choices: ORDERS.map(([slug, label]) => ({
+      value: contentId(pack, EntrySlug.parse(`class-feature:${slug}`)),
+      label,
+    })),
+  }),
+  { key: RuleElementKey.GrantItem, item: { choice: 'order' } },
+];
+
+/** Order Spell: the initial order spell of the order Druid Dedication joined. */
+export const ORDER_SPELL_RULES: Planned = [
+  DRUID_ENTRY,
+  ...ORDERS.map(([slug, , spell]): Grant => ({
+    entry: DRUID,
+    spells: [spell],
+    predicate: [`${DRUID_DEDICATION}:${slug}`],
+  })),
+];
+
+/**
  * A druid's order: its order spell, unless the order was joined through Order Explorer, which grants none of its other
- * benefits (Order Magic grants its spell). Guarded as Foundry guards an order's own benefits.
+ * benefits (Order Magic grants its spell), or through Druid Dedication (Order Spell grants it). Guarded as Foundry
+ * guards an order's own benefits.
  */
 export function order(slug: string, spell: string): Planned {
-  const predicate = [{ not: `${ORDER_EXPLORER}:${slug}` }];
+  const predicate = [{ not: `${ORDER_EXPLORER}:${slug}` }, { not: `${DRUID_DEDICATION}:${slug}` }];
   return [
     { ...DRUID_ENTRY, predicate },
     { entry: DRUID, spells: [spell], predicate },

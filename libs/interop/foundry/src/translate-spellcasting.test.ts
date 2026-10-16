@@ -17,12 +17,13 @@ import {
 } from './testing/spellcasting-fixtures';
 import type { ImportTranslation } from './translate-import';
 
-const { SpellcastingEntry: Entry, Proficiency, SpellSlots } = RuleElementKey;
+const { SpellcastingEntry: Entry, Proficiency, SpellSlots, ChoiceSet, FocusSpells } = RuleElementKey;
+const ELSEWHERE: ReadonlySet<string> = new Set([SpellSlots, ChoiceSet, FocusSpells]);
 
-/** The rules an entry gains, less its spell slots (`translate-spell-slots.test.ts`). */
+/** The rules an entry gains, less its spell slots and focus spells (`translate-spell-slots.test.ts`, `translate-focus-spells.test.ts`). */
 function castingRules(translation: ImportTranslation, name: string): unknown[] {
   return rulesIn(translation, name).filter(
-    (rule) => !(typeof rule === 'object' && rule !== null && 'key' in rule && rule.key === SpellSlots),
+    (rule) => !(typeof rule === 'object' && rule !== null && 'key' in rule && ELSEWHERE.has(String(rule.key))),
   );
 }
 

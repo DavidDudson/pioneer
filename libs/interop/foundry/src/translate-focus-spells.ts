@@ -15,11 +15,18 @@ import {
   RANGER,
   RANGER_ENTRY,
   WITCH,
-  WIZARD,
-  WIZARD_ENTRY,
 } from './focus-plan';
 import type { Planned } from './focus-plan';
-import { ORDER_EXPLORER, ORDER_EXPLORER_RULES, ORDER_MAGIC_RULES, ORDERS, order } from './translate-druid-orders';
+import {
+  DRUID_DEDICATION_RULES,
+  ORDER_EXPLORER,
+  ORDER_EXPLORER_RULES,
+  ORDER_MAGIC_RULES,
+  ORDER_SPELL_RULES,
+  ORDERS,
+  order,
+} from './translate-druid-orders';
+import { ARCANE_SCHOOL_SPELL_RULES, school, SCHOOLS, WIZARD_DEDICATION_RULES } from './translate-wizard-schools';
 
 /**
  * The focus entries and focus spells of Player Core's class features and feats, as `SpellcastingEntry` elements with
@@ -48,7 +55,11 @@ const DOMAIN_INITIATE_RULES: Planned = [
       value: domain,
       label: titleOf(domain),
       spells: [initial],
-      predicate: [{ or: [`deity:primary:domain:${domain}`, `deity:primary:alternate-domain:${domain}`] }],
+      predicate: [
+        {
+          or: [`deity:primary:domain:${domain}`, `deity:primary:alternate-domain:${domain}`],
+        },
+      ],
     })),
   }),
 ];
@@ -61,7 +72,14 @@ const ADVANCED_DOMAIN_RULES: Planned = focusChoice({
   options: [...DOMAIN_SPELLS].flatMap(([domain, [, advanced]]) =>
     advanced === undefined
       ? []
-      : [{ value: domain, label: titleOf(domain), spells: [advanced], predicate: [`${DOMAIN_INITIATE}:${domain}`] }],
+      : [
+          {
+            value: domain,
+            label: titleOf(domain),
+            spells: [advanced],
+            predicate: [`${DOMAIN_INITIATE}:${domain}`],
+          },
+        ],
   ),
 });
 
@@ -73,17 +91,12 @@ function warden(flag: string, spells: readonly (readonly [string, string])[]): P
       flag,
       prompt: 'Select a warden spell.',
       entry: RANGER,
-      options: spells.map(([spell, label]) => ({ value: spell, label, spells: [spell] })),
+      options: spells.map(([spell, label]) => ({
+        value: spell,
+        label,
+        spells: [spell],
+      })),
     }),
-  ];
-}
-
-/** A wizard's school: its initial school spell, and its advanced one once the wizard takes Advanced School Spell. */
-function school(initial: string, advanced: string): Planned {
-  return [
-    WIZARD_ENTRY,
-    { entry: WIZARD, spells: [initial] },
-    { entry: WIZARD, spells: [advanced], predicate: ['feat:advanced-school-spell'] },
   ];
 }
 
@@ -186,8 +199,16 @@ const FOCUS: ReadonlyMap<string, Planned> = new Map([
       prompt: 'Select a hex.',
       entry: WITCH,
       options: [
-        { value: 'patrons-puppet', label: "Patron's Puppet", spells: ['patrons-puppet'] },
-        { value: 'phase-familiar', label: 'Phase Familiar', spells: ['phase-familiar'] },
+        {
+          value: 'patrons-puppet',
+          label: "Patron's Puppet",
+          spells: ['patrons-puppet'],
+        },
+        {
+          value: 'phase-familiar',
+          label: 'Phase Familiar',
+          spells: ['phase-familiar'],
+        },
       ],
     }),
   ],
@@ -202,14 +223,18 @@ const FOCUS: ReadonlyMap<string, Planned> = new Map([
   ['class-feature:lesson-of-snow', lesson('personal-blizzard')],
   ['class-feature:lesson-of-vengeance', lesson('needle-of-vengeance')],
   ['feat:cackle', learn(WITCH, 'cackle')],
-  // Wizard: each school's initial and advanced school spells.
-  ['class-feature:school-of-ars-grammatica', school('protective-wards', 'rune-of-observation')],
-  ['class-feature:school-of-battle-magic', school('force-bolt', 'energy-absorption')],
-  ['class-feature:school-of-civic-wizardry', school('earthworks', 'community-restoration')],
-  ['class-feature:school-of-mentalism', school('charming-push', 'invisibility-cloak')],
-  ['class-feature:school-of-protean-form', school('scramble-body', 'shifting-form')],
-  ['class-feature:school-of-the-boundary', school('fortify-summoning', 'spiral-of-horrors')],
-  ['class-feature:school-of-unified-magical-theory', school('hand-of-the-apprentice', 'interdisciplinary-incantation')],
+  // Wizard: each school's initial and advanced school spells. The archetype picks a school with its dedication, and
+  // Arcane School Spell teaches the initial spell.
+  ...SCHOOLS.map(([slug, , initial, advanced]): [string, Planned] => [
+    `class-feature:${slug}`,
+    school(initial, advanced),
+  ]),
+  ['feat:wizard-dedication', WIZARD_DEDICATION_RULES],
+  ['feat:arcane-school-spell', ARCANE_SCHOOL_SPELL_RULES],
+  // Bard and druid archetypes: Counter Perform teaches Counter Performance, Order Spell the dedication order's spell.
+  ['feat:counter-perform', [BARD_ENTRY, { entry: BARD, spells: ['counter-performance'] }]],
+  ['feat:druid-dedication', DRUID_DEDICATION_RULES],
+  ['feat:order-spell', ORDER_SPELL_RULES],
 ]);
 
 /** The focus entry, choices and `FocusSpells` elements the entry with `slug` gains in `pack`, if any. */

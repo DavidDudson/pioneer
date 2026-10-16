@@ -274,6 +274,9 @@
         "predicate": [
           {
             "not": "feat:order-explorer:animal-order"
+          },
+          {
+            "not": "feat:druid-dedication:animal-order"
           }
         ]
       },
@@ -284,6 +287,9 @@
         "predicate": [
           {
             "not": "feat:order-explorer:animal-order"
+          },
+          {
+            "not": "feat:druid-dedication:animal-order"
           }
         ]
       },
@@ -6118,6 +6124,9 @@
         "predicate": [
           {
             "not": "feat:order-explorer:leaf-order"
+          },
+          {
+            "not": "feat:druid-dedication:leaf-order"
           }
         ]
       },
@@ -6128,6 +6137,9 @@
         "predicate": [
           {
             "not": "feat:order-explorer:leaf-order"
+          },
+          {
+            "not": "feat:druid-dedication:leaf-order"
           }
         ]
       },
@@ -14031,6 +14043,9 @@
         "predicate": [
           {
             "not": "feat:order-explorer:storm-order"
+          },
+          {
+            "not": "feat:druid-dedication:storm-order"
           }
         ]
       },
@@ -14041,6 +14056,9 @@
         "predicate": [
           {
             "not": "feat:order-explorer:storm-order"
+          },
+          {
+            "not": "feat:druid-dedication:storm-order"
           }
         ]
       },
@@ -14877,6 +14895,9 @@
         "predicate": [
           {
             "not": "feat:order-explorer:untamed-order"
+          },
+          {
+            "not": "feat:druid-dedication:untamed-order"
           }
         ]
       },
@@ -14887,6 +14908,9 @@
         "predicate": [
           {
             "not": "feat:order-explorer:untamed-order"
+          },
+          {
+            "not": "feat:druid-dedication:untamed-order"
           }
         ]
       },
