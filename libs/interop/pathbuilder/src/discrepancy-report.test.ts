@@ -9,6 +9,7 @@ import {
   LAND_SPEED,
   MAX_HIT_POINTS,
   RANKED_STATISTICS,
+  SPELLCASTING,
 } from './discrepancy-report';
 import mordredFixture from './fixtures/mordred.json';
 import { readPathbuilderExport } from './read-pathbuilder-export';
@@ -130,6 +131,38 @@ describe('discrepancyReport', () => {
         pathbuilder: Proficiency.Master,
         pioneer: Proficiency.Trained,
         difference: -2,
+      },
+    ]);
+  });
+
+  test('names an armor or weapon category rank that differs', () => {
+    const values = agreeing();
+    const light = Selector.parse('defense:light');
+    values.ranks.set(light, Proficiency.Master);
+    const { differences } = discrepancyReport(mordred, values);
+    expect(differences).toStrictEqual([
+      {
+        kind: DiscrepancyKind.Rank,
+        selector: light,
+        pathbuilder: Proficiency.Expert,
+        pioneer: Proficiency.Master,
+        difference: 1,
+      },
+    ]);
+  });
+
+  test('compares the one spellcasting rank with the highest Pathbuilder gives in a tradition with an entry', () => {
+    const values = agreeing();
+    values.ranks.set(SPELLCASTING, Proficiency.Expert);
+    expect(discrepancyReport(mordred, values).differences).toStrictEqual([]);
+    values.ranks.set(SPELLCASTING, Proficiency.Trained);
+    expect(discrepancyReport(mordred, values).differences).toStrictEqual([
+      {
+        kind: DiscrepancyKind.Rank,
+        selector: SPELLCASTING,
+        pathbuilder: Proficiency.Expert,
+        pioneer: Proficiency.Trained,
+        difference: -1,
       },
     ]);
   });

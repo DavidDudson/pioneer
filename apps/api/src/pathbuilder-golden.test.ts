@@ -14,8 +14,8 @@ import { fixedClock, newId, UserId } from '@pioneer/shared/kernel';
 /** Time to load every official pack. */
 const LOAD_TIMEOUT_MS = 60_000;
 
-/** Every total and rank the engine derives for either character: AC, Hit Points, Speed, ranks and DCs. */
-const COMPARED = 24;
+/** Every total and rank the engine derives for either character: AC, Hit Points, Speed, the ranks (saves, skills, armor, weapons, casting) and DCs. */
+const COMPARED = 33;
 
 const registry = new ContentRegistry();
 await Promise.all(contentCatalog.map(async (loader) => registry.load(loader)));

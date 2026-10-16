@@ -57,6 +57,10 @@ const SKILLS: readonly string[] = [
   'thievery',
 ];
 
+/** Armor and weapon categories, under one name in Pathbuilder and the engine. */
+const DEFENSES: readonly string[] = ['unarmored', 'light', 'medium', 'heavy'];
+const ATTACKS: readonly string[] = ['unarmed', 'simple', 'martial', 'advanced'];
+
 /** Pathbuilder's key in `proficiencies` and the selector it ranks. */
 type RankedKey = readonly [string, string];
 
@@ -66,6 +70,8 @@ const RANKED_KEYS: readonly RankedKey[] = [
   ['reflex', 'save:reflex'],
   ['will', 'save:will'],
   ['classDC', 'class-dc'],
+  ...DEFENSES.map((category): RankedKey => [category, `defense:${category}`]),
+  ...ATTACKS.map((category): RankedKey => [category, `attack:${category}`]),
   ...SKILLS.map((skill): RankedKey => [skill, `skill:${skill}`]),
 ];
 
@@ -73,6 +79,17 @@ const RANKED_KEYS: readonly RankedKey[] = [
 export const RANKED_STATISTICS: Readonly<Record<string, Selector>> = Object.fromEntries(
   RANKED_KEYS.map(([key, selector]): [string, Selector] => [key, Selector.parse(selector)]),
 );
+
+/** The one rank every spellcasting entry reads. */
+export const SPELLCASTING = Selector.parse('spellcasting');
+
+/** Pathbuilder's key in `proficiencies` for the rank of each tradition. */
+const CASTING_KEYS: Readonly<Record<string, string>> = {
+  arcane: 'castingArcane',
+  divine: 'castingDivine',
+  occult: 'castingOccult',
+  primal: 'castingPrimal',
+};
 
 export const ARMOR_CLASS = Selector.parse('ac');
 export const MAX_HIT_POINTS = Selector.parse('hp:max');
@@ -102,6 +119,13 @@ interface Pair {
   readonly selector: Selector;
   readonly pathbuilder: number;
   readonly pioneer: number;
+}
+
+/** A rank Pathbuilder gives and the engine's for the same statistic. */
+interface RankPair {
+  readonly selector: Selector;
+  readonly pathbuilder: Proficiency;
+  readonly pioneer: Proficiency;
 }
 
 const RANKS: readonly Proficiency[] = Object.values(Proficiency);
@@ -171,13 +195,32 @@ function totalDifferences(value: PathbuilderImport, values: PioneerValues): [num
   return [compared.length, differing];
 }
 
-function rankDifferences(value: PathbuilderImport, { ranks }: PioneerValues): [number, RankDiscrepancy[]] {
-  const compared = Object.entries(RANKED_STATISTICS).flatMap(([key, selector]) => {
-    const number = value.reported.proficiencies[key];
-    const pathbuilder = number === undefined ? undefined : RANK_BY_NUMBER[number];
-    const pioneer = ranks.get(selector);
-    return pathbuilder === undefined || pioneer === undefined ? [] : [{ selector, pathbuilder, pioneer }];
+/**
+ * The highest rank Pathbuilder gives in a tradition the engine has a spellcasting entry for, beside the one
+ * `spellcasting` rank the engine reads for them all. Nothing without an entry or a rank on either side.
+ */
+function castingRankPairs(value: PathbuilderImport, { ranks, spellDcs }: PioneerValues): RankPair[] {
+  const pioneer = ranks.get(SPELLCASTING);
+  const traditions = [...new Set(spellDcs.map(({ tradition }) => tradition))];
+  const given = traditions.flatMap((tradition): Proficiency[] => {
+    const number = value.reported.proficiencies[CASTING_KEYS[tradition] ?? ''];
+    const rank = number === undefined ? undefined : RANK_BY_NUMBER[number];
+    return rank === undefined ? [] : [rank];
   });
+  const [pathbuilder] = given.toSorted((first, second) => RANKS.indexOf(second) - RANKS.indexOf(first));
+  return pathbuilder === undefined || pioneer === undefined ? [] : [{ selector: SPELLCASTING, pathbuilder, pioneer }];
+}
+
+function rankDifferences(value: PathbuilderImport, values: PioneerValues): [number, RankDiscrepancy[]] {
+  const compared: RankPair[] = [
+    ...Object.entries(RANKED_STATISTICS).flatMap(([key, selector]): RankPair[] => {
+      const number = value.reported.proficiencies[key];
+      const pathbuilder = number === undefined ? undefined : RANK_BY_NUMBER[number];
+      const pioneer = values.ranks.get(selector);
+      return pathbuilder === undefined || pioneer === undefined ? [] : [{ selector, pathbuilder, pioneer }];
+    }),
+    ...castingRankPairs(value, values),
+  ];
   const differing = compared
     .filter(({ pathbuilder, pioneer }) => pathbuilder !== pioneer)
     .map(({ selector, pathbuilder, pioneer }): RankDiscrepancy => ({
